@@ -12,7 +12,7 @@
     <meta name="keywords" content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
 
     <!-- title -->
-    <title>Sash  –  Laravel Bootstrap 5 Admin & Dashboard Template</title>
+    <title>Eventopia</title>
 
     @include('layouts.components.styles')
 
