@@ -116,7 +116,7 @@
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-9">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h3 class="card-title">Sales Analytics</h3>
+                                        <h3 class="card-title ">Sales Analytics</h3>
                                     </div>
                                     <div class="card-body">
                                         <div class="d-flex mx-auto text-center justify-content-center mb-4">

@@ -133,7 +133,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('livewire.index');
+    return view('layouts.auth.signup');
 });
 Route::get('index', Index::class);
 Route::get('about', About::class);
