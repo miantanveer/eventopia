@@ -144,6 +144,9 @@ Route::get('/forget-password-1', function () {
 Route::get('/verify-code', function () {
     return view('layouts.auth.verify-code');
 });
+Route::get('/dashboard', function () {
+    return view('layouts.customer.index');
+});
 // Route::get('index', Index::class);
 // Route::get('about', About::class);
 // Route::get('accordion', Accordion::class);
