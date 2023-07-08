@@ -15,8 +15,21 @@
             position: relative;
             top: -280px;
             left: 60px;
+            transform: translate()
             z-index: 1;
         }
+        @media(min-width:0) and (max-width:576px){
+            .welcome_card{
+                position: relative;
+                top: -100px;
+                left: 17px;
+                z-index: 1;
+            }
+            .get_started_btn, .headingOne{
+                display: none;
+                }
+            }
+
     </style>
     @endsection
 
@@ -29,8 +42,9 @@
                                         <img src="{{asset('assets/images/brand/dashboard-img.png')}}" width="100%" height="100%" alt="">
                                         <div class="position-absolute text-white">
                                             <div class="welcome_card">
-                                                <h1>Hello, John Doe</h1>
-                                                <p class="fs-5">Welcome Back!</p>
+                                                <h1 class="headingOne">Hello, John Doe</h1>
+                                                <h5 class="headingTwo d-block d-sm-none">Hello, John Doe</h5>
+                                                <p class="fs-sm-5 fs-6">Welcome Back!</p>
                                             </div>
                                         </div>
                                         <div class="position-absolute">
@@ -40,7 +54,7 @@
                                     <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
                                         <div class="card mt-3">
                                             <div class="card-header pb-0 border-bottom-0">
-                                                <h3>Space</h3>
+                                                <h3 class="number-font">Space</h3>
                                                 <div class="card-options">
                                                     <img src="{{asset('assets/images/icons/service_icon2.png')}}" alt="">
                                                 </div>
@@ -83,7 +97,7 @@
                                     <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
                                         <div class="card mt-3">
                                             <div class="card-header pb-0 border-bottom-0">
-                                                <h3>Services</h3>
+                                                <h3 class="number-font">Services</h3>
                                                 <div class="card-options">
                                                     <img src="{{asset('assets/images/icons/service_icon.png')}}" alt="">
                                                 </div>
@@ -133,7 +147,7 @@
                             <div class="col-xl-4 col-md-12">
                                 <div class="card">
                                     <div class="card-header pb-0 border-bottom-0">
-                                        <h3>Entertainment & Talents</h3>
+                                        <h3 class="number-font">Entertainment & Talents</h3>
                                         <div class="card-options">
                                             <img src="{{asset('assets/images/icons/talent_icon.png')}}" alt="">
                                         </div>
@@ -173,7 +187,7 @@
                             <div class="col-xl-4 col-lg-6 col-md-12">
                                 <div class="card overflow-hidden">
                                     <div class="card-header pb-0 border-bottom-0">
-                                        <h3>Total Bookings</h3>
+                                        <h3 class="number-font">Total Bookings</h3>
                                         <div class="card-options">
                                             <div class="btn-group mt-2 mb-2">
                                                 <button type="button" class="btn btn-outline-primary btn-pill dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> Select <span class="fa fa-angle-down"></span> </button>
@@ -193,12 +207,12 @@
                                     <div class="card-body p-0 mt-5">
                                         <div class="table-responsive">
                                             <table class="table border text-nowrap text-md-nowrap mb-0">
-                                                <thead class="table-primary">
+                                                <thead class="bg-primary">
                                                     <tr>
-                                                        <th>Space</th>
-                                                        <th>Date</th>
-                                                        <th>Price</th>
-                                                        <th>Location</th>
+                                                        <th class="text-white ml-2">Space</th>
+                                                        <th class="text-white">Date</th>
+                                                        <th class="text-white">Price</th>
+                                                        <th class="text-white">Location</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -229,140 +243,55 @@
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <hr>
+                                        <div class="col-12 text-center">
+                                            <div class="mb-3">
+                                                <a href="#" target="#" class="btn btn-primary text-white">Manage</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-6 col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title fw-semibold">Browser Usage</h4>
+                                <div class="row">
+                                    <div class="col-12">
+                                        {{-- <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"> --}}
+                                            <div class="card bg-white img-card">
+                                                <div class="card-body">
+                                                    <div class="d-flex">
+                                                        <div class="text-black">
+                                                            <h3 class="mb-2 number-font">Active Bookings</h3>
+                                                            <p class="text-black mb-0">Average 72% completed</p>
+                                                        </div>
+                                                        <div class="card-options">
+                                                            <i class="fa fa-calendar-check-o text-primary fa-3x"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 mt-5 text-center">
+                                                    <div class="mb-3">
+                                                        <a href="#" target="#" class="btn btn-primary text-white">View Details</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{-- </div> --}}
                                     </div>
-                                    <div class="card-body">
-                                        <div class="browser-stats">
-                                            <div class="row mb-4">
-                                                <div class="col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0 mb-3">
-                                                    <img src="{{asset('assets/images/browsers/chrome.svg')}}" class="img-fluid"
-                                                        alt="img">
-                                                </div>
-                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
-                                                    <div class="d-flex align-items-end justify-content-between mb-1">
-                                                        <h6 class="mb-1">Chrome</h6>
-                                                        <h6 class="fw-semibold mb-1">35,502 <span
-                                                                class="text-success fs-11">(<i
-                                                                    class="fe fe-arrow-up"></i>12.75%)</span></h6>
+                                    <div class="col-12">
+                                        <div class="card bg-white img-card">
+                                            <div class="card-body">
+                                                <div class="d-flex">
+                                                    <div class="text-black">
+                                                        <h3 class="mb-2 number-font">Cancelled Bookings</h3>
+                                                        <p class="text-black mb-0">Total: 15</p>
                                                     </div>
-                                                    <div class="progress h-2 mb-3">
-                                                        <div class="progress-bar bg-primary" style="width: 70%;"
-                                                            role="progressbar"></div>
+                                                    <div class="card-options">
+                                                        <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row mb-4">
-                                                <div class="col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0 mb-3">
-                                                    <img src="{{asset('assets/images/browsers/opera.svg')}}" class="img-fluid"
-                                                        alt="img">
-                                                </div>
-                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
-                                                    <div class="d-flex align-items-end justify-content-between mb-1">
-                                                        <h6 class="mb-1">Opera</h6>
-                                                        <h6 class="fw-semibold mb-1">12,563 <span
-                                                                class="text-danger fs-11">(<i
-                                                                    class="fe fe-arrow-down"></i>15.12%)</span></h6>
-                                                    </div>
-                                                    <div class="progress h-2 mb-3">
-                                                        <div class="progress-bar bg-secondary" style="width: 40%;"
-                                                            role="progressbar"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0 mb-3">
-                                                    <img src="{{asset('assets/images/browsers/ie.svg')}}" class="img-fluid"
-                                                        alt="img">
-                                                </div>
-                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
-                                                    <div class="d-flex align-items-end justify-content-between mb-1">
-                                                        <h6 class="mb-1">IE</h6>
-                                                        <h6 class="fw-semibold mb-1">25,364 <span
-                                                                class="text-success fs-11">(<i
-                                                                    class="fe fe-arrow-down"></i>24.37%)</span></h6>
-                                                    </div>
-                                                    <div class="progress h-2 mb-3">
-                                                        <div class="progress-bar bg-success" style="width: 50%;"
-                                                            role="progressbar"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0 mb-3">
-                                                    <img src="{{asset('assets/images/browsers/firefox.svg')}}" class="img-fluid"
-                                                        alt="img">
-                                                </div>
-                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
-                                                    <div class="d-flex align-items-end justify-content-between mb-1">
-                                                        <h6 class="mb-1">Firefox</h6>
-                                                        <h6 class="fw-semibold mb-1">14,635 <span
-                                                                class="text-success fs-11">(<i
-                                                                    class="fe fe-arrow-down"></i>15.63%)</span></h6>
-                                                    </div>
-                                                    <div class="progress h-2 mb-3">
-                                                        <div class="progress-bar bg-danger" style="width: 50%;"
-                                                            role="progressbar"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0 mb-3">
-                                                    <img src="{{asset('assets/images/browsers/edge.svg')}}" class="img-fluid"
-                                                        alt="img">
-                                                </div>
-                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
-                                                    <div class="d-flex align-items-end justify-content-between mb-1">
-                                                        <h6 class="mb-1">Edge</h6>
-                                                        <h6 class="fw-semibold mb-1">15,453 <span
-                                                                class="text-danger fs-11">(<i
-                                                                    class="fe fe-arrow-down"></i>23.70%)</span></h6>
-                                                    </div>
-                                                    <div class="progress h-2 mb-3">
-                                                        <div class="progress-bar bg-warning" style="width: 10%;"
-                                                            role="progressbar"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0 mb-3">
-                                                    <img src="{{asset('assets/images/browsers/safari.svg')}}" class="img-fluid"
-                                                        alt="img">
-                                                </div>
-                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
-                                                    <div class="d-flex align-items-end justify-content-between mb-1">
-                                                        <h6 class="mb-1">Safari</h6>
-                                                        <h6 class="fw-semibold mb-1">10,054 <span
-                                                                class="text-success fs-11">(<i
-                                                                    class="fe fe-arrow-up"></i>11.04%)</span></h6>
-                                                    </div>
-                                                    <div class="progress h-2 mb-3">
-                                                        <div class="progress-bar bg-info" style="width: 40%;"
-                                                            role="progressbar"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-2 col-lg-3 col-xl-3 col-xxl-2 mb-sm-0 mb-3">
-                                                    <img src="{{asset('assets/images/browsers/netscape.svg')}}" class="img-fluid"
-                                                        alt="img">
-                                                </div>
-                                                <div class="col-sm-10 col-lg-9 col-xl-9 col-xxl-10 ps-sm-0">
-                                                    <div class="d-flex align-items-end justify-content-between mb-1">
-                                                        <h6 class="mb-1">Netscape</h6>
-                                                        <h6 class="fw-semibold mb-1">35,502 <span
-                                                                class="text-success fs-11">(<i
-                                                                    class="fe fe-arrow-up"></i>12.75%)</span></h6>
-                                                    </div>
-                                                    <div class="progress h-2 mb-3">
-                                                        <div class="progress-bar bg-green" style="width: 30%;"
-                                                            role="progressbar"></div>
-                                                    </div>
+                                            <div class="col-12 mt-5 text-center">
+                                                <div class="mb-3">
+                                                    <a href="#" target="#" class="btn btn-primary text-white">View Details</a>
                                                 </div>
                                             </div>
                                         </div>

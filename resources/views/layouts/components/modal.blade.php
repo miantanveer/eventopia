@@ -31,7 +31,7 @@
                             <li class="col-lg-6 mb-2">
                                 <a href="#" class="btn btn-country btn-lg btn-block">
                                     <span class="country-selector"><img alt=""
-                                        src="{{asset('assets/images/flags/spain_flag.jpg')}}"
+                                 src="{{asset('assets/images/flags/spain_flag.jpg')}}"
                                         class="me-3 language"></span>Spain
                                 </a>
                             </li>
