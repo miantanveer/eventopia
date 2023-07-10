@@ -147,6 +147,9 @@ Route::get('/verify-code', function () {
 Route::get('/dashboard', function () {
     return view('layouts.customer.index');
 });
+Route::get('/login', function () {
+    return view('layouts.auth.login');
+});
 // Route::get('index', Index::class);
 // Route::get('about', About::class);
 // Route::get('accordion', Accordion::class);

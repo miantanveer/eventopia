@@ -30,11 +30,9 @@
 
                 <!-- PAGE -->
                 <div class="page">
-                    <div class="">
 
-                        @yield('content')
+                    @yield('content')
 
-                    </div>
                 </div>
                 <!-- End PAGE -->
 
