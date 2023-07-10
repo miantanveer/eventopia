@@ -85,7 +85,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="notifications-menu">
-                                                    <a class="dropdown-item d-flex" href="{{url('notify-list')}}">
+                                                    <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg  bg-primary brround box-shadow-primary">
                                                             <i class="fe fe-mail"></i>
                                                         </div>
@@ -94,7 +94,7 @@
                                                             <span class="notification-subtext">3 days ago</span>
                                                         </div>
                                                     </a>
-                                                    <a class="dropdown-item d-flex" href="{{url('notify-list')}}">
+                                                    <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg  bg-secondary brround box-shadow-secondary">
                                                             <i class="fe fe-check-circle"></i>
                                                         </div>
@@ -103,7 +103,7 @@
                                                             <span class="notification-subtext">2 hours ago</span>
                                                         </div>
                                                     </a>
-                                                    <a class="dropdown-item d-flex" href="{{url('notify-list')}}">
+                                                    <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg  bg-success brround box-shadow-success">
                                                             <i class="fe fe-shopping-cart"></i>
                                                         </div>
@@ -112,7 +112,7 @@
                                                             <span class="notification-subtext">30 min ago</span>
                                                         </div>
                                                     </a>
-                                                    <a class="dropdown-item d-flex" href="{{url('notify-list')}}">
+                                                    <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg bg-pink brround box-shadow-pink">
                                                             <i class="fe fe-user-plus"></i>
                                                         </div>
@@ -214,10 +214,10 @@
                                                     </div>
                                                 </div> --}}
                                                 {{-- <div class="dropdown-divider m-0"></div> --}}
-                                                <a class="dropdown-item" href="{{url('Dashboard')}}">
+                                                <a class="dropdown-item" href="{{url('/dashboard')}}">
                                                     <i class="dropdown-icon fe fe-home"></i> Dashboard
                                                 </a>
-                                                <a class="dropdown-item" href="{{url('profile')}}">
+                                                <a class="dropdown-item" href="{{url('/edit-profile')}}">
                                                     <i class="dropdown-icon fe fe-user"></i> Manage Account
                                                 </a>
                                                 {{-- <a class="dropdown-item" href="{{url('email-inbox')}}">

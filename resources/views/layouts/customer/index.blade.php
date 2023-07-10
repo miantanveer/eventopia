@@ -47,7 +47,7 @@
                                             </div>
                                         </div>
                                         <div class="position-absolute">
-                                            <a href="#" target="#" class="btn btn-white get_started_btn">Get Started</a>
+                                            <a href="#" class="btn btn-white get_started_btn">Get Started</a>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
@@ -86,7 +86,7 @@
                                                     </div>
                                                     <div class="col-6 ml-3 text-end">
                                                         <div style="margin-top: 40px;">
-                                                            <a href="#" target="#" class="btn btn-primary text-white">Manage</a>
+                                                            <a href="#" class="btn btn-primary text-white">Manage</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -129,7 +129,7 @@
                                                     </div>
                                                     <div class="col-6 ml-3 text-end">
                                                         <div style="margin-top: 40px;">
-                                                            <a href="#" target="#" class="btn btn-primary text-white">Manage</a>
+                                                            <a href="#" class="btn btn-primary text-white">Manage</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -176,7 +176,7 @@
                                             </div>
                                             <div class="col-12 text-end">
                                                 <div style="margin-top: 40px;">
-                                                    <a href="#" target="#" class="btn btn-primary text-white">Manage</a>
+                                                    <a href="#" class="btn btn-primary text-white">Manage</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -245,7 +245,7 @@
                                         <hr>
                                         <div class="col-12 text-center">
                                             <div class="mb-3">
-                                                <a href="#" target="#" class="btn btn-primary text-white">Manage</a>
+                                                <a href="#" class="btn btn-primary text-white">Manage</a>
                                             </div>
                                         </div>
                                     </div>
@@ -269,7 +269,7 @@
                                                 </div>
                                                 <div class="col-12 mt-5 text-center">
                                                     <div class="mb-3">
-                                                        <a href="#" target="#" class="btn btn-primary text-white">View Details</a>
+                                                        <a href="#" class="btn btn-primary text-white">View Details</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -290,7 +290,7 @@
                                             </div>
                                             <div class="col-12 mt-5 text-center">
                                                 <div class="mb-3">
-                                                    <a href="#" target="#" class="btn btn-primary text-white">View Details</a>
+                                                    <a href="#" class="btn btn-primary text-white">View Details</a>
                                                 </div>
                                             </div>
                                         </div>

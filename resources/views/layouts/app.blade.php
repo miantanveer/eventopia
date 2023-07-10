@@ -65,7 +65,7 @@
         <div class="dropup btn-group mt-2 mb-2">
             <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button" data-bs-toggle="dropdown" aria-expanded="true">Need any help?</button>
             <ul class="dropdown-menu" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);" data-popper-placement="top-start">
-                <form>
+                <form id="contactForm" >
                     <div class="row">
                         <div class="form-group">
                             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
@@ -86,6 +86,22 @@
     @include('layouts.components.footer')
 
     @include('layouts.components.scripts')
+
+    <!-- Custom JavaScript code -->
+    <script>
+        $(document).ready(function() {
+            $(document).on("submit", "#contactForm", function(e) {
+                e.preventDefault();
+                $('body').addClass('timer-alert');
+                swal({
+                    title: "Success.",
+                    text: "We will contact you shortly.",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            });
+        });
+    </script>
 
 </body>
 
