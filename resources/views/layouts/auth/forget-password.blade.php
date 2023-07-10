@@ -7,7 +7,7 @@
                 <!-- CONTAINER OPEN -->
                 <div class="container-login100">
                     <div class="wrap-login100 p-6">
-                        <form class="login100-form validate-form" method action="{{URL('verify-code')}}">
+                        <form class="login100-form validate-form" action="{{URL('verify-code')}}">
                             <span class="login100-form-title pb-5">
                                 Eventopia
                             </span>
