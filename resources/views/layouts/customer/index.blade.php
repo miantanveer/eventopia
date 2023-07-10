@@ -41,7 +41,7 @@
                                         <img src="{{asset('assets/images/brand/dashboard-img.png')}}" width="100%" height="100%" alt="">
                                         <div class="position-absolute text-white">
                                             <div class="welcome_card">
-                                                <h1 class="headingOne">Hello, John Doe</h1>
+                                                <h1 class="headingOne">Hello, John Doe </h1>
                                                 <h5 class="headingTwo d-block d-sm-none">Hello, John Doe</h5>
                                                 <p class="fs-sm-5 fs-6">Welcome Back!</p>
                                             </div>

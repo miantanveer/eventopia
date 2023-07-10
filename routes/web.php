@@ -144,8 +144,14 @@ Route::get('/forget-password', function () {
 Route::get('/forget-password-1', function () {
     return view('layouts.auth.forget-password-1');
 });
+Route::get('/reset-password', function () {
+    return view('layouts.auth.reset-password');
+});
 Route::get('/verify-code', function () {
     return view('layouts.auth.verify-code');
+});
+Route::get('/verify-code-1', function () {
+    return view('layouts.auth.verify-code-1');
 });
 Route::get('/edit-profile', function () {
     return view('layouts.users.edit-profile');
@@ -156,6 +162,10 @@ Route::get('/dashboard', function () {
 Route::get('/login', function () {
     return view('layouts.auth.login');
 });
+
+
+
+
 // Route::get('index', Index::class);
 // Route::get('about', About::class);
 // Route::get('accordion', Accordion::class);
