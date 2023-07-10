@@ -78,7 +78,7 @@
                                                     <i class="dropdown-icon fe fe-user"></i> Help
                                                 </a>
                                                 <a class="dropdown-item" href="{{url('login')}}">
-                                                    <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
+                                                    <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
                                                 </a>
                                             </div>
                                         </div>
