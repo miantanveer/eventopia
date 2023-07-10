@@ -132,6 +132,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('layouts.landing-page.landing-page');
+});
 Route::get('/signup', function () {
     return view('layouts.auth.signup');
 });
