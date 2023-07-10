@@ -51,7 +51,7 @@
             </div>
             <div class="bg-white col-12 col-md-7 px-0">
                 <div style="margin:200px 100px 100px 100px;">
-                    <form id="signUp_form" method="POST" action="#" data-parsley-validate>
+                    <form id="signUp_form" method="GET" action="{{URL('/verify-code')}}" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-6 mb-3">
@@ -113,7 +113,7 @@
                                 <span class="text-denger" id="checkbox_err"></span>
                             </div>
                             <div class="d-block mt-5">
-                                <button style="background-color: #003B95;" class="btn py-2 w-100 text-white"
+                                <button class="btn btn-primary py-2 w-100 text-white"
                                     type="submit">Sign up</button>
                             </div>
                         </div>

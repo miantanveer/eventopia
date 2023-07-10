@@ -5,16 +5,16 @@
                         <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)"></a>
                         <!-- sidebar-toggle-->
                         <a class="logo-horizontal " href="{{url('index')}}">
-                            <img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
-                            <img src="{{asset('assets/images/brand/logo-3.png')}}" class="header-brand-img light-logo1" alt="logo">
+                            <img src="{{asset('assets/images/brand/logo13.png')}}" class="header-brand-img desktop-logo" alt="logo">
+                            <img src="{{asset('assets/images/brand/logo13.png')}}" class="header-brand-img light-logo1" alt="logo">
                         </a>
                         <!-- LOGO -->
-                        <div class="main-header-center ms-3 d-none d-lg-block">
+                        {{-- <div class="main-header-center ms-3 d-none d-lg-block">
                             <input class="form-control" placeholder="Search for results..." type="search">
                             <button class="btn px-0 pt-2"><i class="fe fe-search" aria-hidden="true"></i></button>
-                        </div>
+                        </div> --}}
                         <div class="d-flex order-lg-2 ms-auto header-right-icons">
-                            <div class="dropdown d-none">
+                            {{-- <div class="dropdown d-none">
                                 <a href="javascript:void(0)" class="nav-link icon" data-bs-toggle="dropdown">
                                     <i class="fe fe-search"></i>
                                 </a>
@@ -26,15 +26,22 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- SEARCH -->
                             <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
 									<span class="navbar-toggler-icon fe fe-more-vertical"></span>
 								</button>
+                                {{-- <div class="">
+                                    <a href="" class="btn btn-outline-info btn-pill">Become a Seller</a>
+                                </div> --}}
                             <div class="navbar navbar-collapse responsive-navbar p-0">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                                     <div class="d-flex order-lg-2">
-                                        <div class="dropdown d-lg-none d-flex">
+                                        <div class="d-flex seller-btn">
+                                            <button class="btn-pill p-2 text-info bg-white border-info">Become a Seller</button>
+                                        </div>
+
+                                        {{-- <div class="dropdown d-lg-none d-flex">
                                             <a href="javascript:void(0)" class="nav-link icon" data-bs-toggle="dropdown">
                                                 <i class="fe fe-search"></i>
                                             </a>
@@ -46,26 +53,27 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
                                             <a class="nav-link icon text-center" data-bs-target="#country-selector" data-bs-toggle="modal">
                                                 <i class="fe fe-globe"></i><span class="fs-16 ms-2 d-none d-xl-block">English</span>
                                             </a>
                                         </div>
+
                                         <!-- SEARCH -->
                                         <div class="dropdown  d-flex">
                                             <a class="nav-link icon theme-layout nav-link-bg layout-setting">
-                                                 <span class="dark-layout"><i class="fe fe-moon"></i></span>
+                                                <span class="dark-layout"><i class="fe fe-moon"></i></span>
                                                 <span class="light-layout"><i class="fe fe-sun"></i></span>
                                             </a>
                                         </div>
-                                        <!-- Theme-Layout -->
+                                        {{-- <!-- Theme-Layout -->
                                         <div class="dropdown d-flex">
                                             <a class="nav-link icon full-screen-link nav-link-bg">
                                                 <i class="fe fe-minimize fullscreen-button"></i>
                                             </a>
-                                        </div>
+                                        </div> --}}
                                         <!-- FULL-SCREEN -->
                                         <div class="dropdown  d-flex notifications">
                                             <a class="nav-link icon" data-bs-toggle="dropdown"><i class="fe fe-bell"></i><span class=" pulse"></span>
@@ -77,7 +85,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="notifications-menu">
-                                                    <a class="dropdown-item d-flex" href="{{url('notify-list')}}">
+                                                    <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg  bg-primary brround box-shadow-primary">
                                                             <i class="fe fe-mail"></i>
                                                         </div>
@@ -86,7 +94,7 @@
                                                             <span class="notification-subtext">3 days ago</span>
                                                         </div>
                                                     </a>
-                                                    <a class="dropdown-item d-flex" href="{{url('notify-list')}}">
+                                                    <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg  bg-secondary brround box-shadow-secondary">
                                                             <i class="fe fe-check-circle"></i>
                                                         </div>
@@ -95,7 +103,7 @@
                                                             <span class="notification-subtext">2 hours ago</span>
                                                         </div>
                                                     </a>
-                                                    <a class="dropdown-item d-flex" href="{{url('notify-list')}}">
+                                                    <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg  bg-success brround box-shadow-success">
                                                             <i class="fe fe-shopping-cart"></i>
                                                         </div>
@@ -104,7 +112,7 @@
                                                             <span class="notification-subtext">30 min ago</span>
                                                         </div>
                                                     </a>
-                                                    <a class="dropdown-item d-flex" href="{{url('notify-list')}}">
+                                                    <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg bg-pink brround box-shadow-pink">
                                                             <i class="fe fe-user-plus"></i>
                                                         </div>
@@ -119,7 +127,7 @@
                                             </div>
                                         </div>
                                         <!-- NOTIFICATIONS -->
-                                        <div class="dropdown  d-flex message">
+                                        {{-- <div class="dropdown  d-flex message">
                                             <a class="nav-link icon text-center" data-bs-toggle="dropdown">
                                                 <i class="fe fe-message-square"></i><span class="pulse-danger"></span>
                                             </a>
@@ -186,36 +194,39 @@
                                                 <div class="dropdown-divider m-0"></div>
                                                 <a href="javascript:void(0)" class="dropdown-item text-center p-3 text-muted">See all Messages</a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <!-- MESSAGE-BOX -->
-                                        <div class="dropdown d-flex header-settings">
+                                        {{-- <div class="dropdown d-flex header-settings">
                                             <a href="javascript:void(0);" class="nav-link icon" data-bs-toggle="sidebar-right" data-target=".sidebar-right">
                                                 <i class="fe fe-align-right"></i>
                                             </a>
-                                        </div>
+                                        </div> --}}
                                         <!-- SIDE-MENU -->
                                         <div class="dropdown d-flex profile-1">
                                             <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
                                                 <img src="{{asset('assets/images/users/21.jpg')}}" alt="profile-user" class="avatar  profile-user brround cover-image">
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                <div class="drop-heading">
+                                                {{-- <div class="drop-heading">
                                                     <div class="text-center">
                                                         <h5 class="text-dark mb-0 fs-14 fw-semibold">Percy Kewshun</h5>
                                                         <small class="text-muted">Senior Admin</small>
                                                     </div>
-                                                </div>
-                                                <div class="dropdown-divider m-0"></div>
-                                                <a class="dropdown-item" href="{{url('profile')}}">
-                                                    <i class="dropdown-icon fe fe-user"></i> Profile
+                                                </div> --}}
+                                                {{-- <div class="dropdown-divider m-0"></div> --}}
+                                                <a class="dropdown-item" href="{{url('/dashboard')}}">
+                                                    <i class="dropdown-icon fe fe-home"></i> Dashboard
                                                 </a>
-                                                <a class="dropdown-item" href="{{url('email-inbox')}}">
+                                                <a class="dropdown-item" href="{{url('/edit-profile')}}">
+                                                    <i class="dropdown-icon fe fe-user"></i> Manage Account
+                                                </a>
+                                                {{-- <a class="dropdown-item" href="{{url('email-inbox')}}">
                                                     <i class="dropdown-icon fe fe-mail"></i> Inbox
                                                     <span class="badge bg-primary rounded-pill float-end">5</span>
-                                                </a>
-                                                <a class="dropdown-item" href="{{url('lockscreen')}}">
+                                                </a> --}}
+                                                {{-- <a class="dropdown-item" href="{{url('lockscreen')}}">
                                                     <i class="dropdown-icon fe fe-lock"></i> Lockscreen
-                                                </a>
+                                                </a> --}}
                                                 <a class="dropdown-item" href="{{url('login')}}">
                                                     <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
                                                 </a>

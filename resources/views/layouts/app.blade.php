@@ -20,50 +20,89 @@
 
 <body class="app sidebar-mini ltr">
 
-        <!-- global-loader -->
-        <div id="global-loader">
-            <img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">
+    <!-- global-loader -->
+    <div id="global-loader">
+        <img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">
+    </div>
+    <!-- global-loader closed -->
+
+    <!-- page -->
+    <div class="page">
+        <div class="page-main">
+
+            @include('layouts.components.app-header')
+
+            @include('layouts.components.app-sidebar')
+
+            <!--app-content open-->
+            <div class="main-content app-content mt-0">
+                <div class="side-app">
+
+                    <!-- container -->
+                    <div class="main-container container-fluid">
+
+                        @yield('content')
+
+                    </div>
+                    <!-- container-closed -->
+                </div>
+            </div>
+            <!--app-content closed-->
         </div>
-        <!-- global-loader closed -->
+        <!-- page-main closed -->
 
-        <!-- page -->
-        <div class="page">
-            <div class="page-main">
+        @include('layouts.components.sidebar-right')
 
-                @include('layouts.components.app-header')
+        @include('layouts.components.modal')
 
-                @include('layouts.components.app-sidebar')
+        @yield('modal')
 
-                    <!--app-content open-->
-                    <div class="main-content app-content mt-0">
-                        <div class="side-app">
+    </div>
+    <!-- page -->
 
-                            <!-- container -->
-                            <div class="main-container container-fluid">
-
-                                @yield('content')
-
-                            </div>
-                            <!-- container-closed -->
+    <!-- global-helper -->
+    <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
+        <div class="dropup btn-group mt-2 mb-2">
+            <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button" data-bs-toggle="dropdown" aria-expanded="true">Need any help?</button>
+            <ul class="dropdown-menu" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);" data-popper-placement="top-start">
+                <form id="contactForm" >
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
                         </div>
                     </div>
-                    <!--app-content closed-->
-                </div>
-                <!-- page-main closed -->
-
-            @include('layouts.components.sidebar-right')
-
-            @include('layouts.components.modal')
-
-            @yield('modal')
-
-            @include('layouts.components.footer')
-
+                    <div class="text-center"> <!-- Add a container with "text-center" class -->
+                        <button class="btn btn-primary mt-2 mb-0 ">Submit</button>
+                    </div>
+                </form>
+            </ul>
         </div>
-        <!-- page -->
+    </div>
+    <!-- global-helper closed -->
 
-        @include('layouts.components.scripts')
+    @include('layouts.components.footer')
 
-    </body>
+    @include('layouts.components.scripts')
+
+    <!-- Custom JavaScript code -->
+    <script>
+        $(document).ready(function() {
+            $(document).on("submit", "#contactForm", function(e) {
+                e.preventDefault();
+                $('body').addClass('timer-alert');
+                swal({
+                    title: "Success.",
+                    text: "We will contact you shortly.",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            });
+        });
+    </script>
+
+</body>
 
 </html>

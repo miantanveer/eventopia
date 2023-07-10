@@ -44,7 +44,7 @@
             <div class="col-12 col-md-5 px-0">
                 <div class="text-white text-center image_content">
                     <p>Don't have an account?</p>
-                    <a style="padding-left:45px; padding-right:45px;" class="btn btn-outline-light" href="#">SIGN UP</a>
+                    <a style="padding-left:45px; padding-right:45px;" class="btn btn-outline-light" href="{{URL("/signup")}}">SIGN UP</a>
                 </div>
                 <div class="div_Image">
                     <img class="Image" src="{{ asset('assets/images/login-form.png') }}" alt="">
@@ -53,7 +53,7 @@
             <div class="bg-white col-12 col-md-7 px-0">
                 <div style="margin:200px 100px 100px 100px;">
                     <h1 style="color:#00224F;" class="mb-5">Welcome Back!</h1>
-                    <form id="login_form" method="POST" action="#" data-parsley-validate>
+                    <form id="login_form" method="GET" action="{{URL('/dashboard')}}" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-12 mb-3 mx-">
@@ -86,7 +86,7 @@
                                 <a href="#" style="color:#006CE4;">Forget Password?</a>
                             </div>
                             <div class="d-block mt-5">
-                                <button style="background-color: #003B95;" class="btn py-2 w-100 text-white"
+                                <button class="btn btn-primary py-2 w-100 text-white"
                                     type="submit">Login</button>
                             </div>
                         </div>

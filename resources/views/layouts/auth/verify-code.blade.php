@@ -43,7 +43,7 @@
 @section('content')
     <div class="container-login100">
         <div class="wrap-login100 p-6">
-            <form id="verify_form" class="login100-form validate-form" data-parsley-validate>
+            <form method="GET" action="/dashboard" id="verify_form" class="login100-form validate-form" data-parsley-validate>
                 <span style="color:#00224F;" class="login100-form-title pb-5">
                     Verify Your Email Address
                 </span>
@@ -69,8 +69,7 @@
                 </div>
                 <span class="text-danger" id="otp_err"></span>
                 <div class="container-login100-form-btn">
-                    <button type="submit" style="background-color: #003B95;"
-                        class="btn mt-3 mb-4 w-100 text-white">Verify</button>
+                    <button type="submit" class="btn btn-primary mt-3 mb-4 w-100 text-white">Verify</button>
                 </div>
             </form>
             <hr style="border-top: 1px solid grey">

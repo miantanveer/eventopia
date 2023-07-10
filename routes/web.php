@@ -132,7 +132,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/signup', function () {
     return view('layouts.auth.signup');
 });
 Route::get('/login', function () {
@@ -149,6 +149,12 @@ Route::get('/verify-code', function () {
 });
 Route::get('/edit-profile', function () {
     return view('layouts.users.edit-profile');
+});
+Route::get('/dashboard', function () {
+    return view('layouts.customer.index');
+});
+Route::get('/login', function () {
+    return view('layouts.auth.login');
 });
 // Route::get('index', Index::class);
 // Route::get('about', About::class);
