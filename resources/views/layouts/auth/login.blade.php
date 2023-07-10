@@ -44,7 +44,7 @@
             <div class="col-12 col-md-5 px-0">
                 <div class="text-white text-center image_content">
                     <p>Don't have an account?</p>
-                    <a style="padding-left:45px; padding-right:45px;" class="btn btn-outline-light" href="#">SIGN UP</a>
+                    <a style="padding-left:45px; padding-right:45px;" class="btn btn-outline-light" href="{{URL("/signup")}}">SIGN UP</a>
                 </div>
                 <div class="div_Image">
                     <img class="Image" src="{{ asset('assets/images/login-form.png') }}" alt="">
