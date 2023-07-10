@@ -87,56 +87,11 @@
                                 required data-parsley-required-message="Email is required*">
                         </div>
                         <div class="row">
-<<<<<<< HEAD
-                            <div class="col-xl-4">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <div class="card-title">My Profile</div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="text-center chat-image mb-5">
-                                            <div class="avatar avatar-xxl chat-profile mb-3 brround">
-                                                <a class="" href="#"><img alt="avatar" src="{{asset('assets/images/users/23.jpeg')}}" class="avatar avatar-xxl chat-profile mb-3 brround"></a>
-                                            </div>
-                                            <div class="main-chat-msg-name">
-                                                <a href="{{url('profile')}}">
-                                                    <h5 class="mb-1 text-dark fw-semibold">john Doe</h5>
-                                                </a>
-                                                <p class="text-muted mt-0 mb-0 pt-0 fs-13">Space owner</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Your Name</label>
-                                            <div class="wrap-input100 validate-input input-group" id="Name-toggle">
-                                                <input class="input100 form-control" type="text" placeholder="John Doe" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Phone Number</label>
-                                            <div class="wrap-input100 validate-input input-group" id="Password-toggle">
-                                                <input class="input100 form-control" type="tel" placeholder="+923456789100" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Email Address</label>
-                                            <div class="wrap-input100 validate-input input-group" id="email-toggle1">
-                                                <input class="input100 form-control" type="email" placeholder="johnsmith12@gmail.com" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="form-label">Password</label>
-                                            <div class="wrap-input100 validate-input input-group" id="Password-toggle2">
-                                                <input class="input100 form-control" type="password" placeholder="********" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-=======
                             <div class="col-lg-6 col-md-12">
                                 <div class="form-group">
                                     <label for="exampleInputname">Password</label>
                                     <input type="password" class="form-control" id="exampleInputname" placeholder="Password"
                                         required data-parsley-required-message="Password is required*">
->>>>>>> backend
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
