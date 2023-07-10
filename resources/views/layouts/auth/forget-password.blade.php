@@ -7,7 +7,7 @@
                 <!-- CONTAINER OPEN -->
                 <div class="container-login100">
                     <div class="wrap-login100 p-6">
-                        <form class="login100-form validate-form">
+                        <form class="login100-form validate-form" action="{{URL('verify-code')}}">
                             <span class="login100-form-title pb-5">
                                 Eventopia
                             </span>
@@ -18,7 +18,7 @@
 
                             <div class="form-row">
                                 <div class="col-xl-12 mb-3">
-                                    <input type="text" class="form-control" placeholder="JohnDoe@gmail.com" id="validationCustom01">
+                                    <input type="text" required class="form-control" placeholder="JohnDoe@gmail.com" id="validationCustom01">
                                     <div class="valid-feedback">Looks good!</div>
                                 </div>
                             </div>
