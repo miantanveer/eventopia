@@ -87,6 +87,7 @@
                                 required data-parsley-required-message="Email is required*">
                         </div>
                         <div class="row">
+<<<<<<< HEAD
                             <div class="col-xl-4">
                                 <div class="card">
                                     <div class="card-header">
@@ -129,6 +130,13 @@
                                             </div>
                                         </div>
                                     </div>
+=======
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleInputname">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputname" placeholder="Password"
+                                        required data-parsley-required-message="Password is required*">
+>>>>>>> backend
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
