@@ -83,7 +83,7 @@
                                 <label for="check">Remember me</label>
                             </div>
                             <div class="col-6 text-end">
-                                <a href="#" style="color:#006CE4;">Forget Password?</a>
+                                <a href="{{URL('/forget-password')}}" style="color:#006CE4;">Forget Password?</a>
                             </div>
                             <div class="d-block mt-5">
                                 <button class="btn btn-primary py-2 w-100 text-white"
