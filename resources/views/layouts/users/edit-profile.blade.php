@@ -28,7 +28,7 @@
                                     <div class="card-body">
                                         <div class="text-center chat-image mb-5">
                                             <div class="avatar avatar-xxl chat-profile mb-3 brround">
-                                                <a class="" href="#"><img alt="avatar" src="{{asset('assets/images/users/23.jpeg')}}" class="rounded"></a>
+                                                <a class="" href="#"><img alt="avatar" src="{{asset('assets/images/users/23.jpeg')}}" class="avatar avatar-xxl chat-profile mb-3 brround"></a>
                                             </div>
                                             <div class="main-chat-msg-name">
                                                 <a href="{{url('profile')}}">
