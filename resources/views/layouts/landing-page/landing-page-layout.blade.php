@@ -21,14 +21,51 @@
             background-size: cover;
             background-position: center;
         }
-        .jumps-prevent{
-            padding-top: 0px!important;
+
+        .jumps-prevent {
+            padding-top: 0px !important;
         }
-        .logo-horizontal{
-            z-index: 9999!important;
+
+        .logo-horizontal {
+            z-index: 9999 !important;
         }
-        .header{
+
+        .header {
             background-color: transparent !important;
+        }
+
+        .form-control {
+            border-color: white !important;
+            line-height: 0.0;
+        }
+
+        #form-border {
+            background-color: #ffffff;
+        }
+
+        #form-border input {
+            background-color: #ffffff;
+        }
+
+        .box-sizing {
+            box-sizing: border-box;
+        }
+
+        .inline-form {
+            position: absolute;
+            top: 38%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 76%;
+        }
+
+        .input {
+            border: none;
+        }
+
+        .border-end {
+            border-color: #ACACAC !important;
         }
     </style>
 
@@ -46,8 +83,34 @@
         <div class="page-main">
             @include('layouts.components.landing-page-header')
             <img src="{{ asset('assets/images/brand/landing_page_img.jpg') }}" alt="">
-        </div>
+            <div class="inline-form">
+                <h1 class="h1 text-white fw-bold">Make an event that suits you</h1>
+                <form action="#">
+                    <div class="row bg-whiter justify-content-between text-start py-3 px-5 box-sizing" id="form-border">
 
+                        <div class="col-4 px-0">
+                            <label class="mb-0 label-none"><b>What have you got planned?</b></label>
+                            <input type="text" class="form-control input py-0 px-0" id="searchTerm1"
+                                placeholder="Enter Your Activity">
+                        </div>
+                        <div class="col-4 px-0">
+                            <label class="mb-0 label-none"><b>Where?</b></label>
+                            <input type="text" class="form-control input py-0 px-0" id="searchTerm2"
+                                placeholder="Enter a City or Address">
+                        </div>
+                        <div class="col-3 px-0">
+                            <label class="mb-0 label-none"><b>When?</b></label>
+                            <input type="text" class="form-control input py-0 px-0" id="searchTerm3"
+                                placeholder="Anytime">
+                        </div>
+                        <div class="col-1">
+                            <button type="submit" class="btn btn-primary rounded text-end"><i
+                                    class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
     @include('layouts.components.modal')
 
@@ -65,8 +128,7 @@
                 <form id="contactForm">
                     <div class="row">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                placeholder="Enter email">
+                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                         </div>
                         <div class="form-group">
                             <input type="number" class="form-control" id="exampleInputPassword1"

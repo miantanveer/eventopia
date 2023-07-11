@@ -7,7 +7,7 @@
                 <!-- CONTAINER OPEN -->
                 <div class="container-login100">
                     <div class="wrap-login100 p-6">
-                        <form class="login100-form validate-form" action="{{URL("/verify-code-1")}}">
+                        <form class="login100-form validate-form" action="#">
                             <span class="login100-form-title pb-5">
                                 <div class="text-center p-5">
                                     <img src="{{asset("assets/images/brand/logo13.png")}}" alt="" class="header-brand-img">
