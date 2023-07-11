@@ -169,6 +169,9 @@ Route::get('/login', function () {
 Route::get('/search-results', function () {
     return view('layouts.customer.search-results');
 });
+Route::get('/space-details', function () {
+    return view('layouts.space.space-detail');
+});
 
 
 
