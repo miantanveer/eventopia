@@ -10,11 +10,11 @@
                         </a>
                         <div class="d-flex order-lg-2 ms-auto header-right-icons">
                             <!-- SEARCH -->
-                            <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                            <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#landingNavbarHeader" aria-controls="landingNavbarHeader" aria-expanded="false" aria-label="Toggle navigation">
 									<span class="navbar-toggler-icon fe fe-more-vertical"></span>
 								</button>
                             <div class="navbar navbar-collapse responsive-navbar p-0">
-                                <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+                                <div class="collapse navbar-collapse" id="landingNavbarHeader">
                                     <div class="d-flex order-lg-2">
 
                                         <!-- Cart -->
