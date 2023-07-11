@@ -166,6 +166,13 @@ Route::get('/login', function () {
     return view('layouts.auth.login');
 });
 
+Route::get('/search-results', function () {
+    return view('layouts.customer.search-results');
+});
+Route::get('/space-details', function () {
+    return view('layouts.space.space-detail');
+});
+
 
 
 
