@@ -40,8 +40,8 @@
             <a class="logo-horizontal " href="{{url('/dashboard')}}">
                 <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img desktop-logo"
                     alt="logo">
-                {{-- <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img light-logo1"
-                    alt="logo"> --}}
+                <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img light-logo1"
+                    alt="logo">
             </a>
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
                 <!-- SEARCH -->
