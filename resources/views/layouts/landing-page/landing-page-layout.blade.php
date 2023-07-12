@@ -154,22 +154,12 @@
     <!-- page -->
     <div class="page">
         <div class="page-main">
-<<<<<<< HEAD
-            <div class="content">
-                @include('layouts.components.landing-page-header')
-                <div class="inline-form container my-7 my-sm-3">
-                    <h1 class="h1 text-white font-size-h1 fw-bold">Make an event that suits you</h1>
-                    <form action="#" class="ms-5">
-                        <div class="row bg-whiter justify-content-between text-start py-3 px-5 mx-5 mx-sm-0 box-sizing rounded-3"
-                            id="form-border">
-=======
             @include('layouts.components.landing-page-header')
             <img src="{{ asset('assets/images/brand/landing_page_img.jpg') }}" alt="">
             <div class="inline-form">
                 <h1 class="h1 text-white fw-bold">Make an event that suits you</h1>
                 <form action="{{URL('search-results')}}">
                     <div class="row bg-whiter justify-content-between text-start py-3 px-5 box-sizing" id="form-border">
->>>>>>> backend
 
                             <div class="col-sm-4 px-0 border-end border-end0">
                                 <label class="mb-0 label-none my-font-size"><b>What have you got planned?</b></label>
