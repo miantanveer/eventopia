@@ -85,7 +85,7 @@
             <img src="{{ asset('assets/images/brand/landing_page_img.jpg') }}" alt="">
             <div class="inline-form">
                 <h1 class="h1 text-white fw-bold">Make an event that suits you</h1>
-                <form action="#">
+                <form action="{{URL('search-results')}}">
                     <div class="row bg-whiter justify-content-between text-start py-3 px-5 box-sizing" id="form-border">
 
                         <div class="col-4 px-0">
