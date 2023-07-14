@@ -1,38 +1,30 @@
 <!-- app-Header -->
-<style>
-    .edit-profile-3 {
-        transform: translate(0px, 0px) !important;
-    }
-</style>
 <div class="app-header header sticky">
     <div class="container-fluid main-container">
         <div class="d-flex">
             <div class="dropdown d-flex profile-1 d-lg-none">
                 <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
-                    <span class="navbar-toggler-icon fe fe-more-vertical text-white"></span>
+                    <span class="navbar-toggler-icon fa fa-align-left text-white"></span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3">
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3 first_drop">
 
                     <a class="dropdown-item" href="{{url('/edit-profile')}}">
-                        <i class="dropdown-icon fe fe-home"></i> Profile
+                        <i class="dropdown-icon fa fa-cart-plus"></i> Cart
+                    </a>
+                    <a class="dropdown-item" data-bs-target="#country-selector" data-bs-toggle="modal">
+                        <i class="dropdown-icon fe fe-globe"></i> Language
                     </a>
                     <a class="dropdown-item" href="#">
-                        <i class="dropdown-icon fe fe-user"></i> List Your Space
+                        <i class="dropdown-icon fa fa-user"></i> Become a seller
                     </a>
                     <a class="dropdown-item" href="#">
-                        <i class="dropdown-icon fe fe-user"></i> List Your Entertainment & Talents
+                        <i class="dropdown-icon icon icon-layers"></i> Listing
                     </a>
                     <a class="dropdown-item" href="#">
-                        <i class="dropdown-icon fe fe-user"></i> List Your Service
+                        <i class="dropdown-icon fa fa-book"></i> Booking
                     </a>
                     <a class="dropdown-item" href="#">
-                        <i class="dropdown-icon fe fe-user"></i> Payment
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="dropdown-icon fe fe-user"></i> Help
-                    </a>
-                    <a class="dropdown-item" href="{{url('login')}}">
-                        <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
+                        <i class="dropdown-icon fa fa-calendar"></i> Calendar
                     </a>
                 </div>
             </div>
@@ -45,11 +37,11 @@
             </a>
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
                 <!-- SEARCH -->
-                <div class="dropdown d-flex profile-1">
+                <div class="dropdown d-flex d-lg-none profile-1">
                     <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
                         <span class="navbar-toggler-icon fe fe-more-vertical text-white"></span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3">
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3 second_drop">
 
                         <a class="dropdown-item" href="{{url('/edit-profile')}}">
                             <i class="dropdown-icon fe fe-home"></i> Profile
@@ -118,13 +110,13 @@
                             </div>
 
                             <!-- SIDE-MENU -->
-                            <div class="dropdown d-flex profile-1">
+                            <div class="dropdown d-flex profile-1" id="third_drop">
                                 <a href="javascript:void(0)" data-bs-toggle="dropdown"
                                     class="nav-link leading-none d-flex">
                                     <img src="{{asset('assets/images/users/21.jpg')}}" alt="profile-user"
                                         class="avatar  profile-user brround cover-image">
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow third_drop">
 
                                     <a class="dropdown-item" href="{{url('/edit-profile')}}">
                                         <i class="dropdown-icon fe fe-home"></i> Profile
