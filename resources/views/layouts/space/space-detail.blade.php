@@ -424,7 +424,7 @@
 
                                                         <div class="row mt-4">
                                                             <div class="col-10 pe-0">
-                                                                <a class="btn btn-primary text-white w-100">
+                                                                <a href="{{URL('checkout')}}" class="btn btn-primary text-white w-100">
                                                                     Checkout
                                                                 </a>
                                                             </div>
