@@ -11,21 +11,18 @@
         autoplayTimeout: 5000, // set value to change speed
         autoplayHoverPause: true,
         dots: false,
-        nav: true,
+        nav: false,
         autoplay: true,
         responsiveClass: true,
         responsive: {
             0: {
                 items: 1,
-                nav: true
             },
             600: {
                 items: 2,
-                nav: true
             },
             1300: {
                 items: 4,
-                nav: true
             }
         }
     })

@@ -20,19 +20,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     // set value to change speed
     autoplayHoverPause: true,
     dots: false,
-    nav: true
+    nav: false
   }, _defineProperty(_owl$owlCarousel, "autoplay", true), _defineProperty(_owl$owlCarousel, "responsiveClass", true), _defineProperty(_owl$owlCarousel, "responsive", {
     0: {
-      items: 1,
-      nav: true
+      items: 1
     },
     600: {
-      items: 2,
-      nav: true
+      items: 2
     },
     1300: {
-      items: 4,
-      nav: true
+      items: 4
     }
   }), _owl$owlCarousel));
   owlRtl();
