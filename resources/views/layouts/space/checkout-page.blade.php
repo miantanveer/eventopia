@@ -655,10 +655,11 @@
                     showConfirmButton: false
                 });
             });
-            $('#all_select').on('click',function(){
-                $('#first_card').attr('checked',true);
-                $('#second_card').attr('checked',true);
-                $('#third_card').attr('checked',true);
+            $('#all_select').on('click', function() {
+                var isChecked = $('#first_card').prop('checked');
+                $('#first_card').prop('checked', !isChecked);
+                $('#second_card').prop('checked', !isChecked);
+                $('#third_card').prop('checked', !isChecked);
             });
         });
     </script>
