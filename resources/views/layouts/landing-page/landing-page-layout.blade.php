@@ -28,6 +28,24 @@
             background-repeat: no-repeat;
         }
 
+        .landing_background {
+            position: relative;
+            height: 500px;
+            background: url('{{ asset("assets/images/brand/landing_background.jpg") }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* .image_heading{
+            position: absolute;
+            bottom: 747px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            font-weight: 700;
+        } */
+
         .jumps-prevent {
             padding-top: 0px !important;
         }
@@ -48,6 +66,9 @@
 
         #form-border {
             background-color: #ffffff;
+            border-radius: 10px !important;
+        }
+        .rounded-3{
             border-radius: 10px !important;
         }
 
@@ -185,6 +206,16 @@
         .edit-profile-3 {
             transform: translate(0px, 0px) !important;
         }
+        .input_placeholder::placeholder {
+            color: black;
+        }
+        .image-h1{
+            font-weight: bolder;
+            font-size:2.5rem;
+        }
+        .image-form{
+            margin-top: 30px;
+        }
     </style>
 
 </head>
@@ -204,7 +235,7 @@
                 <div class="inline-form container my-7 my-sm-3">
                     <h1 class="h1 text-white font-size-h1 fw-bold">Make an event that suits you</h1>
                     <form action="{{URL('/search-results')}}" class="ms-5">
-                        <div class="row bg-whiter justify-content-between text-start py-3 px-5 mx-5 mx-sm-0 box-sizing rounded-3"
+                        <div class="row bg-whiter justify-content-between text-start py-3 px-5 mx-5 mx-sm-0 box-sizing"
                             id="form-border">
 
                             <div class="col-sm-4 px-0 border-end border-end0">
@@ -235,11 +266,510 @@
             </div>
         </div>
     </div>
-    <div class="container bg-white">
-        <h1 class="text-center my-6"><b>A lot of spaces for every moment.</b></h1> <div class="">. <h3 class="text-center my-2">Parties</h3>
+    <div class="container mb-lg-6 mb-md-5 mb-3 bg-white">
+        <h1 class="text-center my-6"><b> A lot of spaces for every moment.</b></h1>
+        <div class="">
+            <h3 class="text-center my-2">Parties</h3>
             @include('layouts.components.landing_slider')
         </div>
     </div>
+    <div class="landing_background">
+        <div class="container">
+        <h1 class="text-center pt-7 text-white image-h1">Book the perfect entertainment & <br>
+             talent for your upcoming event.</h1>
+        <p class="text-center text-white">For every event, from weddings to birthday celebrations, we'll help you book
+            the best talent.</p>
+            <form action="#" class="ms-5 image-form">
+                <div class="row bg-white py-3 ps-5 box-sizing rounded-3 align-items-center">
+                    <div class="col-11"><input type="text" class="form-control input input_placeholder"
+                        placeholder="What type of entertainment or talent can we assist you in finding?"></div>
+                    <div class="col-1 text-end px-0">
+                        <button type="submit" class="btn btn-primary rounded text-end button mx-lg-5 d-none d-sm-block"><i
+                                class="fa fa-search"></i></button>
+                        <button type="submit"
+                            class="btn btn-primary btn-search mx-0 px-0 text-center d-sm-none d-block">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {{-- <div class="container">
+            <div class="row mt-9">
+                <div class="col-11 text-center">
+                    <input type="search" class="bg-white w-90 py-3 px-2"
+                        placeholder="What type of entertainment or talent can we assist you in finding?">
+                </div>
+                <div class="col-1">
+                    <button type="submit" class="btn btn-primary rounded text-end"><i class="fa fa-search"></i></button>
+                </div>
+            </div>
+        </div> --}}
+    </div>
+
+    <div>
+        <h1 class="text-center mt-lg-7 mt-md-4 mt-3 fs-1">Make your plans exceptional  <br> whatever they may be.</h1>
+        <h3 class="text-center my-3">Musical Acts</h3>
+        <div class="row">
+            <div class="col-12 bg-white">
+                <div class="container">
+                    <div class="card custom-card">
+                        <div class="card-body pt-0 h-100">
+                            <div class="owl-carousel owl-carousel-icons2">
+                                <div class="item">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <div class="card overflow-hidden my-0">
+                                            <a href="{{ URL('/space-details') }}">
+                                                <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                                    class="card-img-top" alt="img">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Stunning Studio Great</h5>
+                                                    <i class="fa fa-users"></i> 25 &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 19
+                                                    <p>Responds within 1 hour</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <div class="card overflow-hidden my-0">
+                                            <a href="{{ URL('/space-details') }}">
+                                                <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
+                                                    class="card-img-top" alt="img">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Stunning Event Venue</h5>
+                                                    <i class="fa fa-users"></i> 30 &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 21
+                                                    <p>Responds within 1 hour</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <div class="card overflow-hidden my-0">
+                                            <a href="{{ URL('/space-details') }}">
+                                                <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
+                                                    class="card-img-top" alt="img">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Great Space for Events</h5>
+                                                    <i class="fa fa-users"></i> 32 &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 21
+                                                    <p>Responds within 1 hour</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <div class="card overflow-hidden my-0">
+                                            <a href="{{ URL('/space-details') }}">
+                                                <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
+                                                    class="card-img-top" alt="img">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Great Space for Events</h5>
+                                                    <i class="fa fa-users"></i> 30 &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 18
+                                                    <p>Responds within 1 hour</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <div class="card overflow-hidden my-0">
+                                            <a href="{{ URL('/space-details') }}">
+                                                <img src="{{ asset('assets/images/users/spaces/5.jpg') }}"
+                                                    class="card-img-top" alt="img">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Stunning Studio Great</h5>
+                                                    <i class="fa fa-users"></i> 25 &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 19
+                                                    <p>Responds within 1 hour</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <div class="card overflow-hidden my-0">
+                                            <a href="{{ URL('/space-details') }}">
+                                                <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                                    class="card-img-top" alt="img">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Stunning Event Venue</h5>
+                                                    <i class="fa fa-users"></i> 30 &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 21
+                                                    <p>Responds within 1 hour</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <div class="card overflow-hidden my-0">
+                                            <a href="{{ URL('/space-details') }}">
+                                                <img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
+                                                    class="card-img-top" alt="img">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Great Space for Events</h5>
+                                                    <i class="fa fa-users"></i> 32 &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 19
+                                                    <p>Responds within 1 hour</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 class="text-center my-3">Entertainers</h3>
+    <div class="row">
+        <div class="col-12 bg-white">
+            <div class="container">
+                <div class="card custom-card">
+                    <div class="card-body pt-0 h-100">
+                        <div class="owl-carousel owl-carousel-icons2">
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Stunning Studio Great</h5>
+                                                <i class="fa fa-users"></i> 25 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 19
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Stunning Event Venue</h5>
+                                                <i class="fa fa-users"></i> 30 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 21
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Great Space for Events</h5>
+                                                <i class="fa fa-users"></i> 32 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 21
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Great Space for Events</h5>
+                                                <i class="fa fa-users"></i> 30 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 18
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/5.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Stunning Studio Great</h5>
+                                                <i class="fa fa-users"></i> 25 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 19
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Stunning Event Venue</h5>
+                                                <i class="fa fa-users"></i> 30 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 21
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Great Space for Events</h5>
+                                                <i class="fa fa-users"></i> 32 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 19
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 class="text-center my-3">Event Services</h3>
+    <div class="row">
+        <div class="col-12 bg-white">
+            <div class="container">
+                <div class="card custom-card">
+                    <div class="card-body pt-0 h-100">
+                        <div class="owl-carousel owl-carousel-icons2">
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Stunning Studio Great</h5>
+                                                <i class="fa fa-users"></i> 25 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 19
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Stunning Event Venue</h5>
+                                                <i class="fa fa-users"></i> 30 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 21
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Great Space for Events</h5>
+                                                <i class="fa fa-users"></i> 32 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 21
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Great Space for Events</h5>
+                                                <i class="fa fa-users"></i> 30 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 18
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/5.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Stunning Studio Great</h5>
+                                                <i class="fa fa-users"></i> 25 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 19
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Stunning Event Venue</h5>
+                                                <i class="fa fa-users"></i> 30 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 21
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Great Space for Events</h5>
+                                                <i class="fa fa-users"></i> 32 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 19
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 class="text-center"><a class="bg-primary btn text-white px-7"><b>Get started</b></a></h3>
+    <p class="text-center text-primary">Make an exceptional booking.</p>
+
     @include('layouts.components.modal')
 
     @yield('modal')
