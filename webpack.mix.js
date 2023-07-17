@@ -62,10 +62,6 @@ mix.sass('resources/assets/css/skin-modes.scss', 'public/assets/css')
 mix.sass('resources/assets/css/transparent-style.scss', 'public/assets/css')
 mix.sass('resources/assets/colors/color1.scss', 'public/assets/css')
 mix.sass('resources/assets/scss/style.scss', 'public/assets/css')
-mix.copyDirectory('resources/assets/iconfonts', 'public/assets/iconfonts')
-mix.copyDirectory('resources/assets/images', 'public/assets/images')
-mix.copyDirectory('resources/assets/plugins', 'public/assets/plugins')
-mix.copyDirectory('resources/assets/switcher', 'public/assets/switcher')
 
 mix.options({
     processCssUrls: false
