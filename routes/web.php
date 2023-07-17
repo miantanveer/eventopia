@@ -56,6 +56,9 @@ Route::get('/space-details', function () {
 Route::get('/checkout', function () {
     return view('layouts.space.checkout-page');
 });
+Route::get('/review&pay', function () {
+    return view('layouts.space.review');
+});
 
 
 

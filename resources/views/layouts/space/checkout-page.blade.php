@@ -18,6 +18,19 @@
     @include('layouts.components.styles')
 
 </head>
+<style>
+    .card {
+        box-shadow: none !important;
+    }
+    .owl-item {
+        border: 1px solid #e9edf4 !important;
+        border-radius: 10px;
+    }
+    .owl-body {
+        padding-left: 5px !important;
+        padding-bottom: 0px !important;
+    }
+</style>
 
 <body class="app sidebar-mini ltr">
 
@@ -34,15 +47,15 @@
             @include('layouts.customer.customer-header')
 
             <!--app-content open-->
-            <div class="main-content app-content mt-0">
+            <div class="main-content app-content pt-5" style="background-color: #ffffff">
                 <div class="side-app">
 
                     <!-- container -->
-                    <div class="main-container container-fluid mt-5">
-                        <div class="row row-sm">
+                    <div class="main-container container-fluid">
+                        <div class="row">
                             <div class="col-xl-8 col-lg-12 col-md-12">
-                                <div class="card">
-                                    <div class="card-header">
+                                <div class="card custom-card overflow-hidden">
+                                    <div class="card-body m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%) !important;">
                                         <label class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" name="checkbox1"
                                                 value="option1" id="all_select">
@@ -51,7 +64,7 @@
                                     </div>
                                 </div>
                                 <div class="card custom-card overflow-hidden">
-                                    <div class="card-body p-3">
+                                    <div class="card-body p-3 m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%);">
                                         <div class="row g-0 ">
                                             <div class="col-1 pe-0 my-auto">
                                                 <label class="custom-control custom-checkbox">
@@ -65,14 +78,14 @@
                                                     class="card-img-left h-100" alt="img">
                                             </div>
                                             <div class="col-sm-8 ps-3 ps-md-0">
-                                                <div class="card-body">
+                                                <div class="card-body py-0">
                                                     <div class="row">
                                                         <div class="col-sm-10 col-9">
                                                             <h5 class="card-title">Great Space for Events</h5>
                                                         </div>
                                                         <div class="col-sm-2 col-3 text-end">
-                                                            <i class="fa fa-trash" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-trash" aria-label="fa fa-trash"></i>
-                                                            <i class="fa fa-heart-o ms-2" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-heart-o" aria-label="fa fa-heart-o"></i>
+                                                            <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-trash" aria-label="fa fa-trash"></i>
+                                                            <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-heart-o" aria-label="fa fa-heart-o"></i>
                                                         </div>
                                                     </div>
                                                     <p class="card-text">Amount : $65/hour</p>
@@ -107,7 +120,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body p-3">
+                                    <div class="card-body p-3 m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%);">
                                         <div class="row g-0 ">
                                             <div class="col-1 pe-0 my-auto">
                                                 <label class="custom-control custom-checkbox">
@@ -121,14 +134,14 @@
                                                     class="card-img-left h-100" alt="img">
                                             </div>
                                             <div class="col-sm-8 ps-3 ps-md-0">
-                                                <div class="card-body">
+                                                <div class="card-body py-0">
                                                     <div class="row">
                                                         <div class="col-sm-10 col-9">
                                                             <h5 class="card-title">Great Space for Events</h5>
                                                         </div>
                                                         <div class="col-sm-2 col-3 text-end">
-                                                            <i class="fa fa-trash" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-trash" aria-label="fa fa-trash"></i>
-                                                            <i class="fa fa-heart-o ms-2" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-heart-o" aria-label="fa fa-heart-o"></i>
+                                                            <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-trash" aria-label="fa fa-trash"></i>
+                                                            <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-heart-o" aria-label="fa fa-heart-o"></i>
                                                         </div>
                                                     </div>
                                                     <p class="card-text">Amount : $65/hour</p>
@@ -163,7 +176,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body p-3">
+                                    <div class="card-body p-3 m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%);">
                                         <div class="row g-0 ">
                                             <div class="col-1 pe-0 my-auto">
                                                 <label class="custom-control custom-checkbox">
@@ -177,14 +190,14 @@
                                                     class="card-img-left h-100" alt="img">
                                             </div>
                                             <div class="col-sm-8 ps-3 ps-md-0">
-                                                <div class="card-body">
+                                                <div class="card-body py-0">
                                                     <div class="row">
                                                         <div class="col-sm-10 col-9">
                                                             <h5 class="card-title">Great Space for Events</h5>
                                                         </div>
                                                         <div class="col-sm-2 col-3 text-end">
-                                                            <i class="fa fa-trash" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-trash" aria-label="fa fa-trash"></i>
-                                                            <i class="fa fa-heart-o ms-2" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-heart-o" aria-label="fa fa-heart-o"></i>
+                                                            <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-trash" aria-label="fa fa-trash"></i>
+                                                            <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip" title="" data-bs-original-title="fa fa-heart-o" aria-label="fa fa-heart-o"></i>
                                                         </div>
                                                     </div>
                                                     <p class="card-text">Amount : $65/hour</p>
@@ -222,7 +235,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-12 col-md-12">
-                                <div class="card cart">
+                                <div class="card cart" style="border: 1px solid #cbcaca !important; border-radius: 0 !important;">
                                     <div class="card-header">
                                         <h3 class="card-title">Order Summary</h3>
                                     </div>
@@ -249,50 +262,43 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div class="">
-                                                    <h6 class="text-start">Sub Total</h6>
-                                                    <hr>
-                                                    <h6 class="text-start">Additional Discount</h6>
-                                                    <hr>
-                                                    <h6 class="text-start">Delivery Charges</h6>
-                                                    <hr>
-                                                    <h6 class="text-start">Tax</h6>
-                                                    <hr>
-                                                    <h6 class="text-start">Coupon Discount</h6>
-                                                    <hr>
-                                                    <h6 class="text-start">Vat %</h6>
-                                                    <hr>
-                                                    <h6 class="text-start">Admin fee</h6>
-                                                    <hr>
-                                                    <h6 class="text-start fs-18">Total Bill</h6>
-                                                </div>
+                                        <div class="row mt-3 py-3 border-top">
+                                            <div class="col-6 float-left">
+                                                <h6>Sub Total</h6>
                                             </div>
-                                            <div class="col-6">
-                                                <h6 class="text-end">$568</h6>
-                                                <hr>
-                                                <h6 class="text-end">- $55</h6>
-                                                <hr>
-                                                <h6 class="text-end">0 (Free)</h6>
-                                                <hr>
-                                                <h6 class="text-end">+ $39</h6>
-                                                <hr>
-                                                <h6 class="text-end">- $15%</h6>
-                                                <hr>
-                                                <h6 class="text-end">+ $9</h6>
-                                                <hr>
-                                                <h6 class="text-end">+ $9</h6>
-                                                <hr>
-                                                <h6 class="text-end fs-18">$568</h6>
+                                            <div class="col-6 text-end">
+                                                $568
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3 py-3 border-top">
+                                            <div class="col-6 float-left">
+                                                <h6>Vet %</h6>
+                                            </div>
+                                            <div class="col-6 text-end">
+                                                SARO
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3 py-3 border-top">
+                                            <div class="col-6 float-left">
+                                                <h6>Admin Fees</h6>
+                                            </div>
+                                            <div class="col-6 text-end">
+                                                $200
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3 py-3 border-top" style="background-color: #E3E3E3">
+                                            <div class="col-6 float-left">
+                                                <h6>Total:</h6>
+                                            </div>
+                                            <div class="col-6 text-end">
+                                                $600
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-footer">
                                         <div class="btn-list">
                                             <a href="{{ url('shop') }}" class="btn "></i>Continue Shopping</a>
-                                            <a href="{{ url('checkout') }}"
+                                            <a href="{{ url('review&pay') }}"
                                                 class="btn btn-primary float-sm-end">Check out<i
                                                     class="fa fa-arrow-right ms-1"></i></a>
                                         </div>
@@ -307,11 +313,12 @@
                                     <div class="card-body">
                                         <div class="owl-carousel owl-carousel-icons2">
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -320,14 +327,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -336,14 +345,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -352,14 +363,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -368,14 +381,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -384,14 +399,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -400,14 +417,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -417,25 +436,28 @@
                                                         </div>
                                                     </a>
                                                 </div>
+                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
-                                    <div class="text-center mb-5">
+                                    <div class="text-center my-5">
                                         <button type="button" class="btn btn-primary mb-1">View all</button>
                                     </div>
                                 </div>
                             </div>
-                            <h6 class="p-3 mb-5 text-dark">Talents & Entertainments you might be looking for?</h6>
+                            <h3 class="p-3 mb-5 text-dark">Talents & Entertainments you might be looking for?</h3>
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="owl-carousel owl-carousel-icons2">
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -444,14 +466,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -460,14 +484,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -476,14 +502,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -492,14 +520,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -508,14 +538,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -524,14 +556,16 @@
                                                             <p>Responds within 1 hour</p>
                                                         </div>
                                                     </a>
+                                                </div>
                                                 </div>
                                             </div>
                                             <div class="item">
-                                                <div class="card overflow-hidden">
+                                                <div class="card overflow-hidden border  mb-0 p-0 bg-white">
+                                                    <div class="card overflow-hidden my-0">
                                                     <a href="{{ URL('/space-details') }}">
                                                         <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
                                                             alt="img">
-                                                        <div class="card-body">
+                                                        <div class="card-body owl-body">
                                                             <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                                             <i class="fa fa-group"></i> 25 &nbsp;
                                                             <i class="fa fa-star" style="color:#f1c40f"></i>
@@ -541,10 +575,12 @@
                                                         </div>
                                                     </a>
                                                 </div>
+                                                </div>
                                             </div>
+
                                         </div>
                                     </div>
-                                    <div class="text-center mb-5">
+                                    <div class="text-center my-5">
                                         <button type="button" class="btn btn-primary mb-1">View all</button>
                                     </div>
                                 </div>

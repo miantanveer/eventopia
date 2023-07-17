@@ -18,6 +18,61 @@
     @include('layouts.components.styles')
 
 </head>
+<style>
+    .line {
+        border-top: 1px solid black;
+        position: relative;
+        top: 165px;
+        z-index: 9999;
+    }
+
+    @media (min-width: 576px) {
+        .content-button {
+            position: absolute;
+            right: 0;
+            top: 70px;
+        }
+    }
+
+    @media (min-width: 576px) {
+        .profile_img_res {
+            max-width: 50px !important;
+        }
+    }
+
+    @media (min-width: 0) and (max-width: 575px) {
+        .profile_img_res {
+            max-width: 35px !important;
+        }
+    }
+
+    @media (min-width: 0) and (max-width: 300px) {
+        .line {
+            top: 190px;
+        }
+    }
+
+    @media (min-width: 0) and (max-width: 400px) {
+        .reply-content {
+            max-width: 100% !important;
+            flex: 0 0 100%;
+            margin-top: 10px;
+        }
+
+        .reply-content-heading {
+            padding-left: 20px;
+        }
+
+        .empty {
+            display: none;
+        }
+
+        .booking-heading {
+            font-size: 20px;
+            font-weight: 450;
+        }
+    }
+</style>
 
 <body class="app sidebar-mini ltr">
 
@@ -36,11 +91,11 @@
             @include('layouts.components.app-sidebar')
 
             <!--app-content open-->
-            <div class="main-content app-content mt-0">
+            <div class="main-content app-content py-5 bg-white">
                 <div class="side-app">
 
                     <!-- container -->
-                    <div class="main-container container-fluid mt-5">
+                    <div class="main-container container-fluid">
                         <div class="row row-sm">
                             <div class="col-xl-8 col-lg-12 col-md-12">
                                 <div class="card custom-card overflow-hidden">
@@ -253,83 +308,118 @@
                                             <h3 class="text-dark">
                                                 Reviews (87)
                                             </h3>
-                                            <div class="media mt-3 mb-5 overflow-visible d-block d-sm-flex">
-                                                <div class="me-3 mb-2">
+                                            <div class="row ms-0 border mb-5 p-4 br-5 col-12">
+                                                <div class="col-md-1 col-2">
                                                     <a href="{{ url('profile') }}"> <img
-                                                            class="media-object rounded-circle thumb-sm"
+                                                            class="media-object rounded-circle profile_img_res"
                                                             alt="64x64"
-                                                            src="{{ asset('assets/images/users/5.jpg') }}"> </a>
+                                                            src="{{ asset('assets/images/users/5.jpg') }}">
+                                                    </a>
                                                 </div>
-                                                <div class="media-body overflow-visible">
-                                                    <div class="border mb-5 p-4 br-5">
-                                                        <h5 class="mt-0 text-dark">Gavin Murray</h5>
-                                                        <span><i class="fe fe-thumb-up text-danger"></i></span>
-                                                        <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
-                                                        <p class="font-13 text-muted mt-2">Lorem ipsum dolor sit amet, quis
-                                                            Neque porro quisquam est, nostrud exercitation ullamco
-                                                            laboris commodo consequat. There’s an old maxim that states,
-                                                            “No fun for the writer, no fun for the reader.”No matter
-                                                            what industry you’re working in, as a blogger, you should
-                                                            live and die by this statement.</p>
-                                                        <span class="reply" id="1">
-                                                            <a href="javascript:;"><span
-                                                                    class="badge btn-primary-light rounded-pill py-2 px-3"><i
-                                                                        class="fe fe-corner-up-left me-1"></i>Reply</span></a>
-                                                        </span>
+                                                <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
+                                                    <h5 class="mt-3 text-dark">Gavin Murray</h5>
+                                                </div>
+                                                <div class="col-md-1 col-2 empty"></div>
+                                                <div class="col-md-9 col-sm-8 col-10 reply-content">
+                                                    <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
+                                                    <div class="rating-stars" id="rating-1" data-stars="2"
+                                                        style="cursor: pointer; text-align:left !important;font-size: 14px">
+                                                        <input type="hidden" name="rating-1" value="0"><i
+                                                            class="fa fa-star" style="color:#f1c40f"></i><i
+                                                            class="fa fa-star"
+                                                            style="color: rgb(241, 196, 15);"></i><i
+                                                            class="fa fa-star"
+                                                            style="color: rgb(241, 196, 15);"></i><i
+                                                            class="fa fa-star" style="color:#ecf0f1"></i><i
+                                                            class="fa fa-star" style="color:#ecf0f1"></i>
+
                                                     </div>
-                                                    <div class="media mb-5 overflow-visible">
-                                                        <div class="me-3">
-                                                            <a href="{{ url('profile') }}"> <img
-                                                                    class="media-object rounded-circle thumb-sm"
-                                                                    alt="64x64"
-                                                                    src="{{ asset('assets/images/users/2.jpg') }}">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body border p-4 overflow-visible br-5">
-                                                            <h5 class="mt-0 text-dark">Mozelle Belt</h5>
-                                                            <span><i class="fe fe-thumb-up text-danger"></i></span>
-                                                            <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
-                                                            <p class="font-13 text-muted mt-2">Nostrud exercitation ullamco
-                                                                laboris commodo consequat. There’s an old maxim that
-                                                                states, “No fun for the writer, no fun for the
-                                                                reader.”No matter what industry you’re working in, as a
-                                                                blogger, you should
-                                                                live and die by this statement.</p>
-                                                            <span class="reply" id="2">
-                                                                <a href="javascript:;"><span
-                                                                        class="badge btn-primary-light rounded-pill py-2 px-3"><i
-                                                                            class="fe fe-corner-up-left me-1"></i>Reply</span></a>
-                                                            </span>
-                                                        </div>
+                                                    <p class="font-13 text-muted mt-2">In reality space is
+                                                        bigger than it seems in photo's.</p>
+                                                </div>
+                                                <div class="col-sm-2 col-12 my-auto content-button">
+                                                    <div class="float-end">
+                                                        <a href="javascript:void(0);" class="btn btn-primary px-2">
+                                                            <i class="zmdi zmdi-mail-reply me-1"></i>Reply
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="media mt-3 mb-5 overflow-visible d-block d-sm-flex">
-                                                <div class="me-3 mb-2">
+                                            <div class="row ms-0 border mb-5 p-4 br-5 col-12">
+                                                <div class="col-md-1 col-2">
                                                     <a href="{{ url('profile') }}"> <img
-                                                            class="media-object rounded-circle thumb-sm"
+                                                            class="media-object rounded-circle profile_img_res"
                                                             alt="64x64"
-                                                            src="{{ asset('assets/images/users/5.jpg') }}"> </a>
+                                                            src="{{ asset('assets/images/users/5.jpg') }}">
+                                                    </a>
                                                 </div>
-                                                <div class="media-body overflow-visible">
-                                                    <div class="border mb-5 p-4 br-5">
-                                                        <h5 class="mt-0 text-dark">Gavin Murray</h5>
-                                                        <span>June 14, 2023 at 8:00 pm</span>
-                                                        <span><i class="fe fe-thumb-up text-danger"></i></span>
-                                                        <p class="font-13 text-muted mt-2">Lorem ipsum dolor sit amet, quis
-                                                            Neque porro quisquam est, nostrud exercitation ullamco
-                                                            laboris commodo consequat. There’s an old maxim that states,
-                                                            “No fun for the writer, no fun for the reader.”No matter
-                                                            what industry you’re working in, as a blogger, you should
-                                                            live and die by this statement.</p>
-                                                        <span class="reply" id="1">
-                                                            <a href="javascript:;"><span
-                                                                    class="badge btn-primary-light rounded-pill py-2 px-3"><i
-                                                                        class="fe fe-corner-up-left me-1"></i>Reply</span></a>
-                                                        </span>
+                                                <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
+                                                    <h5 class="mt-3 text-dark">Gavin Murray</h5>
+                                                </div>
+                                                <div class="col-md-1 col-2 empty"></div>
+                                                <div class="col-md-9 col-sm-8 col-10 reply-content">
+                                                    <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
+                                                    <div class="rating-stars" id="rating-1" data-stars="2"
+                                                        style="cursor: pointer; text-align:left !important;font-size: 14px">
+                                                        <input type="hidden" name="rating-1" value="0"><i
+                                                            class="fa fa-star" style="color:#f1c40f"></i><i
+                                                            class="fa fa-star"
+                                                            style="color: rgb(241, 196, 15);"></i><i
+                                                            class="fa fa-star"
+                                                            style="color: rgb(241, 196, 15);"></i><i
+                                                            class="fa fa-star" style="color:#ecf0f1"></i><i
+                                                            class="fa fa-star" style="color:#ecf0f1"></i>
+
+                                                    </div>
+                                                    <p class="font-13 text-muted mt-2">In reality space is
+                                                        bigger than it seems in photo's.</p>
+                                                </div>
+                                                <div class="col-sm-2 col-12 my-auto content-button">
+                                                    <div class="float-end">
+                                                        <a href="javascript:void(0);" class="btn btn-primary px-2">
+                                                            <i class="zmdi zmdi-mail-reply me-1"></i>Reply
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row ms-0 border mb-5 p-4 br-5 col-12">
+                                                <div class="col-md-1 col-2">
+                                                    <a href="{{ url('profile') }}"> <img
+                                                            class="media-object rounded-circle profile_img_res"
+                                                            alt="64x64"
+                                                            src="{{ asset('assets/images/users/5.jpg') }}">
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
+                                                    <h5 class="mt-3 text-dark">Gavin Murray</h5>
+                                                </div>
+                                                <div class="col-md-1 col-2 empty"></div>
+                                                <div class="col-md-9 col-sm-8 col-10 reply-content">
+                                                    <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
+                                                    <div class="rating-stars" id="rating-1" data-stars="2"
+                                                        style="cursor: pointer; text-align:left !important;font-size: 14px">
+                                                        <input type="hidden" name="rating-1" value="0"><i
+                                                            class="fa fa-star" style="color:#f1c40f"></i><i
+                                                            class="fa fa-star"
+                                                            style="color: rgb(241, 196, 15);"></i><i
+                                                            class="fa fa-star"
+                                                            style="color: rgb(241, 196, 15);"></i><i
+                                                            class="fa fa-star" style="color:#ecf0f1"></i><i
+                                                            class="fa fa-star" style="color:#ecf0f1"></i>
+
+                                                    </div>
+                                                    <p class="font-13 text-muted mt-2">In reality space is
+                                                        bigger than it seems in photo's.</p>
+                                                </div>
+                                                <div class="col-sm-2 col-12 my-auto content-button">
+                                                    <div class="float-end">
+                                                        <a href="javascript:void(0);" class="btn btn-primary px-2">
+                                                            <i class="zmdi zmdi-mail-reply me-1"></i>Reply
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                         </div>
 
 
@@ -424,7 +514,8 @@
 
                                                         <div class="row mt-4">
                                                             <div class="col-10 pe-0">
-                                                                <a href="{{URL('checkout')}}" class="btn btn-primary text-white w-100">
+                                                                <a href="{{ URL('checkout') }}"
+                                                                    class="btn btn-primary text-white w-100">
                                                                     Checkout
                                                                 </a>
                                                             </div>
@@ -448,8 +539,63 @@
                                     </div>
                                 </div>
                                 <div class="card custom-card">
+                                    <hr class="px-0 line">
                                     <div class="card-body pb-0">
-                                        <h5 class="mb-3">Recent Files</h5>
+                                        <div class="text-center">
+                                            <h3 class="mb-3 booking-heading">Included in your booking</h3>
+                                        </div>
+                                        <h4 class="mt-5">Amentities</h4>
+                                        <div class="row mb-6">
+                                            <div class="col-6">
+                                                <p class=""><i class="fa fa-address-book pe-2"
+                                                        style="color: rgb(17, 101, 255); font-size: 22px"></i>Chairs
+                                                </p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p><i class="fa fa-address-card pe-2"
+                                                        style="color: rgb(17, 101, 255); font-size: 22px"></i>Speakers
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <h3>Features</h3>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <p><i class="fa fa-resistance pe-2"
+                                                        style="color: rgb(17, 101, 255); font-size: 22px"></i>Restrooms
+                                                </p>
+                                            </div>
+                                            <div class="col-6">
+                                                <p><i class="fa fa-resistance pe-2"
+                                                        style="color: rgb(17, 101, 255); font-size: 22px"></i>Restrooms
+                                                </p>
+                                            </div>
+                                            <div class="col-12 mt-2">
+                                                <p><i class="fa fa-bus pe-2"
+                                                        style="color: rgb(17, 101, 255); font-size: 22px"></i>Public
+                                                    Transportation</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card custom-card">
+                                    <div>
+                                        <h3 class="mt-4 ps-3">Operating Hours</h3>
+                                        <hr style="border-top: 1px solid black">
+                                        <h4 class="col-10 mt-5 ps-3">Monday <span class="float-end">7:00 AM - 10:00
+                                                PM</span></h4>
+                                        <h4 class="col-10 mt-5 ps-3">Tuesday <span class="float-end">7:00 AM - 10:00
+                                                PM</span></h4>
+                                        <h4 class="col-10 mt-5 ps-3">Wednesday <span class="float-end">7:00 AM - 10:00
+                                                PM</span></h4>
+                                        <h4 class="col-10 mt-5 ps-3">Thursday <span class="float-end">7:00 AM - 10:00
+                                                PM</span></h4>
+                                        <h4 class="col-10 mt-5 ps-3">Friday <span class="float-end">7:00 AM - 10:00
+                                                PM</span></h4>
+                                        <h4 class="col-10 mt-5 ps-3">Saturday <span class="float-end">7:00 AM - 10:00
+                                                PM</span></h4>
+                                        <h4 class="col-10 mt-5 ps-3">Sunday <span class="float-end">7:00 AM - 10:00
+                                                PM</span></h4>
                                     </div>
                                 </div>
                             </div>
