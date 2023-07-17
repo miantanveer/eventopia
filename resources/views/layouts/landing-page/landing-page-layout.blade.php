@@ -189,7 +189,7 @@
 
 </head>
 
-<body class="app sidebar-mini ltr">
+<body class="app sidebar-mini ltr bg-white">
     <!-- global-loader -->
     <div id="global-loader">
         <img src="{{ asset('assets/images/loader.svg') }}" class="loader-img" alt="Loader">
@@ -233,6 +233,11 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="container bg-white">
+        <h1 class="text-center my-6"><b>A lot of spaces for every moment.</b></h1> <div class="">. <h3 class="text-center my-2">Parties</h3>
+            @include('layouts.components.landing_slider')
         </div>
     </div>
     @include('layouts.components.modal')
@@ -287,6 +292,14 @@
             });
         });
     </script>
+
+    <!-- OWL CAROUSEL JS-->
+    <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
+    <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
+
+    <!-- OWL Carousel js -->
+    <script src="{{ asset('assets/js/carousel.js') }}"></script>
+
 
 </body>
 
