@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.landing-page.landing-page');
+    return view('layouts.landing-page.landing-page-layout');
 });
 Route::get('/signup', function () {
     return view('layouts.auth.signup');
