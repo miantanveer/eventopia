@@ -18,7 +18,7 @@
                                 <a class="side-menu__item" data-bs-toggle="slide" href="{{URL('/dashboard')}}"><i class="side-menu__icon text-white fe fe-home"></i><span class="side-menu__label text-white">Dashboard</span></a>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="#"><i class="side-menu__icon text-white fa fa-calendar"></i><span class="side-menu__label text-white">Book a Space</span></a>
+                                <a class="side-menu__item" data-bs-toggle="slide" href="{{URL('/list-space')}}"><i class="side-menu__icon text-white fa fa-calendar"></i><span class="side-menu__label text-white">Book a Space</span></a>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="#"><i class="side-menu__icon text-white fa fa-calendar"></i><span class="side-menu__label text-white">Book an Entertainment & Talent</span></a>

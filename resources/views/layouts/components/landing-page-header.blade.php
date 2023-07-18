@@ -21,15 +21,12 @@
                         <i class="dropdown-icon icon icon-layers"></i> Listing
                     </a>
                     <a class="dropdown-item" href="#">
-                        <i class="dropdown-icon fa fa-book"></i> Booking
-                    </a>
-                    <a class="dropdown-item" href="#">
                         <i class="dropdown-icon fa fa-calendar"></i> Calendar
                     </a>
                 </div>
             </div>
             <!-- sidebar-toggle-->
-            <a class="logo-horizontal " href="{{url('/dashboard')}}">
+            <a class="logo-horizontal " href="{{url('/')}}">
                 <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img desktop-logo"
                     alt="logo">
                 <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img light-logo1"
@@ -96,11 +93,6 @@
                             <div class="d-flex seller-btn">
                                 <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true">
                                     Listing
-                                </a>
-                            </div>
-                            <div class="d-flex seller-btn">
-                                <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true">
-                                    Booking
                                 </a>
                             </div>
                             <div class="d-flex seller-btn">
