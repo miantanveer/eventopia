@@ -2,7 +2,7 @@
     position: relative;
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("../images/brand/landing_page_img.jpg");
+    url("../images/brand/landing_page_img.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -10,7 +10,7 @@
 .landing_background {
     position: relative;
     height: 400px;
-    background: url("..assets/images/brand/landing_background.jpg");
+    background: url("../images/brand/landing_background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -24,17 +24,17 @@
 }
 .form-control {
     border-color: white !important;
-    line-height: 0;
+    line-height: 0.0;
 }
 #form-border {
-    background-color: #ffffff;
-    border-radius: 10px !important;
+    background-color: #FFFFFF;
+    border-radius: 13px !important;
 }
 .rounded-form {
     border-radius: 13px !important;
 }
 #form-border input {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
 }
 .box-sizing {
     box-sizing: border-box;
@@ -50,13 +50,13 @@
     border: none;
 }
 .border-end {
-    border-left: #acacac !important;
+    border-left: #ACACAC !important;
 }
 .header-right-icons {
     z-index: 9999 !important;
 }
 .button {
-    padding: 0.4rem 0.76rem !important;
+    padding: 0.400rem 0.760rem !important;
 }
 .my-font-size {
     font-size: 0.79rem !important;
@@ -68,7 +68,7 @@
     .font-size {
         font-size: 0.68rem !important;
     }
-    .heading_font {
+    .heading_font{
         font-size: 1.7rem !important;
     }
 }
@@ -83,11 +83,11 @@
         border: none !important;
     }
     .border-end0 {
-        border-bottom: #acacac solid 1px !important;
+        border-bottom: #ACACAC solid 1px !important;
         padding-bottom: 1rem !important;
     }
-    .border-end0.border-end {
-        border-right: none !important;
+    .border-end0.border-end{
+        border-right:none!important;
     }
     .btn-search {
         width: 100% !important;
@@ -95,12 +95,12 @@
     .font-size-h1 {
         font-size: 1.5rem !important;
     }
-    .heading_font {
+    .heading_font{
         font-size: 1.3rem !important;
     }
-    .form-blur-border {
-        border-radius: 0px !important;
-        border: none !important;
+    .form-blur-border{
+        border-radius: 0px!important;
+        border: none!important;
     }
 }
 @media screen and (max-width: 345px) and (min-width: 0px) {
@@ -111,22 +111,22 @@
         border: none !important;
     }
     .border-end0 {
-        border-bottom: #acacac solid 1px !important;
+        border-bottom: #ACACAC solid 1px !important;
         padding-bottom: 1rem !important;
     }
-    .border-end0.border-end {
-        border-right: none !important;
+    .border-end0.border-end{
+        border-right:none!important;
     }
     .font-size-h1 {
         margin-bottom: 30px !important;
         font-size: 1.1rem !important;
     }
-    .heading_font {
+    .heading_font{
         font-size: 1.2rem !important;
     }
-    .form-blur-border {
-        border-radius: 0px !important;
-        border: none !important;
+    .form-blur-border{
+        border-radius: 0px!important;
+        border: none!important;
     }
 }
 .header .dropdown .second_drop {
@@ -154,7 +154,7 @@
     right: 24px;
 }
 .header .dropdown .first_drop {
-    top: 1.5rem !important;
+    top: 1.5rem!important;
 }
 .header .first_drop::before {
     left: 15px !important;
@@ -194,13 +194,13 @@
     width: 100%;
 }
 .btn-color {
-    background-color: #006ce4 !important;
+    background-color: #006CE4 !important;
 }
-.form-blur-border {
+.form-blur-border{
     border-radius: 20px;
     border: 8px solid rgba(153, 150, 150, 0.411);
 }
-@media (max-width: 991px) {
+@media (max-width: 991px){
     .header.hor-header {
         position: absolute !important;
     }
