@@ -298,7 +298,7 @@
                                     <div class="card-footer">
                                         <div class="btn-list">
                                             <a href="{{ url('shop') }}" class="btn "></i>Continue Shopping</a>
-                                            <a href="{{ url('review&pay') }}"
+                                            <a href="{{ url('review-pay') }}"
                                                 class="btn btn-primary float-sm-end">Check out<i
                                                     class="fa fa-arrow-right ms-1"></i></a>
                                         </div>
