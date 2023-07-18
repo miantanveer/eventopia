@@ -491,14 +491,14 @@
         });
     </script>
     <script>
-        flatpickr("#flatpickrDate", {
-      enableTime: true,
-      time_24hr: true,
-      dateFormat: "Y-m-d H:i",
-      appendTo: document.body,
-      altInput: true,
-      altFormat: "F j, Y h:i K",
-    });
+    //     flatpickr("#flatpickrDate", {
+    //   enableTime: true,
+    //   time_24hr: true,
+    //   dateFormat: "Y-m-d H:i",
+    //   appendTo: document.body,
+    //   altInput: true,
+    //   altFormat: "F j, Y h:i K",
+    // });
     </script>
     <!-- OWL CAROUSEL JS-->
     <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
