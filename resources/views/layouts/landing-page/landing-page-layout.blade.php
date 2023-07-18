@@ -2,7 +2,6 @@
 <html lang="en" dir="ltr">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +10,7 @@
     <meta name="keywords" content="">
     <link rel="stylesheet" href="{{ asset('assets/css/landing-page.css') }}">
     <title>Eventopia | Landing Page</title>
-
+    <script src="{{ asset('assets/js/flatpicker.min.js') }}"></script>
     @include('layouts.components.styles')
 
 </head>
@@ -46,13 +45,13 @@
                             </div>
                             <div class="col-sm-3 border-end0 pe-0 px-0 px-sm-3 mb-3 mb-sm-0">
                                 <label class="mb-0 label-none font-size"><b>When?</b></label>
-                                <input type="text" class="form-control input py-0 px-0" id="searchTerm3"
+                                <input type="text" class="form-control input py-0 px-0" id="flatpickrDate"
                                     placeholder="Anytime">
                             </div>
                             <div class="col-sm-1 text-end px-0">
                                 <button type="submit"
                                     class="btn btn-color rounded text-end button mx-lg-5 d-none d-sm-block"><i
-                                        class="fa fa-search"></i></button>
+                                        class="fa fa-search text-white"></i></button>
                                 <button type="submit"
                                     class="btn btn-primary btn-search mx-0 px-0 text-center d-sm-none d-block">Search</button>
                             </div>
@@ -71,37 +70,26 @@
     </div>
     <div class="landing_background">
         <div class="container">
-            <h1 class="text-center pt-7 text-white image-h1">Book the perfect entertainment & <br>
+            <h1 class="text-center pt-7 text-white image-h1 heading_font">Book the perfect entertainment & <br>
                 talent for your upcoming event.</h1>
-            <p class="text-center text-white">For every event, from weddings to birthday celebrations, we'll help you
+            <p class="text-center text-white px-md-9 px-sm-5">For every event, from weddings to birthday celebrations, we'll help you
                 book
                 the best talent.</p>
-            <form action="#" class="ms-5 mt-0 mt-lg-7 mt-md-3 image-form form-blur-borderr">
-                <div class="row bg-white ms-0 py-3 ps-5 box-sizing rounded-3 w-100 align-items-center">
-                    <div class="col-11"><input type="text" class="form-control input input_placeholder"
+            <form action="#" class="ms-5 mt-0 mt-lg-7 mt-md-3 image-form form-blur-border">
+                <div class="row bg-white ms-0 py-3 ps-5 box-sizing rounded-form w-100 align-items-center">
+                    <div class="col-10"><input type="text" class="form-control input input_placeholder"
                             placeholder="What type of entertainment or talent can we assist you in finding?"></div>
-                    <div class="col-1 text-end px-0">
+                    <div class="col-2 text-center px-0">
                         <button type="submit" class="btn btn-color rounded text-end button mx-lg-5"><i
-                                class="fa fa-search fs-1"></i></button>
+                                class="fa fa-search text-white"></i></button>
                     </div>
                 </div>
             </form>
         </div>
-        {{-- <div class="container">
-            <div class="row mt-9">
-                <div class="col-11 text-center">
-                    <input type="search" class="bg-white w-90 py-3 px-2"
-                        placeholder="What type of entertainment or talent can we assist you in finding?">
-                </div>
-                <div class="col-1">
-                    <button type="submit" class="btn btn-primary rounded text-end"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-        </div> --}}
     </div>
 
     <div>
-        <h1 class="text-center mt-lg-7 mt-md-4 mt-3 fs-1">Make your plans exceptional <br> whatever they may be.</h1>
+        <h1 class="text-center mt-lg-7 mt-md-4 mt-3 fs-1 heading_fon">Make your plans exceptional <br> whatever they may be.</h1>
         <h3 class="text-center my-3">Musical Acts</h3>
         <div class="row">
             <div class="col-12 bg-white">
@@ -448,7 +436,7 @@
     <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
         <div class="dropup btn-group mt-2 mb-2">
             <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button"
-                data-bs-toggle="dropdown" aria-expanded="true">Need any help?</button>
+                data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Need any help?</button>
             <ul class="dropdown-menu"
                 style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);"
                 data-popper-placement="top-start">
@@ -491,7 +479,16 @@
             });
         });
     </script>
-
+    <script>
+    //     flatpickr("#flatpickrDate", {
+    //   enableTime: true,
+    //   time_24hr: true,
+    //   dateFormat: "Y-m-d H:i",
+    //   appendTo: document.body,
+    //   altInput: true,
+    //   altFormat: "F j, Y h:i K",
+    // });
+    </script>
     <!-- OWL CAROUSEL JS-->
     <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
