@@ -238,7 +238,7 @@
                                     </div>
                                 </div>
                                 <a href="http://eventopia.test/space-details">
-                                    <img src="http://eventopia.test/assets/images/users/spaces/2.jpg"
+                                    <img src="{{ asset('assets/images/users/spaces/9.jpg') }}"
                                         class="card-img-top" alt="img">
                                     <div class="card-body">
                                         <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
