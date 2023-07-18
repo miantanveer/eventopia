@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.landing-page.landing-page-layout');
-});
+// Route::get('/', function () {
+//     return view('layouts.landing-page.landing-page-layout');
+// });
 Route::get('/signup', function () {
     return view('layouts.auth.signup');
 });
@@ -58,6 +58,10 @@ Route::get('/checkout', function () {
 });
 Route::get('/review-pay', function () {
     return view('layouts.space.review');
+});
+
+Route::get('/', function () {
+    return view('layouts.space.list_Space');
 });
 
 
