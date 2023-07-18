@@ -15,7 +15,7 @@
             position: relative;
             top: -280px;
             left: 60px;
-            transform: translate()
+            transform: translate();
             z-index: 1;
         }
         @media(min-width:0) and (max-width:576px){

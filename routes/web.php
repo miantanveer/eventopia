@@ -61,7 +61,7 @@ Route::get('/review-pay', function () {
 });
 
 Route::get('/list-space', function () {
-    return view('layouts.space.list_Space');
+    return view('layouts.seller.add-space');
 });
 
 

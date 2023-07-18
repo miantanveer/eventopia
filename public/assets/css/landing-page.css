@@ -11,7 +11,7 @@
 .landing_background {
     position: relative;
     height: 400px;
-    background: url("../images/brand/landing_background.jpg");
+    background: url("..assets/images/brand/landing_background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -33,7 +33,7 @@
 
 #form-border {
     background-color: #ffffff;
-    border-radius: 13px !important;
+    border-radius: 10px !important;
 }
 
 .rounded-3 {
@@ -215,8 +215,4 @@
 .btn-color {
     background-color: #006CE4 !important;
     color: white;
-}
-.form-blur-border{
-    border-radius: 20px;
-    border: 8px solid rgba(153, 150, 150, 0.411) !important;
 }
