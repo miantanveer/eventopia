@@ -86,17 +86,6 @@
                 </div>
             </form>
         </div>
-        {{-- <div class="container">
-            <div class="row mt-9">
-                <div class="col-11 text-center">
-                    <input type="search" class="bg-white w-90 py-3 px-2"
-                        placeholder="What type of entertainment or talent can we assist you in finding?">
-                </div>
-                <div class="col-1">
-                    <button type="submit" class="btn btn-primary rounded text-end"><i class="fa fa-search"></i></button>
-                </div>
-            </div>
-        </div> --}}
     </div>
 
     <div>
@@ -447,7 +436,7 @@
     <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
         <div class="dropup btn-group mt-2 mb-2">
             <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button"
-                data-bs-toggle="dropdown" aria-expanded="true">Need any help?</button>
+                data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Need any help?</button>
             <ul class="dropdown-menu"
                 style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);"
                 data-popper-placement="top-start">
