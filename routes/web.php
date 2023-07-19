@@ -46,9 +46,14 @@ Route::get('/dashboard', function () {
 Route::get('/login', function () {
     return view('layouts.auth.login');
 });
-
 Route::get('/search-results', function () {
     return view('layouts.customer.search-results');
+});
+Route::get('/talent-&-entertainments', function () {
+    return view('layouts.customer.search-results-of-talent&entertainment');
+});
+Route::get('/services', function () {
+    return view('layouts.customer.services');
 });
 Route::get('/space-details', function () {
     return view('layouts.space.space-detail');
