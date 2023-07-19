@@ -1,9 +1,9 @@
-<footer class="footer bg-primary">
+<footer class="footer" style="background-color: #00224F">
     <div class="container">
         <div class="">
             <div class="row">
                 <div class="col-md-4 col-sm-12 text-center ">
-                    <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img desktop-logo" alt="logo">
+                    <img src="{{asset('assets/images/brand/footer-logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
                 </div>
                 <div class="col-md-2 col-sm-3">
                     <ul class="list-unstyled mb-4">
