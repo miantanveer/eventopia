@@ -60,7 +60,7 @@ Route::get('/review-pay', function () {
     return view('layouts.space.review');
 });
 
-Route::get('/list-space', function () {
+Route::get('/add-space', function () {
     return view('layouts.seller.add-space');
 });
 
