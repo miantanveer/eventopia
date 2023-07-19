@@ -436,7 +436,7 @@
     <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
         <div class="dropup btn-group mt-2 mb-2">
             <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button"
-                data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Need any help?</button>
+                data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Do you need Help?</button>
             <ul class="dropdown-menu"
                 style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);"
                 data-popper-placement="top-start">

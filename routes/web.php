@@ -59,7 +59,12 @@ Route::get('/checkout', function () {
 Route::get('/review-pay', function () {
     return view('layouts.space.review');
 });
-
-
-
-
+Route::get('/payment-successfull', function () {
+    return view('layouts.space.payment-successfull');
+});
+Route::get('/booking', function () {
+    return view('layouts.users.booking');
+});
+Route::get('/bookings', function () {
+    return view('layouts.users.bookings-sample');
+});
