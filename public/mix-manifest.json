@@ -5,9 +5,6 @@
     "/assets/css/transparent-style.css": "/assets/css/transparent-style.css",
     "/assets/css/skin-modes.css": "/assets/css/skin-modes.css",
     "/assets/css/dark-style.css": "/assets/css/dark-style.css",
-    "/assets/css/landing-page.css": "/assets/css/landing-page.css",
-    "/assets/images/loader.svg": "/assets/images/loader.svg",
-    "/assets/images/login-form.png": "/assets/images/login-form.png",
-    "/assets/images/signup-form.png": "/assets/images/signup-form.png",
+    "/assets/css/flatpicker.min.css": "/assets/css/flatpicker.min.css",
     "/assets/switcher/demo.css": "/assets/switcher/demo.css"
 }

@@ -3,9 +3,9 @@
 @section('styles')
 <style>
     .filters {
-        border-radius: 10px;
-        border: 1px solid #003B95;
-        background-color: #e3edfdd2;
+        border-radius: 12px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        background-color: #F5F9FF;
     }
 
     .gmap_iframe {
@@ -29,6 +29,19 @@
         background-color: #003B95 !important;
         color: white !important;
     }
+
+    .btn_background {
+        background: white !important;
+        border: 1px solid rgba(95, 95, 95, 0.74);
+    }
+
+    .card_height {
+        height: 100% !important;
+        /* width: 100% !important; */
+    }
+    .owl-item{
+        height: 128px!important;
+    }
 </style>
 @endsection
 
@@ -40,7 +53,8 @@
             <div class="row filters">
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xl-1">
                     <div class="btn-group mt-2 mb-2">
-                        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+                        <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background"
+                            data-bs-toggle="dropdown">
                             Price <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
@@ -68,7 +82,8 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xl-1">
                     <div class="btn-group mt-2 mb-2">
-                        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+                        <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background"
+                            data-bs-toggle="dropdown">
                             Type <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
@@ -121,7 +136,8 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xl-1">
                     <div class="btn-group mt-2 mb-2">
-                        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+                        <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background"
+                            data-bs-toggle="dropdown">
                             Attendees <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
@@ -154,13 +170,12 @@
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-3 col-xl-2 ms-lg-5">
                     <form action="#" class="mt-2">
-                        <input type="datetime-local" class="form-control bg-transparent border-primary">
+                        <input type="datetime-local" class="form-control btn_background">
                     </form>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-3 col-xl-2">
                     <form action="#" class="mt-2">
-                        <input type="text" class="form-control bg-transparent border-primary"
-                            placeholder="Enter a Keyword">
+                        <input type="text" class="form-control btn_background" placeholder="Enter a Keyword">
                     </form>
                 </div>
             </div>
@@ -172,61 +187,61 @@
 
 <!-- ROW-2 -->
 <div class="row">
-    <div class="col-xl-8 col-md-12">
+    <div class="col-xl-8 col-md-12" style="height: 630px;overflow:auto !important;">
         <div class="container-fluid">
-            <div class="card custom-card">
-                <div class="card-header border-bottom-0">
-                    The talent & entertainments you might be looking for?
-                </div>
-                <div class="card-body pt-0 h-100">
-                    <div class="owl-carousel owl-carousel-icons2">
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/11.jpg') }}" alt="img"></a>
-                            </div>
+            <div class="card custom-card overflow-auto">
+                <div class="container-fluid"  style="overflow: auto !important;">
+                    <div class="card custom-card">
+                        <div class="card-header border-bottom-0">
+                            The talent & entertainments you might be looking for?
                         </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/2.jpg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/3.jpg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/4.jpg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/7.jpg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/9.jpg') }}" alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/10.jpg') }}" alt="img"></a>
+                        <div class="card-body pt-0 h-100">
+                            <div class="owl-carousel owl-carousel-icons2">
+                                <div class="item card_height">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
+                                        <a href="#" class="h-100"><img class="h-100" src="{{ asset('assets/images/users/spaces/11.jpg') }}" alt="img"></a>
+                                    </div>
+                                </div>
+                                <div class="item card_height">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <a href="#" class=""><img src="{{ asset('assets/images/users/spaces/2.jpg') }}" alt="img"></a>
+                                    </div>
+                                </div>
+                                <div class="item card_height">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <a href="#" class=""><img src="{{ asset('assets/images/users/spaces/3.jpg') }}" alt="img"></a>
+                                    </div>
+                                </div>
+                                <div class="item card_height">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <a href="#" class=""><img src="{{ asset('assets/images/users/spaces/4.jpg') }}" alt="img"></a>
+                                    </div>
+                                </div>
+                                <div class="item card_height">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <a href="#" class=""><img src="{{ asset('assets/images/users/spaces/7.jpg') }}" alt="img"></a>
+                                    </div>
+                                </div>
+                                <div class="item card_height">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <a href="#" class=""><img src="{{ asset('assets/images/users/spaces/9.jpg') }}" alt="img"></a>
+                                    </div>
+                                </div>
+                                <div class="item card_height">
+                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                        <a href="#" class=""><img
+                                                src="{{ asset('assets/images/users/spaces/10.jpg') }}" alt="img"></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <hr>
-        <div class="container-fluid">
-            <div class="card custom-card overflow-auto">
-                <div class="card-header border-bottom-0">
+                <div class="card-header border-bottom-0 ms-3">
                     4,333 party hall spaces near USA
                 </div>
-                <div class="card-body pt-0" style="height: 630px;overflow:auto !important;">
-                    <div class="row" style="overflow: auto !important;">
+                <div class="card-body pt-0">
+                    <div class="row">
                         <div class="col-xl-4 col-md-6 col-sm-12">
                             <div class="card overflow-hidden">
                                 <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
@@ -238,8 +253,8 @@
                                     </div>
                                 </div>
                                 <a href="http://eventopia.test/space-details">
-                                    <img src="{{ asset('assets/images/users/spaces/9.jpg') }}"
-                                        class="card-img-top" alt="img">
+                                    <img src="{{ asset('assets/images/users/spaces/9.jpg') }}" class="card-img-top"
+                                        alt="img">
                                     <div class="card-body">
                                         <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
                                         <i class="fa fa-group"></i> 25 &nbsp;

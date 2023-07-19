@@ -16,6 +16,14 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+.landing_background1 {
+    position: relative;
+    height: 400px;
+    background: url("../images/brand/landing-page-image3.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 .jumps-prevent {
     padding-top: 0px !important;
@@ -251,4 +259,19 @@
         position: absolute !important;
     }
 }
-
+.rounded-btn{
+    border-radius: 50px!important;
+}
+.content-width{
+    width: 352px!important;
+}
+.owl-carousel .owl-nav button.owl-prev{
+    background-color: #006CE4!important;
+    color: white!important;
+    border: none !important;
+}
+.owl-carousel .owl-nav button.owl-next{
+    background-color: #006CE4!important;
+    color: white!important;
+    border: none !important;
+}
