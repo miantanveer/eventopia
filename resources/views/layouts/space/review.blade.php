@@ -43,7 +43,7 @@
                             <div class="col-md-6 col-sm-8 col-12">
                                 <div style="font-size: 25px"><i class="ion-clipboard"></i> <strong>Review & Pay</strong>
                                 </div>
-                                <div class="card border">
+                                <div class="card border mt-2">
                                     <div class="card-header" style="background-color: #F8F9FA">
                                         Review & Pay
                                     </div>
@@ -85,8 +85,8 @@
                             <div style="font-size: 25px"><i class="ion-clipboard"></i> <strong>Payments</strong>
                             </div>
                             <div class="my-5">
-                                <form action="">
-                                    <select name="" id="" class="my-3 form-control">
+                                <form action="{{URL('/payment-successfull')}}" method="GET">
+                                    <select name="" id="" class="my-3 form-control" required>
                                         <option value="">Select Card</option>
                                         <option value="">Card 1</option>
                                         <option value="">Card 2</option>
@@ -94,7 +94,7 @@
                                         <option value="">Card 4</option>
                                     </select>
                                     <input type="text" class="my-3 form-control"
-                                        placeholder="Cardholder's Name">
+                                        placeholder="Cardholder's Name" required>
                                     <label for="card_number">Card Number*</label>
                                     <input type="number" id="card_number" class="mb-3 form-control"
                                         placeholder="1234 1234 1234 1234">
@@ -102,15 +102,15 @@
                                         <div class="col-6">
                                             <label for="expiration">Expiration*</label>
                                             <input type="text" id="expiration" placeholder="Expiration"
-                                                class="mb-3 form-control">
+                                                class="mb-3 form-control" required>
                                         </div>
                                         <div class="col-6">
                                             <label for="cvc">CVC*</label>
                                             <input type="text" id="cvc" placeholder="CVC"
-                                                class="mb-3 form-control">
+                                                class="mb-3 form-control" required>
                                         </div>
                                     </div>
-                                    <select name="" id="" class="form-control">
+                                    <select name="" id="" class="form-control" required>
                                         <option value="" selected>Select Country</option>
                                         <option value="">Pakistan</option>
                                         <option value="">Afganistan</option>
@@ -127,10 +127,8 @@
                                     </div>
                                     <hr style="border-top: 2px solid gray">
                                     <div class="text-end mt-5">
-                                        <button type="button" name="" id=""
-                                            class="btn" style="color: gray; background-color: transparent" >Back</button>
-                                        <button type="button" name="" id=""
-                                            class="btn" style="background-color: #65AEFF; color: white">Submit</button>
+                                            <button class="btn btn-white mt-2 mb-0" disabled>Back</button>
+                                            <button class="btn btn-primary mt-2 mb-0 ">Submit</button>
                                     </div>
                                 </form>
                             </div>
@@ -156,7 +154,7 @@
         <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
             <div class="dropup btn-group mt-2 mb-2">
                 <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button"
-                    data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Need any help?</button>
+                    data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Do you need Help?</button>
                 <ul class="dropdown-menu"
                     style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);"
                     data-popper-placement="top-start">

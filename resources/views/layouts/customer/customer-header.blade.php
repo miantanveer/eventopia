@@ -36,7 +36,7 @@
                                             </a>
                                         </div>
                                         <div class="d-flex seller-btn">
-                                            <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true">
+                                            <a class="nav-link py-3 px-5 m-2 active text-white" href="{{url('/bookings')}}" role="tab" aria-selected="true">
                                                 Booking
                                             </a>
                                         </div>

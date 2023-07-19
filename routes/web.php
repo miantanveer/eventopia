@@ -46,9 +46,14 @@ Route::get('/dashboard', function () {
 Route::get('/login', function () {
     return view('layouts.auth.login');
 });
-
 Route::get('/search-results', function () {
     return view('layouts.customer.search-results');
+});
+Route::get('/talent-&-entertainments', function () {
+    return view('layouts.customer.search-results-of-talent&entertainment');
+});
+Route::get('/services', function () {
+    return view('layouts.customer.services');
 });
 Route::get('/space-details', function () {
     return view('layouts.space.space-detail');
@@ -59,11 +64,12 @@ Route::get('/checkout', function () {
 Route::get('/review-pay', function () {
     return view('layouts.space.review');
 });
-
-Route::get('/list-space', function () {
-    return view('layouts.seller.add-space');
+Route::get('/payment-successfull', function () {
+    return view('layouts.space.payment-successfull');
 });
-
-
-
-
+Route::get('/booking', function () {
+    return view('layouts.users.booking');
+});
+Route::get('/bookings', function () {
+    return view('layouts.users.bookings-sample');
+});
