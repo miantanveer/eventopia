@@ -938,3 +938,14 @@ div.conv-form-wrapper div#messages div.message.from {
     background-color: #3d357d !important;
   }
 }
+.owl-carousel .owl-nav button.owl-prev {
+  background-color: #006CE4 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.owl-carousel .owl-nav button.owl-next {
+  background-color: #006CE4 !important;
+  color: white !important;
+  border: none !important;
+}

@@ -32,7 +32,7 @@
 
                                         <div class="d-flex seller-btn">
                                             <a class="nav-link border py-3 px-5 m-2 active text-white" id="tab1" data-bs-toggle="tab" href="#tabs_2_1" role="tab" aria-selected="true">
-                                                Become a Seller
+                                                Customer Page
                                             </a>
                                         </div>
                                         <div class="d-flex seller-btn">

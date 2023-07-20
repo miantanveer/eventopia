@@ -27,9 +27,9 @@
             </div>
             <!-- sidebar-toggle-->
             <a class="logo-horizontal " href="{{url('/')}}">
-                <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img desktop-logo"
+                <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img desktop-logo nav_log"
                     alt="logo">
-                <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img light-logo1"
+                <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img light-logo1 nav_log"
                     alt="logo">
             </a>
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
@@ -52,7 +52,7 @@
                         <a class="dropdown-item" href="#">
                             <i class="dropdown-icon fe fe-user"></i> List Your Service
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{URL('payments')}}">
                             <i class="dropdown-icon fe fe-user"></i> Payment
                         </a>
                         <a class="dropdown-item" href="#">
@@ -122,7 +122,7 @@
                                     <a class="dropdown-item" href="#">
                                         <i class="dropdown-icon fe fe-user"></i> List Your Service
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{URL('payments')}}">
                                         <i class="dropdown-icon fe fe-user"></i> Payment
                                     </a>
                                     <a class="dropdown-item" href="#">

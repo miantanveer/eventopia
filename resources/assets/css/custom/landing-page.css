@@ -35,14 +35,14 @@
     line-height: 0;
 }
 #form-border {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     border-radius: 13px !important;
 }
 .rounded-form {
     border-radius: 13px !important;
 }
 #form-border input {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
 }
 .box-sizing {
     box-sizing: border-box;
@@ -58,7 +58,7 @@
     border: none;
 }
 .border-end {
-    border-left: #acacac !important;
+    border-left: #ACACAC !important;
 }
 .header-right-icons {
     z-index: 9999 !important;
@@ -76,7 +76,6 @@
     .font-size {
         font-size: 0.68rem !important;
     }
-
     .heading_font{
         font-size: 1.7rem !important;
     }
@@ -92,27 +91,35 @@
         border: none !important;
     }
     .border-end0 {
-        border-bottom: #acacac solid 1px !important;
+        border-bottom: #ACACAC solid 1px !important;
         padding-bottom: 1rem !important;
     }
     .border-end0.border-end{
         border-right:none!important;
     }
-
     .btn-search {
         width: 100% !important;
     }
     .font-size-h1 {
         font-size: 1.5rem !important;
     }
-
     .heading_font{
         font-size: 1.3rem !important;
     }
-
     .form-blur-border{
         border-radius: 0px!important;
         border: none!important;
+    }
+    .height-img{
+        height: 550px !important;
+    }
+    .card_overlay{
+        width: 20rem !important;
+    }
+}
+@media screen and (max-width: 375px) and (min-width: 344px) {
+    .card_overlay{
+        width: auto !important;
     }
 }
 @media screen and (max-width: 345px) and (min-width: 0px) {
@@ -123,18 +130,16 @@
         border: none !important;
     }
     .border-end0 {
-        border-bottom: #acacac solid 1px !important;
+        border-bottom: #ACACAC solid 1px !important;
         padding-bottom: 1rem !important;
     }
     .border-end0.border-end{
         border-right:none!important;
     }
-
     .font-size-h1 {
         margin-bottom: 30px !important;
         font-size: 1.1rem !important;
     }
-
     .heading_font{
         font-size: 1.2rem !important;
     }
@@ -142,8 +147,13 @@
         border-radius: 0px!important;
         border: none!important;
     }
+    .height-img{
+        height: 550px !important;
+    }
+    .card_overlay{
+        width: auto !important;
+    }
 }
-
 .header .dropdown .second_drop {
     position: absolute !important;
     inset: 0px 3px auto auto !important;
@@ -168,7 +178,6 @@
     left: auto;
     right: 24px;
 }
-
 .header .dropdown .first_drop {
     top: 1.5rem!important;
 }
@@ -225,7 +234,7 @@
     border-radius: 50px!important;
 }
 .content-width{
-    width: 352px!important;
+    width: 100%!important;
 }
 .owl-carousel .owl-nav button.owl-prev{
     background-color: #006CE4!important;
@@ -236,4 +245,29 @@
     background-color: #006CE4!important;
     color: white!important;
     border: none !important;
+}
+@media(min-width:0px) and (max-width:400px){
+    .nav_log{
+        width: 150px !important;
+    }
+}
+.flatpickr-calendar.hasTime.animate.arrowTop.arrowLeft.open {
+    top: 465px  !important;
+    left: 171px !important;
+    right: auto !important;
+    width: 76% !important;
+}
+.flatpickr-current-month {
+    width: 18% !important;
+    left: 4.5% !important;
+}
+.flatpickr-next-month {
+    left: -500px !important;
+}
+.flatpickr-time{
+    position: relative !important;
+    top: -195px !important;
+    width: 50% !important;
+    left: 416px !important;
+    border: 1px solid #E5E5E5 !important;
 }

@@ -3,49 +3,41 @@
         <div class="">
             <div class="row">
                 <div class="col-md-4 col-sm-12 text-center ">
-                    <img src="{{asset('assets/images/brand/footer-logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
+                    <img src="{{asset('assets/images/brand/white-logo.png')}}"
+                        class="header-brand-img desktop-logo w-50 my-2" alt="logo">
+                    <img src="{{asset('assets/images/brand/apple_logo.png')}}"
+                        class="header-brand-img desktop-logo w-50 my-2" alt="logo">
+                    <img src="{{asset('assets/images/brand/play_logo.png')}}"
+                        class="header-brand-img desktop-logo w-50 my-2" alt="logo">
                 </div>
-                <div class="col-md-2 col-sm-3">
-                    <ul class="list-unstyled mb-4">
-                        <li><a href="javascript:;" class="text-white fw-bold">Company</a></li>
-                        <br>
-                        <li><a href="javascript:;" class="text-white">About</a></li>
-                        <br>
-                        <li><a href="javascript:;" class="text-white">Listing</a></li>
-                        <br>
-                        <li><a href="javascript:;" class="text-white">Bookings</a></li>
-                    </ul>
+                <div class="col-md-2 col-sm-3 col-6 text-center text-sm-left">
+                    <a href="javascript:;" class="mb-4 text-white"><p>Company</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>About</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Listing</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Bookings</p></a>
                 </div>
-                <div class="col-md-2 col-sm-3">
-                    <ul class="list-unstyled mb-4">
-                        <li><a href="javascript:;" class="text-white fw-bold">Explore</a></li>
-                        <li><a href="javascript:;" class="text-white">Activities</a></li>
-                        <li><a href="javascript:;" class="text-white">Locations</a></li>
-                        <li><a href="javascript:;" class="text-white">Events</a></li>
-                    </ul>
+                <div class="col-md-2 col-sm-3 col-6 text-center text-sm-left">
+                    <a href="javascript:;" class="mb-4 text-white"><p>Explore</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Activities</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Locations</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Events</p></a>
                 </div>
-                <div class="col-md-2 col-sm-3">
-                    <ul class="list-unstyled mb-4">
-                        <li><a href="javascript:;" class="text-white fw-bold">Host</a></li>
-                        <br>
-                        <li><a href="javascript:;" class="text-white">Spaces</a></li>
-                        <br>
-                        <li><a href="javascript:;" class="text-white">Entertainment & Talents</a></li>
-                        <br>
-                        <li><a href="javascript:;" class="text-white">Services</a></li>
-                    </ul>
+                <div class="col-md-2 col-sm-3 col-6 text-center text-sm-left">
+                    <a href="javascript:;" class="mb-4 text-white"><p>Host</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Spaces</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Entertainment & Talents</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Services</p></a>
                 </div>
-                <div class="col-md-2 col-sm-3">
-                    <ul class="list-unstyled mb-4">
-                        <li><a href="javascript:;" class="text-white fw-bold">Support</a></li>
-                        <li><a href="javascript:;" class="text-white">Help center</a></li>
-                        <li><a href="javascript:;" class="text-white">Contact</a></li>
-                        <li><a href="javascript:;" class="text-white">Trust & Safety</a></li>
-                        <li><a href="javascript:;" class="text-white">Cookie preferences</a></li>
-                    </ul>
+                <div class="col-md-2 col-sm-3 col-6 text-center text-sm-left">
+                    <a href="javascript:;" class="mb-4 text-white"><p>Support</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Help center</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Contact</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Trust & Safety</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>Cookie preferences</p></a>
                 </div>
+                </a>
             </div>
         </div>
     </div>
+    </div>
 </footer>
-
