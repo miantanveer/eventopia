@@ -24,6 +24,7 @@
         background-position: right;
         height: 751px;
         background-size: cover;
+        background-repeat: no-repeat;
 
     }
 
@@ -70,8 +71,11 @@
         height: 250px;
 
     }
-    .position-content{
 
+    .position-content {
+        position: absolute;
+        top: 70px;
+        left: 140px;
     }
 
     .container .image-button {
@@ -85,6 +89,15 @@
         border-bottom: 2px solid #d5d2d2;
         border-radius: 5px;
     }
+
+    .height-of-content {
+        height: 840px !important;
+    }
+    @media(min-width:0px) and (max-width:767px){
+        .vtimeline .timeline-wrapper .timeline-panel {
+            margin-left: 0px!important;
+        }
+    }
 </style>
 
 <body class="app sidebar-mini ltr">
@@ -96,7 +109,7 @@
     <!-- global-loader closed -->
 
     <!-- page -->
-    <div class="page">
+    <div class="page bg-white">
         <div class="page-main">
 
             @include('layouts.seller.seller-header')
@@ -129,8 +142,8 @@
                         </div>
                     </div>
                     <br>
-                    <br>
-                    <div class="host">
+                    <br class="mb-5">
+                    <div class="host mt-5">
                         <h1><strong>How hosting operates</strong></h1>
                     </div>
 
@@ -209,11 +222,11 @@
                     </div>
                 </div>
                 <!-- End Row -->
-                <div class="section-new mt-8 mb-8">
-                    <div class="container-fluid position-relative">
+                <div class="position-relative my-5">
+                    <div class="container-fluid height-of-content">
                         <div class="container-fluid-div"></div>
                         <div class="container position-content">
-                            <h1><strong>Every space belongs on Eventopia</strong></h1>
+                            <h1 class="text-center text-white"><strong>Every space belongs on Eventopia</strong></h1>
                             <div class="row mt-5 mb-2">
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
@@ -271,44 +284,20 @@
                     </div>
                 </div>
             </div>
-            <!-- <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br> -->
 
-            <!-- <div class="card-body">
+            <div class="card-body mb-5">
                 <div class="accordion" id="accordionExample">
                     <h1 style="text-align:center;"><strong>FAQs</strong></h1>
                     <div style="border-color:transparent;" class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
+                                
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                Who can be a eventopia host?
-                                <br>
-                                Eventopia attracts a wide range of places, including residences, galleries, photo studios, and warehouses.
+                            <p style="color:#003B95;" class="d-block">Who can be a eventopia host?</p>
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta culpa eius nemo perferendis doloribus sit earum dignissimos amet impedit blanditiis hic sed, quos saepe soluta aspernatur. Labore earum beatae quo nihil consectetur quam provident omnis.
+                            <p>Eventopia attracts a wide range of places, including residences, galleries, photo studios, and warehouses.</p>
                             </div>
                         </div>
                     </div>
@@ -344,7 +333,7 @@
                     </div>
                 </div>
                 <br>
-                <div class="accordion" id="accordionExample">
+                <div class="accordion mb-5" id="accordionExample">
                     <div style="border-color:#d9dbdd;" class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -358,9 +347,7 @@
                         </div>
                     </div>
                 </div>
-
-
-            </div> -->
+            </div>
 
             <!-- container-closed -->
         </div>
@@ -406,7 +393,7 @@
 
 
 
-    <!-- @include('layouts.space.space-detail-footer')   -->
+    @include('layouts.space.space-detail-footer')  
 
 
     @include('layouts.components.scripts')
