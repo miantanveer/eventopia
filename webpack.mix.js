@@ -12,7 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.postCss('resources/assets/css/animated.css', 'public/assets/css')
-mix.postCss('resources/assets/css/custom/landing-page.min.css', 'public/assets/css')
+mix.postCss('resources/assets/css/custom/landing-page.css', 'public/assets/css')
 mix.postCss('resources/assets/css/custom/flatpicker.min.css', 'public/assets/css')
 mix.sass('resources/assets/css/dark-style.scss', 'public/assets/css')
 mix.sass('resources/assets/css/skin-modes.scss', 'public/assets/css')

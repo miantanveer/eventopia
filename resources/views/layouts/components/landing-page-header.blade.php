@@ -52,7 +52,7 @@
                         <a class="dropdown-item" href="#">
                             <i class="dropdown-icon fe fe-user"></i> List Your Service
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{URL('payments')}}">
                             <i class="dropdown-icon fe fe-user"></i> Payment
                         </a>
                         <a class="dropdown-item" href="#">
@@ -122,7 +122,7 @@
                                     <a class="dropdown-item" href="#">
                                         <i class="dropdown-icon fe fe-user"></i> List Your Service
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="{{URL('payments')}}">
                                         <i class="dropdown-icon fe fe-user"></i> Payment
                                     </a>
                                     <a class="dropdown-item" href="#">

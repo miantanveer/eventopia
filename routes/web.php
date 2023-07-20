@@ -58,6 +58,9 @@ Route::get('/services', function () {
 Route::get('/space-details', function () {
     return view('layouts.space.space-detail');
 });
+Route::get('/service-details', function () {
+    return view('layouts.customer.service-detail');
+});
 Route::get('/checkout', function () {
     return view('layouts.space.checkout-page');
 });
@@ -72,4 +75,10 @@ Route::get('/booking', function () {
 });
 Route::get('/bookings', function () {
     return view('layouts.users.bookings-sample');
+});
+
+// Seller side
+
+Route::get('/payments', function () {
+    return view('layouts.users.payments');
 });
