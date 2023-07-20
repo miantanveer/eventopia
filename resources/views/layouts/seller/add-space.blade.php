@@ -22,7 +22,7 @@
         background: url("{{ asset('assets/images/users/spaces/12.jpg') }}");
         position: relative;
         background-position: right;
-        height: 750px;
+        height: 751px;
         background-size: cover;
 
     }
@@ -32,7 +32,7 @@
         width: 500px;
         position: absolute;
         left: 50px;
-        top: 200px;
+        top: 150px;
         color: black;
         background-color: rgba(255, 255, 255, 0.5);
 
@@ -63,22 +63,27 @@
         color: black;
     }
 
-    .container-fluid {
+
+    .container-fluid-div {
         background-color: #0080ff;
-        position: relative;
-        text-align: center;
-        width: 100vw;
-        height: 350px;
+        width: 100%;
+        height: 250px;
+
+    }
+    .position-content{
 
     }
 
-    .container {
+    .container .image-button {
+        padding: 12px 80px;
+        border: 2px solid white;
+        font-weight: bold;
         background-color: #ffffff;
-        width: 100%;
-        display: flex;
-
-
-
+        position: absolute;
+        bottom: -24px;
+        left: 97px;
+        border-bottom: 2px solid #d5d2d2;
+        border-radius: 5px;
     }
 </style>
 
@@ -128,6 +133,7 @@
                     <div class="host">
                         <h1><strong>How hosting operates</strong></h1>
                     </div>
+
                     <br>
                     <!-- Row -->
                     <div class="col-lg-12">
@@ -139,7 +145,7 @@
                                 <div class="vtimeline">
                                     <div class="timeline-wrapper timeline-wrapper-primary">
                                         <div class="timeline-panel">
-                                            <div class="avatar avatar-md timeline-badge">
+                                            <div class="avatar avatar-md timeline-badge" style="position: absolute; top: -60px; left:calc(4% - 26px);">
                                                 <span class="timeline-icon">1</span>
                                             </div>
 
@@ -180,7 +186,7 @@
                                     <div class="timeline-wrapper timeline-wrapper-primary">
 
                                         <div class="timeline-panel">
-                                            <div class="avatar avatar-md timeline-badge">
+                                            <div class="avatar avatar-md timeline-badge" style="position: absolute; top: -60px; left:calc(4% - 26px);">
                                                 <span class="timeline-icon">3</span>
                                             </div>
                                             <div class="timeline-heading">
@@ -203,61 +209,167 @@
                     </div>
                 </div>
                 <!-- End Row -->
-                <div class="section-new">
-                    <div class="container-fluid">
-                        <h1><strong>Every space belongs on Eventopia</strong></h1>
-                        <div class="container">
-                            <div class="col-md-6 col-xl-3">
-                                <div class="card border text-primary bg-primary-transparent">
-                                    <div class="card-body">
-                                        <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                            <a href="#"><img src="{{ asset('assets/images/users/spaces/001.png') }}" alt="img"></a>
-                                           
-                                        </div>
+                <div class="section-new mt-8 mb-8">
+                    <div class="container-fluid position-relative">
+                        <div class="container-fluid-div"></div>
+                        <div class="container position-content">
+                            <h1><strong>Every space belongs on Eventopia</strong></h1>
+                            <div class="row mt-5 mb-2">
+                                <div class="col-md-6 col-xl-3 mt-5">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/001.png') }}" alt="img"></a>
+                                        <button type="button" class="btn btn-basic image-button">Homes</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-3 mt-5">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/002.png') }}" alt="img"></a>
+                                        <button type="button" class="btn btn-basic image-button">Loft</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-3 mt-5">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/003.png') }}" alt="img"></a>
+                                        <button type="button" class="btn btn-basic image-button">Studios</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-3 mt-5">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/004.png') }}" alt="img"></a>
+                                        <button type="button" class="btn btn-basic image-button">Warehouses</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-xl-3">
-                                <div class="card border text-primary bg-primary-transparent">
-                                    <div class="card-body">
-                                        <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                            <a href="#"><img src="{{ asset('assets/images/users/spaces/002.png') }}" alt="img"></a>
-                                        
-                                        </div>
+                            <div class="row mt-5">
+                                <div class="col-md-6 col-xl-3 mt-5">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/005.png') }}" alt="img"></a>
+                                        <button type="button" class="btn btn-basic image-button">Galleries</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-3 mt-5">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/006.png') }}" alt="img"></a>
+                                        <button type="button" class="btn btn-basic image-button">Bars</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-3 mt-5">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/007.png') }}" alt="img"></a>
+                                        <button type="button" class="btn btn-basic image-button">Coworking</button>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xl-3 mt-5">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/008.png') }}" alt="img"></a>
+                                        <button type="button" class="btn btn-basic image-button">Event venues</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="imgs">
-                        <div class="images">
-                            <img src="{{ asset('assets/images/users/spaces/001.png') }}" alt="img">
-                            <img src="{{ asset('assets/images/users/spaces/002.png') }}" alt="img">
-                            <img src="{{ asset('assets/images/users/spaces/003.png') }}" alt="img">
-                            <img src="{{ asset('assets/images/users/spaces/004.png') }}" alt="img">
-                        </div>
-                
-                        <div class="images">
-                            <img src="{{ asset('assets/images/users/spaces/005.png') }}" alt="img">
-                            <img src="{{ asset('assets/images/users/spaces/006.png') }}" alt="img">
-                            <img src="{{ asset('assets/images/users/spaces/007.png') }}" alt="img">
-                            <img src="{{ asset('assets/images/users/spaces/008.png') }}" alt="img">
-                        </div>
-                    </div> -->
-
-
-
-
-
             </div>
+            <!-- <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br> -->
+
+            <!-- <div class="card-body">
+                <div class="accordion" id="accordionExample">
+                    <h1 style="text-align:center;"><strong>FAQs</strong></h1>
+                    <div style="border-color:transparent;" class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                Who can be a eventopia host?
+                                <br>
+                                Eventopia attracts a wide range of places, including residences, galleries, photo studios, and warehouses.
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                            <div class="accordion-body">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta culpa eius nemo perferendis doloribus sit earum dignissimos amet impedit blanditiis hic sed, quos saepe soluta aspernatur. Labore earum beatae quo nihil consectetur quam provident omnis.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="accordion" id="accordionExample">
+                    <div style="border-color:#d9dbdd;" class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                How do I get paid?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                            <div class="accordion-body">
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque molestias deleniti quis at quam, neque ducimus nam ipsam nisi dolores non hic numquam ratione odio in ea nulla, sint recusandae praesentium possimus dolor. Harum, dolore?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="accordion" id="accordionExample">
+                    <div style="border-color:#d9dbdd;" class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Does Eventopia provide insurance?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem pariatur a laboriosam fugit ex ullam, et minus eum! Facere amet, animi beatae sequi, perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="accordion" id="accordionExample">
+                    <div style="border-color:#d9dbdd;" class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                How can i contact?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima accusantium eveniet dignissimos sunt magnam ad repellendus ab aperiam nobis necessitatibus quo a adipisci. Tenetur officiis necessitatibus minus sapiente nisi iste perspiciatis totam autem!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div> -->
 
             <!-- container-closed -->
         </div>
-    </div>
-    <!--app-content closed-->
+        <!--app-content closed-->
     </div>
     <!-- page-main closed -->
+
+
+
 
 
 
@@ -292,7 +404,10 @@
     </div>
     <!-- global-helper closed -->
 
-    @include('layouts.space.space-detail-footer')
+
+
+    <!-- @include('layouts.space.space-detail-footer')   -->
+
 
     @include('layouts.components.scripts')
 
