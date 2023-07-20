@@ -114,7 +114,20 @@
         border-radius: 0px!important;
         border: none!important;
     }
+    .height-img{
+        height: 550px !important;
+    }
+    .card_overlay{
+        width: 20rem !important;
+    }
 }
+
+@media screen and (max-width: 375px) and (min-width: 344px) {
+    .card_overlay{
+        width: auto !important;
+    }
+}
+
 @media screen and (max-width: 345px) and (min-width: 0px) {
     .btn-search {
         width: 100% !important;
@@ -141,6 +154,12 @@
     .form-blur-border{
         border-radius: 0px!important;
         border: none!important;
+    }
+    .height-img{
+        height: 550px !important;
+    }
+    .card_overlay{
+        width: auto !important;
     }
 }
 
@@ -225,7 +244,7 @@
     border-radius: 50px!important;
 }
 .content-width{
-    width: 352px!important;
+    width: 100%!important;
 }
 .owl-carousel .owl-nav button.owl-prev{
     background-color: #006CE4!important;
@@ -236,4 +255,29 @@
     background-color: #006CE4!important;
     color: white!important;
     border: none !important;
+}
+@media(min-width:0px) and (max-width:400px){
+    .nav_log{
+        width: 150px !important;
+    }
+}
+.flatpickr-calendar.hasTime.animate.arrowTop.arrowLeft.open {
+    top: 465px  !important;
+    left: 171px !important;
+    right: auto !important;
+    width: 76% !important;
+}
+.flatpickr-current-month {
+    width: 18% !important;
+    left: 4.5% !important;
+}
+.flatpickr-next-month {
+    left: -500px !important;
+}
+.flatpickr-time{
+    position: relative !important;
+    top: -195px !important;
+    width: 50% !important;
+    left: 416px !important;
+    border: 1px solid #e5e5e5 !important;
 }
