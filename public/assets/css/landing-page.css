@@ -36,7 +36,7 @@
 }
 #form-border {
     background-color: #ffffff;
-    border-radius: 10px !important;
+    border-radius: 13px !important;
 }
 .rounded-form {
     border-radius: 13px !important;
@@ -113,15 +113,12 @@
     .form-blur-border{
         border-radius: 0px!important;
         border: none!important;
-<<<<<<< HEAD
     }
     .height-img{
         height: 550px !important;
     }
     .card_overlay{
         width: 20rem !important;
-=======
->>>>>>> backend
     }
 }
 
@@ -157,15 +154,12 @@
     .form-blur-border{
         border-radius: 0px!important;
         border: none!important;
-<<<<<<< HEAD
     }
     .height-img{
         height: 550px !important;
     }
     .card_overlay{
         width: auto !important;
-=======
->>>>>>> backend
     }
 }
 
