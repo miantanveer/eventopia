@@ -73,3 +73,7 @@ Route::get('/booking', function () {
 Route::get('/bookings', function () {
     return view('layouts.users.bookings-sample');
 });
+
+Route::get('/add-space', function () {
+    return view('layouts.seller.add-space');
+});

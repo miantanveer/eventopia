@@ -10,7 +10,7 @@
 .landing_background {
     position: relative;
     height: 400px;
-    background: url("../images/brand/landing_background.jpg");
+    background: url("..assets/images/brand/landing_background.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -36,7 +36,7 @@
 }
 #form-border {
     background-color: #ffffff;
-    border-radius: 13px !important;
+    border-radius: 10px !important;
 }
 .rounded-form {
     border-radius: 13px !important;
