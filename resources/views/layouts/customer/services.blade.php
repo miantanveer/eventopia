@@ -243,7 +243,7 @@
                                             <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
                                         </div>
                                     </div>
-                                    <a href="{{ URL('/space-details') }}">
+                                    <a href="{{ URL('/service-details') }}">
                                         <img src="{{ asset('assets/images/users/services/1 (1).png') }}" class="card-img-top"
                                             alt="img">
                                         <div class="row p-3">
@@ -281,7 +281,7 @@
                                             <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
                                         </div>
                                     </div>
-                                    <a href="{{ URL('/space-details') }}">
+                                    <a href="{{ URL('/service-details') }}">
                                         <img src="{{ asset('assets/images/users/services/1 (6).png') }}" class="card-img-top"
                                             alt="img">
                                         <div class="row p-3">
@@ -319,7 +319,7 @@
                                             <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
                                         </div>
                                     </div>
-                                    <a href="{{ URL('/space-details') }}">
+                                    <a href="{{ URL('/service-details') }}">
                                         <img src="{{ asset('assets/images/users/services/1 (5).png') }}" class="card-img-top"
                                             alt="img">
                                         <div class="row p-3">
@@ -357,7 +357,7 @@
                                             <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
                                         </div>
                                     </div>
-                                    <a href="{{ URL('/space-details') }}">
+                                    <a href="{{ URL('/service-details') }}">
                                         <img src="{{ asset('assets/images/users/services/1 (4).png') }}" class="card-img-top"
                                             alt="img">
                                         <div class="row p-3">
@@ -395,7 +395,7 @@
                                             <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
                                         </div>
                                     </div>
-                                    <a href="{{ URL('/space-details') }}">
+                                    <a href="{{ URL('/service-details') }}">
                                         <img src="{{ asset('assets/images/users/services/1 (3).png') }}" class="card-img-top"
                                             alt="img">
                                         <div class="row p-3">
@@ -433,7 +433,7 @@
                                             <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
                                         </div>
                                     </div>
-                                    <a href="{{ URL('/space-details') }}">
+                                    <a href="{{ URL('/service-details') }}">
                                         <img src="{{ asset('assets/images/users/services/1 (2).png') }}" class="card-img-top"
                                             alt="img">
                                         <div class="row p-3">
