@@ -98,6 +98,7 @@
             margin-left: 0px!important;
         }
     }
+   
 </style>
 
 <body class="app sidebar-mini ltr">

@@ -85,3 +85,6 @@ Route::get('/add-space', function () {
 Route::get('/payments', function () {
     return view('layouts.users.payments');
 });
+Route::get('/seller-profile', function () {
+    return view('layouts.seller.seller-profile');
+});
