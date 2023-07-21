@@ -88,3 +88,6 @@ Route::get('/payments', function () {
 Route::get('/seller-profile', function () {
     return view('layouts.seller.seller-profile');
 });
+Route::get('/seller-profile-verified', function () {
+    return view('layouts.seller.seller-profile-verified');
+});

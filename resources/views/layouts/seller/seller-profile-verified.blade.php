@@ -18,22 +18,11 @@
 
 </head>
 <style>
-    .row {
-        border: 1px solid #acacac;
+.fullpage {
         width: 900px;
         margin: 0 auto;
     }
-
-    .fullpage {
-        width: 900px;
-        margin: 0 auto;
-    }
-
-    .notify {
-        margin-left: 20px;
-    }
-</style>
-
+    </style>
 <body class="app sidebar-mini ltr">
 
     <!-- global-loader -->
@@ -54,74 +43,14 @@
 
                     <!-- container -->
                     <div class="main-container container-fluid fullpage">
-                        <div style="display:flex;flex-direction:row;justify-content:space-between;" class="account mt-5 mb-2">
-                            <div>
-                                <h1 style="margin-left:20px;" class="pull-left"><strong>Account</strong></h1><br>
+                        <div class="verify mt-5 mb-3">
+                          <a href="#"><img src="{{ asset('assets/images/users/spaces/pro.png') }}" alt="img"></a>
+                          <br>
 
-                                <span class="avatar avatar-xl brround cover-image" data-bs-image-src="{{ asset('assets/images/users/spaces/pro.png') }}" style="height:100px;width:100px;margin-left:20                                                                                                        px;background: url(&quot;http://sash.pk/assets/images/users/6.jpg&quot;) center center;">
-                                    <span style="height:25px;width:25px;" class="badge rounded-pill avatar-icons bg-green"><i class="fe fe-camera fs-12"></i></span>
-                                </span>
+                          <h1 style="margin-left:20px;" class="pull-left"><strong>John Smith</strong></h1>
+                          <h6>Joined Jun 2023</h6>
 
-                            </div>
-                            <div>
-                                <button style="border-color:black;" type="button" class="btn btn-outline-default pull-right"><strong>View Profile</strong></button>
-                            </div>
                         </div>
-                        <!-- FORM -->
-                        <div class="card-body">
-                            <div class="row mt-5 mb-3">
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label ">First Name <span class="text-red"></span></label>
-                                        <input type="text" class="form-control border border-default rounded-0" placeholder="First name">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label ">Last Name <span class="text-red "></span></label>
-                                        <input type="text" class="form-control border border-default rounded-0" placeholder="Last name">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="form-label">Phone number <span class="text-red"></span></label>
-                                        <input type="text" class="form-control border border-default rounded-0" placeholder="Phone number">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-
-                                        <label class="form-label" for="cpassword">Email</label>
-                                        <div class="d-flex align-items-center input-container">
-                                            <input type="email" class="form-control border border-default rounded-0" value="" required data-parsley-required-message="Confirm Password is required*" data-parsley-errors-container="#cpassword_err">
-                                            <i class="fa fa-lock text-muted icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Organization<span class="text-red"></span></label>
-                                        <input type="text" class="form-control border border-default rounded-0" placeholder="Organization">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Job title <span class="text-red"></span></label>
-                                        <input type="text" class="form-control border border-default rounded-0" placeholder="Job title">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Last -->
-                        <div class="notify mt-2 mb-6">
-                            <h1><b>Notifications</b></h1>
-                            <h3><b>Email prefrences</b></h3>
-                            <p>Send me exclusive deals, inspiration, news, and community updates via email.
-                            <input style="margin-left:355px;" type="checkbox" id="vehicle1" name="vehicle1"></p>
-                            
-                        </div>
-
                         <!-- container-closed -->
                     </div>
                     <!--app-content closed-->
