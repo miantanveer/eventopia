@@ -77,13 +77,19 @@ Route::get('/bookings', function () {
     return view('layouts.users.bookings-sample');
 });
 
+// Seller side
+
 Route::get('/add-space', function () {
     return view('layouts.seller.add-space');
 });
-// Seller side
-
 Route::get('/payments', function () {
-    return view('layouts.users.payments');
+    return view('layouts.seller.payments');
+});
+Route::get('/calendar', function () {
+    return view('layouts.seller.calendar-content');
+});
+Route::get('/operating-hours', function () {
+    return view('layouts.seller.operating-hours');
 });
 Route::get('/seller-profile', function () {
     return view('layouts.seller.seller-profile');
