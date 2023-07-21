@@ -100,52 +100,56 @@
                         </div>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-5">
-                                <div class="input-group">
+                        <form action="">
+                            <div class="row">
+                                <div class="col-5">
                                     <div class="input-group">
-                                        <div class="input-group-text">
-                                            <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-                                        </div><input type="date" class="form-control">
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
+                                            </div><input type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2 text-center">
+                                    <h6 class="mt-3">To</h6>
+                                </div>
+                                <div class="col-5">
+                                    <div class="input-group">
+                                        <div class="input-group">
+                                            <div class="input-group-text">
+                                                <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
+                                            </div><input type="date" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-2 text-center">
-                                <h6 class="mt-3">To</h6>
-                            </div>
-                            <div class="col-5">
-                                <div class="input-group">
-                                    <div class="input-group">
-                                        <div class="input-group-text">
-                                            <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-                                        </div><input type="date" class="form-control">
-                                    </div>
+                            <div class="row">
+                                <div class="col-12 mt-3 text-start">
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input" name="example-checkbox2"
+                                            value="option2">
+                                        <span class="custom-control-label">All Day</span>
+                                    </label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 mt-3 text-start">
-                                <label class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" name="example-checkbox2"
-                                        value="option2">
-                                    <span class="custom-control-label">All Day</span>
-                                </label>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-12 mt-5 text-start">
-                                <div class="form-group w-100">
-                                    <label for="Title" class="form-label">Title</label>
-                                    <div class="form-group ">
-                                        <input type="text" class="form-control" id="Title" name="Title">
+                            <div class="row">
+                                <div class="col-12 mt-5 text-start">
+                                    <div class="form-group w-100">
+                                        <label for="Title" class="form-label">Title</label>
+                                        <div class="form-group ">
+                                            <input type="text" class="form-control" id="Title" name="Title">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn w-100 btn-primary">Save</button>
+                            <div class="row">
+                                <div class="col-12 mt-3">
+                                    <button class="btn w-100 btn-primary" type="submit">Save</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
