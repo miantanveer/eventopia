@@ -18,11 +18,32 @@
 
 </head>
 <style>
-.fullpage {
+    .fullpage {
         width: 900px;
         margin: 0 auto;
+        display: flex;
     }
-    </style>
+
+    .display-1 {
+        margin-left: 50px;
+        font-size: 2rem;
+        font-weight: bolder;
+    }
+
+    .display-2 {
+        margin-left: 65px;
+        font-size: 1rem;
+        font-weight: bold;
+
+    }
+
+    .btn-pill {
+        border-radius: 10rem;
+        padding-left: 1.5em;
+        padding-right: 1.5em;
+    }
+</style>
+
 <body class="app sidebar-mini ltr">
 
     <!-- global-loader -->
@@ -43,14 +64,45 @@
 
                     <!-- container -->
                     <div class="main-container container-fluid fullpage">
+
+
                         <div class="verify mt-5 mb-3">
-                          <a href="#"><img src="{{ asset('assets/images/users/spaces/pro.png') }}" alt="img"></a>
-                          <br>
+                            <span class="avatar avatar-xl brround cover-image" data-bs-image-src="{{ asset('assets/images/users/spaces/pro.png') }}" style="height:200px;width:200px;margin-left:20px;background: url(&quot;http://sash.pk/assets/images/users/6.jpg&quot;) center center;">
+                            </span>
+                            <div style="border:none;" class="example">
+                                <h2 class="display-1 "><strong>John Smith</strong></h2>
+                                <h2 class="display-2">Joined Jun 2023</h2>
 
-                          <h1 style="margin-left:20px;" class="pull-left"><strong>John Smith</strong></h1>
-                          <h6>Joined Jun 2023</h6>
-
+                            </div>
                         </div>
+                        <div style="height:118px;width:450px;margin-top:90px;" class="confirms border border-default">
+                            <h4><b>Email</b><button style="background-color:#45aaf21f;color:black;border-color:E5E5E5" type="button" class="btn btn-info btn-pill pull-right">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
+                                    </svg>
+                                    Verified</h4>
+
+                            <br>
+                            <h4><b>Phone number</b><button style="background-color:#45aaf21f;color:black;border-color:E5E5E5" type="button" class="btn btn-info btn-pill pull-right ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
+                                    </svg>
+                                    Verified
+                                </button></h4>
+
+                            <br>
+                            <div class="right-content mt-4 mb-3">
+                                <p><b>Thanks for stopping by! I'm excited to be a part of the Peerspace community.</b></p>
+                                <button type="button" class="btn btn-info rounded-0"><i class="fe fe-upload me-2"></i><strong>Share Profile</strong></button>
+                                <button style="border-color:#707070;background-color:#FFFFFF;color:black;margin-left:10px;" type="button" class="btn btn-white"><strong>Message Host</strong></button>
+                            </div>
+                        </div>
+
+
+
+
+
+
                         <!-- container-closed -->
                     </div>
                     <!--app-content closed-->
