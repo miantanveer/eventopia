@@ -79,8 +79,14 @@ Route::get('/bookings', function () {
 
 // Seller side
 
+Route::get('/seller-dashboard', function () {
+    return view('layouts.seller.dashboard');
+});
 Route::get('/add-space', function () {
     return view('layouts.seller.add-space');
+});
+Route::get('/my-listings', function () {
+    return view('layouts.seller.my-listing');
 });
 Route::get('/payments', function () {
     return view('layouts.seller.payments');

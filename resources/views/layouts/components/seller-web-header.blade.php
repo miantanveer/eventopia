@@ -15,8 +15,14 @@
                             <div class="navbar navbar-collapse responsive-navbar p-0">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                                     <div class="d-flex order-lg-2">
-                                        <div class="d-flex seller-btn">
-                                            <button class="btn-pill p-2 text-info bg-white border-info"><a href="{{URL('/seller-dashboard')}}">Become a Seller</a></button>
+                                        <div class="d-flex seller-btn me-2">
+                                            <button class="btn-pill p-2 text-info bg-white border-info">Become a Customer</button>
+                                        </div>
+                                        <!-- Cart -->
+                                        <div class="d-flex">
+                                            <a class="nav-link icon text-center">
+                                                <i class="icon icon-handbag"></i><span class="fs-16 ms-2 d-none d-xl-block"></span>
+                                            </a>
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
