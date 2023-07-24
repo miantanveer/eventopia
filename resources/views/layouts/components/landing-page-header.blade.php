@@ -14,7 +14,7 @@
                     <a class="dropdown-item" data-bs-target="#country-selector" data-bs-toggle="modal">
                         <i class="dropdown-icon fe fe-globe"></i> Language
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{URL('/seller-dashboard')}}">
                         <i class="dropdown-icon fa fa-user"></i> Become a seller
                     </a>
                     <a class="dropdown-item" href="#">
@@ -86,7 +86,7 @@
 
                             <div class="d-flex seller-btn">
                                 <a class="nav-link border py-3 px-5 m-2 active text-white" id="tab1"
-                                    data-bs-toggle="tab" href="#tabs_2_1" role="tab" aria-selected="true">
+                                     href="{{URL('/seller-dashboard')}}" role="tab" aria-selected="true">
                                     Become a Seller
                                 </a>
                             </div>
