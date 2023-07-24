@@ -31,7 +31,7 @@
     <div class="page">
         <div class="page-main">
 
-            @include('layouts.customer.customer-header')
+            @include('layouts.seller.seller-header')
 
             <!--app-content open-->
             <div class="main-content app-content pt-5" style="background-color: #ffffff">
