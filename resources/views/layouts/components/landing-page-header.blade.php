@@ -20,7 +20,7 @@
                     <a class="dropdown-item" href="#">
                         <i class="dropdown-icon icon icon-layers"></i> Listing
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{URL('/calendar')}}">
                         <i class="dropdown-icon fa fa-calendar"></i> Calendar
                     </a>
                 </div>
@@ -96,7 +96,7 @@
                                 </a>
                             </div>
                             <div class="d-flex seller-btn">
-                                <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true">
+                                <a class="nav-link py-3 px-5 m-2 active text-white" href="{{URL('/calendar')}}" role="tab" aria-selected="true">
                                     Calendar
                                 </a>
                             </div>
