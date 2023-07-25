@@ -949,3 +949,27 @@ div.conv-form-wrapper div#messages div.message.from {
   color: white !important;
   border: none !important;
 }
+
+.owl-prev {
+  z-index: 1 !important;
+}
+
+.owl-next {
+  z-index: 1 !important;
+}
+
+.header .space-dropdown {
+  position: absolute;
+  inset: 0px 3px auto auto !important;
+  top: -0.5rem !important;
+}
+
+@media (max-width: 993px) and (min-width: 0px) {
+  .horizontal-main {
+    top: 63px !important;
+  }
+
+  .space-logo {
+    width: 8rem !important;
+  }
+}
