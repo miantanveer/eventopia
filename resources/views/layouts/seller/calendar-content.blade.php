@@ -1,6 +1,26 @@
 @extends('layouts.calendar')
 
 @section('styles')
+    <style>
+        .cal1 .clndr .clndr-table tr,
+        .cal1 .clndr .clndr-table .header-days {
+            height: 35px !important;
+        }
+
+        .cal1 .clndr .clndr-table tr .day .day-contents {
+            padding: 0 !important;
+            text-align: center !important;
+        }
+
+        .day {
+            vertical-align: middle !important;
+        }
+
+        .day,
+        .header-day, .cal1 .clndr .clndr-controls {
+            border: 0 !important;
+        }
+    </style>
 @endsection
 
 @section('content')
@@ -21,8 +41,7 @@
             <div class="card custom-card">
                 <div class="card-body">
                     <div class="mt-3 text-center">
-                        <h2>Calendar</h2>
-                        <p>Will be shown here</p>
+                        <div class="cal1"></div>
                     </div>
                     <hr>
                     <div class="row">
@@ -150,4 +169,9 @@
     <!-- INTERNAL INDEX JS -->
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="{{ asset('assets/js/index1.js') }}"></script>
+    <!-- DEFAULT CALENDAR JS-->
+    <script src="{{ asset('assets/plugins/calendar/underscore-min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/calendar/moment.js') }}"></script>
+    <script src="{{ asset('assets/plugins/calendar/calendar.js') }}"></script>
+    <script src="{{ asset('assets/plugins/calendar/defaultcalendar.js') }}"></script>
 @endsection

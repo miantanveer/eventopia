@@ -261,7 +261,7 @@
         width: 150px !important;
     }
 }
-.flatpickr-calendar.hasTime.animate.arrowTop.arrowLeft.open {
+/* .flatpickr-calendar.hasTime.animate.arrowTop.arrowLeft.open {
     top: 465px  !important;
     left: 171px !important;
     right: auto !important;
@@ -280,4 +280,4 @@
     width: 50% !important;
     left: 416px !important;
     border: 1px solid #e5e5e5 !important;
-}
+} */
