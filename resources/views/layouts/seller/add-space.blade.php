@@ -93,12 +93,12 @@
     .height-of-content {
         height: 840px !important;
     }
-    @media(min-width:0px) and (max-width:767px){
+
+    @media(min-width:0px) and (max-width:767px) {
         .vtimeline .timeline-wrapper .timeline-panel {
-            margin-left: 0px!important;
+            margin-left: 0px !important;
         }
     }
-   
 </style>
 
 <body class="app sidebar-mini ltr">
@@ -127,7 +127,7 @@
 
                             <div class="box">
 
-                                <h1 class="p-3">Be paid to host events on Eventopia.</h1>
+                                <h1 style="margin-left:20px;">Be paid to host events on Eventopia.</h1>
                                 <br>
                                 <p>Join the hundreds of hosts who are already renting out
                                     their facilities for parties, meetings, and photo and film
@@ -137,8 +137,9 @@
                                 <div class="btns">
                                     <input style="padding-left:140px;padding-right:160px;" type="text" class="btn btn-light rounded-0" placeholder="Party hall">
                                 </div>
-                                <a style="padding-left:190px;padding-right:195px;" class="btn btn-info rounded-0" href="#">Get Started</a>
-
+                                <div> 
+                                    <a style="padding-left:190px;padding-right:195px;" class="modal-effect btn btn-info rounded-0" data-bs-target="#my-modal" data-bs-toggle="modal">Get Started</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -291,14 +292,14 @@
                     <h1 style="text-align:center;"><strong>FAQs</strong></h1>
                     <div style="border-color:transparent;" class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                                
+
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            <p style="color:#003B95;" class="d-block">Who can be a eventopia host?</p>
+                                <p style="color:#003B95;" class="d-block">Who can be a eventopia host?</p>
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                            <p>Eventopia attracts a wide range of places, including residences, galleries, photo studios, and warehouses.</p>
+                                <p>Eventopia attracts a wide range of places, including residences, galleries, photo studios, and warehouses.</p>
                             </div>
                         </div>
                     </div>
@@ -356,6 +357,8 @@
     </div>
     <!-- page-main closed -->
 
+    <!--modal-->
+
 
 
 
@@ -394,7 +397,7 @@
 
 
 
-    @include('layouts.space.space-detail-footer')  
+    @include('layouts.space.space-detail-footer')
 
 
     @include('layouts.components.scripts')
