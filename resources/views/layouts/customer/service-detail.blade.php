@@ -417,10 +417,7 @@
                                                         </div>
                                                         <div class="row mt-4">
                                                             <div class="col-12 pe-0">
-                                                                <a href="{{URL('checkout')}}"
-                                                                    class="btn btn-primary text-white w-100">
-                                                                    Request a Quote
-                                                                </a>
+                                                                <input type='button' class="btn btn-primary text-white w-100" id='quote-btn' value="Request a Quote">
                                                             </div>
                                                         </div>
                                                     </form>
@@ -518,6 +515,7 @@
     <!-- ACCORDION JS -->
     <script src="{{ asset('assets/plugins/accordion/accordion.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/accordion/accordion.js') }}"></script>
+    <script src="{{asset('assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
 
     <!-- Custom JavaScript code -->
     <script>
@@ -530,6 +528,15 @@
                     text: "We will contact you shortly.",
                     timer: 2000,
                     showConfirmButton: false
+                });
+            });
+
+            $(document).on("click", "#quote-btn", function(e) {
+                $('body').addClass('timer-alert');
+                swal({
+                    title: 'Title',
+                    text: 'Great job! You sent a quote request to seller on Eventopia. Check your notification for acknowledgement.',
+                    timer: 3000
                 });
             });
         });

@@ -139,7 +139,8 @@
                                     <div class="form-group w-100">
                                         <label for="Title" class="form-label">Title</label>
                                         <div class="form-group ">
-                                            <input type="text" class="form-control" id="Title" name="Title">
+                                            <input type="text" class="form-control" id="Title"
+                                                name="Title">
                                         </div>
                                     </div>
                                 </div>
@@ -155,3 +156,26 @@
             </div>
         </div>
         <!-- Country-selector modal-->
+
+        <!-- Quote Modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="quote-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg " role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal title</h5>
+                        <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Modal body text goes here.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-white text-danger border-0" data-bs-dismiss="modal">Decline</button>
+                        <button class="btn btn-primary">Accept</button>
+                    </div>
+                </div>
+            </div>
+        </div>
