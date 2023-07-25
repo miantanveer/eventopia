@@ -18,11 +18,6 @@
 
 </head>
 <style>
-    .row {
-        border: 1px solid #acacac;
-        width: 900px;
-        margin: 0 auto;
-    }
 
     .fullpage {
         width: 900px;
@@ -68,7 +63,7 @@
                             </div>
                         </div>
                         <!-- FORM -->
-                        <div class="card-body">
+                        <div class="card-body border">
                             <div class="row mt-5 mb-3">
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
@@ -157,8 +152,6 @@
                 </div>
             </div>
             <!-- global-helper closed -->
-
-
 
             @include('layouts.space.space-detail-footer')
 

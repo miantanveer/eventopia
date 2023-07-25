@@ -127,7 +127,7 @@
 
                             <div class="box">
 
-                                <h1>Be paid to host events on Eventopia.</h1>
+                                <h1 class="p-3">Be paid to host events on Eventopia.</h1>
                                 <br>
                                 <p>Join the hundreds of hosts who are already renting out
                                     their facilities for parties, meetings, and photo and film
