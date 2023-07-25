@@ -91,6 +91,9 @@ Route::get('/add-space-steps', function () {
 Route::get('/my-listings', function () {
     return view('layouts.seller.my-listing');
 });
+Route::get('/pending-bookings', function () {
+    return view('layouts.seller.pending-bookings');
+});
 Route::get('/payments', function () {
     return view('layouts.seller.payments');
 });

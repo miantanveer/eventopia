@@ -2,16 +2,33 @@
             <div class="app-header header sticky" style="background-color: #00224F">
                 <div class="container-fluid main-container">
                     <div class="d-flex">
-                        <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)"></a>
+                        <a aria-label="Hide Sidebar" class="app-sidebar__toggle text-white" data-bs-toggle="sidebar" href="javascript:void(0)"></a>
                         <!-- sidebar-toggle-->
                         <a class="logo-horizontal " href="{{url('/')}}">
-                            <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img desktop-logo" alt="logo">
-                            <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img light-logo1" alt="logo">
+                            <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img space-logo desktop-logo" alt="logo">
+                            <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img space-logo light-logo1" alt="logo">
                         </a>
                         <div class="d-flex order-lg-2 ms-auto header-right-icons">
-                            <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-									<span class="navbar-toggler-icon fe fe-more-vertical"></span>
-								</button>
+                            <div class="dropdown d-flex profile-1 d-lg-none">
+                                <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
+                                    <span class="navbar-toggler-icon fe fe-more-vertical text-white"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3 space-dropdown">
+
+                                    <a class="dropdown-item" href="{{url('/edit-profile')}}">
+                                        <i class="dropdown-icon fa fa-cart-plus"></i> Cart
+                                    </a>
+                                    <a class="dropdown-item" data-bs-target="#country-selector" data-bs-toggle="modal">
+                                        <i class="dropdown-icon fe fe-globe"></i> Language
+                                    </a>
+                                    <a class="dropdown-item" href="{{URL('/seller-dashboard')}}">
+                                        <i class="dropdown-icon fa fa-user"></i> Become a seller
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="dropdown-icon icon icon-layers"></i> Booking
+                                    </a>
+                                </div>
+                            </div>
                             <div class="navbar navbar-collapse responsive-navbar p-0">
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                                     <div class="d-flex order-lg-2">

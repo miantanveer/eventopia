@@ -108,7 +108,7 @@
                             <div class="text-end mb-2 mt-5">
                                 <div class="btn-list">
                                     <a href="#" class="btn ">Pending</a>
-                                    <a href="#" class="btn btn-primary float-sm-end">Manage</a>
+                                    <a href="{{URL('/pending-bookings')}}" class="btn btn-primary float-sm-end">Manage</a>
                                 </div>
                             </div>
                         </div>
