@@ -26,6 +26,10 @@
         z-index: 9999;
     }
 
+    .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
+        z-index: rewert;
+    }
+
     @media (min-width: 576px) {
         .content-button {
             position: absolute;
@@ -162,7 +166,7 @@
                                         <p><i class="text-primary side-menu__icon fe fe-map-pin"></i> Address,
                                             California, USA</p>
                                         <div class="row">
-                                            <div class="mb-2 col-2 text-warning">
+                                            <div class="mb-2 col-md-2 col-sm-3 text-warning">
                                                 <i class="fa fa-star text-warning"></i>
                                                 <i class="fa fa-star text-warning"></i>
                                                 <i class="fa fa-star text-warning"></i>
@@ -170,9 +174,9 @@
                                                 <i class="fa fa-star-o text-warning"></i>
                                                 &nbsp;
                                             </div>
-                                            <p class="col-2">45 reviews</p>
-                                            <p class="col-2"><i class="fa fa-group"></i> 12 people </p>
-                                            <p class="col-2"><i class="mdi mdi-alarm text-primary"></i> 1 hr 5 min</p>
+                                            <p class="col-md-2 col-sm-3">45 reviews</p>
+                                            <p class="col-md-2 col-sm-3"><i class="fa fa-group"></i> 12 people </p>
+                                            <p class="col-md-2 col-sm-3"><i class="mdi mdi-alarm text-primary"></i> 1 hr 5 min</p>
                                         </div>
                                         <hr>
                                         <div class="mt-5">
@@ -436,11 +440,11 @@
                                         <hr>
                                         <div class="">
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-7">
                                                     <h4>8+ hour discount <i class="mdi mdi-alert-circle-outline"></i>
                                                     </h4>
                                                 </div>
-                                                <div class="col-4 offset-2">
+                                                <div class="col-3 offset-2">
                                                     <span
                                                         class="badge rounded-pill bg-default badge-sm me-1 mb-1 mt-1">15%
                                                         off</span>
@@ -582,19 +586,19 @@
                                     <div>
                                         <h3 class="mt-4 ps-3">Operating Hours</h3>
                                         <hr style="border-top: 1px solid black">
-                                        <h4 class="col-10 mt-5 ps-3">Monday <span class="float-end">7:00 AM - 10:00
+                                        <h4 class="col-sm-10 mt-5 ps-3">Monday <span class="float-end">7:00 AM - 10:00
                                                 PM</span></h4>
-                                        <h4 class="col-10 mt-5 ps-3">Tuesday <span class="float-end">7:00 AM - 10:00
+                                        <h4 class="col-sm-10 mt-5 ps-3">Tuesday <span class="float-end">7:00 AM - 10:00
                                                 PM</span></h4>
-                                        <h4 class="col-10 mt-5 ps-3">Wednesday <span class="float-end">7:00 AM - 10:00
+                                        <h4 class="col-sm-10 mt-5 ps-3">Wednesday <span class="float-end">7:00 AM - 10:00
                                                 PM</span></h4>
-                                        <h4 class="col-10 mt-5 ps-3">Thursday <span class="float-end">7:00 AM - 10:00
+                                        <h4 class="col-sm-10 mt-5 ps-3">Thursday <span class="float-end">7:00 AM - 10:00
                                                 PM</span></h4>
-                                        <h4 class="col-10 mt-5 ps-3">Friday <span class="float-end">7:00 AM - 10:00
+                                        <h4 class="col-sm-10 mt-5 ps-3">Friday <span class="float-end">7:00 AM - 10:00
                                                 PM</span></h4>
-                                        <h4 class="col-10 mt-5 ps-3">Saturday <span class="float-end">7:00 AM - 10:00
+                                        <h4 class="col-sm-10 mt-5 ps-3">Saturday <span class="float-end">7:00 AM - 10:00
                                                 PM</span></h4>
-                                        <h4 class="col-10 mt-5 ps-3">Sunday <span class="float-end">7:00 AM - 10:00
+                                        <h4 class="col-sm-10 mt-5 ps-3">Sunday <span class="float-end">7:00 AM - 10:00
                                                 PM</span></h4>
                                     </div>
                                 </div>
