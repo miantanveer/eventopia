@@ -27,6 +27,27 @@
                 <div class="card-body p-0 mt-5">
                     <div class="col-12">
                         <div class="card border">
+                            <div class="row">
+                                <div class="col-12 p-2">
+                                    <div class="card shadow-sm border">
+                                        <div class="card-body p-0">
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <h5 class="card-title mt-3">New Space</h5>
+                                                </div>
+                                                <div class="col-8 ">
+                                                    <div class="text-end">
+                                                        <button type="button" class="btn btn-primary">Resume</button>
+                                                        <button type="button" class="btn">
+                                                            <i class="fa fa-trash text-danger"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row g-0">
                                 <div class="col-md-4 pe-3 pe-md-0">
                                     <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-left h-100"
@@ -37,17 +58,22 @@
                                         <div class="row w-100">
                                             <div class="col-8">
                                                 <h5 class="card-title">Birthday Event</h5>
-                                                <p class="card-text">Address, Parking, Arrival instructions, Wi-Fi, Cancellations policy, etc.</p>
+                                                <p class="card-text">Address, Parking, Arrival instructions, Wi-Fi,
+                                                    Cancellations policy, etc.</p>
                                             </div>
                                             <div class="col-4 my-auto">
                                                 <div class="text-end">
                                                     <button type="button" class="btn btn-primary">Edit
                                                         Space</button>
-                                                    <button type="button" class="btn">
-                                                        <i class="icon icon-options" data-bs-toggle="tooltip" title=""
-                                                            data-bs-original-title="icon-options"
-                                                            aria-label="icon-options"></i>
-                                                    </button>
+                                                    <div class="btn-group mt-2 mb-2">
+                                                        <button type="button" class="btn" data-bs-toggle="dropdown">
+                                                            <i class="icon icon-options"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu" style="">
+                                                            <li><a href="javascript:void(0)" class="text-danger">Delete</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -61,7 +87,8 @@
                                             <div class="row">
                                                 <div class="col-9">
                                                     <h6><i class="fe fe-alert-circle me-3"></i>Updates Needed</h6>
-                                                    <p>You have required updates in order to move forward with your submission. Please view the updates needed and resubmit
+                                                    <p>You have required updates in order to move forward with your
+                                                        submission. Please view the updates needed and resubmit
                                                         the space once requirements are complete.</p>
                                                 </div>
                                                 <div class="col-3 text-end align-self-md-center">
@@ -83,7 +110,9 @@
                                     <div class="card shadow-sm border">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-1 align-self-md-center"><span><img src="{{asset('assets/images/icons/teamicon.png')}}"></span></div>
+                                                <div class="col-1 align-self-md-center"><span><img
+                                                            src="{{ asset('assets/images/icons/teamicon.png') }}"></span>
+                                                </div>
                                                 <div class="col-8">
                                                     <h6>Meetings</h6>
                                                     <div class="row">
@@ -109,7 +138,8 @@
                                     <div class="card shadow-sm border">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-1 align-self-md-center"><span><i class="fa fs-2 fa-camera-retro"></i></span></div>
+                                                <div class="col-1 align-self-md-center"><span><i
+                                                            class="fa fs-2 fa-camera-retro"></i></span></div>
                                                 <div class="col-8">
                                                     <h6>Media productions</h6>
                                                     <div class="row">
@@ -131,7 +161,9 @@
                                     <div class="card shadow-sm border">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-1 align-self-md-center"><span><img src="{{asset('assets/images/icons/events.png')}}" alt=""></span></div>
+                                                <div class="col-1 align-self-md-center"><span><img
+                                                            src="{{ asset('assets/images/icons/events.png') }}"
+                                                            alt=""></span></div>
                                                 <div class="col-8">
                                                     <h6>Events</h6>
                                                     <div class="row">
@@ -162,17 +194,22 @@
                                         <div class="row w-100">
                                             <div class="col-8">
                                                 <h5 class="card-title">Hall</h5>
-                                                <p class="card-text">Address, Parking, Arrival instructions, Wi-Fi, Cancellations policy, etc.</p>
+                                                <p class="card-text">Address, Parking, Arrival instructions, Wi-Fi,
+                                                    Cancellations policy, etc.</p>
                                             </div>
                                             <div class="col-4 my-auto">
                                                 <div class="text-end">
                                                     <button type="button" class="btn btn-primary">Edit
                                                         Space</button>
-                                                    <button type="button" class="btn">
-                                                        <i class="icon icon-options" data-bs-toggle="tooltip" title=""
-                                                            data-bs-original-title="icon-options"
-                                                            aria-label="icon-options"></i>
-                                                    </button>
+                                                    <div class="btn-group mt-2 mb-2">
+                                                        <button type="button" class="btn" data-bs-toggle="dropdown">
+                                                            <i class="icon icon-options"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu" style="">
+                                                            <li><a href="javascript:void(0)"
+                                                                    class="text-danger">Delete</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -185,8 +222,11 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <h6><i class="fe fe-alert-circle me-3"></i>We have received your submission</h6>
-                                                    <p>Your submission is currently under review by our host onboarding team. To avoid any delays in your activation, please review our requirements to
+                                                    <h6><i class="fe fe-alert-circle me-3"></i>We have received your
+                                                        submission</h6>
+                                                    <p>Your submission is currently under review by our host onboarding
+                                                        team. To avoid any delays in your activation, please review our
+                                                        requirements to
                                                         go live.</p>
                                                 </div>
                                             </div>
@@ -204,13 +244,16 @@
                                     <div class="card shadow-sm border">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-1 align-self-md-center"><span><img src="{{asset('assets/images/icons/teamicon.png')}}"></span></div>
+                                                <div class="col-1 align-self-md-center"><span><img
+                                                            src="{{ asset('assets/images/icons/teamicon.png') }}"></span>
+                                                </div>
                                                 <div class="col-8">
                                                     <h6>Meetings</h6>
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <span>From SAR80/hr</span> &nbsp;
-                                                            <span class="text-primary"><i class="ion ion-record"> </i>Pending Review</span>
+                                                            <span class="text-primary"><i class="ion ion-record">
+                                                                </i>Pending Review</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -230,7 +273,8 @@
                                     <div class="card shadow-sm border">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-1 align-self-md-center"><span><i class="fa fs-2 fa-camera-retro"></i></span></div>
+                                                <div class="col-1 align-self-md-center"><span><i
+                                                            class="fa fs-2 fa-camera-retro"></i></span></div>
                                                 <div class="col-8">
                                                     <h6>Media productions</h6>
                                                     <div class="row">
@@ -252,7 +296,9 @@
                                     <div class="card shadow-sm border">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-1 align-self-md-center"><span><img src="{{asset('assets/images/icons/events.png')}}" alt=""></span></div>
+                                                <div class="col-1 align-self-md-center"><span><img
+                                                            src="{{ asset('assets/images/icons/events.png') }}"
+                                                            alt=""></span></div>
                                                 <div class="col-8">
                                                     <h6>Events</h6>
                                                     <div class="row">
@@ -283,17 +329,22 @@
                                         <div class="row w-100">
                                             <div class="col-8">
                                                 <h5 class="card-title">Mall</h5>
-                                                <p class="card-text">Address, Parking, Arrival instructions, Wi-Fi, Cancellations policy, etc.</p>
+                                                <p class="card-text">Address, Parking, Arrival instructions, Wi-Fi,
+                                                    Cancellations policy, etc.</p>
                                             </div>
                                             <div class="col-4 my-auto">
                                                 <div class="text-end">
                                                     <button type="button" class="btn btn-primary">Edit
                                                         Space</button>
-                                                    <button type="button" class="btn">
-                                                        <i class="icon icon-options" data-bs-toggle="tooltip" title=""
-                                                            data-bs-original-title="icon-options"
-                                                            aria-label="icon-options"></i>
-                                                    </button>
+                                                    <div class="btn-group mt-2 mb-2">
+                                                        <button type="button" class="btn" data-bs-toggle="dropdown">
+                                                            <i class="icon icon-options"></i>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu" style="">
+                                                            <li><a href="javascript:void(0)"
+                                                                    class="text-danger">Delete</a></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -306,8 +357,11 @@
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <h6><i class="fe fe-alert-circle me-3"></i>We have received your submission</h6>
-                                                    <p>Your submission is currently under review by our host onboarding team. To avoid any delays in your activation, please review our requirements to
+                                                    <h6><i class="fe fe-alert-circle me-3"></i>We have received your
+                                                        submission</h6>
+                                                    <p>Your submission is currently under review by our host onboarding
+                                                        team. To avoid any delays in your activation, please review our
+                                                        requirements to
                                                         go live.</p>
                                                 </div>
                                             </div>
@@ -325,13 +379,16 @@
                                     <div class="card shadow-sm border">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-1 align-self-md-center"><span><img src="{{asset('assets/images/icons/teamicon.png')}}"></span></div>
+                                                <div class="col-1 align-self-md-center"><span><img
+                                                            src="{{ asset('assets/images/icons/teamicon.png') }}"></span>
+                                                </div>
                                                 <div class="col-8">
                                                     <h6>Meetings</h6>
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <span>From SAR80/hr</span> &nbsp;
-                                                            <span class="text-primary"><i class="ion ion-record"> </i>&nbsp; Pending Review</span>
+                                                            <span class="text-primary"><i class="ion ion-record">
+                                                                </i>&nbsp; Pending Review</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -351,7 +408,8 @@
                                     <div class="card shadow-sm border">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-1 align-self-md-center"><span><i class="fa fs-2 fa-camera-retro"></i></span></div>
+                                                <div class="col-1 align-self-md-center"><span><i
+                                                            class="fa fs-2 fa-camera-retro"></i></span></div>
                                                 <div class="col-8">
                                                     <h6>Media productions</h6>
                                                     <div class="row">
@@ -373,13 +431,16 @@
                                     <div class="card shadow-sm border">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-1 align-self-md-center"><span><img src="{{asset('assets/images/icons/events.png')}}" alt=""></span></div>
+                                                <div class="col-1 align-self-md-center"><span><img
+                                                            src="{{ asset('assets/images/icons/events.png') }}"
+                                                            alt=""></span></div>
                                                 <div class="col-8">
                                                     <h6>Events</h6>
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <span>From SAR80/hr</span> &nbsp;
-                                                            <span class="text-primary"><i class="ion ion-record"> </i>&nbsp; Pending Review</span>
+                                                            <span class="text-primary"><i class="ion ion-record">
+                                                                </i>&nbsp; Pending Review</span>
                                                         </div>
                                                     </div>
                                                 </div>
