@@ -93,6 +93,7 @@ Route::get('/list-entertainment', function () {
 });
 Route::get('/entertainment-list-steps', function () {
     return view('layouts.seller.entertainment-list-steps');
+});
 Route::get('/add-space-allsteps', function () {
     return view('layouts.seller.add-space-allsteps');
 });
