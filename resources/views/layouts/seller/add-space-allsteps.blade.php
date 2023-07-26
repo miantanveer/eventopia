@@ -4,6 +4,13 @@
         .seller-web-sidebar {
             z-index: 9999;
         }
+        .step-anchor {
+            justify-content: space-around;
+        }
+
+        .sw-btn-group-extra {
+            display: none;
+        }
     </style>
 @endsection
 
@@ -18,7 +25,7 @@
                             <li><a href="#step-11">Setup</a></li>
                             <li><a href="#step-12">About your Space</a></li>
                         </ul>
-                        <div>
+                        <div class="mb-5">
                             <h2 style="text-align:center;">Step 1 of 9</h2>
                             <div id="step-10" class="border">
                                 <form>
@@ -68,7 +75,6 @@
                                         alt="img">Examples: 'Apartment' 'Photo Studio' 'Restaurant'</p>
                                 <input style="width:980px;margin-left:25rem;" type="text" class="form-control rounded-0"
                                     id="inputtext" placeholder="Gallery for art">
-
                                 <form>
                                     <div class="form-group">
                                         <label>Street Address *</label>
@@ -100,16 +106,16 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
-                        <div id="step-12" class="">
-                            <div class="form-group mb-0 justify-content-end">
-                                <div class="">
-                                    <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" name="example-checkbox2"
-                                            value="option2">
-                                        <span class="custom-control-label">I agree terms &
-                                            Conditions</span>
-                                    </label>
+                            <div id="step-12" class="">
+                                <div class="form-group mb-0 justify-content-end">
+                                    <div class="">
+                                        <label class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" name="example-checkbox2"
+                                                value="option2">
+                                            <span class="custom-control-label">I agree terms &
+                                                Conditions</span>
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
