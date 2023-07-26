@@ -88,6 +88,9 @@ Route::get('/add-space', function () {
 Route::get('/add-space-steps', function () {
     return view('layouts.seller.add-space-steps');
 });
+Route::get('/add-space-allsteps', function () {
+    return view('layouts.seller.add-space-allsteps');
+});
 Route::get('/my-listings', function () {
     return view('layouts.seller.my-listing');
 });

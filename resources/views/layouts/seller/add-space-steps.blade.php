@@ -18,7 +18,7 @@
 
 </head>
 <style>
-    
+
 </style>
 
 <body class="app sidebar-mini ltr">
@@ -42,32 +42,110 @@
                 <div class="side-app">
 
                     <!-- container -->
-                    <div class="main-container container-fluid mt-5 mb-3">
-                         <h1 style="height:34px;margin-left:15px;">Hb, tell us about your space.</h1>
-                         <p style="margin-left:15px;"> The more you share, the faster you can get a booking.<p></p>
-
-                         <div class="card-body">
-                                        <div class="">
-                                            <ul class="list-group">
-                                                <li class="list-group-item"><i class="fa fa-check text-muted me-2" aria-hidden="true"></i> Cras justo odio</li>
-                                                <li class="list-group-item"><i class="fa fa-check text-muted me-2" aria-hidden="true"></i> Dapibus ac facilisis in</li>
-                                                <li class="list-group-item"><i class="fa fa-check text-muted me-2" aria-hidden="true"></i> Morbi leo risus</li>
-                                                <li class="list-group-item"><i class="fa fa-check text-muted me-2" aria-hidden="true"></i> Porta ac consectetur ac</li>
-                                                <li class="list-group-item"><i class="fa fa-check text-muted me-2" aria-hidden="true"></i> Vestibulum at eros</li>
-                                            </ul>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-xl-10 col-12 mt-5 ">
+                                <div class="card border overflow-hidden">
+                                    <div class="card-header pb-0 border-bottom-0">
+                                        <div class="row w-100 align-items-center">
+                                            <div class="col-12">
+                                                <h3 class="number-font mb-2">Hb, tell us about your service</h3>
+                                            </div>
+                                            <div class="col-12 pe-0">
+                                                <p>The more you share, the faster you can get a booking.</p>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="card-body p-0 mt-5">
+                                        <div class="col-12 px-0 px-sm-2">
+                                            <div class="">
+                                                <ul class="list-group">
+                                                    <li class="list-group-item">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <h5><i class="fa fa-check-square text-primary"></i>&nbsp; 1.Location</h5>
+                                                                <p class="ms-5">Enter your address</p>
+                                                            </div>
+                                                            <div class="col-6 text-end">
+                                                                <button class="btn btn-primary mt-3" onclick="location.href = 'add-space-allsteps';">Start</button>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="">
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 2. Setup </h5>
+                                                            <p class="ms-5">Add your space type, parking options, and surveillance devices</p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="">
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 3. About your space </h5>
+                                                            <p class="ms-5">Add a title, description, and rules</p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="">
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 4. Photos </h5>
+                                                            <p class="ms-5">Upload photos and select a cover image</p>
+                                                        </div>
+                                                    </li>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="">
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;5. Availability </h5>
+                                                            <p class="ms-5">Set your operating hours</p>
+                                                        </div>
+                                                    </li>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="">
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;6. Cleaning </h5>
+                                                            <p class="ms-5">Specify your cleaning protocol for guests</p>
+                                                        </div>
+                                                    </li>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="">
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;7. Cancellations </h5>
+                                                            <p class="ms-5">Select your cancellation policy</p>
+                                                        </div>
+                                                    </li>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="">
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;8. Activities </h5>
+                                                            <p class="ms-5">Pick the activities you’d like to host and set your price</p>
+                                                        </div>
+                                                    </li>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="">
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;9. Profile</h5>
+                                                            <p class="ms-5">Add a photo and contact information</p>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- container-closed -->
                 </div>
+
             </div>
-            <!--app-content closed-->
+            <!-- container-closed -->
         </div>
-        <!-- page-main closed -->
+    </div>
+    <!--app-content closed-->
+    </div>
+    <!-- page-main closed -->
 
-        @include('layouts.components.modal')
+    @include('layouts.components.modal')
 
-        @yield('modal')
+    @yield('modal')
 
     </div>
     <!-- page -->
@@ -77,7 +155,7 @@
         <div class="dropup btn-group mt-2 mb-2">
             <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button" data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Do you need Help?</button>
             <ul class="dropdown-menu" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);" data-popper-placement="top-start">
-                <form id="contactForm" >
+                <form id="contactForm">
                     <div class="row">
                         <div class="form-group">
                             <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
