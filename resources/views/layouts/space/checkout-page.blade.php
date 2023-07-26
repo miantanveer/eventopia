@@ -324,8 +324,7 @@
                                     <div class="card-footer">
                                         <div class="btn-list">
                                             <a href="{{ url('shop') }}" class="btn "></i>Continue Shopping</a>
-                                            <a href="{{ url('review-pay') }}" class="btn btn-primary float-sm-end">Check
-                                                out<i class="fa fa-arrow-right ms-1"></i></a>
+                                            <a href="{{ url('review-pay') }}" class="btn btn-primary float-sm-end"><i class="fa fa-shopping-bag me-1"></i>Place Order</a>
                                         </div>
                                     </div>
                                 </div>
@@ -333,7 +332,7 @@
 
                             <h3 class="p-3 mb-5 text-dark">When checking out your space, you may add these Talents or
                                 Services.</h3>
-                            <h6 class="p-3 mb-5 text-dark">The spaces you might be looking for?</h6>                            
+                            <h6 class="p-3 mb-5 text-dark">The spaces you might be looking for?</h6>
                                 <div class="col-12 px-lg-0 px-6 bg-white">
                                     <div class="card custom-card">
                                         <div class="card-body p-0 h-100">
@@ -505,8 +504,8 @@
                                             <button type="button" class="btn btn-primary mb-1">View all</button>
                                         </div>
                                     </div>
-                                </div>                            
-                            <h3 class="p-3 mb-5 text-dark">Talents & Entertainments you might be looking for?</h3>                            
+                                </div>
+                            <h3 class="p-3 mb-5 text-dark">Talents & Entertainments you might be looking for?</h3>
                                 <div class="col-12 px-lg-0 px-6 bg-white">
                                     <div class="card custom-card">
                                         <div class="card-body p-0 h-100">
@@ -678,7 +677,7 @@
                                             <button type="button" class="btn btn-primary mb-1">View all</button>
                                         </div>
                                     </div>
-                                </div>                            
+                                </div>
                         </div>
                     </div>
                     <!-- container-closed -->
