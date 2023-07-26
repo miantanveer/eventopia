@@ -162,7 +162,7 @@
                                         <p><i class="text-primary side-menu__icon fe fe-map-pin"></i> Address,
                                             California, USA</p>
                                         <div class="row">
-                                            <div class="mb-3 col-2 text-warning">
+                                            <div class="mb-3 col-sm-3 text-warning">
                                                 <i class="fa fa-star text-warning"></i>
                                                 <i class="fa fa-star text-warning"></i>
                                                 <i class="fa fa-star text-warning"></i>
@@ -170,9 +170,9 @@
                                                 <i class="fa fa-star-o text-warning"></i>
                                                 &nbsp;
                                             </div>
-                                            <p class="col-2">45 reviews</p>
-                                            <p class="col-2"><i class="fa fa-group"></i> 12 people </p>
-                                            <p class="col-2"><i class="mdi mdi-alarm text-primary"></i> 1 hr 5 min</p>
+                                            <p class="col-sm-3">45 reviews</p>
+                                            <p class="col-sm-3"><i class="fa fa-group"></i> 12 people </p>
+                                            <p class="col-sm-3"><i class="mdi mdi-alarm text-primary"></i> 1 hr 5 min</p>
                                         </div>
                                         <hr class="border-3">
                                         <div class="mt-5">

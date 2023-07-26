@@ -48,13 +48,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="notifications-menu">
-                                                    <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#quote-modal">
+                                                    <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg  bg-primary brround box-shadow-primary">
-                                                            <i class="fe fe-dollar-sign"></i>
+                                                            <i class="fe fe-mail"></i>
                                                         </div>
                                                         <div class="mt-1">
-                                                            <h5 class="notification-label mb-1">New Quotation received</h5>
-                                                            <span class="notification-subtext">1 days ago</span>
+                                                            <h5 class="notification-label mb-1">New Application received</h5>
+                                                            <span class="notification-subtext">3 days ago</span>
                                                         </div>
                                                     </a>
                                                     <a class="dropdown-item d-flex" href="#">

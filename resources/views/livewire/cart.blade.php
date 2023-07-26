@@ -254,7 +254,7 @@
                     <div class="card-footer">
                         <div class="btn-list">
                             <a href="{{url('shop')}}" class="btn btn-primary"><i class="fa fa-arrow-left me-1"></i>Continue Shopping</a>
-                            <a href="{{url('checkout')}}" class="btn btn-success float-sm-end">Check out<i class="fa fa-arrow-right ms-1"></i></a>
+                            <a href="{{url('checkout')}}" class="btn btn-success float-sm-end">Place Order<i class="fa fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
