@@ -1,7 +1,9 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
 <style>
-
+        .sw-btn-group-extra {
+            display: none;
+        }
 </style>
 @endsection
 @section('content')
