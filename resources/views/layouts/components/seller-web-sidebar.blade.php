@@ -15,7 +15,7 @@
                                 <a class="side-menu__item" data-bs-toggle="slide" href="#"><img class="me-2" src="{{asset('assets/images/icons/list-entertainment.png')}}" alt=""><span class="side-menu__label text-white"> List an Entertainment & Talent</span></a>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="#"><img class="me-2" src="{{asset('assets/images/icons/list-service.png')}}" alt=""><span class="side-menu__label text-white"> List a Service</span></a>
+                                <a class="side-menu__item" data-bs-toggle="slide" href="{{URL('list-service')}}"><img class="me-2" src="{{asset('assets/images/icons/list-service.png')}}" alt=""><span class="side-menu__label text-white"> List a Service</span></a>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="{{URL('/my-listings')}}"><img class="me-2" src="{{asset('assets/images/icons/my-listing.png')}}" alt=""><span class="side-menu__label text-white"> My Listing</span></a>
