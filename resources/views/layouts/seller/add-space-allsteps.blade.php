@@ -82,70 +82,69 @@
                                         <label class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
                                             <span class="custom-control-label">Free onsite parking
-                                            </span>
+                                                </span>
                                         </label>
                                     </div>
-
-
-                                    <div class="">
-                                        <label class="custom-control custom-checkbox checkbox-inline">
+                                </div>
+                                <div class="form-group mb-0 justify-content-end">
+                                    <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0">
+                                        <label class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
                                             <span class="custom-control-label">Paid onsite parking</span>
                                         </label>
                                     </div>
-
-
-                                    <div class="">
-                                        <label class="custom-control custom-checkbox checkbox-inline">
+                                </div>
+                                <div class="form-group mb-0 justify-content-end">
+                                    <div class="col-md-5 col-lg-6">
+                                        <label class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
                                             <span class="custom-control-label">Free street parking</span>
                                         </label>
                                     </div>
-
-
+                                </div>
+                                <div class="form-group mb-0 justify-content-end">
                                     <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0">
                                         <label class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
                                             <span class="custom-control-label">Valet</span>
                                         </label>
                                     </div>
-
-
+                                </div>
+                                <div class="form-group mb-0 justify-content-end">
                                     <div class="col-md-5 col-lg-6">
                                         <label class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
                                             <span class="custom-control-label">Metered street parking</span>
                                         </label>
                                     </div>
-
-
+                                </div>
+                                <div class="form-group mb-0 justify-content-end">
                                     <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0">
                                         <label class="custom-control custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
                                             <span class="custom-control-label">Nearby parking lot</span>
                                         </label>
                                     </div>
-
+                                </div>
                             </form>
                         </div>
                     </div>
-                </div>
 
-                <div id="step-3" class="">
-                    <div class="form-group mb-0 justify-content-end">
-                        <div class="col-md-5 col-lg-6">
-                            <label class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
-                                <span class="custom-control-label">I agree terms &
-                                    Conditions</span>
-                            </label>
+                    <div id="step-3" class="">
+                        <div class="form-group mb-0 justify-content-end">
+                            <div class="col-md-5 col-lg-6">
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
+                                    <span class="custom-control-label">I agree terms &
+                                        Conditions</span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 
