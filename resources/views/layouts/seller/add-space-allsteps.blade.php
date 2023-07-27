@@ -4,10 +4,6 @@
         .seller-web-sidebar {
             z-index: 9999;
         }
-        .step-anchor {
-            justify-content: space-around;
-        }
-
         .sw-btn-group-extra {
             display: none;
         }
@@ -20,7 +16,7 @@
             <div class="card">
                 <div class="card-body">
                     <div id="smartwizard-3">
-                        <ul>
+                        <ul class="justify-content-around">
                             <li><a href="#step-10">Address Space</a></li>
                             <li><a href="#step-11">Setup</a></li>
                             <li><a href="#step-12">About your Space</a></li>

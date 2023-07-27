@@ -6,10 +6,6 @@
             z-index: 9999;
         }
 
-        .step-anchor {
-            justify-content: space-around;
-        }
-
         .sw-btn-group-extra {
             display: none;
         }
@@ -22,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <div id="smartwizard-3">
-                        <ul>
+                        <ul class="justify-content-around">
                             <li><a href="#step-1">Photos</a></li>
                             <li><a href="#step-2">About Service</a></li>
                             <li><a href="#step-3">Detail</a></li>
@@ -73,76 +69,180 @@
                                     <br>
                                     <div class="row">
                                         <div class="col-12">
-                                            <p><i class="ion-lightbulb text-warning fs-3 me-3"></i> Drag and drop your photos to change the order. Your first photo is what your guests will see when browsing so make sure it
-                                            represents your space.</p>
+                                            <p><i class="ion-lightbulb text-warning fs-3 me-3"></i> Drag and drop your
+                                                photos to change the order. Your first photo is what your guests will see
+                                                when browsing so make sure it
+                                                represents your space.</p>
                                         </div>
                                     </div>
                                 </form>
 
                             </div>
-                            <div id="step-2" class="">
-                                <form>
+                            <div id="step-2" class="mb-5">
+                                <div class="text-center">
+                                    <h2 class="fw-bolder">
+                                        About your service
+                                    </h2>
+                                    <p>Create a title that will grab a guest’s interest and describes your entertainment &
+                                        talent. Do not include your business’s name.</p>
+                                </div>
+                                <br>
+                                <form class="mt-4 mb-5">
                                     <div class="form-group">
-                                        <label>User Name</label>
-                                        <input type="text" class="form-control" id="inputtext"
-                                            placeholder="Enter User Name">
+                                        <h3 class="fw-bolder">Add title to your service</h3>
+                                        <select name="service-title"
+                                            class="form-control form-select select2 select2-hidden-accessible"
+                                            tabindex="-1" aria-hidden="true" data-bs-placeholder="Select Service Title">
+                                            <option value="VG">Video Graphers</option>
+                                            <option value="BS">Beauty Services</option>
+                                            <option value="SE">Soloists & Ensembles</option>
+                                            <option value="DL">Dance Lessons</option>
+                                            <option value="D">Decor</option>
+                                            <option value="IN">Invitations</option>
+                                            <option value="RV">Reception Venues</option>
+                                            <option value="WPG">Wedding Photographers</option>
+                                            <option value="WP">Wedding Planners</option>
+                                            <option value="WB">Wedding Bands</option>
+                                            <option value="WR">Wedding Rentals</option>
+                                            <option value="TRA">Transportation</option>
+                                            <option value="TS">Travel Specialists</option>
+                                            <option value="BS">Bar Services</option>
+                                            <option value="FL">Florists</option>
+                                        </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail8"
-                                            placeholder="Enter email address">
+                                    <hr class="border-3 bg-dark">
+                                    <div class="form-group mt-3">
+                                        <h3 class="fw-bolder">Describe your company</h3>
+                                        <textarea name="decription" cols="30" rows="5" class="w-100 form-control" placeholder="About Seller"></textarea>
+                                        <p class="text-end mt-2">Minimum 100 characters</p>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword9"
-                                            placeholder="Password">
-                                    </div>
-                                    <div class="form-group mb-0 justify-content-end">
-                                        <div class="">
-                                            <label class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" name="example-checkbox2"
-                                                    value="option2">
-                                                <span class="custom-control-label">Check me Out</span>
-                                            </label>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p><i class="fa fa-lock text-gray fs-3 me-3"></i> Don't worry, we'll only share
+                                                this with customers after you have accepted their booking.</p>
                                         </div>
                                     </div>
+                                    <hr class="border-3 bg-dark">
                                 </form>
                             </div>
                             <div id="step-3" class="">
-                                <div class="form-group mb-0 justify-content-end">
-                                    <div class="">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="example-checkbox2"
-                                                value="option2">
-                                            <span class="custom-control-label">I agree terms &
-                                                Conditions</span>
-                                        </label>
-                                    </div>
+                                <div class="text-center">
+                                    <h2 class="fw-bolder">
+                                        Detail
+                                    </h2>
+                                    <p>Create a title that will grab a guest’s interest and describes your entertainment &
+                                        talent. Do not include your business’s name.</p>
                                 </div>
+                                <br>
+                                <form class="mt-4 mb-5">
+                                    <div class="form-group mt-3">
+                                        <h3 class="fw-bolder">Destination Weddings</h3>
+                                        <input type="text" name="destination" placeholder="Destination Wedding Planning"
+                                            class="form-control">
+                                    </div>
+                                    <hr class="border-3 bg-dark">
+                                    <div class="form-group mt-3">
+                                        <h3 class="fw-bolder">Planning</h3>
+                                        <textarea name="decription" cols="30" rows="5" class="w-100 form-control"
+                                            placeholder="e.g. Budgeting, Destination, Wedding Design"></textarea>
+                                    </div>
+                                    <hr class="border-3 bg-dark">
+                                    <div class="form-group mt-3">
+                                        <h3 class="fw-bolder">Wedding Activities</h3>
+                                        <textarea name="decription" cols="30" rows="5" class="w-100 form-control"
+                                            placeholder="e.g. Engagement Party, Honeymoon, Rehearsals & Parties"></textarea>
+                                    </div>
+                                    <br>
+                                    <hr class="border-3 bg-dark">
+                                </form>
                             </div>
                             <div id="step-4" class="">
-                                <div class="form-group mb-0 justify-content-end">
-                                    <div class="">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="example-checkbox2"
-                                                value="option2">
-                                            <span class="custom-control-label">I agree terms &
-                                                Conditions</span>
-                                        </label>
-                                    </div>
+                                <div class="text-center">
+                                    <h2 class="fw-bolder">
+                                        Pricing for services
+                                    </h2>
                                 </div>
+                                <br>
+                                <form class="mt-4 mb-5">
+                                    <div class="form-group m-0">
+                                        <div class="custom-controls-stacked">
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="price-1"
+                                                    value="option1">
+                                                <span class="custom-control-label">0 - 500</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="price-2"
+                                                    value="option2">
+                                                <span class="custom-control-label">500 - 1000</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="price-3"
+                                                    value="option3">
+                                                <span class="custom-control-label">1000 - 5000</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="price-4"
+                                                    value="option4">
+                                                <span class="custom-control-label">5000 - 10000</span>
+                                            </label>
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" name="price-5"
+                                                    value="option4">
+                                                <span class="custom-control-label">20k+</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <hr class="border-3 bg-dark">
+                                </form>
                             </div>
                             <div id="step-5" class="">
-                                <div class="form-group mb-0 justify-content-end">
-                                    <div class="">
-                                        <label class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" name="example-checkbox2"
-                                                value="option2">
-                                            <span class="custom-control-label">I agree terms &
-                                                Conditions</span>
-                                        </label>
-                                    </div>
+                                <div class="text-center">
+                                    <h2 class="fw-bolder">
+                                        Team
+                                    </h2>
+                                    <p>Add team profile or details.</p>
                                 </div>
+                                <br>
+                                <form class="mt-4 mb-5" id="last_form">
+                                    <div class="row">
+                                        <div class="col-9">
+                                            <div class="row fieldGroup align-items-center">
+                                                <h3 class="fw-bolder">Full Name</h3>
+                                                <div class="col-11">
+                                                    <div class="form-group mt-3">
+                                                        <input type="text" name="destination" placeholder="Enter Name"
+                                                            class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-1 ps-0">
+                                                    <a class="btn btn-success ms-1 addMore text-white mb-1">+</a>
+                                                </div>
+                                            </div>
+                                            <hr class="border-3 bg-dark">
+                                            <div class="form-group mt-3">
+                                                <h3 class="fw-bolder">Description</h3>
+                                                <textarea name="decription" cols="30" rows="5" class="w-100 form-control" placeholder="About Team"></textarea>
+                                                <p class="text-end mt-2">Minimum 100 characters</p>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <p><i class="fa fa-lock text-gray fs-3 me-3"></i> Don't worry, we'll
+                                                        only share
+                                                        this with customers after you have accepted their booking.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <input type="file" class="mydropify"
+                                                data-bs-default-file="{{ asset('assets/images/media/1.jpg') }}"
+                                                data-bs-height="180" />
+                                        </div>
+                                    </div>
+                                    <hr class="border-3 bg-dark">
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -172,7 +272,55 @@
     <script src="{{ asset('assets/plugins/jquery-steps/jquery.steps.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/parsleyjs/parsley.min.js') }}"></script>
 
+    <!-- INTERNAL SELECT2 JS -->
+    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/js/select2.js') }}"></script>
+
     <!-- INTERNAL Accordion-Wizard-Form js-->
     <script src="{{ asset('assets/plugins/accordion-Wizard-Form/jquery.accordion-wizard.min.js') }}"></script>
     <script src="{{ asset('assets/js/form-wizard.js') }}"></script>
+
+    <!-- FORMELEMENTS JS -->
+    <script src="{{ asset('assets/js/formelementadvnced.js') }}"></script>
+    <script src="{{ asset('assets/js/form-elements.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.mydropify').dropify({
+                messages: {
+                    'default': 'Upload Company Image',
+                    'replace': 'Uploaded',
+                    'remove': 'Remove',
+                    'error': 'Ooops, something wrong appended.'
+                },
+                error: {
+                    'fileSize': 'The file size is too big (2M max).'
+                }
+            });
+            var maxGroup = 4;
+            $(".addMore").click(function() {
+                var ri = $('.fieldGroup').length;
+                if ($('body').find('.fieldGroup').length < maxGroup) {
+                    var fieldHTML =
+                        `<div class="row fieldGroup align-items-center my-3">
+                            <div class="col-11">
+                                <div class="form-group">
+                                    <input type="text" name="destination" placeholder="Enter Name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-1 ps-0">
+                                <a class="btn btn-danger remove ms-1 text-white mb-4" style="padding-left:1.1rem; padding-right:1.1rem;"> - </a>
+                            </div>
+                        </div>`;
+
+                    $('body').find('.fieldGroup:last').after(fieldHTML);
+                } else {
+                    alert('Maximum ' + maxGroup + ' are allowed.');
+                }
+            });
+            $("body").on("click", ".remove", function() {
+                $(this).parents(".fieldGroup").remove();
+            });
+        });
+    </script>
 @endsection

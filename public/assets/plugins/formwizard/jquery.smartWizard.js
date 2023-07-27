@@ -487,9 +487,9 @@
                     $('.sw-btn-prev', this.main).removeClass("disabled");
                 }
                 if (this.steps.length - 1 <= idx) {
-                    $('.sw-btn-next', this.main).addClass("disabled");
+                    $('.sw-btn-next', this.main).addClass("last_step_btn");
                 } else {
-                    $('.sw-btn-next', this.main).removeClass("disabled");
+                    $('.sw-btn-next', this.main).removeClass("last_step_btn");
                 }
             }
             return true;
@@ -645,4 +645,12 @@
             }
         }
     };
+
+    $('.sw-btn-next').on('click', function(e) {
+        var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
+        $('.last_step_btn').on('click', function(e) {
+            // console.log("asdf");
+            window.location.href = '{{ url("/steps-form-submit") }}';
+        });
+    });
 })(jQuery, window, document);
