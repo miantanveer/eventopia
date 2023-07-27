@@ -192,10 +192,7 @@
                                                 Details
                                             </h3>
                                             <div class="row">
-                                                <div class="col-6">
-                                                    <h5 class="text-dark">Business Attributes</h5>
-                                                    <p>Woman-owned Business</p>
-                                                </div>
+
                                                 <div class="col-6">
                                                     <h5 class="text-dark">Planning</h5>
                                                     <p>A la Carte Wedding Planning, Budgeting,

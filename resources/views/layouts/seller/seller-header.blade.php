@@ -31,17 +31,17 @@
                                         </div>
 
                                         <div class="d-flex seller-btn">
-                                            <a class="nav-link border py-3 px-5 m-2 active text-white" id="tab1" data-bs-toggle="tab" href="#tabs_2_1" role="tab" aria-selected="true">
+                                            <a class="nav-link border py-3 px-5 m-2 active text-white" id="tab1" data-bs-toggle="tab" href="{{URL('dashboard')}}" role="tab" aria-selected="true">
                                                 Customer Page
                                             </a>
                                         </div>
                                         <div class="d-flex seller-btn">
-                                            <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true">
+                                            <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true" href="{{URL('my-listings')}}">
                                                 Listing
                                             </a>
                                         </div>
                                         <div class="d-flex seller-btn">
-                                            <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true">
+                                            <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true" href="{{URL('bookings')}}">
                                                 Booking
                                             </a>
                                         </div>

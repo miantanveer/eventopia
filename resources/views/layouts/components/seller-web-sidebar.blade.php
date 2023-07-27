@@ -12,7 +12,7 @@
                                 <a class="side-menu__item" data-bs-toggle="slide" href="{{URL('/add-space-steps')}}"><img class="me-2" src="{{asset('assets/images/icons/list-space.png')}}" alt=""><span class="side-menu__label text-white"> List a Space</span></a>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="#"><img class="me-2" src="{{asset('assets/images/icons/list-entertainment.png')}}" alt=""><span class="side-menu__label text-white"> List an Entertainment & Talent</span></a>
+                                <a class="side-menu__item" data-bs-toggle="slide" href="{{URL('/entertainment-list-steps')}}"><img class="me-2" src="{{asset('assets/images/icons/list-entertainment.png')}}" alt=""><span class="side-menu__label text-white"> List an Entertainment & Talent</span></a>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="{{URL('list-service')}}"><img class="me-2" src="{{asset('assets/images/icons/list-service.png')}}" alt=""><span class="side-menu__label text-white"> List a Service</span></a>

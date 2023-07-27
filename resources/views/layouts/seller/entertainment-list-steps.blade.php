@@ -12,6 +12,9 @@
     .back-g-color {
         background-color: #F2F8FF !important;
     }
+        .sw-btn-group-extra {
+            display: none;
+        }
 </style>
 @endsection
 @section('content')
