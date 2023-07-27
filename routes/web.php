@@ -88,14 +88,29 @@ Route::get('/add-space', function () {
 Route::get('/add-space-steps', function () {
     return view('layouts.seller.add-space-steps');
 });
+Route::get('/list-entertainment', function () {
+    return view('layouts.seller.list-entertainment');
+});
+Route::get('/entertainment-list-steps', function () {
+    return view('layouts.seller.entertainment-list-steps');
+});
 Route::get('/add-space-allsteps', function () {
     return view('layouts.seller.add-space-allsteps');
+});
+Route::get('/list-service', function () {
+    return view('layouts.seller.list-service');
+});
+Route::get('/service-form-steps', function () {
+    return view('layouts.seller.service-form-steps');
 });
 Route::get('/my-listings', function () {
     return view('layouts.seller.my-listing');
 });
 Route::get('/pending-bookings', function () {
     return view('layouts.seller.pending-bookings');
+});
+Route::get('/create-quote', function () {
+    return view('layouts.seller.create-quote');
 });
 Route::get('/payments', function () {
     return view('layouts.seller.payments');

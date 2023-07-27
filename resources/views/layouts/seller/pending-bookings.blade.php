@@ -61,7 +61,7 @@
                                                 <td>07/28/2023</td>
                                                 <td>101 - 150</td>
                                                 <td>Wedding</td>
-                                                <td class="text-end"><a href="#" class="btn text-danger border-0">Decline</a><a href="#" class="btn btn-primary ms-3">Send Quote</a></td>
+                                                <td class="text-end"><a href="#" class="btn text-danger border-0">Decline</a><a href="{{URL('/create-quote')}}" class="btn btn-primary ms-3">Send Quote</a></td>
                                             </tr>
                                             <tr class="text-center">
                                                 <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
