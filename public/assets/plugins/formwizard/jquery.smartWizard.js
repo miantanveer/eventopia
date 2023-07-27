@@ -645,12 +645,4 @@
             }
         }
     };
-
-    $('.sw-btn-next').on('click', function(e) {
-        var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
-        $('.last_step_btn').on('click', function(e) {
-            // console.log("asdf");
-            window.location.href = '{{ url("/steps-form-submit") }}';
-        });
-    });
 })(jQuery, window, document);
