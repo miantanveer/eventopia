@@ -17,7 +17,7 @@
                     <a class="dropdown-item" href="{{URL('/seller-dashboard')}}">
                         <i class="dropdown-icon fa fa-user"></i> Become a seller
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{URL('/my-listings')}}">
                         <i class="dropdown-icon icon icon-layers"></i> Listing
                     </a>
                     <a class="dropdown-item" href="{{URL('/calendar')}}">
@@ -91,7 +91,7 @@
                                 </a>
                             </div>
                             <div class="d-flex seller-btn">
-                                <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true">
+                                <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true" href="{{URL('/my-listings')}}">
                                     Listing
                                 </a>
                             </div>

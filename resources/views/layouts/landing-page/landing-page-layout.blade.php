@@ -435,10 +435,7 @@
     <h3 class="text-center"><a class="bg-primary btn text-white px-7"><b>Get started</b></a></h3>
     <p class="text-center text-primary">Make an exceptional booking.</p>
 
-
-
     {{-- Content 3333 ------------------------------------------------------------------}}
-
 
     <div style="margin-top: 65px!important;" class="landing_background1 height-img">
         <div class="container ps-0 pe-5">

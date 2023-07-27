@@ -103,6 +103,9 @@ Route::get('/list-service', function () {
 Route::get('/service-form-steps', function () {
     return view('layouts.seller.service-form-steps');
 });
+Route::get('/steps-form-submit', function () {
+    return view('layouts.seller.steps-form-submit');
+});
 Route::get('/my-listings', function () {
     return view('layouts.seller.my-listing');
 });
