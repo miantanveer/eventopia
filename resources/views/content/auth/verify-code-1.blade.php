@@ -41,41 +41,34 @@
 @section('class')
 @endsection
 @section('content')
-    <div class="container-login100">
+    <div class="container-login100" style="background-color: #E8F2FF">
         <div class="wrap-login100 p-6">
-            <form method="GET" action="/dashboard" id="verify_form" class="login100-form validate-form" data-parsley-validate>
-                <span style="color:#00224F;" class="login100-form-title pb-5">
-                    Verify Your Email Address
-                </span>
-                <p style="font-size: 15px;" class="text-muted">An 6-digit code has been sent to john***@gmail.com</p>
-                <div class="row align-items-center mt-5">
-                    <div class="col-6 mt-4">
-                        <span style="font-size:15px;">Verification</span><i
-                            class="fa fa-exclamation-circle text-muted mx-2"></i><span style="color:#003B95;">2:54</span>
-                    </div>
-                    <div class="col-6 text-end mt-4">
-                        <a style="color: #006CE4;" href="#">Resend Code</a>
-                    </div>
-                </div>
-                <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
+            <div class="text-center p-5">
+                <img src="{{asset("assets/images/brand/logo13.png")}}" alt="" class="header-brand-img">
+            </div>
+            <form method="GET" action="/customer-dashboard" id="verify_form" class="login100-form validate-form mt-5" data-parsley-validate>
+                <h4>Verification Code</h4>
+                <p style="font-size: 12px;" class="text-muted">We send you on mail.</p>
+                <p style="font-size: 13px;" class="mt-5" >We have send you code on john***@gmail.com</p>
+                <div id="otp" class="inputs d-flex flex-row justify-content-center">
                     <input class="my-2 me-2 text-center form-control " type="number" id="first" maxlength="1"
                         required data-parsley-excluded="true"/>
                     <input class="m-2 text-center form-control " type="number" id="second" maxlength="1" required data-parsley-excluded="true"/>
                     <input class="m-2 text-center form-control " type="number" id="third" maxlength="1" required data-parsley-excluded="true"/>
                     <input class="m-2 text-center form-control " type="number" id="fourth" maxlength="1" required data-parsley-excluded="true"/>
-                    <input class="m-2 text-center form-control " type="number" id="fifth" maxlength="1" required data-parsley-excluded="true"/>
-                    <input class="my-2 ms-2 text-center form-control " type="number" id="sixth" maxlength="1"
-                        required data-parsley-excluded="true"/>
                 </div>
                 <span class="text-danger" id="otp_err"></span>
                 <div class="container-login100-form-btn">
-                    <button type="submit" class="btn btn-primary mt-3 mb-4 w-100 text-white">Verify</button>
+                    <button type="submit" class="btn btn-primary mt-3 mb-4 w-100 text-white">Continue</button>
                 </div>
             </form>
             <hr style="border-top: 1px solid grey">
 
-            <span class="me-4">Having problems?</span>
-            <a style="color: #006CE4;" href="#">Learn More</a>
+            <span class="me-4"> Didn't receive the email? Check your spam filter, or</span>
+            <br>
+            <div class="container-login100-form-btn">
+                <button type="submit" class="btn border border-2 mt-1 mb-4 w-100 text-dark">Resend Code</button>
+            </div>
         </div>
     </div>
     <!-- CONTAINER CLOSED -->

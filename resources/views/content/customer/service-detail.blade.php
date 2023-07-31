@@ -26,10 +26,6 @@
         z-index: 9999;
     }
 
-    .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
-        z-index: rewert;
-    }
-
     @media (min-width: 576px) {
         .content-button {
             position: absolute;
@@ -105,7 +101,7 @@
                                 <div class="card custom-card overflow-hidden">
                                     <div class="card-body p-3">
                                         <a href="javascript:void(0)"><img
-                                                src="{{ asset('assets/images/users/spaces/4.jpg') }}" alt="img"
+                                                src="{{ asset('assets/images/users/spaces/9.jpg') }}" alt="img"
                                                 class="br-5 w-100"></a>
                                     </div>
                                     <div class="card-body pt-0 h-100">
@@ -166,7 +162,7 @@
                                         <p><i class="text-primary side-menu__icon fe fe-map-pin"></i> Address,
                                             California, USA</p>
                                         <div class="row">
-                                            <div class="mb-2 col-md-2 col-sm-3 text-warning">
+                                            <div class="mb-3 col-sm-3 text-warning">
                                                 <i class="fa fa-star text-warning"></i>
                                                 <i class="fa fa-star text-warning"></i>
                                                 <i class="fa fa-star text-warning"></i>
@@ -174,14 +170,14 @@
                                                 <i class="fa fa-star-o text-warning"></i>
                                                 &nbsp;
                                             </div>
-                                            <p class="col-md-2 col-sm-3">45 reviews</p>
-                                            <p class="col-md-2 col-sm-3"><i class="fa fa-group"></i> 12 people </p>
-                                            <p class="col-md-2 col-sm-3"><i class="mdi mdi-alarm text-primary"></i> 1 hr 5 min</p>
+                                            <p class="col-sm-3">45 reviews</p>
+                                            <p class="col-sm-3"><i class="fa fa-group"></i> 12 people </p>
+                                            <p class="col-sm-3"><i class="mdi mdi-alarm text-primary"></i> 1 hr 5 min</p>
                                         </div>
-                                        <hr>
+                                        <hr class="border-3">
                                         <div class="mt-5">
                                             <h3 class="text-dark">
-                                                About the space
+                                                About this seller
                                             </h3>
                                             <p>Utilise the building's north side, which has a bright, industrial-white
                                                 wall with even illumination for the majority of the day. On one of
@@ -190,124 +186,51 @@
                                                 can
                                                 be seen in the studio's black gallery wall area..... Read more</p>
                                         </div>
+                                        <hr class="border-3">
                                         <div class="mt-5">
-                                            <div class="accordion" id="accordionExample">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button"
-                                                            data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                                            aria-expanded="true" aria-controls="collapseOne">
-                                                            Parking
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                                        aria-labelledby="headingOne"
-                                                        data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <h4 class="text-dark">Parking options</h4>
-                                                            <p>Free onsite parking, Free street parking, Nearby parking
-                                                                lot</p>
-
-                                                            <h4 class="text-dark">Parking description</h4>
-                                                            <p>Parking in our semi-circle driveway is very easy and we
-                                                                also have an empty dirt lot next to us available for
-                                                                parking. Can fit 50+ vehicles or more.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingTwo">
-                                                        <button class="accordion-button collapsed" type="button"
-                                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                                            aria-expanded="false" aria-controls="collapseTwo">
-                                                            Host Rules
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseTwo" class="accordion-collapse collapse"
-                                                        aria-labelledby="headingTwo"
-                                                        data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <h4 class="text-dark">General Rules</h4>
-                                                            <p>HOUSE INFO - thank you for your understanding! We do have
-                                                                a few security cameras in family room, backyard area,
-                                                                and front courtyard area for your safety and the safety
-                                                                of our space.</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="mt-5">
-                                            <h3 class="text-dark">Location</h3>
-                                            <div style="height: 300px;">
-                                                <iframe class="gmap_iframe h-100 w-100" frameborder="0"
-                                                    scrolling="no" id="gmap_iframe" marginheight="0" marginwidth="0"
-                                                    src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                                                </iframe>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="mt-5">
-                                            <h3 class="text-dark">
-                                                Health and Safety Measures
+                                            <h3 class="text-dark mb-3">
+                                                Details
                                             </h3>
-                                            <p>Between appointments and on a daily basis, the area is cleaned.</p>
-                                        </div>
-                                        <div class="mt-5">
-                                            <div class="accordion" id="accordionExample">
-                                                <div class="accordion-item">
-                                                    <h2 class="accordion-header" id="headingOne">
-                                                        <button class="accordion-button" type="button"
-                                                            data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                                                            aria-expanded="true" aria-controls="collapseOne">
-                                                            Cleaning protocol
-                                                        </button>
-                                                    </h2>
-                                                    <div id="collapseOne" class="accordion-collapse collapse show"
-                                                        aria-labelledby="headingOne"
-                                                        data-bs-parent="#accordionExample">
-                                                        <div class="accordion-body">
-                                                            <h4 class="text-dark">Enhanced cleaning measures:
-                                                            </h4>
-                                                            <p>High touch surfaces and shared amenities have been
-                                                                disinfected
-                                                                The space is cleaned and disinfected in accordance with
-                                                                guidelines from local health authorities
-                                                                Bookings are spaced apart to allow for enhanced cleaning
-                                                                Soft, porous materials have been properly cleaned or
-                                                                removed</p>
+                                            <div class="row">
 
-                                                            <h4 class="text-dark">All hosts are required to do the
-                                                                following prior to each booking:</h4>
-                                                            <p>Sweep, mop, vacuum and clean the space.
-                                                                Supply a hand washing station with soap, warm water, and
-                                                                paper towels or hand sanitizer with at least 60%
-                                                                alcohol.
-                                                                Clean common areas allowing guest access including
-                                                                bathrooms, kitchens, and entrances.
-                                                                Collect and clean dishes, silverware, and other provided
-                                                                host amenities, if applicable.
-                                                                Remove garbage and add new lining to cans.</p>
+                                                <div class="col-6">
+                                                    <h5 class="text-dark">Planning</h5>
+                                                    <p>A la Carte Wedding Planning, Budgeting,
+                                                        Day-Of Coordination, Full Service
+                                                        Wedding Planning, RSVP Tracking,
+                                                        Wedding Design</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <h5 class="text-dark">Wedding Activities</h5>
+                                                    <p>Rehearsals & Parties, Wedding</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <hr class="border-3">
+                                        <div class="mt-5">
+                                            <h3 class="text-dark mb-5">
+                                                Pricing for Wedding Planner
+                                            </h3>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="card bg-gray img-card box-secondary-shadow">
+                                                        <div class="card-body">
+                                                            <div class="d-flex">
+                                                                <div> <i class="fa fa-dollar text-white fs-30 me-3 mt-2"></i> </div>
+                                                                <div class="text-white">
+                                                                    <h2 class="mb-0 number-font">Curious to learn more?</h2>
+                                                                    <a href="#"><p class="text-white mb-0">Ask about pricing</p></a>
+                                                                </div>
+
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
-                                        <hr>
-                                        <div class="mt-5">
-                                            <h3 class="text-dark">
-                                                Cancellation Policy
-                                            </h3>
-                                            <h5 class="text-dark">Flexible</h5>
-                                            <p>A complete refund of the booking price (including all fees) is available
-                                                to guests who cancel their reservation up to 7 days before the
-                                                event's start time. A 50% refund (excluding fees) of the booking price
-                                                is available to guests who cancel between seven days and
-                                                twenty-four hours prior to the commencement of the event.
-                                                Booking....Learn more</p>
-                                        </div>
-                                        <hr>
+                                        <hr class="border-3">
                                         <div class="mt-5">
                                             <h3 class="text-dark">
                                                 Reviews (87)
@@ -423,10 +346,37 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
-
-
+                                        <hr class="border-3">
+                                        <div class="mt-5">
+                                            <h3 class="text-dark mb-5">
+                                                Meet the Team
+                                            </h3>
+                                            <div class="row">
+                                                <div class="col-md-1 col-2">
+                                                    <a href="{{ url('profile') }}"> <img
+                                                            class="media-object rounded-circle profile_img_res"
+                                                            alt="64x64"
+                                                            src="{{ asset('assets/images/users/5.jpg') }}">
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
+                                                    <h5 class="mt-2 text-dark">Ellison Wane</h5>
+                                                    <span class="tex-dark">Owner</span>
+                                                </div>
+                                                <div class="col-md-1 col-2 empty"></div>
+                                                <div class="col-md-9 col-sm-8 col-10 reply-content">
+                                                    <p class="font-13 text-muted mt-2">I've worked in the events industry for more than ten years, organizing international weddings and overseeing significant regional
+                                                        events. I relocated to Paris to work with Fete in France, assisting in the development of international events, after spending several
+                                                        years working for a prestigious Maine wedding planning business. I made the decision to begin organizing weddings and events on
+                                                        my own because of my years of experience and love of event planning. Creating stunning, once-in-a-lifetime events for my couples
+                                                        and clients gives me immense excitement.</p>
+                                                        <div class="d-flex seller-btn">
+                                                            <a href="javascript:void(0)" class="btn btn-outline-primary">Message Seller</a>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -434,172 +384,43 @@
                                 <div class="card custom-card">
                                     <div class="card-body">
                                         <div class="mt-3 text-center">
-                                            <h2>SAR40 /hr</h2>
-                                            <p>1 hour minimum</p>
+                                            <h2>Message Seller</h2>
+                                            <p>Starting Cost: $$$ - Moderate</p>
                                         </div>
-                                        <hr>
-                                        <div class="">
-                                            <div class="row">
-                                                <div class="col-7">
-                                                    <h4>8+ hour discount <i class="mdi mdi-alert-circle-outline"></i>
-                                                    </h4>
-                                                </div>
-                                                <div class="col-3 offset-2">
-                                                    <span
-                                                        class="badge rounded-pill bg-default badge-sm me-1 mb-1 mt-1">15%
-                                                        off</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr>
-
-
+                                        <hr class="border-3">
                                         <div class="">
                                             <div class="row">
                                                 <div class="col-xl-12">
-                                                    <h5 class="text-primary">Date and time</h5>
                                                     <form action="#">
-                                                        <div class="input-group">
+                                                        <input type="text" class="form-control mb-3" value="First Name">
+                                                        <input type="text" class="form-control mb-3" value="Last Name">
+                                                        <input type="email" id="example-email mb-3" name="example-email" class="form-control" placeholder="Email">
+                                                        <div class="input-group mt-3">
                                                             <div class="input-group-text">
                                                                 <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
                                                             </div><input class="form-control fc-datepicker"
-                                                                placeholder="MM/DD/YYYY" type="text">
+                                                                placeholder="Wedding Date" type="text">
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox mb-3 mt-2">
+                                                            <input type="checkbox" class="custom-control-input" name="example-checkbox1" value="option1">
+                                                            <span class="custom-control-label">My wedding date is flexible</span>
+                                                        </div>
+                                                        <input type="text" class="form-control mb-3" value="Number of Guests">
+                                                        <textarea name="" id="" class="form-control" rows="3" class="mb-3" placeholder="Interduce yourself and the share your event vision"></textarea>
+                                                        <div class="mt-3">
+                                                            <p>By clicking 'Request Quote', you agree that your information
+                                                                will be shared with the vendor. Please see our Privacy Policy
+                                                                and Terms of Use for details..</p>
                                                         </div>
                                                         <div class="row mt-4">
-                                                            <div class="col-6">
-                                                                <div class="form-group">
-                                                                    <select name="star-time"
-                                                                        class="form-control form-select select2 select2-hidden-accessible"
-                                                                        data-bs-placeholder="Select Country"
-                                                                        tabindex="-1" aria-hidden="true">
-                                                                        <option value="">9 AM</option>
-                                                                        <option value="">10 AM</option>
-                                                                        <option value="">11 AM</option>
-                                                                        <option value="">12 AM</option>
-                                                                        <option value="">1 PM</option>
-                                                                        <option value="">2 PM</option>
-                                                                        <option value="">3 PM</option>
-                                                                        <option value="">4 PM</option>
-                                                                        <option value="">5 PM</option>
-                                                                        <option value="">6 PM</option>
-                                                                        <option value="">7 PM</option>
-                                                                        <option value="" selected=""
-                                                                            disabled>Start
-                                                                            Time
-                                                                        </option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <div class="form-group">
-                                                                    <select name="star-time"
-                                                                        class="form-control form-select select2 select2-hidden-accessible"
-                                                                        data-bs-placeholder="Select Country"
-                                                                        tabindex="-1" aria-hidden="true">
-                                                                        <option value="">9 AM</option>
-                                                                        <option value="">10 AM</option>
-                                                                        <option value="">11 AM</option>
-                                                                        <option value="">12 AM</option>
-                                                                        <option value="">1 PM</option>
-                                                                        <option value="">2 PM</option>
-                                                                        <option value="">3 PM</option>
-                                                                        <option value="">4 PM</option>
-                                                                        <option value="">5 PM</option>
-                                                                        <option value="">6 PM</option>
-                                                                        <option value="">7 PM</option>
-                                                                        <option value="" selected=""
-                                                                            disabled>End
-                                                                            Time
-                                                                        </option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row mt-4">
-                                                            <div class="col-10 pe-0">
-                                                                <a href="{{ URL('checkout') }}"
-                                                                    class="btn btn-primary text-white w-100">
-                                                                    Checkout
-                                                                </a>
-                                                            </div>
-                                                            <div class="col-2 text-end">
-                                                                <a class="">
-                                                                    <i
-                                                                        class="fa fa-cart-plus border text-primary"></i><span
-                                                                        class="fs-16 ms-2 d-none d-xl-block"></span>
-                                                                </a>
+                                                            <div class="col-12 pe-0">
+                                                                <input type='button' class="btn btn-primary text-white w-100" id='quote-btn' value="Request a Quote">
                                                             </div>
                                                         </div>
                                                     </form>
-                                                    <div class="mt-3 text-center">
-                                                        <h6><i class="mdi mdi-alarm"></i> John typically respond within
-                                                            1 hr</h6>
-                                                        <p>You won't be charged yet.</p>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card custom-card">
-                                    <hr class="px-0 line">
-                                    <div class="card-body pb-0">
-                                        <div class="text-center">
-                                            <h3 class="mb-3 booking-heading">Included in your booking</h3>
-                                        </div>
-                                        <h4 class="mt-5">Amentities</h4>
-                                        <div class="row mb-6">
-                                            <div class="col-6">
-                                                <p class=""><i class="fa fa-address-book pe-2"
-                                                        style="color: rgb(17, 101, 255); font-size: 22px"></i>Chairs
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p><i class="fa fa-address-card pe-2"
-                                                        style="color: rgb(17, 101, 255); font-size: 22px"></i>Speakers
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        <h3>Features</h3>
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p><i class="fa fa-resistance pe-2"
-                                                        style="color: rgb(17, 101, 255); font-size: 22px"></i>Restrooms
-                                                </p>
-                                            </div>
-                                            <div class="col-6">
-                                                <p><i class="fa fa-resistance pe-2"
-                                                        style="color: rgb(17, 101, 255); font-size: 22px"></i>Restrooms
-                                                </p>
-                                            </div>
-                                            <div class="col-12 mt-2">
-                                                <p><i class="fa fa-bus pe-2"
-                                                        style="color: rgb(17, 101, 255); font-size: 22px"></i>Public
-                                                    Transportation</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card custom-card">
-                                    <div>
-                                        <h3 class="mt-4 ps-3">Operating Hours</h3>
-                                        <hr style="border-top: 1px solid black">
-                                        <h4 class="col-sm-10 mt-5 ps-3">Monday <span class="float-end">7:00 AM - 10:00
-                                                PM</span></h4>
-                                        <h4 class="col-sm-10 mt-5 ps-3">Tuesday <span class="float-end">7:00 AM - 10:00
-                                                PM</span></h4>
-                                        <h4 class="col-sm-10 mt-5 ps-3">Wednesday <span class="float-end">7:00 AM - 10:00
-                                                PM</span></h4>
-                                        <h4 class="col-sm-10 mt-5 ps-3">Thursday <span class="float-end">7:00 AM - 10:00
-                                                PM</span></h4>
-                                        <h4 class="col-sm-10 mt-5 ps-3">Friday <span class="float-end">7:00 AM - 10:00
-                                                PM</span></h4>
-                                        <h4 class="col-sm-10 mt-5 ps-3">Saturday <span class="float-end">7:00 AM - 10:00
-                                                PM</span></h4>
-                                        <h4 class="col-sm-10 mt-5 ps-3">Sunday <span class="float-end">7:00 AM - 10:00
-                                                PM</span></h4>
                                     </div>
                                 </div>
                             </div>
@@ -622,30 +443,29 @@
     <!-- page -->
 
     <!-- global-helper -->
-    <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
-        <div class="dropup btn-group mt-2 mb-2">
-            <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button"
-                data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Do you need Help?</button>
-            <ul class="dropdown-menu"
-                style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);"
-                data-popper-placement="top-start">
-                <form id="contactForm">
-                    <div class="row">
+    <div id="global-helper" class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+        <div class="dropdown btn-group mt-2 mb-2">
+            <div class="btn-group mt-2 mb-2">
+                <button class="btn btn-pill btn-white border-info text-end dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" id="global-helper-btn">Do
+                    you need Help?</button>
+                <div class="dropdown-menu w-260" style="">
+                    <form class="card-body pt-3" id="contactForm">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                placeholder="Enter email">
+                            <input class="form-control" type="email" placeholder="Enter Email">
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" id="exampleInputPassword1"
-                                placeholder="Phone Number">
+                            <input class="form-control" placeholder="Enter your Name" type="text">
                         </div>
-                    </div>
-                    <div class="text-center">
-                        <!-- Add a container with "text-center" class -->
-                        <button class="btn btn-primary mt-2 mb-0 ">Submit</button>
-                    </div>
-                </form>
-            </ul>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Enter Phone Number" type="text">
+                        </div>
+                        <div class="submit">
+                            <button class="btn btn-primary btn-block">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!-- global-helper closed -->
@@ -691,6 +511,7 @@
     <!-- ACCORDION JS -->
     <script src="{{ asset('assets/plugins/accordion/accordion.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/accordion/accordion.js') }}"></script>
+    <script src="{{asset('assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
 
     <!-- Custom JavaScript code -->
     <script>
@@ -703,6 +524,15 @@
                     text: "We will contact you shortly.",
                     timer: 2000,
                     showConfirmButton: false
+                });
+            });
+
+            $(document).on("click", "#quote-btn", function(e) {
+                $('body').addClass('timer-alert');
+                swal({
+                    title: 'Title',
+                    text: 'Great job! You sent a quote request to seller on Eventopia. Check your notification for acknowledgement.',
+                    timer: 3000
                 });
             });
         });

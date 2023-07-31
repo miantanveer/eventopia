@@ -18,10 +18,6 @@
             transform: translate(-50%, -50%);
         }
 
-        button:hover {
-            background-color: #125ed1 !important;
-        }
-
         .input-container {
             position: relative;
         }
@@ -46,7 +42,7 @@
             <div class="col-12 col-md-5 px-0">
                 <div class="text-white text-center image_content">
                     <p>Already have an account?</p>
-                    <a style="padding-left:45px; padding-right:45px;" class="btn btn-outline-light" href="#">LOGIN</a>
+                    <a style="padding-left:45px; padding-right:45px;" class="btn btn-outline-light" href="{{URL('/login')}}">LOGIN</a>
                 </div>
                 <div class="div_Image">
                     <img class="Image" src="{{ asset('assets/images/signup-form.png') }}" alt="">

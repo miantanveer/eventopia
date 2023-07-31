@@ -39,12 +39,7 @@
 
     .card_height {
         height: 100% !important;
-        /* width: 100% !important; */
     }
-
-    /* .owl-item{
-        height: 128px!important;
-    } */
     .owl-prev {
         margin-top: -12.4px !important;
     }
@@ -79,21 +74,6 @@
     .scroll-dive:hover::-webkit-scrollbar-thumb {
         background-color: #727171;
     }
-
-    /* @media screen and (max-width: 1280px) and (min-width: 2808px) {
-        #flexSwitchCheckChecked{
-         display: block !important;
-        }
-    }
-
-    @media screen and (max-width: 1281px) and (min-width: 0px) {
-        #flexSwitchCheckChecked{
-         display: none !important;
-        }
-        #mapContainer{
-            display: block !important;
-        }
-    } */
 </style>
 @endsection
 

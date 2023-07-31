@@ -30,75 +30,86 @@
 
     <!-- page -->
     <div class="main-page">
-            <!--app-content open-->
-            <div class="main-content app-content pt-7 pb-5" style="background-color: #ffffff">
-                <div class="side-app">
-                    <!-- container -->
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12 col-xl-12">
-                                        <div class="card border">
-                                            <div class="text-center mt-2">
-                                                <h3><b>Service Quote for customer</b></h3>
-                                                <p>This quote is made for the service Wedding Planner</p>
-                                            </div>
-                                            <hr class="m-0 bg-dark">
-                                            <form action="">
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" id="exampleInputPhone2" placeholder="Service type" >
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Location" >
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="date" class="form-control" id="exampleInputPhone2" placeholder="Wedding date" >
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Number of guests" >
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <textarea class="form-control" id="exampleInputEmail1" placeholder="Description" style="height: 100px" ></textarea>
-                                                            </div>
+        <!--app-content open-->
+        <div class="main-content app-content pt-7 pb-5" style="background-color: #ffffff">
+            <div class="side-app">
+                <!-- container -->
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 col-xl-12">
+                                    <div class="card border">
+                                        <div class="text-center mt-2">
+                                            <h3><b>Service Quote for customer</b></h3>
+                                            <p>This quote is made for the service Wedding Planner</p>
+                                        </div>
+                                        <hr class="m-0 bg-dark">
+                                        <form action="">
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                id="exampleInputPhone2" placeholder="Service type">
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" id="exampleInputPhone2" placeholder="Amount" >
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Sub Total" >
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" id="exampleInputPhone2" placeholder="Vat %" >
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Admin fees" >
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input type="file" class="form-control" id="exampleInputPhone2" placeholder="Images" >
-                                                            </div>
-                                                            <div class="float-end">
-                                                                <a href="#" class="me-3" >Preview</a>
-                                                                <input type='submit' class="btn btn-primary text-white px-6" id='quote-btn' value="Send">
-                                                            </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Location">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="date" class="form-control"
+                                                                id="exampleInputPhone2" placeholder="Wedding date">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Number of guests">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <textarea class="form-control" id="exampleInputEmail1" placeholder="Description" style="height: 100px"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                id="exampleInputPhone2" placeholder="Amount">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Sub Total">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                id="exampleInputPhone2" placeholder="Vat %">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Admin fees">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="file" class="form-control"
+                                                                id="exampleInputPhone2" placeholder="Images">
+                                                        </div>
+                                                        <div class="float-end">
+                                                            <a href="#" class="me-3">Preview</a>
+                                                            <input type='submit'
+                                                                class="btn btn-primary text-white px-6" id='quote-btn'
+                                                                value="Send">
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- container-closed -->
                 </div>
+                <!-- container-closed -->
             </div>
-            <!--app-content closed-->
+        </div>
+        <!--app-content closed-->
         <!-- page-main closed -->
         @include('layouts.components.modal')
 
@@ -108,30 +119,29 @@
     <!-- page -->
 
     <!-- global-helper -->
-    <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
-        <div class="dropup btn-group mt-2 mb-2">
-            <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button"
-                data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Do you need Help?</button>
-            <ul class="dropdown-menu"
-                style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);"
-                data-popper-placement="top-start">
-                <form id="contactForm">
-                    <div class="row">
+    <div id="global-helper" class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+        <div class="dropdown btn-group mt-2 mb-2">
+            <div class="btn-group mt-2 mb-2">
+                <button class="btn btn-pill btn-white border-info text-end dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" id="global-helper-btn">Do
+                    you need Help?</button>
+                <div class="dropdown-menu w-260" style="">
+                    <form class="card-body pt-3" id="contactForm">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                placeholder="Enter email">
+                            <input class="form-control" type="email" placeholder="Enter Email">
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" id="exampleInputPassword1"
-                                placeholder="Phone Number">
+                            <input class="form-control" placeholder="Enter your Name" type="text">
                         </div>
-                    </div>
-                    <div class="text-center">
-                        <!-- Add a container with "text-center" class -->
-                        <button class="btn btn-primary mt-2 mb-0 ">Submit</button>
-                    </div>
-                </form>
-            </ul>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Enter Phone Number" type="text">
+                        </div>
+                        <div class="submit">
+                            <button class="btn btn-primary btn-block">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!-- global-helper closed -->

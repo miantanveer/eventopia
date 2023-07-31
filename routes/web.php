@@ -14,67 +14,64 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.landing-page.landing-page-layout');
+    return view('content.landing-page');
 });
 Route::get('/signup', function () {
-    return view('layouts.auth.signup');
+    return view('content.auth.signup');
 });
 Route::get('/login', function () {
-    return view('layouts.auth.login');
+    return view('content.auth.login');
 });
 Route::get('/forget-password', function () {
-    return view('layouts.auth.forget-password');
+    return view('content.auth.forget-password');
 });
 Route::get('/forget-password-1', function () {
-    return view('layouts.auth.forget-password-1');
+    return view('content.auth.forget-password-1');
 });
 Route::get('/reset-password', function () {
-    return view('layouts.auth.reset-password');
+    return view('content.auth.reset-password');
 });
 Route::get('/verify-code', function () {
-    return view('layouts.auth.verify-code');
+    return view('content.auth.verify-code');
 });
 Route::get('/verify-code-1', function () {
-    return view('layouts.auth.verify-code-1');
+    return view('content.auth.verify-code-1');
 });
 Route::get('/edit-profile', function () {
-    return view('layouts.users.edit-profile');
+    return view('content.edit-profile');
 });
-Route::get('/dashboard', function () {
-    return view('layouts.customer.index');
-});
-Route::get('/login', function () {
-    return view('layouts.auth.login');
+Route::get('/customer-dashboard', function () {
+    return view('content.customer.customer-dashboard');
 });
 Route::get('/search-results', function () {
-    return view('layouts.customer.search-results');
+    return view('content.customer.search-results');
 });
 Route::get('/talent-&-entertainments', function () {
-    return view('layouts.customer.search-results-of-talent&entertainment');
+    return view('content.customer.search-results-of-talent&entertainment');
 });
 Route::get('/services', function () {
-    return view('layouts.customer.services');
+    return view('content.customer.services');
 });
 Route::get('/space-details', function () {
-    return view('layouts.space.space-detail');
+    return view('content.customer.space-detail');
 });
 Route::get('/service-details', function () {
-    return view('layouts.customer.service-detail');
+    return view('content.customer.service-detail');
 });
 Route::get('/checkout', function () {
-    return view('layouts.space.checkout-page');
+    return view('layouts.components.checkout-page');
 });
 Route::get('/review-pay', function () {
-    return view('layouts.space.review');
+    return view('layouts.components.review');
 });
 Route::get('/payment-successfull', function () {
-    return view('layouts.space.payment-successfull');
-});
-Route::get('/booking', function () {
-    return view('layouts.users.booking');
+    return view('layouts.components.payment-successfull');
 });
 Route::get('/bookings', function () {
     return view('layouts.users.bookings-sample');
+});
+Route::get('/booking', function () {
+    return view('layouts.users.booking');
 });
 
 // Seller side
@@ -85,17 +82,17 @@ Route::get('/seller-dashboard', function () {
 Route::get('/add-space', function () {
     return view('layouts.seller.add-space');
 });
-Route::get('/add-space-steps', function () {
+Route::get('/list-space', function () {
     return view('layouts.seller.add-space-steps');
+});
+Route::get('/space-form-steps', function () {
+    return view('layouts.seller.add-space-allsteps');
 });
 Route::get('/list-entertainment', function () {
     return view('layouts.seller.list-entertainment');
 });
-Route::get('/entertainment-list-steps', function () {
+Route::get('/entertainment-form-steps', function () {
     return view('layouts.seller.entertainment-list-steps');
-});
-Route::get('/add-space-allsteps', function () {
-    return view('layouts.seller.add-space-allsteps');
 });
 Route::get('/list-service', function () {
     return view('layouts.seller.list-service');

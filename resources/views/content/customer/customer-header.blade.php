@@ -48,7 +48,7 @@
                                         </div>
 
                                         <div class="d-flex seller-btn">
-                                            <a class="nav-link border py-3 px-5 m-2 active text-white" id="tab1" data-bs-toggle="tab" href="{{URL('seller-dashboard')}}" role="tab" aria-selected="true">
+                                            <a class="nav-link border py-3 px-5 m-2 text-white" id="tab1" href="{{URL('/seller-dashboard')}}">
                                                 Become a Seller
                                             </a>
                                         </div>

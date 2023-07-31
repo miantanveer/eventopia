@@ -16,13 +16,7 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                                     <div class="d-flex order-lg-2">
                                         <div class="d-flex seller-btn me-2">
-                                            <button class="btn-pill p-2 text-info bg-white border-info"><a href="{{URL('/dashboard')}}">Become a Customer</a></button>
-                                        </div>
-                                        <!-- Cart -->
-                                        <div class="d-flex">
-                                            <a class="nav-link icon text-center">
-                                                <i class="icon icon-handbag"></i><span class="fs-16 ms-2 d-none d-xl-block"></span>
-                                            </a>
+                                            <button class="btn-pill p-2 text-info bg-white border-info"><a href="{{URL('/customer-dashboard')}}">Become a Customer</a></button>
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
@@ -94,7 +88,7 @@
                                                 <img src="{{asset('assets/images/users/21.jpg')}}" alt="profile-user" class="avatar  profile-user brround cover-image">
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="{{url('/dashboard')}}">
+                                                <a class="dropdown-item" href="{{url('/customer-dashboard')}}">
                                                     <i class="dropdown-icon fe fe-home"></i> Dashboard
                                                 </a>
                                                 <a class="dropdown-item" href="{{url('/edit-profile')}}">
