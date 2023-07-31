@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Sash –  Laravel Bootstrap 5 Admin & Dashboard Template">
     <meta name="author" content="SPRUKO™">
-    <meta name="keywords" content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
+    <meta name="keywords"
+        content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
 
     <!-- title -->
     <title>Eventopia</title>
@@ -135,10 +136,13 @@
                                 <br>
                                 <p>What type of space do you have?</p>
                                 <div class="btns">
-                                    <input style="padding-left:140px;padding-right:160px;" type="text" class="btn btn-light rounded-0" placeholder="Party hall">
+                                    <input style="padding-left:140px;padding-right:160px;" type="text"
+                                        class="btn btn-light rounded-0" placeholder="Party hall">
                                 </div>
-                                <div> 
-                                    <a style="padding-left:190px;padding-right:195px;" class="modal-effect btn btn-info rounded-0" data-bs-target="#my-modal" data-bs-toggle="modal">Get Started</a>
+                                <div>
+                                    <a style="padding-left:190px;padding-right:195px;"
+                                        class="modal-effect btn btn-info rounded-0" data-bs-target="#my-modal"
+                                        data-bs-toggle="modal">Get Started</a>
                                 </div>
                             </div>
                         </div>
@@ -160,7 +164,8 @@
                                 <div class="vtimeline">
                                     <div class="timeline-wrapper timeline-wrapper-primary">
                                         <div class="timeline-panel">
-                                            <div class="avatar avatar-md timeline-badge" style="position: absolute; top: -60px; left:calc(4% - 26px);">
+                                            <div class="avatar avatar-md timeline-badge"
+                                                style="position: absolute; top: -60px; left:calc(4% - 26px);">
                                                 <span class="timeline-icon">1</span>
                                             </div>
 
@@ -180,7 +185,8 @@
                                     </div>
                                     <div class="timeline-wrapper timeline-inverted timeline-wrapper-primary">
                                         <div class="timeline-panel">
-                                            <div class="avatar avatar-md timeline-badge" style="position: absolute; top: -60px; left:calc(4% - 26px);">
+                                            <div class="avatar avatar-md timeline-badge"
+                                                style="position: absolute; top: -60px; left:calc(4% - 26px);">
                                                 <span class="timeline-icon">2</span>
                                             </div>
 
@@ -201,7 +207,8 @@
                                     <div class="timeline-wrapper timeline-wrapper-primary">
 
                                         <div class="timeline-panel">
-                                            <div class="avatar avatar-md timeline-badge" style="position: absolute; top: -60px; left:calc(4% - 26px);">
+                                            <div class="avatar avatar-md timeline-badge"
+                                                style="position: absolute; top: -60px; left:calc(4% - 26px);">
                                                 <span class="timeline-icon">3</span>
                                             </div>
                                             <div class="timeline-heading">
@@ -232,25 +239,29 @@
                             <div class="row mt-5 mb-2">
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/001.png') }}" alt="img"></a>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/001.png') }}"
+                                                alt="img"></a>
                                         <button type="button" class="btn btn-basic image-button">Homes</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/002.png') }}" alt="img"></a>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/002.png') }}"
+                                                alt="img"></a>
                                         <button type="button" class="btn btn-basic image-button">Loft</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/003.png') }}" alt="img"></a>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/003.png') }}"
+                                                alt="img"></a>
                                         <button type="button" class="btn btn-basic image-button">Studios</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/004.png') }}" alt="img"></a>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/004.png') }}"
+                                                alt="img"></a>
                                         <button type="button" class="btn btn-basic image-button">Warehouses</button>
                                     </div>
                                 </div>
@@ -258,27 +269,32 @@
                             <div class="row mt-5">
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/005.png') }}" alt="img"></a>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/005.png') }}"
+                                                alt="img"></a>
                                         <button type="button" class="btn btn-basic image-button">Galleries</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/006.png') }}" alt="img"></a>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/006.png') }}"
+                                                alt="img"></a>
                                         <button type="button" class="btn btn-basic image-button">Bars</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/007.png') }}" alt="img"></a>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/007.png') }}"
+                                                alt="img"></a>
                                         <button type="button" class="btn btn-basic image-button">Coworking</button>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/008.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">Event venues</button>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/008.png') }}"
+                                                alt="img"></a>
+                                        <button type="button" class="btn btn-basic image-button">Event
+                                            venues</button>
                                     </div>
                                 </div>
                             </div>
@@ -293,13 +309,16 @@
                     <div style="border-color:transparent;" class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
 
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                 <p style="color:#003B95;" class="d-block">Who can be a eventopia host?</p>
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                <p>Eventopia attracts a wide range of places, including residences, galleries, photo studios, and warehouses.</p>
+                                <p>Eventopia attracts a wide range of places, including residences, galleries, photo
+                                    studios, and warehouses.</p>
                             </div>
                         </div>
                     </div>
@@ -308,13 +327,17 @@
                 <div class="accordion" id="accordionExample">
                     <div style="border-color:#d9dbdd;" class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 How do I get paid?
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque molestias deleniti quis at quam, neque ducimus nam ipsam nisi dolores non hic numquam ratione odio in ea nulla, sint recusandae praesentium possimus dolor. Harum, dolore?
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque molestias deleniti quis
+                                at quam, neque ducimus nam ipsam nisi dolores non hic numquam ratione odio in ea nulla,
+                                sint recusandae praesentium possimus dolor. Harum, dolore?
                             </div>
                         </div>
                     </div>
@@ -323,13 +346,17 @@
                 <div class="accordion" id="accordionExample">
                     <div style="border-color:#d9dbdd;" class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 Does Eventopia provide insurance?
                             </button>
                         </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem pariatur a laboriosam fugit ex ullam, et minus eum! Facere amet, animi beatae sequi, perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem
+                                pariatur a laboriosam fugit ex ullam, et minus eum! Facere amet, animi beatae sequi,
+                                perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?
                             </div>
                         </div>
                     </div>
@@ -338,13 +365,18 @@
                 <div class="accordion mb-5" id="accordionExample">
                     <div style="border-color:#d9dbdd;" class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 How can i contact?
                             </button>
                         </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima accusantium eveniet dignissimos sunt magnam ad repellendus ab aperiam nobis necessitatibus quo a adipisci. Tenetur officiis necessitatibus minus sapiente nisi iste perspiciatis totam autem!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
+                                accusantium eveniet dignissimos sunt magnam ad repellendus ab aperiam nobis
+                                necessitatibus quo a adipisci. Tenetur officiis necessitatibus minus sapiente nisi iste
+                                perspiciatis totam autem!
                             </div>
                         </div>
                     </div>
@@ -372,30 +404,32 @@
     <!-- page -->
 
     <!-- global-helper -->
-    <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
-        <div class="dropup btn-group mt-2 mb-2">
-            <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button" data-bs-toggle="dropdown" aria-expanded="true">Need any help?</button>
-            <ul class="dropdown-menu" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);" data-popper-placement="top-start">
-                <form id="contactForm">
-                    <div class="row">
+    <div id="global-helper" class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+        <div class="dropdown btn-group mt-2 mb-2">
+            <div class="btn-group mt-2 mb-2">
+                <button class="btn btn-pill btn-white border-info text-end dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" id="global-helper-btn">Do
+                    you need Help?</button>
+                <div class="dropdown-menu w-260" style="">
+                    <form class="card-body pt-3" id="contactForm">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                            <input class="form-control" type="email" placeholder="Enter Email">
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
+                            <input class="form-control" placeholder="Enter your Name" type="text">
                         </div>
-                    </div>
-                    <div class="text-center">
-                        <!-- Add a container with "text-center" class -->
-                        <button class="btn btn-primary mt-2 mb-0 ">Submit</button>
-                    </div>
-                </form>
-            </ul>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Enter Phone Number" type="text">
+                        </div>
+                        <div class="submit">
+                            <button class="btn btn-primary btn-block">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!-- global-helper closed -->
-
-
 
     @include('layouts.space.space-detail-footer')
 
@@ -442,10 +476,10 @@
 
 
     <!-- Internal Timeline js-->
-    <script src="{{asset('assets/plugins/timeline/js/timeline.min.js')}}"></script>
+    <script src="{{ asset('assets/plugins/timeline/js/timeline.min.js') }}"></script>
 
     <!-- Internal Timeline js-->
-    <script src="    {{asset('assets/js/timline.js')}}"></script>
+    <script src="    {{ asset('assets/js/timline.js') }}"></script>
     <!-- Custom JavaScript code -->
     <script>
         $(document).ready(function() {
@@ -463,6 +497,6 @@
     </script>
     @section('scripts')
 
-</body>
+    </body>
 
-</html>
+    </html>

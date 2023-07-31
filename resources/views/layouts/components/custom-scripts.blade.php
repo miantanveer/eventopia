@@ -24,3 +24,7 @@
 
     <!-- CUSTOM JS -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
+
+    <!-- SWEET-ALERT JS -->
+    <script src="{{ asset('assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>

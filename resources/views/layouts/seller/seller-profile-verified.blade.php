@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Sash –  Laravel Bootstrap 5 Admin & Dashboard Template">
     <meta name="author" content="SPRUKO™">
-    <meta name="keywords" content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
+    <meta name="keywords"
+        content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
 
     <!-- title -->
     <title>Eventopia</title>
@@ -67,7 +68,9 @@
 
 
                         <div class="verify mt-5 mb-3">
-                            <span class="avatar avatar-xl brround cover-image" data-bs-image-src="{{ asset('assets/images/users/spaces/pro.png') }}" style="height:200px;width:200px;margin-left:20px;background: url(&quot;http://sash.pk/assets/images/users/6.jpg&quot;) center center;">
+                            <span class="avatar avatar-xl brround cover-image"
+                                data-bs-image-src="{{ asset('assets/images/users/spaces/pro.png') }}"
+                                style="height:200px;width:200px;margin-left:20px;background: url(&quot;http://sash.pk/assets/images/users/6.jpg&quot;) center center;">
                             </span>
                             <div style="border:none;" class="example">
                                 <h2 class="display-1 "><strong>John Smith</strong></h2>
@@ -76,25 +79,38 @@
                             </div>
                         </div>
                         <div style="height:118px;width:450px;margin-top:90px;" class="confirms border border-default">
-                            <h4><b>Email</b><button style="background-color:#45aaf21f;color:black;border-color:E5E5E5" type="button" class="btn btn-info btn-pill pull-right">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
+                            <h4><b>Email</b><button style="background-color:#45aaf21f;color:black;border-color:E5E5E5"
+                                    type="button" class="btn btn-info btn-pill pull-right">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                        <path
+                                            d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z">
+                                        </path>
                                     </svg>
                                     Verified</h4>
 
                             <br>
-                            <h4><b>Phone number</b><button style="background-color:#45aaf21f;color:black;border-color:E5E5E5" type="button" class="btn btn-info btn-pill pull-right ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
-                                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"></path>
+                            <h4><b>Phone number</b><button
+                                    style="background-color:#45aaf21f;color:black;border-color:E5E5E5" type="button"
+                                    class="btn btn-info btn-pill pull-right ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                        <path
+                                            d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z">
+                                        </path>
                                     </svg>
                                     Verified
                                 </button></h4>
 
                             <br>
                             <div class="right-content mt-4 mb-3">
-                                <p><b>Thanks for stopping by! I'm excited to be a part of the Peerspace community.</b></p>
-                                <button type="button" class="btn btn-info rounded-0"><i class="fe fe-upload me-2"></i><strong>Share Profile</strong></button>
-                                <button style="border-color:#707070;background-color:#FFFFFF;color:black;margin-left:10px;" type="button" class="btn btn-white"><strong>Message Host</strong></button>
+                                <p><b>Thanks for stopping by! I'm excited to be a part of the Peerspace community.</b>
+                                </p>
+                                <button type="button" class="btn btn-info rounded-0"><i
+                                        class="fe fe-upload me-2"></i><strong>Share Profile</strong></button>
+                                <button
+                                    style="border-color:#707070;background-color:#FFFFFF;color:black;margin-left:10px;"
+                                    type="button" class="btn btn-white"><strong>Message Host</strong></button>
                             </div>
                         </div>
 
@@ -116,30 +132,32 @@
             <!-- page -->
 
             <!-- global-helper -->
-            <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
-                <div class="dropup btn-group mt-2 mb-2">
-                    <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button" data-bs-toggle="dropdown" aria-expanded="true">Need any help?</button>
-                    <ul class="dropdown-menu" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);" data-popper-placement="top-start">
-                        <form id="contactForm">
-                            <div class="row">
+            <div id="global-helper" class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+                <div class="dropdown btn-group mt-2 mb-2">
+                    <div class="btn-group mt-2 mb-2">
+                        <button class="btn btn-pill btn-white border-info text-end dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" id="global-helper-btn">Do
+                            you need Help?</button>
+                        <div class="dropdown-menu w-260" style="">
+                            <form class="card-body pt-3" id="contactForm">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input class="form-control" type="email" placeholder="Enter Email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
+                                    <input class="form-control" placeholder="Enter your Name" type="text">
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <!-- Add a container with "text-center" class -->
-                                <button class="btn btn-primary mt-2 mb-0 ">Submit</button>
-                            </div>
-                        </form>
-                    </ul>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Enter Phone Number" type="text">
+                                </div>
+                                <div class="submit">
+                                    <button class="btn btn-primary btn-block">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- global-helper closed -->
-
-
 
             @include('layouts.space.space-detail-footer')
 
@@ -186,10 +204,10 @@
 
 
             <!-- Internal Timeline js-->
-            <script src="{{asset('assets/plugins/timeline/js/timeline.min.js')}}"></script>
+            <script src="{{ asset('assets/plugins/timeline/js/timeline.min.js') }}"></script>
 
             <!-- Internal Timeline js-->
-            <script src="    {{asset('assets/js/timline.js')}}"></script>
+            <script src="    {{ asset('assets/js/timline.js') }}"></script>
             <!-- Custom JavaScript code -->
             <script>
                 $(document).ready(function() {
@@ -207,6 +225,6 @@
             </script>
             @section('scripts')
 
-</body>
+    </body>
 
-</html>
+    </html>

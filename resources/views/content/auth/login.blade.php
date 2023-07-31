@@ -17,10 +17,6 @@
             left: 50%;
             transform: translate(-50%, -50%);
         }
-
-        button:hover {
-            background-color: #125ed1 !important;
-        }
         .input-container {
             position: relative;
         }

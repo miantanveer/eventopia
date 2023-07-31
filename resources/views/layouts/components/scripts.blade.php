@@ -1,6 +1,3 @@
-    <!-- BACK-TO-TOP -->
-    {{-- <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a> --}}
-
     <!-- JQUERY JS -->
     <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
 
@@ -37,4 +34,18 @@
     <script src="{{ asset('assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>
 
-    
+    <!-- Custom JavaScript code -->
+    <script>
+        $(document).ready(function() {
+            $(document).on("submit", "#contactForm", function(e) {
+                e.preventDefault();
+                $('body').addClass('timer-alert');
+                swal({
+                    title: "Success.",
+                    text: "We will contact you shortly.",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            });
+        });
+    </script>
