@@ -82,56 +82,56 @@
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-md-6 col-sm-8 col-12">
-                            <div style="font-size: 25px"><i class="ion-clipboard"></i> <strong>Payments</strong>
-                            </div>
-                            <div class="my-5">
-                                <form action="{{URL('/payment-successfull')}}" method="GET">
-                                    <select name="" id="" class="my-3 form-control" required>
-                                        <option value="">Select Card</option>
-                                        <option value="">Card 1</option>
-                                        <option value="">Card 2</option>
-                                        <option value="">Card 3</option>
-                                        <option value="">Card 4</option>
-                                    </select>
-                                    <input type="text" class="my-3 form-control"
-                                        placeholder="Cardholder's Name" required>
-                                    <label for="card_number">Card Number*</label>
-                                    <input type="number" id="card_number" class="mb-3 form-control"
-                                        placeholder="1234 1234 1234 1234">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <label for="expiration">Expiration*</label>
-                                            <input type="text" id="expiration" placeholder="Expiration"
-                                                class="mb-3 form-control" required>
+                                <div style="font-size: 25px"><i class="ion-clipboard"></i> <strong>Payments</strong>
+                                </div>
+                                <div class="my-5">
+                                    <form action="{{ URL('/payment-successfull') }}" method="GET">
+                                        <select name="" id="" class="my-3 form-control" required>
+                                            <option value="">Select Card</option>
+                                            <option value="">Card 1</option>
+                                            <option value="">Card 2</option>
+                                            <option value="">Card 3</option>
+                                            <option value="">Card 4</option>
+                                        </select>
+                                        <input type="text" class="my-3 form-control" placeholder="Cardholder's Name"
+                                            required>
+                                        <label for="card_number">Card Number*</label>
+                                        <input type="number" id="card_number" class="mb-3 form-control"
+                                            placeholder="1234 1234 1234 1234">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <label for="expiration">Expiration*</label>
+                                                <input type="text" id="expiration" placeholder="Expiration"
+                                                    class="mb-3 form-control" required>
+                                            </div>
+                                            <div class="col-6">
+                                                <label for="cvc">CVC*</label>
+                                                <input type="text" id="cvc" placeholder="CVC"
+                                                    class="mb-3 form-control" required>
+                                            </div>
                                         </div>
-                                        <div class="col-6">
-                                            <label for="cvc">CVC*</label>
-                                            <input type="text" id="cvc" placeholder="CVC"
-                                                class="mb-3 form-control" required>
+                                        <select name="" id="" class="form-control" required>
+                                            <option value="" selected>Select Country</option>
+                                            <option value="">Pakistan</option>
+                                            <option value="">Afganistan</option>
+                                            <option value="">India</option>
+                                            <option value="">Japan</option>
+                                            <option value="">Korea</option>
+                                            <option value="">United States of America</option>
+                                            <option value="">United Arab Emirates</option>
+                                        </select>
+                                        <div class="my-5">
+                                            <p>By providing your card information, you allow Eventopia, Inc. to
+                                                charge your card for future payments in accordance
+                                                with their terms.</p>
                                         </div>
-                                    </div>
-                                    <select name="" id="" class="form-control" required>
-                                        <option value="" selected>Select Country</option>
-                                        <option value="">Pakistan</option>
-                                        <option value="">Afganistan</option>
-                                        <option value="">India</option>
-                                        <option value="">Japan</option>
-                                        <option value="">Korea</option>
-                                        <option value="">United States of America</option>
-                                        <option value="">United Arab Emirates</option>
-                                    </select>
-                                    <div class="my-5">
-                                        <p>By providing your card information, you allow Eventopia, Inc. to
-                                            charge your card for future payments in accordance
-                                            with their terms.</p>
-                                    </div>
-                                    <hr style="border-top: 2px solid gray">
-                                    <div class="text-end mt-5">
+                                        <hr style="border-top: 2px solid gray">
+                                        <div class="text-end mt-5">
                                             <button class="btn btn-white mt-2 mb-0" disabled>Back</button>
                                             <button class="btn btn-primary mt-2 mb-0 ">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                         <!-- container-closed -->
@@ -151,30 +151,29 @@
         <!-- page -->
 
         <!-- global-helper -->
-        <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
-            <div class="dropup btn-group mt-2 mb-2">
-                <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button"
-                    data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Do you need Help?</button>
-                <ul class="dropdown-menu"
-                    style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);"
-                    data-popper-placement="top-start">
-                    <form id="contactForm">
-                        <div class="row">
+        <div id="global-helper" class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+            <div class="dropdown btn-group mt-2 mb-2">
+                <div class="btn-group mt-2 mb-2">
+                    <button class="btn btn-pill btn-white border-info text-end dropdown-toggle" type="button"
+                        data-bs-toggle="dropdown" id="global-helper-btn">Do
+                        you need Help?</button>
+                    <div class="dropdown-menu w-260" style="">
+                        <form class="card-body pt-3" id="contactForm">
                             <div class="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    placeholder="Enter email">
+                                <input class="form-control" type="email" placeholder="Enter Email">
                             </div>
                             <div class="form-group">
-                                <input type="number" class="form-control" id="exampleInputPassword1"
-                                    placeholder="Phone Number">
+                                <input class="form-control" placeholder="Enter your Name" type="text">
                             </div>
-                        </div>
-                        <div class="text-center">
-                            <!-- Add a container with "text-center" class -->
-                            <button class="btn btn-primary mt-2 mb-0 ">Submit</button>
-                        </div>
-                    </form>
-                </ul>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Enter Phone Number" type="text">
+                            </div>
+                            <div class="submit">
+                                <button class="btn btn-primary btn-block">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- global-helper closed -->

@@ -7,18 +7,20 @@
                     <span class="navbar-toggler-icon fa fa-align-left text-white"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3 first_drop">
-
-                    <a class="dropdown-item" href="{{url('/edit-profile')}}">
-                        <i class="dropdown-icon fa fa-cart-plus"></i> Cart
+                    <a class="dropdown-item" href="{{url('/checkout')}}">
+                        <i class="dropdown-icon fa fa-shopping-bag"></i> Cart
                     </a>
                     <a class="dropdown-item" data-bs-target="#country-selector" data-bs-toggle="modal">
                         <i class="dropdown-icon fe fe-globe"></i> Language
                     </a>
                     <a class="dropdown-item" href="{{URL('/seller-dashboard')}}">
-                        <i class="dropdown-icon fa fa-user"></i> Become a seller
+                        <i class="dropdown-icon fa fa-user"></i> Become a Seller
                     </a>
-                    <a class="dropdown-item" href="#">
+                    <a class="dropdown-item" href="{{URL('/my-listings')}}">
                         <i class="dropdown-icon icon icon-layers"></i> Listing
+                    </a>
+                    <a class="dropdown-item" href="{{URL('/bookings')}}">
+                        <i class="dropdown-icon icon icon-layers"></i> Bookings
                     </a>
                     <a class="dropdown-item" href="{{URL('/calendar')}}">
                         <i class="dropdown-icon fa fa-calendar"></i> Calendar
@@ -43,22 +45,10 @@
                         <a class="dropdown-item" href="{{url('/edit-profile')}}">
                             <i class="dropdown-icon fe fe-home"></i> Profile
                         </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="dropdown-icon fe fe-user"></i> List Your Space
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="dropdown-icon fe fe-user"></i> List Your Entertainment & Talents
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="dropdown-icon fe fe-user"></i> List Your Service
-                        </a>
-                        <a class="dropdown-item" href="{{URL('payments')}}">
+                        <a class="dropdown-item" href="{{URL('/payments')}}">
                             <i class="dropdown-icon fe fe-user"></i> Payment
                         </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="dropdown-icon fe fe-user"></i> Help
-                        </a>
-                        <a class="dropdown-item" href="{{url('login')}}">
+                        <a class="dropdown-item" href="{{url('/login')}}">
                             <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
                         </a>
                     </div>
@@ -66,11 +56,10 @@
                 <div class="navbar navbar-collapse responsive-navbar p-0">
                     <div class="collapse navbar-collapse" id="landingNavbarHeader">
                         <div class="d-flex order-lg-2">
-
                             <!-- Cart -->
                             <div class="d-flex">
-                                <a class="nav-link icon text-center style">
-                                    <i class="fa fa-cart-plus text-white"></i><span
+                                <a class="nav-link icon text-center style" href="{{URL('/checkout')}}">
+                                    <i class="fa fa-shopping-bag text-white"></i><span
                                         class="fs-16 ms-2 d-none d-xl-block"></span>
                                 </a>
                             </div>
@@ -84,18 +73,28 @@
                                 </a>
                             </div>
 
-                            <div class="d-flex seller-btn">
-                                <a class="nav-link border py-3 px-5 m-2 active text-white" id="tab1"
-                                     href="{{URL('/seller-dashboard')}}" role="tab" aria-selected="true">
+                            <div class="d-flex btn-group seller-btn">
+                                <button class="nav-link border dropdown py-3 px-5 m-2 bg-transparent text-white" data-bs-toggle="dropdown" id="tab1"
+                                      role="tab" aria-selected="true">
                                     Become a Seller
-                                </a>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{URL('/list-space')}}">List space</a>
+                                    <a class="dropdown-item" href="{{URL('/list-entertainment')}}">List Entertainment & Talent</a>
+                                    <a class="dropdown-item" href="{{URL('/list-service')}}">List Service</a>
+                                </div>
                             </div>
-                            <div class="d-flex seller-btn">
-                                <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true">
+                            <div class="d-flex listing-btn">
+                                <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true" href="{{URL('/my-listings')}}">
                                     Listing
                                 </a>
                             </div>
-                            <div class="d-flex seller-btn">
+                            <div class="d-flex booking-btn">
+                                <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true" href="{{URL('/bookings')}}">
+                                    Bookings
+                                </a>
+                            </div>
+                            <div class="d-flex calendar-btn">
                                 <a class="nav-link py-3 px-5 m-2 active text-white" href="{{URL('/calendar')}}" role="tab" aria-selected="true">
                                     Calendar
                                 </a>
@@ -113,22 +112,10 @@
                                     <a class="dropdown-item" href="{{url('/edit-profile')}}">
                                         <i class="dropdown-icon fe fe-home"></i> Profile
                                     </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="dropdown-icon fe fe-user"></i> List Your Space
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="dropdown-icon fe fe-user"></i> List Your Entertainment & Talents
-                                    </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="dropdown-icon fe fe-user"></i> List Your Service
-                                    </a>
-                                    <a class="dropdown-item" href="{{URL('payments')}}">
+                                    <a class="dropdown-item" href="{{URL('/payments')}}">
                                         <i class="dropdown-icon fe fe-user"></i> Payment
                                     </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="dropdown-icon fe fe-user"></i> Help
-                                    </a>
-                                    <a class="dropdown-item" href="{{url('login')}}">
+                                    <a class="dropdown-item" href="{{url('/login')}}">
                                         <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
                                     </a>
                                 </div>

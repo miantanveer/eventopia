@@ -64,64 +64,79 @@
                                                     <li class="list-group-item">
                                                         <div class="row">
                                                             <div class="col-6">
-                                                                <h5><i class="fa fa-check-square text-primary"></i>&nbsp; 1.Location</h5>
+                                                                <h5><i
+                                                                        class="fa fa-check-square text-primary"></i>&nbsp;
+                                                                    1.Location</h5>
                                                                 <p class="ms-5">Enter your address</p>
                                                             </div>
                                                             <div class="col-6 text-end">
-                                                                <button class="btn btn-primary mt-3" onclick="location.href = 'add-space-allsteps';">Start</button>
+                                                                <button class="btn btn-primary mt-3"><a
+                                                                        href="{{ url('/space-form-steps') }}"
+                                                                        class="text-white">Start</a></button>
                                                             </div>
                                                         </div>
                                                     </li>
                                                     <li class="list-group-item">
                                                         <div class="">
-                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 2. Setup </h5>
-                                                            <p class="ms-5">Add your space type, parking options, and surveillance devices</p>
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;
+                                                                2. Setup </h5>
+                                                            <p class="ms-5">Add your space type, parking options, and
+                                                                surveillance devices</p>
                                                         </div>
                                                     </li>
                                                     <li class="list-group-item">
                                                         <div class="">
-                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 3. About your space </h5>
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;
+                                                                3. About your space </h5>
                                                             <p class="ms-5">Add a title, description, and rules</p>
                                                         </div>
                                                     </li>
                                                     <li class="list-group-item">
                                                         <div class="">
-                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 4. Photos </h5>
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;
+                                                                4. Photos </h5>
                                                             <p class="ms-5">Upload photos and select a cover image</p>
                                                         </div>
                                                     </li>
                                                     </li>
                                                     <li class="list-group-item">
                                                         <div class="">
-                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;5. Availability </h5>
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;5.
+                                                                Availability </h5>
                                                             <p class="ms-5">Set your operating hours</p>
                                                         </div>
                                                     </li>
                                                     </li>
                                                     <li class="list-group-item">
                                                         <div class="">
-                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;6. Cleaning </h5>
-                                                            <p class="ms-5">Specify your cleaning protocol for guests</p>
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;6.
+                                                                Cleaning </h5>
+                                                            <p class="ms-5">Specify your cleaning protocol for guests
+                                                            </p>
                                                         </div>
                                                     </li>
                                                     </li>
                                                     <li class="list-group-item">
                                                         <div class="">
-                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;7. Cancellations </h5>
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;7.
+                                                                Cancellations </h5>
                                                             <p class="ms-5">Select your cancellation policy</p>
                                                         </div>
                                                     </li>
                                                     </li>
                                                     <li class="list-group-item">
                                                         <div class="">
-                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;8. Activities </h5>
-                                                            <p class="ms-5">Pick the activities you’d like to host and set your price</p>
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;8.
+                                                                Activities </h5>
+                                                            <p class="ms-5">Pick the activities you’d like to host and
+                                                                set your price</p>
                                                         </div>
                                                     </li>
                                                     </li>
                                                     <li class="list-group-item">
                                                         <div class="">
-                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;9. Profile</h5>
+                                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;9.
+                                                                Profile</h5>
                                                             <p class="ms-5">Add a photo and contact information</p>
                                                         </div>
                                                     </li>
@@ -152,30 +167,29 @@
     <!-- page -->
 
     <!-- global-helper -->
-    <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
-        <div class="dropup btn-group mt-2 mb-2">
-            <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button"
-                data-bs-toggle="dropdown" aria-expanded="true" id="global-helper-btn">Do you need Help?</button>
-            <ul class="dropdown-menu"
-                style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);"
-                data-popper-placement="top-start">
-                <form id="contactForm">
-                    <div class="row">
+    <div id="global-helper" class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+        <div class="dropdown btn-group mt-2 mb-2">
+            <div class="btn-group mt-2 mb-2">
+                <button class="btn btn-pill btn-white border-info text-end dropdown-toggle" type="button"
+                    data-bs-toggle="dropdown" id="global-helper-btn">Do
+                    you need Help?</button>
+                <div class="dropdown-menu w-260" style="">
+                    <form class="card-body pt-3" id="contactForm">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                placeholder="Enter email">
+                            <input class="form-control" type="email" placeholder="Enter Email">
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" id="exampleInputPassword1"
-                                placeholder="Phone Number">
+                            <input class="form-control" placeholder="Enter your Name" type="text">
                         </div>
-                    </div>
-                    <div class="text-center">
-                        <!-- Add a container with "text-center" class -->
-                        <button class="btn btn-primary mt-2 mb-0 ">Submit</button>
-                    </div>
-                </form>
-            </ul>
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Enter Phone Number" type="text">
+                        </div>
+                        <div class="submit">
+                            <button class="btn btn-primary btn-block">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!-- global-helper closed -->

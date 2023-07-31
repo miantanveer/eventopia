@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Sash –  Laravel Bootstrap 5 Admin & Dashboard Template">
     <meta name="author" content="SPRUKO™">
-    <meta name="keywords" content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
+    <meta name="keywords"
+        content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
 
     <!-- title -->
     <title>Eventopia</title>
@@ -18,7 +19,6 @@
 
 </head>
 <style>
-
     .fullpage {
         width: 900px;
         margin: 0 auto;
@@ -49,17 +49,23 @@
 
                     <!-- container -->
                     <div class="main-container container-fluid fullpage">
-                        <div style="display:flex;flex-direction:row;justify-content:space-between;" class="account mt-5 mb-2">
+                        <div style="display:flex;flex-direction:row;justify-content:space-between;"
+                            class="account mt-5 mb-2">
                             <div>
                                 <h1 style="margin-left:20px;" class="pull-left"><strong>Account</strong></h1><br>
 
-                                <span class="avatar avatar-xl brround cover-image" data-bs-image-src="{{ asset('assets/images/users/spaces/pro.png') }}" style="height:100px;width:100px;margin-left:20                                                                                                        px;background: url(&quot;http://sash.pk/assets/images/users/6.jpg&quot;) center center;">
-                                    <span style="height:25px;width:25px;" class="badge rounded-pill avatar-icons bg-green"><i class="fe fe-camera fs-12"></i></span>
+                                <span class="avatar avatar-xl brround cover-image"
+                                    data-bs-image-src="{{ asset('assets/images/users/spaces/pro.png') }}"
+                                    style="height:100px;width:100px;margin-left:20                                                                                                        px;background: url(&quot;http://sash.pk/assets/images/users/6.jpg&quot;) center center;">
+                                    <span style="height:25px;width:25px;"
+                                        class="badge rounded-pill avatar-icons bg-green"><i
+                                            class="fe fe-camera fs-12"></i></span>
                                 </span>
 
                             </div>
                             <div>
-                                <button style="border-color:black;" type="button" class="btn btn-outline-default pull-right"><strong>View Profile</strong></button>
+                                <button style="border-color:black;" type="button"
+                                    class="btn btn-outline-default pull-right"><strong>View Profile</strong></button>
                             </div>
                         </div>
                         <!-- FORM -->
@@ -68,19 +74,22 @@
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label ">First Name <span class="text-red"></span></label>
-                                        <input type="text" class="form-control border border-default rounded-0" placeholder="First name">
+                                        <input type="text" class="form-control border border-default rounded-0"
+                                            placeholder="First name">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label ">Last Name <span class="text-red "></span></label>
-                                        <input type="text" class="form-control border border-default rounded-0" placeholder="Last name">
+                                        <input type="text" class="form-control border border-default rounded-0"
+                                            placeholder="Last name">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label class="form-label">Phone number <span class="text-red"></span></label>
-                                        <input type="text" class="form-control border border-default rounded-0" placeholder="Phone number">
+                                        <input type="text" class="form-control border border-default rounded-0"
+                                            placeholder="Phone number">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -88,7 +97,10 @@
 
                                         <label class="form-label" for="cpassword">Email</label>
                                         <div class="d-flex align-items-center input-container">
-                                            <input type="email" class="form-control border border-default rounded-0" value="" required data-parsley-required-message="Confirm Password is required*" data-parsley-errors-container="#cpassword_err">
+                                            <input type="email" class="form-control border border-default rounded-0"
+                                                value="" required
+                                                data-parsley-required-message="Confirm Password is required*"
+                                                data-parsley-errors-container="#cpassword_err">
                                             <i class="fa fa-lock text-muted icon"></i>
                                         </div>
                                     </div>
@@ -97,13 +109,15 @@
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">Organization<span class="text-red"></span></label>
-                                        <input type="text" class="form-control border border-default rounded-0" placeholder="Organization">
+                                        <input type="text" class="form-control border border-default rounded-0"
+                                            placeholder="Organization">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
                                         <label class="form-label">Job title <span class="text-red"></span></label>
-                                        <input type="text" class="form-control border border-default rounded-0" placeholder="Job title">
+                                        <input type="text" class="form-control border border-default rounded-0"
+                                            placeholder="Job title">
                                     </div>
                                 </div>
                             </div>
@@ -113,8 +127,9 @@
                             <h1><b>Notifications</b></h1>
                             <h3><b>Email prefrences</b></h3>
                             <p>Send me exclusive deals, inspiration, news, and community updates via email.
-                            <input style="margin-left:355px;" type="checkbox" id="vehicle1" name="vehicle1"></p>
-                            
+                                <input style="margin-left:355px;" type="checkbox" id="vehicle1" name="vehicle1">
+                            </p>
+
                         </div>
 
                         <!-- container-closed -->
@@ -130,25 +145,29 @@
             <!-- page -->
 
             <!-- global-helper -->
-            <div id="global-helper" class="position-fixed bottom-0 end-0 p-3">
-                <div class="dropup btn-group mt-2 mb-2">
-                    <button class="btn-pill text-end p-2 text-info bg-white border-info " type="button" data-bs-toggle="dropdown" aria-expanded="true">Need any help?</button>
-                    <ul class="dropdown-menu" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(0px, -40px, 0px);" data-popper-placement="top-start">
-                        <form id="contactForm">
-                            <div class="row">
+            <div id="global-helper" class="position-fixed bottom-0 end-0 p-3" style="z-index: 9999;">
+                <div class="dropdown btn-group mt-2 mb-2">
+                    <div class="btn-group mt-2 mb-2">
+                        <button class="btn btn-pill btn-white border-info text-end dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" id="global-helper-btn">Do
+                            you need Help?</button>
+                        <div class="dropdown-menu w-260" style="">
+                            <form class="card-body pt-3" id="contactForm">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                                    <input class="form-control" type="email" placeholder="Enter Email">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Phone Number">
+                                    <input class="form-control" placeholder="Enter your Name" type="text">
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <!-- Add a container with "text-center" class -->
-                                <button class="btn btn-primary mt-2 mb-0 ">Submit</button>
-                            </div>
-                        </form>
-                    </ul>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Enter Phone Number" type="text">
+                                </div>
+                                <div class="submit">
+                                    <button class="btn btn-primary btn-block">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
             <!-- global-helper closed -->
@@ -198,10 +217,10 @@
 
 
             <!-- Internal Timeline js-->
-            <script src="{{asset('assets/plugins/timeline/js/timeline.min.js')}}"></script>
+            <script src="{{ asset('assets/plugins/timeline/js/timeline.min.js') }}"></script>
 
             <!-- Internal Timeline js-->
-            <script src="    {{asset('assets/js/timline.js')}}"></script>
+            <script src="    {{ asset('assets/js/timline.js') }}"></script>
             <!-- Custom JavaScript code -->
             <script>
                 $(document).ready(function() {
@@ -219,6 +238,6 @@
             </script>
             @section('scripts')
 
-</body>
+    </body>
 
-</html>
+    </html>

@@ -13,20 +13,10 @@
         display: none;
     }
 
-    /* #step-2 {
-        width: 900px;
-        margin: 0 auto;
-    } */
-
     hr.style1 {
         border-top: 1px solid #8c8b8b;
     }
 
-    /* #step-3 {
-
-        width: 900px;
-        margin: 0 auto;
-    } */
 </style>
 @endsection
 
