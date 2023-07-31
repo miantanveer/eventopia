@@ -88,7 +88,7 @@
                                                 <img src="{{asset('assets/images/users/21.jpg')}}" alt="profile-user" class="avatar  profile-user brround cover-image">
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="{{url('/dashboard')}}">
+                                                <a class="dropdown-item" href="{{url('/customer-dashboard')}}">
                                                     <i class="dropdown-icon fe fe-home"></i> Dashboard
                                                 </a>
                                                 <a class="dropdown-item" href="{{url('/edit-profile')}}">

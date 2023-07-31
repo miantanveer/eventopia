@@ -43,7 +43,7 @@
 @section('content')
     <div class="container-login100">
         <div class="wrap-login100 p-6">
-            <form method="GET" action="/dashboard" id="verify_form" class="login100-form validate-form" data-parsley-validate>
+            <form method="GET" action="/customer-dashboard" id="verify_form" class="login100-form validate-form" data-parsley-validate>
                 <span style="color:#00224F;" class="login100-form-title pb-5">
                     Verify Your Email Address
                 </span>

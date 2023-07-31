@@ -38,40 +38,40 @@ Route::get('/verify-code-1', function () {
     return view('content.auth.verify-code-1');
 });
 Route::get('/edit-profile', function () {
-    return view('layouts.users.edit-profile');
+    return view('content.edit-profile');
 });
-Route::get('/dashboard', function () {
-    return view('layouts.customer.index');
+Route::get('/customer-dashboard', function () {
+    return view('content.customer.customer-dashboard');
 });
 Route::get('/search-results', function () {
-    return view('layouts.customer.search-results');
+    return view('content.customer.search-results');
 });
 Route::get('/talent-&-entertainments', function () {
-    return view('layouts.customer.search-results-of-talent&entertainment');
+    return view('content.customer.search-results-of-talent&entertainment');
 });
 Route::get('/services', function () {
-    return view('layouts.customer.services');
+    return view('content.customer.services');
 });
 Route::get('/space-details', function () {
-    return view('layouts.space.space-detail');
+    return view('content.customer.space-detail');
 });
 Route::get('/service-details', function () {
-    return view('layouts.customer.service-detail');
+    return view('content.customer.service-detail');
 });
 Route::get('/checkout', function () {
-    return view('layouts.space.checkout-page');
+    return view('layouts.components.checkout-page');
 });
 Route::get('/review-pay', function () {
-    return view('layouts.space.review');
+    return view('layouts.components.review');
 });
 Route::get('/payment-successfull', function () {
-    return view('layouts.space.payment-successfull');
-});
-Route::get('/booking', function () {
-    return view('layouts.users.booking');
+    return view('layouts.components.payment-successfull');
 });
 Route::get('/bookings', function () {
     return view('layouts.users.bookings-sample');
+});
+Route::get('/booking', function () {
+    return view('layouts.users.booking');
 });
 
 // Seller side

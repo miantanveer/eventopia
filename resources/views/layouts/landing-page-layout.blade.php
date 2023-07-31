@@ -29,7 +29,7 @@
 
     @include('layouts.components.global-helper')
 
-    @include('layouts.space.space-detail-footer')
+    @include('layouts.components.dark-footer')
 
     @include('layouts.components.scripts')
 

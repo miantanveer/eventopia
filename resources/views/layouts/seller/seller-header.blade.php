@@ -4,7 +4,7 @@
                     <div class="d-flex">
                         <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0)"></a>
                         <!-- sidebar-toggle-->
-                        <a class="logo-horizontal " href="{{url('/dashboard')}}">
+                        <a class="logo-horizontal " href="{{url('/customer-dashboard')}}">
                             <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img desktop-logo" alt="logo">
                             <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img light-logo1" alt="logo">
                         </a>
@@ -31,7 +31,7 @@
                                         </div>
 
                                         <div class="d-flex seller-btn">
-                                            <a class="nav-link border py-3 px-5 m-2 active text-white" href="{{URL('/dashboard')}}" role="tab" aria-selected="true">
+                                            <a class="nav-link border py-3 px-5 m-2 active text-white" href="{{URL('/customer-dashboard')}}" role="tab" aria-selected="true">
                                                 Customer Page
                                             </a>
                                         </div>

@@ -49,7 +49,7 @@
             <div class="bg-white col-12 col-md-7 px-0">
                 <div style="margin:200px 100px 100px 100px;">
                     <h1 style="color:#00224F;" class="mb-5">Welcome Back!</h1>
-                    <form id="login_form" method="GET" action="{{URL('/dashboard')}}" data-parsley-validate>
+                    <form id="login_form" method="GET" action="{{URL('/customer-dashboard')}}" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-12 mb-3 mx-">

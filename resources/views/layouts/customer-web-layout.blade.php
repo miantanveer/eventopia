@@ -31,19 +31,17 @@
     <div class="page">
         <div class="page-main">
 
-            @include('layouts.components.app-header')
+            @include('content.customer.customer-header')
 
             @include('layouts.components.app-sidebar')
 
             <!--app-content open-->
-            <div class="main-content app-content mt-0">
+            <div class="main-content app-content py-5 bg-white">
                 <div class="side-app">
 
                     <!-- container -->
                     <div class="main-container container-fluid">
-
                         @yield('content')
-
                     </div>
                     <!-- container-closed -->
                 </div>
@@ -64,9 +62,47 @@
     <!-- global-helper -->
     @include('layouts.components.global-helper')
 
-    @include('layouts.components.footer')
+    @include('layouts.components.dark-footer')
 
     @include('layouts.components.scripts')
+
+    <!-- INTERNAL Bootstrap-Datepicker js-->
+    <script src="{{ asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+
+    <!-- SELECT2 JS -->
+    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/js/select2.js') }}"></script>
+
+    <!-- INTERNAL Bootstrap-Datepicker js-->
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
+
+
+    <!-- TIMEPICKER JS -->
+    <script src="{{ asset('assets/plugins/time-picker/jquery.timepicker.js') }}"></script>
+    <script src="{{ asset('assets/plugins/time-picker/toggles.min.js') }}"></script>
+
+
+    <!-- DATEPICKER JS -->
+    <script src="{{ asset('assets/plugins/date-picker/date-picker.js') }}"></script>
+    <script src="{{ asset('assets/plugins/date-picker/jquery-ui.js') }}"></script>
+    <script src="{{ asset('assets/plugins/input-mask/jquery.maskedinput.js') }}"></script>
+
+
+    <!-- FORMELEMENTS JS -->
+    <script src="{{ asset('assets/js/formelementadvnced.js') }}"></script>
+    <script src="{{ asset('assets/js/form-elements.js') }}"></script>
+
+
+    <!-- OWL CAROUSEL JS-->
+    <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
+    <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
+
+    <!-- OWL Carousel js -->
+    <script src="{{ asset('assets/js/carousel.js') }}"></script>
+
+    <!-- ACCORDION JS -->
+    <script src="{{ asset('assets/plugins/accordion/accordion.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/accordion/accordion.js') }}"></script>
 
 </body>
 

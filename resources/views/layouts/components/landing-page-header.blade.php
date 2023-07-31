@@ -79,7 +79,7 @@
                                     Become a Seller
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{URL('/list-space')}}">List space</a>
+                                    <a class="dropdown-item" href="{{URL('/list-space')}}">List Space</a>
                                     <a class="dropdown-item" href="{{URL('/list-entertainment')}}">List Entertainment & Talent</a>
                                     <a class="dropdown-item" href="{{URL('/list-service')}}">List Service</a>
                                 </div>

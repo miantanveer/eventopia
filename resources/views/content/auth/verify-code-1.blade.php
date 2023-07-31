@@ -46,7 +46,7 @@
             <div class="text-center p-5">
                 <img src="{{asset("assets/images/brand/logo13.png")}}" alt="" class="header-brand-img">
             </div>
-            <form method="GET" action="/dashboard" id="verify_form" class="login100-form validate-form mt-5" data-parsley-validate>
+            <form method="GET" action="/customer-dashboard" id="verify_form" class="login100-form validate-form mt-5" data-parsley-validate>
                 <h4>Verification Code</h4>
                 <p style="font-size: 12px;" class="text-muted">We send you on mail.</p>
                 <p style="font-size: 13px;" class="mt-5" >We have send you code on john***@gmail.com</p>
