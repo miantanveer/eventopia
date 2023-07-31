@@ -12,9 +12,10 @@
     .back-g-color {
         background-color: #F2F8FF !important;
     }
-        .sw-btn-group-extra {
-            display: none;
-        }
+
+    .sw-btn-group-extra {
+        display: none;
+    }
 </style>
 @endsection
 @section('content')
@@ -25,16 +26,17 @@
             <div class="card-body">
                 <div id="smartwizard-3">
                     <ul class="justify-content-around">
-                        <li><a href="#step-1">Step 1</a></li>
+                        {{-- <li><a href="#step-1">Step 1</a></li>
                         <li><a href="#step-2">Step 2</a></li>
-                        <li><a href="#step-3">Step 3</a></li>
+                        <li><a href="#step-3">Step 3</a></li> --}}
                         <li><a href="#step-4">Step 4</a></li>
-                        <li><a href="#step-5">Step 5</a></li>
+                        {{-- <li><a href="#step-5">Step 5</a></li>
                         <li><a href="#step-6">Step 6</a></li>
                         <li><a href="#step-7">Step 7</a></li>
+                        <li><a href="#step-8">Step 8</a></li> --}}
                     </ul>
                     <div>
-                        <div id="step-1" class="mb-5">
+                        {{-- <div id="step-1" class="mb-5">
                             <div class="container">
                                 <div class="text-center mb-6">
                                     <h3 class="mt-3 mt-1"><b>What type of entertainment & talent are you listing?</b>
@@ -183,8 +185,8 @@
                                 </div>
                                 <hr class="bg-dark border-3">
                             </div>
-                        </div>
-                        <div id="step-4" class="">
+                        </div> --}}
+                        <div id="step-4" class="mb-5">
                             <div class="container">
                                 <div class="text-center mb-6">
                                     <h3 class="mt-3 mt-1"><b>What are your operating hours?</b>
@@ -210,14 +212,15 @@
                                                     <div class="form-group">
                                                         <label class="custom-switch form-switch me-5">
                                                             <input type="checkbox" name="custom-switch-checkbox1"
-                                                                class="custom-switch-input" id="switch">
+                                                                id="custom-switch-checkbox1" class="custom-switch-input"
+                                                                checked>
                                                             <span
                                                                 class="custom-switch-indicator custom-switch-indicator-md"></span>
-                                                            <span class="custom-switch-description">Open</span>
+                                                            <span class="custom-switch-description-1">Open</span>
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-md-4 col-sm-6" id="set1">
+                                                <div class="col-lg-3 col-md-4 col-sm-6 row-content-1 hide-on-switch">
                                                     <div class="form-group">
                                                         <div class="custom-controls-stacked">
                                                             <label class="custom-control custom-radio">
@@ -234,8 +237,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-md-6 col-sm-6 mt-2" id="set2">
-                                                    <div class="row">
+                                                <div class="col-lg-5 col-md-6 col-sm-6 mt-2">
+                                                    <div class="row row-content-1 d-none">
                                                         <div class="col-6">
                                                             <div class="form-group">
                                                                 <select name="star-time"
@@ -294,15 +297,16 @@
                                                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                                                     <div class="form-group">
                                                         <label class="custom-switch form-switch me-5">
-                                                            <input type="checkbox" name="custom-switch-checkbox1"
-                                                                class="custom-switch-input" class="switch">
+                                                            <input type="checkbox" name="custom-switch-checkbox2"
+                                                                id="custom-switch-checkbox2" class="custom-switch-input"
+                                                                checked>
                                                             <span
                                                                 class="custom-switch-indicator custom-switch-indicator-md"></span>
-                                                            <span class="custom-switch-description">Open</span>
+                                                            <span class="custom-switch-description-2">Open</span>
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-md-4 col-sm-6" class="set1">
+                                                <div class="col-lg-3 col-md-4 col-sm-6 row-content-2 hide-on-switch">
                                                     <div class="form-group">
                                                         <div class="custom-controls-stacked">
                                                             <label class="custom-control custom-radio">
@@ -319,8 +323,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2" class="set2">
-                                                    <div class="row">
+                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
+                                                    <div class="row row-content-2 d-none">
                                                         <div class="col-6">
                                                             <div class="form-group">
                                                                 <select name="star-time"
@@ -379,15 +383,16 @@
                                                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                                                     <div class="form-group">
                                                         <label class="custom-switch form-switch me-5">
-                                                            <input type="checkbox" name="custom-switch-checkbox1"
-                                                                class="custom-switch-input" class="switch">
+                                                            <input type="checkbox" name="custom-switch-checkbox3"
+                                                                id="custom-switch-checkbox3" class="custom-switch-input"
+                                                                checked>
                                                             <span
                                                                 class="custom-switch-indicator custom-switch-indicator-md"></span>
-                                                            <span class="custom-switch-description">Open</span>
+                                                            <span class="custom-switch-description-3">Open</span>
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-md-4 col-sm-6" class="set1">
+                                                <div class="col-lg-3 col-md-4 col-sm-6 row-content-3 hide-on-switch">
                                                     <div class="form-group">
                                                         <div class="custom-controls-stacked">
                                                             <label class="custom-control custom-radio">
@@ -404,8 +409,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2" class="set2">
-                                                    <div class="row">
+                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
+                                                    <div class="row d-none">
                                                         <div class="col-6">
                                                             <div class="form-group">
                                                                 <select name="star-time"
@@ -464,15 +469,16 @@
                                                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                                                     <div class="form-group">
                                                         <label class="custom-switch form-switch me-5">
-                                                            <input type="checkbox" name="custom-switch-checkbox1"
-                                                                class="custom-switch-input" class="switch">
+                                                            <input type="checkbox" name="custom-switch-checkbox4"
+                                                                id="custom-switch-checkbox4" class="custom-switch-input"
+                                                                checked>
                                                             <span
                                                                 class="custom-switch-indicator custom-switch-indicator-md"></span>
-                                                            <span class="custom-switch-description">Open</span>
+                                                            <span class="custom-switch-description-4">Open</span>
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-md-4 col-sm-6" class="set1">
+                                                <div class="col-lg-3 col-md-4 col-sm-6 row-content-4 hide-on-switch">
                                                     <div class="form-group">
                                                         <div class="custom-controls-stacked">
                                                             <label class="custom-control custom-radio">
@@ -489,8 +495,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2" class="set2">
-                                                    <div class="row">
+                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
+                                                    <div class="row d-none">
                                                         <div class="col-6">
                                                             <div class="form-group">
                                                                 <select name="star-time"
@@ -549,15 +555,16 @@
                                                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                                                     <div class="form-group">
                                                         <label class="custom-switch form-switch me-5">
-                                                            <input type="checkbox" name="custom-switch-checkbox1"
-                                                                class="custom-switch-input" class="switch">
+                                                            <input type="checkbox" name="custom-switch-checkbox5"
+                                                                id="custom-switch-checkbox5" class="custom-switch-input"
+                                                                checked>
                                                             <span
                                                                 class="custom-switch-indicator custom-switch-indicator-md"></span>
-                                                            <span class="custom-switch-description">Open</span>
+                                                            <span class="custom-switch-description-5">Open</span>
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-md-4 col-sm-6" class="set1">
+                                                <div class="col-lg-3 col-md-4 col-sm-6 row-content-5 hide-on-switch">
                                                     <div class="form-group">
                                                         <div class="custom-controls-stacked">
                                                             <label class="custom-control custom-radio">
@@ -574,8 +581,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2" class="set2">
-                                                    <div class="row">
+                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
+                                                    <div class="row d-none">
                                                         <div class="col-6">
                                                             <div class="form-group">
                                                                 <select name="star-time"
@@ -634,15 +641,16 @@
                                                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                                                     <div class="form-group">
                                                         <label class="custom-switch form-switch me-5">
-                                                            <input type="checkbox" name="custom-switch-checkbox1"
-                                                                class="custom-switch-input" class="switch">
+                                                            <input type="checkbox" name="custom-switch-checkbox6"
+                                                                id="custom-switch-checkbox6" class="custom-switch-input"
+                                                                checked>
                                                             <span
                                                                 class="custom-switch-indicator custom-switch-indicator-md"></span>
-                                                            <span class="custom-switch-description">Open</span>
+                                                            <span class="custom-switch-description-6">Open</span>
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-md-4 col-sm-6" class="set1">
+                                                <div class="col-lg-3 col-md-4 col-sm-6 row-content-6 hide-on-switch">
                                                     <div class="form-group">
                                                         <div class="custom-controls-stacked">
                                                             <label class="custom-control custom-radio">
@@ -659,8 +667,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2" class="set2">
-                                                    <div class="row">
+                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
+                                                    <div class="row d-none">
                                                         <div class="col-6">
                                                             <div class="form-group">
                                                                 <select name="star-time"
@@ -719,15 +727,16 @@
                                                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                                                     <div class="form-group">
                                                         <label class="custom-switch form-switch me-5">
-                                                            <input type="checkbox" name="custom-switch-checkbox1"
-                                                                class="custom-switch-input" class="switch">
+                                                            <input type="checkbox" name="custom-switch-checkbox7"
+                                                                id="custom-switch-checkbox7" class="custom-switch-input"
+                                                                checked>
                                                             <span
                                                                 class="custom-switch-indicator custom-switch-indicator-md"></span>
-                                                            <span class="custom-switch-description">Open</span>
+                                                            <span class="custom-switch-description-7">Open</span>
                                                         </label>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-3 col-md-4 col-sm-6" class="set1">
+                                                <div class="col-lg-3 col-md-4 col-sm-6 row-content-7 hide-on-switch">
                                                     <div class="form-group">
                                                         <div class="custom-controls-stacked">
                                                             <label class="custom-control custom-radio">
@@ -744,8 +753,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2" class="set2">
-                                                    <div class="row">
+                                                <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
+                                                    <div class="row d-none">
                                                         <div class="col-6">
                                                             <div class="form-group">
                                                                 <select name="star-time"
@@ -801,7 +810,7 @@
                                 <hr class="bg-dark border-3">
                             </div>
                         </div>
-                        <div id="step-5" class="">
+                        {{-- <div id="step-5" class="mb-5">
                             <div class="container">
                                 <div class="text-center mb-6">
                                     <h3 class="mt-3 mt-1"><b>Choose your Cancellation Policy</b>
@@ -885,10 +894,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="step-6" class="">
-                            <div class="card-body">
+                        <div id="step-6" class="mb-5">
+                            <div class="m-lg-6">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-lg-4">
                                         <div class="panel-group" id="accordion" role="tablist"
                                             aria-multiselectable="true">
                                             <div class="panel panel-default active">
@@ -948,44 +957,50 @@
                                                         <label class="my-5">8+ hour discount</label>
                                                         <p>Encourage guests to book longer by giving a discount for
                                                             bookings that are 8 hours or more.</p>
-                                                            <div class="form-group mb-3">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control" placeholder="Optional"
-                                                                        aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text"
-                                                                        id="basic-addon2">% off</span>
-                                                                </div>
+                                                        <div class="form-group mb-3">
+                                                            <div class="input-group w-100">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Optional"
+                                                                    aria-label="Recipient's username"
+                                                                    aria-describedby="basic-addon2">
+                                                                <span class="input-group-text" id="basic-addon2">%
+                                                                    off</span>
                                                             </div>
+                                                        </div>
                                                         <a href="#" class="mb-6">How is this calculated?</a>
                                                         <label class="form-label">Who can book instantly?</label>
                                                         <hr class="bg-dark mt-0">
                                                         <div class="mb-5">
                                                             <label>
-                                                                <input type="radio" name="example-checkbox1" value="option1">
+                                                                <input type="radio" name="example-checkbox1"
+                                                                    value="option1">
                                                                 <span>Everyone</span>
                                                             </label>
-                                                            <p>Guests who acknowledge and accept your host rules can book instantly.</p>
+                                                            <p>Guests who acknowledge and accept your host rules can
+                                                                book instantly.</p>
                                                             <label>
-                                                                <input type="radio" name="example-checkbox1" value="option2">
+                                                                <input type="radio" name="example-checkbox1"
+                                                                    value="option2">
                                                                 <span>No one</span>
                                                             </label>
-                                                            <p>Booking requests will need to be manually accepted or declined.</p>
+                                                            <p>Booking requests will need to be manually accepted or
+                                                                declined.</p>
                                                         </div>
                                                         <a href="#">Learn more?</a>
                                                         <div class="my-5">
-                                                            <p class="back-g-color p-3">Meeting listings get up to 2x more bookings when guests can book instantly</p>
+                                                            <p class="back-g-color p-3">Meeting listings get up to 2x
+                                                                more bookings when guests can book instantly</p>
                                                         </div>
                                                         <label class="form-label">Capacity</label>
                                                         <hr class="bg-dark mb-3">
                                                         <p>Maximum number of guests</p>
                                                         <div class="form-group mb-3">
                                                             <div class="input-group w-100">
-                                                                <input type="text" class="form-control" placeholder="250"
-                                                                    aria-label="Recipient's username"
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="250" aria-label="Recipient's username"
                                                                     aria-describedby="basic-addon2">
-                                                                <span class="input-group-text"
-                                                                    id="basic-addon2"><i class="fa fa-group w-5 text-white"></i></span>
+                                                                <span class="input-group-text" id="basic-addon2"><i
+                                                                        class="fa fa-group w-5 text-white"></i></span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -993,7 +1008,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4">
                                         <div class="panel-group" id="accordion" role="tablist"
                                             aria-multiselectable="true">
                                             <div class="panel panel-default active">
@@ -1023,24 +1038,88 @@
                                                 <div id="collapse2" class="panel-collapse collapse" role="tabpanel"
                                                     aria-labelledby="headingTwo2">
                                                     <div class="panel-body">
-                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                        accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                                        non cupidatat skateboard dolor brunch. Food truck quinoa
-                                                        nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                                                        put a bird
-                                                        on it squid single-origin coffee nulla assumenda shoreditch et.
-                                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                                        vice lomo.
-                                                        Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                                                        synth nesciunt you probably haven't heard of them accusamus
-                                                        labore sustainable VHS.
+                                                        <label class="form-label">Pricing</label>
+                                                        <hr class="bg-dark mt-0">
+                                                        <label class="mb-5">Hourly rate</label>
+                                                        <p>Please choose a base hourly rate. You
+                                                            can customize your pricing with atten-
+                                                            dee pricing, calendar pricing, add add-
+                                                            ons once your listing are created.</p>
+                                                        <div class="form-group mb-6">
+                                                            <div class="input-group w-100">
+                                                                <input type="text" class="form-control" placeholder="80"
+                                                                    aria-label="Recipient's username"
+                                                                    aria-describedby="basic-addon2">
+                                                                <span class="input-group-text"
+                                                                    id="basic-addon2">SAR</span>
+                                                            </div>
+                                                        </div>
+                                                        <p>Minimum number of hours</p>
+                                                        <p>Must be between 1-12 hours</p>
+                                                        <div class="form-group mb-4">
+                                                            <div class="input-group w-100">
+                                                                <input type="text" class="form-control" placeholder="5"
+                                                                    aria-label="Recipient's username"
+                                                                    aria-describedby="basic-addon2">
+                                                                <span class="input-group-text" id="basic-addon2"><i
+                                                                        class="fa fa-calendar w-5 text-white"></i></span>
+                                                            </div>
+                                                        </div>
+                                                        <label class="my-5">8+ hour discount</label>
+                                                        <p>Encourage guests to book longer by giving a discount for
+                                                            bookings that are 8 hours or more.</p>
+                                                        <div class="form-group mb-3">
+                                                            <div class="input-group w-100">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Optional"
+                                                                    aria-label="Recipient's username"
+                                                                    aria-describedby="basic-addon2">
+                                                                <span class="input-group-text" id="basic-addon2">%
+                                                                    off</span>
+                                                            </div>
+                                                        </div>
+                                                        <a href="#" class="mb-6">How is this calculated?</a>
+                                                        <label class="form-label">Who can book instantly?</label>
+                                                        <hr class="bg-dark mt-0">
+                                                        <div class="mb-5">
+                                                            <label>
+                                                                <input type="radio" name="example-checkbox1"
+                                                                    value="option1">
+                                                                <span>Everyone</span>
+                                                            </label>
+                                                            <p>Guests who acknowledge and accept your host rules can
+                                                                book instantly.</p>
+                                                            <label>
+                                                                <input type="radio" name="example-checkbox1"
+                                                                    value="option2">
+                                                                <span>No one</span>
+                                                            </label>
+                                                            <p>Booking requests will need to be manually accepted or
+                                                                declined.</p>
+                                                        </div>
+                                                        <a href="#">Learn more?</a>
+                                                        <div class="my-5">
+                                                            <p class="back-g-color p-3">Meeting listings get up to 2x
+                                                                more bookings when guests can book instantly</p>
+                                                        </div>
+                                                        <label class="form-label">Capacity</label>
+                                                        <hr class="bg-dark mb-3">
+                                                        <p>Maximum number of guests</p>
+                                                        <div class="form-group mb-3">
+                                                            <div class="input-group w-100">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="250" aria-label="Recipient's username"
+                                                                    aria-describedby="basic-addon2">
+                                                                <span class="input-group-text" id="basic-addon2"><i
+                                                                        class="fa fa-group w-5 text-white"></i></span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-4">
+                                    <div class="col-lg-4">
                                         <div class="panel-group" id="accordion" role="tablist"
                                             aria-multiselectable="true">
                                             <div class="panel panel-default active">
@@ -1070,18 +1149,82 @@
                                                 <div id="collapse3" class="panel-collapse collapse" role="tabpanel"
                                                     aria-labelledby="headingThree">
                                                     <div class="panel-body">
-                                                        Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                        accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                                        non cupidatat skateboard dolor brunch. Food truck quinoa
-                                                        nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua
-                                                        put a bird
-                                                        on it squid single-origin coffee nulla assumenda shoreditch et.
-                                                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                                        cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                                        vice lomo.
-                                                        Leggings occaecat craft beer farm-to-table, raw denim aesthetic
-                                                        synth nesciunt you probably haven't heard of them accusamus
-                                                        labore sustainable VHS.
+                                                        <label class="form-label">Pricing</label>
+                                                        <hr class="bg-dark mt-0">
+                                                        <label class="mb-5">Hourly rate</label>
+                                                        <p>Please choose a base hourly rate. You
+                                                            can customize your pricing with atten-
+                                                            dee pricing, calendar pricing, add add-
+                                                            ons once your listing are created.</p>
+                                                        <div class="form-group mb-6">
+                                                            <div class="input-group w-100">
+                                                                <input type="text" class="form-control" placeholder="80"
+                                                                    aria-label="Recipient's username"
+                                                                    aria-describedby="basic-addon2">
+                                                                <span class="input-group-text"
+                                                                    id="basic-addon2">SAR</span>
+                                                            </div>
+                                                        </div>
+                                                        <p>Minimum number of hours</p>
+                                                        <p>Must be between 1-12 hours</p>
+                                                        <div class="form-group mb-4">
+                                                            <div class="input-group w-100">
+                                                                <input type="text" class="form-control" placeholder="5"
+                                                                    aria-label="Recipient's username"
+                                                                    aria-describedby="basic-addon2">
+                                                                <span class="input-group-text" id="basic-addon2"><i
+                                                                        class="fa fa-calendar w-5 text-white"></i></span>
+                                                            </div>
+                                                        </div>
+                                                        <label class="my-5">8+ hour discount</label>
+                                                        <p>Encourage guests to book longer by giving a discount for
+                                                            bookings that are 8 hours or more.</p>
+                                                        <div class="form-group mb-3">
+                                                            <div class="input-group w-100">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Optional"
+                                                                    aria-label="Recipient's username"
+                                                                    aria-describedby="basic-addon2">
+                                                                <span class="input-group-text" id="basic-addon2">%
+                                                                    off</span>
+                                                            </div>
+                                                        </div>
+                                                        <a href="#" class="mb-6">How is this calculated?</a>
+                                                        <label class="form-label">Who can book instantly?</label>
+                                                        <hr class="bg-dark mt-0">
+                                                        <div class="mb-5">
+                                                            <label>
+                                                                <input type="radio" name="example-checkbox1"
+                                                                    value="option1">
+                                                                <span>Everyone</span>
+                                                            </label>
+                                                            <p>Guests who acknowledge and accept your host rules can
+                                                                book instantly.</p>
+                                                            <label>
+                                                                <input type="radio" name="example-checkbox1"
+                                                                    value="option2">
+                                                                <span>No one</span>
+                                                            </label>
+                                                            <p>Booking requests will need to be manually accepted or
+                                                                declined.</p>
+                                                        </div>
+                                                        <a href="#">Learn more?</a>
+                                                        <div class="my-5">
+                                                            <p class="back-g-color p-3">Meeting listings get up to 2x
+                                                                more bookings when guests can book instantly</p>
+                                                        </div>
+                                                        <label class="form-label">Capacity</label>
+                                                        <hr class="bg-dark mb-3">
+                                                        <p>Maximum number of guests</p>
+                                                        <div class="form-group mb-3">
+                                                            <div class="input-group w-100">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="250" aria-label="Recipient's username"
+                                                                    aria-describedby="basic-addon2">
+                                                                <span class="input-group-text" id="basic-addon2"><i
+                                                                        class="fa fa-group w-5 text-white"></i></span>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1090,34 +1233,259 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="step-7" class="">
-
+                        <div id="step-7" class="mb-5">
+                            <div class="form">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="mb-lg-5 mb-3">
+                                            <h2 class="mb-1"><b class="h-3">Who will guests be contacting?</b></h2>
+                                            <b>Please do not use a business name, so it’s more personal for your
+                                                guests.</b>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="exampleInputname"
+                                                        placeholder="john" required
+                                                        data-parsley-required-message="Password is required*">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="exampleInputname1"
+                                                        placeholder="Smith" required
+                                                        data-parsley-required-message="Confirm Password is required*">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="tel" class="form-control" id="exampleInputEmail1"
+                                                placeholder="(123) 345 -4567" required
+                                                data-parsley-required-message="Email is required*">
+                                        </div>
+                                        <div class="bg-light-gray p-3 mb-3">
+                                            <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>Your number needs
+                                                to be verified</p>
+                                        </div>
+                                        <p class="mb-5">We won’t share your number publicly. Guests will only see it
+                                            after they book to coordinate with you.</p>
+                                        <hr class="bg-dark my-6">
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="text-center chat-image mb-5">
+                                            <div class="avatar avatar-xxl chat-profile mb-3 brround"
+                                                id="uploadContainer">
+                                                <a class="" href="#">
+                                                    <img alt="avatar" src="{{ asset('assets/images/users/23.jpeg') }}"
+                                                        class="avatar avatar-xxl chat-profile mb-3 brround"
+                                                        id="avatarImage">
+                                                </a>
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="button"
+                                                    class="bg-primary text-white p-3 border-0 text-center">Upload
+                                                    photo</button>
+                                            </div>
+                                            <!-- Hidden input for image upload -->
+                                            <input type="file" id="imageUploadInput" style="display: none">
+                                        </div>
+                                        <div class="text-center px-8">
+                                            <p class="text-muted">Choose a friendly, accurate photo to help instill a
+                                                sense of trust and verification in your listing</p>
+                                        </div>
+                                        <div class="px-8">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <ul>
+                                                        <li><img src="{{ asset('assets/images/brand/light-bulb.png')}}"
+                                                                class="w-4" alt=""> No photos of the space</li>
+                                                        <li><img src="{{ asset('assets/images/brand/light-bulb.png')}}"
+                                                                class="w-4" alt=""> No business logos</li>
+                                                        <li><img src="{{ asset('assets/images/brand/light-bulb.png')}}"
+                                                                class="w-4" alt=""> No group photos</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-9">
+                                            <h3><b class="h-3">How did you hear about entertainment / talent with
+                                                    Eventopia?</b></h3>
+                                            <p>Select all that apply to help us find more hosts like you.</p>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-1" required>
+                                                        <label class="form-check-label" for="invalidCheck-1">Friend,
+                                                            family, or colleague</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-2" required>
+                                                        <label class="form-check-label" for="invalidCheck-2">News or
+                                                            blog
+                                                            article</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-3" required>
+                                                        <label class="form-check-label" for="invalidCheck-3">Contacted
+                                                            by
+                                                            Peerspace</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-4" required>
+                                                        <label class="form-check-label" for="invalidCheck-4">TV</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-5" required>
+                                                        <label class="form-check-label"
+                                                            for="invalidCheck-5">Billboard</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-6" required>
+                                                        <label class="form-check-label"
+                                                            for="invalidCheck-6">Billboard</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-5">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-7" required>
+                                                        <label class="form-check-label" for="invalidCheck-7">Online
+                                                            ad</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-8" required>
+                                                        <label class="form-check-label" for="invalidCheck-8">Social
+                                                            media</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-9" required>
+                                                        <label class="form-check-label" for="invalidCheck-9">Referral
+                                                            from
+                                                            a Eventopia host</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-10" required>
+                                                        <label class="form-check-label" for="invalidCheck-10">Online
+                                                            search</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-11" required>
+                                                        <label class="form-check-label" for="invalidCheck-11">Attended
+                                                            an
+                                                            event in a Peerspace</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value=""
+                                                            id="invalidCheck-12" required>
+                                                        <label class="form-check-label"
+                                                            for="invalidCheck-12">Other</label>
+                                                    </div>
+                                                </div>
+                                                <hr class="bg-dark my-6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div id="step-8" class="mb-5">
+                            <div class="form">
+                                <div class="container">
+                                    <div class="text-center mb-6">
+                                        <h3 class="mt-3 mt-1"><b>Please review the following Eventopia policies</b>
+                                        </h3>
+                                        <p class=""><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
+                                                class="w-5" alt=""> I agree and
+                                            understand that as a Peerspace host I am required to:</p>
+                                    </div>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="invalidCheck-1" required>
+                                                    <label class="form-check-label" for="invalidCheck-1">
+                                                        <p>Keep conversations on Eventopia</p>
+                                                        <p>Keep conversations with guests on the platform so everyone
+                                                            knows what was agreed to.</p>
+                                                    </label>
+                                                </div>
+                                                <hr class="bg-dark">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="invalidCheck-2" required>
+                                                    <label class="form-check-label" for="invalidCheck-2">
+                                                        <p>Use Eventopia to process payments</p>
+                                                        <p>All payments must be processed on Eventopia and honor our
+                                                            service fee. All payouts will be made via direct deposit to
+                                                            your bank account.</p>
+                                                    </label>
+                                                </div>
+                                                <hr class="bg-dark">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="invalidCheck-3" required>
+                                                    <label class="form-check-label" for="invalidCheck-3">
+                                                        <p>Follow the booking, cancellation, and overtime policies</p>
+                                                        <p>All bookings are covered by the Eventopia Services Agreement.
+                                                            Contracts that conflict with these policies are not allowed.
+                                                        </p>
+                                                    </label>
+                                                </div>
+                                                <hr class="bg-dark">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value=""
+                                                        id="invalidCheck-4" required>
+                                                    <label class="form-check-label" for="invalidCheck-4">
+                                                        <p>Make sure my space meets local regulations</p>
+                                                        <p>Follow local regulations to ensure the safety of your guests,
+                                                            yourself, and your space.</p>
+                                                    </label>
+                                                </div>
+                                                <hr class="bg-dark">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!--row closed-->
-@endsection
-@section('scripts')
+    <!--row closed-->
+    @endsection
+    @section('scripts')
 
-<!-- Jquery/buttons JS-->
-<script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
-<script src="{{asset('assets/js/select2.js')}}"></script>
-<script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
-<!-- FORM WIZARD JS-->
-<script src="{{asset('assets/plugins/formwizard/jquery.smartWizard.js')}}"></script>
-<script src="{{asset('assets/plugins/formwizard/fromwizard.js')}}"></script>
-<!-- INTERNAL File-Uploads Js-->
-<script src="{{asset('assets/plugins/fancyuploder/jquery.ui.widget.js')}}"></script>
-<script src="{{asset('assets/plugins/fancyuploder/jquery.fileupload.js')}}"></script>
-<script src="{{asset('assets/plugins/fancyuploder/jquery.iframe-transport.js')}}"></script>
-<script src="{{asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js')}}"></script>
-<script src="{{asset('assets/plugins/fancyuploder/fancy-uploader.js')}}"></script>
-<script>
-    function toggleTextArea() {
+    <!-- Jquery/min JS-->
+    <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
+    <!-- FORM WIZARD JS-->
+    <script src="{{asset('assets/plugins/formwizard/jquery.smartWizard.js')}}"></script>
+    <script src="{{asset('assets/plugins/formwizard/fromwizard.js')}}"></script>
+    <!-- INTERNAL File-Uploads Js-->
+    <script src="{{asset('assets/plugins/fancyuploder/jquery.ui.widget.js')}}"></script>
+    <script src="{{asset('assets/plugins/fancyuploder/jquery.fileupload.js')}}"></script>
+    <script src="{{asset('assets/plugins/fancyuploder/jquery.iframe-transport.js')}}"></script>
+    <script src="{{asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js')}}"></script>
+    <script src="{{asset('assets/plugins/fancyuploder/fancy-uploader.js')}}"></script>
+    <!-- Jquery/buttons JS-->
+    <script src="{{asset('assets/plugins/select2/select2.full.min.js')}}"></script>
+    <script src="{{asset('assets/js/select2.js')}}"></script>
+    <script>
+        function toggleTextArea() {
       const checkbox = document.getElementById('flexSwitchCheckChecked');
       const textAreaDiv = document.getElementById('textAreaDiv');
 
@@ -1128,24 +1496,98 @@
       }
     }
 
-       // When the page loads
-       $(document).ready(function() {
-        // Initially hide the second set of radio buttons and dropdowns
-        $("#set2").hide();
+    document.addEventListener('DOMContentLoaded', function () {
+        const uploadContainer = document.getElementById('uploadContainer');
+        const imageUploadInput = document.getElementById('imageUploadInput');
 
-        // When the switch is changed
-        $("#switch").change(function() {
-            // Check if the switch is checked (on)
-            if ($(this).is(":checked")) {
-                // Show the first set and hide the second set
-                $("#set1").show();
-                $("#set2").hide();
-            } else {
-                // Show the second set and hide the first set
-                $("#set2").show();
-                $("#set1").hide();
+        // Listen for click on the avatar image
+        uploadContainer.addEventListener('click', function () {
+            // Trigger the file input click event
+            imageUploadInput.click();
+        });
+
+        // Listen for file selection in the input
+        imageUploadInput.addEventListener('change', function () {
+            const file = this.files[0];
+
+            // You can now handle the file upload process here, such as sending it to the server.
+            // The actual upload process may involve using AJAX, FormData, or other techniques.
+            // For simplicity, I'll just update the avatar image's src attribute with the selected image URL here.
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function () {
+                    const avatarImage = document.getElementById('avatarImage');
+                    avatarImage.src = reader.result;
+                });
+
+                reader.readAsDataURL(file);
             }
         });
     });
-</script>
-@endsection
+
+    $(document).ready(function() {
+    $('.sw-btn-next').on('click', function(e) {
+        var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
+        $('.last_step_btn').on('click', function(e) {
+            // console.log("asdf");
+            window.location.href = '{{ url('/steps-form-submit') }}';
+        });
+    });
+});
+
+ // Function to handle the switch toggle
+ function handleSwitchToggle(inputId, descriptionClass, contentClass) {
+            const switchInput = document.getElementById(inputId);
+            const switchDescription = document.querySelector(`.${descriptionClass}`);
+            const rowContent = document.querySelector(`.${contentClass}`);
+
+            switchInput.addEventListener('change', function() {
+                if (this.checked) {
+                    switchDescription.textContent = 'Open'; // Change the text to 'Close' when checked
+                    rowContent.style.display = 'block'; // Show the contents when checked
+                } else {
+                    switchDescription.textContent = 'Close'; // Change the text to 'Open' when unchecked
+                    rowContent.style.display = 'none'; // Hide the contents when unchecked
+                }
+            });
+        }
+
+        // Call the function for each instance
+        handleSwitchToggle('custom-switch-checkbox1', 'custom-switch-description-1', 'row-content-1');
+        handleSwitchToggle('custom-switch-checkbox2', 'custom-switch-description-2', 'row-content-2');
+        handleSwitchToggle('custom-switch-checkbox3', 'custom-switch-description-3', 'row-content-3');
+        handleSwitchToggle('custom-switch-checkbox4', 'custom-switch-description-4', 'row-content-4');
+        handleSwitchToggle('custom-switch-checkbox5', 'custom-switch-description-5', 'row-content-5');
+        handleSwitchToggle('custom-switch-checkbox6', 'custom-switch-description-6', 'row-content-6');
+        handleSwitchToggle('custom-switch-checkbox7', 'custom-switch-description-7', 'row-content-7');
+       // Add more function calls for other instances, if needed
+
+       function handleToggleVisibility(inputName, contentClass) {
+        const $radioButtons = $(`input[name='${inputName}']`);
+        const $rowContent = $(`.${contentClass}`);
+
+        // Initially hide the row-content
+        $rowContent.hide();
+
+        // Add event listener to the radio buttons
+        $radioButtons.on('change', function() {
+            if ($(this).val() === "option1") {
+                // Show the row-content when "option1" is selected
+                $rowContent.show();
+            } else {
+                // Hide the row-content when "option2" is selected
+                $rowContent.hide();
+            }
+        });
+
+        // Trigger the change event for the default checked radio button
+        $radioButtons.filter(':checked').trigger('change');
+    }
+
+    // Call the function for each instance
+    handleToggleVisibility('example-radios1', 'row-content-1');
+    // Add more function calls for other instances, if needed
+    </script>
+    @endsection
