@@ -43,6 +43,9 @@ Route::get('/edit-profile', function () {
 Route::get('/customer-dashboard', function () {
     return view('content.customer.customer-dashboard');
 });
+Route::get('/notify-list', function () {
+    return view('layouts.components.notify-list');
+});
 Route::get('/search-results', function () {
     return view('content.customer.search-results');
 });
@@ -68,62 +71,62 @@ Route::get('/payment-successfull', function () {
     return view('layouts.components.payment-successfull');
 });
 Route::get('/bookings', function () {
-    return view('layouts.users.bookings-sample');
+    return view('layouts.components.bookings-sample');
 });
 Route::get('/booking', function () {
-    return view('layouts.users.booking');
+    return view('layouts.components.booking');
 });
 
 // Seller side
 
 Route::get('/seller-dashboard', function () {
-    return view('layouts.seller.dashboard');
+    return view('content.seller.dashboard');
 });
 Route::get('/add-space', function () {
-    return view('layouts.seller.add-space');
+    return view('content.seller.add-space');
 });
 Route::get('/list-space', function () {
-    return view('layouts.seller.add-space-steps');
+    return view('content.seller.list-space');
 });
 Route::get('/space-form-steps', function () {
-    return view('layouts.seller.add-space-allsteps');
+    return view('content.seller.space-form-steps');
 });
 Route::get('/list-entertainment', function () {
-    return view('layouts.seller.list-entertainment');
+    return view('content.seller.list-entertainment');
 });
 Route::get('/entertainment-form-steps', function () {
-    return view('layouts.seller.entertainment-list-steps');
+    return view('content.seller.entertainment-form-steps');
 });
 Route::get('/list-service', function () {
-    return view('layouts.seller.list-service');
+    return view('content.seller.list-service');
 });
 Route::get('/service-form-steps', function () {
-    return view('layouts.seller.service-form-steps');
+    return view('content.seller.service-form-steps');
 });
 Route::get('/steps-form-submit', function () {
-    return view('layouts.seller.steps-form-submit');
+    return view('content.seller.steps-form-submit');
 });
 Route::get('/my-listings', function () {
-    return view('layouts.seller.my-listing');
+    return view('content.seller.my-listing');
 });
 Route::get('/pending-bookings', function () {
-    return view('layouts.seller.pending-bookings');
+    return view('content.seller.pending-bookings');
 });
 Route::get('/create-quote', function () {
-    return view('layouts.seller.create-quote');
+    return view('content.seller.create-quote');
 });
 Route::get('/payments', function () {
-    return view('layouts.seller.payments');
+    return view('content.seller.payments');
 });
 Route::get('/calendar', function () {
-    return view('layouts.seller.calendar-content');
+    return view('content.seller.calendar');
 });
 Route::get('/operating-hours', function () {
-    return view('layouts.seller.operating-hours');
+    return view('content.seller.operating-hours');
 });
-Route::get('/seller-profile', function () {
-    return view('layouts.seller.seller-profile');
-});
-Route::get('/seller-profile-verified', function () {
-    return view('layouts.seller.seller-profile-verified');
-});
+// Route::get('/seller-profile', function () {
+//     return view('layouts.seller.seller-profile');
+// });
+// Route::get('/seller-profile-verified', function () {
+//     return view('layouts.seller.seller-profile-verified');
+// });

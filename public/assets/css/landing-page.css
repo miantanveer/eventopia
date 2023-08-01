@@ -35,7 +35,7 @@
     line-height: 0;
 }
 #form-border {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     border-radius: 13px !important;
 }
 .rounded-form {
@@ -256,25 +256,5 @@
     .nav_log{
         width: 150px !important;
     }
-}
-/* .flatpickr-calendar.hasTime.animate.arrowTop.arrowLeft.open {
-    top: 465px  !important;
-    left: 171px !important;
-    right: auto !important;
-    width: 76% !important;
-}
-.flatpickr-current-month {
-    width: 18% !important;
-    left: 4.5% !important;
-}
-.flatpickr-next-month {
-    left: -500px !important;
-}
-.flatpickr-time{
-    position: relative !important;
-    top: -195px !important;
-    width: 50% !important;
-    left: 416px !important;
-    border: 1px solid #E5E5E5 !important;
 }
 

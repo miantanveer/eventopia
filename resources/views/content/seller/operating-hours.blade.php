@@ -1,4 +1,4 @@
-@extends('layouts.calendar')
+@extends('layouts.calendar-layout')
 
 @section('styles')
 @endsection
@@ -43,13 +43,13 @@
                                         <div class="form-group">
                                             <div class="custom-controls-stacked">
                                                 <label class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" name="example-radios1"
-                                                        value="option1" checked="">
+                                                    <input type="radio" class="custom-control-input"
+                                                        name="example-radios1" value="option1" checked="">
                                                     <span class="custom-control-label">6:00 AM - 12:00 AM</span>
                                                 </label>
                                                 <label class="custom-control custom-radio">
-                                                    <input type="radio" class="custom-control-input" name="example-radios1"
-                                                        value="option2">
+                                                    <input type="radio" class="custom-control-input"
+                                                        name="example-radios1" value="option2">
                                                     <span class="custom-control-label">Set hours</span>
                                                 </label>
                                             </div>
@@ -620,4 +620,3 @@
     </div>
     <!-- ROW-1 END -->
 @endsection
-
