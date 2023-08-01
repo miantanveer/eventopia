@@ -25,6 +25,7 @@
         top: 165px;
         z-index: 9999;
     }
+   
 
     @media (min-width: 576px) {
         .content-button {
@@ -91,13 +92,13 @@
             @include('layouts.components.app-sidebar')
 
             <!--app-content open-->
-            <div class="main-content app-content py-5 bg-white">
+            <div class="main-content app-content py-5 bg-white ">
                 <div class="side-app">
 
                     <!-- container -->
-                    <div class="main-container container-fluid">
+                    <div class="main-container container-fluid ">
                         <div class="row row-sm">
-                            <div class="col-xl-8 col-lg-12 col-md-12">
+                            <div class="col-xl-8 col-lg-12 col-md-12 ">
                                 <div class="card custom-card overflow-hidden">
                                     <div class="card-body p-3">
                                         <a href="javascript:void(0)"><img
@@ -106,49 +107,49 @@
                                     </div>
                                     <div class="card-body pt-0 h-100">
                                         <div class="owl-carousel owl-carousel-icons2">
-                                            <div class="item">
+                                            <div class="item card_height">
                                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                                     <a href="#"><img
                                                             src="{{ asset('assets/images/users/spaces/11.jpg') }}"
                                                             alt="img"></a>
                                                 </div>
                                             </div>
-                                            <div class="item">
+                                            <div class="item card_height">
                                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                                     <a href="#"><img
                                                             src="{{ asset('assets/images/users/spaces/2.jpg') }}"
                                                             alt="img"></a>
                                                 </div>
                                             </div>
-                                            <div class="item">
+                                            <div class="item card_height">
                                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                                     <a href="#"><img
                                                             src="{{ asset('assets/images/users/spaces/3.jpg') }}"
                                                             alt="img"></a>
                                                 </div>
                                             </div>
-                                            <div class="item">
+                                            <div class="item card_height">
                                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                                     <a href="#"><img
                                                             src="{{ asset('assets/images/users/spaces/4.jpg') }}"
                                                             alt="img"></a>
                                                 </div>
                                             </div>
-                                            <div class="item">
+                                            <div class="item card_height">
                                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                                     <a href="#"><img
                                                             src="{{ asset('assets/images/users/spaces/7.jpg') }}"
                                                             alt="img"></a>
                                                 </div>
                                             </div>
-                                            <div class="item">
+                                            <div class="item card_height">
                                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                                     <a href="#"><img
                                                             src="{{ asset('assets/images/users/spaces/9.jpg') }}"
                                                             alt="img"></a>
                                                 </div>
                                             </div>
-                                            <div class="item">
+                                            <div class="item card-height">
                                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                                     <a href="#"><img
                                                             src="{{ asset('assets/images/users/spaces/10.jpg') }}"
