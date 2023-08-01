@@ -40,17 +40,17 @@
                 <div class="card-body">
                     <div id="smartwizard-3">
                         <ul class="justify-content-around">
-                            {{-- <li><a href="#step-1">Step 1</a></li>
+                            <li><a href="#step-1">Step 1</a></li>
                             <li><a href="#step-2">Step 2</a></li>
-                            <li><a href="#step-3">Step 3</a></li> --}}
+                            <li><a href="#step-3">Step 3</a></li>
                             <li><a href="#step-4">Step 4</a></li>
-                            {{-- <li><a href="#step-5">Step 5</a></li>
+                            <li><a href="#step-5">Step 5</a></li>
                             <li><a href="#step-6">Step 6</a></li>
                             <li><a href="#step-7">Step 7</a></li>
-                            <li><a href="#step-8">Step 8</a></li> --}}
+                            <li><a href="#step-8">Step 8</a></li>
                         </ul>
                         <div>
-                            {{-- <div id="step-1" class="mb-5">
+                            <div id="step-1" class="mb-5">
                                 <div class="container">
                                     <div class="text-center mb-6">
                                         <h3 class="mt-3 mt-1"><b>What type of entertainment & talent are you listing?</b>
@@ -208,7 +208,7 @@
                                     </div>
                                     <hr class="bg-dark border-3">
                                 </div>
-                            </div> --}}
+                            </div>
                             <div id="step-4" class="mb-5">
                                 <div class="container">
                                     <div class="text-center mb-6">
@@ -885,7 +885,7 @@
                                     <hr class="bg-dark border-3">
                                 </div>
                             </div>
-                            {{-- <div id="step-5" class="mb-5">
+                            <div id="step-5" class="mb-5">
                                 <div class="container">
                                     <div class="text-center mb-6">
                                         <h3 class="mt-3 mt-1"><b>Choose your Cancellation Policy</b>
@@ -1551,7 +1551,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>
