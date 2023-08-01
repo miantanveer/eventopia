@@ -114,7 +114,7 @@
     <div class="page bg-white">
         <div class="page-main">
 
-            @include('layouts.seller.seller-header')
+            @include('layouts.components.seller-header')
 
             <br>
             <br>
@@ -431,7 +431,7 @@
     </div>
     <!-- global-helper closed -->
 
-    @include('layouts.space.space-detail-footer')
+    @include('layouts.components.dark-footer')
 
 
     @include('layouts.components.scripts')

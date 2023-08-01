@@ -620,6 +620,12 @@
     <script>
         $(document).ready(function() {
             $('#profile_form').parsley();
+            $('#all_select').on('click', function() {
+                var isChecked = $('#first_card').prop('checked');
+                $('#first_card').prop('checked', !isChecked);
+                $('#second_card').prop('checked', !isChecked);
+                $('#third_card').prop('checked', !isChecked);
+            });
         });
     </script>
 @endsection
