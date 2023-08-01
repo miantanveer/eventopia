@@ -16,6 +16,20 @@
         .sw-btn-group-extra {
             display: none;
         }
+        .remove{
+            width: 25px;
+            height: 25px;
+            border: 1px solid transparent;
+            border-radius: 50%!important;
+            background: black;
+            color: white;
+            padding: auto;
+            padding-left: 8px;
+            position: absolute;
+            right: 0;
+            top: -10px;
+            cursor: pointer;
+        }
     </style>
 @endsection
 @section('content')
@@ -50,7 +64,8 @@
                                                 alt="">
                                             Examples: 'Comedian' 'Singers' 'Food & Beverages'
                                         </p>
-                                        <input type="text" class="w-100 p-4" placeholder="Comedian for event">
+                                        <input type="text" class="w-100 p-4 bg-light-gray form-control"
+                                            placeholder="Comedian for event">
                                         <hr class="bg-dark">
                                         <h3 class="mb-2 mt-md-7"><b>Security cameras and recording devices</b></h3>
                                         <div class="w-50 float-start">
@@ -67,7 +82,8 @@
                                             <p class="mb-1">Describe any device that records video, audio, or still
                                                 images.
                                                 Specify where each device is in your event and if they’ll be on or off.</p>
-                                            <textarea name="" id="" cols="30" rows="5" class="w-100 p-5" placeholder="Add description"></textarea>
+                                            <textarea name="" id="" cols="30" rows="5" class="w-100 p-5 form-control"
+                                                placeholder="Add description"></textarea>
                                             <p class="text-end">Minimum 50 characters</p>
                                         </div>
                                     </div>
@@ -92,7 +108,7 @@
                                         <div class="mt-5">
                                             <p><img src="{{ asset('assets/images/brand/light-bulb.png') }}" class="w-5"
                                                     alt=""> Example: “Downtown Loft with Skyline View”</p>
-                                            <input type="text" class="w-100 p-4"
+                                            <input type="text" class="w-100 p-4 bg-light-gray border-1 form-control"
                                                 placeholder="Enter your entertainment & talent title">
                                             <hr class="bg-dark">
                                         </div>
@@ -106,9 +122,8 @@
                                                 500 sq m conference room, you would enter “500”.</p>
                                             <div class="form-group">
                                                 <div class="input-group w-30">
-                                                    <input type="text" class="form-control"
-                                                        placeholder="Recipient's username" aria-label="Recipient's username"
-                                                        aria-describedby="basic-addon2">
+                                                    <input type="text" class="form-control" placeholder="1 to 500"
+                                                        aria-label="Recipient's username" aria-describedby="basic-addon2">
                                                     <span class="input-group-text" id="basic-addon2">sq ft</span>
                                                 </div>
                                             </div>
@@ -145,7 +160,7 @@
                                         <h4><b>Try to include:</b></h4>
                                         <li class="mb-5">Directions to your space, building access, door buzzers, floors,
                                             stairs/elevator access etc.</li>
-                                        <textarea name="" id="" cols="30" rows="5" class="w-100 p-5"
+                                        <textarea name="" id="" cols="30" rows="5" class="w-100 form-control p-5"
                                             placeholder="Add description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</textarea>
                                         <p class="text-end">Minimum 100 characters</p>
                                         <p><i class="fa fa-lock"></i>&nbsp; Don't worry, we'll only share this with guests
@@ -236,21 +251,22 @@
                                                             <div class="custom-controls-stacked">
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios1" value="option1"
-                                                                        checked="">
+                                                                        name="radio1" value="option1" id="time-radio-1"
+                                                                        checked>
                                                                     <span class="custom-control-label">6:00 AM - 12:00
                                                                         AM</span>
                                                                 </label>
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios1" value="option2">
+                                                                        name="radio1" value="option2"
+                                                                        id="set-hour-radio-1">
                                                                     <span class="custom-control-label">Set hours</span>
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-5 col-md-6 col-sm-6 mt-2">
-                                                        <div class="row row-content-1 d-none">
+                                                    <div class="col-lg-5 col-md-6 col-sm-6 mt-2 select-content-1">
+                                                        <div class="row" id="custom-time-selection-1">
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <select name="star-time"
@@ -298,6 +314,10 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
+                                                            <div id="showContent-1"></div>
+                                                        </div>
+                                                        <div class="ps-0" id="Add-Hours-1">
+                                                            <a class="btn btn-white addMore-1 text-dark">Add hours</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -324,21 +344,22 @@
                                                             <div class="custom-controls-stacked">
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios2" value="option1"
-                                                                        checked="">
+                                                                        name="example-radios2" value="option3"
+                                                                        id="time-radio-2" checked>
                                                                     <span class="custom-control-label">6:00 AM - 12:00
                                                                         AM</span>
                                                                 </label>
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios2" value="option2">
+                                                                        name="example-radios2" id="set-hour-radio-2"
+                                                                        value="option4">
                                                                     <span class="custom-control-label">Set hours</span>
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
-                                                        <div class="row row-content-2 d-none">
+                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2 select-content-2">
+                                                        <div class="row" id="custom-time-selection-2">
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <select name="star-time"
@@ -386,6 +407,10 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
+                                                            <div id="showContent-2"></div>
+                                                        </div>
+                                                        <div class="ps-0" id="Add-Hours-2">
+                                                            <a class="btn btn-white addMore-2 text-dark">Add hours</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -412,21 +437,22 @@
                                                             <div class="custom-controls-stacked">
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios3" value="option1"
-                                                                        checked="">
+                                                                        name="example-radios3" value="option5"
+                                                                        id="time-radio-3" checked>
                                                                     <span class="custom-control-label">6:00 AM - 12:00
                                                                         AM</span>
                                                                 </label>
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios3" value="option2">
+                                                                        name="example-radios3" id="set-hour-radio-3"
+                                                                        value="option6">
                                                                     <span class="custom-control-label">Set hours</span>
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
-                                                        <div class="row d-none">
+                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2 select-content-3">
+                                                        <div class="row" id="custom-time-selection-3">
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <select name="star-time"
@@ -474,6 +500,10 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
+                                                            <div id="showContent-3"></div>
+                                                        </div>
+                                                        <div class="ps-0" id="Add-Hours-3">
+                                                            <a class="btn btn-white addMore-3 text-dark">Add hours</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -500,21 +530,22 @@
                                                             <div class="custom-controls-stacked">
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios4" value="option1"
-                                                                        checked="">
+                                                                        name="example-radios4" value="option7"
+                                                                        id="time-radio-4" checked>
                                                                     <span class="custom-control-label">6:00 AM - 12:00
                                                                         AM</span>
                                                                 </label>
-                                                                <label class="custom-control custom-radio">
+                                                                <label class="custom-control custom-radio" id="btn1">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios4" value="option2">
+                                                                        name="example-radios4" id="set-hour-radio-4"
+                                                                        value="option8">
                                                                     <span class="custom-control-label">Set hours</span>
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
-                                                        <div class="row d-none">
+                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2 select-content-4">
+                                                        <div class="row" id="custom-time-selection-4">
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <select name="star-time"
@@ -562,6 +593,10 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
+                                                            <div id="showContent-4"></div>
+                                                        </div>
+                                                        <div class="ps-0" id="Add-Hours-4">
+                                                            <a class="btn btn-white addMore-4 text-dark">Add hours</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -588,21 +623,22 @@
                                                             <div class="custom-controls-stacked">
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios5" value="option1"
-                                                                        checked="">
+                                                                        name="example-radios5" value="option9"
+                                                                        id="time-radio-5" checked>
                                                                     <span class="custom-control-label">6:00 AM - 12:00
                                                                         AM</span>
                                                                 </label>
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios5" value="option2">
+                                                                        name="example-radios5" id="set-hour-radio-5"
+                                                                        value="option-1">
                                                                     <span class="custom-control-label">Set hours</span>
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
-                                                        <div class="row d-none">
+                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2 select-content-5">
+                                                        <div class="row" id="custom-time-selection-5">
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <select name="star-time"
@@ -650,6 +686,10 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
+                                                            <div id="showContent-5"></div>
+                                                        </div>
+                                                        <div class="ps-0" id="Add-Hours-5">
+                                                            <a class="btn btn-white addMore-5 text-dark">Add hours</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -676,21 +716,22 @@
                                                             <div class="custom-controls-stacked">
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios6" value="option1"
-                                                                        checked="">
+                                                                        name="example-radios6" value="option-2"
+                                                                        id="time-radio-6" checked>
                                                                     <span class="custom-control-label">6:00 AM - 12:00
                                                                         AM</span>
                                                                 </label>
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios6" value="option2">
+                                                                        name="example-radios6" id="set-hour-radio-6"
+                                                                        value="option-3">
                                                                     <span class="custom-control-label">Set hours</span>
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
-                                                        <div class="row d-none">
+                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2 select-content-6">
+                                                        <div class="row" id="custom-time-selection-6">
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <select name="star-time"
@@ -738,6 +779,10 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
+                                                            <div id="showContent-6"></div>
+                                                        </div>
+                                                        <div class="ps-0" id="Add-Hours-6">
+                                                            <a class="btn btn-white addMore-6 text-dark">Add hours</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -764,21 +809,22 @@
                                                             <div class="custom-controls-stacked">
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios7" value="option1"
-                                                                        checked="">
+                                                                        name="example-radios7" value="option-4"
+                                                                        id="time-radio-7" checked="">
                                                                     <span class="custom-control-label">6:00 AM - 12:00
                                                                         AM</span>
                                                                 </label>
                                                                 <label class="custom-control custom-radio">
                                                                     <input type="radio" class="custom-control-input"
-                                                                        name="example-radios7" value="option2">
+                                                                        name="example-radios7" id="set-hour-radio-7"
+                                                                        value="option-5">
                                                                     <span class="custom-control-label">Set hours</span>
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2">
-                                                        <div class="row d-none">
+                                                    <div class="col-lg-5 col-md-4 col-sm-6 mt-2 select-content-7">
+                                                        <div class="row" id="custom-time-selection-7">
                                                             <div class="col-6">
                                                                 <div class="form-group">
                                                                     <select name="star-time"
@@ -826,6 +872,10 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
+                                                            <div id="showContent-7"></div>
+                                                        </div>
+                                                        <div class="ps-0" id="Add-Hours-7">
+                                                            <a class="btn btn-white addMore-7 text-dark">Add hours</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -852,10 +902,10 @@
                                         a Booking Confirmation but no later than 48 hours prior to the Event start time.</p>
                                     <div class="row">
                                         <div class="col-3">
-                                            <label class="custom-control custom-checkbox">
-                                                <input type="radio" class="custom-control-input"
-                                                    name="example-checkbox2" value="option2">
-                                                <span class="custom-control-label">Very Flexible</span>
+                                            <label class="custom-control">
+                                                <input type="radio" class="" name="example-checkbox1"
+                                                    value="option2">
+                                                <span class="">Very Flexible</span>
                                             </label>
                                         </div>
                                         <div class="col-9">
@@ -867,10 +917,10 @@
                                         </div>
                                         <hr class="bg-dark border-2">
                                         <div class="col-3">
-                                            <label class="custom-control custom-checkbox">
-                                                <input type="radio" class="custom-control-input"
-                                                    name="example-checkbox2" value="option2" cheaked>
-                                                <span class="custom-control-label">Flexible</span>
+                                            <label class="custom-control">
+                                                <input type="radio" class="" name="example-checkbox1"
+                                                    value="option2" cheaked>
+                                                <span class="">Flexible</span>
                                             </label>
                                         </div>
                                         <div class="col-9">
@@ -884,10 +934,10 @@
                                         </div>
                                         <hr class="bg-dark border-2">
                                         <div class="col-3">
-                                            <label class="custom-control custom-checkbox">
-                                                <input type="radio" class="custom-control-input"
-                                                    name="example-checkbox2" value="option2">
-                                                <span class="custom-control-label">Standard 30 day</span>
+                                            <label class="custom-control">
+                                                <input type="radio" class="" name="example-checkbox1"
+                                                    value="option3">
+                                                <span class="">Standard 30 day</span>
                                             </label>
                                         </div>
                                         <div class="col-9">
@@ -901,10 +951,10 @@
                                         </div>
                                         <hr class="bg-dark border-2">
                                         <div class="col-3">
-                                            <label class="custom-control custom-checkbox">
-                                                <input type="radio" class="custom-control-input"
-                                                    name="example-checkbox2" value="option2">
-                                                <span class="custom-control-label">Standard 90 day</span>
+                                            <label class="custom-control">
+                                                <input type="radio" class="" name="example-checkbox1"
+                                                    value="option4">
+                                                <span class="">Standard 90 day</span>
                                             </label>
                                         </div>
                                         <div class="col-9">
@@ -928,9 +978,8 @@
                                             <div class="panel-group" id="accordion" role="tablist"
                                                 aria-multiselectable="true">
                                                 <div class="panel panel-default active">
-                                                    <div class="panel-heading back-g-color" role="tab"
-                                                        id="headingOne1">
-                                                        <div class="card border-end shadow-none back-g-color m-0">
+                                                    <div class="panel-heading" role="tab" id="headingOne1">
+                                                        <div class="card border-end shadow-none m-0">
                                                             <div class="card-body p-0">
                                                                 <div class="px-5 py-3 m-0 text-center bg-white">
                                                                     <h5 class="text-dark m-0">Musical Acts</h5>
@@ -1042,7 +1091,7 @@
                                                 aria-multiselectable="true">
                                                 <div class="panel panel-default active">
                                                     <div class="panel-heading" role="tab" id="headingTwo2">
-                                                        <div class="card border-end shadow-none back-g-color m-0">
+                                                        <div class="card border-end shadow-none m-0">
                                                             <div class="card-body p-0">
                                                                 <div class="px-5 py-3 m-0 text-center bg-white">
                                                                     <h5 class="text-dark m-0">Entertainers</h5>
@@ -1154,7 +1203,7 @@
                                                 aria-multiselectable="true">
                                                 <div class="panel panel-default active">
                                                     <div class="panel-heading" role="tab" id="heading3">
-                                                        <div class="card border-end shadow-none back-g-color m-0">
+                                                        <div class="card border-end shadow-none m-0">
                                                             <div class="card-body p-0">
                                                                 <div class="px-5 py-3 m-0 text-center bg-white">
                                                                     <h5 class="text-dark m-0">Event Services</h5>
@@ -1291,9 +1340,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="tel" class="form-control" id="exampleInputEmail1"
+                                                <input type="tel" class="form-control" id="exampleInputphone1"
                                                     placeholder="(123) 345 -4567" required
-                                                    data-parsley-required-message="Email is required*">
+                                                    data-parsley-required-message="Phone Number is required*">
                                             </div>
                                             <div class="bg-light-gray p-3 mb-3">
                                                 <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>Your number
@@ -1317,7 +1366,8 @@
                                                 </div>
                                                 <div class="text-center">
                                                     <button type="button"
-                                                        class="bg-primary text-white p-3 border-0 text-center">Upload
+                                                        class="bg-primary text-white p-3 border-0 text-center"
+                                                        id="uploadBtn">Upload
                                                         photo</button>
                                                 </div>
                                                 <!-- Hidden input for image upload -->
@@ -1507,128 +1557,201 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!--row closed-->
-@endsection
-@section('scripts')
-    <!-- Jquery/min JS-->
-    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- FORM WIZARD JS-->
-    <script src="{{ asset('assets/plugins/formwizard/jquery.smartWizard.js') }}"></script>
-    <script src="{{ asset('assets/plugins/formwizard/fromwizard.js') }}"></script>
-    <!-- INTERNAL File-Uploads Js-->
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
-    <!-- Jquery/buttons JS-->
-    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('assets/js/select2.js') }}"></script>
-    <script>
-        function toggleTextArea() {
-            const checkbox = document.getElementById('flexSwitchCheckChecked');
-            const textAreaDiv = document.getElementById('textAreaDiv');
+        <!--row closed-->
+    @endsection
+    @section('scripts')
+        <!-- Jquery/min JS-->
+        <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+        <!-- FORM WIZARD JS-->
+        <script src="{{ asset('assets/plugins/formwizard/jquery.smartWizard.js') }}"></script>
+        <script src="{{ asset('assets/plugins/formwizard/fromwizard.js') }}"></script>
+        <!-- INTERNAL File-Uploads Js-->
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
+        <!-- Jquery/buttons JS-->
+        <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+        <script src="{{ asset('assets/js/select2.js') }}"></script>
+        <script>
+            function toggleTextArea() {
+                const checkbox = document.getElementById('flexSwitchCheckChecked');
+                const textAreaDiv = document.getElementById('textAreaDiv');
 
-            if (checkbox.checked) {
-                textAreaDiv.style.display = 'block'; // Show the text area
-            } else {
-                textAreaDiv.style.display = 'none'; // Hide the text area
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const uploadContainer = document.getElementById('uploadContainer');
-            const imageUploadInput = document.getElementById('imageUploadInput');
-
-            // Listen for click on the avatar image
-            uploadContainer.addEventListener('click', function() {
-                // Trigger the file input click event
-                imageUploadInput.click();
-            });
-
-            // Listen for file selection in the input
-            imageUploadInput.addEventListener('change', function() {
-                const file = this.files[0];
-
-                // You can now handle the file upload process here, such as sending it to the server.
-                // The actual upload process may involve using AJAX, FormData, or other techniques.
-                // For simplicity, I'll just update the avatar image's src attribute with the selected image URL here.
-
-                if (file) {
-                    const reader = new FileReader();
-
-                    reader.addEventListener('load', function() {
-                        const avatarImage = document.getElementById('avatarImage');
-                        avatarImage.src = reader.result;
-                    });
-
-                    reader.readAsDataURL(file);
+                if (checkbox.checked) {
+                    textAreaDiv.style.display = 'block'; // Show the text area
+                } else {
+                    textAreaDiv.style.display = 'none'; // Hide the text area
                 }
-            });
-        });
+            }
 
-        $(document).ready(function() {
-            $('.sw-btn-next').on('click', function(e) {
-                var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
-                $('.last_step_btn').on('click', function(e) {
-                    // console.log("asdf");
-                    window.location.href = '{{ url('/steps-form-submit') }}';
+            document.addEventListener('DOMContentLoaded', function() {
+                const uploadBtn = document.getElementById('uploadBtn');
+                const imageUploadInput = document.getElementById('imageUploadInput');
+                const avatarImage = document.getElementById('avatarImage');
+
+                // Listen for click on the "Upload photo" button
+                uploadBtn.addEventListener('click', function() {
+                    // Trigger the file input click event
+                    imageUploadInput.click();
+                });
+
+                // Listen for change in the file input (when user selects an image)
+                imageUploadInput.addEventListener('change', function(event) {
+                    const selectedImage = event.target.files[0];
+
+                    // Validate if a file was selected and it is an image
+                    if (selectedImage && selectedImage.type.startsWith('image/')) {
+                        // Read the selected image and set it as the source for the avatar image
+                        const reader = new FileReader();
+                        reader.onload = function() {
+                            avatarImage.src = reader.result;
+                        };
+                        reader.readAsDataURL(selectedImage);
+                    }
                 });
             });
-        });
 
-        // Function to handle the switch toggle
-        function handleSwitchToggle(inputId, descriptionClass, contentClass) {
-            const switchInput = document.getElementById(inputId);
-            const switchDescription = document.querySelector(`.${descriptionClass}`);
-            const rowContent = document.querySelector(`.${contentClass}`);
 
-            switchInput.addEventListener('change', function() {
-                if (this.checked) {
-                    switchDescription.textContent = 'Open'; // Change the text to 'Close' when checked
-                    rowContent.style.display = 'block'; // Show the contents when checked
-                } else {
-                    switchDescription.textContent = 'Close'; // Change the text to 'Open' when unchecked
-                    rowContent.style.display = 'none'; // Hide the contents when unchecked
-                }
-            });
-        }
-
-        // Call the function for each instance
-        handleSwitchToggle('custom-switch-checkbox1', 'custom-switch-description-1', 'row-content-1');
-        handleSwitchToggle('custom-switch-checkbox2', 'custom-switch-description-2', 'row-content-2');
-        handleSwitchToggle('custom-switch-checkbox3', 'custom-switch-description-3', 'row-content-3');
-        handleSwitchToggle('custom-switch-checkbox4', 'custom-switch-description-4', 'row-content-4');
-        handleSwitchToggle('custom-switch-checkbox5', 'custom-switch-description-5', 'row-content-5');
-        handleSwitchToggle('custom-switch-checkbox6', 'custom-switch-description-6', 'row-content-6');
-        handleSwitchToggle('custom-switch-checkbox7', 'custom-switch-description-7', 'row-content-7');
-        // Add more function calls for other instances, if needed
-
-        function handleToggleVisibility(inputName, contentClass) {
-            const $radioButtons = $(`input[name='${inputName}']`);
-            const $rowContent = $(`.${contentClass}`);
-
-            // Initially hide the row-content
-            $rowContent.hide();
-
-            // Add event listener to the radio buttons
-            $radioButtons.on('change', function() {
-                if ($(this).val() === "option1") {
-                    // Show the row-content when "option1" is selected
-                    $rowContent.show();
-                } else {
-                    // Hide the row-content when "option2" is selected
-                    $rowContent.hide();
-                }
+            $(document).ready(function() {
+                $('.sw-btn-next').on('click', function(e) {
+                    var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
+                    $('.last_step_btn').on('click', function(e) {
+                        // console.log("asdf");
+                        window.location.href = '{{ url('/steps-form-submit') }}';
+                    });
+                });
             });
 
-            // Trigger the change event for the default checked radio button
-            $radioButtons.filter(':checked').trigger('change');
-        }
+            // Function to handle the switch toggle
+            function handleSwitchToggle(inputId, descriptionClass, contentClass, selectClass, HoursMore) {
+                const switchInput = document.getElementById(inputId);
+                const switchDescription = document.querySelector(`.${descriptionClass}`);
+                const rowContent = document.querySelector(`.${contentClass}`);
+                const SelectContent = document.querySelector(`.${selectClass}`);
+                const MoreHours = document.querySelector(`.${HoursMore}`);
 
-        // Call the function for each instance
-        handleToggleVisibility('example-radios1', 'row-content-1');
-        // Add more function calls for other instances, if needed
-    </script>
-@endsection
+                switchInput.addEventListener('change', function() {
+                    if (this.checked) {
+                        switchDescription.textContent = 'Open'; // Change the text to 'Open' when checked
+                        rowContent.style.display = 'block'; // Show the contents when checked
+                        SelectContent.style.display = 'block'; // Show the contents when checked
+                        MoreHours.style.display = 'block'; // Show the contents when
+                    } else {
+                        switchDescription.textContent = 'Close'; // Change the text to 'Close' when unchecked
+                        rowContent.style.display = 'none'; // Hide the contents when unchecked
+                        SelectContent.style.display = 'none'; // Hide the contents when unchecked
+                        MoreHours.style.display = 'none'; // Hide the contents when unchecked
+                    }
+                });
+            }
+
+            // Call the function for each instance
+            handleSwitchToggle('custom-switch-checkbox1', 'custom-switch-description-1', 'row-content-1', 'select-content-1', 'Add-Hours-1');
+            handleSwitchToggle('custom-switch-checkbox2', 'custom-switch-description-2', 'row-content-2', 'select-content-2', 'Add-Hours-2');
+            handleSwitchToggle('custom-switch-checkbox3', 'custom-switch-description-3', 'row-content-3', 'select-content-3', 'Add-Hours-3');
+            handleSwitchToggle('custom-switch-checkbox4', 'custom-switch-description-4', 'row-content-4', 'select-content-4', 'Add-Hours-4');
+            handleSwitchToggle('custom-switch-checkbox5', 'custom-switch-description-5', 'row-content-5', 'select-content-5', 'Add-Hours-5');
+            handleSwitchToggle('custom-switch-checkbox6', 'custom-switch-description-6', 'row-content-6', 'select-content-6', 'Add-Hours-6');
+            handleSwitchToggle('custom-switch-checkbox7', 'custom-switch-description-7', 'row-content-7', 'select-content-7', 'Add-Hours-7');
+            // Add more function calls for other instances, if needed
+
+            function handleRadioToggle(timeInputId, setHourInputId, selectContentId, addHourBtn, insideHourBtn, showContent) {
+                const timeInput = document.getElementById(timeInputId);
+                const HourInput = document.getElementById(setHourInputId);
+                const selectInput = document.getElementById(selectContentId);
+                const HourButton = document.getElementById(addHourBtn);
+                const InsideHourButton = document.querySelector(`.${insideHourBtn}`);
+                const ShowFullContent = document.getElementById(showContent);
+                selectInput.style.display = 'none';
+                HourButton.style.display = 'none';
+                timeInput.addEventListener('click', function() {
+                    timeInput.setAttribute('checked', 'true');
+                    HourInput.removeAttribute('checked');
+                    if (timeInput.checked) {
+                        selectInput.style.display = 'none';
+                        HourButton.style.display = 'none';
+                    }
+                });
+                HourInput.addEventListener('click', function() {
+                    timeInput.removeAttribute('checked');
+                    HourInput.setAttribute('checked', 'true');
+                    if (HourInput.checked) {
+                        selectInput.style.display = 'flex';
+                        HourButton.style.display = 'block';
+                        $(InsideHourButton).click(function() {
+                            var maxGroup = 5;
+                            if ($(ShowFullContent).children().length < maxGroup) {
+                                var len = $(ShowFullContent).length;
+                                console.log(len);
+                                var fieldHTML =
+                                    `<div class="row position-relative">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <select name="star-time" class="form-control form-select select2"
+                                                    data-bs-placeholder="Select Country"
+                                                    tabindex="-1" aria-hidden="true">
+                                                    <option value="">9 AM</option>
+                                                    <option value="">10 AM</option>
+                                                    <option value="">11 AM</option>
+                                                    <option value="">12 AM</option>
+                                                    <option value="">1 PM</option>
+                                                    <option value="">2 PM</option>
+                                                    <option value="">3 PM</option>
+                                                    <option value="">4 PM</option>
+                                                    <option value="">5 PM</option>
+                                                    <option value="">6 PM</option>
+                                                    <option value="">7 PM</option>
+                                                    <option value="" selected="" disabled>Start Time</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <select name="star-time" class="form-control form-select select2"
+                                                    data-bs-placeholder="Select Country"
+                                                    tabindex="-1" aria-hidden="true">
+                                                    <option value="">9 AM</option>
+                                                    <option value="">10 AM</option>
+                                                    <option value="">11 AM</option>
+                                                    <option value="">12 AM</option>
+                                                    <option value="">1 PM</option>
+                                                    <option value="">2 PM</option>
+                                                    <option value="">3 PM</option>
+                                                    <option value="">4 PM</option>
+                                                    <option value="">5 PM</option>
+                                                    <option value="">6 PM</option>
+                                                    <option value="">7 PM</option>
+                                                    <option value="" selected="" disabled>End Time</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <span class="remove"> x </span>
+                                    </div>`;
+                                $(ShowFullContent).append(fieldHTML);
+                            } else {
+                                alert('Maximum ' + maxGroup + ' are allowed.');
+                            }
+                            $(document).on('click', '.remove', function() {
+                                $(this).parent().remove();
+                            });
+                            // $('.remove').on("click", function() {
+                            //     $(this).parent().remove();
+                            // });
+                        });
+                    }
+                });
+
+
+            }
+            handleRadioToggle('time-radio-1', 'set-hour-radio-1', 'custom-time-selection-1', 'Add-Hours-1', 'addMore-1', 'showContent-1');
+            handleRadioToggle('time-radio-2', 'set-hour-radio-2', 'custom-time-selection-2', 'Add-Hours-2', 'addMore-2', 'showContent-2');
+            handleRadioToggle('time-radio-3', 'set-hour-radio-3', 'custom-time-selection-3', 'Add-Hours-3', 'addMore-3', 'showContent-3');
+            handleRadioToggle('time-radio-4', 'set-hour-radio-4', 'custom-time-selection-4', 'Add-Hours-4', 'addMore-4', 'showContent-4');
+            handleRadioToggle('time-radio-5', 'set-hour-radio-5', 'custom-time-selection-5', 'Add-Hours-5', 'addMore-5', 'showContent-5');
+            handleRadioToggle('time-radio-6', 'set-hour-radio-6', 'custom-time-selection-6', 'Add-Hours-6', 'addMore-6', 'showContent-6');
+            handleRadioToggle('time-radio-7', 'set-hour-radio-7', 'custom-time-selection-7', 'Add-Hours-7', 'addMore-7', 'showContent-7');
+
+        </script>
+    @endsection
