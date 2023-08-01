@@ -9,20 +9,9 @@
 @endsection
 
 @section('content')
-<!-- PAGE-HEADER -->
-<div class="page-header my-0">
-    <h1 class="page-title my-sm-5 mt-5 mb-3">Dashboard</h1>
-    <div class="my-sm-5 mt-3 mb-5">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
-        </ol>
-    </div>
-</div>
-<!-- PAGE-HEADER END -->
 
 <!-- ROW-1 OPEN -->
-<div class="row">
+<div class="row mt-4">
     <div class="col-xl-4">
         <div class="card">
             <div class="card-header">

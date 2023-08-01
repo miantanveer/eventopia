@@ -1,4 +1,4 @@
-@extends('layouts.calendar')
+@extends('layouts.calendar-layout')
 
 @section('styles')
     <style>

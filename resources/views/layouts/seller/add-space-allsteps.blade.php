@@ -1,5 +1,8 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+
 <style>
     .seller-web-sidebar {
         z-index: 9999;
@@ -17,6 +20,10 @@
         border-top: 1px solid #8c8b8b;
     }
 
+    #step-1 {
+        display: flex;
+
+    }
 </style>
 @endsection
 
@@ -44,30 +51,37 @@
 
                     </ul>
                     <div>
-                        <div id="step-1" class="border">
-                            <form>
+                        <div id="step-1">
+                            <form style="height:400px;width:1350px;margin-left:90px;" class="border mt-5">
                                 <h2 style="text-align:center;">Step 1 of 9</h2>
                                 <div class="row">
-                                    <div class="card-header mb-3">
+                                    <div class="card-header  mb-3">
                                         <h1 style="text-align:center;" class="card-title">Space Address</h1>
                                     </div>
                                     <div class="col-md-5 col-lg-12">
                                         <label class="form-control-label">Country</label> <span class="tx-danger">*</span></label> <input class="form-control rounded-0" id="firstname" name="firstname" placeholder="Add" required="" type="text">
                                     </div>
-                                    <div class="col-md-5 col-lg-6">
+                                    <div class="col-md-5 col-lg-6 mt-3">
                                         <label class="form-control-label">Street Address</label> <span class="tx-danger">*</span></label> <input class="form-control rounded-0" id="firstname" name="firstname" placeholder="" required="" type="text">
                                     </div>
-                                    <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0">
+                                    <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
                                         <label class="form-control-label">Address 2<span class="tx-danger">*</span></label> <input class="form-control rounded-0" id="lastname" name="lastname" placeholder="" required="" type="text">
                                     </div>
-                                    <div class="col-md-5 col-lg-6">
+                                    <div class="col-md-5 col-lg-6 mt-3">
                                         <label class="form-control-label">City</label> <span class="tx-danger">*</span></label> <input class="form-control rounded-0" id="firstname" name="firstname" placeholder="" required="" type="text">
                                     </div>
-                                    <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0">
+                                    <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
                                         <label class="form-control-label">Postal Code<span class="tx-danger">*</span></label> <input class="form-control rounded-0" id="lastname" name="lastname" placeholder="" required="" type="text">
                                     </div>
                                 </div>
                             </form>
+                            <div class="card custom-card">
+                                <div class="card-body map_height overflow-auto" id="mapContainer">
+                                    <h1 style="margin-left:70px;">Use the map pin position to add an address.</h1>
+                                    <iframe style="height:345px;width:475px;margin-left:150px;" class="gmap_iframe" frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                                    </iframe>
+                                </div>
+                            </div>
                         </div>
 
                         <div id="step-2">
@@ -185,7 +199,13 @@
                                 <h1>How big is the space guests can book?</h1>
                                 <p>Please only include the size of the space that guests can use during their booking.</p>
                                 <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}" alt="img"><b>Example: If your space is 2,000 sq ft, but guests are booking a 500 sq ft conference room, you would enter “500”.</b></p>
-                                <input style="width:144px;height:42px;" type="number" value="500"><input style="width:81px;height:42px;margin-right:1px;" type="text" value="sq ft">
+
+                                <div class="btn-group" role="group" aria-label="Basic example">
+                                    <input type="number" class="btn btn-outline-default rounded-0" value="500">
+                                    <button type="button" class="btn btn-outline-default rounded-0">sq ft</button>
+
+                                </div>
+
                                 <br>
                                 <hr class="style1"><br>
                                 <h1>What are your house rules?</h1>
@@ -205,8 +225,8 @@
                                 <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                 <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3">Enter your house rules</textarea>
                                 <p class="text-end">Minimum 100 characters</h4>
-                                <br>
-                                <hr class="style1"><br>
+                                    <br>
+                                    <hr class="style1"><br>
                                 <h1>Who's allowed in your space?</h1>
                                 <p>Typically, only venues that serve alcohol have age requirements.</p>
                                 <form>
@@ -1648,17 +1668,17 @@
                                         <div class="row">
                                             <div class="col-lg-6 col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="exampleInputname" placeholder="john" required data-parsley-required-message="Password is required*">
+                                                    <input type="text" class="form-control" id="exampleInputname" placeholder="john" required data-parsley-required-message="Password is required*" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-12">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="exampleInputname1" placeholder="Smith" required data-parsley-required-message="Confirm Password is required*">
+                                                    <input type="text" class="form-control" id="exampleInputname1" placeholder="Smith" required data-parsley-required-message="Confirm Password is required*" readonly>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="(123) 345 -4567" required data-parsley-required-message="Email is required*">
+                                            <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="(123) 345 -4567" required data-parsley-required-message="Email is required*" readonly>
                                         </div>
                                         <div class="bg-light-gray p-3 mb-3">
                                             <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>Your number needs
@@ -1782,16 +1802,14 @@
                                     <div class="text-center mb-6">
                                         <h3 class="mt-3 mt-1"><b>Please review the following Eventopia policies</b>
                                         </h3>
-                                        <p class=""><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                class="w-5" alt=""> I agree and
+                                        <p class=""><img src="{{ asset('assets/images/brand/light-bulb.png') }}" class="w-5" alt=""> I agree and
                                             understand that as a Peerspace host I am required to:</p>
                                     </div>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-10">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="invalidCheck-1" required>
+                                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck-1" required>
                                                     <label class="form-check-label" for="invalidCheck-1">
                                                         <p>Keep conversations on Eventopia</p>
                                                         <p>Keep conversations with guests on the platform so everyone
@@ -1800,8 +1818,7 @@
                                                 </div>
                                                 <hr class="bg-dark">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="invalidCheck-2" required>
+                                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck-2" required>
                                                     <label class="form-check-label" for="invalidCheck-2">
                                                         <p>Use Eventopia to process payments</p>
                                                         <p>All payments must be processed on Eventopia and honor our
@@ -1811,8 +1828,7 @@
                                                 </div>
                                                 <hr class="bg-dark">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="invalidCheck-3" required>
+                                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck-3" required>
                                                     <label class="form-check-label" for="invalidCheck-3">
                                                         <p>Follow the booking, cancellation, and overtime policies</p>
                                                         <p>All bookings are covered by the Eventopia Services Agreement.
@@ -1822,8 +1838,7 @@
                                                 </div>
                                                 <hr class="bg-dark">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value=""
-                                                        id="invalidCheck-4" required>
+                                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck-4" required>
                                                     <label class="form-check-label" for="invalidCheck-4">
                                                         <p>Make sure my space meets local regulations</p>
                                                         <p>Follow local regulations to ensure the safety of your guests,
@@ -1913,15 +1928,41 @@
             });
         </script>
         <script>
-           $(document).ready(function() {
-    $('.sw-btn-next').on('click', function(e) {
-        var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
-        $('.last_step_btn').on('click', function(e) {
-            // console.log("asdf");
-            window.location.href = "{{ url('/steps-form-submit') }}";
-        });
-        });
-    });
+            $(document).ready(function() {
+                $('.sw-btn-next').on('click', function(e) {
+                    var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
+                    $('.last_step_btn').on('click', function(e) {
+                        // console.log("asdf");
+                        window.location.href = "{{ url('/steps-form-submit') }}";
+                    });
+                });
+            });
+        </script>
+
+        <script>
+            $(document).ready(function() {
+                $('#flexSwitchCheckChecked').on('click', function() {
+                    $('#mapColumn').toggleClass('d-none');
+                    $('#galleryColumn').toggleClass('col-lg-12');
+                });
+            });
+        </script>
+        <script nonce="">
+            function onEmbedLoad() {
+                initEmbed([null, null, null, null, null, null, null, ["en"],
+                    [null, null, null, "/maps/api/js/ApplicationService.GetEntityDetails", "/maps/embed/upgrade204", null, "/maps/embed/record204"], null, null, null, null, null, null, null, null, null, null, null, null, [
+                        [
+                            [120000000, 0, 0], null, null, 13.10000038146973
+                        ]
+                    ], null, null, null, 0, null, null, null, null, null, null, [1]
+                ]);
+            }
+
+            function onApiLoad() {
+                var embed = document.createElement('script');
+                embed.src = "https://maps.gstatic.com/maps-api-v3/embed/js/53/13/init_embed.js";
+                document.body.appendChild(embed);
+            }
         </script>
 
         @endsection

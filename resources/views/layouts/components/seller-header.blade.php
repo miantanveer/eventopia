@@ -16,13 +16,6 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                                     <div class="d-flex order-lg-2">
 
-                                        <!-- Cart -->
-                                        <div class="d-flex">
-                                            <a class="nav-link icon text-center style">
-                                                <i class="fa fa-cart-plus text-white"></i><span class="fs-16 ms-2 d-none d-xl-block"></span>
-                                            </a>
-                                        </div>
-
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
                                             <a class="nav-link icon text-center" data-bs-target="#country-selector" data-bs-toggle="modal">

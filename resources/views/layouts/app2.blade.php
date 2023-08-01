@@ -14,11 +14,7 @@
 
     <!-- title -->
     <title>Eventopia</title>
-    <style>
-        .div_margin{
-            margin-top: 100px!important;
-        }
-    </style>
+
     @include('layouts.components.styles')
 
 </head>
@@ -33,33 +29,38 @@
 
     <!-- page -->
     <div class="page">
-        <div class="page-main bg-white">
+        <div class="page-main">
 
-            @include('layouts.seller.seller-header')
+            @include('layouts.components.seller-header')
 
-            <div class="container">
-                <div class="row text-center div_margin">
-                    <div class="col-12 my-5">
-                        <img src="{{ asset('assets/images/brand/success-image.png') }}" width="120px" height="auto">
+            <!--app-content open-->
+            <div class="main-content app-content pt-5" >
+                <div class="side-app">
+
+                    <!-- container -->
+                    <div class="main-container container">
+                        @yield('content')
                     </div>
-                    <div class="col-12">
-                        <h1 class="fw-bolder">Your listings have been submitted!</h1>
-                    </div>
-                    <div class="col-12">
-                        <p>Our team will review your listings and get back to you within 2-5 business days</p>
-                    </div>
+                    <!-- container-closed -->
                 </div>
             </div>
-
+            <!--app-content closed-->
         </div>
+        <!-- page-main closed -->
+
+        @include('layouts.components.modal')
+
+        @yield('modal')
+
     </div>
+    <!-- page -->
 
-    @include('layouts.components.modal')
+    <!-- global-helper -->
+    @include('layouts.components.global-helper')
 
-    @yield('modal')
+    @include('layouts.components.dark-footer')
 
     @include('layouts.components.scripts')
-
 
 </body>
 
