@@ -24,8 +24,8 @@
                     </li>
                     <li class="col-lg-6 mb-2">
                         <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/sa.svg') }}" class="me-3 language"></span>Arabic
+                            <span class="country-selector"><img alt="" src="{{ asset('assets/images/flags/sa.svg') }}"
+                                    class="me-3 language"></span>Arabic
                         </a>
                     </li>
                     <li class="col-lg-6 mb-2">
@@ -165,14 +165,22 @@
             </div>
             <div class="modal-body pb-0">
                 <div class="row p-4  border-bottom align-items-center">
-                    <div class="col-md-3 col-12 "> <h6 class="fw-bolder">Service</h6>  </div> <div class="col-12 d-flex d-md-none p-4">
+                    <div class="col-md-3 col-12 ">
+                        <h6 class="fw-bolder">Service</h6>
+                    </div>
+                    <div class="col-12 d-flex d-md-none p-4">
                         <img src="{{ asset('assets/images/users/spaces/10.jpg') }}" alt="">
                     </div>
-                    <div class="col-6"><h6 class="fw-bolder">Service type & description </h6> </div>
-                    <div class="col-md-3 col-6 text-end"><h6 class="fw-bolder">Amount</h6></div>
+                    <div class="col-6">
+                        <h6 class="fw-bolder">Service type & description </h6>
+                    </div>
+                    <div class="col-md-3 col-6 text-end">
+                        <h6 class="fw-bolder">Amount</h6>
+                    </div>
                 </div>
                 <div class="row p-4  border-bottom align-items-center">
-                    <div class="col-3 d-none d-md-flex"> <img src="{{ asset('assets/images/users/spaces/10.jpg') }}" alt="">
+                    <div class="col-3 d-none d-md-flex"> <img src="{{ asset('assets/images/users/spaces/10.jpg') }}"
+                            alt="">
                     </div>
                     <div class="col-6">
                         <p> Wedding Planner </p>
@@ -185,31 +193,45 @@
                     <div class="col-md-3 col-6 text-end">SAR65</div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center">
-                    <div class="col-6"><h6 class="fw-bolder">Location </h6></div>
+                    <div class="col-6">
+                        <h6 class="fw-bolder">Location </h6>
+                    </div>
                     <div class="col-6  text-end">England</div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center">
-                    <div class="col-6"><h6 class="fw-bolder">Wedding Date</h6></div>
+                    <div class="col-6">
+                        <h6 class="fw-bolder">Wedding Date</h6>
+                    </div>
                     <div class="col-6  text-end">07/28/2023</div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center">
-                    <div class="col-6"><h6 class="fw-bolder">Attendees</h6></div>
+                    <div class="col-6">
+                        <h6 class="fw-bolder">Attendees</h6>
+                    </div>
                     <div class="col-6  text-end">101-150</div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center">
-                    <div class="col-6"><h6 class="fw-bolder">Sub Total :</h6></div>
+                    <div class="col-6">
+                        <h6 class="fw-bolder">Sub Total :</h6>
+                    </div>
                     <div class="col-6  text-end">SAR65</div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center">
-                    <div class="col-6"><h6 class="fw-bolder">Vat %</h6></div>
+                    <div class="col-6">
+                        <h6 class="fw-bolder">Vat %</h6>
+                    </div>
                     <div class="col-6  text-end">SAR0</div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center">
-                    <div class="col-6"><h6 class="fw-bolder">Admin Fee</h6></div>
+                    <div class="col-6">
+                        <h6 class="fw-bolder">Admin Fee</h6>
+                    </div>
                     <div class="col-6  text-end">SAR10</div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center bg-light-gray">
-                    <div class="col-6"><h6 class="fw-bolder">Total : </h6></div>
+                    <div class="col-6">
+                        <h6 class="fw-bolder">Total : </h6>
+                    </div>
                     <div class="col-6  text-end">SAR75.00</div>
                 </div>
             </div>
@@ -248,12 +270,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1" class="form-label mt-2 mb-2"></label>
-                                <a style="height:46px;width:510;background-color:#003B95;color:#FFFFFF"
-                                    type="password" class="form-control btn btn-info rounded-0" href="#"
-                                    id="exampleInputPassword1">Sign up</a><br>
+                                <a style="height:46px;width:510;background-color:#003B95;color:#FFFFFF" type="password"
+                                    class="form-control btn btn-info rounded-0" href="#" id="exampleInputPassword1">Sign
+                                    up</a><br>
                                 <p style="height:39px;width:460px;color:#6B6B6B;padding-right:50px;text-align:center">
-                                    By clicking Sign up, you agree to <span
-                                        style="text-decoration:underline;">Eventopia Services Agreement and
+                                    By clicking Sign up, you agree to <span style="text-decoration:underline;">Eventopia
+                                        Services Agreement and
                                         Privacy Policy.</span></p>
                             </div>
                         </div>
@@ -265,8 +287,7 @@
                         deals, inspiration, and marketing emails. You can opt out at any time from your account
                         settings.</b></p><br>
 
-                <label style="height:771;width:600;margin-right:50px;"
-                    class="custom-control custom-checkbox mt-4 mb-3">
+                <label style="height:771;width:600;margin-right:50px;" class="custom-control custom-checkbox mt-4 mb-3">
                     <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
                     <span class="custom-control-label">I don't want to receive marketing emails from
                         Eventopia.</span>
@@ -274,6 +295,39 @@
                 <div>
                     <h6 style="height:17;width:216;margin-right:142px;"><b>Already have an account? <span
                                 style="color:#006CE4">Login</span></b></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="popular-catagories-modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content country-select-modal">
+            <div class="modal-header border-0">
+                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="p-3">
+                    <h2 class="text-center fw-bolder">Popular Activities</h2>
+                </div>
+                <div class="row">
+                    <div class="col-6 py-4 px-5 fs-6"><p>Audio Recording</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Corporate Event</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Dinner</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Film Shoot</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Fitness Class</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Meeting</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Networking Event</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Party</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Performance</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Photo Shoot</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Pop-Up</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Retreat</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Wedding</p></div>
+                    <div class="col-6 py-4 px-5 fs-6"><p>Workshop</p></div>
                 </div>
             </div>
         </div>
