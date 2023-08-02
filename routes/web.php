@@ -78,8 +78,8 @@ Route::get('/booking', function () {
 });
 
 // Seller side
-
-Route::get('/seller/dashboard', function () {
+// backend k waqt sab ka prefix /seller/ lgana
+Route::get('/seller-dashboard', function () {
     return view('content.seller.dashboard');
 });
 Route::get('/add-space', function () {
