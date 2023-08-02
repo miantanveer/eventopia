@@ -1,9 +1,5 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
-        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-
-
     <style>
         .seller-web-sidebar {
             z-index: 9999;
@@ -215,6 +211,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div id="step-3" class="">
                                 <div style="text-align:center;" class="">
                                     <h2>Step 3 of 9</h2>
@@ -333,7 +330,8 @@
                                     <hr class="style1"><br>
                                 </div>
                             </div>
-                            <div id="step-4" class="">
+
+                            <div id="step-4" class="mb-5">
                                 <h2 style="text-align:center;">Step 4 of 9</h2>
                                 <div class="text-center">
                                     <h2 class="fw-bolder">
@@ -381,19 +379,36 @@
                                                 when browsing so make sure it
                                                 represents your space.</p>
                                         </div>
-                                        <div class="text-start bg-gray-light">
-                                            <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; Operating
-                                                hours end times are
-                                                restricted to 12 AM for this space type. Read our Social Events Policy for
-                                                more
-                                                information.</p>
-                                        </div>
-                                        @include('layouts.components.setHoursHTMLCode')
-                                        <hr style="border-top: 1px solid black">
-                                        <div class="text-end mb-2 mt-5">
-                                        </div>
                                     </div>
+                                </form>
                             </div>
+
+                            <div id="step-5" class="">
+                                <h2 style="text-align:center;">Step 5 of 9</h2>
+                                <div class="card-body border p-4 pb-5">
+                                    <div class="text-center mb-4">
+                                        <h2 class="mx-4 fw-bolder">What are your operating hours?</h2>
+                                        <p class="mx-4">Operating hours are the days and hours of the week that your
+                                            space is open to host
+                                            bookings (i.e. your general availability). Guests
+                                            will not be able to book times outside of your operating hours. Learn More.</p>
+                                    </div>
+                                    <div class="text-start mb-4">
+                                        <p> Birthday event - 23408 Bernier Cliff Suite 526 </p>
+                                    </div>
+                                    <div class="text-start bg-gray-light">
+                                        <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; Operating
+                                            hours end times are
+                                            restricted to 12 AM for this space type. Read our Social Events Policy for more
+                                            information.</p>
+                                    </div>
+                                    @include('layouts.components.setHoursHTMLCode')
+                                    <hr style="border-top: 1px solid black">
+                                    <div class="text-end mb-2 mt-5">
+                                    </div>
+                                </div>
+                            </div>
+
                             <div id="step-6" class="">
                                 <div style="text-align:center;">
                                     <h2>Step 6 of 9</h2>
