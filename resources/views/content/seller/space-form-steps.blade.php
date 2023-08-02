@@ -105,8 +105,9 @@
                                 </form>
                                 <div class="card custom-card">
                                     <div class="card-body map_height overflow-auto" id="mapContainer">
-                                        <h1 style="margin-left:70px;">Use the map pin position to add an address.</h1>
-                                        <iframe style="height:345px;width:475px;margin-left:150px;" class="gmap_iframe"
+                                        <h4 style="margin-left:70px;" class="fw-bolder">Use the map pin position to add an
+                                            address.</h4>
+                                        <iframe style="height:345px;width:475px;margin-left:70px;" class="gmap_iframe"
                                             frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0" marginwidth="0"
                                             src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                                         </iframe>
@@ -1400,7 +1401,8 @@
                                                 </div>
                                                 <div class="text-center">
                                                     <button type="button"
-                                                        class="bg-primary text-white p-3 border-0 text-center">Upload
+                                                        class="bg-primary text-white p-3 border-0 text-center"
+                                                        id="uploadBtn">Upload
                                                         photo</button>
                                                 </div>
                                                 <!-- Hidden input for image upload -->
@@ -1640,26 +1642,28 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const uploadContainer = document.getElementById('uploadContainer');
+            const uploadBtn = document.getElementById('uploadBtn');
             const imageUploadInput = document.getElementById('imageUploadInput');
-            // Listen for click on the avatar image
-            uploadContainer.addEventListener('click', function() {
+            const avatarImage = document.getElementById('avatarImage');
+
+            // Listen for click on the "Upload photo" button
+            uploadBtn.addEventListener('click', function() {
                 // Trigger the file input click event
                 imageUploadInput.click();
             });
-            // Listen for file selection in the input
-            imageUploadInput.addEventListener('change', function() {
-                const file = this.files[0];
-                // You can now handle the file upload process here, such as sending it to the server.
-                // The actual upload process may involve using AJAX, FormData, or other techniques.
-                // For simplicity, I'll just update the avatar image's src attribute with the selected image URL here.
-                if (file) {
+
+            // Listen for change in the file input (when user selects an image)
+            imageUploadInput.addEventListener('change', function(event) {
+                const selectedImage = event.target.files[0];
+
+                // Validate if a file was selected and it is an image
+                if (selectedImage && selectedImage.type.startsWith('image/')) {
+                    // Read the selected image and set it as the source for the avatar image
                     const reader = new FileReader();
-                    reader.addEventListener('load', function() {
-                        const avatarImage = document.getElementById('avatarImage');
+                    reader.onload = function() {
                         avatarImage.src = reader.result;
-                    });
-                    reader.readAsDataURL(file);
+                    };
+                    reader.readAsDataURL(selectedImage);
                 }
             });
         });
