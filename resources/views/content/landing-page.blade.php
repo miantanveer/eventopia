@@ -29,21 +29,21 @@
         }
 
         /* .search-results {
-            display: none;
-            position: absolute;
-            width: 100%;
-            background-color: #fff;
-            border-radius: 13px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1;
-            padding: 10px;
-            max-height: 200px;
-            overflow-y: auto;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-top: 5px;
-        } */
+                display: none;
+                position: absolute;
+                width: 100%;
+                background-color: #fff;
+                border-radius: 13px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                z-index: 1;
+                padding: 10px;
+                max-height: 200px;
+                overflow-y: auto;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-top: 5px;
+            } */
 
         .search-drop-content {
             cursor: pointer;
@@ -57,16 +57,18 @@
         .search-drop-popUp p {
             margin: 0px !important;
         }
+
         .search-results {
             display: none;
         }
+
         /* .pac-container {
-            width: 68% !important;
-            position: relative !important;
-            top: 0px !important;
-            left: 0px !important;
-            z-index: 9999 !important;
-        } */
+                width: 68% !important;
+                position: relative !important;
+                top: 0px !important;
+                left: 0px !important;
+                z-index: 9999 !important;
+            } */
     </style>
 @endsection
 
@@ -995,11 +997,14 @@
             </div>
         </div>
     </div>
-    <h3 class="text-center"><a class="bg-primary btn text-white px-7"><b>Get started</b></a></h3>
-    <p style="margin-bottom: 70px!important;" class="text-center text-primary">Make an exceptional booking.</p>
+    </div>
+    <h3 class="text-center"><a class="bg-primary btn text-white px-7 modal-effect" data-bs-target="#signup-modal"
+            data-bs-toggle="modal"><b>Get started</b></a></h3>
 @endsection
 @section('scripts')
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+    </script>
     <script src="{{ asset('assets/js/flatpicker.min.js') }}"></script>
     <script>
         $(document).ready(function() {
@@ -1114,7 +1119,7 @@
                             "We don't recognize that activity. Try describing it differently or ");
                         const anchor = $(
                             "<a class='modal-effect' data-bs-target='#popular-catagories-modal' data-bs-toggle='modal'>"
-                            ).text('pick from popular activities.').attr("href", "javascript-void(0);");
+                        ).text('pick from popular activities.').attr("href", "javascript-void(0);");
                         para.append(anchor);
                         div.append(para);
                         searchResults.append(div);
@@ -1127,7 +1132,8 @@
                 } else {
                     searchResults.hide();
                     $(".FormBorder").removeClass("data-appended");
-                    $(".FormBorder").css("border-bottom-left-radius", "13px !important").css("border-bottom-right-radius", "13px !important");
+                    $(".FormBorder").css("border-bottom-left-radius", "13px !important").css(
+                        "border-bottom-right-radius", "13px !important");
                 }
             });
 
@@ -1136,7 +1142,8 @@
                 searchInput.val(selectedCategory);
                 searchResults.hide();
                 $(".FormBorder").removeClass("data-appended");
-                $(".FormBorder").css("border-bottom-left-radius", "13px !important").css("border-bottom-right-radius", "13px !important");
+                $(".FormBorder").css("border-bottom-left-radius", "13px !important").css(
+                    "border-bottom-right-radius", "13px !important");
             });
         });
     </script>
