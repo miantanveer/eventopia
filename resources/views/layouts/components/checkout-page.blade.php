@@ -435,9 +435,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center my-5">
-                    <button type="button" class="btn btn-primary mb-1">View all</button>
-                </div>
             </div>
         </div>
         <h3 class="p-3 mb-5 text-dark">Talents & Entertainments you might be looking for?</h3>
@@ -593,9 +590,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="text-center my-5">
-                    <button type="button" class="btn btn-primary mb-1">View all</button>
                 </div>
             </div>
         </div>

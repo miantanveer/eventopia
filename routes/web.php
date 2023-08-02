@@ -79,7 +79,7 @@ Route::get('/booking', function () {
 
 // Seller side
 
-Route::get('/seller-dashboard', function () {
+Route::get('/seller/dashboard', function () {
     return view('content.seller.dashboard');
 });
 Route::get('/add-space', function () {

@@ -279,3 +279,44 @@
         </div>
     </div>
 </div>
+
+<!--Signup-Modal-->
+<div class="modal fade" id="signup-modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content country-select-modal">
+            <div class="modal-header">
+                <h1 style="text-align:center;color:#000017" class="modal-title">Create an account to book
+                    a space</h1><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <form>
+                        <div class="">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="form-label"></label>
+                                <input type="email" class="form-control btn btn-default rounded-0"
+                                    id="exampleInputEmail1" placeholder="Email or phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="form-label"></label>
+                                <input type="password" class="form-control btn btn-default rounded-0"
+                                    id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="form-label mt-2 mb-2"></label>
+                                <a style="height:46px;width:510;background-color:#003B95;color:#FFFFFF"
+                                    type="password" class="form-control btn btn-info rounded-0" href="#"
+                                    id="exampleInputPassword1">Sign up</a><br>
+                                <p style="height:39px;width:460px;color:#6B6B6B;padding-right:50px;text-align:center">
+                                    By clicking Sign up, you agree to <span
+                                        style="text-decoration:underline;">Eventopia Services Agreement and
+                                        Privacy Policy.</span></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
