@@ -34,11 +34,11 @@
     .card_height {
         height: 100% !important;
     }
-   
+
     .owl-carousel .owl-nav button.owl-prev,
-        .owl-carousel .owl-nav button.owl-next {
-            z-index: rewert;
-        }
+    .owl-carousel .owl-nav button.owl-next {
+        z-index: rewert;
+    }
 
     .map_height {
         height: 677px !important;
@@ -225,7 +225,7 @@
     <div class="col-xl-8 col-md-12 scroll-dive" id="galleryColumn">
         <div class="container-fluid">
             <div class="card custom-card">
-                
+
                 <div class="overflow-auto" style="overflow: auto !important;">
                     <div class="card-header border-bottom-0">
                         The talent & entertainments you might be looking for?
@@ -412,15 +412,6 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function() {
-        $('#flexSwitchCheckChecked').on('click', function() {
-            $('#mapColumn').toggleClass('d-none');
-            $('#galleryColumn').toggleClass('col-lg-12');
-        });
-    });
-</script>
 
 <!-- ROW-2 END -->
 @endsection
@@ -433,4 +424,13 @@
 <!-- OWL Carousel js -->
 <script src="{{ asset('assets/js/carousel.js') }}"></script>
 
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('#flexSwitchCheckChecked').on('click', function() {
+            $('#mapColumn').toggleClass('d-none');
+            $('#galleryColumn').toggleClass('col-lg-12');
+        });
+    });
+</script>
 @endsection
