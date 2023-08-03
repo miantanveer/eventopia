@@ -9,6 +9,10 @@
         background-color: #F5F9FF;
     }
 
+    .btn_background {
+        background: white !important;
+    }
+
     .gmap_iframe {
         width: 100% !important;
         height: 117.6vh !important;
@@ -175,13 +179,13 @@
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-12 col-xl-2">
-                    <form action="#" class="mt-2">
-                        <input type="datetime-local" class="btn btn-outline-default">
+                    <form action="#" class="mt-2 w-100">
+                        <input type="date" class="btn btn-outline-default btn_background w-100">
                     </form>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-3 col-xl-1">
-                    <div class="btn-group mt-2 mb-2">
-                        <button type="button" class="btn btn-outline-default dropdown-toggle" data-bs-toggle="dropdown">
+                <div class="col-lg-3 col-md-2 col-sm-3 col-xl-2">
+                    <div class="btn-group mt-2 mb-2 w-100">
+                        <button type="button" class="btn btn-outline-default btn_background dropdown-toggle w-100" data-bs-toggle="dropdown">
                             Age Range <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" role="menu">
@@ -204,12 +208,12 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 col-12 col-xl-2 mb-2 mb-md-0">
+                <div class="col-lg-3 col-md-3 col-12 col-xl-2 mb-2 mb-md-2">
                     <form action="#" class="mt-2">
-                        <input type="text" class="btn btn-outline-default" placeholder="Enter a Keyword">
+                        <input type="text" class="btn btn-outline-default btn_background" placeholder="Enter a Keyword">
                     </form>
                 </div>
-                <div class="col-lg-1 text-center mt-4 mx-6 form-check form-switch d-lg-block d-none">
+                <div class="col-12 col-md-2 col-lg-2 col-xl-2 text-end mt-4 form-check form-switch d-lg-block d-none">
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                     <label class="form-check-label" for="flexSwitchCheckChecked">Map</label>
                 </div>
@@ -222,10 +226,9 @@
 
 <!-- ROW-2 -->
 <div class="row">
-    <div class="col-xl-8 col-md-12 scroll-dive" id="galleryColumn">
+    <div class="col-lg-8 col-12 scroll-dive" id="galleryColumn">
         <div class="container-fluid">
             <div class="card custom-card">
-
                 <div class="overflow-auto" style="overflow: auto !important;">
                     <div class="card-header border-bottom-0">
                         The talent & entertainments you might be looking for?
@@ -278,7 +281,7 @@
                 <div class="card-header border-bottom-0 ms-3">
                     4,333 entertainment & talent near USA
                 </div>
-                <div class="card-body pt-0" style="height: 630px;overflow:auto !important;">
+                <div class="card-body pt-0">
                     <div class="row" style="overflow: auto !important;">
                         <div class="col-xl-4 col-md-6 col-sm-12">
                             <div class="card overflow-hidden">
@@ -424,7 +427,6 @@
 <!-- OWL Carousel js -->
 <script src="{{ asset('assets/js/carousel.js') }}"></script>
 
-<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script>
     $(document).ready(function() {
         $('#flexSwitchCheckChecked').on('click', function() {

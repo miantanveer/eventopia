@@ -653,8 +653,9 @@
         </div>
     </div>
 </div>
-<h3 class="text-center"><a class="bg-primary btn text-white px-7"><b>Get started</b></a></h3>
-<p class="text-center text-primary">Make an exceptional booking.</p>
+<h3 class="text-center"><a class="bg-primary btn text-white px-7 modal-effect"
+    data-bs-target="#signup-modal"
+    data-bs-toggle="modal"><b>Get started</b></a></h3>
 
 {{-- --------------------------------------- Content 3333 ------------------------------------- --}}
 
@@ -1139,8 +1140,9 @@
         </div>
     </div>
 </div>
-<h3 class="text-center"><a class="bg-primary btn text-white px-7"><b>Get started</b></a></h3>
-<p style="margin-bottom: 70px!important;" class="text-center text-primary">Make an exceptional booking.</p>
+<h3 class="text-center"><a class="bg-primary btn text-white px-7 modal-effect"
+    data-bs-target="#signup-modal"
+    data-bs-toggle="modal"><b>Get started</b></a></h3>
 @endsection
 @section('scripts')
 <script

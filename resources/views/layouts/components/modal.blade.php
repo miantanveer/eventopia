@@ -24,8 +24,8 @@
                     </li>
                     <li class="col-lg-6 mb-2">
                         <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt="" src="{{ asset('assets/images/flags/sa.svg') }}"
-                                    class="me-3 language"></span>Arabic
+                            <span class="country-selector"><img alt=""
+                                    src="{{ asset('assets/images/flags/sa.svg') }}" class="me-3 language"></span>Arabic
                         </a>
                     </li>
                     <li class="col-lg-6 mb-2">
@@ -237,7 +237,8 @@
             </div>
             <div class="modal-footer mx-auto">
                 <button class="btn btn-white text-danger border-0" data-bs-dismiss="modal">Decline</button>
-                <button class="btn btn-primary"><a href="{{URL('/checkout')}}" class="text-white">Accept</a></button>
+                <button class="btn btn-primary"><a href="{{ URL('/checkout') }}"
+                        class="text-white">Accept</a></button>
             </div>
         </div>
     </div>
@@ -270,11 +271,13 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1" class="form-label mt-2 mb-2"></label>
-                                <a style="height:46px;width:510;background-color:#003B95;color:#FFFFFF" type="password"
-                                    class="form-control btn btn-info rounded-0" href="#" id="exampleInputPassword1">Sign
+                                <a style="height:46px;width:510;background-color:#003B95;color:#FFFFFF"
+                                    type="password" class="form-control btn btn-info rounded-0" href="#"
+                                    id="exampleInputPassword1">Sign
                                     up</a><br>
                                 <p style="height:39px;width:460px;color:#6B6B6B;padding-right:50px;text-align:center">
-                                    By clicking Sign up, you agree to <span style="text-decoration:underline;">Eventopia
+                                    By clicking Sign up, you agree to <span
+                                        style="text-decoration:underline;">Eventopia
                                         Services Agreement and
                                         Privacy Policy.</span></p>
                             </div>
@@ -287,7 +290,8 @@
                         deals, inspiration, and marketing emails. You can opt out at any time from your account
                         settings.</b></p><br>
 
-                <label style="height:771;width:600;margin-right:50px;" class="custom-control custom-checkbox mt-4 mb-3">
+                <label style="height:771;width:600;margin-right:50px;"
+                    class="custom-control custom-checkbox mt-4 mb-3">
                     <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
                     <span class="custom-control-label">I don't want to receive marketing emails from
                         Eventopia.</span>
@@ -314,20 +318,88 @@
                     <h2 class="text-center fw-bolder">Popular Activities</h2>
                 </div>
                 <div class="row">
-                    <div class="col-6 py-4 px-5 fs-6"><p>Audio Recording</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Corporate Event</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Dinner</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Film Shoot</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Fitness Class</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Meeting</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Networking Event</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Party</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Performance</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Photo Shoot</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Pop-Up</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Retreat</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Wedding</p></div>
-                    <div class="col-6 py-4 px-5 fs-6"><p>Workshop</p></div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Audio Recording</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Corporate Event</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Dinner</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Film Shoot</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Fitness Class</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Meeting</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Networking Event</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Party</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Performance</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Photo Shoot</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Pop-Up</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Retreat</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Wedding</p>
+                    </div>
+                    <div class="col-6 py-4 px-5 fs-6">
+                        <p>Workshop</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Signup-Modal-->
+<div class="modal fade" id="signup-modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content country-select-modal">
+            <div class="modal-header">
+                <h1 style="text-align:center;color:#000017" class="modal-title">Create an account to book
+                    a space</h1><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <form>
+                        <div class="">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="form-label"></label>
+                                <input type="email" class="form-control btn btn-default rounded-0"
+                                    id="exampleInputEmail1" placeholder="Email or phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="form-label"></label>
+                                <input type="password" class="form-control btn btn-default rounded-0"
+                                    id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="form-label mt-2 mb-2"></label>
+                                <a style="height:46px;width:510;background-color:#003B95;color:#FFFFFF"
+                                    type="password" class="form-control btn btn-info rounded-0" href="#"
+                                    id="exampleInputPassword1">Sign up</a><br>
+                                <p style="height:39px;width:460px;color:#6B6B6B;padding-right:50px;text-align:center">
+                                    By clicking Sign up, you agree to <span
+                                        style="text-decoration:underline;">Eventopia Services Agreement and
+                                        Privacy Policy.</span></p>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -78,7 +78,7 @@ Route::get('/booking', function () {
 });
 
 // Seller side
-
+// backend k waqt sab ka prefix /seller/ lgana
 Route::get('/seller-dashboard', function () {
     return view('content.seller.dashboard');
 });

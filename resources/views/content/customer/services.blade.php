@@ -3,9 +3,9 @@
 @section('styles')
     <style>
         .filters {
-            border-radius: 10px;
-            border: 1px solid #003B95;
-            background-color: #e3edfdd2;
+            border-radius: 12px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            background-color: #F5F9FF;
         }
 
         .gmap_iframe {
@@ -29,6 +29,50 @@
             background-color: #003B95 !important;
             color: white !important;
         }
+
+        .btn_background {
+            background: white !important;
+            border: 1px solid rgba(95, 95, 95, 0.74);
+        }
+
+        .card_height {
+            height: 100% !important;
+        }
+
+        .owl-prev {
+            margin-top: -12.4px !important;
+        }
+
+        .owl-next {
+            margin-top: -12.4px !important;
+        }
+
+        .map_height {
+            height: 677px !important;
+        }
+
+        .scroll-dive {
+            height: 680px;
+            overflow: auto !important;
+        }
+
+        .scroll-dive::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .scroll-dive::-webkit-scrollbar-track {
+            background-color: rgba(204, 203, 203, 0.795);
+            border-radius: 8px !important;
+        }
+
+        .scroll-dive::-webkit-scrollbar-thumb {
+            background-color: #727171;
+            border-radius: 8px !important;
+        }
+
+        .scroll-dive:hover::-webkit-scrollbar-thumb {
+            background-color: #727171;
+        }
     </style>
 @endsection
 
@@ -40,7 +84,8 @@
                 <div class="row filters">
                     <div class="col-lg-2 col-md-2 col-sm-3 col-xl-1">
                         <div class="btn-group mt-2 mb-2">
-                            <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            <button type="button" class="btn btn-outline btn_background dropdown-toggle"
+                                data-bs-toggle="dropdown">
                                 Price <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
@@ -68,7 +113,7 @@
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-3 col-xl-1">
                         <div class="btn-group mt-2 mb-2">
-                            <button type="button" class="btn btn-outline-primary dropdown-toggle"
+                            <button type="button" class="btn btn-outline btn_background dropdown-toggle"
                                 data-bs-toggle="dropdown">
                                 Type <span class="caret"></span>
                             </button>
@@ -122,7 +167,7 @@
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-3 col-xl-1">
                         <div class="btn-group mt-2 mb-2">
-                            <button type="button" class="btn btn-outline-primary dropdown-toggle"
+                            <button type="button" class="btn btn-outline btn_background dropdown-toggle"
                                 data-bs-toggle="dropdown">
                                 Attendees <span class="caret"></span>
                             </button>
@@ -156,14 +201,19 @@
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-3 col-xl-2 ms-lg-5">
                         <form action="#" class="mt-2">
-                            <input type="datetime-local" class="form-control bg-transparent border-primary">
+                            <input type="date" class="form-control btn_background bg-transparent">
                         </form>
                     </div>
                     <div class="col-lg-2 col-md-3 col-sm-3 col-xl-2">
                         <form action="#" class="mt-2">
-                            <input type="text" class="form-control bg-transparent border-primary"
+                            <input type="text" class="form-control btn_background bg-transparent"
                                 placeholder="Enter a Keyword">
                         </form>
+                    </div>
+                    <div class="col-lg-1 text-center mt-4 mx-6 form-check form-switch d-lg-block d-none">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                            checked>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Map</label>
                     </div>
                 </div>
             </div>
@@ -174,294 +224,314 @@
 
     <!-- ROW-2 -->
     <div class="row">
-        <div class="col-xl-8 col-md-12">
+        <div class="col-lg-8 col-12 scroll-dive" id="galleryColumn">
             <div class="container-fluid">
                 <div class="card custom-card">
-                    <div class="card-header border-bottom-0">
-                        Our event team and everything in between that you are looking for?
-                    </div>
-                    <div class="card-body pt-0 h-100">
-                        <div class="owl-carousel owl-carousel-icons2">
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <a href="#"><img src="{{ asset('assets/images/users/spaces/11.jpg') }}"
-                                            alt="img"></a>
+                    <div class="overflow-auto" style="overflow: auto !important;">
+                        <div class="container-fluid">
+                            <div class="card custom-card">
+                                <div class="card-header border-bottom-0">
+                                    Our event team and everything in between that you are looking for?
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <a href="#"><img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
-                                            alt="img"></a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <a href="#"><img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
-                                            alt="img"></a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <a href="#"><img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
-                                            alt="img"></a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <a href="#"><img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
-                                            alt="img"></a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <a href="#"><img src="{{ asset('assets/images/users/spaces/9.jpg') }}"
-                                            alt="img"></a>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <a href="#"><img src="{{ asset('assets/images/users/spaces/10.jpg') }}"
-                                            alt="img"></a>
+                                <div class="card-body pt-0 h-100">
+                                    <div class="owl-carousel owl-carousel-icons2">
+                                        <div class="item">
+                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                                <a href="#"><img
+                                                        src="{{ asset('assets/images/users/spaces/11.jpg') }}"
+                                                        alt="img"></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                                <a href="#"><img
+                                                        src="{{ asset('assets/images/users/spaces/2.jpg') }}"
+                                                        alt="img"></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                                <a href="#"><img
+                                                        src="{{ asset('assets/images/users/spaces/3.jpg') }}"
+                                                        alt="img"></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                                <a href="#"><img
+                                                        src="{{ asset('assets/images/users/spaces/4.jpg') }}"
+                                                        alt="img"></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                                <a href="#"><img
+                                                        src="{{ asset('assets/images/users/spaces/7.jpg') }}"
+                                                        alt="img"></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                                <a href="#"><img
+                                                        src="{{ asset('assets/images/users/spaces/9.jpg') }}"
+                                                        alt="img"></a>
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                                <a href="#"><img
+                                                        src="{{ asset('assets/images/users/spaces/10.jpg') }}"
+                                                        alt="img"></a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <div class="container-fluid">
-                <div class="card custom-card overflow-auto">
-                    <div class="card-header border-bottom-0">
-                        4,333 services near USA
-                    </div>
-                    <div class="card-body pt-0" style="height: 630px;overflow:auto !important;">
-                        <div class="row" style="overflow: auto !important;">
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <div class="card overflow-hidden">
-                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                        <div class="me-2 card-background float-end">
-                                            <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                        <div class="card-header border-bottom-0 ms-3">
+                            4,333 party hall spaces near USA
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="row">
+                                <div class="col-xl-4 col-md-6 col-sm-12">
+                                    <div class="card overflow-hidden">
+                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
+                                            <div class="me-2 card-background float-end">
+                                                <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <a href="{{ URL('/service-details') }}">
-                                        <img src="{{ asset('assets/images/users/services/1 (1).png') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-5"><small class="">Portland, ME</small>
-                                            </div>
-                                            <div class="col-7"><small><i class="fa fa-users"></i> 25 </small> &nbsp;
-                                                <small>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp; 14
-                                                </small>
-                                            </div>
-                                            <div class="col-12 mt-2">
-                                                <h5>Events & Rentals</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>SAR - Affordable</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn-pill btn-outline-primary ">Request
-                                                        Quote</button>
+                                        <a href="{{ URL('/service-details') }}">
+                                            <img src="{{ asset('assets/images/users/services/1 (1).png') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-5"><small class="">Portland, ME</small>
+                                                </div>
+                                                <div class="col-7"><small><i class="fa fa-users"></i> 25 </small>
+                                                    &nbsp;
+                                                    <small>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
+                                                        14
+                                                    </small>
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <h5>Events & Rentals</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>SAR - Affordable</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn-pill btn-outline-primary ">Request
+                                                            Quote</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <div class="card overflow-hidden">
-                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                        <div class="me-2 card-background float-end">
-                                            <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                <div class="col-xl-4 col-md-6 col-sm-12">
+                                    <div class="card overflow-hidden">
+                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
+                                            <div class="me-2 card-background float-end">
+                                                <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <a href="{{ URL('/service-details') }}">
-                                        <img src="{{ asset('assets/images/users/services/1 (6).png') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-5"><small class="">Portland, ME</small>
-                                            </div>
-                                            <div class="col-7"><small><i class="fa fa-users"></i> 25 </small> &nbsp;
-                                                <small>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp; 14
-                                                </small>
-                                            </div>
-                                            <div class="col-12 mt-2">
-                                                <h5>Events & Rentals</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>SAR - Affordable</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn-pill btn-outline-primary ">Request
-                                                        Quote</button>
+                                        <a href="{{ URL('/service-details') }}">
+                                            <img src="{{ asset('assets/images/users/services/1 (6).png') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-5"><small class="">Portland, ME</small>
+                                                </div>
+                                                <div class="col-7"><small><i class="fa fa-users"></i> 25 </small>
+                                                    &nbsp;
+                                                    <small>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
+                                                        14
+                                                    </small>
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <h5>Events & Rentals</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>SAR - Affordable</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn-pill btn-outline-primary ">Request
+                                                            Quote</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <div class="card overflow-hidden">
-                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                        <div class="me-2 card-background float-end">
-                                            <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                <div class="col-xl-4 col-md-6 col-sm-12">
+                                    <div class="card overflow-hidden">
+                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
+                                            <div class="me-2 card-background float-end">
+                                                <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <a href="{{ URL('/service-details') }}">
-                                        <img src="{{ asset('assets/images/users/services/1 (5).png') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-5"><small class="">Portland, ME</small>
-                                            </div>
-                                            <div class="col-7"><small><i class="fa fa-users"></i> 25 </small> &nbsp;
-                                                <small>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp; 14
-                                                </small>
-                                            </div>
-                                            <div class="col-12 mt-2">
-                                                <h5>Events & Rentals</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>SAR - Affordable</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn-pill btn-outline-primary ">Request
-                                                        Quote</button>
+                                        <a href="{{ URL('/service-details') }}">
+                                            <img src="{{ asset('assets/images/users/services/1 (5).png') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-5"><small class="">Portland, ME</small>
+                                                </div>
+                                                <div class="col-7"><small><i class="fa fa-users"></i> 25 </small>
+                                                    &nbsp;
+                                                    <small>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
+                                                        14
+                                                    </small>
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <h5>Events & Rentals</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>SAR - Affordable</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn-pill btn-outline-primary ">Request
+                                                            Quote</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <div class="card overflow-hidden">
-                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                        <div class="me-2 card-background float-end">
-                                            <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                <div class="col-xl-4 col-md-6 col-sm-12">
+                                    <div class="card overflow-hidden">
+                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
+                                            <div class="me-2 card-background float-end">
+                                                <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <a href="{{ URL('/service-details') }}">
-                                        <img src="{{ asset('assets/images/users/services/1 (4).png') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-5"><small class="">Portland, ME</small>
-                                            </div>
-                                            <div class="col-7"><small><i class="fa fa-users"></i> 25 </small> &nbsp;
-                                                <small>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp; 14
-                                                </small>
-                                            </div>
-                                            <div class="col-12 mt-2">
-                                                <h5>Events & Rentals</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>SAR - Affordable</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn-pill btn-outline-primary ">Request
-                                                        Quote</button>
+                                        <a href="{{ URL('/service-details') }}">
+                                            <img src="{{ asset('assets/images/users/services/1 (4).png') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-5"><small class="">Portland, ME</small>
+                                                </div>
+                                                <div class="col-7"><small><i class="fa fa-users"></i> 25 </small>
+                                                    &nbsp;
+                                                    <small>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
+                                                        14
+                                                    </small>
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <h5>Events & Rentals</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>SAR - Affordable</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn-pill btn-outline-primary ">Request
+                                                            Quote</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <div class="card overflow-hidden">
-                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                        <div class="me-2 card-background float-end">
-                                            <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                <div class="col-xl-4 col-md-6 col-sm-12">
+                                    <div class="card overflow-hidden">
+                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
+                                            <div class="me-2 card-background float-end">
+                                                <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <a href="{{ URL('/service-details') }}">
-                                        <img src="{{ asset('assets/images/users/services/1 (3).png') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-5"><small class="">Portland, ME</small>
-                                            </div>
-                                            <div class="col-7"><small><i class="fa fa-users"></i> 25 </small> &nbsp;
-                                                <small>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp; 14
-                                                </small>
-                                            </div>
-                                            <div class="col-12 mt-2">
-                                                <h5>Events & Rentals</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>SAR - Affordable</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn-pill btn-outline-primary ">Request
-                                                        Quote</button>
+                                        <a href="{{ URL('/service-details') }}">
+                                            <img src="{{ asset('assets/images/users/services/1 (3).png') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-5"><small class="">Portland, ME</small>
+                                                </div>
+                                                <div class="col-7"><small><i class="fa fa-users"></i> 25 </small>
+                                                    &nbsp;
+                                                    <small>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
+                                                        14
+                                                    </small>
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <h5>Events & Rentals</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>SAR - Affordable</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn-pill btn-outline-primary ">Request
+                                                            Quote</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                <div class="card overflow-hidden">
-                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                        <div class="me-2 card-background float-end">
-                                            <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                <div class="col-xl-4 col-md-6 col-sm-12">
+                                    <div class="card overflow-hidden">
+                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
+                                            <div class="me-2 card-background float-end">
+                                                <span class="mini-stat-icon p-0"><i class="fa fa-heart p-3"></i></span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <a href="{{ URL('/service-details') }}">
-                                        <img src="{{ asset('assets/images/users/services/1 (2).png') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-5"><small class="">Portland, ME</small>
-                                            </div>
-                                            <div class="col-7"><small><i class="fa fa-users"></i> 25 </small> &nbsp;
-                                                <small>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                    <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp; 14
-                                                </small>
-                                            </div>
-                                            <div class="col-12 mt-2">
-                                                <h5>Events & Rentals</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>SAR - Affordable</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn-pill btn-outline-primary ">Request
-                                                        Quote</button>
+                                        <a href="{{ URL('/service-details') }}">
+                                            <img src="{{ asset('assets/images/users/services/1 (2).png') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-5"><small class="">Portland, ME</small>
+                                                </div>
+                                                <div class="col-7"><small><i class="fa fa-users"></i> 25 </small>
+                                                    &nbsp;
+                                                    <small>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                                                        <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
+                                                        14
+                                                    </small>
+                                                </div>
+                                                <div class="col-12 mt-2">
+                                                    <h5>Events & Rentals</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>SAR - Affordable</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn-pill btn-outline-primary ">Request
+                                                            Quote</button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -469,13 +539,15 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-md-12">
-            <div class="card custom-card">
-                <div class="card-body h-100">
-                    <iframe class="gmap_iframe" frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0"
-                        marginwidth="0"
-                        src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                    </iframe>
+        <div class="col-lg-4 col-12 mt-5 mt-lg-0" id="mapColumn">
+            <div class="container-fluid">
+                <div class="card custom-card">
+                    <div class="card-body map_height overflow-auto" id="mapContainer">
+                        <iframe class="gmap_iframe" frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0"
+                            marginwidth="0"
+                            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
@@ -490,4 +562,12 @@
 
     <!-- OWL Carousel js -->
     <script src="{{ asset('assets/js/carousel.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#flexSwitchCheckChecked').on('click', function() {
+                $('#mapColumn').toggleClass('d-none');
+                $('#galleryColumn').toggleClass('col-lg-12');
+            });
+        });
+    </script>
 @endsection

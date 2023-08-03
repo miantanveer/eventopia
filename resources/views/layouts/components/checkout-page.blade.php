@@ -24,7 +24,7 @@
             <div class="card custom-card overflow-hidden">
                 <div class="card-body m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%) !important;">
                     <label class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" name="checkbox1" value="option1" id="all_select">
+                        <input type="checkbox" class="custom-control-input" name="checkbox1" id="all_select">
                         <span class="custom-control-label">Select all Spaces</span>
                     </label>
                 </div>
@@ -34,7 +34,7 @@
                     <div class="row g-0 ">
                         <div class="col-1 pe-0 my-auto">
                             <label class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" name="checkbox1" value="option1"
+                                <input type="checkbox" class="custom-control-input cards" name="checkbox1" value="option1"
                                     id="first_card">
                                 <span class="custom-control-label"></span>
                             </label>
@@ -92,7 +92,7 @@
                     <div class="row g-0 ">
                         <div class="col-1 pe-0 my-auto">
                             <label class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" name="checkbox1" value="option1"
+                                <input type="checkbox" class="custom-control-input cards" name="checkbox1" value="option1"
                                     id="second_card">
                                 <span class="custom-control-label"></span>
                             </label>
@@ -151,7 +151,7 @@
                     <div class="row g-0 ">
                         <div class="col-1 pe-0 my-auto">
                             <label class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" name="checkbox1" value="option1"
+                                <input type="checkbox" class="custom-control-input cards" name="checkbox1" value="option1"
                                     id="third_card">
                                 <span class="custom-control-label"></span>
                             </label>
@@ -435,9 +435,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center my-5">
-                    <button type="button" class="btn btn-primary mb-1">View all</button>
-                </div>
             </div>
         </div>
         <h3 class="p-3 mb-5 text-dark">Talents & Entertainments you might be looking for?</h3>
@@ -594,9 +591,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="text-center my-5">
-                    <button type="button" class="btn btn-primary mb-1">View all</button>
-                </div>
             </div>
         </div>
     </div>
@@ -620,11 +614,12 @@
     <script>
         $(document).ready(function() {
             $('#profile_form').parsley();
-            $('#all_select').on('click', function() {
-                var isChecked = $('#first_card').prop('checked');
-                $('#first_card').prop('checked', !isChecked);
-                $('#second_card').prop('checked', !isChecked);
-                $('#third_card').prop('checked', !isChecked);
+            $('#all_select').on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.cards').prop('checked', true);
+                } else {
+                    $('.cards').prop('checked', false);
+                }
             });
         });
     </script>
