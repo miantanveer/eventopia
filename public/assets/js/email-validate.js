@@ -2,7 +2,7 @@
 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Phone number validation regex pattern
-var phoneRegex = /^\+[0-9]{6,}$/; // Allow at least 6 digits (including country code)
+var phoneRegex = /^\+[0-9]{0,15}$/; // Allow at least 6 digits (including country code)
 
 // Event listener for the email input field
 $('#email').on('input', function() {

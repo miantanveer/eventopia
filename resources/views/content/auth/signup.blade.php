@@ -105,7 +105,7 @@
                                 <label class="form-label" for="cpassword">Confirm Password</label>
                                 <div class="d-flex align-items-center input-container">
                                     <input type="password" class="form-control" value="" name="password"
-                                        id="cpassword" required
+                                        id="cpassword" required data-parsley-equalto="#password"
                                         data-parsley-required-message="Confirm Password is required*"
                                         data-parsley-errors-container="#cpassword_err">
                                     <i class="fa fa-lock text-muted icon"></i>
