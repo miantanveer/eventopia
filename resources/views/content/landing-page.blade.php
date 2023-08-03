@@ -29,21 +29,21 @@
         }
 
         /* .search-results {
-                display: none;
-                position: absolute;
-                width: 100%;
-                background-color: #fff;
-                border-radius: 13px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-                z-index: 1;
-                padding: 10px;
-                max-height: 200px;
-                overflow-y: auto;
-                top: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                margin-top: 5px;
-            } */
+                    display: none;
+                    position: absolute;
+                    width: 100%;
+                    background-color: #fff;
+                    border-radius: 13px;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    z-index: 1;
+                    padding: 10px;
+                    max-height: 200px;
+                    overflow-y: auto;
+                    top: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    margin-top: 5px;
+                } */
 
         .search-drop-content {
             cursor: pointer;
@@ -63,12 +63,12 @@
         }
 
         /* .pac-container {
-                width: 68% !important;
-                position: relative !important;
-                top: 0px !important;
-                left: 0px !important;
-                z-index: 9999 !important;
-            } */
+                    width: 68% !important;
+                    position: relative !important;
+                    top: 0px !important;
+                    left: 0px !important;
+                    z-index: 9999 !important;
+                } */
     </style>
 @endsection
 
@@ -510,9 +510,8 @@
             </div>
         </div>
     </div>
-    <h3 class="text-center"><a class="bg-primary btn text-white px-7"><b>Get started</b></a></h3>
-    <p class="text-center text-primary">Make an exceptional booking.</p>
-
+    <h3 class="text-center"><a class="bg-primary btn text-white px-7 modal-effect" data-bs-target="#signup-modal"
+            data-bs-toggle="modal"><b>Get started</b></a></h3>
     {{-- --------------------------------------- Content 3333 ------------------------------------- --}}
 
     <div style="margin-top: 65px!important;" class="landing_background1 height-img">

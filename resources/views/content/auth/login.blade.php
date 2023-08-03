@@ -99,4 +99,5 @@
             $('#login_form').parsley();
         });
     </script>
+    <script src="{{ asset('assets/js/email-validate.js') }}"></script>
 @endsection

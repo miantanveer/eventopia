@@ -42,7 +42,8 @@
             <div class="col-12 col-md-5 px-0">
                 <div class="text-white text-center image_content">
                     <p>Already have an account?</p>
-                    <a style="padding-left:45px; padding-right:45px;" class="btn btn-outline-light" href="{{URL('/login')}}">LOGIN</a>
+                    <a style="padding-left:45px; padding-right:45px;" class="btn btn-outline-light"
+                        href="{{ URL('/login') }}">LOGIN</a>
                 </div>
                 <div class="div_Image">
                     <img class="Image" src="{{ asset('assets/images/signup-form.png') }}" alt="">
@@ -75,9 +76,12 @@
                             </div>
                             <div class="col-12 mb-3 mx-">
                                 <label class="form-label" for="email">Email or Phone Number</label>
-                                <input type="text" class="form-control" name="email" value="" id="email"
-                                    required data-parsley-required-message="Email or Phone Number is required*"
-                                    data-parsley-errors-container="#email_err">
+                                <div class="d-flex align-items-center input-container">
+                                    <input type="text" class="form-control" name="email" value="" id="email"
+                                        required data-parsley-required-message="Email or Phone Number is required*"
+                                        data-parsley-errors-container="#email_err">
+                                    <i class="fa fa-edit text-muted icon"></i>
+                                </div>
                                 <span class="text-danger" id="email_err"> </span>
                             </div>
                             <div class="col-12 mb-3 mx-">
@@ -132,4 +136,5 @@
             $('#signUp_form').parsley();
         });
     </script>
+    <script src="{{ asset('assets/js/email-validate.js') }}"></script>
 @endsection
