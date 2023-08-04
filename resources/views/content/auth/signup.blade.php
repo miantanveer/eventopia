@@ -51,70 +51,77 @@
             </div>
             <div class="bg-white col-12 col-md-7 px-0">
                 <div style="margin:200px 100px 100px 100px;">
-                    <form id="signUp_form" method="GET" action="{{ URL('/verify-code') }}" data-parsley-validate>
+                    <form id="signUp_form" method="POST" action="" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-6 mb-3">
-                                <label class="form-label" for="fname">First Name</label>
+                                <label class="form-label" for="first_name">First Name</label>
                                 <div class="d-flex align-items-center input-container">
-                                    <input type="text" class="form-control" name="fname" value="" id="fname"
-                                        data-parsley-required-message="First Name is required*"
-                                        data-parsley-errors-container="#fname_err" required>
+                                    <input type="text" class="form-control @error('first_name') border-danger @enderror" name="first_name" id="first_name"
+                                        required data-parsley-required-message="First Name is required*"
+                                        data-parsley-errors-container="#fname_err">
                                     <i class="fa fa-edit text-muted icon"></i>
                                 </div>
+                                @error('first_name') <div class="text-danger">{{$message}}</div> @enderror
                                 <span class="text-danger" id="fname_err"></span>
                             </div>
                             <div class="col-6 mb-3 mx-">
-                                <label class="form-label" for="lname">Last Name</label>
+                                <label class="form-label" for="last_name">Last Name</label>
                                 <div class="d-flex align-items-center input-container">
-                                    <input type="text" class="form-control" name="lname" value="" id="lname"
+                                    <input type="text" class="form-control @error('last_name') border-danger @enderror" name="last_name" id="last_name"
                                         required data-parsley-required-message="Last Name is required*"
                                         data-parsley-errors-container="#lname_err">
                                     <i class="fa fa-edit text-muted icon"></i>
                                 </div>
+                                @error('last_name') <div class="text-danger">{{$message}}</div> @enderror
                                 <span class="text-danger" id="lname_err"> </span>
                             </div>
                             <div class="col-12 mb-3 mx-">
                                 <label class="form-label" for="email">Email or Phone Number</label>
                                 <div class="d-flex align-items-center input-container">
-                                    <input type="text" class="form-control" name="email" value="" id="email"
+                                    <input type="text" class="form-control @if($errors->has('email') || $errors->has('phone_number')) border-danger @endif" name="email" id="email"
                                         required data-parsley-required-message="Email or Phone Number is required*"
                                         data-parsley-errors-container="#email_err">
                                     <i class="fa fa-edit text-muted icon"></i>
                                 </div>
+                                @error('email') <div class="text-danger">{{$message}}</div> @enderror
+                                @error('phone_number') <div class="text-danger">{{$message}}</div> @enderror
                                 <span class="text-danger" id="email_err"> </span>
                             </div>
                             <div class="col-12 mb-3 mx-">
-                                <label class="form-label" for="dob">Date of Birth</label>
-                                <input type="date" class="form-control" name="dob" value="" id="dob"
+                                <label class="form-label" for="date_of_birth">Date of Birth</label>
+                                <input type="date" class="form-control @error('date_of_birth') border-danger @enderror" name="date_of_birth" id="date_of_birth"
                                     required data-parsley-required-message="Date of Birth is required*"
                                     data-parsley-errors-container="#dob_err">
+                                @error('date_of_birth') <div class="text-danger">{{$message}}</div> @enderror
                                 <span class="text-danger" id="dob_err"> </span>
                             </div>
                             <div class="col-6 mb-3">
                                 <label class="form-label" for="password">Password</label>
                                 <div class="d-flex align-items-center input-container">
-                                    <input type="password" class="form-control" value="" name="password"
-                                        id="password" required data-parsley-required-message="Password is required*"
-                                        data-parsley-errors-container="#password_err">
+                                    <input type="password" class="form-control @error('password') border-danger @enderror" name="password"
+                                        id="password"  data-parsley-required-message="Password is required*"
+                                        required data-parsley-errors-container="#password_err">
                                     <i class="fa fa-lock text-muted icon"></i>
                                 </div>
+                                @error('password') <div class="text-danger">{{$message}}</div> @enderror
                                 <span class="text-danger" id="password_err"></span>
                             </div>
                             <div class="col-6 mb-1">
                                 <label class="form-label" for="cpassword">Confirm Password</label>
                                 <div class="d-flex align-items-center input-container">
-                                    <input type="password" class="form-control" value="" name="password"
-                                        id="cpassword" required data-parsley-equalto="#password"
-                                        data-parsley-required-message="Confirm Password is required*"
+                                    <input type="password" class="form-control @error('password') border-danger @enderror" name="password_confirmation"
+                                        id="cpassword"  data-parsley-equalto="#password"
+                                        required data-parsley-required-message="Confirm Password is required*"
                                         data-parsley-errors-container="#cpassword_err">
                                     <i class="fa fa-lock text-muted icon"></i>
                                 </div>
+                                @error('password') <div class="text-danger">{{$message}}</div> @enderror
                                 <span class="text-danger" id="cpassword_err"></span>
                             </div>
                             <div class="col-12">
-                                <input type="checkbox" id="check" data-parsley-required="true" required
-                                    data-parsley-errors-container="#checkbox_err">
+                                <input type="checkbox" id="check" data-parsley-required="true"
+                                   required data-parsley-errors-container="#checkbox_err">
                                 <label for="check">I agree with the <a style="color: #006CE4;" href="#">Terms &
                                         Conditions.</a></label>
                                 <span class="text-denger" id="checkbox_err"></span>

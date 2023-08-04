@@ -41,6 +41,7 @@
 @section('class')
 @endsection
 @section('content')
+{{$emailOrPhone}}
     <div class="container-login100" style="background-color: #E8F2FF">
         <div class="wrap-login100 p-6">
             <div class="text-center p-5">
