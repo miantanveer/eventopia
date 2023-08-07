@@ -46,17 +46,21 @@
             <div class="text-center p-5">
                 <img src="{{asset("assets/images/brand/logo13.png")}}" alt="" class="header-brand-img">
             </div>
-            <form method="GET" action="/customer-dashboard" id="verify_form" class="login100-form validate-form mt-5" data-parsley-validate>
+            <form method="POST" id="verify_form" class="login100-form validate-form mt-5" data-parsley-validate>
+                @csrf
                 <h4>Verification Code</h4>
                 <p style="font-size: 12px;" class="text-muted">We send you on {{$email ? 'mail.' : 'Phone Number.'}}</p>
                 <p style="font-size: 13px;" class="mt-5" >We have send you code on {{ $email ? $email : $phone_number }}</p>
                 <div id="otp" class="inputs d-flex flex-row justify-content-center">
-                    <input class="my-2 me-2 text-center form-control " type="number" id="first" maxlength="1"
-                        required data-parsley-excluded="true"/>
-                    <input class="m-2 text-center form-control " type="number" id="second" maxlength="1" required data-parsley-excluded="true"/>
-                    <input class="m-2 text-center form-control " type="number" id="third" maxlength="1" required data-parsley-excluded="true"/>
-                    <input class="m-2 text-center form-control " type="number" id="fourth" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="my-2 me-2 text-center form-control " name="otp[]" type="number" id="numb" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-2 text-center form-control " name="otp[]" type="number" id="numb1" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-2 text-center form-control " name="otp[]" type="number" id="numb2" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-2 text-center form-control " name="otp[]" type="number" id="numb3" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-2 text-center form-control " name="otp[]" type="number" id="numb4" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-2 text-center form-control " name="otp[]" type="number" id="numb5" maxlength="1" required data-parsley-excluded="true"/>
                 </div>
+                <input type="hidden" name="email" value="{{ $email ?? '' }}">
+                <input type="hidden" name="phone_number" value="{{ $phone_number ?? '' }}">
                 <span class="text-danger" id="otp_err"></span>
                 <div class="container-login100-form-btn">
                     <button type="submit" class="btn btn-primary mt-3 mb-4 w-100 text-white">Continue</button>
@@ -81,6 +85,9 @@
 
 @section('scripts')
     <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
+    <script src="{{asset('assets/plugins/notify/js/rainbow.js')}}"></script>
+    <script src="{{asset('assets/plugins/notify/js/sample.js')}}"></script>
+    <script src="{{asset('assets/plugins/notify/js/notifIt.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('#resend-otp-form').submit(function(event) {
@@ -91,7 +98,10 @@
                     url: $(this).attr('action'),
                     data: $(this).serialize(),
                     success: function(response) {
-                        alert('OTP resent successfully.'); // Display a success message
+                        notif({
+                            msg: "<b>Success: </b> OTP resend Successfully",
+                            type: "success"
+                        });
                     },
                     error: function() {
                         alert('An error occurred while resending OTP.'); // Display an error message
@@ -126,21 +136,17 @@
             function OTPInput() {
                 const inputs = document.querySelectorAll('#otp > *[id]');
                 for (let i = 0; i < inputs.length; i++) {
-                    inputs[i].addEventListener('keydown', function(event) {
-                        if (event.key === "Backspace") {
-                            inputs[i].value = '';
-                            if (i !== 0) inputs[i - 1].focus();
+                    inputs[i].addEventListener('input', function(event) {
+                        if (this.value.length > 1) {
+                            this.value = this.value.slice(0, 1); // Keep only the first digit
+                        }
+                        if (this.value !== '') {
+                            if (i !== inputs.length - 1) {
+                                inputs[i + 1].focus();
+                            }
                         } else {
-                            if (i === inputs.length - 1 && inputs[i].value !== '') {
-                                return true;
-                            } else if (event.keyCode > 47 && event.keyCode < 58) {
-                                inputs[i].value = event.key;
-                                if (i !== inputs.length - 1) inputs[i + 1].focus();
-                                event.preventDefault();
-                            } else if (event.keyCode > 64 && event.keyCode < 91) {
-                                inputs[i].value = String.fromCharCode(event.keyCode);
-                                if (i !== inputs.length - 1) inputs[i + 1].focus();
-                                event.preventDefault();
+                            if (i !== 0) {
+                                inputs[i - 1].focus();
                             }
                         }
                     });

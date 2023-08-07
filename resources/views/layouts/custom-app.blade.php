@@ -44,6 +44,7 @@
     <!-- BACKGROUND-IMAGE CLOSED -->
 
     @include('layouts.components.custom-scripts')
+    @include('layouts.components.notification-scripts')
 
 </body>
 

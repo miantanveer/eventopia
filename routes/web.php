@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\Customer\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,12 +27,6 @@ Route::post('signup', [AuthenticationController::class, 'signup']);
 Route::get('verify-email-phone', [AuthenticationController::class, 'verifyEmailPhoneIndex'])->name('verify-email-phone');
 Route::post('verify-email-phone', [AuthenticationController::class, 'verifyEmailPhone']);
 Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
-// Route::get('/signup', function () {
-//     return view('content.auth.signup');
-// });
-// Route::get('/login', function () {
-//     return view('content.auth.login');
-// });
 Route::get('/forget-password', function () {
     return view('content.auth.forget-password');
 });
@@ -41,17 +36,18 @@ Route::get('/forget-password-1', function () {
 Route::get('/reset-password', function () {
     return view('content.auth.reset-password');
 });
-// Route::get('/verify-code', function () {
-//     return view('content.auth.verify-code');
-// });
 Route::get('/verify-code-1', function () {
     return view('content.auth.verify-code-1');
 });
+
+//Logout
+Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 Route::get('/edit-profile', function () {
     return view('content.edit-profile');
-});
-Route::get('/customer-dashboard', function () {
-    return view('content.customer.customer-dashboard');
 });
 Route::get('/notify-list', function () {
     return view('layouts.components.notify-list');

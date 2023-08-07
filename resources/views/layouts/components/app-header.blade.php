@@ -94,9 +94,12 @@
                                                 <a class="dropdown-item" href="{{url('/edit-profile')}}">
                                                     <i class="dropdown-icon fe fe-user"></i> Manage Account
                                                 </a>
-                                                <a class="dropdown-item" href="{{url('/login')}}">
-                                                    <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
-                                                </a>
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <button class="dropdown-item">
+                                                        <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
