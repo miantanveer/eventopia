@@ -23,8 +23,9 @@ Route::get('login', [AuthenticationController::class, 'loginIndex'])->name('logi
 Route::post('login', [AuthenticationController::class, 'login']);
 Route::get('signup', [AuthenticationController::class, 'signupIndex'])->name('signup');
 Route::post('signup', [AuthenticationController::class, 'signup']);
-Route::get('verify-email', [AuthenticationController::class, 'verifyEmailIndex'])->name('verify-email');
-Route::post('verify-email', [AuthenticationController::class, 'verifyEmail']);
+Route::get('verify-email-phone', [AuthenticationController::class, 'verifyEmailPhoneIndex'])->name('verify-email-phone');
+Route::post('verify-email-phone', [AuthenticationController::class, 'verifyEmailPhone']);
+Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
 // Route::get('/signup', function () {
 //     return view('content.auth.signup');
 // });

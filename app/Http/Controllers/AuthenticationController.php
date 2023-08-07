@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\EmailVerfication;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -57,26 +59,23 @@ class AuthenticationController extends UserBaseController
             }
 
             $data = $req->except('_token');
-            $otp = rand(111111, 999999);
-            $data['otp'] = $otp;
             User::create($data);
 
-            // Mail::to($req->email)->send(new EmailVerification('Sir/Madam', $otp));
+            $this->sendOtp($req);
 
-            return redirect(route('verify-email'))->with('emailOrPhone', $req->email ?? $req->phone_number);
+            return redirect(route('verify-email-phone'))->with(['email' => $req->email ?? '' ,'phone_number' => $req->phone_number ?? '']);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', "Something unexpected happened on server. " . $th->getMessage());
         }
     }
 
-    public function verifyEmailIndex()
+    public function verifyEmailPhoneIndex()
     {
-        if (!session('emailOrPhone')) return redirect(route('login'));
-        $this->emailOrPhone = session('emailOrPhone') ?? '';
-        return view('content.auth.verify-code-1', $this->data);
+        if (!session('phone_number') && !session('email')) return redirect(route('login'));
+        return view('content.auth.verify-code-1',['phone_number' => session('phone_number'),'email' => session('email')]);
     }
 
-    public function verifyEmail(Request $req)
+    public function verifyEmailPhone(Request $req)
     {
         try {
             $data = $req->except('_token');
@@ -100,6 +99,18 @@ class AuthenticationController extends UserBaseController
             }
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', "Something unexpected happened on server. " . $th->getMessage());
+        }
+    }
+
+    public function sendOtp(Request $req)
+    {
+        $otp = rand(111111, 999999);
+        User::where('email', $req->email)->orWhere('phone_number', $req->phone_number)->update(['otp' => $otp]);
+
+        if ($req->phone_number) {
+            // dd("ASdf");
+        }else {
+            Mail::to($req->email)->send(new EmailVerfication($otp));
         }
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -27,6 +28,16 @@ class User extends Authenticatable
         'status',
         'otp',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Listen for the 'creating' event
+        static::creating(function ($user) {
+            $user->password = Hash::make($user->password); // Hash the password
+        });
+    }
 
     /**
      * The attributes that should be hidden for serialization.

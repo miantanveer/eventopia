@@ -41,7 +41,6 @@
 @section('class')
 @endsection
 @section('content')
-{{$emailOrPhone}}
     <div class="container-login100" style="background-color: #E8F2FF">
         <div class="wrap-login100 p-6">
             <div class="text-center p-5">
@@ -49,8 +48,8 @@
             </div>
             <form method="GET" action="/customer-dashboard" id="verify_form" class="login100-form validate-form mt-5" data-parsley-validate>
                 <h4>Verification Code</h4>
-                <p style="font-size: 12px;" class="text-muted">We send you on mail.</p>
-                <p style="font-size: 13px;" class="mt-5" >We have send you code on john***@gmail.com</p>
+                <p style="font-size: 12px;" class="text-muted">We send you on {{$email ? 'mail.' : 'Phone Number.'}}</p>
+                <p style="font-size: 13px;" class="mt-5" >We have send you code on {{ $email ? $email : $phone_number }}</p>
                 <div id="otp" class="inputs d-flex flex-row justify-content-center">
                     <input class="my-2 me-2 text-center form-control " type="number" id="first" maxlength="1"
                         required data-parsley-excluded="true"/>
@@ -67,9 +66,14 @@
 
             <span class="me-4"> Didn't receive the email? Check your spam filter, or</span>
             <br>
+            <form id="resend-otp-form" action="{{route('resend-otp')}}" method="post" >
             <div class="container-login100-form-btn">
-                <button type="submit" class="btn border border-2 mt-1 mb-4 w-100 text-dark">Resend Code</button>
-            </div>
+                    @csrf
+                    <input type="hidden" name="email" value="{{ $email ?? '' }}">
+                    <input type="hidden" name="phone_number" value="{{ $phone_number ?? '' }}">
+                    <button type="submit" class="btn border border-2 mt-1 mb-4 w-100 text-dark">Resend Code</button>
+                </div>
+            </form>
         </div>
     </div>
     <!-- CONTAINER CLOSED -->
@@ -77,6 +81,25 @@
 
 @section('scripts')
     <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#resend-otp-form').submit(function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                $.ajax({
+                    type: 'POST',
+                    url: $(this).attr('action'),
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        alert('OTP resent successfully.'); // Display a success message
+                    },
+                    error: function() {
+                        alert('An error occurred while resending OTP.'); // Display an error message
+                    }
+                });
+            });
+        });
+        </script>
     <script>
         $(document).ready(function() {
             $('#verify_form').on('submit', function(e) {
