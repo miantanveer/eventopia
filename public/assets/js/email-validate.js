@@ -2,7 +2,7 @@
 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // Phone number validation regex pattern
-var phoneRegex = /^\+[0-9]{0,15}$/; // Allow at least 6 digits (including country code)
+var phoneRegex = /^\+[0-9]{6,15}$/; // Allow at least 6 digits (including country code)
 
 // Event listener for the email input field
 $('#email').on('input', function() {
@@ -13,11 +13,13 @@ $('#email').on('input', function() {
     if (emailRegex.test(input)) {
         emailInput.prop('type', 'email');
         emailInput.prop('id', 'email');
+        emailInput.prop('name', 'email');
         emailInput.attr('data-parsley-pattern', emailRegex); // Add Parsley validation for email
         $('#email_err').text(''); // Clear any previous error message
     } else if (phoneRegex.test(input)) { // Check if the input looks like a phone number
         emailInput.prop('type', 'tel');
-        emailInput.prop('id', 'tel');
+        emailInput.prop('id', 'phone_number');
+        emailInput.prop('name', 'phone_number');
         emailInput.attr('data-parsley-pattern', phoneRegex); // Add Parsley validation for email
         $('#email_err').text(''); // Clear any previous error message
     } else {

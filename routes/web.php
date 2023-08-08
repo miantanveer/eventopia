@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\Customer\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,32 +18,41 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('content.landing-page');
 });
-Route::get('/signup', function () {
-    return view('content.auth.signup');
-});
-Route::get('/login', function () {
-    return view('content.auth.login');
-});
-Route::get('/forget-password', function () {
-    return view('content.auth.forget-password');
-});
+
+// Authentications
+Route::get('signup', [AuthenticationController::class, 'signupIndex'])->name('signup');
+Route::post('signup', [AuthenticationController::class, 'signup']);
+Route::get('login', [AuthenticationController::class, 'loginIndex'])->name('login');
+Route::post('login', [AuthenticationController::class, 'login']);
+Route::get('verify-email-phone', [AuthenticationController::class, 'verifyEmailPhoneIndex'])->name('verify-email-phone');
+Route::post('verify-email-phone', [AuthenticationController::class, 'verifyEmailPhone']);
+Route::get('forget-password', [AuthenticationController::class, 'forgetEmailPhoneIndex'])->name('forget-password');
+Route::post('forget-password', [AuthenticationController::class, 'forgetPassword']);
+Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
+
 Route::get('/forget-password-1', function () {
     return view('content.auth.forget-password-1');
 });
 Route::get('/reset-password', function () {
     return view('content.auth.reset-password');
 });
-Route::get('/verify-code', function () {
-    return view('content.auth.verify-code');
-});
 Route::get('/verify-code-1', function () {
     return view('content.auth.verify-code-1');
 });
+
+//Logout
+Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
+
+Route::get('/add-space', function () {
+    return view('content.seller.add-space');
+});
 Route::get('/edit-profile', function () {
     return view('content.edit-profile');
-});
-Route::get('/customer-dashboard', function () {
-    return view('content.customer.customer-dashboard');
 });
 Route::get('/notify-list', function () {
     return view('layouts.components.notify-list');
@@ -91,14 +102,23 @@ Route::get('/list-space', function () {
 Route::get('/space-form-steps', function () {
     return view('content.seller.space-form-steps');
 });
+Route::get('/add-space', function () {
+    return view('content.seller.add-space');
+});
 Route::get('/list-entertainment', function () {
     return view('content.seller.list-entertainment');
+});
+Route::get('/add-entertainment', function () {
+    return view('content.seller.add-entertainment');
 });
 Route::get('/entertainment-form-steps', function () {
     return view('content.seller.entertainment-form-steps');
 });
 Route::get('/list-service', function () {
     return view('content.seller.list-service');
+});
+Route::get('/add-services', function () {
+    return view('content.seller.add-services');
 });
 Route::get('/service-form-steps', function () {
     return view('content.seller.service-form-steps');

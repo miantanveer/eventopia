@@ -94,7 +94,7 @@
                                                 <a class="dropdown-item" href="{{url('/edit-profile')}}">
                                                     <i class="dropdown-icon fe fe-user"></i> Manage Account
                                                 </a>
-                                                <a class="dropdown-item" href="{{url('login')}}">
+                                                <a class="dropdown-item" href="{{route('logout')}}">
                                                     <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
                                                 </a>
                                             </div>

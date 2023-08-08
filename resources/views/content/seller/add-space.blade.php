@@ -399,7 +399,7 @@
     <!-- page -->
 
     <!-- global-helper -->
-    @include()
+    @include('layouts.components.global-helper')
 
     @include('layouts.components.dark-footer')
 
