@@ -319,46 +319,46 @@
                 </div>
                 <div class="row">
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Audio Recording</p>
+                        <a class="text-dark" href="#"><p>Audio Recording</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Corporate Event</p>
+                        <a class="text-dark" href="#"><p>Corporate Event</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Dinner</p>
+                        <a class="text-dark" href="#"><p>Dinner</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Film Shoot</p>
+                        <a class="text-dark" href="#"><p>Film Shoot</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Fitness Class</p>
+                        <a class="text-dark" href="#"><p>Fitness Class</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Meeting</p>
+                        <a class="text-dark" href="#"><p>Meeting</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Networking Event</p>
+                        <a class="text-dark" href="#"><p>Networking Event</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Party</p>
+                        <a class="text-dark" href="#"><p>Party</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Performance</p>
+                        <a class="text-dark" href="#"><p>Performance</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Photo Shoot</p>
+                        <a class="text-dark" href="#"><p>Photo Shoot</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Pop-Up</p>
+                        <a class="text-dark" href="#"><p>Pop-Up</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Retreat</p>
+                        <a class="text-dark" href="#"><p>Retreat</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Wedding</p>
+                        <a class="text-dark" href="#"><p>Wedding</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <p>Workshop</p>
+                        <a class="text-dark" href="#"><p>Workshop</p></a>
                     </div>
                 </div>
             </div>

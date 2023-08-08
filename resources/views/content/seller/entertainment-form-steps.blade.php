@@ -70,7 +70,35 @@
                                         <input type="text" class="w-100 p-4 bg-light-gray form-control"
                                             placeholder="Comedian for event">
                                         <hr class="bg-dark">
-                                        <h3 class="mb-2 mt-md-7"><b>Security cameras and recording devices</b></h3>
+                                        <h1>what are your Entertainment and Talent rules</h1>
+                                        <p>Include any rules about what your guests can and cannot do in the space.</p>
+                                        <h3>Example rules:</h3>
+                                        <ul style="list-style-type:disc">
+                                            <li class="ms-4">No smoking in the building</li>
+                                            <li class="ms-4">Outside catering is allowed</li>
+                                            <li class="ms-4">No alcohol allowed after 8pm</li>
+                                        </ul><br>
+                                        <h2>Do not include:</h2>
+                                        <ul style="list-style-type:disc">
+                                            <li class="ms-4"><b><span style="color:black;">Cleaning Fee</span></b> - Basic cleaning
+                                                is the
+                                                responsibility of the host. If you charge a cleaning fee, you can add it
+                                                in a
+                                                later section.</li>
+                                            <li class="ms-4"><b><span style="color:black;">Contracts </span></b> - Peerspace bookings
+                                                are
+                                                covered by our Service Agreement. Do not paste your contract,
+                                                cancellation
+                                                policy, or
+                                                liability policy.</li>
+                                        </ul>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                                        <textarea style="height:150px;" class="form-control rounded-0"
+                                            id="exampleFormControlTextarea1" rows="3">Enter your house rules</textarea>
+                                        <p class="text-end">Minimum 100 characters</h4>
+                                            <br>
+                                            <hr class="bg-dark"><br>
+                                        <h3 class="mb-2"><b>Security cameras and recording devices</b></h3>
                                         <div class="w-50 float-start">
                                             <p class="mb-3">Does the event have security cameras or recording devices?
                                             </p>
@@ -129,13 +157,13 @@
                                             <p><img src="{{ asset('assets/images/brand/light-bulb.png') }}" class="w-5"
                                                     alt=""> Example: If your space is 2,000 sq m, but guests are
                                                 booking a
-                                                500 sq m conference room, you would enter “500”.</p>
+                                                500 m m conference room, you would enter “500”.</p>
                                             <div class="form-group">
                                                 <div class="input-group w-30">
                                                     <input type="text" class="form-control" placeholder="1 to 500"
                                                         aria-label="Recipient's username"
                                                         aria-describedby="basic-addon2" required>
-                                                    <span class="input-group-text" id="basic-addon2">sq ft</span>
+                                                    <span class="input-group-text" id="basic-addon2">sq m</span>
                                                 </div>
                                             </div>
                                             <hr class="bg-dark">

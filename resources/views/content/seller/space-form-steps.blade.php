@@ -258,12 +258,12 @@
                                     <p>Please only include the size of the space that guests can use during their booking.
                                     </p>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
-                                            alt="img"><b>Example: If your space is 2,000 sq ft, but guests are booking
-                                            a 500 sq ft conference room, you would enter “500”.</b></p>
+                                            alt="img"><b>Example: If your space is 2,000 m ft, but guests are booking
+                                            a 500 m ft conference room, you would enter “500”.</b></p>
 
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <input type="number" class="btn btn-outline-default rounded-0" value="500">
-                                        <button type="button" class="btn btn-outline-default rounded-0">sq ft</button>
+                                        <button type="button" class="btn btn-outline-default rounded-0">sq m</button>
 
                                     </div>
 
