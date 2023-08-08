@@ -97,14 +97,23 @@ Route::get('/list-space', function () {
 Route::get('/space-form-steps', function () {
     return view('content.seller.space-form-steps');
 });
+Route::get('/add-space', function () {
+    return view('content.seller.add-space');
+});
 Route::get('/list-entertainment', function () {
     return view('content.seller.list-entertainment');
+});
+Route::get('/add-entertainment', function () {
+    return view('content.seller.add-entertainment');
 });
 Route::get('/entertainment-form-steps', function () {
     return view('content.seller.entertainment-form-steps');
 });
 Route::get('/list-service', function () {
     return view('content.seller.list-service');
+});
+Route::get('/add-services', function () {
+    return view('content.seller.add-services');
 });
 Route::get('/service-form-steps', function () {
     return view('content.seller.service-form-steps');
