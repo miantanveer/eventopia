@@ -29,6 +29,10 @@
     <script src="{{ asset('assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>
 
+    <script src="{{asset('assets/plugins/notify/js/rainbow.js')}}"></script>
+    <script src="{{asset('assets/plugins/notify/js/sample.js')}}"></script>
+    <script src="{{asset('assets/plugins/notify/js/notifIt.js')}}"></script>
+
     <script>
         $(document).ready(function() {
             $(document).on("submit", "#contactForm", function(e) {

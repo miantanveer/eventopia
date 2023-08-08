@@ -86,12 +86,21 @@ class AuthenticationController extends UserBaseController
             foreach ($data['otp'] as $key => $value) {
                 $otp .= $value;
             };
-            $user = User::where('email', $req->email)->orWhere('phone_number',$req->phone_number)->first();
+
+            if ($req->phone_number) {
+                $user = User::wherePhoneNumber($req->phone_number)->first();
+            } else {
+                $user = User::whereEmail($req->email)->first();
+            }
 
             if ($otp != $user->otp) {
                 return redirect()->back()->with(['email' => $req->email ?? '' ,'phone_number' => $req->phone_number ?? '', 'error' => "Your verification code is not correct"]);
             } else {
-                $user->update(['email_verified_at' => now(), 'otp' => '','status' => 1]);
+                if ($req->phone_number) {
+                    $user->update(['phone_number_verified_at' => now(), 'otp' => '','status' => 1]);
+                } else {
+                    $user->update(['email_verified_at' => now(), 'otp' => '','status' => 1]);
+                }
 
                 Auth::login($user);
                 return redirect()->route('dashboard')->with('success',"Welcome to Eventopia");
@@ -137,11 +146,12 @@ class AuthenticationController extends UserBaseController
     public function sendOtp(Request $req)
     {
         $otp = rand(111111, 999999);
-        User::where('email', $req->email)->orWhere('phone_number', $req->phone_number)->update(['otp' => $otp]);
 
         if ($req->phone_number) {
+            User::where('phone_number', $req->phone_number)->update(['otp' => $otp]);
             $this->sendMessage($req->phone_number,$otp);
         }else {
+            User::where('email', $req->email)->update(['otp' => $otp]);
             Mail::to($req->email)->send(new EmailVerfication($otp));
         }
     }

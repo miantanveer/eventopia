@@ -19,6 +19,10 @@
     <script src="{{ asset('assets/plugins/p-scroll/pscroll.js') }}"></script>
     <script src="{{ asset('assets/plugins/p-scroll/pscroll-1.js') }}"></script>
 
+    <script src="{{asset('assets/plugins/notify/js/rainbow.js')}}"></script>
+    <script src="{{asset('assets/plugins/notify/js/sample.js')}}"></script>
+    <script src="{{asset('assets/plugins/notify/js/notifIt.js')}}"></script>
+
     @yield('scripts')
 
     <!-- Color Theme js -->

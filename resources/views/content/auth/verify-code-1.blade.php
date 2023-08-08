@@ -85,9 +85,6 @@
 
 @section('scripts')
     <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
-    <script src="{{asset('assets/plugins/notify/js/rainbow.js')}}"></script>
-    <script src="{{asset('assets/plugins/notify/js/sample.js')}}"></script>
-    <script src="{{asset('assets/plugins/notify/js/notifIt.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('#resend-otp-form').submit(function(event) {
