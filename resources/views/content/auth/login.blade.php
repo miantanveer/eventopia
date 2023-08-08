@@ -40,7 +40,7 @@
             <div class="col-12 col-md-5 px-0">
                 <div class="text-white text-center image_content">
                     <p>Don't have an account?</p>
-                    <a style="padding-left:45px; padding-right:45px;" class="btn btn-outline-light" href="{{URL("/signup")}}">SIGN UP</a>
+                    <a style="padding-left:45px; padding-right:45px;" class="btn btn-outline-light" href="{{route("signup")}}">SIGN UP</a>
                 </div>
                 <div class="div_Image">
                     <img class="Image" src="{{ asset('assets/images/login-form.png') }}" alt="">
@@ -49,37 +49,40 @@
             <div class="bg-white col-12 col-md-7 px-0">
                 <div style="margin:200px 100px 100px 100px;">
                     <h1 style="color:#00224F;" class="mb-5">Welcome Back!</h1>
-                    <form id="login_form" method="GET" action="{{URL('/customer-dashboard')}}" data-parsley-validate>
+                    <form id="login_form" method="POST" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-12 mb-3 mx-">
                                 <label class="form-label" for="email">Email or Phone Number</label>
                                 <div class="d-flex align-items-center input-container">
-                                <input type="text" class="form-control" name="email" value="" id="email"
-                                    required
-                                    data-parsley-required-message="Email or Phone Number is required*"
-                                    data-parsley-errors-container="#email_err">
-                                    <i class="fa fa-envelope text-muted icon"></i>
+                                    <input type="text" class="form-control @if($errors->has('email') || $errors->has('phone_number')) border-danger @endif" name="email" id="email"
+                                        required data-parsley-required-message="Email or Phone Number is required*"
+                                        data-parsley-errors-container="#email_err">
+                                    <i class="fa fa-edit text-muted icon"></i>
                                 </div>
+                                @error('email') <div class="text-danger">{{$message}}</div> @enderror
+                                @error('phone_number') <div class="text-danger">{{$message}}</div> @enderror
                                 <span class="text-danger" id="email_err"> </span>
                             </div>
                             <div class="col-12 mb-3">
                                 <label class="form-label" for="password">Password</label>
                                 <div class="d-flex align-items-center input-container">
-                                    <input type="password" class="form-control" value=""
-                                        name="password" id="password" required
-                                        data-parsley-required-message="Password is required*"
-                                        data-parsley-errors-container="#password_err">
-                                        <i class="fa fa-phone text-muted icon"></i>
+                                    <input type="password" class="form-control @error('password') border-danger @enderror" name="password"
+                                        id="password"  data-parsley-required-message="Password is required*"
+                                        required data-parsley-errors-container="#password_err">
+                                    <i class="fa fa-lock text-muted icon"></i>
                                 </div>
+                                @error('password') <div class="text-danger">{{$message}}</div> @enderror
                                 <span class="text-danger" id="password_err"></span>
                             </div>
                             <div class="col-6">
-                                <input type="checkbox" id="check">
+                                <input type="checkbox" id="check" data-parsley-required="true"
+                                   required data-parsley-errors-container="#checkbox_err">
                                 <label for="check">Remember me</label>
+                                <span class="text-denger" id="checkbox_err"></span>
                             </div>
                             <div class="col-6 text-end">
-                                <a href="{{URL('/forget-password')}}" style="color:#006CE4;">Forget Password?</a>
+                                <a href="{{route('forget-password')}}" style="color:#006CE4;">Forget Password?</a>
                             </div>
                             <div class="d-block mt-5">
                                 <button class="btn btn-primary py-2 w-100 text-white"
