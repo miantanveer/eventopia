@@ -393,7 +393,7 @@
 
     @include('layouts.components.modal')
 
-    @yield('modal')
+    @yield('modal') 
 
     </div>
     <!-- page -->
