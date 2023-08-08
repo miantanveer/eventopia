@@ -1,67 +1,21 @@
 @extends('layouts.landing-page-layout')
 @section('styles')
     <style>
-        .Content-D_T {
-            overflow: none;
-            max-width: 72%;
-            padding: 0px 0;
-            height: 500px;
-            position: relative;
-            margin: 20px auto;
-            border-radius: 3px;
-            box-shadow: 3px 8px 16px rgba(0, 0, 0, 0.19),
-                0 6px 6px rgba(0, 0, 0, 0.23);
-            -moz-box-shadow: 3px 8px 16px rgba(0, 0, 0, 0.19),
-                0 6px 6px rgba(0, 0, 0, 0.23);
-            -webkit-box-shadow: 3px 8px 16px rgba(0, 0, 0, 0.19),
-                0 6px 6px rgba(0, 0, 0, 0.23);
-        }
-
-        .event-count,
-        .event-name,
-        .event-cancelled {
-            display: inline;
-            padding: 0 10px;
-            font-size: 1rem;
-        }
-
-        .event-count {
-            color: #52a0fd;
-            text-align: right;
-        }
-
-        .event-name {
-            padding-right: 0;
-            text-align: left;
-        }
-
-        .event-cancelled {
-            color: #ff1744;
-            text-align: right;
+        .calendarAndTimePicker {
+            border-bottom-left-radius: 13px !important;
+            border-bottom-right-radius: 13px !important;
+            margin: 0px !important;
         }
 
         .calendar-container-1 {
-            float: left;
-            position: relative;
-            top: -15px !important;
-            margin: 0px auto;
-            padding: 20px 50px;
-            height: 500px;
+            padding: 40px 50px 0 50px;
             background-color: white !important;
             font: 13px Helvetica, Arial, san-serif;
-            display: inline-block;
-            border-bottom-left-radius: 3px;
-            border-top-left-radius: 3px;
-            width: 85%;
-        }
-
-        .calendar-container-1:after {
-            clear: both;
+            border-bottom-left-radius: 13px !important;
         }
 
         .calendar {
-            display: table;
-            width: 500px;
+            display: inline;
         }
 
         .year-header {
@@ -113,7 +67,7 @@
             color: white !important;
         }
 
-        .Switch_button {
+        .clear_button {
             cursor: pointer;
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -127,7 +81,7 @@
             border: none;
         }
 
-        #clear-button:active {
+        .clear_button:active {
             transform: translateY(3px) scale(0.97);
         }
 
@@ -203,33 +157,15 @@
             box-shadow: 0 2px 6px rgb(158, 158, 158);
         }
 
-        .event-date {
-            border-color: #52a0fd;
-            box-shadow: 0 2px 8px RGBA(130, 180, 255, 0.9);
-        }
-
         .active-date {
             background: black !important;
             color: white !important;
             box-shadow: 0 0px 5px rgb(158, 158, 158);
         }
 
-        .event-date.active-date {
-            background: #52a0fd;
-            box-shadow: 0 2px 8px RGBA(130, 180, 255, 0.9);
-        }
-
         .dialog {
-            top: 77px !important;
-            z-index: 5;
             background: #fff;
-            position: absolute;
-            width: 574px;
-            height: 500px;
-            left: 534px;
-            border-top-right-radius: 3px;
-            border-bottom-right-radius: 3px;
-            display: none;
+            border-bottom-right-radius: 13px !important;
         }
 
         .dialog-header {
@@ -238,32 +174,15 @@
             text-align: center;
         }
 
-        .form-container {
-            margin-top: 25%;
+        .startTime_label {
+            color: #9fa7af;
         }
 
-        .form-label {
-            color: #333;
-        }
-
-        .input:focus {
-            outline: none;
-            border-color: #00c9fb;
-        }
-
-        .error-input {
-            border-color: #ff1744;
+        .endTime_label {
+            color: #9fa7af;
         }
 
         @media only screen and (max-width: 780px) {
-            .Content-D_T {
-                overflow: visible;
-                position: relative;
-                max-width: 100%;
-                width: 370px;
-                height: 100%;
-            }
-
             .dialog {
                 width: 370px;
                 height: 450px;
@@ -291,7 +210,6 @@
 
         @media only screen and (max-width: 400px) {
 
-            .Content-D_T,
             .events-container,
             .year-header,
             .calendar-container-1 {
@@ -322,15 +240,6 @@
                 width: 20px;
                 height: 20px;
                 line-height: 20px;
-            }
-
-            .event-name,
-            .event-count {
-                font-size: 0.8rem;
-            }
-
-            event-cancelled {
-                font-size: 0.8rem;
             }
         }
     </style>
@@ -500,10 +409,11 @@
                                         class="btn btn-primary btn-search mx-0 px-0 text-center d-sm-none d-block">Search</button>
                                 </div>
                             </div>
+                            <input type="hidden" name="hidden" id="hiddenDate">
                             <div id="searchResults" class="w-100 search-content"></div>
                             <div id="addressDropdown" class="bg-white AdressDrop"></div>
-                            <div class="calendarTimePicker" id="calendarAndTimePicker">
-                                <div class="calendar-container-1">
+                            <div class="row w-100 bg-white calendarAndTimePicker" id="calendarAndTimePicker">
+                                <div class="col-6 calendar-container-1">
                                     <div class="calendar">
                                         <div class="year-header">
                                             <span class="left-button" id="prev"> <i
@@ -548,93 +458,94 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="dialog d-block" id="dialog">
+                                <div class="col-6 dialog" id="dialog">
                                     <h2 class="dialog-header mt-7">Select Time</h2>
-                                    <form class="form" id="form">
-                                        <div class="form-container mt-7 me-6" align="center">
-                                            <label for="start_time" class="form-label mt-5 text-start">Start Time</label>
-                                            <select name="start_time" class="Select_Time form-select mb-5" id="start_time">
-                                                <option value="">Select Start Time</option>
-                                                <option value="6:00 Am">6:00 Am</option>
-                                                <option value="6:30 Am">6:30 Am</option>
-                                                <option value="7:00 Am">7:00 Am</option>
-                                                <option value="7:30 Am">7:30 Am</option>
-                                                <option value="8:00 Am">8:00 Am</option>
-                                                <option value="8:30 Am">8:30 Am</option>
-                                                <option value="9:00 Am">9:00 Am</option>
-                                                <option value="9:30 Am">9:30 Am</option>
-                                                <option value="10:00 Am">10:00 Am</option>
-                                                <option value="10:30 Am">10:30 Am</option>
-                                                <option value="11:00 Am">11:00 Am</option>
-                                                <option value="11:30 Am">11:30 Am</option>
-                                                <option value="12:00 Pm">12:00 Pm</option>
-                                                <option value="12:30 Pm">12:30 Pm</option>
-                                                <option value="1:00 Pm">1:00 Pm</option>
-                                                <option value="1:30 Pm">1:30 Pm</option>
-                                                <option value="2:00 Pm">2:00 Pm</option>
-                                                <option value="2:30 Pm">2:30 Pm</option>
-                                                <option value="3:00 Pm">3:00 Pm</option>
-                                                <option value="3:30 Pm">3:30 Pm</option>
-                                                <option value="4:00 Pm">4:00 Pm</option>
-                                                <option value="4:30 Pm">4:30 Pm</option>
-                                                <option value="5:00 Pm">5:00 Pm</option>
-                                                <option value="5:30 Pm">5:30 Pm</option>
-                                                <option value="6:00 Pm">6:00 Pm</option>
-                                                <option value="6:30 Pm">6:30 Pm</option>
-                                                <option value="7:00 Pm">7:00 Pm</option>
-                                                <option value="7:30 Pm">7:30 Pm</option>
-                                                <option value="8:00 Pm">8:00 Pm</option>
-                                                <option value="8:30 Pm">8:30 Pm</option>
-                                                <option value="9:00 Pm">9:00 Pm</option>
-                                                <option value="9:30 Pm">9:30 Pm</option>
-                                                <option value="10:00 Pm">10:00 Pm</option>
-                                                <option value="10:30 Pm">10:30 Pm</option>
-                                                <option value="10:00 Pm">11:00 Pm</option>
-                                                <option value="10:30 Pm">11:30 Pm</option>
-                                            </select>
-                                            <label for="end_time" class="form-label text-start">End Time</label>
-                                            <select name="end_time" class="Select_Time form-select mb-5" id="end_time">
-                                                <option value="">Select End Time</option>
-                                                <option value="6:00 Am">6:00 Am</option>
-                                                <option value="6:30 Am">6:30 Am</option>
-                                                <option value="7:00 Am">7:00 Am</option>
-                                                <option value="7:30 Am">7:30 Am</option>
-                                                <option value="8:00 Am">8:00 Am</option>
-                                                <option value="8:30 Am">8:30 Am</option>
-                                                <option value="9:00 Am">9:00 Am</option>
-                                                <option value="9:30 Am">9:30 Am</option>
-                                                <option value="10:00 Am">10:00 Am</option>
-                                                <option value="10:30 Am">10:30 Am</option>
-                                                <option value="11:00 Am">11:00 Am</option>
-                                                <option value="11:30 Am">11:30 Am</option>
-                                                <option value="12:00 Pm">12:00 Pm</option>
-                                                <option value="12:30 Pm">12:30 Pm</option>
-                                                <option value="1:00 Pm">1:00 Pm</option>
-                                                <option value="1:30 Pm">1:30 Pm</option>
-                                                <option value="2:00 Pm">2:00 Pm</option>
-                                                <option value="2:30 Pm">2:30 Pm</option>
-                                                <option value="3:00 Pm">3:00 Pm</option>
-                                                <option value="3:30 Pm">3:30 Pm</option>
-                                                <option value="4:00 Pm">4:00 Pm</option>
-                                                <option value="4:30 Pm">4:30 Pm</option>
-                                                <option value="5:00 Pm">5:00 Pm</option>
-                                                <option value="5:30 Pm">5:30 Pm</option>
-                                                <option value="6:00 Pm">6:00 Pm</option>
-                                                <option value="6:30 Pm">6:30 Pm</option>
-                                                <option value="7:00 Pm">7:00 Pm</option>
-                                                <option value="7:30 Pm">7:30 Pm</option>
-                                                <option value="8:00 Pm">8:00 Pm</option>
-                                                <option value="8:30 Pm">8:30 Pm</option>
-                                                <option value="9:00 Pm">9:00 Pm</option>
-                                                <option value="9:30 Pm">9:30 Pm</option>
-                                                <option value="10:00 Pm">10:00 Pm</option>
-                                                <option value="10:30 Pm">10:30 Pm</option>
-                                                <option value="10:00 Pm">11:00 Pm</option>
-                                                <option value="10:30 Pm">11:30 Pm</option>
-                                            </select>
-                                            <button type="button" class="Switch_button" id="clear-button">Clear</button>
-                                        </div>
-                                    </form>
+                                    <div class="form-container mt-7 me-6" align="center">
+                                        <label for="start_time" class="form-label mt-5 text-start startTime_label">Start
+                                            Time</label>
+                                        <select name="start_time" class="Select_Time form-select mb-5" id="start_time"
+                                            disabled>
+                                            <option value="">Select Start Time</option>
+                                            <option value="6:00 Am">6:00 Am</option>
+                                            <option value="6:30 Am">6:30 Am</option>
+                                            <option value="7:00 Am">7:00 Am</option>
+                                            <option value="7:30 Am">7:30 Am</option>
+                                            <option value="8:00 Am">8:00 Am</option>
+                                            <option value="8:30 Am">8:30 Am</option>
+                                            <option value="9:00 Am">9:00 Am</option>
+                                            <option value="9:30 Am">9:30 Am</option>
+                                            <option value="10:00 Am">10:00 Am</option>
+                                            <option value="10:30 Am">10:30 Am</option>
+                                            <option value="11:00 Am">11:00 Am</option>
+                                            <option value="11:30 Am">11:30 Am</option>
+                                            <option value="12:00 Pm">12:00 Pm</option>
+                                            <option value="12:30 Pm">12:30 Pm</option>
+                                            <option value="1:00 Pm">1:00 Pm</option>
+                                            <option value="1:30 Pm">1:30 Pm</option>
+                                            <option value="2:00 Pm">2:00 Pm</option>
+                                            <option value="2:30 Pm">2:30 Pm</option>
+                                            <option value="3:00 Pm">3:00 Pm</option>
+                                            <option value="3:30 Pm">3:30 Pm</option>
+                                            <option value="4:00 Pm">4:00 Pm</option>
+                                            <option value="4:30 Pm">4:30 Pm</option>
+                                            <option value="5:00 Pm">5:00 Pm</option>
+                                            <option value="5:30 Pm">5:30 Pm</option>
+                                            <option value="6:00 Pm">6:00 Pm</option>
+                                            <option value="6:30 Pm">6:30 Pm</option>
+                                            <option value="7:00 Pm">7:00 Pm</option>
+                                            <option value="7:30 Pm">7:30 Pm</option>
+                                            <option value="8:00 Pm">8:00 Pm</option>
+                                            <option value="8:30 Pm">8:30 Pm</option>
+                                            <option value="9:00 Pm">9:00 Pm</option>
+                                            <option value="9:30 Pm">9:30 Pm</option>
+                                            <option value="10:00 Pm">10:00 Pm</option>
+                                            <option value="10:30 Pm">10:30 Pm</option>
+                                            <option value="10:00 Pm">11:00 Pm</option>
+                                            <option value="10:30 Pm">11:30 Pm</option>
+                                        </select>
+                                        <label for="end_time" class="form-label text-start endTime_label">End Time</label>
+                                        <select name="end_time" class="Select_Time form-select mb-5" id="end_time"
+                                            disabled>
+                                            <option value="">Select End Time</option>
+                                            <option value="6:00 Am">6:00 Am</option>
+                                            <option value="6:30 Am">6:30 Am</option>
+                                            <option value="7:00 Am">7:00 Am</option>
+                                            <option value="7:30 Am">7:30 Am</option>
+                                            <option value="8:00 Am">8:00 Am</option>
+                                            <option value="8:30 Am">8:30 Am</option>
+                                            <option value="9:00 Am">9:00 Am</option>
+                                            <option value="9:30 Am">9:30 Am</option>
+                                            <option value="10:00 Am">10:00 Am</option>
+                                            <option value="10:30 Am">10:30 Am</option>
+                                            <option value="11:00 Am">11:00 Am</option>
+                                            <option value="11:30 Am">11:30 Am</option>
+                                            <option value="12:00 Pm">12:00 Pm</option>
+                                            <option value="12:30 Pm">12:30 Pm</option>
+                                            <option value="1:00 Pm">1:00 Pm</option>
+                                            <option value="1:30 Pm">1:30 Pm</option>
+                                            <option value="2:00 Pm">2:00 Pm</option>
+                                            <option value="2:30 Pm">2:30 Pm</option>
+                                            <option value="3:00 Pm">3:00 Pm</option>
+                                            <option value="3:30 Pm">3:30 Pm</option>
+                                            <option value="4:00 Pm">4:00 Pm</option>
+                                            <option value="4:30 Pm">4:30 Pm</option>
+                                            <option value="5:00 Pm">5:00 Pm</option>
+                                            <option value="5:30 Pm">5:30 Pm</option>
+                                            <option value="6:00 Pm">6:00 Pm</option>
+                                            <option value="6:30 Pm">6:30 Pm</option>
+                                            <option value="7:00 Pm">7:00 Pm</option>
+                                            <option value="7:30 Pm">7:30 Pm</option>
+                                            <option value="8:00 Pm">8:00 Pm</option>
+                                            <option value="8:30 Pm">8:30 Pm</option>
+                                            <option value="9:00 Pm">9:00 Pm</option>
+                                            <option value="9:30 Pm">9:30 Pm</option>
+                                            <option value="10:00 Pm">10:00 Pm</option>
+                                            <option value="10:30 Pm">10:30 Pm</option>
+                                            <option value="10:00 Pm">11:00 Pm</option>
+                                            <option value="10:30 Pm">11:30 Pm</option>
+                                        </select>
+                                        <button type="button" class="clear_button" id="clear-button">Clear</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -1536,12 +1447,21 @@
             // Calender show or hidden
             $("#calendarAndTimePicker").hide();
             $("#selectedDate").click(function() {
-                $("#calendarAndTimePicker").toggle();
+                $(".FormBorder").css({
+                    "border-bottom-left-radius": "0px",
+                    "border-bottom-right-radius": "0px"
+                });
+                $("#calendarAndTimePicker").show();
             });
             $(document).click(function(event) {
                 var target = $(event.target);
                 if (!target.closest('#calendarAndTimePicker').length && !target.is("#selectedDate")) {
                     $("#calendarAndTimePicker").hide();
+                    $(".FormBorder").removeClass("data-appended");
+                    $(".FormBorder").css({
+                        "border-bottom-left-radius": "13px",
+                        "border-bottom-right-radius": "13px"
+                    });
                 }
             });
             // Calender show or hidden ended-------------------------------
@@ -1568,6 +1488,7 @@
                 date.getFullYear()
             );
         });
+
         function init_calendar(date) {
             $(".tbody-tb").empty();
             var calendar_days = $(".tbody-tb");
@@ -1593,9 +1514,6 @@
                     if (today === day && $(".active-date").length === 0) {
                         curr_date.addClass("active-date");
                     }
-                    if (events.length !== 0) {
-                        curr_date.addClass("event-date");
-                    }
                     curr_date.click({
                             events: events,
                             month: months[month],
@@ -1609,20 +1527,29 @@
             calendar_days.append(row);
             $(".year").text(year);
         }
+
         function days_in_month(month, year) {
             var monthStart = new Date(year, month, 1);
             var monthEnd = new Date(year, month + 1, 1);
             return (monthEnd - monthStart) / (1000 * 60 * 60 * 24);
         }
+        var dateInput;
+
         function date_click(event) {
             $(".active-date").removeClass("active-date");
             $(this).addClass("active-date");
             const day = $(this).text();
             const month = $('.month.active-month').text();
             const year = $('.year').text();
-            var mainInput = month + ' ' + day + ', ' + year;
-            $('#selectedDate').val(mainInput);
+            var fullDate = month + ' ' + day + ', ' + year;
+            $('#hiddenDate').val(fullDate);
+            $('#start_time').removeAttr('disabled').val("9:00 Am").css('border', '1px solid #898587');
+            $('#end_time').removeAttr('disabled').val("9:00 Pm").css('border', '1px solid #898587');
+            $('.startTime_label').css('color', 'black');
+            $('.endTime_label').css('color', 'black');
+            updateAppendedValue();
         }
+
         function month_click(event) {
             var date = event.data.date;
             $(".active-month").removeClass("active-month");
@@ -1631,6 +1558,7 @@
             date.setMonth(new_month);
             init_calendar(date);
         }
+
         function next_year(event) {
             var date = event.data.date;
             var new_year = date.getFullYear() + 1;
@@ -1638,6 +1566,7 @@
             date.setFullYear(new_year);
             init_calendar(date);
         }
+
         function prev_year(event) {
             var date = event.data.date;
             var new_year = date.getFullYear() - 1;
@@ -1645,6 +1574,7 @@
             date.setFullYear(new_year);
             init_calendar(date);
         }
+
         function check_events(day, month, year) {
             var events = [];
             for (var i = 0; i < event_data["events"].length; i++) {
@@ -1759,33 +1689,27 @@
             "November",
             "December",
         ];
-        $(document).ready(function() {
-            $('#start_time').on('change', function() {
-                var startTime = $(this).val();
-                var existingValue = $('#selectedDate').val();
-                if (existingValue) {
-                    existingValue += ' ' + startTime;
-                } else {
-                    existingValue = startTime;
-                }
-                $('#selectedDate').val(existingValue);
-                $(this).val('');
-            });
-            $('#end_time').on('change', function() {
-                var endTime = $(this).val();
-                var existingValue = $('#selectedDate').val();
-                if (existingValue) {
-                    existingValue += ' ' + endTime;
-                } else {
-                    existingValue = endTime;
-                }
-                $('#selectedDate').val(existingValue);
-                $(this).val('');
-            });
-            var cancelButton = $("#clear-button");
-            cancelButton.on("click", function() {
-                $('#selectedDate').val('');
-            });
+        const $startTimeInput = $("#start_time");
+        const $endTimeInput = $("#end_time");
+        const $appendedValue = $("#selectedDate");
+
+        $startTimeInput.on("change", updateAppendedValue);
+        $endTimeInput.on("change", updateAppendedValue);
+
+        function updateAppendedValue() {
+            const selectedDate = $("#hiddenDate").val();
+            const selectedStartTime = $startTimeInput.val();
+            const selectedEndTime = $endTimeInput.val();
+
+            const formattedAppendedValue = `${selectedDate} ${selectedStartTime} to ${selectedEndTime}`;
+            $appendedValue.val(formattedAppendedValue);
+        }
+        $('#clear-button').on('click', function() {
+            $appendedValue.val('');
+            $('#start_time').attr('disabled', 'true').css('border', '1px solid #e9edf4');
+            $('#end_time').attr('disabled', 'true').css('border', '1px solid #e9edf4');
+            $('.startTime_label').css('color', '#9fa7af');
+            $('.endTime_label').css('color', '#9fa7af');
         });
     </script>
 
@@ -1835,7 +1759,7 @@
             });
             $(document).click(function(event) {
                 var target = $(event.target);
-                if (!target.closest('#addressDropdown') && !target.is("#location")) {
+                if (!target.closest('#addressDropdown').length && !target.is("#location")) {
                     hideDropdown();
                 }
             });
@@ -1872,8 +1796,17 @@
                 }
             });
         });
+    </script>
 
+    {{-- categories Select field code --}}
+    <script>
         $(document).ready(function() {
+            function hideDropdown() {
+                $('#searchResults').empty();
+                $(".FormBorder").removeClass("data-appended");
+                $(".FormBorder").css("border-bottom-left-radius", "13px !important").css(
+                    "border-bottom-right-radius", "13px !important");
+            }
             const categories = [
                 "Audio Recording",
                 "Corporate Event",
@@ -1941,6 +1874,12 @@
                 $(".FormBorder").removeClass("data-appended");
                 $(".FormBorder").css("border-bottom-left-radius", "13px !important").css(
                     "border-bottom-right-radius", "13px !important");
+            });
+            $(document).click(function(event) {
+                var target = $(event.target);
+                if (!target.closest('#searchResults').length && !target.is("#planCatagories")) {
+                    hideDropdown();
+                }
             });
         });
     </script>
