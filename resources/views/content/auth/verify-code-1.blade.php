@@ -46,7 +46,7 @@
             <div class="text-center p-5">
                 <img src="{{asset("assets/images/brand/logo13.png")}}" alt="" class="header-brand-img">
             </div>
-            <form method="POST" id="verify_form" class="login100-form validate-form mt-5" data-parsley-validate>
+            <form method="POST" id="verify_form" class="login100-form validate-form mt-5" action="{{route('verify-email-phone')}}" data-parsley-validate>
                 @csrf
                 <h4>Verification Code</h4>
                 <p style="font-size: 12px;" class="text-muted">We send you on {{$email ? 'mail.' : 'Phone Number.'}}</p>
@@ -61,6 +61,7 @@
                 </div>
                 <input type="hidden" name="email" value="{{ $email ?? '' }}">
                 <input type="hidden" name="phone_number" value="{{ $phone_number ?? '' }}">
+                <input type="hidden" name="send_for" value="{{ $send_for ?? '' }}">
                 <span class="text-danger" id="otp_err"></span>
                 <div class="container-login100-form-btn">
                     <button type="submit" class="btn btn-primary mt-3 mb-4 w-100 text-white">Continue</button>
@@ -68,7 +69,7 @@
             </form>
             <hr style="border-top: 1px solid grey">
 
-            <span class="me-4"> Didn't receive the email? Check your spam filter, or</span>
+            <span class="me-4"> Didn't receive the code?</span>
             <br>
             <form id="resend-otp-form" action="{{route('resend-otp')}}" method="post" >
             <div class="container-login100-form-btn">
