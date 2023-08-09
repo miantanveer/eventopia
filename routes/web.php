@@ -28,17 +28,19 @@ Route::get('verify-email-phone', [AuthenticationController::class, 'verifyEmailP
 Route::post('verify-email-phone', [AuthenticationController::class, 'verifyEmailPhone']);
 Route::get('forget-password', [AuthenticationController::class, 'forgetEmailPhoneIndex'])->name('forget-password');
 Route::post('forget-password', [AuthenticationController::class, 'forgetPassword']);
+Route::get('reset-password', [AuthenticationController::class, 'resetPasswordIndex'])->name('reset-password');
+Route::post('reset-password', [AuthenticationController::class, 'resetPassword']);
 Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
 
-Route::get('/forget-password-1', function () {
-    return view('content.auth.forget-password-1');
-});
-Route::get('/reset-password', function () {
-    return view('content.auth.reset-password');
-});
-Route::get('/verify-code-1', function () {
-    return view('content.auth.verify-code-1');
-});
+// Route::get('/forget-password-1', function () {
+//     return view('content.auth.forget-password-1');
+// });
+// Route::get('/reset-password', function () {
+//     return view('content.auth.reset-password');
+// });
+// Route::get('/verify-code-1', function () {
+//     return view('content.auth.verify-code-1');
+// });
 
 //Logout
 Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
