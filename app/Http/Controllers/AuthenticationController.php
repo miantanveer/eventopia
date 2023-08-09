@@ -46,16 +46,16 @@ class AuthenticationController extends UserBaseController
                 $userWithPhoneNumber = User::wherePhoneNumber($req->phone_number)->first();
 
                 if ($userWithPhoneNumber && $userWithPhoneNumber->phone_number_verified_at && $userWithPhoneNumber->password) {
-                    return back()->with('error', 'Phone number has been taken');
+                    return redirect()->back()->with('error', 'Phone number has been taken');
                 } elseif ($userWithPhoneNumber && $userWithPhoneNumber->status == 2) {
                     $userWithPhoneNumber->delete();
                 }
-            }else {
+            } else {
 
                 $userWithEmail = User::whereEmail($req->email)->first();
 
                 if ($userWithEmail && $userWithEmail->email_verified_at && $userWithEmail->password) {
-                    return back()->with('error', 'Email has been taken');
+                    return  redirect()->back()->with('error', 'Email has been taken');
                 } elseif ($userWithEmail && $userWithEmail->status == 2) {
                     $userWithEmail->delete();
                 }
@@ -66,7 +66,7 @@ class AuthenticationController extends UserBaseController
 
             $this->sendOtp($req);
 
-            return redirect(route('verify-email-phone'))->with(['email' => $req->email ?? '' ,'phone_number' => $req->phone_number ?? '']);
+            return redirect(route('verify-email-phone'))->with(['email' => $req->email ?? '', 'phone_number' => $req->phone_number ?? '']);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', "Something unexpected happened on server. " . $th->getMessage());
         }
@@ -75,7 +75,10 @@ class AuthenticationController extends UserBaseController
     public function verifyEmailPhoneIndex()
     {
         if (!session('phone_number') && !session('email')) return redirect(route('login'));
-        return view('content.auth.verify-code-1',['phone_number' => session('phone_number'),'email' => session('email')]);
+        $this->phone_number = session('phone_number');
+        $this->email = session('email');
+        $this->send_for = 'signup';
+        return view('content.auth.verify-code-1', $this->data);
     }
 
     public function verifyEmailPhone(Request $req)
@@ -94,16 +97,20 @@ class AuthenticationController extends UserBaseController
             }
 
             if ($otp != $user->otp) {
-                return redirect()->back()->with(['email' => $req->email ?? '' ,'phone_number' => $req->phone_number ?? '', 'error' => "Your verification code is not correct"]);
+                return redirect()->back()->with(['email' => $req->email ?? '', 'phone_number' => $req->phone_number ?? '', 'error' => "Your verification code is not correct"]);
             } else {
-                if ($req->phone_number) {
-                    $user->update(['phone_number_verified_at' => now(), 'otp' => '','status' => 1]);
-                } else {
-                    $user->update(['email_verified_at' => now(), 'otp' => '','status' => 1]);
-                }
+                if ($req->send_for == "signup") {
+                    if ($req->phone_number) {
+                        $user->update(['phone_number_verified_at' => now(), 'otp' => '', 'status' => 1]);
+                    } else {
+                        $user->update(['email_verified_at' => now(), 'otp' => '', 'status' => 1]);
+                    }
 
-                Auth::login($user);
-                return redirect()->route('dashboard')->with('success',"Welcome to Eventopia");
+                    Auth::login($user);
+                    return redirect()->route('dashboard')->with('success', "Welcome to Eventopia");
+                } else if ($req->send_for == "forget_password") {
+                    dd("ASdf");
+                }
             }
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', "Something unexpected happened on server. " . $th->getMessage());
@@ -113,7 +120,7 @@ class AuthenticationController extends UserBaseController
     // Login Index
     public function loginIndex(Request $req)
     {
-        if(Auth::check()) return redirect(route('dashboard'));
+        if (Auth::check()) return redirect(route('dashboard'));
 
         return view('content.auth.login');
     }
@@ -123,25 +130,58 @@ class AuthenticationController extends UserBaseController
     {
         try {
 
-            if(!Auth::attempt(
-                ['email' => $req->email,'password' => $req->password,'status' => 1],
-                $req->remember_me == 'on' ? true : false
-            )){
-                return redirect()->back()->with('error','Email or password is not correct or your account is not active');
+            $validator = Validator::make($req->all(), [
+                'password' => 'required',
+                'phone_number' => [
+                    Rule::requiredIf($req->has('phone_number')),
+                    'regex:/^\+[0-9]{6,15}$/',
+                ],
+                'email' => [
+                    Rule::requiredIf($req->has('email')),
+                    'email',
+                ],
+            ]);
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+            if ($req->phone_number) {
+                $match = Auth::attempt(['phone_number' => $req->phone_number, 'password' => $req->password, 'status' => 1]);
+            } else {
+                $match = Auth::attempt(['email' => $req->email, 'password' => $req->password, 'status' => 1]);
             }
 
-            User::find(auth()->id())->update([
-                'last_login_device' => 'web',
-                'default_password' => null,
-            ]);
+            if (!$match) {
+                return redirect()->back()->with('error', 'Your credentials are not correct or your account is not active');
+            }
 
-            return redirect(route('dashboard'));
+            return redirect(route('dashboard'))->with('success', "Login Successfully.");
         } catch (\Throwable $th) {
-             return redirect()->back()->with('error', "Something unexpected happened on server. " . $th->getMessage());
+            return redirect()->back()->with('error', "Something unexpected happened on server. " . $th->getMessage());
         }
-
     }
 
+    public function forgetEmailPhoneIndex()
+    {
+        return view('content.auth.forget-password');
+    }
+
+    public function forgetPassword(Request $req)
+    {
+        if ($req->phone_number) {
+            $user = User::wherePhoneNumber($req->phone_number)->first();
+        } else {
+            $user = User::whereEmail($req->email)->first();
+        }
+        if (!$user) {
+            return redirect()->back()->with('error', "Email does not exist. ");
+        }
+        $this->phone_number = $req->phone_number ?? '';
+        $this->email = $req->email ?? '';
+        $this->send_for = 'forget_password';
+
+        $this->sendOtp($req);
+        return view('content.auth.verify-code-1', $this->data);
+    }
 
     public function sendOtp(Request $req)
     {
@@ -149,14 +189,14 @@ class AuthenticationController extends UserBaseController
 
         if ($req->phone_number) {
             User::where('phone_number', $req->phone_number)->update(['otp' => $otp]);
-            $this->sendMessage($req->phone_number,$otp);
-        }else {
+            $this->sendMessage($req->phone_number, $otp);
+        } else {
             User::where('email', $req->email)->update(['otp' => $otp]);
             Mail::to($req->email)->send(new EmailVerfication($otp));
         }
     }
 
-    public function sendMessage($phone_number = null ,$otp)
+    public function sendMessage($phone_number = null, $otp)
     {
         // dispatch(new SendSms($phone_number,$otp));
     }
