@@ -415,7 +415,6 @@
     <!-- INTERNAL Bootstrap-Datepicker js-->
     <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
 
-
     <!-- TIMEPICKER JS -->
     <script src="{{ asset('assets/plugins/time-picker/jquery.timepicker.js') }}"></script>
     <script src="{{ asset('assets/plugins/time-picker/toggles.min.js') }}"></script>
