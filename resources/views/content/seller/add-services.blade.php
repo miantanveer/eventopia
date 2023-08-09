@@ -123,13 +123,13 @@
                                     <br>
                                     <form action="#">
                                         <div class="form-group">
-                                            <label for="exampleInputPhone1">What's your talent?</label>
+                                            <label for="exampleInputPhone1">What's your services?</label>
                                             <input type="text" class="form-control" id="exampleInputPhone1"
                                                 placeholder="Guitarists, Caterer, Santa" required
                                                 data-parsley-required-message="Your Name is required*">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputPhone2">Where do you gig?</label>
+                                            <label for="exampleInputPhone2">Where do you Services?</label>
                                             <input type="text" class="form-control" id="exampleInputPhone2"
                                                 placeholder="Los Angles, LAr" required
                                                 data-parsley-required-message="Phone Number is required*">
