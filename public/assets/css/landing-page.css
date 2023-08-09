@@ -36,7 +36,7 @@
 }
 #form-border {
     background-color: #FFFFFF;
-    border-radius: 13px;
+    border-radius: 13px !important;
 }
 .rounded-form {
     border-radius: 13px !important;
