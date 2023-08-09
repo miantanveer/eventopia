@@ -35,10 +35,17 @@ class User extends Authenticatable
     {
         parent::boot();
 
-        // Listen for the 'creating' event
-        static::creating(function ($user) {
+        // Listen for the 'creating and updating' event
+        // static::creating(function ($user) {
+        //     $user->password = Hash::make($user->password); // Hash the password
+        // });
+
+        static::saving(function ($user) {
+        if ($user->isDirty('password')) {
             $user->password = Hash::make($user->password); // Hash the password
-        });
+        }
+});
+        
     }
 
     /**
