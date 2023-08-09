@@ -116,7 +116,7 @@ Route::get('/entertainment-form-steps', function () {
 Route::get('/list-service', function () {
     return view('content.seller.list-service');
 });
-Route::get('/add-services', function () {
+Route::get('/add-service', function () {
     return view('content.seller.add-services');
 });
 Route::get('/service-form-steps', function () {
