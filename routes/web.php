@@ -102,9 +102,6 @@ Route::get('/list-space', function () {
 Route::get('/space-form-steps', function () {
     return view('content.seller.space-form-steps');
 });
-Route::get('/add-space', function () {
-    return view('content.seller.add-space');
-});
 Route::get('/list-entertainment', function () {
     return view('content.seller.list-entertainment');
 });

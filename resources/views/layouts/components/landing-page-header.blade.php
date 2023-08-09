@@ -79,9 +79,9 @@
                                     Become a Seller
                                 </button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{URL('/list-space')}}">List Space</a>
-                                    <a class="dropdown-item" href="{{URL('/list-entertainment')}}">List Entertainment & Talent</a>
-                                    <a class="dropdown-item" href="{{URL('/list-service')}}">List Service</a>
+                                    <a class="dropdown-item" href="{{URL('/add-space')}}">List Space</a>
+                                    <a class="dropdown-item" href="{{URL('/add-entertainment')}}">List Entertainment & Talent</a>
+                                    <a class="dropdown-item" href="{{URL('/add-services')}}">List Service</a>
                                 </div>
                             </div>
                             <div class="d-flex listing-btn">

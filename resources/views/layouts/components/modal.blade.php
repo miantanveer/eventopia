@@ -305,6 +305,65 @@
     </div>
 </div>
 
+<!--account add-entertainment-->
+<div class="modal fade" id="add-entertainment">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content country-select-modal">
+            <div class="modal-header">
+                <h2 class="modal-title text-center text-dark">Create an account to list
+                    your space</h2><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span
+                        aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body pb-0">
+                    <form>
+                        <div class="">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1" class="form-label"></label>
+                                <input type="email" class="form-control text-start btn btn-default rounded-0"
+                                    id="exampleInputEmail1" placeholder="Email or phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="form-label"></label>
+                                <input type="password" class="form-control text-start btn btn-default rounded-0"
+                                    id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" class="form-label mt-2 mb-2"></label>
+                                <a style="height:46px;width:510;background-color:#003B95;color:#FFFFFF"
+                                    type="password" class="form-control btn btn-info rounded-0" href="#"
+                                    id="exampleInputPassword1">Sign
+                                    up</a><br>
+                                <p style="height:39px;width:460px;color:#6B6B6B;padding-right:50px;text-align:center">
+                                    By clicking Sign up, you agree to <span
+                                        style="text-decoration:underline;">Eventopia
+                                        Services Agreement and
+                                        Privacy Policy.</span></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer mt-0 mb-5">
+                <p style="height:39px;width:490px;color:#313131;text-align:center;"> <b>Eventopia will send you
+                        deals, inspiration, and marketing emails. You can opt out at any time from your account
+                        settings.</b></p><br>
+
+                <label style="height:771;width:600;margin-right:50px;"
+                    class="custom-control custom-checkbox mt-4 mb-3">
+                    <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
+                    <span class="custom-control-label">I don't want to receive marketing emails from
+                        Eventopia.</span>
+                </label>
+                <div>
+                    <h6 style="height:17;width:216;margin-right:142px;"><b>Already have an account? <span
+                                style="color:#006CE4">Login</span></b></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="modal fade" id="popular-catagories-modal">
     <div class="modal-dialog modal-dialog-centered" role="document">
