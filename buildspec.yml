@@ -1,0 +1,12 @@
+version: 0.2
+phases:
+  build:
+    commands:
+      - cp .env.stage .env
+  post_build:
+    commands:
+      - php artisan migrate:fresh --seed
+artifacts:
+  files:
+    # List of files to be included in the build artifact
+    - '**/*'
