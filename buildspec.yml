@@ -3,6 +3,7 @@ phases:
   build:
     commands:
       - cp .env.stage .env
+      - composer update
       - composer install
   post_build:
     commands:
