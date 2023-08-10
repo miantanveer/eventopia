@@ -21,7 +21,7 @@ class AuthenticationController extends UserBaseController
 
     public function signup(Request $req)
     {
-        try {
+        // try {
             $validator = Validator::make($req->all(), [
                 'first_name' => 'required',
                 'last_name' => 'required',
@@ -66,9 +66,9 @@ class AuthenticationController extends UserBaseController
             $this->sendOtp($req);
 
             return redirect(route('verify-email-phone'))->with(['email' => $req->email ?? '', 'phone_number' => $req->phone_number ?? '']);
-        } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
-        }
+        // } catch (\Throwable $th) {
+        //     return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
+        // }
     }
 
     public function verifyEmailPhoneIndex()
