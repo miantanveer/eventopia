@@ -51,13 +51,13 @@ class AuthenticationController extends UserBaseController
                 }
             } else {
 
-                // $userWithEmail = User::whereEmail($req->email)->first();
+                $userWithEmail = User::whereEmail($req->email)->first();
 
-                // if ($userWithEmail && $userWithEmail->email_verified_at && $userWithEmail->password) {
-                //     return  redirect()->back()->with('error', 'Email has been taken');
-                // } elseif ($userWithEmail && $userWithEmail->status == 2) {
-                //     $userWithEmail->delete();
-                // }
+                if ($userWithEmail && $userWithEmail->email_verified_at && $userWithEmail->password) {
+                    return  redirect()->back()->with('error', 'Email has been taken');
+                } elseif ($userWithEmail && $userWithEmail->status == 2) {
+                    $userWithEmail->delete();
+                }
             }
 
             $data = $req->except('_token');
