@@ -3,6 +3,7 @@ phases:
   build:
     commands:
       - cp .env.stage .env
+      - composer install
   post_build:
     commands:
       - php artisan migrate:fresh --seed
