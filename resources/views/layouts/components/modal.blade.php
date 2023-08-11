@@ -378,46 +378,46 @@
                 </div>
                 <div class="row">
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Audio Recording</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Audio Recording</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Corporate Event</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Corporate Event</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Dinner</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Dinner</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Film Shoot</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Film Shoot</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Fitness Class</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Fitness Class</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Meeting</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Meeting</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Networking Event</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Networking Event</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Party</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Party</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Performance</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Performance</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Photo Shoot</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Photo Shoot</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Pop-Up</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Pop-Up</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Retreat</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Retreat</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Wedding</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Wedding</p></a>
                     </div>
                     <div class="col-6 py-4 px-5 fs-6">
-                        <a class="text-dark" href="#"><p>Workshop</p></a>
+                        <a class="text-dark" href="javascript:void(0);" data-select-text><p>Workshop</p></a>
                     </div>
                 </div>
             </div>

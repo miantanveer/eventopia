@@ -32,7 +32,7 @@
 
         .btn_background {
             background: white !important;
-            border: 1px solid rgba(95, 95, 95, 0.74);
+            border: 1px solid rgba(95, 95, 95, 0.74)!important;
         }
 
         .card_height {
@@ -73,6 +73,29 @@
         .scroll-dive:hover::-webkit-scrollbar-thumb {
             background-color: #727171;
         }
+
+        .search-dropdown-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            background-color: white;
+            z-index: 1000;
+            display: none;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .search-drop-content {
+            padding: 10px;
+            cursor: pointer;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .search-drop-content:last-child {
+            border-bottom: none;
+        }
     </style>
 @endsection
 
@@ -111,61 +134,14 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-2 col-12 col-xl-1 col-sm-4">
+                    <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4 ps-0">
                         <div class="mt-2 mb-2">
-                            <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
-                                data-bs-toggle="dropdown">
-                                Type <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu">
-                                <div class="custom-controls-stacked">
-                                    <form action="#" method="get" class="ms-2">
-                                        <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="example-radios"
-                                                value="option1" checked="">
-                                            <span class="custom-control-label">Live Music</span>
-                                        </label>
-                                        <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="example-radios"
-                                                value="option2">
-                                            <span class="custom-control-label">Dance Performances</span>
-                                        </label>
-                                        <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="example-radios"
-                                                value="option3">
-                                            <span class="custom-control-label">Comedy and Entertainment</span>
-                                        </label>
-                                        <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="example-radios"
-                                                value="option3">
-                                            <span class="custom-control-label">Visual and Performing Arts</span>
-                                        </label>
-                                        <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="example-radios"
-                                                value="option3">
-                                            <span class="custom-control-label">Variety Acts</span>
-                                        </label>
-                                        <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="example-radios"
-                                                value="option3">
-                                            <span class="custom-control-label">Speakers and Presenters</span>
-                                        </label>
-                                        <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="example-radios"
-                                                value="option3">
-                                            <span class="custom-control-label">Interactive Performances</span>
-                                        </label>
-                                        <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="example-radios"
-                                                value="option3">
-                                            <span class="custom-control-label">Cultural Performances</span>
-                                        </label>
-                                    </form>
-                                </div>
-                            </ul>
+                                <input type="text" id="typeCategories" class="form-control btn_background text-dark"
+                                    placeholder="Type">
+                                <div class="search-dropdown-results" id="searchResults"></div>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4">
+                    <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4 ps-0">
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
                                 data-bs-toggle="dropdown">
@@ -199,19 +175,18 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-3 col-12 col-xl-2">
+                    <div class="col-lg-2 col-md-3 col-12 col-xl-2 ps-0">
                         <form action="#" class="mt-2">
                             <input type="date" class="form-control btn_background">
                         </form>
                     </div>
-                    <div class="col-lg-2 col-md-3 col-12 col-xl-2 mb-2 mb-md-0">
+                    <div class="col-lg-2 col-md-3 col-12 col-xl-2 mb-2 mb-md-0 ps-0">
                         <form action="#" class="mt-2">
                             <input type="text" class="form-control btn_background" placeholder="Enter a Keyword">
                         </form>
                     </div>
                     <div class="col-lg-1 text-center mt-4 mx-6 form-check form-switch d-lg-block d-none">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
-                            checked>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                         <label class="form-check-label" for="flexSwitchCheckChecked">Map</label>
                     </div>
                 </div>
@@ -633,6 +608,65 @@
                 $('#mapColumn').toggleClass('d-none');
                 $('#galleryColumn').toggleClass('col-lg-12');
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            function hideDropdown(resultsDiv, inputDiv) {
+                resultsDiv.empty();
+            }
+
+            function setupSearch(inputId, resultsId) {
+                const categories = [
+                    "Live Music",
+                    "Dance Performances",
+                    "Comedy and Entertainment",
+                    "Visual and Performing Arts",
+                    "Variety Acts",
+                    "Speakers and Presenters",
+                    "Interactive Performances",
+                    "Cultural Performances",
+                ];
+
+                const searchInput = $(inputId);
+                const searchResults = $(resultsId);
+
+                searchInput.on("input", function() {
+                    const inputValue = this.value.toLowerCase();
+                    const filteredCategories = categories.filter(category => category.toLowerCase()
+                        .includes(inputValue));
+                    const maxResultsToShow = 4;
+
+                    searchResults.html("").css("border-bottom-left-radius", "13px").css(
+                        "border-bottom-right-radius", "13px");
+
+                    if (inputValue.length > 0) {
+                        filteredCategories.slice(0, maxResultsToShow).forEach(category => {
+                            const div = $("<div class='search-drop-content text-start ps-5'>").text(
+                                category);
+                            searchResults.append(div);
+                            $(inputId).parent().addClass("data-appended");
+                        });
+                    }
+                    if (inputValue.length > 0) {
+                        searchResults.show();
+                    } else {
+                        searchResults.hide();
+                    }
+                });
+                searchResults.on("click", ".search-drop-content", function() {
+                    const selectedCategory = $(this).text();
+                    searchInput.val(selectedCategory);
+                    searchResults.hide();
+                });
+                $(document).click(function(event) {
+                    var target = $(event.target);
+                    if (!target.closest(resultsId).length && !target.is(inputId)) {
+                        hideDropdown(searchResults, $(inputId).parent());
+                    }
+                });
+            }
+            setupSearch("#typeCategories", "#searchResults");
         });
     </script>
 @endsection
