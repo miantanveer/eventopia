@@ -171,20 +171,24 @@ class AuthenticationController extends UserBaseController
 
     public function forgetPassword(Request $req)
     {
-        if ($req->phone_number) {
-            $user = User::wherePhoneNumber($req->phone_number)->first();
-        } else {
-            $user = User::whereEmail($req->email)->first();
-        }
-        if (!$user) {
-            return redirect()->back()->with('error', 'Email does not exist. ');
-        }
-        $this->phone_number = $req->phone_number ?? '';
-        $this->email = $req->email ?? '';
-        $this->send_for = 'forget_password';
+        try {
+            if ($req->phone_number) {
+                $user = User::wherePhoneNumber($req->phone_number)->first();
+            } else {
+                $user = User::whereEmail($req->email)->first();
+            }
+            if (!$user) {
+                return redirect()->back()->with('error', 'Email does not exist. ');
+            }
+            $this->phone_number = $req->phone_number ?? '';
+            $this->email = $req->email ?? '';
+            $this->send_for = 'forget_password';
 
-        $this->sendOtp($req);
-        return view('content.auth.verify-code-1', $this->data);
+            $this->sendOtp($req);
+            return view('content.auth.verify-code-1', $this->data);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
+        }
     }
 
     public function resetPasswordIndex()
@@ -198,37 +202,45 @@ class AuthenticationController extends UserBaseController
 
     public function resetPassword(Request $req)
     {
-        $validator = Validator::make($req->all(), [
-            'password' => 'required|confirmed'
-        ]);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+        try {
+            $validator = Validator::make($req->all(), [
+                'password' => 'required|confirmed'
+            ]);
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
 
-        if ($req->phone_number) {
-            $user = User::wherePhoneNumber($req->phone_number)->first();
-        } else {
-            $user = User::whereEmail($req->email)->first();
-        }
-        if (!$user) {
-            return redirect()->back()->with('error', 'Email does not exist. ');
-        }
+            if ($req->phone_number) {
+                $user = User::wherePhoneNumber($req->phone_number)->first();
+            } else {
+                $user = User::whereEmail($req->email)->first();
+            }
+            if (!$user) {
+                return redirect()->back()->with('error', 'Email does not exist. ');
+            }
 
-        $user->update(['password' => $req->password]);
-        return redirect(route('login'))->with('success', "Password reset successfully");
+            $user->update(['password' => $req->password]);
+            return redirect(route('login'))->with('success', "Password reset successfully");
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
+        }
     }
 
     public function sendOtp(Request $req)
     {
-        // $otp = rand( 111111, 999999 );
-        $otp = 000000;
+        try {
+            // $otp = rand( 111111, 999999 );
+            $otp = 000000;
 
-        if ($req->phone_number) {
-            User::where('phone_number', $req->phone_number)->update(['otp' => $otp]);
-            $this->sendMessage($req->phone_number, $otp);
-        } else {
-            User::where('email', $req->email)->update(['otp' => $otp]);
-            Mail::to($req->email)->send(new EmailVerfication($otp));
+            if ($req->phone_number) {
+                User::where('phone_number', $req->phone_number)->update(['otp' => $otp]);
+                $this->sendMessage($req->phone_number, $otp);
+            } else {
+                User::where('email', $req->email)->update(['otp' => $otp]);
+                Mail::to($req->email)->send(new EmailVerfication($otp));
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
         }
     }
 
