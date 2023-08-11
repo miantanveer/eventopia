@@ -79,10 +79,12 @@
             transition: 0.2s ease all;
             color: black !important;
             border: none;
+            box-shadow: 0 5px 8px rgb(149, 149, 149);
         }
 
         .clear_button:active {
             transform: translateY(3px) scale(0.97);
+            box-shadow: 0 4px 8px rgb(191, 191, 191);
         }
 
         .days-table {
