@@ -393,13 +393,13 @@
 
     @include('layouts.components.modal')
 
-    @yield('modal')
+    @yield('modal') 
 
     </div>
     <!-- page -->
 
     <!-- global-helper -->
-    @include()
+    @include('layouts.components.global-helper')
 
     @include('layouts.components.dark-footer')
 
@@ -414,7 +414,6 @@
 
     <!-- INTERNAL Bootstrap-Datepicker js-->
     <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
-
 
     <!-- TIMEPICKER JS -->
     <script src="{{ asset('assets/plugins/time-picker/jquery.timepicker.js') }}"></script>

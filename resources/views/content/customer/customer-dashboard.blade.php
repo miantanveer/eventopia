@@ -361,4 +361,5 @@
     <!-- INTERNAL INDEX JS -->
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="{{ asset('assets/js/index1.js') }}"></script>
+
 @endsection
