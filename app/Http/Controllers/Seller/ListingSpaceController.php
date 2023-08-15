@@ -24,10 +24,22 @@ class ListingSpaceController extends UserBaseController
     public function addAddress(Request $req)
     {
         $data = $req->except('_token');
-        dd($data);
         $data['user_id'] = auth()->user()->id;
         $space = Space::create($data);
-        return response()->json(['success'=>true]);
-        // dd($space);
+        if (!$space) {
+            return response()->json(['error'=>true]);
+        }
+        return response()->json(['success'=>true,'data'=>$space->id]);
+    }
+
+    public function addParking(Request $req)
+    {
+        $data = $req->except('_token');
+        $data['user_id'] = auth()->user()->id;
+        $space = Space::create($data);
+        if (!$space) {
+            return response()->json(['error'=>true]);
+        }
+        return response()->json(['success'=>true,'data'=>$space->id]);
     }
 }

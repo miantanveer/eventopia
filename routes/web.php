@@ -91,6 +91,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('list-space', [ListingSpaceController::class, 'listSpace'])->name('list-space');
     Route::get('space-form-steps', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
     Route::post('address-step', [ListingSpaceController::class, 'addAddress'])->name('add-address');
+    Route::post('parking-step', [ListingSpaceController::class, 'addParking'])->name('add-parking');
     // Route::get('/list-space', function () {
     //     return view('content.seller.list-space');
     // });

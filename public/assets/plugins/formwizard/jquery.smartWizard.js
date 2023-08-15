@@ -268,8 +268,9 @@
                     type: 'post',
                     data: formData,
                     success: function (res) {
-                        mi._showNext();
-                        console.log("ASDFasdfasdfa");
+                        if (res.success) {
+                            mi._showNext();
+                        }
                     },
                     error: function (err) {
                         e.preventDefault();
