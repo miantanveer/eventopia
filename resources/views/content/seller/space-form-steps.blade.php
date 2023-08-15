@@ -67,47 +67,58 @@
                         </ul>
                         <div>
                             <div id="step-1">
-                                <form style="height:400px;width:1350px;margin-left:90px;" class="border mt-5">
+                                <form style="height:450px;width:1350px;margin-left:90px;" id="form-step-1"
+                                    action="{{ route('add-address') }}" method="POST" class="border mt-5">
+                                    @csrf
                                     <h2 style="text-align:center;">Step 1 of 9</h2>
                                     <div class="row">
                                         <div class="card-header  mb-3">
                                             <h1 style="text-align:center;" class="card-title">Space Address</h1>
                                         </div>
+                                        <div class="form-group col-md-5 col-lg-12">
+                                            <label class="form-control-label">Space Type</label>
+                                            <select name="space_type" class="form-control text-white form-select select2" id="space_types">
+                                                @foreach ($space_types as $space_type)
+                                                    <option value="{{ $space_type->id }}">{{ $space_type->type }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                         <div class="col-md-5 col-lg-12">
-                                            <label class="form-control-label">Country</label> <span
+                                            <label class="form-control-label">Street Address</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                id="firstname" name="firstname" placeholder="Add" required=""
+                                                id="address" name="address" placeholder="Add Address" required=""
                                                 type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
-                                            <label class="form-control-label">Street Address</label> <span
+                                            <label class="form-control-label">Country</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                id="firstname" name="firstname" placeholder="" required=""
-                                                type="text">
+                                                id="country" name="country" placeholder="" required="" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
-                                            <label class="form-control-label">Address 2<span
-                                                    class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                id="lastname" name="lastname" placeholder="" required="" type="text">
+                                            <label class="form-control-label">State<span class="tx-danger">*</span></label>
+                                            <input class="form-control rounded-0" id="state" name="state"
+                                                placeholder="" required="" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
                                             <label class="form-control-label">City</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                id="firstname" name="firstname" placeholder="" required=""
-                                                type="text">
+                                                id="city" name="city" placeholder="" required="" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
                                             <label class="form-control-label">Postal Code<span
                                                     class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                id="lastname" name="lastname" placeholder="" required="" type="text">
+                                                id="postal_code" name="postal_code" placeholder="" required=""
+                                                type="text">
                                         </div>
+                                        <input type="hidden" name="lat" id="lat">
+                                        <input type="hidden" name="lng" id="lng">
                                     </div>
                                 </form>
                                 <div class="card custom-card">
                                     <div class="card-body map_height overflow-auto" id="mapContainer">
                                         <h4 style="margin-left:70px;" class="fw-bolder">Use the map pin position to add an
                                             address.</h4>
-                                        <iframe style="height:345px;width:475px;margin-left:70px;" class="gmap_iframe"
+                                        <iframe style="height:380px;width:475px;margin-left:70px;" class="gmap_iframe"
                                             frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0" marginwidth="0"
                                             src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                                         </iframe>
@@ -141,7 +152,7 @@
                                     </div>
                                     <h1><strong>Select all</strong></h1>
                                 </div>
-                                <form id="options">
+                                <form id="options" action="{{ "route('add-address1213213')" }}">
                                     <div>
                                         <label class="checkbox-inline">
                                             <input type="checkbox" value="option 1"><span style="color:#434343"><b>Free
@@ -1417,10 +1428,12 @@
                                                     <div class="card-body">
                                                         <ul>
                                                             <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                                    class="w-4" alt=""> No photos of the space
+                                                                    class="w-4" alt=""> No photos of the
+                                                                space
                                                             </li>
                                                             <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                                    class="w-4" alt=""> No business logos</li>
+                                                                    class="w-4" alt=""> No business logos
+                                                            </li>
                                                             <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
                                                                     class="w-4" alt=""> No group photos</li>
                                                         </ul>
@@ -1618,6 +1631,9 @@
     <!-- Jquery/buttons JS-->
     <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+    </script>
     <script>
         function toggleTextArea() {
             const checkbox = document.getElementById('flexSwitchCheckChecked2');
@@ -1673,7 +1689,6 @@
             $('.sw-btn-next').on('click', function(e) {
                 var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
                 $('.last_step_btn').on('click', function(e) {
-                    // console.log("asdf");
                     window.location.href = "{{ url('/steps-form-submit') }}";
                 });
             });
@@ -1707,5 +1722,43 @@
             embed.src = "https://maps.gstatic.com/maps-api-v3/embed/js/53/13/init_embed.js";
             document.body.appendChild(embed);
         }
+    </script>
+
+    <script>
+        var searchInput = 'address';
+        $(document).ready(function() {
+            var autocomplete;
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+                fields: ["address_components", "geometry"],
+                types: ["address"],
+            });
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                var place = autocomplete.getPlace();
+                var lat = place.geometry['location'].lat();
+                var lng = place.geometry['location'].lng();
+                var myarr = place.address_components;
+                var keyapi = 'AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E';
+                $('#city').val('')
+                $('#state').val('')
+                $('#country').val('')
+                $('#postal_code').val('')
+                $('#lat').val(lat)
+                $('#lng').val(lng)
+                var myarr = place.address_components;
+                for (let i = 0; i < myarr.length; i++) {
+                    var components = myarr[i];
+                    if (components.types[0] == 'postal_code') {
+                        $('#postal_code').val(components.long_name)
+                    } else if (components.types[0] == 'country') {
+                        $('#country').val(components.long_name);
+                    } else if (components.types[0] == 'administrative_area_level_1') {
+                        $('#state').val(components.long_name)
+                    } else if (components.types[0] == 'locality' || components.types[0] == 'postal_town' ||
+                        components.types[0] == 'administrative_area_level_2') {
+                        $('#city').val(components.long_name)
+                    } else {}
+                }
+            });
+        });
     </script>
 @endsection

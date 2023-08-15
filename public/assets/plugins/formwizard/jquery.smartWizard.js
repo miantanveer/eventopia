@@ -10,7 +10,7 @@
  * https://github.com/techlab/SmartWizard/blob/master/LICENSE
  */
 
-(function ($, window, document, undefined) {
+; (function ($, window, document, undefined) {
     "use strict";
     // Default options
 
@@ -345,25 +345,22 @@
             // Next button event
             $(".sw-btn-next", this.main).on("click", function (e) {
                 e.preventDefault();
-                var url = $("#form-step-1").attr("action");
-                var formData = $("#form-step-1").serialize();
-                alert(url);
-                if (!url) {
-                    mi._showNext();
-                } else {
-                    $.ajax({
-                        headers: { "X-CSRF-TOKEN": "{{ csrf_token() }}" },
-                        url: url,
-                        type: "post",
-                        data: formData,
-                        success: function (res) {
-                            console.log("Success");
-                        },
-                        error: function (err) {
-                            console.log("Error");
-                        },
-                    });
-                }
+                let form = $(`#step-${mi.current_index + 1} form`);
+                var url = form.attr("action");
+                var formData = form.serialize();
+                $.ajax({
+                    headers: { 'X-CSRF-TOKEN': "{{ csrf_token() }}" },
+                    url: url,
+                    type: 'post',
+                    data: formData,
+                    success: function (res) {
+                        mi._showNext();
+                        console.log("ASDFasdfasdfa");
+                    },
+                    error: function (err) {
+                        e.preventDefault();
+                    }
+                })
             });
             // Previous button event
             $(".sw-btn-prev", this.main).on("click", function (e) {
@@ -702,17 +699,8 @@
         _fixHeight: function (idx) {
             // Auto adjust height of the container
             if (this.options.autoAdjustHeight) {
-                var selPage =
-                    this.steps.eq(idx).length > 0
-                        ? $(this.steps.eq(idx).attr("href"), this.main)
-                        : null;
-                this.container
-                    .finish()
-                    .animate(
-                        { minHeight: selPage.outerHeight() },
-                        this.options.transitionSpeed,
-                        function () {}
-                    );
+                var selPage = this.steps.eq(idx).length > 0 ? $(this.steps.eq(idx).attr("href"), this.main) : null;
+                this.container.finish().animate({ minHeight: selPage.outerHeight() }, this.options.transitionSpeed, function () { });
             }
             return true;
         },

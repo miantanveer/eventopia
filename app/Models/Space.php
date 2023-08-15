@@ -9,6 +9,27 @@ class Space extends Model
 {
     use HasFactory;
 
+    protected $fillable=[
+        'user_id',
+        'space_type_id',
+        'cancellation_policy_id',
+        'address',
+        'country',
+        'state',
+        'city',
+        'postal_code',
+        'lat',
+        'lng',
+        'parking_description',
+        'security_devices_description',
+        'space_title',
+        'space_description',
+        'space_size	',
+        'space_rules',
+        'wifi_password',
+        'arrival_instruction'
+    ];
+
     public function spaceImages(){
         return $this->hasMany(SpaceImage::class);
     }
