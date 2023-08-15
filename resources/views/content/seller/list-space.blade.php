@@ -33,7 +33,7 @@
                                             </div>
                                             <div class="col-6 text-end">
                                                 <button class="btn btn-primary mt-3"><a
-                                                        href="{{ url('/space-form-steps') }}"
+                                                        href="{{ route('add-space') }}"
                                                         class="text-white">Start</a></button>
                                             </div>
                                         </div>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\Customer\DashboardController;
+use App\Http\Controllers\Seller\ListingSpaceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -77,7 +78,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/booking', function () {
         return view('layouts.components.booking');
     });
-    
+
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana
     Route::get('/seller-dashboard', function () {
@@ -86,12 +87,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/add-space', function () {
         return view('content.seller.add-space');
     });
-    Route::get('/list-space', function () {
-        return view('content.seller.list-space');
-    });
-    Route::get('/space-form-steps', function () {
-        return view('content.seller.space-form-steps');
-    });
+
+    Route::get('list-space', [ListingSpaceController::class, 'listSpace'])->name('list-space');
+    Route::get('space-form-steps', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
+    Route::post('address-step', [ListingSpaceController::class, 'addAddress'])->name('add-address');
+    // Route::get('/list-space', function () {
+    //     return view('content.seller.list-space');
+    // });
+    // Route::get('/space-form-steps', function () {
+    //     return view('content.seller.space-form-steps');
+    // });
     Route::get('/list-entertainment', function () {
         return view('content.seller.list-entertainment');
     });

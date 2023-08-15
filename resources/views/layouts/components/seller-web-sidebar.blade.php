@@ -16,7 +16,7 @@
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide"
-                                    href="{{ URL('/list-space') }}"><img class="me-2"
+                                    href="{{ route('list-space') }}"><img class="me-2"
                                         src="{{ asset('assets/images/icons/list-space.png') }}" alt=""><span
                                         class="side-menu__label text-white"> List a Space</span></a>
                             </li>
