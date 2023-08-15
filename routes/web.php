@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\Customer\DashboardController;
 use Illuminate\Support\Facades\Route;
+Use App\Http\Controllers\Seller\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,7 +78,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/booking', function () {
         return view('layouts.components.booking');
     });
-    
+
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana
     Route::get('/seller-dashboard', function () {
@@ -131,6 +132,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/operating-hours', function () {
         return view('content.seller.operating-hours');
     });
+    Route::post('service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
 });
 
 

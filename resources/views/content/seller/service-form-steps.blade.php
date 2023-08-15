@@ -58,7 +58,8 @@
                                     </div>
                                 </div>
 
-                                <form class="mt-4 mb-5">
+                                <form class="mt-4 mb-5" id="form-step-1" method="post" action="{{ route('service_form_1') }}">
+                                    @csrf
                                     <div class="control-group form-group row">
                                         <div class="col-12">
                                             <label class="form-label">Please add at least 4 space photos</label>
