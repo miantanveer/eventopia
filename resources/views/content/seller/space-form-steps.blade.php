@@ -77,7 +77,8 @@
                                         </div>
                                         <div class="form-group col-md-5 col-lg-12">
                                             <label class="form-control-label">Space Type</label>
-                                            <select name="space_type" class="form-control text-white form-select select2" id="space_types">
+                                            <select name="space_type_id" class="form-control text-white form-select select2"
+                                                id="space_types">
                                                 @foreach ($space_types as $space_type)
                                                     <option value="{{ $space_type->id }}">{{ $space_type->type }}</option>
                                                 @endforeach
@@ -127,101 +128,108 @@
                             </div>
 
                             <div id="step-2">
-                                <div style="text-align:center;">
-                                    <h2>Step 2 of 9</h2>
-                                    <h1><strong>What type of space are you listing?</strong></h1>
-                                    <p><b>Enter the type of space that most closely represents the physical space being
-                                            listed.
-                                            Learn more</b></p>
-                                </div>
-                                <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
-                                        alt="img"><b>Examples: 'Apartment' 'Photo Studio' 'Restaurant'</b></p>
-                                <input type="text" class="form-control rounded-0" id="inputtext"
-                                    placeholder="Gallery for art">
-                                <br>
-                                <hr class="style1"><br>
-                                <div class="inner-steps2 mt-2 mb-3">
-                                    <h1><strong>Describe the parking options</strong></h1>
-                                    <div class="form-check form-switch">
-                                        <p><b>Are there parking options at or near your space?</b>
-                                            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                            <input style="margin-left:32rem;" class="form-check-input" type="checkbox"
-                                                role="switch" id="flexSwitchCheckChecked3" checked
-                                                onchange="toggleOptions()">
-                                        </p>
+                                <form action="{{ route('add-parking') }}">
+                                    <div style="text-align:center;">
+                                        <h2>Step 2 of 9</h2>
+                                        <h1><strong>What type of space are you listing?</strong></h1>
+                                        <p><b>Enter the type of space that most closely represents the physical space being
+                                                listed.
+                                                Learn more</b></p>
                                     </div>
-                                    <h1><strong>Select all</strong></h1>
-                                </div>
-                                <form id="options" action="{{ "route('add-address1213213')" }}">
-                                    <div>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="option 1"><span style="color:#434343"><b>Free
-                                                    onsite parking</b></span>
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input style="margin-left:10rem;" type="checkbox" value="option 2"><span
-                                                style="color:#434343"><b>Paid onsite parking</b></span>
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input style="margin-left:10rem;" type="checkbox" value="option 3"><span
-                                                style="color:#434343"><b>Free street parking</b></span>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="option 4"><span
-                                                style="color:#434343"><b>Valet</b></span>
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input style="margin-left:15.5rem;" type="checkbox" value="option 5"><span
-                                                style="color:#434343"><b>Metered street parking</b></span>
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input style="margin-left:8.6rem;" type="checkbox" value="option 6"><span
-                                                style="color:#434343"><b>Nearby parking lot</b></span>
-                                        </label>
-                                    </div>
-                                </form>
-                                <h1 class="mt-4"><strong>Write a description of the parking options</strong></h1>
-                                <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}" alt="img">Don’t
-                                    include private information. This will be shown publicly.</p>
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1"></label>
-                                    <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="2"></textarea>
-                                    <p class="text-end">Minimum 35 characters</p>
+                                    <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
+                                            alt="img"><b>Examples: 'Apartment' 'Photo Studio' 'Restaurant'</b></p>
+                                    <input type="text" class="form-control rounded-0" id="inputtext"
+                                        placeholder="Gallery for art">
                                     <br>
                                     <hr class="style1"><br>
-
-                                    <div class="form-check form-switch">
-
-                                        <div class="mt-6">
-                                            <h3 class="mb-2 mt-md-7"><b>Security cameras and recording devices</b></h3>
-                                            <div class="w-50 float-start">
-                                                <p class="mb-3">Does the event have security cameras or recording
-                                                    devices?</p>
-                                            </div>
-                                            <div class="w-50 float-end">
-                                                <div class="form-check form-switch float-end">
-                                                    <input class="form-check-input" type="checkbox" role="switch"
-                                                        id="flexSwitchCheckChecked2" checked onchange="toggleTextArea()">
-                                                </div>
-                                            </div><br>
-
-                                            <div id="textAreaDiv" class="mt-5">
-                                                <p class="mb-1">Describe any device that records video, audio, or still
-                                                    images.
-                                                    Specify where each device is in your event and if they’ll be on or off.
-                                                </p>
-                                                <textarea name="" id="" cols="30" rows="5" class="form-control w-100 p-5"
-                                                    placeholder="Add description"></textarea>
-                                                <p class="text-end">Minimum 50 characters</p>
-                                            </div>
+                                    <div class="inner-steps2 mt-2 mb-3">
+                                        <h1><strong>Describe the parking options</strong></h1>
+                                        <div class="form-check form-switch">
+                                            <p><b>Are there parking options at or near your space?</b>
+                                                <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                                                <input style="margin-left:32rem;" class="form-check-input"
+                                                    type="checkbox" role="switch" id="flexSwitchCheckChecked3" checked
+                                                    onchange="toggleOptions()">
+                                            </p>
                                         </div>
-                                        </p>
+                                        <h1><strong>Select all</strong></h1>
+                                    </div>
+
+                                    <div id="options">
+                                        <div>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="option 1"><span style="color:#434343"><b>Free
+                                                        onsite parking</b></span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input style="margin-left:10rem;" type="checkbox" value="option 2"><span
+                                                    style="color:#434343"><b>Paid onsite parking</b></span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input style="margin-left:10rem;" type="checkbox" value="option 3"><span
+                                                    style="color:#434343"><b>Free street parking</b></span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="option 4"><span
+                                                    style="color:#434343"><b>Valet</b></span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input style="margin-left:15.5rem;" type="checkbox" value="option 5"><span
+                                                    style="color:#434343"><b>Metered street parking</b></span>
+                                            </label>
+                                            <label class="checkbox-inline">
+                                                <input style="margin-left:8.6rem;" type="checkbox" value="option 6"><span
+                                                    style="color:#434343"><b>Nearby parking lot</b></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <h1 class="mt-4"><strong>Write a description of the parking options</strong></h1>
+                                    <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}" alt="img">Don’t
+                                        include private information. This will be shown publicly.</p>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1"></label>
+                                        <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                        <p class="text-end">Minimum 35 characters</p>
                                         <br>
                                         <hr class="style1"><br>
+
+                                        <div class="form-check form-switch">
+
+                                            <div class="mt-6">
+                                                <h3 class="mb-2 mt-md-7"><b>Security cameras and recording devices</b></h3>
+                                                <div class="w-50 float-start">
+                                                    <p class="mb-3">Does the event have security cameras or recording
+                                                        devices?</p>
+                                                </div>
+                                                <div class="w-50 float-end">
+                                                    <div class="form-check form-switch float-end">
+                                                        <input class="form-check-input" type="checkbox" role="switch"
+                                                            id="flexSwitchCheckChecked2" checked
+                                                            onchange="toggleTextArea()">
+                                                    </div>
+                                                </div><br>
+
+                                                <div id="textAreaDiv" class="mt-5">
+                                                    <p class="mb-1">Describe any device that records video, audio, or
+                                                        still
+                                                        images.
+                                                        Specify where each device is in your event and if they’ll be on or
+                                                        off.
+                                                    </p>
+                                                    <textarea name="" id="" cols="30" rows="5" class="form-control w-100 p-5"
+                                                        placeholder="Add description"></textarea>
+                                                    <p class="text-end">Minimum 50 characters</p>
+                                                </div>
+                                            </div>
+                                            </p>
+                                            <br>
+                                            <hr class="style1"><br>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
 
                             <div id="step-3" class="">
@@ -286,7 +294,7 @@
                                     <ul style="list-style-type:disc">
                                         <li>No smoking in the building</li>
                                         <li>Outside catering is allowed</li>
-                                        <li>No alcohol allowed after 8pm</li>
+                                        <li>No alcohol allowed</li>
                                     </ul><br>
                                     <h2>Do not include:</h2>
                                     <ul style="list-style-type:disc">
@@ -304,7 +312,6 @@
                                         <br>
                                         <hr class="style1"><br>
                                     <h1>Who's allowed in your space?</h1>
-                                    <p>Typically, only venues that serve alcohol have age requirements.</p>
                                     <form>
                                         <div class="form-group">
                                             <label for="sel1"></label>
@@ -570,7 +577,8 @@
                                         <div class="text-center mb-6">
                                             <h3 class="mt-3 mt-1"><b>Choose your Cancellation Policy</b>
                                             </h3>
-                                            <p class=""><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
+                                            <p class=""><img
+                                                    src="{{ asset('assets/images/brand/light-bulb.png') }}"
                                                     class="w-5" alt=""> Hosts with more flexible cancellation
                                                 policies attract more
                                                 bookings.</p>

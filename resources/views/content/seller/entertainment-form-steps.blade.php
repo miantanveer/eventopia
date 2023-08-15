@@ -404,9 +404,9 @@
                                                                     <hr class="bg-dark mb-0">
                                                                 </div>
                                                                 <div class="ms-5 my-4">
-                                                                    <li class="text-dark mb-2">Workshops</li>
-                                                                    <li class="text-dark mb-2">Presentations</li>
-                                                                    <li class="text-dark mb-2">Retreats</li>
+                                                                    <li class="text-dark mb-2">Bands & Groups</li>
+                                                                    <li class="text-dark mb-2">Singers</li>
+                                                                    <li class="text-dark mb-2">Solo Musicians</li>
                                                                     <li class="text-dark">More</li>
                                                                 </div>
                                                             </div>
@@ -519,9 +519,9 @@
                                                                     <hr class="bg-dark mb-0">
                                                                 </div>
                                                                 <div class="ms-5 my-4">
-                                                                    <li class="text-dark mb-2">Birthdays</li>
-                                                                    <li class="text-dark mb-2">Networking Event</li>
-                                                                    <li class="text-dark mb-2">Corporate Party</li>
+                                                                    <li class="text-dark mb-2">Actors</li>
+                                                                    <li class="text-dark mb-2">Comedians</li>
+                                                                    <li class="text-dark mb-2">Children Party</li>
                                                                     <li class="text-dark">More</li>
                                                                 </div>
                                                             </div>
@@ -634,9 +634,9 @@
                                                                     <hr class="bg-dark mb-0">
                                                                 </div>
                                                                 <div class="ms-5 my-4">
-                                                                    <li class="text-dark mb-2">Film shoots</li>
-                                                                    <li class="text-dark mb-2">Photo shoots</li>
-                                                                    <li class="text-dark mb-2">Audio recording</li>
+                                                                    <li class="text-dark mb-2">Beauty</li>
+                                                                    <li class="text-dark mb-2">Food & Beverage</li>
+                                                                    <li class="text-dark mb-2">Photos & videos</li>
                                                                     <li class="text-dark">More</li>
                                                                 </div>
                                                             </div>
