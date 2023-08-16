@@ -49,4 +49,8 @@ class Space extends Model
     public function spaceHaveActivities(){
         return $this->hasMany(SpaceHavingActivity::class);
     }
+
+    public function spaceType(){
+        return $this->belongsTo(SpaceType::class);
+    }
 }

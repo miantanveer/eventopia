@@ -126,9 +126,9 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div id="step-2">
                                 <form action="{{ route('add-parking') }}">
+                                    @csrf
                                     <div style="text-align:center;">
                                         <h2>Step 2 of 9</h2>
                                         <h1><strong>What type of space are you listing?</strong></h1>
@@ -138,8 +138,8 @@
                                     </div>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
                                             alt="img"><b>Examples: 'Apartment' 'Photo Studio' 'Restaurant'</b></p>
-                                    <input type="text" class="form-control rounded-0" id="inputtext"
-                                        placeholder="Gallery for art">
+                                    <input type="text" class="form-control rounded-0" readonly name="space_type"
+                                        placeholder="Gallery for art">{{session('space')$space->spaceType->type}}
                                     <br>
                                     <hr class="style1"><br>
                                     <div class="inner-steps2 mt-2 mb-3">
@@ -156,33 +156,15 @@
                                     </div>
 
                                     <div id="options">
-                                        <div>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="option 1"><span style="color:#434343"><b>Free
-                                                        onsite parking</b></span>
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input style="margin-left:10rem;" type="checkbox" value="option 2"><span
-                                                    style="color:#434343"><b>Paid onsite parking</b></span>
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input style="margin-left:10rem;" type="checkbox" value="option 3"><span
-                                                    style="color:#434343"><b>Free street parking</b></span>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox" value="option 4"><span
-                                                    style="color:#434343"><b>Valet</b></span>
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input style="margin-left:15.5rem;" type="checkbox" value="option 5"><span
-                                                    style="color:#434343"><b>Metered street parking</b></span>
-                                            </label>
-                                            <label class="checkbox-inline">
-                                                <input style="margin-left:8.6rem;" type="checkbox" value="option 6"><span
-                                                    style="color:#434343"><b>Nearby parking lot</b></span>
-                                            </label>
+                                        <div class="row">
+                                            @foreach ($parking_options as $parking_option)
+                                            <div class="col-4">
+                                                <label class="checkbox-inline">
+                                                    <input name="parking_option[]" class="parking_option" type="checkbox" value="{{$parking_option->id}}"><span
+                                                        style="color:#434343"><b>{{$parking_option->option}}</b></span>
+                                                </label>
+                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
 
@@ -191,7 +173,7 @@
                                         include private information. This will be shown publicly.</p>
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1"></label>
-                                        <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                        <textarea style="height:150px;" class="form-control rounded-0" name="parking_description" id="exampleFormControlTextarea1" rows="2"></textarea>
                                         <p class="text-end">Minimum 35 characters</p>
                                         <br>
                                         <hr class="style1"><br>
@@ -219,7 +201,7 @@
                                                         Specify where each device is in your event and if they’ll be on or
                                                         off.
                                                     </p>
-                                                    <textarea name="" id="" cols="30" rows="5" class="form-control w-100 p-5"
+                                                    <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5" class="form-control w-100 p-5"
                                                         placeholder="Add description"></textarea>
                                                     <p class="text-end">Minimum 50 characters</p>
                                                 </div>
@@ -1649,6 +1631,7 @@
             if (checkbox.checked) {
                 textAreaDiv.style.display = 'block'; // Show the text area
             } else {
+                $('#security_devices_description').val('');
                 textAreaDiv.style.display = 'none'; // Hide the text area
             }
         }
@@ -1660,6 +1643,7 @@
             if (checkbox.checked) {
                 options.style.display = 'block'; // Show the text area
             } else {
+                $('.parking_option').val('');
                 options.style.display = 'none'; // Hide the text area
             }
         }
