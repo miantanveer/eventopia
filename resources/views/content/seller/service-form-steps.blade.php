@@ -58,13 +58,15 @@
                                     </div>
                                 </div>
 
-                                <form class="mt-4 mb-5" id="form-step-1" method="post" action="{{ route('service_form_1') }}">
+                                <form class="mt-4 mb-5" id="form-step-1" method="post"
+                                    action="{{ route('service_form_1') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="control-group form-group row">
                                         <div class="col-12">
                                             <label class="form-label">Please add at least 4 space photos</label>
-                                            <input id="demo" type="file" name="files"
-                                                accept=".jpg, .png, image/jpeg, image/png" multiple>
+                                            <input id="demo" type="file" name="files[]" accept=".jpg, .png"
+                                                multiple value="images">
+                                                <input type="file" name="test" id="yesy">
                                         </div>
                                     </div>
                                     <br>
@@ -72,10 +74,10 @@
                                         <div class="col-12">
                                             <p><i class="ion-lightbulb text-warning fs-3 me-3"></i> Drag and drop your
                                                 photos to change the order. Your first photo is what your guests will see
-                                                when browsing so make sure it
-                                                represents your space.</p>
+                                                when browsing so make sure it represents your space.</p>
                                         </div>
                                     </div>
+                                    <div id="image-preview-container" class="mt-4"></div>
                                 </form>
 
                             </div>
@@ -255,7 +257,7 @@
 
 @section('scripts')
     <!-- INTERNAL File-Uploads Js-->
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+    {{-- <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script> --}}
     <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
     <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
     <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
@@ -328,6 +330,50 @@
                     // console.log("asdf");
                     window.location.href = '{{ url('/steps-form-submit') }}';
                 });
+            });
+        });
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Function to display image previews
+            function showImagePreview(input) {
+                for (const file of input.files) {
+                    const img = $("<img>", {
+                        src: URL.createObjectURL(file),
+                        class: "img-thumbnail me-2 mb-2",
+                        style: "max-width: 10%;"
+                    });
+
+                    const deleteBtn = $("<button>", {
+                        class: "btn btn-danger btn-sm mt-5",
+                        style: "max-height: 30px;"
+                    }).html('<i class="fa-solid fa-trash"></i>');
+
+                    deleteBtn.on("click", function() {
+                        const parentDiv = $(this).closest(".image-preview");
+                        const imgSrc = parentDiv.find("img").attr("src");
+
+                        const input = $("#demo")[0];
+                        const fileList = Array.from(input.files);
+                        const updatedFiles = fileList.filter(file => URL.createObjectURL(file) !== imgSrc);
+                        input.files = new FileList(updatedFiles);
+
+                        parentDiv.remove();
+                    });
+
+                    const div = $("<div>", {
+                        class: "image-preview d-flex justify-content-between"
+                    }).append(img, deleteBtn);
+
+                    $("#image-preview-container").append(div);
+                }
+            }
+            $("#demo").on("change", function() {
+                showImagePreview(this);
             });
         });
     </script>

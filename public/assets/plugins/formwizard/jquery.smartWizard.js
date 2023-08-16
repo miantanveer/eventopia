@@ -344,10 +344,10 @@
 
             // Next button event
             $(".sw-btn-next", this.main).on("click", function (e) {
-                e.preventDefault();
-                let form = $(`#step-${mi.current_index + 1} form`);
-                var url = form.attr("action");
-                var formData = form.serialize();
+                    e.preventDefault();
+                    let form = $(`#step-${mi.current_index + 1} form`);
+                    var url = form.attr("action");
+                    var formData = form.serialize();
                 $.ajax({
                     headers: { 'X-CSRF-TOKEN': "{{ csrf_token() }}" },
                     url: url,
