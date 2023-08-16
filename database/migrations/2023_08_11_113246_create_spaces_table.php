@@ -16,7 +16,7 @@ class CreateSpacesTable extends Migration
         Schema::create('spaces', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('space_type_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('space_type_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('cancellation_policy_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('address')->nullable();
             $table->string('country')->nullable();
@@ -25,8 +25,8 @@ class CreateSpacesTable extends Migration
             $table->string('postal_code')->nullable();
             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
-            $table->string('parking_description')->nullable();
-            $table->string('security_devices_description')->nullable();
+            $table->longText('parking_description')->nullable();
+            $table->longText('security_devices_description')->nullable();
             $table->string('space_title')->nullable();
             $table->string('space_description')->nullable();
             $table->bigInteger('space_size')->nullable()->comment = "sq m";

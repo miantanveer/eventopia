@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class SpaceHavingParkingOption extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'space_id',
+        'parking_option_id',
+    ];
 }

@@ -75,15 +75,6 @@
                                         <div class="card-header  mb-3">
                                             <h1 style="text-align:center;" class="card-title">Space Address</h1>
                                         </div>
-                                        <div class="form-group col-md-5 col-lg-12">
-                                            <label class="form-control-label">Space Type</label>
-                                            <select name="space_type_id" class="form-control text-white form-select select2"
-                                                id="space_types">
-                                                @foreach ($space_types as $space_type)
-                                                    <option value="{{ $space_type->id }}">{{ $space_type->type }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
                                         <div class="col-md-5 col-lg-12">
                                             <label class="form-control-label">Street Address</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
@@ -138,8 +129,12 @@
                                     </div>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
                                             alt="img"><b>Examples: 'Apartment' 'Photo Studio' 'Restaurant'</b></p>
-                                    <input type="text" class="form-control rounded-0" readonly name="space_type"
-                                        placeholder="Gallery for art">{{session('space')$space->spaceType->type}}
+                                            <select name="space_type_id" class="form-control text-white form-select select2"
+                                                    id="space_types">
+                                                    @foreach ($space_types as $space_type)
+                                                        <option value="{{ $space_type->id }}">{{ $space_type->type }}</option>
+                                                    @endforeach
+                                                </select>
                                     <br>
                                     <hr class="style1"><br>
                                     <div class="inner-steps2 mt-2 mb-3">
