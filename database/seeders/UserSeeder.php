@@ -17,16 +17,27 @@ class UserSeeder extends Seeder
     {
         User::insert([
             [
-                'first_name'=>'Supplier',
+                'first_name'=>'Seller',
                 'last_name'=>'Harrison',
-                'email'=>'supplier@example.com',
+                'email'=>'seller@example.com',
                 'phone_number'=>'+9231014782100',
                 'date_of_birth'=>'2000-01-01',
                 'password'=>Hash::make('123456'),
                 'status'=>'1',
                 'created_at'=>now(),
                 'updated_at'=>now(),
-            ]
+            ],
+            [
+                'first_name'=>'John',
+                'last_name'=>'Wick',
+                'email'=>'customer@example.com',
+                'phone_number'=>'+92310182100',
+                'date_of_birth'=>'2000-01-01',
+                'password'=>Hash::make('123456'),
+                'status'=>'1',
+                'created_at'=>now(),
+                'updated_at'=>now(),
+            ],
         ]);
     }
 }
