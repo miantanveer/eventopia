@@ -15,7 +15,7 @@
                 <div class="card-header pb-0 border-bottom-0">
                     <div class="row w-100 align-items-center">
                         <div class="col-12">
-                            <h3 class="number-font mb-2">Hb, tell us about your service</h3>
+                            <h3 class="number-font mb-2">{{auth()->user()->first_name ?? 'Hi'}}, tell us about your service</h3>
                         </div>
                         <div class="col-12 pe-0">
                             <p>The more you share, the faster you can get a booking.</p>

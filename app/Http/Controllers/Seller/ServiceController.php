@@ -10,6 +10,6 @@ class ServiceController extends UserBaseController
 {
     //
     public function serviceForm1(Request $request){
-        return ('Helo');
+        dd($request);
     }
 }

@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
 
-                                <form class="mt-4 mb-5" id="form-step-1" method="post" action="{{ route('service_form_1') }}">
+                                <form class="mt-4 mb-5" id="form-step-1" method="post" enctype="multipart/form-data" action="{{ route('service_form_1') }}">
                                     @csrf
                                     <div class="control-group form-group row">
                                         <div class="col-12">
@@ -266,7 +266,7 @@
     <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
 
     <!-- FORM WIZARD JS-->
-    <script src="{{ asset('assets/plugins/formwizard/jquery.smartWizard.js') }}"></script>
+    <script src="{{ asset('assets/plugins/formwizard/jquery.service.smartWizard.js') }}"></script>
     <script src="{{ asset('assets/plugins/formwizard/fromwizard.js') }}"></script>
 
     <!-- INTERNAl Jquery.steps js -->
