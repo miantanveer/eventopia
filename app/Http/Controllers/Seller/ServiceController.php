@@ -12,6 +12,10 @@ use Illuminate\Http\Request;
 
 class ServiceController extends UserBaseController
 {
+    public function complete()
+    {
+        return view('content.seller.steps-form-submit');
+    }
     public function serviceForm1(Request $request)
     {
         $request->validate([
@@ -96,7 +100,7 @@ class ServiceController extends UserBaseController
         if($request->has('destination1')) $this->teamMember($serviceteam->id,$request->destination1);
         if($request->has('destination2')) $this->teamMember($serviceteam->id,$request->destination2);
         if($request->has('destination3')) $this->teamMember($serviceteam->id,$request->destination3);
-        return view('content.seller.steps-form-submit')->with('success', "Service Created Successfully");
+        return redirect()->route('complete')->with('success', "Service Created Successfully");
     }
     public function teamMember($id,$destination)
     {

@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                                 <div class="col-3">
-                                    <input type="file" class="dropify"
+                                    <input type="file" name='file' class="dropify"
                                         data-bs-default-file="{{ asset('assets/images/media/1.jpg') }}"
                                         data-bs-height="180" />
                                 </div>

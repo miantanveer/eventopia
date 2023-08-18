@@ -12,8 +12,10 @@
         .sw-btn-group-extra {
             display: none;
         }
+
         .dz-remove {
-            color: red !important; /* Change to your desired color */
+            color: red !important;
+            /* Change to your desired color */
         }
     </style>
 @endsection
@@ -63,7 +65,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            {{--  <input type="hidden" name="url" id="url" value='{{ route('service_form_3',$id) }}'>  --}}
+                            <input type="hidden" name="url" id="url" value='{{ route('service-form-3', $id) }}'>
 
                             <form action="{{ route('service_form_2') }}" method="post" id="filedrop" class="dropzone">
                                 @csrf
@@ -122,6 +124,7 @@
     <script>
         var myDropzone;
         var alertShown = false; // Flag to track whether the alert has been shown
+        var alertShown8 = false; // Flag to track whether the alert has been shown
 
         Dropzone.autoDiscover = false;
 
@@ -132,10 +135,12 @@
             addRemoveLinks: true,
             acceptedFiles: ".png, .jpeg",
             init: function() {
+                var uploadedFiles = 0; // To keep track of successfully uploaded files
                 this.on("success", function(file, response) {
-                    if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles().length === 0) {
+                    uploadedFiles++; // Increment the count of uploaded files
+                    if (uploadedFiles) {
                         var id = $('#service_id').val();
-                        var url = 'http://eventopia.pk/service-form-3/'+id;
+                        var url = $('#url').val();
                         window.location.replace(url);
                     }
                 });
@@ -145,6 +150,10 @@
                         alertShown = true;
                         alert("Please upload at least 4 files.");
                     }
+                    if (!alertShown8 && myDropzone.files.length > 8) {
+                        alertShown8 = true;
+                        alert("Max files allowed are 8.");
+                    }
                 });
             },
         });
@@ -152,8 +161,11 @@
         function upload() {
             if (alertShown && myDropzone.files.length < 4) {
                 alert("Please upload at least 4 files.");
+            } else if (alertShown8 && myDropzone.files.length > 8) {
+                alertShown8 = true;
+                alert("Max files allowed are 8.");
             }
-            else{
+            else {
                 var files = myDropzone.files;
                 myDropzone.processQueue(files);
             }

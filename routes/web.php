@@ -143,10 +143,11 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::any('/service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
     Route::any('/service_form_2', [ServiceController::class, 'serviceForm2'])->name('service_form_2');
-    Route::any('/service-form-3/{id}', [ServiceController::class, 'loadserviceForm3']);
+    Route::any('/service-form-3/{id}', [ServiceController::class, 'loadserviceForm3'])->name('service-form-3');
     Route::any('/service_form_3', [ServiceController::class, 'serviceForm3'])->name('service_form_3');
     Route::any('/service_form_4', [ServiceController::class, 'serviceForm4'])->name('service_form_4');
     Route::any('/service_form_5', [ServiceController::class, 'serviceForm5'])->name('service_form_5');
+    Route::any('/completed', [ServiceController::class, 'complete'])->name('complete');
 });
 
 

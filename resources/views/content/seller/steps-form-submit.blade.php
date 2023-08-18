@@ -11,6 +11,7 @@
     </style>
 @endsection
 
+
 @section('content')
     <!-- ROW-1 -->
     <div class="row text-center div_margin">
