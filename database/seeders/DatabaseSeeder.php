@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             SpaceTypeSeeder::class,
             ParkingOptionSeeder::class,
             UserSeeder::class,
+            SafetyMeasureSeeder::class,
         ]);
     }
 }

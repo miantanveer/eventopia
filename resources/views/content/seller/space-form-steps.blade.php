@@ -56,8 +56,8 @@
                             <li><a href="#step-1">Space Address</a></li>
                             <li><a href="#step-2">Setup</a></li>
                             <li><a href="#step-3">About your space</a></li>
-                            <li><a href="#step-4">Photos</a></li>
-                            <li><a href="#step-5">Hours</a></li>
+                            {{-- <li><a href="#step-4">Photos</a></li> --}}
+                            {{-- <li><a href="#step-5">Hours</a></li> --}}
                             <li><a href="#step-6">Cleaning Policy</a></li>
                             <li><a href="#step-7">Cancellation</a></li>
                             <li><a href="#step-8">Listing</a></li>
@@ -104,6 +104,7 @@
                                         </div>
                                         <input type="hidden" name="lat" id="lat">
                                         <input type="hidden" name="lng" id="lng">
+                                        <input type="hidden" name="last_step" value="1">
                                     </div>
                                 </form>
                                 <div class="card custom-card">
@@ -129,12 +130,12 @@
                                     </div>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
                                             alt="img"><b>Examples: 'Apartment' 'Photo Studio' 'Restaurant'</b></p>
-                                            <select name="space_type_id" class="form-control text-white form-select select2"
-                                                    id="space_types">
-                                                    @foreach ($space_types as $space_type)
-                                                        <option value="{{ $space_type->id }}">{{ $space_type->type }}</option>
-                                                    @endforeach
-                                                </select>
+                                    <select name="space_type_id" class="form-control text-white form-select select2"
+                                        id="space_types">
+                                        @foreach ($space_types as $space_type)
+                                            <option value="{{ $space_type->id }}">{{ $space_type->type }}</option>
+                                        @endforeach
+                                    </select>
                                     <br>
                                     <hr class="style1"><br>
                                     <div class="inner-steps2 mt-2 mb-3">
@@ -153,12 +154,13 @@
                                     <div id="options">
                                         <div class="row">
                                             @foreach ($parking_options as $parking_option)
-                                            <div class="col-4">
-                                                <label class="checkbox-inline">
-                                                    <input name="parking_option[]" class="parking_option" type="checkbox" value="{{$parking_option->id}}"><span
-                                                        style="color:#434343"><b>{{$parking_option->option}}</b></span>
-                                                </label>
-                                            </div>
+                                                <div class="col-4">
+                                                    <label class="checkbox-inline">
+                                                        <input name="parking_option[]" class="parking_option"
+                                                            type="checkbox" value="{{ $parking_option->id }}"><span
+                                                            style="color:#434343"><b>{{ $parking_option->option }}</b></span>
+                                                    </label>
+                                                </div>
                                             @endforeach
                                         </div>
                                     </div>
@@ -168,7 +170,8 @@
                                         include private information. This will be shown publicly.</p>
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1"></label>
-                                        <textarea style="height:150px;" class="form-control rounded-0" name="parking_description" id="exampleFormControlTextarea1" rows="2"></textarea>
+                                        <textarea style="height:150px;" class="form-control rounded-0" name="parking_description"
+                                            id="exampleFormControlTextarea1" rows="2"></textarea>
                                         <p class="text-end">Minimum 35 characters</p>
                                         <br>
                                         <hr class="style1"><br>
@@ -196,8 +199,8 @@
                                                         Specify where each device is in your event and if they’ll be on or
                                                         off.
                                                     </p>
-                                                    <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5" class="form-control w-100 p-5"
-                                                        placeholder="Add description"></textarea>
+                                                    <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5"
+                                                        class="form-control w-100 p-5" placeholder="Add description"></textarea>
                                                     <p class="text-end">Minimum 50 characters</p>
                                                 </div>
                                             </div>
@@ -206,128 +209,151 @@
                                             <hr class="style1"><br>
                                         </div>
                                     </div>
+                                    <input type="hidden" name="last_step" value="2">
                                 </form>
                             </div>
 
                             <div id="step-3" class="">
-                                <div style="text-align:center;" class="">
-                                    <h2>Step 3 of 9</h2>
-                                    <h1><strong>Give your space a title</strong></h1>
-                                    <p>Create a title that will grab a guest’s interest and describes your space. Do not
-                                        include your business’s name.</p>
-                                </div>
-                                <div class="innersteps 3 mt-3 mb-3">
-                                    <h4>Try to include the following:</h4>
-                                    <ul style="list-style-type:disc;color:#434343">
-                                        <li><b><span style="color:black;">Location</span></b> - urban, downtown, marina
-                                        </li>
-                                        <li><b><span style="color:black;">The type of space</span></b> - loft, studio,
-                                            dance hall, penthouse</li>
-                                        <li><b><span style="color:black;">Unique adjective</span></b> - industrial, rustic,
-                                            roomy</li>
-                                    </ul>
-                                    <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
-                                            alt="img"><b>Example: “Downtown Loft with Skyline View”</b></p>
-                                    <input type="text" class="form-control rounded-0" id="inputtext"
-                                        placeholder="Enter your space title">
-                                    <br>
-                                    <hr class="style1"><br>
-                                    <h1><strong>Describe the parking options</strong></h1>
-                                    <p style="color:black;"><b>Include details about your space so that guests will know
-                                            everything it offers.</b></p>
-                                    <h1 style="font-size:20px;color:black;" class="mt-3">Try to answer questions like:
-                                    </h1>
-                                    <ul style="list-style-type:disc;color:#434343">
-                                        <li>What activities work well in your space?</li>
-                                        <li>What is the layout of the space and how can different areas be used?</li>
-                                        <li>What unique features or amenities does your space have?</li>
-                                    </ul><br>
-                                    <h3>Do not include:</h3>
-                                    <p><b>Contact information</b> - Do not include your phone number, venue name, address,
-                                        email, or links to your website.</p>
-                                    <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                    <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3">Add description</textarea>
-                                    <p class="text-end">Minimum 280 characters</p>
-                                    <br>
-                                    <hr class="style1"><br>
-                                    <h1>How big is the space guests can book?</h1>
-                                    <p>Please only include the size of the space that guests can use during their booking.
-                                    </p>
-                                    <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
-                                            alt="img"><b>Example: If your space is 2,000 m ft, but guests are booking
-                                            a 500 m ft conference room, you would enter “500”.</b></p>
-
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <input type="number" class="btn btn-outline-default rounded-0" value="500">
-                                        <button type="button" class="btn btn-outline-default rounded-0">sq m</button>
-
+                                <form action="{{ route('add-about') }}">
+                                    @csrf
+                                    <div style="text-align:center;" class="">
+                                        <h2>Step 3 of 9</h2>
+                                        <h1><strong>Give your space a title</strong></h1>
+                                        <p>Create a title that will grab a guest’s interest and describes your space. Do not
+                                            include your business’s name.</p>
                                     </div>
-
-                                    <br>
-                                    <hr class="style1"><br>
-                                    <h1>What are your house rules?</h1>
-                                    <p>Include any rules about what your guests can and cannot do in the space.</p>
-                                    <h3>Example rules:</h3>
-                                    <ul style="list-style-type:disc">
-                                        <li>No smoking in the building</li>
-                                        <li>Outside catering is allowed</li>
-                                        <li>No alcohol allowed</li>
-                                    </ul><br>
-                                    <h2>Do not include:</h2>
-                                    <ul style="list-style-type:disc">
-                                        <li><b><span style="color:black;">Cleaning Fee</span></b> - Basic cleaning is the
-                                            responsibility of the host. If you charge a cleaning fee, you can add it in a
-                                            later section.</li>
-                                        <li><b><span style="color:black;">Contracts </span></b> - Peerspace bookings are
-                                            covered by our Service Agreement. Do not paste your contract, cancellation
-                                            policy, or
-                                            liability policy.</li>
-                                    </ul>
-                                    <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                    <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3">Enter your house rules</textarea>
-                                    <p class="text-end">Minimum 100 characters</h4>
+                                    <div class="innersteps 3 mt-3 mb-3">
+                                        <h4>Try to include the following:</h4>
+                                        <ul style="list-style-type:disc;color:#434343">
+                                            <li><b><span style="color:black;">Location</span></b> - urban, downtown, marina
+                                            </li>
+                                            <li><b><span style="color:black;">The type of space</span></b> - loft, studio,
+                                                dance hall, penthouse</li>
+                                            <li><b><span style="color:black;">Unique adjective</span></b> - industrial,
+                                                rustic,
+                                                roomy</li>
+                                        </ul>
+                                        <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
+                                                alt="img"><b>Example: “Downtown Loft with Skyline View”</b></p>
+                                        <input type="text" class="form-control rounded-0" id="inputtext"
+                                            placeholder="Enter your space title" name="space_title">
                                         <br>
                                         <hr class="style1"><br>
-                                    <h1>Who's allowed in your space?</h1>
-                                    <form>
+                                        <h1><strong>Describe the parking options</strong></h1>
+                                        <p style="color:black;"><b>Include details about your space so that guests will
+                                                know
+                                                everything it offers.</b></p>
+                                        <h1 style="font-size:20px;color:black;" class="mt-3">Try to answer questions
+                                            like:
+                                        </h1>
+                                        <ul style="list-style-type:disc;color:#434343">
+                                            <li>What activities work well in your space?</li>
+                                            <li>What is the layout of the space and how can different areas be used?</li>
+                                            <li>What unique features or amenities does your space have?</li>
+                                        </ul><br>
+                                        <h3>Do not include:</h3>
+                                        <p><b>Contact information</b> - Do not include your phone number, venue name,
+                                            address,
+                                            email, or links to your website.</p>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                                        <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3"
+                                            placeholder="Add description" name="space_description"></textarea>
+                                        <p class="text-end">Minimum 280 characters</p>
+                                        <br>
+                                        <hr class="style1"><br>
+                                        <h1>How big is the space guests can book?</h1>
+                                        <p>Please only include the size of the space that guests can use during their
+                                            booking.
+                                        </p>
+                                        <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
+                                                alt="img"><b>Example: If your space is 2,000 m ft, but guests are
+                                                booking
+                                                a 500 m ft conference room, you would enter “500”.</b></p>
+
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <input type="number" class="btn btn-outline-default rounded-0"
+                                                placeholder="200" name="space_size">
+                                            <button type="button" class="btn btn-outline-default rounded-0">sq m</button>
+
+                                        </div>
+
+                                        <br>
+                                        <hr class="style1"><br>
+                                        <h1>What are your house rules?</h1>
+                                        <p>Include any rules about what your guests can and cannot do in the space.</p>
+                                        <h3>Example rules:</h3>
+                                        <ul style="list-style-type:disc">
+                                            <li>No smoking in the building</li>
+                                            <li>Outside catering is allowed</li>
+                                            <li>No alcohol allowed</li>
+                                        </ul><br>
+                                        <h2>Do not include:</h2>
+                                        <ul style="list-style-type:disc">
+                                            <li><b><span style="color:black;">Cleaning Fee</span></b> - Basic cleaning is
+                                                the
+                                                responsibility of the host. If you charge a cleaning fee, you can add it in
+                                                a
+                                                later section.</li>
+                                            <li><b><span style="color:black;">Contracts </span></b> - Peerspace bookings
+                                                are
+                                                covered by our Service Agreement. Do not paste your contract, cancellation
+                                                policy, or
+                                                liability policy.</li>
+                                        </ul>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                                        <textarea style="height:150px;" name="space_rules" class="form-control rounded-0" id="exampleFormControlTextarea1"
+                                            rows="3">Enter your house rules</textarea>
+                                        <p class="text-end">Minimum 100 characters</h4>
+                                            <br>
+                                            <hr class="style1"><br>
+                                        <h1>Who's allowed in your space?</h1>
+
                                         <div class="form-group">
                                             <label for="sel1"></label>
-                                            <select class="form-control" id="sel1">
-                                                <option>All ages</option>
-                                                <option>Age 20+</option>
-                                                <option>Age 50+</option>
-
+                                            <select class="form-control" name="allowed_age" id="sel1">
+                                                <option value="all">All ages</option>
+                                                <option value="10">Age 10+</option>
+                                                <option value="20">Age 20+</option>
+                                                <option value="30">Age 30+</option>
+                                                <option value="40">Age 40+</option>
+                                                <option value="50">Age 50+</option>
                                             </select>
                                         </div>
-                                    </form>
-                                    <br>
-                                    <hr class="style1">
-                                    <h1>What’s your wifi name and password?</h1>
-                                    <p>Make it easy for your guests to get online by sharing your Wi-Fi information.</p>
-                                    <input type="text" class="form-control rounded-0" id="inputtext"
-                                        placeholder="Optional - example: Name  Eventopia Password: 12345678"><br>
-                                    <p> <img src="{{ asset('assets/images/users/spaces/lock.png') }}" alt="img"><b>
-                                            Don't worry, we'll only share this with guests after you have accepted their
-                                            booking.</b></p>
-                                    <br>
-                                    <hr class="style1"><br>
-                                    <h1>Provide arrival instructions</h1>
-                                    <p>Help your guests and their attendees find and enter your space.</p><br>
-                                    <h1>Try to include:</h1>
-                                    <p>Directions to your space, building access, door buzzers, floors, stairs/elevator
-                                        access etc.</p><br>
-                                    <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                    <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3">Add description</textarea>
-                                    <p class="text-end">Minimum 100 characters</p>
-                                    <p> <img src="{{ asset('assets/images/users/spaces/lock.png') }}" alt="img"><b>
-                                            Don't worry, we'll only share this with guests after you have accepted their
-                                            booking.</b></p>
-                                    <br>
-                                    <hr class="style1"><br>
-                                </div>
+
+                                        <br>
+                                        <hr class="style1">
+                                        <h1>What’s your wifi name and password?</h1>
+                                        <p>Make it easy for your guests to get online by sharing your Wi-Fi information.</p>
+                                        <input type="text" class="form-control rounded-0" id="inputtext"
+                                            placeholder="Optional - example: Name  Eventopia Password: 12345678"
+                                            name="wifi_password"><br>
+                                        <p> <img src="{{ asset('assets/images/users/spaces/lock.png') }}"
+                                                alt="img"><b>
+                                                Don't worry, we'll only share this with guests after you have accepted their
+                                                booking.</b></p>
+                                        <br>
+                                        <hr class="style1"><br>
+                                        <h1>Provide arrival instructions</h1>
+                                        <p>Help your guests and their attendees find and enter your space.</p><br>
+                                        <h1>Try to include:</h1>
+                                        <p>Directions to your space, building access, door buzzers, floors, stairs/elevator
+                                            access etc.</p><br>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                                        <textarea name="arrival_instruction" style="height:150px;" class="form-control rounded-0"
+                                            id="exampleFormControlTextarea1" rows="3">Add description</textarea>
+                                        <p class="text-end">Minimum 100 characters</p>
+                                        <p> <img src="{{ asset('assets/images/users/spaces/lock.png') }}"
+                                                alt="img"><b>
+                                                Don't worry, we'll only share this with guests after you have accepted their
+                                                booking.</b></p>
+                                        <br>
+                                        <hr class="style1"><br>
+                                    </div>
+                                    <input type="hidden" name="last_step" value="3">
+                                </form>
                             </div>
 
-                            <div id="step-4" class="mb-5">
+                            {{-- <div id="step-4" class="mb-5">
                                 <h2 style="text-align:center;">Step 4 of 9</h2>
                                 <div class="text-center">
                                     <h2 class="fw-bolder">
@@ -403,149 +429,77 @@
                                     <div class="text-end mb-2 mt-5">
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div id="step-6" class="">
-                                <div style="text-align:center;">
-                                    <h2>Step 6 of 9</h2>
-                                    <h1><strong>Enhanced Health and Safety Measures</strong></h1>
-                                    <p>Fill out the form to add your cleaning protocol and additional health and safety
-                                        measures to your listing page.</p>
-                                </div>
-                                <h4><img src="{{ asset('assets/images/users/spaces/Group 8022.png') }}" alt="img">
-                                    <b>Enhanced Health and Safety Measures</b>
-                                </h4>
-                                <p>Select at least 1 from each category below to earn the Enhanced Health and Safety
-                                    Measures badge. This badge will be displayed
-                                    on your listings.</p>
-                                <br>
-                                <hr class="style1"><br>
-                                <h3>What additional measures are you taking to keep your space clean?</h3>
-                                <p style="color:#858585;"><strong>Select all that apply</strong></p>
-                                <div class="row">
-                                    <div style="color:#434343;" class="span12 pagination-centered">
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>The space is cleaned and
-                                                    disinfected in accordance with guidelines from local health
-                                                    authorities</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>High touch surfaces and shared
-                                                    amenities have been disinfected</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Soft, porous materials have
-                                                    been properly cleaned or removed</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>A licensed professional
-                                                    cleaner is hired between bookings</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Bookings are spaced apart to
-                                                    allow for enhanced cleaning</b></label>
-                                        </div>
+                                <form method="POST" action="{{ route('add-safety-measure') }}">
+                                    <div style="text-align:center;">
+                                        <h2>Step 6 of 9</h2>
+                                        <h1><strong>Enhanced Health and Safety Measures</strong></h1>
+                                        <p>Fill out the form to add your cleaning protocol and additional health and safety
+                                            measures to your listing page.</p>
                                     </div>
-                                </div>
-                                <h3 class=" mt-4">What additional protective gear do you provide to your guests?</h3>
-                                <p style="color:#858585;"><strong>Select all that apply</strong></p>
-                                <div class="row">
-                                    <div style="color:#434343;" class="span12 pagination-centered">
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Disinfecting wipes or spray
-                                                    and paper towels</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Disposable gloves</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Disposable masks / face
-                                                    coverings</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Hand Sanitizer</b>
-                                            </label>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <h3 class=" mt-4">What have you done to help guests maintain physical distance in your
-                                    space?</h3>
-                                <p style="color:#858585;"><strong>Select all that apply</strong></p>
-                                <div class="row">
-                                    <div style="color:#434343;" class="span12 pagination-centered">
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Capacity is limited based on
-                                                    governmental guidelines</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Space has access to outdoor
-                                                    air ventilation</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Space has HEPA-certified air
-                                                    filters</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Space has additional space
-                                                    outdoors</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Space has been reconfigured to
-                                                    allow for physical distance</b>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h3 class=" mt-4">What signage have you added to keep your guests informed?</h3>
-                                <p style="color:#858585;"><strong>Select all that apply</strong></p>
-                                <div class="row">
-                                    <div style="color:#434343;" class="span12 pagination-centered">
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Detailed checklist of updated
-                                                    cleaning procedure. Download checklist</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>COVID-19 guest guidelines
-                                                    print outs. Download guidelines</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Common areas have 6-foot
-                                                    (2-metre) markers on floors</b>
-                                            </label>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Narrow passages have arrows
-                                                    for bi-directional traffic</b>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <h4 class="mt-5">Tell your guests more about your cleaning process</h4>
-                                <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                <textarea style="height:150px;" class="form-control rounded-0" id="" rows="3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</textarea>
-                                <p class="text-end">Minimum 50 characters</p>
-
-                                <div style="color:#505050" class="end-box border border-#ACACAC mt-4">
                                     <h4><img src="{{ asset('assets/images/users/spaces/Group 8022.png') }}"
                                             alt="img">
                                         <b>Enhanced Health and Safety Measures</b>
                                     </h4>
-                                    <p>Choose at least 1 item from each category</p>
-                                </div>
+                                    <p>Select at least 1 from each category below to earn the Enhanced Health and Safety
+                                        Measures badge. This badge will be displayed
+                                        on your listings.</p>
+                                    <br>
+                                    <hr class="style1"><br>
+
+                                    <h3>What additional measures are you taking to keep your space clean?</h3>
+                                    <p style="color:#858585;"><strong>Select all that apply</strong></p>
+
+                                    @php
+                                        $counter = 0; // Initialize the counter
+                                    @endphp
+
+                                    @for ($section = 1; $section <= 4; $section++)
+                                        <div class="row">
+                                            <div style="color:#434343;" class="span12 pagination-centered">
+                                                @for ($i = 0; $i < ($section == 1 || $section == 3 ? 5 : 4); $i++)
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input name="safety_measure[]" class="safety_measure"
+                                                                type="checkbox"
+                                                                value="{{ $safety_measures[$counter]->id }}"><span
+                                                                style="color:#434343"><b>{{ $safety_measures[$counter]->safety_measure_options }}</b></span>
+                                                        </label>
+                                                    </div>
+                                                    @php
+                                                        $counter++; // Increment the counter
+                                                    @endphp
+                                                @endfor
+                                            </div>
+                                        </div>
+
+                                        @if ($section == 1)
+                                            <h3 class=" mt-4">What additional protective gear do you provide to your
+                                                guests?
+                                            </h3>
+                                            <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                        @elseif ($section == 2)
+                                            <h3 class=" mt-4">What have you done to help guests maintain physical distance
+                                                in
+                                                your
+                                                space?</h3>
+                                            <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                        @elseif ($section == 3)
+                                            <h3 class=" mt-4">What signage have you added to keep your guests informed?
+                                            </h3>
+                                            <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                        @endif
+                                    @endfor
+
+                                    <h4 class="mt-5">Tell your guests more about your cleaning process</h4>
+                                    <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                                    <textarea style="height:150px;" name="cleaning_process" class="form-control rounded-0" id=""
+                                        rows="3"></textarea>
+                                    <p class="text-end">Minimum 50 characters</p>
+                                    <input type="hidden" name="last_step" value="6">
+                                </form>
                             </div>
                             <div id="step-7" class="">
                                 <h2 style="text-align:center;">Step 7 of 9</h2>
@@ -1450,8 +1404,7 @@
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-3" required>
-                                                            <label class="form-check-label"
-                                                                for="invalidCheck-3">Contacted
+                                                            <label class="form-check-label" for="invalidCheck-3">Contacted
                                                                 by
                                                                 Peerspace</label>
                                                         </div>
@@ -1490,8 +1443,7 @@
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-9" required>
-                                                            <label class="form-check-label"
-                                                                for="invalidCheck-9">Referral
+                                                            <label class="form-check-label" for="invalidCheck-9">Referral
                                                                 from
                                                                 a Eventopia host</label>
                                                         </div>
@@ -1504,8 +1456,7 @@
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-11" required>
-                                                            <label class="form-check-label"
-                                                                for="invalidCheck-11">Attended
+                                                            <label class="form-check-label" for="invalidCheck-11">Attended
                                                                 an
                                                                 event in a Peerspace</label>
                                                         </div>
@@ -1631,14 +1582,13 @@
             }
         }
 
-
         function toggleOptions() {
             const checkbox = document.getElementById('flexSwitchCheckChecked3');
             const textAreaDiv = document.getElementById('options');
             if (checkbox.checked) {
                 options.style.display = 'block'; // Show the text area
             } else {
-                $('.parking_option').val('');
+                $('.parking_option').prop('checked', false); // Uncheck all options
                 options.style.display = 'none'; // Hide the text area
             }
         }
@@ -1673,6 +1623,7 @@
     </script>
     <script>
         $(document).ready(function() {
+            toggleOptions();
             $('.sw-btn-next').on('click', function(e) {
                 var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
                 $('.last_step_btn').on('click', function(e) {

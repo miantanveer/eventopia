@@ -15,8 +15,8 @@ class CreateSafetyMeasuresTable extends Migration
     {
         Schema::create('safety_measures', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('checked_measures');
+            $table->string('measure_detail_id')->nullable()->default(null);
+            $table->string('safety_measure_options');
             $table->timestamps();
         });
     }
