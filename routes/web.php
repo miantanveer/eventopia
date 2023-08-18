@@ -108,17 +108,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/entertainment-form-steps', function () {
         return view('content.seller.entertainment-form-steps');
     });
-    Route::get('/list-service', function () {
-        return view('content.seller.list-service');
-    });
+
     Route::get('/add-service', function () {
         return view('content.seller.add-services');
-    });
-    Route::get('/service-form-steps', function () {
-        return view('content.seller.service-form-steps');
-    });
-    Route::get('/steps-form-submit', function () {
-        return view('content.seller.steps-form-submit');
     });
     Route::get('/my-listings', function () {
         return view('content.seller.my-listing');
@@ -138,7 +130,19 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/operating-hours', function () {
         return view('content.seller.operating-hours');
     });
-    Route::post('service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
+    // Service Forms
+    Route::get('/list-service', function () {
+        return view('content.seller.list-service');
+    });
+    Route::get('/service-form-steps', function () {
+        return view('content.seller.service.form-step-1');
+    });
+    Route::any('/service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
+    Route::any('/service_form_2', [ServiceController::class, 'serviceForm2'])->name('service_form_2');
+    Route::any('/service-form-3/{id}', [ServiceController::class, 'loadserviceForm3']);
+    Route::any('/service_form_3', [ServiceController::class, 'serviceForm3'])->name('service_form_3');
+    Route::any('/service_form_4', [ServiceController::class, 'serviceForm4'])->name('service_form_4');
+    Route::any('/service_form_5', [ServiceController::class, 'serviceForm5'])->name('service_form_5');
 });
 
 

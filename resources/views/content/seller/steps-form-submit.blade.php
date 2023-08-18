@@ -23,6 +23,9 @@
         <div class="col-12">
             <p>Our team will review your listings and get back to you within 2-5 business days</p>
         </div>
+        <div class="mt-4">
+            <a class="btn btn-primary" href="{{URL('/my-listings')}}">Back to listing</a>
+        </div>
     </div>
     <!-- ROW-1 END -->
 @endsection

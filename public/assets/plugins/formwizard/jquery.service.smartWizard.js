@@ -10,9 +10,28 @@
  * https://github.com/techlab/SmartWizard/blob/master/LICENSE
  */
 
-; (function ($, window, document, undefined) {
+(function ($, window, document, undefined) {
     "use strict";
     // Default options
+
+    var myDropzone;
+
+    Dropzone.autoDiscover = false;
+
+    myDropzone = new Dropzone("form#filedrop", {
+        autoProcessQueue: false,
+        parallelUploads: 10,
+        maxFilesize: 2,
+        addRemoveLinks: true,
+        acceptedFiles: ".png, .jpeg",
+        init: function () {
+            this.on("success", function (file, response) {
+                // Success logic here
+            });
+        },
+    });
+    console.log("asd", myDropzone.getAcceptedFiles());
+    var processQueueOnNextClick = false;
 
     var defaults = {
         selected: 0, // Initial selected step, 0 = first step
@@ -189,16 +208,16 @@
             var btnNext =
                 this.options.toolbarSettings.showNextButton !== false
                     ? $("<button></button>")
-                        .text(this.options.lang.next)
-                        .addClass("btn btn-primary sw-btn-next")
-                        .attr("type", "button")
+                          .text(this.options.lang.next)
+                          .addClass("btn btn-primary sw-btn-next")
+                          .attr("type", "button")
                     : null;
             var btnPrevious =
                 this.options.toolbarSettings.showPreviousButton !== false
                     ? $("<button></button>")
-                        .text(this.options.lang.previous)
-                        .addClass("btn btn-gray sw-btn-prev")
-                        .attr("type", "button")
+                          .text(this.options.lang.previous)
+                          .addClass("btn btn-gray sw-btn-prev")
+                          .attr("type", "button")
                     : null;
             var btnGroup = $("<div></div>")
                 .addClass("btn-group me-2 sw-btn-group")
@@ -229,7 +248,7 @@
                 case "top":
                     toolbarTop = $("<div></div>").addClass(
                         "btn-toolbar sw-toolbar sw-toolbar-top justify-content-" +
-                        this.options.toolbarSettings.toolbarButtonPosition
+                            this.options.toolbarSettings.toolbarButtonPosition
                     );
                     toolbarTop.append(btnGroup);
                     if (
@@ -245,7 +264,7 @@
                 case "bottom":
                     toolbarBottom = $("<div></div>").addClass(
                         "btn-toolbar sw-toolbar sw-toolbar-bottom justify-content-" +
-                        this.options.toolbarSettings.toolbarButtonPosition
+                            this.options.toolbarSettings.toolbarButtonPosition
                     );
                     toolbarBottom.append(btnGroup);
                     if (
@@ -261,7 +280,7 @@
                 case "both":
                     toolbarTop = $("<div></div>").addClass(
                         "btn-toolbar sw-toolbar sw-toolbar-top justify-content-" +
-                        this.options.toolbarSettings.toolbarButtonPosition
+                            this.options.toolbarSettings.toolbarButtonPosition
                     );
                     toolbarTop.append(btnGroup);
                     if (
@@ -276,7 +295,7 @@
 
                     toolbarBottom = $("<div></div>").addClass(
                         "btn-toolbar sw-toolbar sw-toolbar-bottom justify-content-" +
-                        this.options.toolbarSettings.toolbarButtonPosition
+                            this.options.toolbarSettings.toolbarButtonPosition
                     );
                     toolbarBottom.append(btnGroup.clone(true));
 
@@ -295,7 +314,7 @@
                 default:
                     toolbarBottom = $("<div></div>").addClass(
                         "btn-toolbar sw-toolbar sw-toolbar-bottom justify-content-" +
-                        this.options.toolbarSettings.toolbarButtonPosition
+                            this.options.toolbarSettings.toolbarButtonPosition
                     );
                     toolbarBottom.append(btnGroup);
                     if (
@@ -322,7 +341,7 @@
                 var idx = mi.steps.index(this);
                 if (
                     mi.options.anchorSettings.enableAnchorOnDoneStep ===
-                    false &&
+                        false &&
                     mi.steps.eq(idx).parent("li").hasClass("done")
                 ) {
                     return true;
@@ -343,22 +362,59 @@
             });
 
             // let currentSpaceIdFieldId = null;
+
             // Next button event
+
             $(".sw-btn-next", this.main).on("click", function (e) {
                 e.preventDefault();
                 let currentForm = $(`#step-${mi.current_index + 1} form`);
                 // let nextForm = $(`#step-${mi.current_index + 2} form`);
+
                 var url = currentForm.attr("action");
-                if(currentForm === `#step-1`){
-                    var formData = new FormData();
-                    
-                }else{
-                    var formData = currentForm.serialize();
+                var formData = new FormData();
+
+                if (mi.current_index === 1) {
+                    var file = myDropzone.files;
+                    myDropzone.processQueue(file);
+                    $.ajax({
+                        url: url,
+                        type: "post",
+                        data: {
+                            "_token": "{{ csrf_token() }}",
+                            file
+                        },
+                        success: function (res) {
+                            if (res.success) {
+                                var responseData = res.data;
+                                // Remove the existing space_id field if it exists
+                                if (currentSpaceIdFieldId !== null) {
+                                    $(`#${currentSpaceIdFieldId}`).remove();
+                                }
+
+                                // Append hidden field with the value from responseData
+                                let spaceIdFieldId = `spaceId_${
+                                    mi.current_index + 2
+                                }`;
+                                currentSpaceIdFieldId = spaceIdFieldId;
+                                nextForm.append(
+                                    `<input type="hidden" class="space_id" id="${spaceIdFieldId}" name="space_id" value="${responseData}">`
+                                );
+
+                                mi._showNext();
+                            }
+                        },
+                        error: function (err) {
+                            console.error("Ajax Error",err)
+                        },
+                    });
+                } else {
+                    var serializedData = currentForm.serialize();
+                    formData.append("serializedData", serializedData);
                 }
                 $.ajax({
-                    headers: { 'X-CSRF-TOKEN': "{{ csrf_token() }}" },
+                    headers: { "X-CSRF-TOKEN": "{{ csrf_token() }}" },
                     url: url,
-                    type: 'post',
+                    type: "post",
                     data: formData,
                     success: function (res) {
                         if (res.success) {
@@ -369,16 +425,21 @@
                             }
 
                             // Append hidden field with the value from responseData
-                            let spaceIdFieldId = `spaceId_${mi.current_index + 2}`;
+                            let spaceIdFieldId = `spaceId_${
+                                mi.current_index + 2
+                            }`;
                             currentSpaceIdFieldId = spaceIdFieldId;
-                            nextForm.append(`<input type="hidden" class="space_id" id="${spaceIdFieldId}" name="space_id" value="${responseData}">`);
+                            nextForm.append(
+                                `<input type="hidden" class="space_id" id="${spaceIdFieldId}" name="space_id" value="${responseData}">`
+                            );
 
                             mi._showNext();
                         }
                     },
                     error: function (err) {
-                    }
-                })
+                        console.error("Ajax Error",err)
+                    },
+                });
             });
             // Previous button event
             $(".sw-btn-prev", this.main).on("click", function (e) {
@@ -722,8 +783,17 @@
         _fixHeight: function (idx) {
             // Auto adjust height of the container
             if (this.options.autoAdjustHeight) {
-                var selPage = this.steps.eq(idx).length > 0 ? $(this.steps.eq(idx).attr("href"), this.main) : null;
-                this.container.finish().animate({ minHeight: selPage.outerHeight() }, this.options.transitionSpeed, function () { });
+                var selPage =
+                    this.steps.eq(idx).length > 0
+                        ? $(this.steps.eq(idx).attr("href"), this.main)
+                        : null;
+                this.container
+                    .finish()
+                    .animate(
+                        { minHeight: selPage.outerHeight() },
+                        this.options.transitionSpeed,
+                        function () {}
+                    );
             }
             return true;
         },

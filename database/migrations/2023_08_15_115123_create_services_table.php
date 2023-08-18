@@ -22,6 +22,8 @@ class CreateServicesTable extends Migration
             $table->string('service_planing')->nullable();
             $table->string('service_activities')->nullable();
             $table->string('service_price')->nullable();
+            $table->string('status')->default(0);
+            $table->string('last_steps')->nullable();
             $table->timestamps();
         });
     }
