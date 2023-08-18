@@ -38,14 +38,16 @@ Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('r
 Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('edit-profile', [DashboardController::class, 'editProfileIndex'])->name('edit-profile-index');
+    Route::post('edit-profile', [DashboardController::class, 'editProfile'])->name('edit-profile');
+    // Route::get('/edit-profile', function () {
+    //     return view('content.edit-profile');
+    // });
     Route::get('/add-space', function () {
         return view('content.seller.add-space');
     });
-    Route::get('/edit-profile', function () {
-        return view('content.edit-profile');
-    });
+
     Route::get('/notify-list', function () {
         return view('layouts.components.notify-list');
     });
@@ -93,6 +95,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('space-form-steps', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
     Route::post('address-step', [ListingSpaceController::class, 'addAddress'])->name('add-address');
     Route::post('parking-step', [ListingSpaceController::class, 'addParking'])->name('add-parking');
+    Route::post('about-step', [ListingSpaceController::class, 'addAbout'])->name('add-about');
+    Route::post('safety-measure-step', [ListingSpaceController::class, 'addSafetyMeasure'])->name('add-safety-measure');
     // Route::get('/list-space', function () {
     //     return view('content.seller.list-space');
     // });

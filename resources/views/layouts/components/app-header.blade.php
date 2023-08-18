@@ -91,7 +91,7 @@
                                                 <a class="dropdown-item" href="{{url('/customer-dashboard')}}">
                                                     <i class="dropdown-icon fe fe-home"></i> Dashboard
                                                 </a>
-                                                <a class="dropdown-item" href="{{url('/edit-profile')}}">
+                                                <a class="dropdown-item" href="{{ route('edit-profile-index') }}">
                                                     <i class="dropdown-icon fe fe-user"></i> Manage Account
                                                 </a>
                                                 <form method="POST" action="{{ route('logout') }}">

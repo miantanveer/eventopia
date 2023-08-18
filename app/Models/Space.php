@@ -20,6 +20,7 @@ class Space extends Model
         'postal_code',
         'lat',
         'lng',
+        'allowed_age',
         'parking_description',
         'security_devices_description',
         'space_title',

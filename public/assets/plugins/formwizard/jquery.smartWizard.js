@@ -367,8 +367,10 @@
                             // Append hidden field with the value from responseData
                             let spaceIdFieldId = `spaceId_${mi.current_index + 2}`;
                             currentSpaceIdFieldId = spaceIdFieldId;
+                            currentForm.append(`<input type="hidden" class="space_id" name="space_id" value="${responseData}">`);
                             nextForm.append(`<input type="hidden" class="space_id" id="${spaceIdFieldId}" name="space_id" value="${responseData}">`);
 
+                            toggleOptions();
                             mi._showNext();
                         }
                     },
@@ -384,6 +386,7 @@
                     $(`#${currentSpaceIdFieldId}`).remove();
                     currentSpaceIdFieldId = null;
                 }
+                toggleOptions();
                 mi._showPrevious();
             });
 

@@ -25,14 +25,17 @@ class CreateSpacesTable extends Migration
             $table->string('postal_code')->nullable();
             $table->string('lat')->nullable();
             $table->string('lng')->nullable();
+            $table->string('allowed_age')->nullable();
             $table->longText('parking_description')->nullable();
             $table->longText('security_devices_description')->nullable();
-            $table->string('space_title')->nullable();
-            $table->string('space_description')->nullable();
-            $table->bigInteger('space_size')->nullable()->comment = "sq m";
-            $table->string('space_rules')->nullable();
-            $table->string('wifi_password')->nullable();
-            $table->string('arrival_instruction')->nullable();
+            $table->text('space_title')->nullable();
+            $table->longText('space_description')->nullable();
+            $table->string('space_size')->nullable()->comment = "sq m";
+            $table->longText('space_rules')->nullable();
+            $table->text('wifi_password')->nullable();
+            $table->longText('arrival_instruction')->nullable();
+            $table->longText('cleaning_process')->nullable();
+            $table->string('last_step')->nullable();
             $table->timestamps();
         });
     }
