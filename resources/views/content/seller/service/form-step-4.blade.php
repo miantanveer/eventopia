@@ -17,58 +17,88 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div id="step-4" class="">
-                        <div class="text-center">
-                            <h2 class="fw-bolder">
-                                Pricing for services
-                            </h2>
-                        </div>
-                        <br>
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-                        <form action="{{ route('service_form_4') }}" method="post" class="mt-4 mb-5 validate">
-                            @csrf
-                            <input type="hidden" name="service_id" value="{{ $id }}">
-                            <div class="form-group m-0">
-                                <div class="custom-controls-stacked">
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="price" data-parsley-errors-container="#radio_errors" required data-parsley-required-message='Please select atleast one option'  value="0-500">
-                                        <span class="custom-control-label">0 - 500</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="price" data-parsley-errors-container="#radio_errors" value="500-1000">
-                                        <span class="custom-control-label">500 - 1000</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="price" data-parsley-errors-container="#radio_errors" value="1000-5000">
-                                        <span class="custom-control-label">1000 - 5000</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="price" data-parsley-errors-container="#radio_errors"
-                                            value="5000-10000">
-                                        <span class="custom-control-label">5000 - 10000</span>
-                                    </label>
-                                    <label class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="price" data-parsley-errors-container="#radio_errors" value="20k+">
-                                        <span class="custom-control-label">20k+</span>
-                                    </label>
+                    <div id="smartwizard-3">
+                        <ul class="justify-content-around">
+                            <li><a href="#step-1">About Service</a></li>
+                            <li><a href="#step-2">Photos</a></li>
+                            <li><a href="#step-3">Detail</a></li>
+                            <li><a href="#step-4">Pricing</a></li>
+                            <li><a href="#step-5">Team</a></li>
+                        </ul>
+                        <div id="step-4">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
                                 </div>
-                                <div id="radio_errors"></div>
-                            </div>
-                            <hr class="border-3 bg-dark">
-                            <div class="float-end mt-8">
-                                <button class="btn btn-light">Previous</button>
-                                <button class="btn btn-primary">Next</button>
-                            </div>
-                        </form>
+                            @endif
+                            <form action="{{ route('service_form_4', $id) }}" method="POST" class="border mt-5 validate">
+                                @csrf
+                                <div class="row form-group">
+                                    <div class="card-header  mb-3">
+                                        <h1 style="text-align:center;" class="card-title">Serive Category</h1>
+                                    </div>
+                                    <div class="card-body col-12">
+                                        <label for="category">Service Category</label>
+                                        <select name="category" required data-parsley-reqired-meassage="Please Select a value" class="select2">
+                                            <option value="1">Otion 1</option>
+                                            <option value="2">Otion 2</option>
+                                            <option value="3">Otion 3</option>
+                                            <option value="4">Otion 4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="card-header  mb-3">
+                                        <h1 style="text-align:center;" class="card-title">Service Address</h1>
+                                    </div>
+                                    <div class="card-body col-md-5 col-lg-12">
+                                        <label class="form-control-label">Street Address</label>
+                                        <span class="tx-danger">*</span></label>
+                                        <input class="form-control rounded-0"  id="address" name="address"
+                                            placeholder="Add Address" required data-parsley-required-message="Please enter your address" type="text">
+                                    </div>
+                                    <div class="col-md-5 col-lg-6 mt-3">
+                                        <label class="form-control-label">Country</label>
+                                        <span class="tx-danger">*</span></label>
+                                        <input class="form-control rounded-0" id="country" name="country" placeholder=""
+                                            required readonly type="text">
+                                    </div>
+                                    <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
+                                        <label class="form-control-label">State<span class="tx-danger">*</span></label>
+                                        <input class="form-control rounded-0" id="state" name="state" placeholder=""
+                                            required readonly type="text">
+                                    </div>
+                                    <div class="col-md-5 col-lg-6 mt-3">
+                                        <label class="form-control-label">City</label> <span
+                                            class="tx-danger">*</span></label>
+                                        <input class="form-control rounded-0" id="city" name="city" placeholder=""
+                                            required readonly type="text">
+                                    </div>
+                                    <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
+                                        <label class="form-control-label">Postal Code<span
+                                                class="tx-danger">*</span></label>
+                                        <input class="form-control rounded-0" id="postal_code" name="postal_code"
+                                            placeholder="" required data-parsley-required-message="Please enter a value" type="text">
+                                    </div>
+                                    <input type="hidden" name="lat" id="lat">
+                                    <input type="hidden" name="lng" id="lng">
+                                    <input type="hidden" name="last_step" value="1">
+                                </div>
+                                <br>
+                                <hr class="border-3 bg-dark">
+                                <div class="float-end mt-8">
+                                    <button class="btn btn-light">Previous</button>
+                                    <button class="btn btn-primary">Next</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -98,10 +128,52 @@
     <!-- FORMELEMENTS JS -->
     <script src="{{ asset('assets/js/formelementadvnced.js') }}"></script>
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
+    <!-- Gogole Loaction API -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+    </script>
 
     <script>
         $(document).ready(function() {
-           $('.validate').parsley();
+            $('.validate').parsley();
+        });
+    </script>
+
+    <script>
+        var searchInput = 'address';
+        $(document).ready(function() {
+            var autocomplete;
+            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+                fields: ["address_components", "geometry"],
+                types: ["address"],
+            });
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                var place = autocomplete.getPlace();
+                var lat = place.geometry['location'].lat();
+                var lng = place.geometry['location'].lng();
+                var myarr = place.address_components;
+                var keyapi = 'AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E';
+                $('#city').val('')
+                $('#state').val('')
+                $('#country').val('')
+                $('#postal_code').val('')
+                $('#lat').val(lat)
+                $('#lng').val(lng)
+                var myarr = place.address_components;
+                for (let i = 0; i < myarr.length; i++) {
+                    var components = myarr[i];
+                    if (components.types[0] == 'postal_code') {
+                        $('#postal_code').val(components.long_name)
+                    } else if (components.types[0] == 'country') {
+                        $('#country').val(components.long_name);
+                    } else if (components.types[0] == 'administrative_area_level_1') {
+                        $('#state').val(components.long_name)
+                    } else if (components.types[0] == 'locality' || components.types[0] == 'postal_town' ||
+                        components.types[0] == 'administrative_area_level_2') {
+                        $('#city').val(components.long_name)
+                    } else {}
+                }
+            });
         });
     </script>
 @endsection

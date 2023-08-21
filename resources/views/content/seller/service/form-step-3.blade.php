@@ -43,8 +43,8 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form action='{{ route('service_form_3') }}'  class="mt-4 mb-5 validate">
-                                <input type="hidden" name="service_id" value="{{ $id }}">
+                            <form action='{{ route('service_form_3',$id) }}' method="post"  class="mt-4 mb-5 validate">
+                                @csrf
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">Destination Weddings</h3>
                                     <input type="text" name="destination" required data-parsley-required-message="Destination weddings is required" placeholder="Destination Wedding Planning"

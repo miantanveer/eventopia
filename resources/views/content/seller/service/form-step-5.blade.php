@@ -17,15 +17,16 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <div id="step-5" class="">
-                        <div class="text-center">
-                            <h2 class="fw-bolder">
-                                Team
-                            </h2>
-                            <p>Add team profile or details.</p>
-                        </div>
-                        <br>
-                        @if ($errors->any())
+                    <div id="smartwizard-3">
+                        <ul class="justify-content-around">
+                            <li><a href="#step-1">About Service</a></li>
+                            <li><a href="#step-2">Photos</a></li>
+                            <li><a href="#step-3">Detail</a></li>
+                            <li><a href="#step-4">Pricing</a></li>
+                            <li><a href="#step-5">Team</a></li>
+                        </ul>
+                        <div id="step-4">
+                            @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
                                     @foreach ($errors->all() as $error)
@@ -34,51 +35,26 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{ route('service_form_5') }}" class="mt-4 mb-5 validate" method="POST" id="last_form">
-                            @csrf
-                            <input type="hidden" name="service_id" value="{{ $id }}">
-                            <div class="row">
-                                <div class="col-9">
-                                    <div class="row fieldGroup align-items-center">
-                                        <h3 class="fw-bolder">Full Name</h3>
-                                        <div class="col-11">
-                                            <div class="form-group mt-3">
-                                                <input type="text" name="destination" required data-parsley-required-message="Team name is required" placeholder="Enter Name"
-                                                    class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-1 ps-0">
-                                            <a class="btn btn-success ms-1 addMore text-white mb-1">+</a>
-                                        </div>
-                                    </div>
-                                    <hr class="border-3 bg-dark">
-                                    <div class="form-group mt-3">
-                                        <h3 class="fw-bolder">Description</h3>
-                                        <textarea name="decription" cols="30" rows="5" required data-parsley-required-message="Description is required" class="w-100 form-control" placeholder="About Team"></textarea>
-                                        <p class="text-end mt-2">Minimum 100 characters</p>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <p><i class="fa fa-lock text-gray fs-3 me-3"></i> Don't worry, we'll
-                                                only share
-                                                this with customers after you have accepted their booking.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <input type="file" name='file' required data-parsley-errors-container='#file_error' data-parsley-required-message="Team Image is required" class="dropify"
-                                        data-bs-default-file="{{ asset('assets/images/media/1.jpg') }}"
-                                        data-bs-height="180" />
-                                        <div id="file_error"></div>
-                                </div>
+                            <form id="form-step-1" action="{{ route('service_form_5',$id) }}" method="POST" class="border mt-5">
+                                @csrf
+                        <div class=" p-4 pb-5">
+
+                            <div class="text-start bg-gray-light">
+                                <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; Operating
+                                    hours end times are
+                                    restricted to 12 AM for this space type. Read our Social Events Policy for more
+                                    information.</p>
                             </div>
-                            <hr class="border-3 bg-dark">
-                            <div class="float-end mt-8">
-                                <button class="btn btn-light">Previous</button>
-                                <button class="btn btn-primary">Finish</button>
+                            @include('layouts.components.setHoursHTMLCode')
+                            <div class="text-end mb-2 mt-5">
                             </div>
-                        </form>
+                                <hr class="border-3 bg-dark">
+                                <div class="float-end mt-8">
+                                    <button class="btn btn-light">Previous</button>
+                                    <button class="btn btn-primary">Next</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,9 +70,6 @@
     <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
     <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
 
-    <!-- INTERNAl Upload js -->
-    <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
     <!-- INTERNAl Jquery.steps js -->
     <script src="{{ asset('assets/plugins/jquery-steps/jquery.steps.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/parsleyjs/parsley.min.js') }}"></script>
@@ -113,34 +86,11 @@
     <script src="{{ asset('assets/js/formelementadvnced.js') }}"></script>
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
 
+    @include('layouts.components.setHoursScript')
+
     <script>
         $(document).ready(function() {
-            $('.validate').parsley();
-        });
-        var maxGroup = 4;
-        $(".addMore").click(function() {
-            var ri = $('.fieldGroup').length;
-            if ($('body').find('.fieldGroup').length < maxGroup) {
-                var fieldHTML =
-                    `<div class="row fieldGroup align-items-center my-3">
-                            <div class="col-11">
-                                <div class="form-group">
-                                    <input type="text" name="destination${ri}" placeholder="Enter Name" class="form-control team-class">
-                                </div>
-                            </div>
-                            <div class="col-1 ps-0">
-                                <a class="btn btn-danger remove ms-1 text-white mb-4" style="padding-left:1.1rem; padding-right:1.1rem;"> - </a>
-                            </div>
-                        </div>`;
-                var team = $('.team-class').val();
-
-                $('body').find('.fieldGroup:last').after(fieldHTML);
-            } else {
-                alert('Maximum ' + maxGroup + ' are allowed.');
-            }
-        });
-        $("body").on("click", ".remove", function() {
-            $(this).parents(".fieldGroup").remove();
+           $('.validate').parsley();
         });
     </script>
 @endsection

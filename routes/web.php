@@ -141,13 +141,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/service-form-steps', function () {
         return view('content.seller.service.form-step-1');
     });
-    Route::any('/service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
-    Route::any('/service_form_2', [ServiceController::class, 'serviceForm2'])->name('service_form_2');
-    Route::any('/service-form-3/{id}', [ServiceController::class, 'loadserviceForm3'])->name('service-form-3');
-    Route::any('/service_form_3', [ServiceController::class, 'serviceForm3'])->name('service_form_3');
-    Route::any('/service_form_4', [ServiceController::class, 'serviceForm4'])->name('service_form_4');
-    Route::any('/service_form_5', [ServiceController::class, 'serviceForm5'])->name('service_form_5');
-    Route::any('/completed', [ServiceController::class, 'complete'])->name('complete');
+    Route::post('/service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
+    Route::get('/service-form-2/{id}', [ServiceController::class, 'loadServiceForm2'])->name('service-form-2');
+    Route::post('/service_form_2/{id}', [ServiceController::class, 'serviceForm2'])->name('service_form_2');
+    Route::get('/service-form-3/{id}', [ServiceController::class, 'loadserviceForm3'])->name('service-form-3');
+    Route::post('/service_form_3/{id}', [ServiceController::class, 'serviceForm3'])->name('service_form_3');
+    Route::get('/service-form-4/{id}', [ServiceController::class, 'loadserviceForm4'])->name('service-form-4');
+    Route::post('/service_form_4/{id}', [ServiceController::class, 'serviceForm4'])->name('service_form_4');
+    Route::post('/service_form_5/{id}', [ServiceController::class, 'serviceForm5'])->name('service_form_5');
+    Route::post('/completed', [ServiceController::class, 'complete'])->name('complete');
 });
 
 

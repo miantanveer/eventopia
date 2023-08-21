@@ -429,7 +429,7 @@
                                     <div class="text-end mb-2 mt-5">
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div> 
 
                             <div id="step-6" class="">
                                 <form method="POST" action="{{ route('add-safety-measure') }}">

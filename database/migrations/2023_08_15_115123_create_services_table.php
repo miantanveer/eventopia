@@ -16,12 +16,20 @@ class CreateServicesTable extends Migration
         Schema::create('services', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('service_title')->nullable();
-            $table->string('service_descrption')->nullable();
-            $table->string('service_destination')->nullable();
-            $table->string('service_planing')->nullable();
-            $table->string('service_activities')->nullable();
-            $table->string('service_price')->nullable();
+            $table->string('title')->nullable();
+            $table->longText('descrption')->nullable();
+            $table->string('destination')->nullable();
+            $table->string('planing')->nullable();
+            $table->string('activities')->nullable();
+            $table->string('category')->nullable();
+            $table->string('price')->nullable();
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('lng')->nullable();
+            $table->string('lat')->nullable();
             $table->string('status')->default(0);
             $table->string('last_steps')->nullable();
             $table->timestamps();

@@ -26,11 +26,12 @@
                     <div class="col-12 px-0 px-sm-2">
                         <div class="">
                             <ul class="list-group">
+
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class="col-6">
-                                            <h5><i class="fa fa-check-square text-primary"></i>&nbsp; 1. Photos</h5>
-                                            <p class="ms-5">Upload photos & videos and select a cover image</p>
+                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 1. About your service</h5>
+                                            <p class="ms-5" >Add a title, description, and rules</p>
                                         </div>
                                         <div class="col-6 text-end">
                                             <button class="btn btn-primary mt-3"><a class="text-white" href="{{URL('/service-form-steps')}}">Start</a></button>
@@ -38,10 +39,8 @@
                                     </div>
                                 </li>
                                 <li class="list-group-item">
-                                    <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 2. About your service</h5>
-                                        <p class="ms-5" >Add a title, description, and rules</p>
-                                    </div>
+                                            <h5><i class="fa fa-check-square text-primary"></i>&nbsp; 2. Photos</h5>
+                                            <p class="ms-5">Upload photos & videos and select a cover image</p>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
@@ -51,13 +50,19 @@
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 4. Pricing</h5>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 4. Location</h5>
+                                        <p class="ms-5" >Add details to describe your service</p>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="">
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 5. Pricing</h5>
                                         <p class="ms-5" >Set your pricing</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 5. Team</h5>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 6. Team</h5>
                                         <p class="ms-5" >Pick the team to provide services</p>
                                     </div>
                                 </li>

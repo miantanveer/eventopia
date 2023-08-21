@@ -12,8 +12,10 @@
         .sw-btn-group-extra {
             display: none;
         }
+
         .dz-remove {
-            color: red !important;/* Change to your desired color */
+            color: red !important;
+            /* Change to your desired color */
         }
     </style>
 @endsection
@@ -73,13 +75,14 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form action="{{ route('service_form_2') }}" method="post" id="filedrop" class="dropzone .custom-validation">
+                            <form action="{{ route('service_form_2',$id) }}" method="post" id="filedrop"
+                                class="dropzone .custom-validation">
                                 @csrf
                                 @method('post')
-                                <input type="hidden" name="service_id" id="service_id" value="{{ $id }}">
+                                {{--  <input type="hidden" name="service_id" id="service_id" value="{{ $id }}">  --}}
                                 <div class="fallback">
-                                    <input name="file" id="file" type="file" required enctype="multipart/form-data"
-                                        multiple="multiple">
+                                    <input name="file" id="file" type="file" required
+                                        enctype="multipart/form-data" multiple="multiple">
                                 </div>
                                 <div class="dz-message needsclick">
                                     <div class="mb-3">
@@ -128,7 +131,7 @@
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
 
     <script>
-        $(document).ready(function(){
+        $(document).ready(function() {
             $('.custom-validation').parsley();
         });
         var myDropzone;
@@ -145,8 +148,7 @@
             init: function() {
                 var uploads = 0;
                 this.on("success", function(file, response) {
-                    if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles()
-                        .length === 0) {
+                    if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles().length === 0) {
                         var id = $('#service_id').val();
                         var url = $('#url').val();
                         window.location.replace(url);
