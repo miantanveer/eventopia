@@ -25,7 +25,16 @@
                             <p>Add team profile or details.</p>
                         </div>
                         <br>
-                        <form action="{{route('service_form_5')}}" class="mt-4 mb-5" method="POST" id="last_form">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form action="{{ route('service_form_5') }}" class="mt-4 mb-5 validate" method="POST" id="last_form">
                             @csrf
                             <input type="hidden" name="service_id" value="{{ $id }}">
                             <div class="row">
@@ -34,7 +43,7 @@
                                         <h3 class="fw-bolder">Full Name</h3>
                                         <div class="col-11">
                                             <div class="form-group mt-3">
-                                                <input type="text" name="destination" placeholder="Enter Name"
+                                                <input type="text" name="destination" required data-parsley-required-message="Team name is required" placeholder="Enter Name"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -45,7 +54,7 @@
                                     <hr class="border-3 bg-dark">
                                     <div class="form-group mt-3">
                                         <h3 class="fw-bolder">Description</h3>
-                                        <textarea name="decription" cols="30" rows="5" class="w-100 form-control" placeholder="About Team"></textarea>
+                                        <textarea name="decription" cols="30" rows="5" required data-parsley-required-message="Description is required" class="w-100 form-control" placeholder="About Team"></textarea>
                                         <p class="text-end mt-2">Minimum 100 characters</p>
                                     </div>
                                     <br>
@@ -58,9 +67,10 @@
                                     </div>
                                 </div>
                                 <div class="col-3">
-                                    <input type="file" name='file' class="dropify"
+                                    <input type="file" name='file' required data-parsley-errors-container='#file_error' data-parsley-required-message="Team Image is required" class="dropify"
                                         data-bs-default-file="{{ asset('assets/images/media/1.jpg') }}"
                                         data-bs-height="180" />
+                                        <div id="file_error"></div>
                                 </div>
                             </div>
                             <hr class="border-3 bg-dark">
@@ -104,6 +114,9 @@
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
 
     <script>
+        $(document).ready(function() {
+            $('.validate').parsley();
+        });
         var maxGroup = 4;
         $(".addMore").click(function() {
             var ri = $('.fieldGroup').length;
@@ -119,7 +132,7 @@
                                 <a class="btn btn-danger remove ms-1 text-white mb-4" style="padding-left:1.1rem; padding-right:1.1rem;"> - </a>
                             </div>
                         </div>`;
-                        var team = $('.team-class').val();
+                var team = $('.team-class').val();
 
                 $('body').find('.fieldGroup:last').after(fieldHTML);
             } else {

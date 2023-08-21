@@ -24,32 +24,43 @@
                             </h2>
                         </div>
                         <br>
-                        <form action="{{route('service_form_4')}}" method="post" class="mt-4 mb-5">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+                        <form action="{{ route('service_form_4') }}" method="post" class="mt-4 mb-5 validate">
                             @csrf
                             <input type="hidden" name="service_id" value="{{ $id }}">
                             <div class="form-group m-0">
                                 <div class="custom-controls-stacked">
                                     <label class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="price" value="0-500">
+                                        <input type="radio" class="custom-control-input" name="price" data-parsley-errors-container="#radio_errors" required data-parsley-required-message='Please select atleast one option'  value="0-500">
                                         <span class="custom-control-label">0 - 500</span>
                                     </label>
                                     <label class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="price" value="500-1000">
+                                        <input type="radio" class="custom-control-input" name="price" data-parsley-errors-container="#radio_errors" value="500-1000">
                                         <span class="custom-control-label">500 - 1000</span>
                                     </label>
                                     <label class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="price" value="1000-5000">
+                                        <input type="radio" class="custom-control-input" name="price" data-parsley-errors-container="#radio_errors" value="1000-5000">
                                         <span class="custom-control-label">1000 - 5000</span>
                                     </label>
                                     <label class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="price" value="5000-10000">
+                                        <input type="radio" class="custom-control-input" name="price" data-parsley-errors-container="#radio_errors"
+                                            value="5000-10000">
                                         <span class="custom-control-label">5000 - 10000</span>
                                     </label>
                                     <label class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" name="price" value="20k+">
+                                        <input type="radio" class="custom-control-input" name="price" data-parsley-errors-container="#radio_errors" value="20k+">
                                         <span class="custom-control-label">20k+</span>
                                     </label>
                                 </div>
+                                <div id="radio_errors"></div>
                             </div>
                             <hr class="border-3 bg-dark">
                             <div class="float-end mt-8">
@@ -90,15 +101,7 @@
 
     <script>
         $(document).ready(function() {
-            var finishBtn = $('.sw-btn-group-extra').addClass('d-none');
-
-            $('.sw-btn-next').on('click', function(e) {
-                var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
-                $('.last_step_btn').on('click', function(e) {
-                    // console.log("asdf");
-                    window.location.href = '{{ url('/steps-form-submit') }}';
-                });
-            });
+           $('.validate').parsley();
         });
     </script>
 @endsection

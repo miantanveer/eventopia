@@ -34,23 +34,32 @@
                                     talent. Do not include your business’s name.</p>
                             </div>
                             <br>
-                            <form action='{{route('service_form_3')}}' class="mt-4 mb-5">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <form action='{{ route('service_form_3') }}'  class="mt-4 mb-5 validate">
                                 <input type="hidden" name="service_id" value="{{ $id }}">
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">Destination Weddings</h3>
-                                    <input type="text" name="destination" placeholder="Destination Wedding Planning"
+                                    <input type="text" name="destination" required data-parsley-required-message="Destination weddings is required" placeholder="Destination Wedding Planning"
                                         class="form-control">
                                 </div>
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">Planning</h3>
-                                    <textarea name="planning" cols="30" rows="5" class="w-100 form-control"
+                                    <textarea name="planning" cols="30" required data-parsley-required-message="Planning is required" rows="5" class="w-100 form-control"
                                         placeholder="e.g. Budgeting, Destination, Wedding Design"></textarea>
                                 </div>
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">Wedding Activities</h3>
-                                    <textarea name="activities" cols="30" rows="5" class="w-100 form-control"
+                                    <textarea name="activities" required data-parsley-required-message="Wedding Activities is required" cols="30" rows="5" class="w-100 form-control"
                                         placeholder="e.g. Engagement Party, Honeymoon, Rehearsals & Parties"></textarea>
                                 </div>
                                 <br>
@@ -91,5 +100,9 @@
     <!-- FORMELEMENTS JS -->
     <script src="{{ asset('assets/js/formelementadvnced.js') }}"></script>
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
-
+    <script>
+        $(document).ready(function() {
+            $('.validate').parsley();
+        })
+    </script>
 @endsection

@@ -10,7 +10,7 @@
     <link href="{{asset('assets/css/transparent-style.css')}}" rel="stylesheet">
     <link href="{{asset('assets/css/skin-modes.css')}}" rel="stylesheet" />
 
-    @yield('styles')
+    @yield('css-styles')
 
     <!--- FONT-ICONS CSS -->
     <link href="{{asset('assets/plugins/icons/icons.css')}}" rel="stylesheet" />
