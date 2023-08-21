@@ -91,11 +91,14 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.seller.add-space');
     });
 
-    Route::get('list-space', [ListingSpaceController::class, 'listSpace'])->name('list-space');
-    Route::get('space-form-steps', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
-    Route::post('address-step', [ListingSpaceController::class, 'addAddress'])->name('add-address');
-    Route::post('parking-step', [ListingSpaceController::class, 'addParking'])->name('add-parking');
-    Route::post('about-step', [ListingSpaceController::class, 'addAbout'])->name('add-about');
+    Route::get('space-form-steps', [ListingSpaceController::class, 'listSpace'])->name('list-space');
+    Route::get('address-step', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
+    Route::post('add-address', [ListingSpaceController::class, 'addAddress'])->name('add-address');
+    Route::get('parking-step/{space_id}', [ListingSpaceController::class, 'parkingStep'])->name('parking-step');
+    Route::post('add-parking/{space_id}', [ListingSpaceController::class, 'addParking'])->name('add-parking');
+    Route::get('about-step/{space_id}', [ListingSpaceController::class, 'aboutStep'])->name('about-step');
+    Route::post('add-about/{space_id}', [ListingSpaceController::class, 'addAbout'])->name('add-about');
+    Route::get('images-step/{space_id}', [ListingSpaceController::class, 'imagesStep'])->name('images-step');
     Route::post('safety-measure-step', [ListingSpaceController::class, 'addSafetyMeasure'])->name('add-safety-measure');
     // Route::get('/list-space', function () {
     //     return view('content.seller.list-space');
