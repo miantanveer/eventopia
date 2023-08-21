@@ -12,10 +12,7 @@ use Illuminate\Http\Request;
 
 class ServiceController extends UserBaseController
 {
-    public function complete()
-    {
-        return view('content.seller.steps-form-submit');
-    }
+
     public function serviceForm1(Request $request)
     {
         $request->validate([
@@ -108,5 +105,9 @@ class ServiceController extends UserBaseController
         $teamname->service_teams_id = $id;
         $teamname->name = $destination;
         $teamname->save();
+    }
+    public function complete()
+    {
+        return view('content.seller.steps-form-submit');
     }
 }

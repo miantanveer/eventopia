@@ -1,4 +1,3 @@
-
 @extends('layouts.seller-web-layout')
 
 @section('styles')
@@ -9,6 +8,12 @@
 
         .sw-btn-group-extra {
             display: none;
+
+        }
+        .parsley-minlength {
+            font-size: 12px;
+            color: #ff5c77;
+            margin-top: 3px;
         }
     </style>
 @endsection
@@ -36,13 +41,22 @@
                                         talent. Do not include your business’s name.</p>
                                 </div>
                                 <br>
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
 
-
-                                <form action="{{ route('service_form_1') }}" class="mt-4 mb-5" method="post">
+                                <form action="{{ route('service_form_1') }}" class="mt-4 mb-5 custom-validation" method="post">
                                     @csrf
                                     <div class="form-group">
                                         <h3 class="fw-bolder">Add title to your service</h3>
-                                        <select name="service_title" class="form-control form-select select2 select2-hidden-accessible"
+                                        <select name="service_title" required data-parsley-required-message="This feild is required"
+                                            class="form-control form-select select2 select2-hidden-accessible"
                                             tabindex="-1" aria-hidden="true" data-bs-placeholder="Select Service Title">
                                             <option value="VG">Video Graphers</option>
                                             <option value="BS">Beauty Services</option>
@@ -64,7 +78,7 @@
                                     <hr class="border-3 bg-dark">
                                     <div class="form-group mt-3">
                                         <h3 class="fw-bolder">Describe your company</h3>
-                                        <textarea name="description" cols="30" rows="5" class="w-100 form-control" placeholder="About Seller"></textarea>
+                                        <textarea name="description" required data-parsley-required-message="Description is required" data-parsley-minlength="100" cols="30" rows="5" class="w-100 form-control" placeholder="About Seller"></textarea>
                                         <p class="text-end mt-2">Minimum 100 characters</p>
                                     </div>
                                     <br>
@@ -113,4 +127,9 @@
     <!-- FORMELEMENTS JS -->
     <script src="{{ asset('assets/js/formelementadvnced.js') }}"></script>
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.custom-validation').parsley();
+        });
+    </script>
 @endsection

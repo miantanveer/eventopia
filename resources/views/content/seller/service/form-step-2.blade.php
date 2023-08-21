@@ -1,5 +1,5 @@
 @extends('layouts.seller-web-layout')
-@section('styles')
+@section('css-styles')
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     {{--  <link href="{{ asset('assets/plugins/dropzone/dropzone.min.css') }}" rel="stylesheet" type="text/css" />  --}}
 @endsection
@@ -13,7 +13,7 @@
             display: none;
         }
         .dz-remove {
-            color: red !important; /* Change to your desired color */
+            color: red !important;/* Change to your desired color */
         }
     </style>
 @endsection
@@ -63,14 +63,22 @@
                                     </ul>
                                 </div>
                             </div>
-                            <input type="hidden" name="url" id="url" value='{{ route('service-form-3',$id) }}'>
-
-                            <form action="{{ route('service_form_2') }}" method="post" id="filedrop" class="dropzone">
+                            <input type="hidden" name="url" id="url" value='{{ route('service-form-3', $id) }}'>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <form action="{{ route('service_form_2') }}" method="post" id="filedrop" class="dropzone .custom-validation">
                                 @csrf
                                 @method('post')
                                 <input type="hidden" name="service_id" id="service_id" value="{{ $id }}">
                                 <div class="fallback">
-                                    <input name="file" id="file" type="file" enctype="multipart/form-data"
+                                    <input name="file" id="file" type="file" required enctype="multipart/form-data"
                                         multiple="multiple">
                                 </div>
                                 <div class="dz-message needsclick">
@@ -120,6 +128,9 @@
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
 
     <script>
+        $(document).ready(function(){
+            $('.custom-validation').parsley();
+        });
         var myDropzone;
         var alertShown = false; // Flag to track whether the alert has been shown
 
@@ -132,16 +143,19 @@
             addRemoveLinks: true,
             acceptedFiles: ".png, .jpeg",
             init: function() {
+                var uploads = 0;
                 this.on("success", function(file, response) {
-                    if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles().length === 0) {
+                    if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles()
+                        .length === 0) {
                         var id = $('#service_id').val();
                         var url = $('#url').val();
                         window.location.replace(url);
                     }
+                    uploads++
                 });
 
                 this.on("addedfile", function(file) {
-                    if (!alertShown && myDropzone.files.length < 4) {
+                    if (!alertShown && myDropzone.files.length < 3) {
                         alertShown = true;
                         alert("Please upload at least 4 files.");
                     }
@@ -152,8 +166,7 @@
         function upload() {
             if (alertShown && myDropzone.files.length < 4) {
                 alert("Please upload at least 4 files.");
-            }
-            else{
+            } else {
                 var files = myDropzone.files;
                 myDropzone.processQueue(files);
             }
