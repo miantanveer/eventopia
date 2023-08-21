@@ -25,7 +25,7 @@ class Space extends Model
         'security_devices_description',
         'space_title',
         'space_description',
-        'space_size	',
+        'space_size',
         'space_rules',
         'wifi_password',
         'arrival_instruction'

@@ -114,4 +114,5 @@
 @endsection
 
 @section('scripts')
+
 @endsection

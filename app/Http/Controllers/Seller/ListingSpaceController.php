@@ -20,10 +20,8 @@ class ListingSpaceController extends UserBaseController
 
     public function addSpaceForm()
     {
-        $this->space_types = SpaceType::get();
-        $this->parking_options = ParkingOption::get();
         $this->safety_measures = SafetyMeasure::get();
-        return view('content.seller.space-form-steps', $this->data);
+        return view('content.seller.space.address-step', $this->data);
     }
 
     public function addAddress(Request $req)
@@ -31,32 +29,38 @@ class ListingSpaceController extends UserBaseController
         try {
             $data = $req->except('_token');
 
-            if (isset($data['space_id'])) {
-                $space = Space::find($data['space_id']);
-                if (!$space) {
-                    return response()->json(['error' => true]);
-                }
-                $space->update($data);
-            } else {
-                $data['user_id'] = auth()->user()->id;
-                $space = Space::create($data);
-                if (!$space) {
-                    return response()->json(['error' => true]);
-                }
+            $data['user_id'] = auth()->user()->id;
+            $space = Space::create($data);
+            if (!$space) {
+                return redirect()->back()->with('error', 'Space is not created.');
             }
-            return response()->json(['success' => true, 'data' => $space->id]);
+
+            return redirect()->route('parking-step', ['space_id' => $space->id]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
     }
 
-    public function addParking(Request $req)
+    public function parkingStep($space_id)
+    {
+        try {
+            $this->space_id =  $space_id;
+            $this->space_types = SpaceType::get();
+            $this->parking_options = ParkingOption::get();
+            return view('content.seller.space.parking-step', $this->data);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
+    }
+
+    public function addParking(Request $req,$space_id)
     {
         try {
             $data = $req->except('_token');
-            $space = Space::find($data['space_id']);
+
+            $space = Space::find($space_id);
             if (!$space) {
-                return response()->json(['error' => true]);
+                return redirect()->back()->with('error', 'Space not found.');
             }
             $space->update($data);
 
@@ -100,40 +104,50 @@ class ListingSpaceController extends UserBaseController
                 }
             }
 
-            return response()->json(['success' => true, 'data' => $space->id]);
+            return redirect()->route('about-step', ['space_id' => $space->id]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
     }
 
-    public function addAbout(Request $req)
+    public function aboutStep($space_id)
+    {
+        return view('content.seller.space.about-step',['space_id' => $space_id]);
+    }
+
+    public function addAbout(Request $req,$space_id)
     {
         try {
             $data = $req->except('_token');
-            $space = Space::find($data['space_id']);
+            $space = Space::find($space_id);
             if (!$space) {
-                return response()->json(['error' => true]);
+                return redirect()->back()->with('error', 'Space not found.');
             }
             $space->update($data);
-
-            return response()->json(['success' => true, 'data' => $space->id]);
+            return redirect()->route('images-step', ['space_id' => $space_id]);
+            // return response()->json(['success' => true, 'data' => $space->id]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
+    }
+
+    public function imagesStep($space_id)
+    {
+        return view('content.seller.space.images-step',['space_id' => $space_id]);
     }
 
     public function addSafetyMeasure(Request $req)
     {
         // try {
-            $data = $req->except('_token');
-            dd($data);
-            $space = Space::find($data['space_id']);
-            if (!$space) {
-                return response()->json(['error' => true]);
-            }
-            $space->update($data);
+        $data = $req->except('_token');
+        dd($data);
+        $space = Space::find($data['space_id']);
+        if (!$space) {
+            return response()->json(['error' => true]);
+        }
+        $space->update($data);
 
-            return response()->json(['success' => true, 'data' => $space->id]);
+        return response()->json(['success' => true, 'data' => $space->id]);
         // } catch (\Throwable $th) {
         //     return redirect()->back()->with('error', $th->getMessage());
         // }
