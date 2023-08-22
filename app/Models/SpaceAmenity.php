@@ -10,6 +10,6 @@ class SpaceAmenity extends Model
     use HasFactory;
 
     public function spaceAmenities(){
-        return $this->hasMany(SpaceHavingAmenity::class);
+        return $this->hasMany(ActivityHavingAmenity::class);
     }
 }

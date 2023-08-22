@@ -19,6 +19,11 @@ class DatabaseSeeder extends Seeder
             ParkingOptionSeeder::class,
             UserSeeder::class,
             SafetyMeasureSeeder::class,
+            CancellationPolicySeeder::class,
+            ActivitiesSeeder::class,
+            SpaceAmenitySeeder::class,
+            SubActivitiesSeeder::class,
+            ActivityHaveAmenitySeeder::class,
         ]);
     }
 }

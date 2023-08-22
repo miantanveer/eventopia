@@ -100,7 +100,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('about-step/{space_id}', [ListingSpaceController::class, 'aboutStep'])->name('about-step');
     Route::post('add-about/{space_id}', [ListingSpaceController::class, 'addAbout'])->name('add-about');
     Route::get('images-step/{space_id}', [ListingSpaceController::class, 'imagesStep'])->name('images-step');
-    Route::post('safety-measure-step', [ListingSpaceController::class, 'addSafetyMeasure'])->name('add-safety-measure');
+    Route::post('add-images/{space_id}', [ListingSpaceController::class, 'addImages'])->name('add-images');
+    Route::get('operating-hour-step/{space_id}', [ListingSpaceController::class, 'operatingHourStep'])->name('operating-hour-step');
+    Route::get('safety-measure-step/{space_id}', [ListingSpaceController::class, 'safetyMeasureStep'])->name('safety-measure-step');
+    Route::post('add-safety-measure/{space_id}', [ListingSpaceController::class, 'addSafetyMeasure'])->name('add-safety-measure');
+    Route::get('cancel-policy-step/{space_id}', [ListingSpaceController::class, 'cancelPolicyStep'])->name('cancel-policy-step');
+    Route::post('add-cancel-policy/{space_id}', [ListingSpaceController::class, 'addCancelPolicy'])->name('add-cancel-policy');
+    Route::get('activities-step/{space_id}', [ListingSpaceController::class, 'activitiesStep'])->name('activities-step');
+    Route::post('add-activities/{space_id}', [ListingSpaceController::class, 'addActivities'])->name('add-activities');
     // Route::get('/list-space', function () {
     //     return view('content.seller.list-space');
     // });

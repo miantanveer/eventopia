@@ -28,7 +28,9 @@ class Space extends Model
         'space_size',
         'space_rules',
         'wifi_password',
-        'arrival_instruction'
+        'arrival_instruction',
+        'cleaning_process',
+        'last_step',
     ];
 
     public function spaceImages(){

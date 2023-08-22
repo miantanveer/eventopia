@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCancellationPoliciesTable extends Migration
+class CreateActivityHavingAmenitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateCancellationPoliciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cancellation_policies', function (Blueprint $table) {
+        Schema::create('activity_having_amenities', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->longText('description');
+            $table->foreignId('space_amenity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('space_activity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCancellationPoliciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cancellation_policies');
+        Schema::dropIfExists('activity_having_amenities');
     }
 }
