@@ -21,7 +21,7 @@ class CreateSpaceHavingActivitiesTable extends Migration
             $table->bigInteger('minimum_hour');
             $table->string('discount')->nullable();
             $table->bigInteger('cleaning_fee');
-            $table->enum('instant_booking', [1, 2])->default(2)->comment = "1 => Everyone, 2 => No One";
+            $table->string('instant_booking')->nullable();
             $table->bigInteger('max_guests');
             $table->timestamps();
         });

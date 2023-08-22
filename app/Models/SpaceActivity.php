@@ -16,4 +16,8 @@ class SpaceActivity extends Model
     public function subActivities(){
         return $this->hasMany(SpaceSubActivity::class);
     }
+
+    public function activityHavingAmenities(){
+        return $this->hasMany(ActivityHavingAmenity::class);
+    }
 }

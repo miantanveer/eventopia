@@ -1,5 +1,6 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
     <style>
         .seller-web-sidebar {
             z-index: 9999;
@@ -52,7 +53,7 @@
                 </div>
                 <div class="card-body">
                     <div id="smartwizard-3">
-                        {{-- <ul>
+                    {{--<ul>
                             <li><a href="#step-1">Space Address</a></li>
                             <li><a href="#step-2">Setup</a></li>
                             <li><a href="#step-3">About your space</a></li>
@@ -63,14 +64,13 @@
                             <li><a href="#step-8">Listing</a></li>
                             <li><a href="#step-9">Profile</a></li>
                             <li><a href="#step-10">Review Policies</a></li>
-
                         </ul> --}}
                         <div>
                             <div id="step-4" class="mb-5">
                                 <h2 style="text-align:center;">Step 4 of 9</h2>
                                 <div class="text-center">
                                     <h2 class="fw-bolder">
-                                        Upload photos of your services
+                                        Upload photos of your Space
                                     </h2>
                                     <p>Photos are the first thing that guests will see. We recommend adding 10 or more high
                                         quality photos.</p>
@@ -98,24 +98,37 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <form class="mt-4 mb-5">
-                                    <div class="control-group form-group row">
-                                        <div class="col-12">
-                                            <label class="form-label">Please add at least 4 space photos</label>
-                                            <input id="demo" type="file" name="files"
-                                                accept=".jpg, .png, image/jpeg, image/png" multiple>
-                                        </div>
+                                <input type="hidden" name="url" id="url" value='{{ route('operating-hour-step', $space_id) }}'>
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
                                     </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <p><i class="ion-lightbulb text-warning fs-3 me-3"></i> Drag and drop your
-                                                photos to change the order. Your first photo is what your guests will see
-                                                when browsing so make sure it
-                                                represents your space.</p>
-                                        </div>
+                                @endif
+                                <form action="{{ route('add-images',$space_id) }}" method="post" id="filedrop" class="dropzone .custom-validation">
+                                    @csrf
+                                    <div class="fallback">
+                                        <input name="file" id="file" type="file" required
+                                            enctype="multipart/form-data" multiple="multiple"
+                                            required data-parsley-required-message="Photos are required*"
+                                            data-parsley-errors-container="#file">
                                     </div>
+                                    <div class="dz-message needsclick">
+                                        <div class="mb-3">
+                                            <i class="display-4 text-muted uil uil-cloud-upload"></i>
+                                        </div>
+
+                                        <h4>Drop files here or click to upload.</h4>
+                                    </div>
+                                    <input type="hidden" name="last_step" value="4">
                                 </form>
+                                <div class="float-end mt-8">
+                                    <button class="btn btn-light">Previous</button>
+                                    <button class="btn btn-primary" onclick="upload()">Next</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -133,9 +146,8 @@
     <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
     <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
     <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
-    <!-- FILE UPLOADES JS -->
-    <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
+
+    <script src="{{asset('assets/plugins/dropzone/dropzone.min.js')}}"></script>
     <!-- FORM WIZARD JS-->
     <script src="{{ asset('assets/plugins/formwizard/fromwizard.js') }}"></script>
     <!-- INTERNAl Jquery.steps js -->
@@ -147,4 +159,51 @@
     <!-- Jquery/buttons JS-->
     <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('.custom-validation').parsley();
+        });
+        var myDropzone;
+        var alertShown = false; // Flag to track whether the alert has been shown
+
+        Dropzone.autoDiscover = false;
+
+        myDropzone = new Dropzone("form#filedrop", {
+            autoProcessQueue: false,
+            parallelUploads: 10,
+            maxFilesize: 2,
+            addRemoveLinks: true,
+            acceptedFiles: ".png, .jpeg",
+            init: function() {
+                var uploads = 0;
+                this.on("success", function(file, response) {
+                    if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles()
+                        .length === 0) {
+                        var id = $('#service_id').val();
+                        var url = $('#url').val();
+                        window.location.replace(url);
+                    }
+                    uploads++
+                });
+
+                this.on("addedfile", function(file) {
+                    if (!alertShown && myDropzone.files.length < 3) {
+                        alertShown = true;
+                        alert("Please upload at least 4 files.");
+                    }
+                });
+            },
+        });
+
+        function upload() {
+            if (alertShown && myDropzone.files.length < 4) {
+                alert("Please upload at least 4 files.");
+            } else {
+                var files = myDropzone.files;
+                myDropzone.processQueue(files);
+            }
+        }
+    </script>
 @endsection

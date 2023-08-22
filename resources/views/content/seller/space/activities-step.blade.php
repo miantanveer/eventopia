@@ -52,7 +52,7 @@
                 </div>
                 <div class="card-body">
                     <div id="smartwizard-3">
-                        <ul>
+                        {{-- <ul>
                             <li><a href="#step-1">Space Address</a></li>
                             <li><a href="#step-2">Setup</a></li>
                             <li><a href="#step-3">About your space</a></li>
@@ -64,233 +64,481 @@
                             <li><a href="#step-9">Profile</a></li>
                             <li><a href="#step-10">Review Policies</a></li>
 
-                        </ul>
+                        </ul> --}}
                         <div>
-                            <div id="step-8" class="mb-5">
-                                <div style="text-align:center">
-                                    <h2>Step 8 of 9</h2>
-                                    <h1><strong>
-                                            Which activities would you like to host?
-                                        </strong></h1>
-                                    <p>Select the types of activities you would like to host. For each selection, we’ll
-                                        create a customized listing unique to that activity.</p>
-                                    <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}" alt="img"><b>Tip:
-                                            To be approved for Meetings your photos must display a
-                                            meeting or workshop setup including tables and chairs. We also
-                                            recommend adding photos of your AV setup.</b></p>
-                                </div>
+                            {{-- @php
+                               dd($space_activities[0]->activityHavingAmenities[0]->spaceAmenities);
+                            @endphp --}}
+                            <form action="{{ route('add-activities', $space_id) }}" method="post">
+                                @csrf
+                                <div id="step-8" class="mb-5">
+                                    <div style="text-align:center">
+                                        <h2>Step 8 of 9</h2>
+                                        <h1><strong>
+                                                Which activities would you like to host?
+                                            </strong></h1>
+                                        <p>Select the types of activities you would like to host. For each selection, we’ll
+                                            create a customized listing unique to that activity.</p>
+                                        <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
+                                                alt="img"><b>Tip:
+                                                To be approved for Meetings your photos must display a
+                                                meeting or workshop setup including tables and chairs. We also
+                                                recommend adding photos of your AV setup.</b></p>
+                                    </div>
 
-                                <div class="m-lg-6">
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <div class="panel-group" id="accordion" role="tablist"
-                                                aria-multiselectable="true">
-                                                <div class="panel panel-default active">
-                                                    <div class="panel-heading back-g-color" role="tab" id="headingOne1">
-                                                        <div class="card border-end shadow-none back-g-color m-0">
-                                                            <div class="card-body p-0">
-                                                                <div class="px-5 py-3 m-0 text-center bg-white">
-                                                                    <h5 class="text-dark m-0">Meetings</h5>
-                                                                    <hr class="bg-dark mb-0">
+                                    <div class="m-lg-6">
+                                        <div class="row">
+                                            @foreach ($space_activities as $space_activity)
+                                                <div class="col-lg-4">
+                                                    <div class="panel-group" id="accordion" role="tablist"
+                                                        aria-multiselectable="true">
+                                                        <div class="panel panel-default active">
+                                                            <div class="panel-heading back-g-color" role="tab"
+                                                                id="headingOne1">
+                                                                <div class="card border-end shadow-none back-g-color m-0">
+                                                                    <div class="card-body p-0">
+                                                                        <div class="px-5 py-3 m-0 text-center bg-white">
+                                                                            <h5 class="text-dark m-0">{{$space_activity->title}}</h5>
+                                                                            <hr class="bg-dark mb-0">
+                                                                        </div>
+                                                                        <div class="ms-5 my-4">
+                                                                            @foreach ($space_activity->subActivities as $subActivity)
+                                                                                <li class="text-dark mb-2">{{$subActivity->title}}</li>
+                                                                            @endforeach
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="ms-5 my-4">
-                                                                    <li class="text-dark mb-2">Workshops</li>
-                                                                    <li class="text-dark mb-2">Presentations</li>
-                                                                    <li class="text-dark mb-2">Retreats</li>
-                                                                    <li class="text-dark">More</li>
+                                                                <hr class="bg-dark mb-0 mt-1">
+                                                                <h4 class="panel-title bg-primary text-center">
+                                                                    <a role="button" data-bs-toggle="collapse"
+                                                                        data-bs-parent="#accordion" href="#collapse{{$loop->iteration}}"
+                                                                        class="text-white" aria-expanded="true"
+                                                                        aria-controls="collapse1"> Enable </a>
+                                                                </h4>
+                                                            </div>
+                                                            <div id="collapse{{$loop->iteration}}" class="panel-collapse collapse" role="tabpanel"
+                                                                aria-labelledby="headingOne1">
+                                                                <div class="panel-body">
+                                                                    <label class="form-label">Pricing</label>
+                                                                    <hr class="bg-dark mt-0">
+                                                                    <label class="mb-5">Hourly rate</label>
+                                                                    <p>Please choose a base hourly rate. You
+                                                                        can customize your pricing with atten-
+                                                                        dee pricing, calendar pricing, add add-
+                                                                        ons once your listing are created.</p>
+                                                                    <div class="form-group mb-6">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="80"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2" name="rate_per_hour{{$loop->iteration}}">
+                                                                            <span class="input-group-text"
+                                                                                id="basic-addon2">SAR</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p>Minimum number of hours</p>
+                                                                    <p>Must be between 1-12 hours</p>
+                                                                    <div class="form-group mb-4">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="5"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2" name="minimum_hours{{$loop->iteration}}">
+                                                                            <span class="input-group-text" id="basic-addon2"><i
+                                                                                    class="fa fa-calendar w-5 text-white"></i></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <label class="my-5">8+ hour discount</label>
+                                                                    <p>Encourage guests to book longer by giving a discount for
+                                                                        bookings that are 8 hours or more.</p>
+                                                                    <div class="form-group mb-3">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Optional"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2" name="discount{{$loop->iteration}}">
+                                                                            <span class="input-group-text" id="basic-addon2">%
+                                                                                off</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a href="#" class="mb-6">How is this calculated?</a>
+                                                                    <label class="form-label">Who can book instantly?</label>
+                                                                    <hr class="bg-dark mt-0">
+                                                                    <div class="mb-5">
+                                                                        <label>
+                                                                            <input type="radio" name="instant_booking{{$loop->iteration}}"
+                                                                                value="everyone">
+                                                                            <span>Everyone</span>
+                                                                        </label>
+                                                                        <p>Guests who acknowledge and accept your host rules can
+                                                                            book instantly.</p>
+                                                                        <label>
+                                                                            <input type="radio" name="instant_booking{{$loop->iteration}}"
+                                                                                value="no one">
+                                                                            <span>No one</span>
+                                                                        </label>
+                                                                        <p>Booking requests will need to be manually accepted or
+                                                                            declined.</p>
+                                                                    </div>
+                                                                    <a href="#">Learn more?</a>
+                                                                    <div class="my-5">
+                                                                        <p class="back-g-color p-3">Meeting listings get up to
+                                                                            2x
+                                                                            more bookings when guests can book instantly</p>
+                                                                    </div>
+                                                                    <label class="form-label">Capacity</label>
+                                                                    <hr class="bg-dark mb-3">
+                                                                    <p>Maximum number of guests</p>
+                                                                    <div class="form-group mb-3">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="250"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2" name="max_guests{{$loop->iteration}}">
+                                                                            <span class="input-group-text"
+                                                                                id="basic-addon2"><i
+                                                                                    class="fa fa-group w-5 text-white"></i></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr class="bg-dark mb-3">
+                                                                    <p>All amenities you select should be inclu-
+                                                                        ded in your hourly rate. If you have
+                                                                        amenities that you charge for, do not
+                                                                        include them here. You can add those in
+                                                                        a later section.
+                                                                    </p><br>
+                                                                    You must include WiFi, tables, and chairs
+                                                                    to offer meetings
+                                                                    <div class="row">
+                                                                        <div class="span12 pagination-centered">
+                                                                            {{-- @foreach ($space_activity->activityHavingAmenities as $amenity)
+                                                                                <div class="checkbox">
+                                                                                    <label><input type="checkbox"
+                                                                                            value="">
+                                                                                    </label>
+                                                                                </div>
+                                                                            @endforeach --}}
+                                                                            {{-- <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Tables</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Chairs</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Whiteboard</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Chalkboard</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Projector</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Screen</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Flip
+                                                                                    Charts</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Monitor</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Conference Phone</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Parking Space(s)</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Public
+                                                                                    Transportation</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Restrooms</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Wheelchair
+                                                                                    Accessible</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Breakout Space</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Kitchen</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Coffee</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Apple
+                                                                                    TV</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Printer</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Rooftop</label>
+                                                                            </div>
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        value="">Outdoor Area</label>
+                                                                            </div> --}}
+                                                                        </div>
+                                                                    </div>
+                                                                    {{-- <div class="mt-4">
+                                                                    <h4>Add your own amenities</h4>
+                                                                    <input style="width:195px;height:42px;" type="text"
+                                                                        class="btn btn-default rounded-0">
+                                                                    <button
+                                                                        style="margin-left:20px;width:80px;height:42px;background-color:#00224F;color:white;"
+                                                                        type="button"
+                                                                        class="btn btn-default rounded-0">Add</button>
+                                                                </div> --}}
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <hr class="bg-dark mb-0 mt-1">
-                                                        <h4 class="panel-title bg-primary text-center">
-                                                            <a role="button" data-bs-toggle="collapse"
-                                                                data-bs-parent="#accordion" href="#collapse1"
-                                                                class="text-white" aria-expanded="true"
-                                                                aria-controls="collapse1"> Enable </a>
-                                                        </h4>
                                                     </div>
-                                                    <div id="collapse1" class="panel-collapse collapse" role="tabpanel"
-                                                        aria-labelledby="headingOne1">
-                                                        <div class="panel-body">
-                                                            <label class="form-label">Pricing</label>
-                                                            <hr class="bg-dark mt-0">
-                                                            <label class="mb-5">Hourly rate</label>
-                                                            <p>Please choose a base hourly rate. You
-                                                                can customize your pricing with atten-
-                                                                dee pricing, calendar pricing, add add-
-                                                                ons once your listing are created.</p>
-                                                            <div class="form-group mb-6">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="80" aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text"
-                                                                        id="basic-addon2">SAR</span>
+                                                </div>
+                                            @endforeach
+                                            {{-- <div class="col-lg-4">
+                                                <div class="panel-group" id="accordion" role="tablist"
+                                                    aria-multiselectable="true">
+                                                    <div class="panel panel-default active">
+                                                        <div class="panel-heading back-g-color" role="tab"
+                                                            id="headingOne1">
+                                                            <div class="card border-end shadow-none back-g-color m-0">
+                                                                <div class="card-body p-0">
+                                                                    <div class="px-5 py-3 m-0 text-center bg-white">
+                                                                        <h5 class="text-dark m-0">Events</h5>
+                                                                        <hr class="bg-dark mb-0">
+                                                                    </div>
+                                                                    <div class="ms-5 my-4">
+                                                                        <li class="text-dark mb-2">Birthdays</li>
+                                                                        <li class="text-dark mb-2">Networking Event</li>
+                                                                        <li class="text-dark mb-2">Corporate Party</li>
+                                                                        <li class="text-dark">Corporate Party</li>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <p>Minimum number of hours</p>
-                                                            <p>Must be between 1-12 hours</p>
-                                                            <div class="form-group mb-4">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="5" aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2"><i
-                                                                            class="fa fa-calendar w-5 text-white"></i></span>
+                                                            <hr class="bg-dark mb-0 mt-1">
+                                                            <h4 class="panel-title bg-primary text-center">
+                                                                <a role="button" data-bs-toggle="collapse"
+                                                                    data-bs-parent="#accordion" href="#collapse2"
+                                                                    class="text-white" aria-expanded="true"
+                                                                    aria-controls="collapse1"> Enable </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse2" class="panel-collapse collapse"
+                                                            role="tabpanel" aria-labelledby="headingOne1">
+                                                            <div class="panel-body">
+                                                                <label class="form-label">Pricing</label>
+                                                                <hr class="bg-dark mt-0">
+                                                                <label class="mb-5">Hourly rate</label>
+                                                                <p>Please choose a base hourly rate. You
+                                                                    can customize your pricing with atten-
+                                                                    dee pricing, calendar pricing, add add-
+                                                                    ons once your listing are created.</p>
+                                                                <div class="form-group mb-6">
+                                                                    <div class="input-group w-100">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="80"
+                                                                            aria-label="Recipient's username"
+                                                                            aria-describedby="basic-addon2">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon2">SAR</span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
+                                                                <p>Minimum number of hours</p>
+                                                                <p>Must be between 1-12 hours</p>
+                                                                <div class="form-group mb-4">
+                                                                    <div class="input-group w-100">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="5"
+                                                                            aria-label="Recipient's username"
+                                                                            aria-describedby="basic-addon2">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon2"><i
+                                                                                class="fa fa-calendar w-5 text-white"></i></span>
+                                                                    </div>
+                                                                </div>
 
-                                                            <label class="my-5">8+ hour discount</label>
-                                                            <p>Encourage guests to book longer by giving a discount for
-                                                                bookings that are 8 hours or more.</p>
-                                                            <div class="form-group mb-3">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Optional"
-                                                                        aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2">%
-                                                                        off</span>
-                                                                </div>
-                                                            </div>
-                                                            <a href="#" class="mb-6">How is this calculated?</a>
-                                                            <label class="form-label">Who can book instantly?</label>
-                                                            <hr class="bg-dark mt-0">
-                                                            <div class="mb-5">
-                                                                <label>
-                                                                    <input type="radio" name="example-checkbox1"
-                                                                        value="option1">
-                                                                    <span>Everyone</span>
-                                                                </label>
-                                                                <p>Guests who acknowledge and accept your host rules can
-                                                                    book instantly.</p>
-                                                                <label>
-                                                                    <input type="radio" name="example-checkbox1"
-                                                                        value="option2">
-                                                                    <span>No one</span>
-                                                                </label>
-                                                                <p>Booking requests will need to be manually accepted or
-                                                                    declined.</p>
-                                                            </div>
-                                                            <a href="#">Learn more?</a>
-                                                            <div class="my-5">
-                                                                <p class="back-g-color p-3">Meeting listings get up to 2x
-                                                                    more bookings when guests can book instantly</p>
-                                                            </div>
-                                                            <label class="form-label">Capacity</label>
-                                                            <hr class="bg-dark mb-3">
-                                                            <p>Maximum number of guests</p>
-                                                            <div class="form-group mb-3">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="250"
-                                                                        aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2"><i
-                                                                            class="fa fa-group w-5 text-white"></i></span>
-                                                                </div>
-                                                            </div>
-                                                            <label class="form-label">Who can book instantly?</label>
-                                                            <hr class="bg-dark mb-3">
-                                                            <p>All amenities you select should be inclu-
-                                                                ded in your hourly rate. If you have
-                                                                amenities that you charge for, do not
-                                                                include them here. You can add those in
-                                                                a later section.
-                                                            </p><br>
-                                                            You must include WiFi, tables, and chairs
-                                                            to offer meetings
-                                                            <div class="row">
-                                                                <div class="span12 pagination-centered">
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">WiFi
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Tables</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Chairs</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Whiteboard</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Chalkboard</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Projector</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Screen</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">Flip
-                                                                            Charts</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Monitor</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Conference Phone</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Parking Space(s)</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Public
-                                                                            Transportation</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Restrooms</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Wheelchair
-                                                                            Accessible</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Breakout Space</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Kitchen</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Coffee</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">Apple
-                                                                            TV</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Printer</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Rooftop</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Outdoor Area</label>
+                                                                <label class="my-5">8+ hour discount</label>
+                                                                <p>Encourage guests to book longer by giving a discount for
+                                                                    bookings that are 8 hours or more.</p>
+                                                                <div class="form-group mb-3">
+                                                                    <div class="input-group w-100">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Optional"
+                                                                            aria-label="Recipient's username"
+                                                                            aria-describedby="basic-addon2">
+                                                                        <span class="input-group-text" id="basic-addon2">%
+                                                                            off</span>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="mt-4">
+                                                                <a href="#" class="mb-6">How is this
+                                                                    calculated?</a>
+                                                                <label class="form-label">Who can book instantly?</label>
+                                                                <hr class="bg-dark mt-0">
+                                                                <div class="mb-5">
+                                                                    <label>
+                                                                        <input type="radio" name="example-checkbox1"
+                                                                            value="option1">
+                                                                        <span>Everyone</span>
+                                                                    </label>
+                                                                    <p>Guests who acknowledge and accept your host rules can
+                                                                        book instantly.</p>
+                                                                    <label>
+                                                                        <input type="radio" name="example-checkbox1"
+                                                                            value="option2">
+                                                                        <span>No one</span>
+                                                                    </label>
+                                                                    <p>Booking requests will need to be manually accepted or
+                                                                        declined.</p>
+                                                                </div>
+                                                                <a href="#">Learn more?</a>
+                                                                <div class="my-5">
+                                                                    <p class="back-g-color p-3">Meeting listings get up to
+                                                                        2x
+                                                                        more bookings when guests can book instantly</p>
+                                                                </div>
+                                                                <label class="form-label">Capacity</label>
+                                                                <hr class="bg-dark mb-3">
+                                                                <p>Maximum number of guests</p>
+                                                                <div class="form-group mb-3">
+                                                                    <div class="input-group w-100">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="250"
+                                                                            aria-label="Recipient's username"
+                                                                            aria-describedby="basic-addon2">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon2"><i
+                                                                                class="fa fa-group w-5 text-white"></i></span>
+                                                                    </div>
+                                                                </div>
+                                                                <label class="form-label">Who can book instantly?</label>
+                                                                <hr class="bg-dark mb-3">
+                                                                <p>All amenities you select should be inclu-
+                                                                    ded in your hourly rate. If you have
+                                                                    amenities that you charge for, do not
+                                                                    include them here. You can add those in
+                                                                    a later section.
+                                                                </p><br>
+                                                                You must include WiFi, tables, and chairs
+                                                                to offer meetings
+                                                                <div class="row">
+                                                                    <div class="span12 pagination-centered">
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">WiFi
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Tables</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Chairs</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Whiteboard</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Chalkboard</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Projector</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Screen</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Flip
+                                                                                Charts</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Monitor</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Conference Phone</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Parking Space(s)</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Public
+                                                                                Transportation</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Restrooms</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Wheelchair
+                                                                                Accessible</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Breakout Space</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Kitchen</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Coffee</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Apple
+                                                                                TV</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Printer</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Rooftop</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Outdoor Area</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {{-- <div class="mt-4">
                                                                 <h4>Add your own amenities</h4>
                                                                 <input style="width:195px;height:42px;" type="text"
                                                                     class="btn btn-default rounded-0">
@@ -299,221 +547,230 @@
                                                                     type="button"
                                                                     class="btn btn-default rounded-0">Add</button>
                                                             </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="panel-group" id="accordion" role="tablist"
-                                                aria-multiselectable="true">
-                                                <div class="panel panel-default active">
-                                                    <div class="panel-heading back-g-color" role="tab"
-                                                        id="headingOne1">
-                                                        <div class="card border-end shadow-none back-g-color m-0">
-                                                            <div class="card-body p-0">
-                                                                <div class="px-5 py-3 m-0 text-center bg-white">
-                                                                    <h5 class="text-dark m-0">Events</h5>
-                                                                    <hr class="bg-dark mb-0">
-                                                                </div>
-                                                                <div class="ms-5 my-4">
-                                                                    <li class="text-dark mb-2">Birthdays</li>
-                                                                    <li class="text-dark mb-2">Networking Event</li>
-                                                                    <li class="text-dark mb-2">Corporate Party</li>
-                                                                    <li class="text-dark">Corporate Party</li>
+                                            <div class="col-lg-4">
+                                                <div class="panel-group" id="accordion" role="tablist"
+                                                    aria-multiselectable="true">
+                                                    <div class="panel panel-default active">
+                                                        <div class="panel-heading back-g-color" role="tab"
+                                                            id="headingOne1">
+                                                            <div class="card border-end shadow-none back-g-color m-0">
+                                                                <div class="card-body p-0">
+                                                                    <div class="px-5 py-3 m-0 text-center bg-white">
+                                                                        <h5 class="text-dark m-0">Media Production</h5>
+                                                                        <hr class="bg-dark mb-0">
+                                                                    </div>
+                                                                    <div class="ms-5 my-4">
+                                                                        <li class="text-dark mb-2">Film shoots</li>
+                                                                        <li class="text-dark mb-2">Photo shoots</li>
+                                                                        <li class="text-dark mb-2">Audio recording</li>
+                                                                        <li class="text-dark">More</li>
+                                                                    </div>
                                                                 </div>
                                                             </div>
+                                                            <hr class="bg-dark mb-0 mt-1">
+                                                            <h4 class="panel-title bg-primary text-center">
+                                                                <a role="button" data-bs-toggle="collapse"
+                                                                    data-bs-parent="#accordion" href="#collapse3"
+                                                                    class="text-white" aria-expanded="true"
+                                                                    aria-controls="collapse1"> Enable </a>
+                                                            </h4>
                                                         </div>
-                                                        <hr class="bg-dark mb-0 mt-1">
-                                                        <h4 class="panel-title bg-primary text-center">
-                                                            <a role="button" data-bs-toggle="collapse"
-                                                                data-bs-parent="#accordion" href="#collapse2"
-                                                                class="text-white" aria-expanded="true"
-                                                                aria-controls="collapse1"> Enable </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapse2" class="panel-collapse collapse" role="tabpanel"
-                                                        aria-labelledby="headingOne1">
-                                                        <div class="panel-body">
-                                                            <label class="form-label">Pricing</label>
-                                                            <hr class="bg-dark mt-0">
-                                                            <label class="mb-5">Hourly rate</label>
-                                                            <p>Please choose a base hourly rate. You
-                                                                can customize your pricing with atten-
-                                                                dee pricing, calendar pricing, add add-
-                                                                ons once your listing are created.</p>
-                                                            <div class="form-group mb-6">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="80" aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text"
-                                                                        id="basic-addon2">SAR</span>
+                                                        <div id="collapse3" class="panel-collapse collapse"
+                                                            role="tabpanel" aria-labelledby="headingOne1">
+                                                            <div class="panel-body">
+                                                                <label class="form-label">Pricing</label>
+                                                                <hr class="bg-dark mt-0">
+                                                                <label class="mb-5">Hourly rate</label>
+                                                                <p>Please choose a base hourly rate. You
+                                                                    can customize your pricing with atten-
+                                                                    dee pricing, calendar pricing, add add-
+                                                                    ons once your listing are created.</p>
+                                                                <div class="form-group mb-6">
+                                                                    <div class="input-group w-100">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="80"
+                                                                            aria-label="Recipient's username"
+                                                                            aria-describedby="basic-addon2">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon2">SAR</span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <p>Minimum number of hours</p>
-                                                            <p>Must be between 1-12 hours</p>
-                                                            <div class="form-group mb-4">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="5" aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2"><i
-                                                                            class="fa fa-calendar w-5 text-white"></i></span>
+                                                                <p>Minimum number of hours</p>
+                                                                <p>Must be between 1-12 hours</p>
+                                                                <div class="form-group mb-4">
+                                                                    <div class="input-group w-100">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="5"
+                                                                            aria-label="Recipient's username"
+                                                                            aria-describedby="basic-addon2">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon2"><i
+                                                                                class="fa fa-calendar w-5 text-white"></i></span>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
 
-                                                            <label class="my-5">8+ hour discount</label>
-                                                            <p>Encourage guests to book longer by giving a discount for
-                                                                bookings that are 8 hours or more.</p>
-                                                            <div class="form-group mb-3">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Optional"
-                                                                        aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2">%
-                                                                        off</span>
-                                                                </div>
-                                                            </div>
-                                                            <a href="#" class="mb-6">How is this calculated?</a>
-                                                            <label class="form-label">Who can book instantly?</label>
-                                                            <hr class="bg-dark mt-0">
-                                                            <div class="mb-5">
-                                                                <label>
-                                                                    <input type="radio" name="example-checkbox1"
-                                                                        value="option1">
-                                                                    <span>Everyone</span>
-                                                                </label>
-                                                                <p>Guests who acknowledge and accept your host rules can
-                                                                    book instantly.</p>
-                                                                <label>
-                                                                    <input type="radio" name="example-checkbox1"
-                                                                        value="option2">
-                                                                    <span>No one</span>
-                                                                </label>
-                                                                <p>Booking requests will need to be manually accepted or
-                                                                    declined.</p>
-                                                            </div>
-                                                            <a href="#">Learn more?</a>
-                                                            <div class="my-5">
-                                                                <p class="back-g-color p-3">Meeting listings get up to 2x
-                                                                    more bookings when guests can book instantly</p>
-                                                            </div>
-                                                            <label class="form-label">Capacity</label>
-                                                            <hr class="bg-dark mb-3">
-                                                            <p>Maximum number of guests</p>
-                                                            <div class="form-group mb-3">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="250"
-                                                                        aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2"><i
-                                                                            class="fa fa-group w-5 text-white"></i></span>
-                                                                </div>
-                                                            </div>
-                                                            <label class="form-label">Who can book instantly?</label>
-                                                            <hr class="bg-dark mb-3">
-                                                            <p>All amenities you select should be inclu-
-                                                                ded in your hourly rate. If you have
-                                                                amenities that you charge for, do not
-                                                                include them here. You can add those in
-                                                                a later section.
-                                                            </p><br>
-                                                            You must include WiFi, tables, and chairs
-                                                            to offer meetings
-                                                            <div class="row">
-                                                                <div class="span12 pagination-centered">
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">WiFi
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Tables</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Chairs</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Whiteboard</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Chalkboard</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Projector</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Screen</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">Flip
-                                                                            Charts</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Monitor</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Conference Phone</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Parking Space(s)</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Public
-                                                                            Transportation</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Restrooms</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Wheelchair
-                                                                            Accessible</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Breakout Space</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Kitchen</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Coffee</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">Apple
-                                                                            TV</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Printer</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Rooftop</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Outdoor Area</label>
+                                                                <label class="my-5">8+ hour discount</label>
+                                                                <p>Encourage guests to book longer by giving a discount for
+                                                                    bookings that are 8 hours or more.</p>
+                                                                <div class="form-group mb-3">
+                                                                    <div class="input-group w-100">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Optional"
+                                                                            aria-label="Recipient's username"
+                                                                            aria-describedby="basic-addon2">
+                                                                        <span class="input-group-text" id="basic-addon2">%
+                                                                            off</span>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="mt-4">
+                                                                <a href="#" class="mb-6">How is this
+                                                                    calculated?</a>
+                                                                <label class="form-label">Who can book instantly?</label>
+                                                                <hr class="bg-dark mt-0">
+                                                                <div class="mb-5">
+                                                                    <label>
+                                                                        <input type="radio" name="example-checkbox1"
+                                                                            value="option1">
+                                                                        <span>Everyone</span>
+                                                                    </label>
+                                                                    <p>Guests who acknowledge and accept your host rules can
+                                                                        book instantly.</p>
+                                                                    <label>
+                                                                        <input type="radio" name="example-checkbox1"
+                                                                            value="option2">
+                                                                        <span>No one</span>
+                                                                    </label>
+                                                                    <p>Booking requests will need to be manually accepted or
+                                                                        declined.</p>
+                                                                </div>
+                                                                <a href="#">Learn more?</a>
+                                                                <div class="my-5">
+                                                                    <p class="back-g-color p-3">Meeting listings get up to
+                                                                        2x
+                                                                        more bookings when guests can book instantly</p>
+                                                                </div>
+                                                                <label class="form-label">Capacity</label>
+                                                                <hr class="bg-dark mb-3">
+                                                                <p>Maximum number of guests</p>
+                                                                <div class="form-group mb-3">
+                                                                    <div class="input-group w-100">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="250"
+                                                                            aria-label="Recipient's username"
+                                                                            aria-describedby="basic-addon2">
+                                                                        <span class="input-group-text"
+                                                                            id="basic-addon2"><i
+                                                                                class="fa fa-group w-5 text-white"></i></span>
+                                                                    </div>
+                                                                </div>
+                                                                <label class="form-label">Who can book instantly?</label>
+                                                                <hr class="bg-dark mb-3">
+                                                                <p>All amenities you select should be inclu-
+                                                                    ded in your hourly rate. If you have
+                                                                    amenities that you charge for, do not
+                                                                    include them here. You can add those in
+                                                                    a later section.
+                                                                </p><br>
+                                                                You must include WiFi, tables, and chairs
+                                                                to offer meetings
+                                                                <div class="row">
+                                                                    <div class="span12 pagination-centered">
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">WiFi
+                                                                            </label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Tables</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Chairs</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Whiteboard</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Chalkboard</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Projector</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Screen</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Flip
+                                                                                Charts</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Monitor</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Conference Phone</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Parking Space(s)</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Public
+                                                                                Transportation</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Restrooms</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Wheelchair
+                                                                                Accessible</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Breakout Space</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Kitchen</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Coffee</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Apple
+                                                                                TV</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Printer</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Rooftop</label>
+                                                                        </div>
+                                                                        <div class="checkbox">
+                                                                            <label><input type="checkbox"
+                                                                                    value="">Outdoor Area</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                {{-- <div class="mt-4">
                                                                 <h4>Add your own amenities</h4>
                                                                 <input style="width:195px;height:42px;" type="text"
                                                                     class="btn btn-default rounded-0">
@@ -522,243 +779,27 @@
                                                                     type="button"
                                                                     class="btn btn-default rounded-0">Add</button>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="panel-group" id="accordion" role="tablist"
-                                                aria-multiselectable="true">
-                                                <div class="panel panel-default active">
-                                                    <div class="panel-heading back-g-color" role="tab"
-                                                        id="headingOne1">
-                                                        <div class="card border-end shadow-none back-g-color m-0">
-                                                            <div class="card-body p-0">
-                                                                <div class="px-5 py-3 m-0 text-center bg-white">
-                                                                    <h5 class="text-dark m-0">Media Production</h5>
-                                                                    <hr class="bg-dark mb-0">
-                                                                </div>
-                                                                <div class="ms-5 my-4">
-                                                                    <li class="text-dark mb-2">Film shoots</li>
-                                                                    <li class="text-dark mb-2">Photo shoots</li>
-                                                                    <li class="text-dark mb-2">Audio recording</li>
-                                                                    <li class="text-dark">More</li>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <hr class="bg-dark mb-0 mt-1">
-                                                        <h4 class="panel-title bg-primary text-center">
-                                                            <a role="button" data-bs-toggle="collapse"
-                                                                data-bs-parent="#accordion" href="#collapse3"
-                                                                class="text-white" aria-expanded="true"
-                                                                aria-controls="collapse1"> Enable </a>
-                                                        </h4>
-                                                    </div>
-                                                    <div id="collapse3" class="panel-collapse collapse" role="tabpanel"
-                                                        aria-labelledby="headingOne1">
-                                                        <div class="panel-body">
-                                                            <label class="form-label">Pricing</label>
-                                                            <hr class="bg-dark mt-0">
-                                                            <label class="mb-5">Hourly rate</label>
-                                                            <p>Please choose a base hourly rate. You
-                                                                can customize your pricing with atten-
-                                                                dee pricing, calendar pricing, add add-
-                                                                ons once your listing are created.</p>
-                                                            <div class="form-group mb-6">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="80" aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text"
-                                                                        id="basic-addon2">SAR</span>
-                                                                </div>
-                                                            </div>
-                                                            <p>Minimum number of hours</p>
-                                                            <p>Must be between 1-12 hours</p>
-                                                            <div class="form-group mb-4">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="5" aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2"><i
-                                                                            class="fa fa-calendar w-5 text-white"></i></span>
-                                                                </div>
-                                                            </div>
-
-                                                            <label class="my-5">8+ hour discount</label>
-                                                            <p>Encourage guests to book longer by giving a discount for
-                                                                bookings that are 8 hours or more.</p>
-                                                            <div class="form-group mb-3">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Optional"
-                                                                        aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2">%
-                                                                        off</span>
-                                                                </div>
-                                                            </div>
-                                                            <a href="#" class="mb-6">How is this calculated?</a>
-                                                            <label class="form-label">Who can book instantly?</label>
-                                                            <hr class="bg-dark mt-0">
-                                                            <div class="mb-5">
-                                                                <label>
-                                                                    <input type="radio" name="example-checkbox1"
-                                                                        value="option1">
-                                                                    <span>Everyone</span>
-                                                                </label>
-                                                                <p>Guests who acknowledge and accept your host rules can
-                                                                    book instantly.</p>
-                                                                <label>
-                                                                    <input type="radio" name="example-checkbox1"
-                                                                        value="option2">
-                                                                    <span>No one</span>
-                                                                </label>
-                                                                <p>Booking requests will need to be manually accepted or
-                                                                    declined.</p>
-                                                            </div>
-                                                            <a href="#">Learn more?</a>
-                                                            <div class="my-5">
-                                                                <p class="back-g-color p-3">Meeting listings get up to 2x
-                                                                    more bookings when guests can book instantly</p>
-                                                            </div>
-                                                            <label class="form-label">Capacity</label>
-                                                            <hr class="bg-dark mb-3">
-                                                            <p>Maximum number of guests</p>
-                                                            <div class="form-group mb-3">
-                                                                <div class="input-group w-100">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="250"
-                                                                        aria-label="Recipient's username"
-                                                                        aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2"><i
-                                                                            class="fa fa-group w-5 text-white"></i></span>
-                                                                </div>
-                                                            </div>
-                                                            <label class="form-label">Who can book instantly?</label>
-                                                            <hr class="bg-dark mb-3">
-                                                            <p>All amenities you select should be inclu-
-                                                                ded in your hourly rate. If you have
-                                                                amenities that you charge for, do not
-                                                                include them here. You can add those in
-                                                                a later section.
-                                                            </p><br>
-                                                            You must include WiFi, tables, and chairs
-                                                            to offer meetings
-                                                            <div class="row">
-                                                                <div class="span12 pagination-centered">
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">WiFi
-                                                                        </label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Tables</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Chairs</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Whiteboard</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Chalkboard</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Projector</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Screen</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">Flip
-                                                                            Charts</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Monitor</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Conference Phone</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Parking Space(s)</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Public
-                                                                            Transportation</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Restrooms</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Wheelchair
-                                                                            Accessible</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Breakout Space</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Kitchen</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Coffee</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">Apple
-                                                                            TV</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Printer</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Rooftop</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Outdoor Area</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="mt-4">
-                                                                <h4>Add your own amenities</h4>
-                                                                <input style="width:195px;height:42px;" type="text"
-                                                                    class="btn btn-default rounded-0">
-                                                                <button
-                                                                    style="margin-left:20px;width:80px;height:42px;background-color:#00224F;color:white;"
-                                                                    type="button"
-                                                                    class="btn btn-default rounded-0">Add</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
+                                    <hr class="border-3 bg-dark">
+                                    <div class="float-end">
+                                        <button class="btn btn-light" disabled>Previous</button>
+                                        <button class="btn btn-primary">Next</button>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
     </div>
 @endsection
 
@@ -773,7 +814,6 @@
     <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
     <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
     <!-- FORM WIZARD JS-->
-    <script src="{{ asset('assets/plugins/formwizard/jquery.smartWizard.js') }}"></script>
     <script src="{{ asset('assets/plugins/formwizard/fromwizard.js') }}"></script>
     <!-- INTERNAl Jquery.steps js -->
     <script src="{{ asset('assets/plugins/jquery-steps/jquery.steps.min.js') }}"></script>
@@ -784,136 +824,4 @@
     <!-- Jquery/buttons JS-->
     <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
-    </script>
-    <script>
-        function toggleTextArea() {
-            const checkbox = document.getElementById('flexSwitchCheckChecked2');
-            const textAreaDiv = document.getElementById('textAreaDiv');
-            if (checkbox.checked) {
-                textAreaDiv.style.display = 'block'; // Show the text area
-            } else {
-                $('#security_devices_description').val('');
-                textAreaDiv.style.display = 'none'; // Hide the text area
-            }
-        }
-
-        function toggleOptions() {
-            const checkbox = document.getElementById('flexSwitchCheckChecked3');
-            const textAreaDiv = document.getElementById('options');
-            if (checkbox.checked) {
-                options.style.display = 'block'; // Show the text area
-            } else {
-                $('.parking_option').prop('checked', false); // Uncheck all options
-                options.style.display = 'none'; // Hide the text area
-            }
-        }
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const uploadBtn = document.getElementById('uploadBtn');
-            const imageUploadInput = document.getElementById('imageUploadInput');
-            const avatarImage = document.getElementById('avatarImage');
-
-            // Listen for click on the "Upload photo" button
-            uploadBtn.addEventListener('click', function() {
-                // Trigger the file input click event
-                imageUploadInput.click();
-            });
-
-            // Listen for change in the file input (when user selects an image)
-            imageUploadInput.addEventListener('change', function(event) {
-                const selectedImage = event.target.files[0];
-
-                // Validate if a file was selected and it is an image
-                if (selectedImage && selectedImage.type.startsWith('image/')) {
-                    // Read the selected image and set it as the source for the avatar image
-                    const reader = new FileReader();
-                    reader.onload = function() {
-                        avatarImage.src = reader.result;
-                    };
-                    reader.readAsDataURL(selectedImage);
-                }
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            toggleOptions();
-            $('.sw-btn-next').on('click', function(e) {
-                var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
-                $('.last_step_btn').on('click', function(e) {
-                    window.location.href = "{{ url('/steps-form-submit') }}";
-                });
-            });
-        });
-    </script>
-    @include('layouts.components.setHoursScript')
-
-    <script>
-        $(document).ready(function() {
-            $('#flexSwitchCheckChecked').on('click', function() {
-                $('#mapColumn').toggleClass('d-none');
-                $('#galleryColumn').toggleClass('col-lg-12');
-            });
-        });
-    </script>
-    <script nonce="">
-        function onEmbedLoad() {
-            initEmbed([null, null, null, null, null, null, null, ["en"],
-                [null, null, null, "/maps/api/js/ApplicationService.GetEntityDetails", "/maps/embed/upgrade204",
-                    null, "/maps/embed/record204"
-                ], null, null, null, null, null, null, null, null, null, null, null, null, [
-                    [
-                        [120000000, 0, 0], null, null, 13.10000038146973
-                    ]
-                ], null, null, null, 0, null, null, null, null, null, null, [1]
-            ]);
-        }
-
-        function onApiLoad() {
-            var embed = document.createElement('script');
-            embed.src = "https://maps.gstatic.com/maps-api-v3/embed/js/53/13/init_embed.js";
-            document.body.appendChild(embed);
-        }
-    </script>
-
-    <script>
-        var searchInput = 'address';
-        $(document).ready(function() {
-            var autocomplete;
-            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
-                fields: ["address_components", "geometry"],
-                types: ["address"],
-            });
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                var place = autocomplete.getPlace();
-                var lat = place.geometry['location'].lat();
-                var lng = place.geometry['location'].lng();
-                var myarr = place.address_components;
-                var keyapi = 'AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E';
-                $('#city').val('')
-                $('#state').val('')
-                $('#country').val('')
-                $('#postal_code').val('')
-                $('#lat').val(lat)
-                $('#lng').val(lng)
-                var myarr = place.address_components;
-                for (let i = 0; i < myarr.length; i++) {
-                    var components = myarr[i];
-                    if (components.types[0] == 'postal_code') {
-                        $('#postal_code').val(components.long_name)
-                    } else if (components.types[0] == 'country') {
-                        $('#country').val(components.long_name);
-                    } else if (components.types[0] == 'administrative_area_level_1') {
-                        $('#state').val(components.long_name)
-                    } else if (components.types[0] == 'locality' || components.types[0] == 'postal_town' ||
-                        components.types[0] == 'administrative_area_level_2') {
-                        $('#city').val(components.long_name)
-                    } else {}
-                }
-            });
-        });
-    </script>
 @endsection

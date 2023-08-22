@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class SpaceHavingMeasure extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'space_id',
+        'safety_measure_id',
+    ];
 }

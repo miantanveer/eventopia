@@ -9,7 +9,11 @@ class SpaceHavingActivity extends Model
 {
     use HasFactory;
 
-    public function spaceHaveAmenties(){
-        return $this->hasMany(SpaceHavingAmenity::class);
+    public function activities(){
+        return $this->hasMany(SpaceActivity::class);
+    }
+
+    public function spaceHaveActivityHaveAmenity(){
+        return $this->hasMany(SpaceActivityAmenity::class);
     }
 }
