@@ -51,34 +51,36 @@
                                     </div>
                                 @endif
 
-                                <form action="{{ route('service_form_1') }}" class="mt-4 mb-5 custom-validation" method="post">
+                                <form action="{{ @$service !== null ? route('update_service_form_1',$service->id) :  route('service_form_1') }}" class="mt-4 mb-5 custom-validation" method="post" >
                                     @csrf
                                     <div class="form-group">
                                         <h3 class="fw-bolder">Add title to your service</h3>
                                         <select name="service_title" required data-parsley-required-message="This feild is required"
                                             class="form-control form-select select2 select2-hidden-accessible"
                                             tabindex="-1" aria-hidden="true" data-bs-placeholder="Select Service Title">
-                                            <option value="VG">Video Graphers</option>
-                                            <option value="BS">Beauty Services</option>
-                                            <option value="SE">Soloists & Ensembles</option>
-                                            <option value="DL">Dance Lessons</option>
-                                            <option value="D">Decor</option>
-                                            <option value="IN">Invitations</option>
-                                            <option value="RV">Reception Venues</option>
-                                            <option value="WPG">Wedding Photographers</option>
-                                            <option value="WP">Wedding Planners</option>
-                                            <option value="WB">Wedding Bands</option>
-                                            <option value="WR">Wedding Rentals</option>
-                                            <option value="TRA">Transportation</option>
-                                            <option value="TS">Travel Specialists</option>
-                                            <option value="BS">Bar Services</option>
-                                            <option value="FL">Florists</option>
+                                            <option value="VG" {{ @$service->title == 'VG' ? 'selected' : '' }}>Video Graphers</option>
+                                            <option value="BS" {{ @$service->title == 'BS' ? 'selected' : '' }}>Beauty Services</option>
+                                            <option value="SE" {{ @$service->title == 'SE' ? 'selected' : '' }}>Soloists & Ensembles</option>
+                                            <option value="DL" {{ @$service->title == 'DL' ? 'selected' : '' }}>Dance Lessons</option>
+                                            <option value="D" {{ @$service->title == 'D' ? 'selected' : '' }}>Decor</option>
+                                            <option value="IN" {{ @$service->title == 'IN' ? 'selected' : '' }}>Invitations</option>
+                                            <option value="RV" {{ @$service->title == 'RV' ? 'selected' : '' }}>Reception Venues</option>
+                                            <option value="WPG" {{ @$service->title == 'WPG' ? 'selected' : '' }}>Wedding Photographers</option>
+                                            <option value="WP" {{ @$service->title == 'WP' ? 'selected' : '' }}>Wedding Planners</option>
+                                            <option value="WB" {{ @$service->title == 'WB' ? 'selected' : '' }}>Wedding Bands</option>
+                                            <option value="WR" {{ @$service->title == 'WR' ? 'selected' : '' }}>Wedding Rentals</option>
+                                            <option value="TRA" {{ @$service->title == 'TRA' ? 'selected' : '' }}>Transportation</option>
+                                            <option value="TS" {{ @$service->title == 'TS' ? 'selected' : '' }}>Travel Specialists</option>
+                                            <option value="BS" {{ @$service->title == 'BS' ? 'selected' : '' }}>Bar Services</option>
+                                            <option value="FL" {{ @$service->title == 'FL' ? 'selected' : '' }}>Florists</option>
                                         </select>
                                     </div>
                                     <hr class="border-3 bg-dark">
                                     <div class="form-group mt-3">
                                         <h3 class="fw-bolder">Describe your company</h3>
-                                        <textarea name="description" required data-parsley-required-message="Description is required" data-parsley-minlength="100" cols="30" rows="5" class="w-100 form-control" placeholder="About Seller"></textarea>
+                                        <textarea name="description"  required data-parsley-required-message="Description is required" data-parsley-minlength="100" cols="30" rows="5" class="w-100 form-control" placeholder="About Seller">
+                                            {{@$service->descrption}}
+                                        </textarea>
                                         <p class="text-end mt-2">Minimum 100 characters</p>
                                     </div>
                                     <br>

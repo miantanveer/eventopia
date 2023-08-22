@@ -47,25 +47,25 @@
                                 @csrf
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">Destination Weddings</h3>
-                                    <input type="text" name="destination" required data-parsley-required-message="Destination weddings is required" placeholder="Destination Wedding Planning"
+                                    <input type="text" name="destination" value="{{@$service->destination}}" required data-parsley-required-message="Destination weddings is required" placeholder="Destination Wedding Planning"
                                         class="form-control">
                                 </div>
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">Planning</h3>
                                     <textarea name="planning" cols="30" required data-parsley-required-message="Planning is required" rows="5" class="w-100 form-control"
-                                        placeholder="e.g. Budgeting, Destination, Wedding Design"></textarea>
+                                        placeholder="e.g. Budgeting, Destination, Wedding Design">{{@$service->planing}}</textarea>
                                 </div>
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">Wedding Activities</h3>
                                     <textarea name="activities" required data-parsley-required-message="Wedding Activities is required" cols="30" rows="5" class="w-100 form-control"
-                                        placeholder="e.g. Engagement Party, Honeymoon, Rehearsals & Parties"></textarea>
+                                        placeholder="e.g. Engagement Party, Honeymoon, Rehearsals & Parties">{{@$service->activities}}</textarea>
                                 </div>
                                 <br>
                                 <hr class="border-3 bg-dark">
                                 <div class="float-end mt-8">
-                                    <button class="btn btn-light">Previous</button>
+                                    <a class="btn btn-light" href="{{route('service-form-2',$id)}}">Previous</a>
                                     <button class="btn btn-primary">Next</button>
                                 </div>
                             </form>

@@ -75,11 +75,10 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form action="{{ route('service_form_2',$id) }}" method="post" id="filedrop"
+                            <form action="{{ route('service_form_2', $id) }}" method="post" id="filedrop"
                                 class="dropzone .custom-validation">
                                 @csrf
                                 @method('post')
-                                {{--  <input type="hidden" name="service_id" id="service_id" value="{{ $id }}">  --}}
                                 <div class="fallback">
                                     <input name="file" id="file" type="file" required
                                         enctype="multipart/form-data" multiple="multiple">
@@ -91,9 +90,20 @@
 
                                     <h4>Drop files here or click to upload.</h4>
                                 </div>
+                                <div class="existing-images">
+                                    @foreach ($images as $image)
+                                        <div class="existing-image">
+                                            <input type="hidden" name="existing_images[]" value="{{ $image->name }}">
+                                            <img src="{{ asset('uploads/seller/service/' . $image->name) }}"
+                                                alt="{{ $image->name }}">
+                                            <button type="button"
+                                                class="btn btn-danger remove-existing-image">Remove</button>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </form>
                             <div class="float-end mt-8">
-                                <button class="btn btn-light">Previous</button>
+                                <a class="btn btn-light" href="{{ route('service-form-1', $id) }}">Previous</a>
                                 <button class="btn btn-primary" onclick="upload()">Next</button>
                             </div>
                         </div>
@@ -147,8 +157,10 @@
             acceptedFiles: ".png, .jpeg",
             init: function() {
                 var uploads = 0;
+                var dropzone = this; // Store a reference to the Dropzone instance
                 this.on("success", function(file, response) {
-                    if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles().length === 0) {
+                    if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles()
+                        .length === 0) {
                         var id = $('#service_id').val();
                         var url = $('#url').val();
                         window.location.replace(url);
@@ -156,6 +168,18 @@
                     uploads++
                 });
 
+                $(".remove-existing-image").on("click", function() {
+                    var existingImageDiv = $(this).closest(".existing-image");
+                    var hiddenInput = existingImageDiv.find("input[name='existing_images[]']");
+                    var filename = hiddenInput.val();
+
+                    // Remove the image from Dropzone
+                    dropzone.removeFile(filename);
+
+                    // Remove the image from the existing images list
+                    existingImageDiv.remove();
+                });
+                
                 this.on("addedfile", function(file) {
                     if (!alertShown && myDropzone.files.length < 3) {
                         alertShown = true;
@@ -166,7 +190,8 @@
         });
 
         function upload() {
-            if (alertShown && myDropzone.files.length < 4) {
+            if (alertShown === false && myDropzone.files.length < 4 || alertShown === false && myDropzone.files.length ===
+                0) {
                 alert("Please upload at least 4 files.");
             } else {
                 var files = myDropzone.files;

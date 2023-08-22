@@ -74,18 +74,18 @@
                                                 <select name="star-time" class="form-control form-select select2"
                                                     data-bs-placeholder="Select Country"
                                                     tabindex="-1" aria-hidden="true">
-                                                    <option value="">9 AM</option>
-                                                    <option value="">10 AM</option>
-                                                    <option value="">11 AM</option>
-                                                    <option value="">12 AM</option>
-                                                    <option value="">1 PM</option>
-                                                    <option value="">2 PM</option>
-                                                    <option value="">3 PM</option>
-                                                    <option value="">4 PM</option>
-                                                    <option value="">5 PM</option>
-                                                    <option value="">6 PM</option>
-                                                    <option value="">7 PM</option>
                                                     <option value="" selected="" disabled>Start Time</option>
+                                                    <option value="9 AM">9 AM</option>
+                                                    <option value="10 AM">10 AM</option>
+                                                    <option value="11 AM">11 AM</option>
+                                                    <option value="12 AM">12 AM</option>
+                                                    <option value="1 PM">1 PM</option>
+                                                    <option value="2 PM">2 PM</option>
+                                                    <option value="3 PM">3 PM</option>
+                                                    <option value="4 PM">4 PM</option>
+                                                    <option value="5 PM">5 PM</option>
+                                                    <option value="6 PM">6 PM</option>
+                                                    <option value="7 PM">7 PM</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -94,18 +94,18 @@
                                                 <select name="star-time" class="form-control form-select select2"
                                                     data-bs-placeholder="Select Country"
                                                     tabindex="-1" aria-hidden="true">
-                                                    <option value="">9 AM</option>
-                                                    <option value="">10 AM</option>
-                                                    <option value="">11 AM</option>
-                                                    <option value="">12 AM</option>
-                                                    <option value="">1 PM</option>
-                                                    <option value="">2 PM</option>
-                                                    <option value="">3 PM</option>
-                                                    <option value="">4 PM</option>
-                                                    <option value="">5 PM</option>
-                                                    <option value="">6 PM</option>
-                                                    <option value="">7 PM</option>
-                                                    <option value="" selected="" disabled>End Time</option>
+                                                    <option value="" selected="" disabled>Start Time</option>
+                                                    <option value="9 AM">9 AM</option>
+                                                    <option value="10 AM">10 AM</option>
+                                                    <option value="11 AM">11 AM</option>
+                                                    <option value="12 AM">12 AM</option>
+                                                    <option value="1 PM">1 PM</option>
+                                                    <option value="2 PM">2 PM</option>
+                                                    <option value="3 PM">3 PM</option>
+                                                    <option value="4 PM">4 PM</option>
+                                                    <option value="5 PM">5 PM</option>
+                                                    <option value="6 PM">6 PM</option>
+                                                    <option value="7 PM">7 PM</option>
                                                 </select>
                                             </div>
                                         </div>

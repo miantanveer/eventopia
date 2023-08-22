@@ -50,7 +50,7 @@
                             </div>
                                 <hr class="border-3 bg-dark">
                                 <div class="float-end mt-8">
-                                    <button class="btn btn-light">Previous</button>
+                                    <a class="btn btn-light" href="{{route('service-form-4',$id)}}">Previous</a>
                                     <button class="btn btn-primary">Next</button>
                                 </div>
                             </form>

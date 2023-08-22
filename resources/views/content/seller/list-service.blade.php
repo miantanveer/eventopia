@@ -34,7 +34,7 @@
                                             <p class="ms-5" >Add a title, description, and rules</p>
                                         </div>
                                         <div class="col-6 text-end">
-                                            <button class="btn btn-primary mt-3"><a class="text-white" href="{{URL('/service-form-steps')}}">Start</a></button>
+                                            <a class="btn btn-primary mt-3 text-white" href="{{URL('/service-form-steps')}}">Start</a>
                                         </div>
                                     </div>
                                 </li>

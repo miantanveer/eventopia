@@ -34,16 +34,15 @@
                                 </ul>
                             </div>
                         @endif
-                        <form action="{{ route('service_form_5') }}" class="mt-4 mb-5 validate" method="POST" id="last_form">
+                        <form action="{{ route('service_form_7',$id) }}" enctype="multipart/form-data" class="mt-4 mb-5 validate" method="POST" id="last_form">
                             @csrf
-                            <input type="hidden" name="service_id" value="{{ $id }}">
                             <div class="row">
                                 <div class="col-9">
                                     <div class="row fieldGroup align-items-center">
                                         <h3 class="fw-bolder">Full Name</h3>
                                         <div class="col-11">
                                             <div class="form-group mt-3">
-                                                <input type="text" name="destination" required data-parsley-required-message="Team name is required" placeholder="Enter Name"
+                                                <input type="text" name="destination" value="{{@$team->destination}}" data-parsley-required-message="Team name is required" placeholder="Enter Name"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -54,7 +53,9 @@
                                     <hr class="border-3 bg-dark">
                                     <div class="form-group mt-3">
                                         <h3 class="fw-bolder">Description</h3>
-                                        <textarea name="decription" cols="30" rows="5" required data-parsley-required-message="Description is required" class="w-100 form-control" placeholder="About Team"></textarea>
+                                        <textarea name="decription" cols="30" rows="5" required data-parsley-required-message="Description is required" class="w-100 form-control" placeholder="About Team">
+                                            {{@$team->description}}
+                                        </textarea>
                                         <p class="text-end mt-2">Minimum 100 characters</p>
                                     </div>
                                     <br>
@@ -67,15 +68,13 @@
                                     </div>
                                 </div>
                                 <div class="col-3">
-                                    <input type="file" name='file' required data-parsley-errors-container='#file_error' data-parsley-required-message="Team Image is required" class="dropify"
-                                        data-bs-default-file="{{ asset('assets/images/media/1.jpg') }}"
-                                        data-bs-height="180" />
+                                    <input type="file" name='image' value="{{@$team->image}}" class="dropify" required data-parsley-errors-container='#file_error' data-parsley-required-message="Team Image is required"  />
                                         <div id="file_error"></div>
                                 </div>
                             </div>
                             <hr class="border-3 bg-dark">
                             <div class="float-end mt-8">
-                                <button class="btn btn-light">Previous</button>
+                                <a class="btn btn-light" href="{{route('service-form-6',$id)}}">Previous</a>
                                 <button class="btn btn-primary">Finish</button>
                             </div>
                         </form>

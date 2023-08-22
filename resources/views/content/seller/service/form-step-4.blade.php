@@ -44,10 +44,10 @@
                                     <div class="card-body col-12">
                                         <label for="category">Service Category</label>
                                         <select name="category" required data-parsley-reqired-meassage="Please Select a value" class="select2">
-                                            <option value="1">Otion 1</option>
-                                            <option value="2">Otion 2</option>
-                                            <option value="3">Otion 3</option>
-                                            <option value="4">Otion 4</option>
+                                            <option value="1" {{@$service->category == '1' ? 'selected' : ''}}>Otion 1</option>
+                                            <option value="2" {{@$service->category == '2' ? 'selected' : ''}}>Otion 2</option>
+                                            <option value="3" {{@$service->category == '3' ? 'selected' : ''}}>Otion 3</option>
+                                            <option value="4" {{@$service->category == '4' ? 'selected' : ''}}>Otion 4</option>
                                         </select>
                                     </div>
                                 </div>
@@ -59,40 +59,39 @@
                                     <div class="card-body col-md-5 col-lg-12">
                                         <label class="form-control-label">Street Address</label>
                                         <span class="tx-danger">*</span></label>
-                                        <input class="form-control rounded-0"  id="address" name="address"
+                                        <input class="form-control rounded-0" value="{{@$service->address}}" id="address" name="address"
                                             placeholder="Add Address" required data-parsley-required-message="Please enter your address" type="text">
                                     </div>
                                     <div class="col-md-5 col-lg-6 mt-3">
                                         <label class="form-control-label">Country</label>
                                         <span class="tx-danger">*</span></label>
-                                        <input class="form-control rounded-0" id="country" name="country" placeholder=""
+                                        <input class="form-control rounded-0" value="{{@$service->country}}" id="country" name="country" placeholder=""
                                             required readonly type="text">
                                     </div>
                                     <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
                                         <label class="form-control-label">State<span class="tx-danger">*</span></label>
-                                        <input class="form-control rounded-0" id="state" name="state" placeholder=""
+                                        <input class="form-control rounded-0" value="{{@$service->state}}" id="state" name="state" placeholder=""
                                             required readonly type="text">
                                     </div>
                                     <div class="col-md-5 col-lg-6 mt-3">
                                         <label class="form-control-label">City</label> <span
                                             class="tx-danger">*</span></label>
-                                        <input class="form-control rounded-0" id="city" name="city" placeholder=""
+                                        <input class="form-control rounded-0" id="city" value="{{@$service->city}}" name="city" placeholder=""
                                             required readonly type="text">
                                     </div>
                                     <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
                                         <label class="form-control-label">Postal Code<span
                                                 class="tx-danger">*</span></label>
-                                        <input class="form-control rounded-0" id="postal_code" name="postal_code"
+                                        <input class="form-control rounded-0" value="{{@$service->postal_code}}" id="postal_code" name="postal_code"
                                             placeholder="" required data-parsley-required-message="Please enter a value" type="text">
                                     </div>
-                                    <input type="hidden" name="lat" id="lat">
-                                    <input type="hidden" name="lng" id="lng">
-                                    <input type="hidden" name="last_step" value="1">
+                                    <input type="hidden" name="lat" value="{{@$service->lat}}" id="lat">
+                                    <input type="hidden" name="lng" value="{{@$service->lng}}" id="lng">
                                 </div>
                                 <br>
                                 <hr class="border-3 bg-dark">
                                 <div class="float-end mt-8">
-                                    <button class="btn btn-light">Previous</button>
+                                    <a class="btn btn-light" href="{{route('service-form-3',$id)}}">Previous</a>
                                     <button class="btn btn-primary">Next</button>
                                 </div>
                             </form>
