@@ -34,7 +34,7 @@ class ServiceController extends UserBaseController
     public function loadServiceForm2($id)
     {
         $images = ServiceImages::whereServiceId($id)->get();
-        return view('content.seller.service.form-step-2',['id'=>$id,'images'=>$images]);
+        return view('content.seller.service.create.form-step-2',['id'=>$id,'images'=>$images]);
     }
     public function serviceForm2(Request $request,$id)
     {
@@ -56,7 +56,7 @@ class ServiceController extends UserBaseController
     public function loadserviceForm3($id)
     {
         $service = Service::find($id);
-        return view('content.seller.service.form-step-3',['id'=>$id,'service'=>$service]);
+        return view('content.seller.service.create.form-step-3',['id'=>$id,'service'=>$service]);
     }
     public function serviceForm3(Request $request,$id)
     {
@@ -76,7 +76,7 @@ class ServiceController extends UserBaseController
     public function loadServiceForm4($id)
     {
         $service = Service::find($id);
-        return view('content.seller.service.form-step-4',['id'=>$id,'service'=>$service]);
+        return view('content.seller.service.create.form-step-4',['id'=>$id,'service'=>$service]);
     }
     public function serviceForm4(Request $request, $id)
     {
@@ -104,7 +104,7 @@ class ServiceController extends UserBaseController
     public function loadServiceForm5($id)
     {
         $time = ServiceTimeSetting::whereServiceId($id)->first();
-        return view('content.seller.service.form-step-5',['id'=>$id,'time'=>$time]);
+        return view('content.seller.service.create.form-step-5',['id'=>$id,'time'=>$time]);
     }
     public function serviceForm5(Request $request,$id)
     {
@@ -120,7 +120,7 @@ class ServiceController extends UserBaseController
     public function loadserviceForm6($id)
     {
         $service = Service::find($id);
-        return view('content.seller.service.form-step-6',['id'=>$id,'service'=>$service]);
+        return view('content.seller.service.create.form-step-6',['id'=>$id,'service'=>$service]);
     }
     public function serviceForm6(Request $request,$id)
     {
@@ -136,7 +136,7 @@ class ServiceController extends UserBaseController
     public function loadserviceForm7($id)
     {
         $team = ServiceTeam::find($id);
-        return view('content.seller.service.form-step-7',['id'=>$id,'team'=>$team]);
+        return view('content.seller.service.create.form-step-7',['id'=>$id,'team'=>$team]);
     }
     public function serviceForm7(Request $request,$id)
     {
@@ -173,7 +173,7 @@ class ServiceController extends UserBaseController
     public function operatingDay($id,$week_day,$radio,$start,$end)
     {
         $day = new OperatingDay();
-        $day->Service_id = $id;
+        $day->service_id = $id;
         $day->week_day = $week_day;
         $day->save();
         $hour = new OperatingHour();

@@ -17,6 +17,7 @@ class CreateOperatingDaysTable extends Migration
             $table->id();
             $table->foreignId('space_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('service_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('entertainment_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('week_day')->nullable();
             $table->timestamps();
         });

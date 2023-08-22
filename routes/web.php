@@ -5,6 +5,7 @@ use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Seller\ListingSpaceController;
 use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\Seller\ServiceController;
+Use App\Http\Controllers\Seller\EntertainmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,9 +113,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/add-entertainment', function () {
         return view('content.seller.add-entertainment');
     });
-    Route::get('/entertainment-form-steps', function () {
-        return view('content.seller.entertainment-form-steps');
-    });
+    
 
     Route::get('/add-service', function () {
         return view('content.seller.add-services');
@@ -142,7 +141,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.seller.list-service');
     });
     Route::get('/service-form-steps', function () {
-        return view('content.seller.service.form-step-1');
+        return view('content.seller.service.create.form-step-1');
     });
     // Service Form Step 1
     Route::post('/service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
@@ -168,6 +167,33 @@ Route::group(['middleware' => ['auth']], function () {
     // Load Previous View Form Stpe 1
     Route::get('/service-form-step-1/{id}', [ServiceController::class, 'loadFormStep1'])->name('service-form-1');
     Route::post('/service_form_step_1/{id}', [ServiceController::class, 'UpdateFormStep1'])->name('update_service_form_1');
+    
+    // Entertainment Routes
+    Route::get('/entertainment-form-steps', function () {
+        return view('content.seller.entertainment.create.form-step-1');
+    });
+    // Form Step 1
+    Route::post('/entertainment/form/step/1', [EntertainmentController::class, 'formStep1'])->name('entertainment_form_1');
+    Route::get('/entertainment/load/form/step/1/{id}', [EntertainmentController::class, 'loadFormStep1'])->name('load_entertainment_form_1');
+    Route::post('/entertainment/update/form/step/1/{id}', [EntertainmentController::class, 'updateFormStep1'])->name('update_entertainment_form_1');
+    // Form Step 2
+    Route::get('/entertainment/load/form/step/2/{id}', [EntertainmentController::class, 'loadFormStep2'])->name('load_entertainment_form_2');
+    Route::post('/entertainment/form/step/2/{id}', [EntertainmentController::class, 'formStep2'])->name('entertainment_form_2');
+    // Form Step 3
+    Route::get('/entertainment/load/form/step/3/{id}', [EntertainmentController::class, 'loadFormStep3'])->name('load_entertainment_form_3');
+    Route::post('/entertainment/form/step/3/{id}', [EntertainmentController::class, 'formStep3'])->name('entertainment_form_3');
+    // Form Step 4
+    Route::get('/entertainment/load/form/step/4/{id}', [EntertainmentController::class, 'loadFormStep4'])->name('load_entertainment_form_4');
+    Route::post('/entertainment/form/step/4/{id}', [EntertainmentController::class, 'formStep4'])->name('entertainment_form_4');
+    // Form Step 5
+    Route::get('/entertainment/load/form/step/5/{id}', [EntertainmentController::class, 'loadFormStep5'])->name('load_entertainment_form_5');
+    Route::post('/entertainment/form/step/5/{id}', [EntertainmentController::class, 'formStep5'])->name('entertainment_form_5');
+    // Form Step 6
+    Route::get('/entertainment/load/form/step/6/{id}', [EntertainmentController::class, 'loadFormStep6'])->name('load_entertainment_form_6');
+    Route::post('/entertainment/form/step/6/{id}', [EntertainmentController::class, 'formStep6'])->name('entertainment_form_6');
+    // Form Step 7
+    Route::get('/entertainment/load/form/step/7/{id}', [EntertainmentController::class, 'loadFormStep7'])->name('load_entertainment_form_7');
+    Route::post('/entertainment/form/step/7/{id}', [EntertainmentController::class, 'formStep7'])->name('entertainment_form_7');
 
 });
 
