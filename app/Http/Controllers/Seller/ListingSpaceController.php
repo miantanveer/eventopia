@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Seller;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserBaseController;
 use App\Models\CancellationPolicy;
+use App\Models\CompanyPolicy;
+use App\Models\OperatingDay;
+use App\Models\OperatingHour;
 use App\Models\ParkingOption;
 use App\Models\SafetyMeasure;
 use App\Models\Space;
 use App\Models\SpaceActivity;
+use App\Models\SpaceHaveCompanyPolicy;
 use App\Models\SpaceHavingMeasure;
 use App\Models\SpaceHavingParkingOption;
 use App\Models\SpaceImage;
@@ -28,6 +32,7 @@ class ListingSpaceController extends UserBaseController
         return view('content.seller.space.address-step');
     }
 
+
     public function addAddress(Request $req)
     {
         try {
@@ -45,10 +50,31 @@ class ListingSpaceController extends UserBaseController
         }
     }
 
+    public function editSpaceAddress($space_id)
+    {
+        $space = Space::find($space_id);
+        return view('content.seller.space.address-step', ['space' => $space]);
+    }
+
+    public function updateSpaceAddress(Request $req, $space_id)
+    {
+        try {
+            $data = $req->except('_token');
+
+            $space = Space::find($space_id);
+            if (!$space) {
+                return redirect()->back()->with('error', 'Space not found.');
+            }
+            $space->update($data);
+            return redirect()->route('parking-step', ['space_id' => $space->id]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
+    }
     public function parkingStep($space_id)
     {
         try {
-            $this->space_id =  $space_id;
+            $this->space = Space::find($space_id);
             $this->space_types = SpaceType::get();
             $this->parking_options = ParkingOption::get();
             return view('content.seller.space.parking-step', $this->data);
@@ -116,7 +142,8 @@ class ListingSpaceController extends UserBaseController
 
     public function aboutStep($space_id)
     {
-        return view('content.seller.space.about-step', ['space_id' => $space_id]);
+        $space = Space::find($space_id);
+        return view('content.seller.space.about-step', ['space' => $space]);
     }
 
     public function addAbout(Request $req, $space_id)
@@ -136,7 +163,8 @@ class ListingSpaceController extends UserBaseController
 
     public function imagesStep($space_id)
     {
-        return view('content.seller.space.images-step', ['space_id' => $space_id]);
+        $space = Space::find($space_id);
+        return view('content.seller.space.images-step', ['space' => $space]);
     }
 
     public function addImages(Request $req, $space_id)
@@ -177,14 +205,49 @@ class ListingSpaceController extends UserBaseController
 
     public function operatingHourStep($space_id)
     {
-        return redirect()->route('safety-measure-step', ['space_id' => $space_id]);
-        // return view('content.seller.space.operating-hours-step',['space_id' => $space_id]);
+        $space = Space::find($space_id);
+        return view('content.seller.space.operating-hours-step', ['space' => $space]);
+    }
+
+    public function addaddOperatingHours(Request $req, $space_id)
+    {
+        try {
+            $space = Space::find($space_id);
+            if ($space) {
+                $space->operatingDays()->delete(); // Assuming you have a relationship method named operatingDays
+            }
+
+            if ($req->has('monday')) $this->operatingDay($space_id, $req->monday, $req->monday_radio, $req->monday_start_time, $req->monday_end_time);
+            if ($req->has('tuesday')) $this->operatingDay($space_id, $req->tuesday, $req->tuesday_radio, $req->tuesday_start_time, $req->tuesday_end_time);
+            if ($req->has('wednesday')) $this->operatingDay($space_id, $req->wednesday, $req->wednesday_radio, $req->wednesday_start_time, $req->wednesday_end_time);
+            if ($req->has('thursday')) $this->operatingDay($space_id, $req->thursday, $req->thursday_radio, $req->thursday_start_time, $req->thursday_end_time);
+            if ($req->has('friday')) $this->operatingDay($space_id, $req->friday, $req->friday_radio, $req->friday_start_time, $req->friday_end_time);
+            if ($req->has('saturday')) $this->operatingDay($space_id, $req->saturday, $req->saturday_radio, $req->saturday_start_time, $req->saturday_end_time);
+            if ($req->has('sunday')) $this->operatingDay($space_id, $req->sunday, $req->sunday_radio, $req->sunday_start_time, $req->sunday_end_time);
+            return redirect()->route('safety-measure-step', ['space_id' => $space_id]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
+    }
+
+    public function operatingDay($space_id, $week_day, $radio, $start, $end)
+    {
+        $day = new OperatingDay();
+        $day->space_id = $space_id;
+        $day->week_day = $week_day;
+        $day->save();
+        $hour = new OperatingHour();
+        $hour->operating_day_id = $day->id;
+        $hour->radio = $radio;
+        $hour->start_time = $start;
+        $hour->end_time = $end;
+        $hour->save();
     }
 
     public function safetyMeasureStep($space_id)
     {
+        $this->space = Space::find($space_id);
         $this->safety_measures = SafetyMeasure::get();
-        $this->space_id = $space_id;
         return view('content.seller.space.safety-measure-step', $this->data);
     }
 
@@ -246,8 +309,8 @@ class ListingSpaceController extends UserBaseController
 
     public function cancelPolicyStep($space_id)
     {
+        $this->space = Space::find($space_id);
         $this->cancel_policies = CancellationPolicy::get();
-        $this->space_id = $space_id;
         return view('content.seller.space.cancel-policy-step', $this->data);
     }
 
@@ -270,8 +333,8 @@ class ListingSpaceController extends UserBaseController
 
     public function activitiesStep($space_id)
     {
+        $this->space = Space::find($space_id);
         $this->space_activities = SpaceActivity::get();
-        $this->space_id = $space_id;
         return view('content.seller.space.activities-step', $this->data);
     }
 
@@ -280,16 +343,127 @@ class ListingSpaceController extends UserBaseController
 
         try {
 
+            $space = Space::find($space_id);
+            if (!$space) {
+                return redirect()->back()->with('error', 'Space not found.');
+            }
+            $space->update(['last_step' => '8']);
+
+            return redirect()->route('contact-step', ['space_id' => $space_id]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
+    }
+
+    public function contactStep($space_id)
+    {
+        $space = Space::find($space_id);
+        return view('content.seller.space.contact-step', ['space' => $space]);
+    }
+
+    public function addContactInfo(Request $req, $space_id)
+    {
+        try {
+            $data = $req->except('_token', 'c_u_img');
+            $space = Space::find($space_id);
+            if (!$space) {
+                return redirect()->back()->with('error', 'Space not found.');
+            }
+            // Delete the existing image from the database and public folder if it exists
+            if ($space->c_u_img) {
+                $imagePath = public_path($space->c_u_img);
+
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }
+
+                // Remove the image path from the database
+                $space->update(['c_u_img' => null]);
+            }
+            $space->update($data);
+
+            if (isset($req->c_u_img)) {
+                $image = $req->c_u_img;
+                $foldername = '/uploads/seller/spaces/contact_user/';
+                $filename = time() . '-' . rand(00000, 99999) . '.' . $image->getClientOriginalExtension();;
+                $image->move(public_path() . $foldername, $filename);
+                $space->update(['c_u_img' => $foldername . $filename]);
+            }
+
+            $userHasSpaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->exists();
+
+            if ($userHasSpaces) {
+                return redirect()->route('complete')->with('success', 'Listing added successfully');
+            } else {
+                return redirect()->route('policies-step', ['space_id' => $space_id]);
+            }
+
+            return redirect()->route('policies-step', ['space_id' => $space_id]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
+    }
+
+    public function policiesStep($space_id)
+    {
+        $this->space = Space::find($space_id);
+        $this->company_policies = CompanyPolicy::get();
+        return view('content.seller.space.policies-step', $this->data);
+    }
+
+    public function addPolicies(Request $req, $space_id)
+    {
+
+        try {
             $data = $req->except('_token');
 
-            dd($data);
             $space = Space::find($space_id);
             if (!$space) {
                 return redirect()->back()->with('error', 'Space not found.');
             }
             $space->update($data);
 
-            return redirect()->route('cancel-policy-step', ['space_id' => $space_id]);
+            if (isset($data['company_policy']) && isset($data['company_policy'][0]) && $data['company_policy'][0] !== null) {
+                if ($space->spaceHavePolicies) {
+                    // Update existing Company Policies
+                    $existingPolicies = $space->spaceHavePolicies;
+
+                    // Remove any existing Company Policies not present in the new data
+                    $policiesToKeep = array_intersect($existingPolicies->pluck('company_policy_id')->toArray(), $data['company_policy']);
+
+                    // Delete any Company Policies that are not in the list to keep
+                    $existingPolicies->whereNotIn('company_policy_id', $policiesToKeep)->each(function ($companyPolicy) {
+                        $companyPolicy->delete();
+                    });
+
+                    // Create new Company Policies if not already associated
+                    foreach ($data['company_policy'] as $company_policy) {
+                        if (!$existingPolicies->contains('company_policy_id', $company_policy)) {
+                            SpaceHaveCompanyPolicy::create([
+                                'company_policy_id' => $company_policy,
+                                'space_id' => $space->id
+                            ]);
+                        }
+                    }
+                } else {
+                    // Create new Company Policies
+                    foreach ($data['company_policy'] as $company_policy) {
+                        SpaceHaveCompanyPolicy::create([
+                            'company_policy_id' => $company_policy,
+                            'space_id' => $space->id
+                        ]);
+                    }
+                }
+            } else {
+                // Remove Company Policies if toggle switch is off
+                if ($space->spaceHavePolicies) {
+                    $space->spaceHavePolicies->each(function ($companyPolicy) {
+                        $companyPolicy->delete();
+                    });
+                }
+            }
+
+            return redirect()->route('complete')->with('success', 'Listing added successfully');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }

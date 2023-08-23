@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             SpaceAmenitySeeder::class,
             SubActivitiesSeeder::class,
             ActivityHaveAmenitySeeder::class,
+            CompanyPolicySeeder::class,
         ]);
     }
 }

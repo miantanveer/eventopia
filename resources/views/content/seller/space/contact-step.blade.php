@@ -52,7 +52,7 @@
                 </div>
                 <div class="card-body">
                     <div id="smartwizard-3">
-                        <ul>
+                        {{-- <ul>
                             <li><a href="#step-1">Space Address</a></li>
                             <li><a href="#step-2">Setup</a></li>
                             <li><a href="#step-3">About your space</a></li>
@@ -64,11 +64,12 @@
                             <li><a href="#step-9">Profile</a></li>
                             <li><a href="#step-10">Review Policies</a></li>
 
-                        </ul>
+                        </ul> --}}
                         <div>
                             <div id="step-9" class="mb-5">
                                 <h1 style="text-align:center;">Step 9 of 9</h1>
-                                <div class="form">
+                                <form method="POST" action="{{ route('add-contact-info', $space->id) }}" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-8">
                                             <div class="mb-lg-5 mb-3">
@@ -80,24 +81,23 @@
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-12">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" id="exampleInputname"
-                                                            placeholder="john" required
-                                                            data-parsley-required-message="Password is required*" readonly>
+                                                        <input type="text" class="form-control" name="c_u_fname"
+                                                            placeholder="john" required value="{{@$space->c_u_fname ?? ''}}"
+                                                            data-parsley-required-message="Password is required*">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-12">
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" id="exampleInputname1"
-                                                            placeholder="Smith" required
-                                                            data-parsley-required-message="Confirm Password is required*"
-                                                            readonly>
+                                                        <input type="text" class="form-control" name="c_u_lname"
+                                                            placeholder="Smith" required value="{{@$space->c_u_lname ?? ''}}"
+                                                            data-parsley-required-message="Confirm Password is required*">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <input type="tel" class="form-control" id="exampleInputEmail1"
-                                                    placeholder="(123) 345 -4567" required
-                                                    data-parsley-required-message="Email is required*" readonly>
+                                                <input type="tel" class="form-control" name="c_u_phone"
+                                                    placeholder="(123) 345 -4567" required value="{{@$space->c_u_phone ?? ''}}"
+                                                    data-parsley-required-message="Phone number is required*">
                                             </div>
                                             <div class="bg-light-gray p-3 mb-3">
                                                 <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>Your number
@@ -113,7 +113,7 @@
                                                 <div class="avatar avatar-xxl chat-profile mb-3 brround"
                                                     id="uploadContainer">
                                                     <a class="" href="#">
-                                                        <img alt="avatar" src="{{ asset('assets/images/users/23.jpeg') }}"
+                                                        <img alt="avatar" src="{{ @$space->c_u_img ?? asset('assets/images/users/23.jpeg') }}"
                                                             class="avatar avatar-xxl chat-profile mb-3 brround"
                                                             id="avatarImage">
                                                     </a>
@@ -125,7 +125,8 @@
                                                         photo</button>
                                                 </div>
                                                 <!-- Hidden input for image upload -->
-                                                <input type="file" id="imageUploadInput" style="display: none">
+                                                <input type="file" id="imageUploadInput" name="c_u_img"
+                                                    style="display: none">
                                             </div>
                                             <div class="text-center px-8">
                                                 <p class="text-muted">Choose a friendly, accurate photo to help instill a
@@ -149,7 +150,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <input type="hidden" name="last_step" value="9">
                                         <div class="row">
                                             <div class="col-9">
                                                 <h3><b class="h-3">How did you hear about entertainment / talent with
@@ -159,39 +160,39 @@
                                                     <div class="col-4">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value=""
-                                                                id="invalidCheck-1" required>
+                                                                id="invalidCheck-1">
                                                             <label class="form-check-label" for="invalidCheck-1">Friend,
                                                                 family, or colleague</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value=""
-                                                                id="invalidCheck-2" required>
+                                                                id="invalidCheck-2">
                                                             <label class="form-check-label" for="invalidCheck-2">News or
                                                                 blog
                                                                 article</label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                value="" id="invalidCheck-3" required>
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="invalidCheck-3">
                                                             <label class="form-check-label" for="invalidCheck-3">Contacted
                                                                 by
                                                                 Peerspace</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                value="" id="invalidCheck-4" required>
+                                                                value="" id="invalidCheck-4">
                                                             <label class="form-check-label"
                                                                 for="invalidCheck-4">TV</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                value="" id="invalidCheck-5" required>
+                                                                value="" id="invalidCheck-5">
                                                             <label class="form-check-label"
                                                                 for="invalidCheck-5">Billboard</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                value="" id="invalidCheck-6" required>
+                                                                value="" id="invalidCheck-6">
                                                             <label class="form-check-label"
                                                                 for="invalidCheck-6">Billboard</label>
                                                         </div>
@@ -199,39 +200,39 @@
                                                     <div class="col-5">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                value="" id="invalidCheck-7" required>
+                                                                value="" id="invalidCheck-7">
                                                             <label class="form-check-label" for="invalidCheck-7">Online
                                                                 ad</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                value="" id="invalidCheck-8" required>
+                                                                value="" id="invalidCheck-8">
                                                             <label class="form-check-label" for="invalidCheck-8">Social
                                                                 media</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                value="" id="invalidCheck-9" required>
+                                                                value="" id="invalidCheck-9">
                                                             <label class="form-check-label" for="invalidCheck-9">Referral
                                                                 from
                                                                 a Eventopia host</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                value="" id="invalidCheck-10" required>
+                                                                value="" id="invalidCheck-10">
                                                             <label class="form-check-label" for="invalidCheck-10">Online
                                                                 search</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                value="" id="invalidCheck-11" required>
+                                                                value="" id="invalidCheck-11">
                                                             <label class="form-check-label" for="invalidCheck-11">Attended
                                                                 an
                                                                 event in a Peerspace</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                value="" id="invalidCheck-12" required>
+                                                                value="" id="invalidCheck-12">
                                                             <label class="form-check-label"
                                                                 for="invalidCheck-12">Other</label>
                                                         </div>
@@ -241,7 +242,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <hr class="border-3 bg-dark">
+                                    <div class="float-end">
+                                        <a class="btn btn-light" href="{{route('activities-step',$space->id)}}">Previous</a>
+                                        <button class="btn btn-primary">Next</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -263,7 +269,6 @@
     <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
     <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
     <!-- FORM WIZARD JS-->
-    <script src="{{ asset('assets/plugins/formwizard/jquery.smartWizard.js') }}"></script>
     <script src="{{ asset('assets/plugins/formwizard/fromwizard.js') }}"></script>
     <!-- INTERNAl Jquery.steps js -->
     <script src="{{ asset('assets/plugins/jquery-steps/jquery.steps.min.js') }}"></script>
@@ -274,32 +279,6 @@
     <!-- Jquery/buttons JS-->
     <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
-    </script>
-    <script>
-        function toggleTextArea() {
-            const checkbox = document.getElementById('flexSwitchCheckChecked2');
-            const textAreaDiv = document.getElementById('textAreaDiv');
-            if (checkbox.checked) {
-                textAreaDiv.style.display = 'block'; // Show the text area
-            } else {
-                $('#security_devices_description').val('');
-                textAreaDiv.style.display = 'none'; // Hide the text area
-            }
-        }
-
-        function toggleOptions() {
-            const checkbox = document.getElementById('flexSwitchCheckChecked3');
-            const textAreaDiv = document.getElementById('options');
-            if (checkbox.checked) {
-                options.style.display = 'block'; // Show the text area
-            } else {
-                $('.parking_option').prop('checked', false); // Uncheck all options
-                options.style.display = 'none'; // Hide the text area
-            }
-        }
-    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const uploadBtn = document.getElementById('uploadBtn');
@@ -324,84 +303,6 @@
                         avatarImage.src = reader.result;
                     };
                     reader.readAsDataURL(selectedImage);
-                }
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            toggleOptions();
-            $('.sw-btn-next').on('click', function(e) {
-                var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
-                $('.last_step_btn').on('click', function(e) {
-                    window.location.href = "{{ url('/steps-form-submit') }}";
-                });
-            });
-        });
-    </script>
-    @include('layouts.components.setHoursScript')
-
-    <script>
-        $(document).ready(function() {
-            $('#flexSwitchCheckChecked').on('click', function() {
-                $('#mapColumn').toggleClass('d-none');
-                $('#galleryColumn').toggleClass('col-lg-12');
-            });
-        });
-    </script>
-    <script nonce="">
-        function onEmbedLoad() {
-            initEmbed([null, null, null, null, null, null, null, ["en"],
-                [null, null, null, "/maps/api/js/ApplicationService.GetEntityDetails", "/maps/embed/upgrade204",
-                    null, "/maps/embed/record204"
-                ], null, null, null, null, null, null, null, null, null, null, null, null, [
-                    [
-                        [120000000, 0, 0], null, null, 13.10000038146973
-                    ]
-                ], null, null, null, 0, null, null, null, null, null, null, [1]
-            ]);
-        }
-
-        function onApiLoad() {
-            var embed = document.createElement('script');
-            embed.src = "https://maps.gstatic.com/maps-api-v3/embed/js/53/13/init_embed.js";
-            document.body.appendChild(embed);
-        }
-    </script>
-
-    <script>
-        var searchInput = 'address';
-        $(document).ready(function() {
-            var autocomplete;
-            autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
-                fields: ["address_components", "geometry"],
-                types: ["address"],
-            });
-            google.maps.event.addListener(autocomplete, 'place_changed', function() {
-                var place = autocomplete.getPlace();
-                var lat = place.geometry['location'].lat();
-                var lng = place.geometry['location'].lng();
-                var myarr = place.address_components;
-                var keyapi = 'AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E';
-                $('#city').val('')
-                $('#state').val('')
-                $('#country').val('')
-                $('#postal_code').val('')
-                $('#lat').val(lat)
-                $('#lng').val(lng)
-                var myarr = place.address_components;
-                for (let i = 0; i < myarr.length; i++) {
-                    var components = myarr[i];
-                    if (components.types[0] == 'postal_code') {
-                        $('#postal_code').val(components.long_name)
-                    } else if (components.types[0] == 'country') {
-                        $('#country').val(components.long_name);
-                    } else if (components.types[0] == 'administrative_area_level_1') {
-                        $('#state').val(components.long_name)
-                    } else if (components.types[0] == 'locality' || components.types[0] == 'postal_town' ||
-                        components.types[0] == 'administrative_area_level_2') {
-                        $('#city').val(components.long_name)
-                    } else {}
                 }
             });
         });

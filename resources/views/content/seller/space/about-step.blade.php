@@ -67,7 +67,7 @@
                         </ul> --}}
                         <div>
                             <div id="step-3" class="">
-                                <form action="{{ route('add-about',$space_id) }}" method="POST">
+                                <form action="{{ route('add-about',$space->id) }}" method="POST">
                                     @csrf
                                     <div style="text-align:center;" class="">
                                         <h2>Step 3 of 9</h2>
@@ -89,7 +89,7 @@
                                         <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
                                                 alt="img"><b>Example: “Downtown Loft with Skyline View”</b></p>
                                         <input type="text" class="form-control rounded-0" id="inputtext"
-                                            placeholder="Enter your space title" name="space_title">
+                                            placeholder="Enter your space title" name="space_title" value="{{ @$space->space_title ?? ''}}">
                                         <br>
                                         <hr class="style1"><br>
                                         <h1><strong>Describe the parking options</strong></h1>
@@ -110,7 +110,7 @@
                                             email, or links to your website.</p>
                                         <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                         <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3"
-                                            placeholder="Add description" name="space_description"></textarea>
+                                            placeholder="Add description" name="space_description">{{ @$space->space_description ?? ''}}</textarea>
                                         <p class="text-end">Minimum 280 characters</p>
                                         <br>
                                         <hr class="style1"><br>
@@ -124,7 +124,7 @@
                                                 a 500 m ft conference room, you would enter “500”.</b></p>
 
                                         <div class="btn-group">
-                                            <input type="text" class="btn btn-outline-default rounded-0" name="space_size">
+                                            <input type="text" class="btn btn-outline-default rounded-0" name="space_size" value="{{ @$space->space_size ?? ''}}">
                                             <button type="button" class="btn btn-outline-default rounded-0">sq m</button>
 
                                         </div>
@@ -154,7 +154,7 @@
                                         </ul>
                                         <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                         <textarea style="height:150px;" name="space_rules" class="form-control rounded-0" id="exampleFormControlTextarea1"
-                                            rows="3">Enter your house rules</textarea>
+                                            rows="3">{{ @$space->space_rules ?? ''}}</textarea>
                                         <p class="text-end">Minimum 100 characters</h4>
                                             <br>
                                             <hr class="style1"><br>
@@ -163,12 +163,12 @@
                                         <div class="form-group">
                                             <label for="sel1"></label>
                                             <select class="form-control" name="allowed_age" id="sel1">
-                                                <option value="all">All ages</option>
-                                                <option value="10">Age 10+</option>
-                                                <option value="20">Age 20+</option>
-                                                <option value="30">Age 30+</option>
-                                                <option value="40">Age 40+</option>
-                                                <option value="50">Age 50+</option>
+                                                <option value="all" {{ @$space->allowed_age == 'all' ? 'selected' : '' }}>All ages</option>
+                                                <option value="10" {{ @$space->allowed_age  == '10' ? 'selected' : '' }}>Age 10+</option>
+                                                <option value="20" {{ @$space->allowed_age  == '20' ? 'selected' : '' }}>Age 20+</option>
+                                                <option value="30" {{ @$space->allowed_age  == '30' ? 'selected' : '' }}>Age 30+</option>
+                                                <option value="40" {{ @$space->allowed_age  == '40' ? 'selected' : '' }}>Age 40+</option>
+                                                <option value="50" {{ @$space->allowed_age  == '50' ? 'selected' : '' }}>Age 50+</option>
                                             </select>
                                         </div>
 
@@ -177,7 +177,7 @@
                                         <h1>What’s your wifi name and password?</h1>
                                         <p>Make it easy for your guests to get online by sharing your Wi-Fi information.</p>
                                         <input type="text" class="form-control rounded-0" id="inputtext"
-                                            placeholder="Optional - example: Name  Eventopia Password: 12345678"
+                                            placeholder="Optional - example: Name  Eventopia Password: 12345678" value="{{ @$space->wifi_password ?? ''}}"
                                             name="wifi_password"><br>
                                         <p> <img src="{{ asset('assets/images/users/spaces/lock.png') }}" alt="img"><b>
                                                 Don't worry, we'll only share this with guests after you have accepted their
@@ -191,7 +191,7 @@
                                             access etc.</p><br>
                                         <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                         <textarea name="arrival_instruction" style="height:150px;" class="form-control rounded-0"
-                                            id="exampleFormControlTextarea1" rows="3">Add description</textarea>
+                                            id="exampleFormControlTextarea1" rows="3">{{ @$space->arrival_instruction ?? ''}}</textarea>
                                         <p class="text-end">Minimum 100 characters</p>
                                         <p> <img src="{{ asset('assets/images/users/spaces/lock.png') }}"
                                                 alt="img"><b>
@@ -203,7 +203,7 @@
                                     <input type="hidden" name="last_step" value="3">
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
-                                        <button class="btn btn-light" disabled>Previous</button>
+                                        <a class="btn btn-light" href="{{route('parking-step',$space->id)}}">Previous</a>
                                         <button class="btn btn-primary">Next</button>
                                     </div>
                                 </form>

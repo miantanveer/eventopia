@@ -65,7 +65,7 @@
                             <li><a href="#step-10">Review Policies</a></li>
 
                         </ul> --}}
-                        <form id="form-step-1" action="{{ route('add-address') }}" method="POST">
+                        <form id="form-step-1" action="{{ @$space !== null ? route('update-space-address',$space->id) :  route('add-address') }}" method="POST">
                             @csrf
                             <div id="step-1">
                                 <div style="height:450px;width:1350px;margin-left:90px;" class="border mt-5">
@@ -77,28 +77,28 @@
                                         <div class="col-md-5 col-lg-12">
                                             <label class="form-control-label">Street Address</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                id="address" name="address" placeholder="Add Address" required=""
+                                                id="address" name="address" placeholder="Add Address" value="{{@$space->address}}" required=""
                                                 type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
                                             <label class="form-control-label">Country</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                id="country" name="country" placeholder="" required="" type="text">
+                                                id="country" name="country" placeholder="" value="{{@$space->country}}" required="" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
                                             <label class="form-control-label">State<span class="tx-danger">*</span></label>
                                             <input class="form-control rounded-0" id="state" name="state"
-                                                placeholder="" required="" type="text">
+                                                placeholder="" required="" value="{{@$space->state}}" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
                                             <label class="form-control-label">City</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                id="city" name="city" placeholder="" required="" type="text">
+                                                id="city" name="city" placeholder="" required="" value="{{@$space->city}}" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
                                             <label class="form-control-label">Postal Code<span
                                                     class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                id="postal_code" name="postal_code" placeholder="" required=""
+                                                id="postal_code" name="postal_code" placeholder="" value="{{@$space->postal_code}}" required=""
                                                 type="text">
                                         </div>
                                         <input type="hidden" name="lat" id="lat">
@@ -119,7 +119,7 @@
                             </div>
                             <hr class="border-3 bg-dark">
                             <div class="float-end">
-                                <button class="btn btn-light" disabled>Previous</button>
+                                <a class="btn btn-light" href="{{route('list-space')}}">Previous</a>
                                 <button class="btn btn-primary">Next</button>
                             </div>
                         </form>

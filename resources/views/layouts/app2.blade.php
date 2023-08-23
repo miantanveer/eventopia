@@ -61,6 +61,7 @@
     @include('layouts.components.dark-footer')
 
     @include('layouts.components.scripts')
+    @include('layouts.components.notification-scripts')
 
 </body>
 

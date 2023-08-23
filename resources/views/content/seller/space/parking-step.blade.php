@@ -67,7 +67,7 @@
                         </ul> --}}
                         <div>
                             <div id="step-2">
-                                <form action="{{ route('add-parking',$space_id) }}" method="POST">
+                                <form action="{{ route('add-parking',$space->id) }}" method="POST">
                                     @csrf
                                     <div style="text-align:center;">
                                         <h2>Step 2 of 9</h2>
@@ -81,7 +81,7 @@
                                     <select name="space_type_id" class="form-control text-white form-select select2"
                                         id="space_types">
                                         @foreach ($space_types as $space_type)
-                                            <option value="{{ $space_type->id }}">{{ $space_type->type }}</option>
+                                            <option value="{{$space_type->id }}" {{@$space->spaceType->id == $space_type->id ? 'selected' : ''}}>{{$space_type->type }}</option>
                                         @endforeach
                                     </select>
                                     <br>
@@ -119,7 +119,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1"></label>
                                         <textarea style="height:150px;" class="form-control rounded-0" name="parking_description"
-                                            id="exampleFormControlTextarea1" rows="2"></textarea>
+                                            id="exampleFormControlTextarea1" rows="2">{{@$space->parking_description ?? ''}}</textarea>
                                         <p class="text-end">Minimum 35 characters</p>
                                         <br>
                                         <hr class="style1"><br>
@@ -148,7 +148,7 @@
                                                         off.
                                                     </p>
                                                     <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5"
-                                                        class="form-control w-100 p-5" placeholder="Add description"></textarea>
+                                                        class="form-control w-100 p-5" placeholder="Add description">{{@$space->security_devices_description ?? ''}}</textarea>
                                                     <p class="text-end">Minimum 50 characters</p>
                                                 </div>
                                             </div>
@@ -160,7 +160,7 @@
                                     <input type="hidden" name="last_step" value="2">
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
-                                        <button class="btn btn-light" disabled>Previous</button>
+                                        <a class="btn btn-light" href="{{route('edit-space-address',$space->id)}}">Previous</a>
                                         <button class="btn btn-primary">Next</button>
                                     </div>
                                 </form>

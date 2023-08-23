@@ -98,7 +98,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <input type="hidden" name="url" id="url" value='{{ route('operating-hour-step', $space_id) }}'>
+                                <input type="hidden" name="url" id="url" value='{{ route('operating-hour-step', $space->id) }}'>
                                 @if ($errors->any())
                                     <div class="alert alert-danger">
                                         <ul>
@@ -108,7 +108,7 @@
                                         </ul>
                                     </div>
                                 @endif
-                                <form action="{{ route('add-images',$space_id) }}" method="post" id="filedrop" class="dropzone .custom-validation">
+                                <form action="{{ route('add-images',$space->id) }}" method="post" id="filedrop" class="dropzone .custom-validation">
                                     @csrf
                                     <div class="fallback">
                                         <input name="file" id="file" type="file" required
@@ -126,7 +126,7 @@
                                     <input type="hidden" name="last_step" value="4">
                                 </form>
                                 <div class="float-end mt-8">
-                                    <button class="btn btn-light">Previous</button>
+                                    <a class="btn btn-light" href="{{route('about-step',$space->id)}}">Previous</a>
                                     <button class="btn btn-primary" onclick="upload()">Next</button>
                                 </div>
                             </div>

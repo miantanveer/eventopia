@@ -68,35 +68,45 @@
                         <div>
                             <div id="step-5" class="">
                                 <h2 style="text-align:center;">Step 5 of 9</h2>
-                                <div class="card-body border p-4 pb-5">
-                                    <div class="text-center mb-4">
-                                        <h2 class="mx-4 fw-bolder">What are your operating hours?</h2>
-                                        <p class="mx-4">Operating hours are the days and hours of the week that your
-                                            space is open to host
-                                            bookings (i.e. your general availability). Guests
-                                            will not be able to book times outside of your operating hours. Learn More.</p>
-                                    </div>
-                                    <div class="text-start mb-4">
-                                        <p> Birthday event - 23408 Bernier Cliff Suite 526 </p>
-                                    </div>
-                                    <div class="text-start bg-gray-light">
-                                        <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; Operating
-                                            hours end times are
-                                            restricted to 12 AM for this space type. Read our Social Events Policy for more
-                                            information.</p>
-                                    </div>
-                                    @include('layouts.components.setHoursHTMLCode')
-                                    <hr style="border-top: 1px solid black">
-                                    <div class="text-end mb-2 mt-5">
-                                    </div>
-                                </div>
+                                <form id="form-step-1" action="{{ route('add-operating-hours', $space->id) }}" method="POST"
+                                    class="border mt-5">
+                                    @csrf
+                                    <div class="card-body border p-4 pb-5">
+                                        <div class="text-center mb-4">
+                                            <h2 class="mx-4 fw-bolder">What are your operating hours?</h2>
+                                            <p class="mx-4">Operating hours are the days and hours of the week that your
+                                                space is open to host
+                                                bookings (i.e. your general availability). Guests
+                                                will not be able to book times outside of your operating hours. Learn More.
+                                            </p>
+                                        </div>
+                                        <div class="text-start mb-4">
+                                            <p> Birthday event - 23408 Bernier Cliff Suite 526 </p>
+                                        </div>
+                                        <div class="text-start bg-gray-light">
+                                            <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; Operating
+                                                hours end times are
+                                                restricted to 12 AM for this space type. Read our Social Events Policy for
+                                                more
+                                                information.</p>
+                                        </div>
+                                        @include('layouts.components.setHoursHTMLCode')
+                                        <hr style="border-top: 1px solid black">
+                                        <div class="text-end mb-2 mt-5">
+                                        </div>
+                                        <div class="float-end mt-8">
+                                            <a class="btn btn-light" href="{{route('images-step',$space->id)}}">Previous</a>
+                                            <button class="btn btn-primary">Next</button>
+                                        </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
     </div>
 @endsection
 
@@ -123,5 +133,4 @@
     <script src="{{ asset('assets/js/select2.js') }}"></script>
 
     @include('layouts.components.setHoursScript')
-
 @endsection

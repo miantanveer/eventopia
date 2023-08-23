@@ -8,14 +8,14 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
-                            <input type="checkbox" name="monday" id="custom-switch-checkbox1" value="1"
-                                class="custom-switch-input"  {{@$time->monday == 1 ? 'checked' : ''}}>
+                            <input type="checkbox" name="monday" id="custom-switch-checkbox1" value="monday"
+                                class="custom-switch-input"  {{@$time->monday == 'monday' ? 'checked' : ''}}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
-                            <span class="custom-switch-description-1">Open</span>
+                            <span class="custom-switch-description-1">Close</span>
                         </label>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 row-content-1 hide-on-switch">
+                <div class="col-lg-3 col-md-4 col-sm-6 row-content-1 hide-on-switch" style="display: none">
                     <div class="form-group">
                         <div class="custom-controls-stacked">
                             <label class="custom-control custom-radio">
@@ -90,14 +90,14 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
-                            <input type="checkbox" name="tuesday" id="custom-switch-checkbox2" value="1"
-                                class="custom-switch-input" {{@$time->tuesday == 1 ? 'checked' : ''}}>
+                            <input type="checkbox" name="tuesday" id="custom-switch-checkbox2" value="tuesday"
+                                class="custom-switch-input" {{@$time->tuesday == 'tuesday' ? 'checked' : ''}}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
-                            <span class="custom-switch-description-2">Open</span>
+                            <span class="custom-switch-description-2">Close</span>
                         </label>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 row-content-2 hide-on-switch">
+                <div class="col-lg-3 col-md-4 col-sm-6 row-content-2 hide-on-switch" style="display: none">
                     <div class="form-group">
                         <div class="custom-controls-stacked">
                             <label class="custom-control custom-radio">
@@ -108,7 +108,7 @@
                             </label>
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="tuesday_radio"
-                                    id="set-hour-radio-2" value="1"  {{@$time->tuesday_radio == 1 ? 'checked' : ''}}> 
+                                    id="set-hour-radio-2" value="1"  {{@$time->tuesday_radio == 1 ? 'checked' : ''}}>
                                 <span class="custom-control-label">Set hours</span>
                             </label>
                         </div>
@@ -172,14 +172,14 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
-                            <input type="checkbox" name="wednesday" {{@$time->wednesday == 1 ? 'checked' : ''}} id="custom-switch-checkbox3" value="1"
+                            <input type="checkbox" name="wednesday" {{@$time->wednesday == 'wednesday' ? 'checked' : ''}} id="custom-switch-checkbox3" value="wednesday"
                                 class="custom-switch-input" >
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
-                            <span class="custom-switch-description-3">Open</span>
+                            <span class="custom-switch-description-3">Close</span>
                         </label>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 row-content-3 hide-on-switch">
+                <div class="col-lg-3 col-md-4 col-sm-6 row-content-3 hide-on-switch" style="display: none">
                     <div class="form-group">
                         <div class="custom-controls-stacked">
                             <label class="custom-control custom-radio">
@@ -255,13 +255,13 @@
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="thursday" id="custom-switch-checkbox4"
-                                class="custom-switch-input" value="1" {{@$time->thursday == 1 ? 'checked' : ''}}>
+                                class="custom-switch-input" value="thursday" {{@$time->thursday == 'thursday' ? 'checked' : ''}}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
-                            <span class="custom-switch-description-4">Open</span>
+                            <span class="custom-switch-description-4">Close</span>
                         </label>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 row-content-4 hide-on-switch">
+                <div class="col-lg-3 col-md-4 col-sm-6 row-content-4 hide-on-switch" style="display: none">
                     <div class="form-group">
                         <div class="custom-controls-stacked">
                             <label class="custom-control custom-radio">
@@ -337,13 +337,13 @@
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="friday" id="custom-switch-checkbox5"
-                                class="custom-switch-input" value="1" {{@$time->friday == 1 ? 'checked' : ''}}>
+                                class="custom-switch-input" value="friday" {{@$time->friday == 'friday' ? 'checked' : ''}}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
-                            <span class="custom-switch-description-5">Open</span>
+                            <span class="custom-switch-description-5">Close</span>
                         </label>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 row-content-5 hide-on-switch">
+                <div class="col-lg-3 col-md-4 col-sm-6 row-content-5 hide-on-switch" style="display: none">
                     <div class="form-group">
                         <div class="custom-controls-stacked">
                             <label class="custom-control custom-radio">
@@ -419,13 +419,13 @@
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="saturday" id="custom-switch-checkbox6"
-                                class="custom-switch-input" value="1" {{@$time->saturday == 1 ? 'checked' : ''}}>
+                                class="custom-switch-input" value="saturday" {{@$time->saturday == 'saturday' ? 'checked' : ''}}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
-                            <span class="custom-switch-description-6">Open</span>
+                            <span class="custom-switch-description-6">Close</span>
                         </label>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 row-content-6 hide-on-switch">
+                <div class="col-lg-3 col-md-4 col-sm-6 row-content-6 hide-on-switch" style="display: none">
                     <div class="form-group">
                         <div class="custom-controls-stacked">
                             <label class="custom-control custom-radio">
@@ -500,14 +500,14 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
-                            <input type="checkbox" name="sunday" id="custom-switch-checkbox7" value="1"
-                                class="custom-switch-input" {{@$time->sunday == 1 ? 'checked' : ''}}>
+                            <input type="checkbox" name="sunday" id="custom-switch-checkbox7" value="sunday"
+                                class="custom-switch-input" {{@$time->sunday == 'sunday' ? 'checked' : ''}}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
-                            <span class="custom-switch-description-7">Open</span>
+                            <span class="custom-switch-description-7">Close</span>
                         </label>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 row-content-7 hide-on-switch">
+                <div class="col-lg-3 col-md-4 col-sm-6 row-content-7 hide-on-switch" style="display: none">
                     <div class="form-group">
                         <div class="custom-controls-stacked">
                             <label class="custom-control custom-radio">

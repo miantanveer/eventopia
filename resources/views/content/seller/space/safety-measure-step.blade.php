@@ -67,7 +67,7 @@
                         </ul> --}}
                         <div>
                             <div id="step-6" class="">
-                                <form method="POST" action="{{ route('add-safety-measure', $space_id) }}">
+                                <form method="POST" action="{{ route('add-safety-measure', $space->id) }}">
                                     @csrf
                                     <div style="text-align:center;">
                                         <h2>Step 6 of 9</h2>
@@ -88,6 +88,15 @@
                                     <p style="color:#858585;"><strong>Select all that apply</strong></p>
 
                                     @php
+                                        $selectedSafetyMeasureIds = []; // Initialize an array to store selected safety measure IDs
+
+                                        // Assuming $selectedSafetyMeasures contains the list of selected safety measures for the space
+                                        foreach ($space->spaceHaveMeasures as $selectedSafetyMeasure) {
+                                            $selectedSafetyMeasureIds[] = $selectedSafetyMeasure->safety_measure_id;
+                                        }
+                                    @endphp
+
+                                    @php
                                         $counter = 0; // Initialize the counter
                                     @endphp
 
@@ -99,8 +108,9 @@
                                                         <label>
                                                             <input name="safety_measure[]" class="safety_measure"
                                                                 type="checkbox"
-                                                                value="{{ $safety_measures[$counter]->id }}"><span
-                                                                style="color:#434343"><b>{{ $safety_measures[$counter]->safety_measure_options }}</b></span>
+                                                                value="{{ $safety_measures[$counter]->id }}"
+                                                                {{ in_array($safety_measures[$counter]->id, $selectedSafetyMeasureIds) ? 'checked' : '' }}>
+                                                                <span style="color:#434343"><b>{{ $safety_measures[$counter]->safety_measure_options }}</b></span>
                                                         </label>
                                                     </div>
                                                     @php
@@ -130,12 +140,12 @@
 
                                     <h4 class="mt-5">Tell your guests more about your cleaning process</h4>
                                     <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                    <textarea style="height:150px;" name="cleaning_process" class="form-control rounded-0" id="" rows="3"></textarea>
+                                    <textarea style="height:150px;" name="cleaning_process" class="form-control rounded-0" id="" rows="3">{{@$space->cleaning_process ?? ''}}</textarea>
                                     <p class="text-end">Minimum 50 characters</p>
                                     <input type="hidden" name="last_step" value="6">
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
-                                        <button class="btn btn-light" disabled>Previous</button>
+                                        <a class="btn btn-light" href="{{route('operating-hour-step',$space->id)}}">Previous</a>
                                         <button class="btn btn-primary">Next</button>
                                     </div>
                                 </form>

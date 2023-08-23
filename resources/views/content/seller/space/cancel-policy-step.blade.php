@@ -69,7 +69,7 @@
                             <div id="step-7" class="">
                                 <h2 style="text-align:center;">Step 7 of 9</h2>
                                 <div id="step-5" class="mb-5">
-                                    <form action="{{ route('add-cancel-policy', $space_id) }}" method="post">
+                                    <form action="{{ route('add-cancel-policy', $space->id) }}" method="post">
                                         @csrf
                                         <div class="container">
                                             <div class="text-center mb-6">
@@ -92,11 +92,12 @@
                                                 time.
                                             </p>
                                             <div class="row">
+                                                {{-- @dd($space->cancellationPolicy); --}}
                                                 @foreach ($cancel_policies as $cancel_policy)
                                                     <div class="col-3">
                                                         <label class=" flex-basis-20-sm flex-basis-100" for="{{$cancel_policy->title}}">
                                                             <input type="radio" id="{{$cancel_policy->title}}"
-                                                                name="cancellation_policy_id" value="{{$cancel_policy->id}}">
+                                                                name="cancellation_policy_id" value="{{$cancel_policy->id}}" {{@$space->cancellationPolicy->id == $cancel_policy->id ? 'checked' : ''}}>
                                                             <span>{{$cancel_policy->title}}</span>
                                                         </label>
                                                     </div>
@@ -109,7 +110,7 @@
                                             </div>
                                         </div>
                                         <div class="float-end">
-                                            <button class="btn btn-light" disabled>Previous</button>
+                                            <a class="btn btn-light" href="{{route('safety-measure-step',$space->id)}}">Previous</a>
                                             <button class="btn btn-primary">Next</button>
                                         </div>
                                     </form>
