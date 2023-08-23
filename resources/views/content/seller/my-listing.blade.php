@@ -265,7 +265,7 @@
                                     break;
                                 // Add more cases as needed
                             }
-                            
+
                         @endphp
                         <div class="col-12">
                             <div class="card border">
@@ -287,8 +287,7 @@
                                                 </div>
                                                 <div class="col-12 col-sm-4 col-lg-3 mt-5 mt-sm-0">
                                                     <div class="text-end">
-                                                        <a href="{{ route('service-form-resume', $data->id) }}"
-                                                            class="btn btn-primary">Resume</a>
+                                                        <a href="{{ route('service-form-resume',$data->id) }}" class="btn btn-primary">Resume</a>
                                                         <a class="modal-effect btn" data-bs-effect="effect-scale"
                                                             onclick="deleteModal('{{ route('service-delete', $data->id) }}')">
                                                             <i class="fa fs-16 fa-trash text-danger"></i></a>
@@ -396,7 +395,7 @@
                                     break;
                                 // Add more cases as needed
                             }
-                            
+
                         @endphp
                         <div class="col-12">
                             <div class="card border">
