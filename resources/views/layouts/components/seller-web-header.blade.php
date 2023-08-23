@@ -16,7 +16,7 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                                     <div class="d-flex order-lg-2">
                                         <div class="d-flex seller-btn me-2">
-                                            <button class="btn-pill p-2 text-info bg-white border-info"><a href="{{URL('/customer-dashboard')}}">Become a Customer</a></button>
+                                            <a class="btn-pill p-2 text-info bg-white border-info" href="{{URL('/customer-dashboard')}}">Become a Customer</a>
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">

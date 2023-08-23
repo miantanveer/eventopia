@@ -201,6 +201,9 @@ Route::group(['middleware' => ['auth']], function () {
     // Form Step 7
     Route::get('/entertainment/load/form/step/7/{id}', [EntertainmentController::class, 'loadFormStep7'])->name('load_entertainment_form_7');
     Route::post('/entertainment/form/step/7/{id}', [EntertainmentController::class, 'formStep7'])->name('entertainment_form_7');
+    // Form Step 8
+    Route::get('/entertainment/load/form/step/8/{id}', [EntertainmentController::class, 'loadFormStep8'])->name('load_entertainment_form_8');
+    Route::post('/entertainment/form/step/8/{id}', [EntertainmentController::class, 'formStep8'])->name('entertainment_form_8');
 
 });
 

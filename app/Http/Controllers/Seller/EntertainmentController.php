@@ -8,6 +8,8 @@ use App\Models\EntertainmentActivities;
 use App\Models\EntertainmentImages;
 use App\Models\OperatingDay;
 use App\Models\OperatingHour;
+use App\Models\CompanyReview;
+use App\Models\CancellationPolicy;
 use Illuminate\Http\Request;
 
 class EntertainmentController extends UserBaseController
@@ -138,7 +140,8 @@ class EntertainmentController extends UserBaseController
     public function loadFormStep5($id)
     {
         $entertainment = Entertainment::find($id);
-        return view('content\seller\entertainment\create\form-step-5', ['id' => $id, 'entertainment' => $entertainment]);
+        $cancellation = CancellationPolicy::get();
+        return view('content\seller\entertainment\create\form-step-5', ['id' => $id,'entertainment' => $entertainment,'cancellation' => $cancellation]);
     }
     public function FormStep5(Request $req, $id)
     {
@@ -194,6 +197,51 @@ class EntertainmentController extends UserBaseController
     {
         $entertainment = Entertainment::find($id);
         return view('content\seller\entertainment\create\form-step-7', ['id' => $id, 'entertainment' => $entertainment]);
+    }
+    public function FormStep7(Request $req, $id)
+    {
+        $req->validate([
+            'contact_first_name'=>'required',
+            'contact_last_name'=>'required',
+            'contact_num'=>'required',
+            'image'=>'required',
+            'eventopia_hear'=>'required',
+        ]);
+        $filename = '';
+        if ($req->hasFile('image')) {
+            $image = $req->image;
+            $filename = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('/uploads/seller/entertainment/'), $filename);
+        }
+        $entertainment = Entertainment::find($id);
+        $entertainment->contact_first_name = $req->contact_first_name;
+        $entertainment->contact_last_name = $req->contact_last_name;
+        $entertainment->contact_num = $req->contact_num;
+        $entertainment->image = $filename;
+        $entertainment->save();
+        return redirect()->route('load_entertainment_form_8',$id);
+    }
+    public function loadFormStep8($id)
+    {
+        $entertainment = Entertainment::find($id);
+        return view('content\seller\entertainment\create\form-step-8', ['id' => $id, 'entertainment' => $entertainment]);
+    }
+    public function FormStep8($id)
+    {
+        $review = CompanyReview::whereUserId(auth()->user()->id)->exists();
+        if($review){
+            return view('content\seller\entertainment\create\form-step-9', ['id' => $id]);
+        }
+        else{
+            $company_review = new CompanyReview();
+            $company_review->user_id = auth()->user()->id; 
+            $company_review->keep_on_company = $req->on_company; 
+            $company_review->use_company_for_payments = $req->company_payment; 
+            $company_review->booking_and_cancellation = $req->booking_and_cancellation; 
+            $company_review->space_local_regulations = $req->local_regulatioins;
+            $company_review->save(); 
+            return view('content\seller\entertainment\create\form-step-9', ['id' => $id]);
+        }
     }
     public function operatingDay($id, $week_day, $radio, $start, $end)
     {

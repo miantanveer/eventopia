@@ -24,7 +24,13 @@ class CreateEntertainmentsTable extends Migration
             $table->string('age')->nullable();
             $table->longText('arrival')->nullable();
             $table->longText('cancellation_policy')->nullable();
+            $table->longText('contact_first_name')->nullable();
+            $table->longText('contact_last_name')->nullable();
+            $table->longText('contact_num')->nullable();
+            $table->longText('image')->nullable();
+            $table->longText('eventopia_hear')->nullable();
             $table->string('last_steps')->nullable();
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }
