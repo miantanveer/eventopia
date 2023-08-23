@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Entertainment extends Model
 {
     use HasFactory;
+    public function entertainmentImages(){
+        return $this->hasMany(EntertainmentImages::class);
+    }
+    public function entertainmentActivities(){
+        return $this->hasMany(EntertainmentActivities::class);
+    }
 }

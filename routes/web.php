@@ -1,11 +1,13 @@
 <?php
 
+use App\Models\ServiceTitle;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Seller\ListingSpaceController;
 use Illuminate\Support\Facades\Route;
 Use App\Http\Controllers\Seller\ServiceController;
 Use App\Http\Controllers\Seller\EntertainmentController;
+Use App\Http\Controllers\Seller\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,9 +127,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/add-service', function () {
         return view('content.seller.add-services');
     });
-    Route::get('/my-listings', function () {
-        return view('content.seller.my-listing');
-    });
+    // Route::get('/my-listings', function () {
+    //     return view('content.seller.my-listing');
+    // });
     Route::get('/pending-bookings', function () {
         return view('content.seller.pending-bookings');
     });
@@ -143,12 +145,16 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/operating-hours', function () {
         return view('content.seller.operating-hours');
     });
+    // My Listing
+    Route::get('/my-listings', [ListingController::class, 'index'])->name('my_listing');
+
     // Service Forms
     Route::get('/list-service', function () {
         return view('content.seller.list-service');
     });
     Route::get('/service-form-steps', function () {
-        return view('content.seller.service.create.form-step-1');
+        $title = ServiceTitle::get(); 
+        return view('content.seller.service.create.form-step-1',['title'=>$title]);
     });
     // Service Form Step 1
     Route::post('/service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
@@ -171,10 +177,14 @@ Route::group(['middleware' => ['auth']], function () {
     // Service Form Step 7
     Route::post('/service_form_7/{id}', [ServiceController::class, 'serviceForm7'])->name('service_form_7');
     Route::get('/completed', [ServiceController::class, 'complete'])->name('complete');
-    // Load Previous View Form Stpe 1
+    // Load Previous View Form Step 1
     Route::get('/service-form-step-1/{id}', [ServiceController::class, 'loadFormStep1'])->name('service-form-1');
     Route::post('/service_form_step_1/{id}', [ServiceController::class, 'UpdateFormStep1'])->name('update_service_form_1');
-    
+    // Delete Service
+    Route::delete('/service-delete/{id}', [ServiceController::class, 'destroy'])->name('service-delete');
+    // Resume Service
+    Route::get('/resume/{id}', [ServiceController::class, 'resumeForm'])->name('service-form-resume');
+
     // Entertainment Routes
     Route::get('/entertainment-form-steps', function () {
         return view('content.seller.entertainment.create.form-step-1');
@@ -204,6 +214,13 @@ Route::group(['middleware' => ['auth']], function () {
     // Form Step 8
     Route::get('/entertainment/load/form/step/8/{id}', [EntertainmentController::class, 'loadFormStep8'])->name('load_entertainment_form_8');
     Route::post('/entertainment/form/step/8/{id}', [EntertainmentController::class, 'formStep8'])->name('entertainment_form_8');
+    // Delete Enterainemnt 
+    Route::delete('/entertainment-delete/{id}', [EntertainmentController::class, 'destroy'])->name('entertainment-delete');
+    // Resume Entertainment
+    Route::get('/resume/{id}', [EntertainmentController::class, 'resumeForm'])->name('entertainment-form-resume');
+    // Update Entertainment Activities
+    Route::get('/entertainment/load/form/step/6/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep6'])->name('load_entertainment_form_step_6');
+    Route::post('/entertainment/update/form/step/6/{id}', [EntertainmentController::class, 'UpdateFormStep6'])->name('update_entertainment_form_6');
 
 });
 

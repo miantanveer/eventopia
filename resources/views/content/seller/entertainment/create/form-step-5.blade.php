@@ -80,13 +80,12 @@
                                             a Booking Confirmation but no later than 48 hours prior to the Event start time.
                                         </p>
                                         <div class="row">
-                                            @dd($cancellation)
                                             @foreach($cancellation as $key=>$data)
                                             <div class="col-3">
                                                 <label class="custom-control">
-                                                    <input type="radio" class="" name="cancellation_policy" data-parsley-errors-container="#radio_errors" required
+                                                    <input type="radio" name="cancellation_policy" data-parsley-errors-container="#radio_errors" required
                                                     data-parsley-required-message='Please select atleast one option' value="v_flexible" {{@$entertainment->cancellation_policy == 'v_flexible' ? 'checked' : ''}}>
-                                                    <span class="">{{$data->title}}</span>
+                                                    <span>{{$data->title}}</span>
                                                 </label>
                                             </div>
                                             <div class="col-9">

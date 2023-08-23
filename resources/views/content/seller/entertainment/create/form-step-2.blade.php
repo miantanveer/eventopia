@@ -102,10 +102,11 @@
                                                     <div class="input-group w-30">
                                                         <input type="text" name="space"
                                                             value="{{ @$entertainment->space }}" class="form-control"
-                                                            placeholder="1 to 500" required
+                                                            placeholder="1 to 500" required data-parsley-errors-container="#error"
                                                             data-parsley-required-message="Please Enter Space">
                                                         <span class="input-group-text" id="basic-addon2">sq m</span>
                                                     </div>
+                                                    <div id="error"></div>
                                                 </div>
                                                 <hr class="bg-dark">
                                             </div>
@@ -132,12 +133,11 @@
                                             <select name="age" class="form-control form-select select2"
                                                 data-bs-placeholder="All Ages" required
                                                 data-parsley-required-message="Please Select a value">
-                                                <option value="All Ages" {{ @$entertainment->age ? 'selected' : '' }}
-                                                    selected>All Ages</option>
-                                                <option value="18+" {{ @$entertainment->age ? 'selected' : '' }}>18+
-                                                </option>
-                                                <option value="21+" {{ @$entertainment->age ? 'selected' : '' }}>22+
-                                                </option>
+                                                @foreach ($age as $key => $data)
+                                                    <option value="{{ $data->name }}"
+                                                        {{ @$entertainment->age == $data->name ? 'selected' : '' }}>{{ $data->name }}
+                                                    </option>
+                                                @endforeach
                                             </select>
                                             <hr class="bg-dark">
                                         </div>
@@ -151,7 +151,7 @@
                                                 floors,
                                                 stairs/elevator access etc.</li>
                                             <textarea name="arrival" id="" cols="30" rows="5" class="w-100 form-control p-5"
-                                                placeholder="Add description" required data-parsley-required-message="Please Enter arriavl Instructions"
+                                                placeholder="Add description"
                                                 placeholder="Enter Arrival Instructions">
                                             {{ @$entertainment->arrival }}
                                             </textarea>

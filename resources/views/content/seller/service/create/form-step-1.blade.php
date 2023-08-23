@@ -58,21 +58,9 @@
                                         <select name="service_title" required data-parsley-required-message="This feild is required"
                                             class="form-control form-select select2 select2-hidden-accessible"
                                             tabindex="-1" aria-hidden="true" data-bs-placeholder="Select Service Title">
-                                            <option value="VG" {{ @$service->title == 'VG' ? 'selected' : '' }}>Video Graphers</option>
-                                            <option value="BS" {{ @$service->title == 'BS' ? 'selected' : '' }}>Beauty Services</option>
-                                            <option value="SE" {{ @$service->title == 'SE' ? 'selected' : '' }}>Soloists & Ensembles</option>
-                                            <option value="DL" {{ @$service->title == 'DL' ? 'selected' : '' }}>Dance Lessons</option>
-                                            <option value="D" {{ @$service->title == 'D' ? 'selected' : '' }}>Decor</option>
-                                            <option value="IN" {{ @$service->title == 'IN' ? 'selected' : '' }}>Invitations</option>
-                                            <option value="RV" {{ @$service->title == 'RV' ? 'selected' : '' }}>Reception Venues</option>
-                                            <option value="WPG" {{ @$service->title == 'WPG' ? 'selected' : '' }}>Wedding Photographers</option>
-                                            <option value="WP" {{ @$service->title == 'WP' ? 'selected' : '' }}>Wedding Planners</option>
-                                            <option value="WB" {{ @$service->title == 'WB' ? 'selected' : '' }}>Wedding Bands</option>
-                                            <option value="WR" {{ @$service->title == 'WR' ? 'selected' : '' }}>Wedding Rentals</option>
-                                            <option value="TRA" {{ @$service->title == 'TRA' ? 'selected' : '' }}>Transportation</option>
-                                            <option value="TS" {{ @$service->title == 'TS' ? 'selected' : '' }}>Travel Specialists</option>
-                                            <option value="BS" {{ @$service->title == 'BS' ? 'selected' : '' }}>Bar Services</option>
-                                            <option value="FL" {{ @$service->title == 'FL' ? 'selected' : '' }}>Florists</option>
+                                            @foreach($title as $key => $data)
+                                            <option value="{{$data->name}}" {{ @$service->title == $data->name ? 'selected' : '' }}>{{$data->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <hr class="border-3 bg-dark">

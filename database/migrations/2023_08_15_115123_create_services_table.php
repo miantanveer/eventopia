@@ -17,7 +17,7 @@ class CreateServicesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title')->nullable();
-            $table->longText('descrption')->nullable();
+            $table->longText('description')->nullable();
             $table->string('destination')->nullable();
             $table->string('planing')->nullable();
             $table->string('activities')->nullable();

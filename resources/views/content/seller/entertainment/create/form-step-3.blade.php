@@ -107,17 +107,6 @@
 
                                             <h4>Drop files here or click to upload.</h4>
                                         </div>
-                                        {{-- <div class="existing-images">
-                                        @foreach ($images as $image)
-                                        <div class="existing-image">
-                                            <input type="hidden" name="existing_images[]" value="{{ $image->name }}">
-                                            <img src="{{ asset('uploads/seller/service/' . $image->name) }}"
-                                                alt="{{ $image->name }}">
-                                            <button type="button"
-                                                class="btn btn-danger remove-existing-image">Remove</button>
-                                        </div>
-                                        @endforeach
-                                    </div> --}}
                                     </form>
                                     <div class="row">
                                         <div class="col-12">
@@ -180,19 +169,7 @@
                         }
                         uploads++
                     });
-
-                    // $(".remove-existing-image").on("click", function() {
-                    //     var existingImageDiv = $(this).closest(".existing-image");
-                    //     var hiddenInput = existingImageDiv.find("input[name='existing_images[]']");
-                    //     var filename = hiddenInput.val();
-
-                    //     // Remove the image from Dropzone
-                    //     dropzone.removeFile(filename);
-
-                    //     // Remove the image from the existing images list
-                    //     existingImageDiv.remove();
-                    // });
-
+                   
                     this.on("addedfile", function(file) {
                         if (!alertShown && myDropzone.files.length < 3) {
                             alertShown = true;

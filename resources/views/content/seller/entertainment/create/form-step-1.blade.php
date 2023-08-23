@@ -31,6 +31,11 @@
             top: -10px;
             cursor: pointer;
         }
+        .parsley-minlength {
+            font-size: 12px;
+            color: #ff5c77;
+            margin-top: 3px;
+        }
     </style>
 @endsection
 @section('content')
@@ -111,7 +116,7 @@
                                             </ul>
                                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                             <textarea style="height:150px;" class="form-control rounded-0" required name="house_rules"
-                                                data-parsley-required-message="Please Enter house rules" id="exampleFormControlTextarea1" rows="3"
+                                                data-parsley-required-message="Please Enter house rules" data-parsley-minlength="100" id="exampleFormControlTextarea1" rows="3"
                                                 placeholder="Enter your house rules">{{ @$entertainment->house_rules }}</textarea>
                                             <p class="text-end">Minimum 100 characters</h4>
                                                 <br>

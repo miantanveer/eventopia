@@ -10,6 +10,8 @@ use App\Models\ServiceTimeSetting;
 use App\Models\OperatingDay;
 use App\Models\OperatingHour;
 use App\Models\TeamMembers;
+use App\Models\ServiceCategory;
+use App\Models\ServiceTitle;
 use Illuminate\Http\Request;
 
 
@@ -24,8 +26,30 @@ class ServiceController extends UserBaseController
         $service = new Service();
         $service->user_id = auth()->user()->id;
         $service->title = $request->service_title;
-        $service->descrption = $request->description;
-        $service->status = '1';
+        $service->description = $request->description;
+        $service->status = '0';
+        $service->last_steps = 'step-1';
+        $service->save();
+        $id = $service->id;
+        return redirect()->route('service-form-2',$id);
+    }
+    public function loadFormStep1($id)
+    {
+        $title = ServiceTitle::get();
+        $service = Service::find($id);
+        return view('content.seller.service.create.form-step-1',['service'=>$service,'title'=>$title]);
+    }
+    public function UpdateFormStep1(Request $request, $id)
+    {
+        $request->validate([
+            'service_title'=>'required',
+            'description'=>'required'
+        ]);
+        $service = Service::find($id);
+        $service->user_id = auth()->user()->id;
+        $service->title = $request->service_title;
+        $service->description = $request->description;
+        $service->status = '0';
         $service->last_steps = 'step-1';
         $service->save();
         $id = $service->id;
@@ -38,7 +62,19 @@ class ServiceController extends UserBaseController
     }
     public function serviceForm2(Request $request,$id)
     {
-        $filename = '';
+        // $pre_image = ServiceImages::whereServiceId($id)->exists();
+        // if($pre_image){
+        //     $delete_img = ServiceImages::whereServiceId($id)->first();
+        //     if (isset($delete_img)) {
+        //             $file_path = public_path('/uploads/seller/service/') . $data->image;
+        //             if (file_exists($file_path)) {
+        //                 unlink($file_path);
+        //                 $data->delete();
+        //             }
+        //     }
+        // }
+        // else{
+            $filename = '';
         if ($request->hasFile('file')) {
             $image = $request->file;
             $filename = time() . '-' . $image->getClientOriginalName();
@@ -52,6 +88,8 @@ class ServiceController extends UserBaseController
         $service->last_steps = 'step-2';
         $service->save();
         return response()->json($image);
+        // }
+        
     }
     public function loadserviceForm3($id)
     {
@@ -76,7 +114,8 @@ class ServiceController extends UserBaseController
     public function loadServiceForm4($id)
     {
         $service = Service::find($id);
-        return view('content.seller.service.create.form-step-4',['id'=>$id,'service'=>$service]);
+        $service_category = ServiceCategory::get();
+        return view('content.seller.service.create.form-step-4',['id'=>$id,'service'=>$service,'service_category'=>$service_category]);
     }
     public function serviceForm4(Request $request, $id)
     {
@@ -108,6 +147,9 @@ class ServiceController extends UserBaseController
     }
     public function serviceForm5(Request $request,$id)
     {
+        $service = Service::find($id);
+        $service->last_steps = 'step-5';
+        $service->save();
         if($request->has('monday')) $this->operatingDay($id,$request->monday,$request->monday_radio,$request->monday_start_time,$request->monday_end_time);
         if($request->has('tuesday')) $this->operatingDay($id,$request->tuesday,$request->tuesday_radio,$request->tuesday_start_time,$request->tuesday_end_time);
         if($request->has('wednesday')) $this->operatingDay($id,$request->wednesday,$request->wednesday_radio,$request->wednesday_start_time,$request->wednesday_end_time);
@@ -129,7 +171,7 @@ class ServiceController extends UserBaseController
         ]);
         $service = Service::find($id);
         $service->price = $request->price;
-        $service->last_steps = 'step-4';
+        $service->last_steps = 'step-6';
         $service->save();
         return redirect()->route('service-form-7',['id'=>$id]);
     }
@@ -151,7 +193,9 @@ class ServiceController extends UserBaseController
             $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
             $image->move(public_path() . $foldername, $filename);
         }
-
+        $service = Service::find($id);
+        $service->last_steps = 'step-7';
+        $service->save();
         $serviceteam = new ServiceTeam();
         $serviceteam->service_id = $id;
         $serviceteam->team_description = $request->decription;
@@ -187,25 +231,48 @@ class ServiceController extends UserBaseController
     {
         return view('content.seller.steps-form-submit');
     }
-    public function loadFormStep1($id)
+    public function resumeForm($id)
     {
         $service = Service::find($id);
-        return view('content.seller.service.form-step-1',['service'=>$service]);
+        switch ($service->last_steps) {
+            case 'step-1':
+                return redirect()->route('service-form-2',['id'=>$service->id]);
+                break;
+            case 'step-2':
+                return redirect()->route('service-form-3',['id'=>$service->id]);
+                break;
+            case 'step-3':
+                return redirect()->route('service-form-4',['id'=>$service->id]);
+                break;
+            case 'step-4':
+                return redirect()->route('service-form-5',['id'=>$service->id]);
+                break;
+            case 'step-5':
+                return redirect()->route('service-form-6',['id'=>$service->id]);
+                break;
+            case 'step-6':
+                return redirect()->route('service-form-7',['id'=>$service->id]);
+                break;
+        }
+        
     }
-    public function UpdateFormStep1(Request $request, $id)
+    public function destroy($id)
     {
-        $request->validate([
-            'service_title'=>'required',
-            'description'=>'required'
-        ]);
         $service = Service::find($id);
-        $service->user_id = auth()->user()->id;
-        $service->title = $request->service_title;
-        $service->descrption = $request->description;
-        $service->status = '1';
-        $service->last_steps = 'step-1';
-        $service->save();
-        $id = $service->id;
-        return redirect()->route('service-form-2',$id);
+         $pre_image = ServiceImages::whereServiceId($id)->exists();
+        if($pre_image){
+            $delete_img = ServiceImages::whereServiceId($id)->get();
+            if (isset($delete_img)) {
+                foreach($delete_img as $key=>$data){
+                    $file_path = public_path('/uploads/seller/service/') . $data->image;
+                    if (file_exists($file_path)) {
+                        unlink($file_path);
+                        $data->delete();
+                    }
+                }
+            }
+        }
+        $service->delete();
+        return redirect()->route('my_listing')->with('success','Service Deleted Successfully');
     }
 }

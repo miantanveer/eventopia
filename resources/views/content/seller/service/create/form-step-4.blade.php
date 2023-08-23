@@ -44,10 +44,9 @@
                                     <div class="card-body col-12">
                                         <label for="category">Service Category</label>
                                         <select name="category" required data-parsley-reqired-meassage="Please Select a value" class="select2">
-                                            <option value="1" {{@$service->category == '1' ? 'selected' : ''}}>Otion 1</option>
-                                            <option value="2" {{@$service->category == '2' ? 'selected' : ''}}>Otion 2</option>
-                                            <option value="3" {{@$service->category == '3' ? 'selected' : ''}}>Otion 3</option>
-                                            <option value="4" {{@$service->category == '4' ? 'selected' : ''}}>Otion 4</option>
+                                            @foreach($service_category as $key=>$data)
+                                            <option value="{{$data->name}}" {{@$service->category == $data->name ? 'selected' : ''}}>{{$data->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

@@ -61,7 +61,7 @@
                                 </div>
                             @endif
                             <div id="step-6" class="mb-5">
-                                <form action="{{ route('entertainment_form_6', $id) }}" class="validation" method='post'>
+                                <form action="{{@$key !== null ? route('update_entertainment_form_6',$id) : route('entertainment_form_6', $id) }}" class="validation" method='post'>
                                     @csrf
                                     <div class="m-lg-6">
                                         <div class="row">
@@ -423,11 +423,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if(@$key !== null)
+                                    <div class="float-end">
+                                        <button class="btn btn-primary">Update</button>
+                                    </div>
+                                    @else
                                     <div class="float-end">
                                         <a class="btn btn-light"
                                             href="{{ route('load_entertainment_form_5', $id) }}">Previous</a>
                                         <button class="btn btn-primary">Next</button>
                                     </div>
+                                    @endif
                                 </form>
                             </div>
 

@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="float-end">
                                     <a class="btn btn-light"
-                                        href="{{ route('load_entertainment_form_3', $id) }}">Previous</a>
+                                        href="{{ route('load_entertainment_form_2', $id) }}">Previous</a>
                                     <button class="btn btn-primary">Next</button>
                                 </div>
                             </form>

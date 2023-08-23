@@ -30,7 +30,7 @@ class CreateEntertainmentsTable extends Migration
             $table->longText('image')->nullable();
             $table->longText('eventopia_hear')->nullable();
             $table->string('last_steps')->nullable();
-            $table->string('status')->default(0);
+            $table->string('status')->default(0)->comment('0=>Pending,1=>Active,2=>Cancelled');
             $table->timestamps();
         });
     }
