@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CancellationPolicy extends Model
+class SpaceHaveCompanyPolicy extends Model
 {
     use HasFactory;
 
-    public function spaces(){
-        return $this->hasMany(Space::class);
-    }
+    protected $fillable=[
+        'space_id',
+        'company_policy_id',
+    ];
 }

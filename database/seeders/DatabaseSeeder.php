@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             AgeSeeder::class,
             ServiceCategorySeeder::class,
             ServiceTitleSeeder::class,
+            CompanyPolicySeeder::class,
         ]);
     }
 }

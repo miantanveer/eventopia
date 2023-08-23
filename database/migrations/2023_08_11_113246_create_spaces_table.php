@@ -36,6 +36,10 @@ class CreateSpacesTable extends Migration
             $table->longText('arrival_instruction')->nullable();
             $table->longText('cleaning_process')->nullable();
             $table->string('last_step')->nullable();
+            $table->string('c_u_fname')->nullable()->comment = "contact user first name";
+            $table->string('c_u_lname')->nullable()->comment = "contact user last name";
+            $table->string('c_u_phone')->nullable()->comment = "contact user phone number";
+            $table->string('c_u_img')->nullable()->comment = "contact user image";
             $table->timestamps();
         });
     }

@@ -13,4 +13,5 @@ class SpaceHavingParkingOption extends Model
         'space_id',
         'parking_option_id',
     ];
+
 }

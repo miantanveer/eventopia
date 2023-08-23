@@ -31,6 +31,10 @@ class Space extends Model
         'arrival_instruction',
         'cleaning_process',
         'last_step',
+        'c_u_fname',
+        'c_u_lname',
+        'c_u_phone',
+        'c_u_img'
     ];
 
     public function spaceImages(){
@@ -55,5 +59,13 @@ class Space extends Model
 
     public function spaceType(){
         return $this->belongsTo(SpaceType::class);
+    }
+
+    public function cancellationPolicy(){
+        return $this->belongsTo(CancellationPolicy::class, 'cancellation_policy_id');
+    }
+
+    public function spaceHavePolicies(){
+        return $this->hasMany(SpaceHaveCompanyPolicy::class);
     }
 }

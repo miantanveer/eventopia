@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CancellationPolicy extends Model
+class CompanyPolicy extends Model
 {
     use HasFactory;
 
-    public function spaces(){
-        return $this->hasMany(Space::class);
+    public function companyPolicies(){
+        return $this->hasMany(SpaceHaveCompanyPolicy::class);
     }
 }
