@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class SpaceActivity extends Model
 {
@@ -17,7 +18,8 @@ class SpaceActivity extends Model
         return $this->hasMany(SpaceSubActivity::class);
     }
 
-    public function activityHavingAmenities(){
-        return $this->hasMany(ActivityHavingAmenity::class);
+    public function spaceAmenities(): BelongsToMany
+    {
+        return $this->belongsToMany(SpaceAmenity::class,'activity_having_amenities');
     }
 }

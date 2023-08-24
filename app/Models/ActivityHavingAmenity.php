@@ -9,7 +9,4 @@ class ActivityHavingAmenity extends Model
 {
     use HasFactory;
 
-    public function amenities(){
-        return $this->hasMany(SpaceAmenity::class,'id');
-    }
 }

@@ -70,7 +70,7 @@
                         dd($space_activities[0]->activityHavingAmenities[0]->amenities
                         );
                         @endphp --}}
-                            <form action="{{ route('add-activities', $space->id) }}" method="post">
+                            <form id="acitivityForm" action="{{ route('add-activities', $space->id) }}" method="post">
                                 @csrf
                                 <div id="step-8" class="mb-5">
                                     <div style="text-align:center">
@@ -111,14 +111,24 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
+
                                                                 <hr class="bg-dark mb-0 mt-1">
                                                                 <h4 class="panel-title bg-primary text-center">
-                                                                    <a role="button" data-bs-toggle="collapse"
-                                                                        data-bs-parent="#accordion"
+                                                                    <a role="button" data-bs-parent="#accordion"
+                                                                        data-bs-toggle="collapse"
                                                                         href="#collapse{{ $loop->iteration }}"
-                                                                        class="text-white" aria-expanded="true"
-                                                                        aria-controls="collapse1"> Enable </a>
+                                                                        class="text-white activity-toggle"
+                                                                        aria-expanded="true"
+                                                                        data-activity="{{ $space_activity->id }}"
+                                                                        aria-controls="collapse{{ $loop->iteration }}">
+                                                                        Enable </a>
                                                                 </h4>
+                                                            </div>
+                                                            <div class="form-check d-none">
+                                                                <input class="form-check-input activity_checkbox" type="checkbox"
+                                                                 activity_id="{{ $space_activity->id }}"
+                                                                    name="enabled_activities[]"
+                                                                    id="activity-{{ $space_activity->id }}">
                                                             </div>
                                                             <div id="collapse{{ $loop->iteration }}"
                                                                 class="panel-collapse collapse" role="tabpanel"
@@ -137,7 +147,7 @@
                                                                                 placeholder="80"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
-                                                                                name="rate_per_hour{{ $loop->iteration }}">
+                                                                                name="activities[{{ $space_activity->id }}][rate_per_hour][]">
                                                                             <span class="input-group-text"
                                                                                 id="basic-addon2">SAR</span>
                                                                         </div>
@@ -150,7 +160,7 @@
                                                                                 placeholder="5"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
-                                                                                name="minimum_hours{{ $loop->iteration }}">
+                                                                                name="activities[{{ $space_activity->id }}][minimum_hour][]">
                                                                             <span class="input-group-text"
                                                                                 id="basic-addon2"><i
                                                                                     class="fa fa-calendar w-5 text-white"></i></span>
@@ -167,12 +177,15 @@
                                                                                 placeholder="Optional"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
-                                                                                name="discount{{ $loop->iteration }}">
+                                                                                name="activities[{{ $space_activity->id }}][discount][]">
                                                                             <span class="input-group-text"
                                                                                 id="basic-addon2">%
                                                                                 off</span>
                                                                         </div>
                                                                     </div>
+                                                                    <input type="hidden"
+                                                                        name="activities[{{ $space_activity->id }}][space_activity_id][]"
+                                                                        value="{{ $space_activity->id }}">
                                                                     <a href="#" class="mb-6">How is this
                                                                         calculated?</a>
                                                                     <label class="form-label">Who can book
@@ -181,7 +194,7 @@
                                                                     <div class="mb-5">
                                                                         <label>
                                                                             <input type="radio"
-                                                                                name="instant_booking{{ $loop->iteration }}"
+                                                                                name="activities[{{ $space_activity->id }}][instant_booking][]"
                                                                                 value="everyone">
                                                                             <span>Everyone</span>
                                                                         </label>
@@ -190,7 +203,7 @@
                                                                             book instantly.</p>
                                                                         <label>
                                                                             <input type="radio"
-                                                                                name="instant_booking{{ $loop->iteration }}"
+                                                                                name="activities[{{ $space_activity->id }}][instant_booking][]"
                                                                                 value="no one">
                                                                             <span>No one</span>
                                                                         </label>
@@ -214,7 +227,7 @@
                                                                                 placeholder="250"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
-                                                                                name="max_guests{{ $loop->iteration }}">
+                                                                                name="activities[{{ $space_activity->id }}][max_guests][]">
                                                                             <span class="input-group-text"
                                                                                 id="basic-addon2"><i
                                                                                     class="fa fa-group w-5 text-white"></i></span>
@@ -231,14 +244,13 @@
                                                                     to offer meetings
                                                                     <div class="row">
                                                                         <div class="span12 pagination-centered">
-                                                                            @foreach ($space_activity->activityHavingAmenities as $activityHavingAmenity)
-                                                                                @foreach ($activityHavingAmenity->amenities as $amenity)
-                                                                                    <div class="checkbox">
-                                                                                        <label><input type="checkbox" name="activity_have_amenity[]"
-                                                                                                value="{{ $amenity->id }}">{{ $amenity->name }}
-                                                                                        </label>
-                                                                                    </div>
-                                                                                @endforeach
+                                                                            @foreach (@$space_activity->spaceAmenities as $activityHavingAmenity)
+                                                                                <div class="checkbox">
+                                                                                    <label><input type="checkbox"
+                                                                                            name="activities[{{ $space_activity->id }}][activity_have_amenity][]"
+                                                                                            value="{{ @$activityHavingAmenity->id }}">{{ @$activityHavingAmenity->name }}
+                                                                                    </label>
+                                                                                </div>
                                                                             @endforeach
                                                                         </div>
                                                                     </div>
@@ -261,7 +273,8 @@
                                     </div>
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
-                                        <a class="btn btn-light" href="{{route('cancel-policy-step',$space->id)}}">Previous</a>
+                                        <a class="btn btn-light"
+                                            href="{{ route('cancel-policy-step', $space->id) }}">Previous</a>
                                         <button class="btn btn-primary">Next</button>
                                     </div>
                                 </div>
@@ -297,4 +310,19 @@
     <!-- Jquery/buttons JS-->
     <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.activity_checkbox').val('');
+            $('.activity-toggle').on('click', function() {
+                const activityId = $(this).data('activity');
+                const checkbox = $(`input[activity_id="${activityId}"]`);
+                checkbox.val(activityId);
+
+                if (checkbox.length > 0) {
+                    checkbox.prop('checked', !checkbox.prop('checked'));
+                }
+            });
+        });
+    </script>
 @endsection

@@ -8,6 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class SpaceActivityAmenity extends Model
 {
     use HasFactory;
-
-    
 }

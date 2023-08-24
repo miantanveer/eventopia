@@ -12,7 +12,9 @@ use App\Models\ParkingOption;
 use App\Models\SafetyMeasure;
 use App\Models\Space;
 use App\Models\SpaceActivity;
+use App\Models\SpaceActivityAmenity;
 use App\Models\SpaceHaveCompanyPolicy;
+use App\Models\SpaceHavingActivity;
 use App\Models\SpaceHavingMeasure;
 use App\Models\SpaceHavingParkingOption;
 use App\Models\SpaceImage;
@@ -342,12 +344,50 @@ class ListingSpaceController extends UserBaseController
     {
 
         try {
-
+            $data = $req->except('_token');
             $space = Space::find($space_id);
             if (!$space) {
                 return redirect()->back()->with('error', 'Space not found.');
             }
             $space->update(['last_step' => '8']);
+            if (isset($data['enabled_activities'])) {
+                $enabledActivityIds = $data['enabled_activities'];
+
+                if ($space->spaceHaveActivities) {
+                    $space->spaceHaveActivities->each(function ($spaceHaveActivity) {
+                        $spaceHaveActivity->delete();
+                    });
+                }
+
+                // Loop through the activities and merge enabled activity IDs
+                foreach ($data['activities'] as $activityId => $activityData) {
+                    if (in_array($activityId, $enabledActivityIds)) {
+
+                        $SpaceHavingActivity = new SpaceHavingActivity();
+                        $SpaceHavingActivity->space_id = $space_id;
+                        $SpaceHavingActivity->rate_per_hour = $activityData['rate_per_hour'][0];
+                        $SpaceHavingActivity->minimum_hour = $activityData['minimum_hour'][0];
+                        $SpaceHavingActivity->discount = $activityData['discount'][0];
+                        $SpaceHavingActivity->space_activity_id = $activityData['space_activity_id'][0];
+                        $SpaceHavingActivity->instant_booking = $activityData['instant_booking'][0];
+                        $SpaceHavingActivity->max_guests = $activityData['max_guests'][0];
+                        $SpaceHavingActivity->save();
+
+                        if ($activityData['activity_have_amenity'] && isset($activityData['activity_have_amenity'][0])) {
+
+                            foreach ($activityData['activity_have_amenity'] as $activity_have_amenity) {
+                                $SpaceActivityAmenity = new SpaceActivityAmenity();
+                                $SpaceActivityAmenity->space_having_activity_id = $SpaceHavingActivity->id;
+                                $SpaceActivityAmenity->space_amenity_id = $activity_have_amenity;
+                                $SpaceActivityAmenity->save();
+                            }
+                        }
+                    }
+                }
+                return redirect()->route('contact-step', ['space_id' => $space_id]);
+            } else {
+                return redirect()->back()->with('error', 'Please select any activity.');
+            }
 
             return redirect()->route('contact-step', ['space_id' => $space_id]);
         } catch (\Throwable $th) {

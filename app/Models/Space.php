@@ -68,4 +68,5 @@ class Space extends Model
     public function spaceHavePolicies(){
         return $this->hasMany(SpaceHaveCompanyPolicy::class);
     }
+
 }
