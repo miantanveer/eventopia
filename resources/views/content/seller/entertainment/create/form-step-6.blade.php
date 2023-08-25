@@ -65,6 +65,8 @@
                                     @csrf
                                     <div class="m-lg-6">
                                         <div class="row">
+                                           @foreach($ent_activity as $data)
+                                           {{-- @dd($data) --}}
                                             <div class="col-lg-4">
                                                 <div class="panel-group" id="accordion" role="tablist"
                                                     aria-multiselectable="true">
@@ -73,26 +75,31 @@
                                                             <div class="card border-end shadow-none m-0">
                                                                 <div class="card-body p-0">
                                                                     <div class="px-5 py-3 m-0 text-center bg-white">
-                                                                        <h5 class="text-dark m-0">Musical Acts</h5>
+                                                                        <h5 class="text-dark m-0">{{$data->title}}</h5>
                                                                         <hr class="bg-dark mb-0">
                                                                     </div>
                                                                     <div class="ms-5 my-4">
-                                                                        <li class="text-dark mb-2">Bands & Groups</li>
-                                                                        <li class="text-dark mb-2">Singers</li>
-                                                                        <li class="text-dark mb-2">Solo Musicians</li>
-                                                                        <li class="text-dark">More</li>
+                                                                        @foreach ($data->subActivities as $sub_activity)
+                                                                        <li class="text-dark mb-2">{{$sub_activity->title}}</li>
+                                                                        @endforeach
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <hr class="bg-dark mb-0 mt-1">
                                                             <h4 class="panel-title bg-primary text-center">
                                                                 <a role="button" data-bs-toggle="collapse"
-                                                                    data-bs-parent="#accordion" href="#collapse1"
+                                                                    data-bs-parent="#accordion" href="#collapse{{$loop->iteration}}"
                                                                     class="text-white" aria-expanded="true"
                                                                     aria-controls="collapse1"> Enable </a>
                                                             </h4>
                                                         </div>
-                                                        <div id="collapse1" class="panel-collapse collapse" role="tabpanel"
+                                                        <div class="form-check d-none">
+                                                            <input class="form-check-input activity_checkbox" type="checkbox"
+                                                             activity_id="{{ $data->id }}"
+                                                                name="enabled_activities[]"
+                                                                id="activity-{{ $data->id }}">
+                                                        </div>
+                                                        <div id="collapse{{$loop->iteration}}" class="panel-collapse collapse" role="tabpanel"
                                                             aria-labelledby="headingOne1">
                                                             <div class="panel-body">
                                                                 <label class="form-label">Pricing</label>
@@ -105,7 +112,7 @@
                                                                 <div class="form-group mb-6">
                                                                     <div class="input-group w-100">
                                                                         <input type="text" class="form-control" value="{{@$musical->hourly_rate}}"
-                                                                            placeholder="80" name="musical_hourly_rate"
+                                                                            placeholder="80" name="hourly_rate{{$loop->iteration}}"
                                                                             aria-label="Recipient's username"
                                                                             aria-describedby="basic-addon2">
                                                                         <span class="input-group-text"
@@ -117,7 +124,7 @@
                                                                 <div class="form-group mb-4">
                                                                     <div class="input-group w-100">
                                                                         <input type="text" class="form-control"
-                                                                            placeholder="5" name="musical_max_hours"
+                                                                            placeholder="5" name="max_hours{{$loop->iteration}}"
                                                                             aria-label="Recipient's username"
                                                                             aria-describedby="basic-addon2">
                                                                         <span class="input-group-text" id="basic-addon2"><i
@@ -130,7 +137,7 @@
                                                                 <div class="form-group mb-3">
                                                                     <div class="input-group w-100">
                                                                         <input type="text" class="form-control"
-                                                                            placeholder="Optional" name="musical_discount"
+                                                                            placeholder="Optional" name="discount{{$loop->iteration}}"
                                                                             aria-label="Recipient's username"
                                                                             aria-describedby="basic-addon2">
                                                                         <span class="input-group-text" id="basic-addon2">%
@@ -142,14 +149,14 @@
                                                                 <hr class="bg-dark mt-0">
                                                                 <div class="mb-5">
                                                                     <label>
-                                                                        <input type="radio" name="musical_join"
+                                                                        <input type="radio" name="join{{$loop->iteration}}"
                                                                             value="everyone">
                                                                         <span>Everyone</span>
                                                                     </label>
                                                                     <p>Guests who acknowledge and accept your host rules can
                                                                         book instantly.</p>
                                                                     <label>
-                                                                        <input type="radio" name="musical_join"
+                                                                        <input type="radio" name="join{{$loop->iteration}}"
                                                                             value="no one">
                                                                         <span>No one</span>
                                                                     </label>
@@ -158,7 +165,7 @@
                                                                 </div>
                                                                 <a href="#">Learn more?</a>
                                                                 <div class="my-5">
-                                                                    <p class="back-g-color p-3">Meeting listings get up to
+                                                                    <p class="back-g-color p-3">{{$data->title}} listings get up to
                                                                         2x
                                                                         more bookings when guests can book instantly</p>
                                                                 </div>
@@ -169,7 +176,7 @@
                                                                     <div class="input-group w-100">
                                                                         <input type="text" class="form-control"
                                                                             placeholder="250"
-                                                                            name="musical_guest_capacity"
+                                                                            name="guest_capacity{{$loop->iteration}}"
                                                                             aria-label="Recipient's username"
                                                                             aria-describedby="basic-addon2">
                                                                         <span class="input-group-text"
@@ -177,12 +184,25 @@
                                                                                 class="fa fa-group w-5 text-white"></i></span>
                                                                     </div>
                                                                 </div>
+                                                                <div class="row">
+                                                                    <div class="span12 pagination-centered">
+                                                                        @foreach (@$data->entAmenities as $activityHavingAmenity)
+                                                                            <div class="checkbox">
+                                                                                <label><input type="checkbox"
+                                                                                        name="activities[{{ $data->id }}][activity_have_amenity][]"
+                                                                                        value="{{ @$activityHavingAmenity->id }}">{{ @$activityHavingAmenity->name }}
+                                                                                </label>
+                                                                            </div>
+                                                                        @endforeach
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4">
+                                            @endforeach
+                                            {{-- <div class="col-lg-4">
                                                 <div class="panel-group" id="accordion" role="tablist"
                                                     aria-multiselectable="true">
                                                     <div class="panel panel-default active">
@@ -420,7 +440,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                     @if(@$key !== null)

@@ -7,10 +7,11 @@ use App\Models\Age;
 use App\Models\CancellationPolicy;
 use App\Models\CompanyReview;
 use App\Models\Entertainment;
-use App\Models\EntertainmentActivities;
+use App\Models\EntertainmentActivity;
 use App\Models\EntertainmentImages;
 use App\Models\OperatingDay;
 use App\Models\OperatingHour;
+use App\Models\EntActivity;
 use Illuminate\Http\Request;
 
 class EntertainmentController extends UserBaseController
@@ -123,9 +124,9 @@ class EntertainmentController extends UserBaseController
         $entertainment->last_steps = 'step-4';
         $entertainment->save();
         try {
-            $entertainment = Entertainment::find($space_id);
+            $entertainment = Entertainment::find($id);
             if ($entertainment) {
-                $entertainment->operatingDays()->delete(); // Assuming you have a relationship method named operatingDays
+                $entertainment->operatingDay()->delete(); // Assuming you have a relationship method named operatingDays
             }
             if ($req->has('monday')) {
                 $this->operatingDay($id, $req->monday, $req->monday_radio, $req->monday_start_time, $req->monday_end_time);
@@ -178,52 +179,56 @@ class EntertainmentController extends UserBaseController
     }
     public function loadFormStep6($id)
     {
-        $musical = EntertainmentActivities::whereEntertainmentId($id)->whereType('musical')->first();
-        $entertainers = EntertainmentActivities::whereEntertainmentId($id)->whereType('entertainers')->first();
-        $event = EntertainmentActivities::whereEntertainmentId($id)->whereType('event')->first();
-        return view('content\seller\entertainment\create\form-step-6', ['id' => $id, 'musical' => $musical, 'entertainers' => $entertainers, 'event' => $event]);
+        $this->musical = EntertainmentActivity::whereEntertainmentId($id)->first();
+        $this->entertainers = EntertainmentActivity::whereEntertainmentId($id)->first();
+        $this->event = EntertainmentActivity::whereEntertainmentId($id)->first();
+        $this->ent_activity = EntActivity::with('subActivities','entAmenities')->get();
+        $this->id = $id;
+        return view('content\seller\entertainment\create\form-step-6', $this->data);
     }
     public function loadUpdateFormStep6($id, $key)
     {
-        $musical = EntertainmentActivities::whereEntertainmentId($id)->whereType('musical')->first();
-        $entertainers = EntertainmentActivities::whereEntertainmentId($id)->whereType('entertainers')->first();
-        $event = EntertainmentActivities::whereEntertainmentId($id)->whereType('event')->first();
-        return view('content\seller\entertainment\create\form-step-6', ['id' => $id, 'key' => $key, 'musical' => $musical, 'entertainers' => $entertainers, 'event' => $event]);
+        $this->musical = EntertainmentActivity::whereEntertainmentId($id)->first();
+        $this->entertainers = EntertainmentActivity::whereEntertainmentId($id)->first();
+        $this->event = EntertainmentActivity::whereEntertainmentId($id)->first();
+        $this->ent_activity = EntActivity::with('subActivities','entAmenities')->get();
+        $this->id = $id;
+        return view('content\seller\entertainment\create\form-step-6', $this->data);
     }
     public function FormStep6(Request $req, $id)
     {
-
         $entertainment = Entertainment::find($id);
         $entertainment->last_steps = 'step-6';
         $entertainment->save();
+
         if ($req->musical_hourly_rate !== null) {
             $req->validate([
-                'musical_hourly_rate' => 'required',
-                'musical_max_hours' => 'required',
-                'musical_join' => 'required',
-                'musical_guest_capacity' => 'required',
+                'hourly_rate1' => 'required',
+                'max_hours1' => 'required',
+                'join1' => 'required',
+                'guest_capacity1' => 'required',
             ]);
-            $this->activities($id, $req->musical_hourly_rate, $req->musical_max_hours, $req->musical_discount, $req->musical_join, $req->musical_guest_capacity, 'musical');
+            $this->activities($id, $req->hourly_rate1, $req->max_hours1, $req->discount1, $req->join1, $req->guest_capacity1, 'musical');
         }
-        if ($req->entertainers_hourly_rate !== null) {
-            $req->validate([
-                'entertainers_hourly_rate' => 'required',
-                'entertainers_max_hours' => 'required',
-                'entertainers_join' => 'required',
-                'entertainers_gust_capacity' => 'required',
-            ]);
-            $this->activities($id, $req->entertainers_hourly_rate, $req->entertainers_max_hours, $req->entertainers_discount, $req->entertainers_join, $req->entertainers_guest_capacity, 'entertainers');
-        }
+        // if ($req->entertainers_hourly_rate !== null) {
+        //     $req->validate([
+        //         'entertainers_hourly_rate' => 'required',
+        //         'entertainers_max_hours' => 'required',
+        //         'entertainers_join' => 'required',
+        //         'entertainers_gust_capacity' => 'required',
+        //     ]);
+        //     $this->activities($id, $req->entertainers_hourly_rate, $req->entertainers_max_hours, $req->entertainers_discount, $req->entertainers_join, $req->entertainers_guest_capacity, 'entertainers');
+        // }
 
-        if ($req->event_hourly_rate !== null) {
-            $req->validate([
-                'event_hourly_rate' => 'required',
-                'event_max_hours' => 'required',
-                'event_join' => 'required',
-                'event_guest_capacity' => 'required',
-            ]);
-            $this->activities($id, $req->event_hourly_rate, $req->event_max_hours, $req->event_discount, $req->event_join, $req->event_guest_capacity, 'event');
-        }
+        // if ($req->event_hourly_rate !== null) {
+        //     $req->validate([
+        //         'event_hourly_rate' => 'required',
+        //         'event_max_hours' => 'required',
+        //         'event_join' => 'required',
+        //         'event_guest_capacity' => 'required',
+        //     ]);
+        //     $this->activities($id, $req->event_hourly_rate, $req->event_max_hours, $req->event_discount, $req->event_join, $req->event_guest_capacity, 'event');
+        // }
 
         return redirect()->route('load_entertainment_form_7', $id);
     }
@@ -361,25 +366,25 @@ class EntertainmentController extends UserBaseController
         $entertainment = Entertainment::find($id);
         switch ($entertainment->last_steps) {
             case 'step-1':
-                return redirect()->route('load_entertainment_form_2', ['id' => $entertainment->id]);
+                return redirect()->route('load_entertainment_form_2', ['id' => $id]);
                 break;
             case 'step-2':
-                return redirect()->route('load_entertainment_form_3', ['id' => $entertainment->id]);
+                return redirect()->route('load_entertainment_form_3', ['id' => $id]);
                 break;
             case 'step-3':
-                return redirect()->route('load_entertainment_form_4', ['id' => $entertainment->id]);
+                return redirect()->route('load_entertainment_form_4', ['id' => $id]);
                 break;
             case 'step-4':
-                return redirect()->route('load_entertainment_form_5', ['id' => $entertainment->id]);
+                return redirect()->route('load_entertainment_form_5', ['id' => $id]);
                 break;
             case 'step-5':
-                return redirect()->route('load_entertainment_form_6', ['id' => $entertainment->id]);
+                return redirect()->route('load_entertainment_form_6', ['id' => $id]);
                 break;
             case 'step-6':
-                return redirect()->route('load_entertainment_form_7', ['id' => $entertainment->id]);
+                return redirect()->route('load_entertainment_form_7', ['id' => $id]);
                 break;
             case 'step-7':
-                return redirect()->route('load_entertainment_form_8', ['id' => $entertainment->id]);
+                return redirect()->route('load_entertainment_form_8', ['id' => $id]);
                 break;
         }
     }

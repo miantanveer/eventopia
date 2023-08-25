@@ -474,6 +474,41 @@
                     @endforeach
                     {!! $service->links() !!}
 
+                        @endphp
+                        <div class="col-12">
+                            <div class="card border">
+                                <div class="col-12 p-2">
+                                    <div class="card shadow-sm border">
+                                        <div class="card-body p-0">
+                                            <div class="row">
+                                                <div class="col-12 col-sm-4 col-lg-6">
+                                                    <h5 class="card-title mt-3 d-inline">New Space:</h5>
+                                                    <p class="d-inline mt-3" style="font-weight: 100; margin-left: 5px">
+                                                        {{ $data->title }}</p>
+                                                </div>
+                                                <div class="col-12 col-sm-4 col-lg-3">
+                                                    <div class="progress progress-md mt-3">
+                                                        <div class="progress-bar bg-primary"
+                                                            style="width: {{ $progress }}%;"> {{ $progress }}%
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12 col-sm-4 col-lg-3 mt-5 mt-sm-0">
+                                                    <div class="text-end">
+                                                        <a href="{{ route('entertainment-form-resume', [ 'id'=>$data->id]) }}"
+                                                            class="btn btn-primary">Resume</a>
+                                                        <a class="modal-effect btn" data-bs-effect="effect-scale"
+                                                            onclick="deleteModal('{{ route('entertainment-delete', $data->id) }}')">
+                                                            <i class="fa fs-16 fa-trash text-danger"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                     @foreach ($entertainment as $key => $data)
                         <div class="col-12">
                             <div class="card border">

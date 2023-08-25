@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
                 'last_name'=>'Wick',
                 'email'=>'customer@example.com',
                 'phone_number'=>'+92310182100',
-                'date_of_birth'=>'2000-01-01',
+                'date_of_birth'=>'2000-02-01',
                 'password'=>Hash::make('123456'),
                 'status'=>'1',
                 'created_at'=>now(),

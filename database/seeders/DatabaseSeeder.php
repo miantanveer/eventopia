@@ -28,6 +28,10 @@ class DatabaseSeeder extends Seeder
             ServiceCategorySeeder::class,
             ServiceTitleSeeder::class,
             CompanyPolicySeeder::class,
+            EntAmenitySeeder::class,
+            EntActivitiesSeeder::class,
+            EntSubActivitySeeder::class,
+            EntHavingAmenitiesSeeder::class,
         ]);
     }
 }

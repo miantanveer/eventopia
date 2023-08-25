@@ -16,12 +16,12 @@ class CreateEntertainmentActivitiesTable extends Migration
         Schema::create('entertainment_activities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('entertainment_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('ent_activity_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('hourly_rate')->nullable();
             $table->string('max_hours')->nullable();
             $table->string('discount')->nullable();
             $table->string('join')->nullable();
             $table->string('guest_capacity')->nullable();
-            $table->string('type')->nullable();
             $table->timestamps();
         });
     }

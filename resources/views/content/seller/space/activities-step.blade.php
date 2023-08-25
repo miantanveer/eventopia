@@ -125,8 +125,8 @@
                                                                 </h4>
                                                             </div>
                                                             <div class="form-check d-none">
-                                                                <input class="form-check-input activity_checkbox" type="checkbox"
-                                                                 activity_id="{{ $space_activity->id }}"
+                                                                <input class="form-check-input activity_checkbox"
+                                                                    type="checkbox" activity_id="{{ $space_activity->id }}"
                                                                     name="enabled_activities[]"
                                                                     id="activity-{{ $space_activity->id }}">
                                                             </div>
@@ -255,14 +255,14 @@
                                                                         </div>
                                                                     </div>
                                                                     {{-- <div class="mt-4">
-                                                                <h4>Add your own amenities</h4>
-                                                                <input style="width:195px;height:42px;" type="text"
-                                                                    class="btn btn-default rounded-0">
-                                                                <button
-                                                                    style="margin-left:20px;width:80px;height:42px;background-color:#00224F;color:white;"
-                                                                    type="button"
-                                                                    class="btn btn-default rounded-0">Add</button>
-                                                            </div> --}}
+                                                                    <h4>Add your own amenities</h4>
+                                                                    <input style="width:195px;height:42px;" type="text"
+                                                                        class="btn btn-default rounded-0">
+                                                                    <button
+                                                                        style="margin-left:20px;width:80px;height:42px;background-color:#00224F;color:white;"
+                                                                        type="button"
+                                                                        class="btn btn-default rounded-0">Add</button>
+                                                                    </div> --}}
                                                                 </div>
                                                             </div>
                                                         </div>

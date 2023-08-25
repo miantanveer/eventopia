@@ -223,7 +223,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Resume Entertainment
     Route::get('/entertainment/resume/{id}', [EntertainmentController::class, 'resumeForm'])->name('entertainment-form-resume');
     // Update Entertainment Activities
-    Route::get('/entertainment/load/form/step/6/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep6'])->name('load_entertainment_form_step_6');
+    Route::get('/entertainment/update/form/step/6/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep6'])->name('load_entertainment_form_step_6');
     Route::post('/entertainment/update/form/step/6/{id}', [EntertainmentController::class, 'UpdateFormStep6'])->name('update_entertainment_form_6');
 });
 
