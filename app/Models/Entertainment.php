@@ -14,4 +14,7 @@ class Entertainment extends Model
     public function entertainmentActivities(){
         return $this->hasMany(EntertainmentActivities::class);
     }
+    public function operatingDay(){
+        return $this->hasMany(OperatingDay::class);
+    }
 }

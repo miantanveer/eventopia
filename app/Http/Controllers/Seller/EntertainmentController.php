@@ -97,20 +97,20 @@ class EntertainmentController extends UserBaseController
         //     }
         // }
         // else{
-            $filename = '';
-            if ($req->hasFile('file')) {
-                $image = $req->file;
-                $filename = time() . '-' . $image->getClientOriginalName();
-                $image->move(public_path('/uploads/seller/entertainment/'), $filename);
-            }
-            $image = new EntertainmentImages();
-            $image->entertainment_id = $id;
-            $image->image = $filename;
-            $image->save();
-            $entertainment = Entertainment::find($id);
-            $entertainment->last_steps = 'step-3';
-            $entertainment->save();
-            return response()->json($image);
+        $filename = '';
+        if ($req->hasFile('file')) {
+            $image = $req->file;
+            $filename = time() . '-' . $image->getClientOriginalName();
+            $image->move(public_path('/uploads/seller/entertainment/'), $filename);
+        }
+        $image = new EntertainmentImages();
+        $image->entertainment_id = $id;
+        $image->image = $filename;
+        $image->save();
+        $entertainment = Entertainment::find($id);
+        $entertainment->last_steps = 'step-3';
+        $entertainment->save();
+        return response()->json($image);
         // }
     }
     public function loadFormStep4($id)
@@ -122,35 +122,42 @@ class EntertainmentController extends UserBaseController
         $entertainment = Entertainment::find($id);
         $entertainment->last_steps = 'step-4';
         $entertainment->save();
-        if ($req->has('monday')) {
-            $this->operatingDay($id, $req->monday, $req->monday_radio, $req->monday_start_time, $req->monday_end_time);
-        }
+        try {
+            $entertainment = Entertainment::find($space_id);
+            if ($entertainment) {
+                $entertainment->operatingDays()->delete(); // Assuming you have a relationship method named operatingDays
+            }
+            if ($req->has('monday')) {
+                $this->operatingDay($id, $req->monday, $req->monday_radio, $req->monday_start_time, $req->monday_end_time);
+            }
 
-        if ($req->has('tuesday')) {
-            $this->operatingDay($id, $req->tuesday, $req->tuesday_radio, $req->tuesday_start_time, $req->tuesday_end_time);
-        }
+            if ($req->has('tuesday')) {
+                $this->operatingDay($id, $req->tuesday, $req->tuesday_radio, $req->tuesday_start_time, $req->tuesday_end_time);
+            }
 
-        if ($req->has('wednesday')) {
-            $this->operatingDay($id, $req->wednesday, $req->wednesday_radio, $req->wednesday_start_time, $req->wednesday_end_time);
-        }
+            if ($req->has('wednesday')) {
+                $this->operatingDay($id, $req->wednesday, $req->wednesday_radio, $req->wednesday_start_time, $req->wednesday_end_time);
+            }
 
-        if ($req->has('thursday')) {
-            $this->operatingDay($id, $req->thursday, $req->thursday_radio, $req->thursday_start_time, $req->thursday_end_time);
-        }
+            if ($req->has('thursday')) {
+                $this->operatingDay($id, $req->thursday, $req->thursday_radio, $req->thursday_start_time, $req->thursday_end_time);
+            }
 
-        if ($req->has('friday')) {
-            $this->operatingDay($id, $req->friday, $req->friday_radio, $req->friday_start_time, $req->friday_end_time);
-        }
+            if ($req->has('friday')) {
+                $this->operatingDay($id, $req->friday, $req->friday_radio, $req->friday_start_time, $req->friday_end_time);
+            }
 
-        if ($req->has('saturday')) {
-            $this->operatingDay($id, $req->saturday, $req->saturday_radio, $req->saturday_start_time, $req->saturday_end_time);
-        }
+            if ($req->has('saturday')) {
+                $this->operatingDay($id, $req->saturday, $req->saturday_radio, $req->saturday_start_time, $req->saturday_end_time);
+            }
 
-        if ($req->has('sunday')) {
-            $this->operatingDay($id, $req->sunday, $req->sunday_radio, $req->sunday_start_time, $req->sunday_end_time);
+            if ($req->has('sunday')) {
+                $this->operatingDay($id, $req->sunday, $req->sunday_radio, $req->sunday_start_time, $req->sunday_end_time);
+            }
+            return redirect()->route('load_entertainment_form_5', ['id' => $id]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
         }
-
-        return redirect()->route('load_entertainment_form_5', ['id' => $id]);
     }
     public function loadFormStep5($id)
     {
@@ -176,12 +183,12 @@ class EntertainmentController extends UserBaseController
         $event = EntertainmentActivities::whereEntertainmentId($id)->whereType('event')->first();
         return view('content\seller\entertainment\create\form-step-6', ['id' => $id, 'musical' => $musical, 'entertainers' => $entertainers, 'event' => $event]);
     }
-    public function loadUpdateFormStep6($id,$key)
+    public function loadUpdateFormStep6($id, $key)
     {
         $musical = EntertainmentActivities::whereEntertainmentId($id)->whereType('musical')->first();
         $entertainers = EntertainmentActivities::whereEntertainmentId($id)->whereType('entertainers')->first();
         $event = EntertainmentActivities::whereEntertainmentId($id)->whereType('event')->first();
-        return view('content\seller\entertainment\create\form-step-6', ['id' => $id,'key'=>$key, 'musical' => $musical, 'entertainers' => $entertainers, 'event' => $event]);
+        return view('content\seller\entertainment\create\form-step-6', ['id' => $id, 'key' => $key, 'musical' => $musical, 'entertainers' => $entertainers, 'event' => $event]);
     }
     public function FormStep6(Request $req, $id)
     {
@@ -220,7 +227,7 @@ class EntertainmentController extends UserBaseController
 
         return redirect()->route('load_entertainment_form_7', $id);
     }
-    public function UpdateFormStep6(Request $req,$id)
+    public function UpdateFormStep6(Request $req, $id)
     {
         if ($req->musical_hourly_rate !== null) {
             $req->validate([
@@ -251,7 +258,7 @@ class EntertainmentController extends UserBaseController
             $this->activities($id, $req->event_hourly_rate, $req->event_max_hours, $req->event_discount, $req->event_join, $req->event_guest_capacity, 'event');
         }
 
-        return redirect()->route('my_listing')->with('success','Listing Updated Successfully');
+        return redirect()->route('my_listing')->with('success', 'Listing Updated Successfully');
     }
     public function loadFormStep7($id)
     {
@@ -327,7 +334,7 @@ class EntertainmentController extends UserBaseController
     public function activities($id, $hour, $max, $discount, $join, $guest, $type)
     {
         $exists = EntertainmentActivities::whereId($id)->exists();
-        if($exists){
+        if ($exists) {
             $activity = EntertainmentActivities::find($id);
             $activity->entertainment_id = $id;
             $activity->hourly_rate = $hour;
@@ -337,7 +344,7 @@ class EntertainmentController extends UserBaseController
             $activity->guest_capacity = $guest;
             $activity->type = $type;
             $activity->save();
-        }else{
+        } else {
             $activity = new EntertainmentActivities();
             $activity->entertainment_id = $id;
             $activity->hourly_rate = $hour;
@@ -354,36 +361,36 @@ class EntertainmentController extends UserBaseController
         $entertainment = Entertainment::find($id);
         switch ($entertainment->last_steps) {
             case 'step-1':
-                return redirect()->route('load_entertainment_form_2',['id'=>$entertainment->id]);
+                return redirect()->route('load_entertainment_form_2', ['id' => $entertainment->id]);
                 break;
             case 'step-2':
-                return redirect()->route('load_entertainment_form_3',['id'=>$entertainment->id]);
+                return redirect()->route('load_entertainment_form_3', ['id' => $entertainment->id]);
                 break;
             case 'step-3':
-                return redirect()->route('load_entertainment_form_4',['id'=>$entertainment->id]);
+                return redirect()->route('load_entertainment_form_4', ['id' => $entertainment->id]);
                 break;
             case 'step-4':
-                return redirect()->route('load_entertainment_form_5',['id'=>$entertainment->id]);
+                return redirect()->route('load_entertainment_form_5', ['id' => $entertainment->id]);
                 break;
             case 'step-5':
-                return redirect()->route('load_entertainment_form_6',['id'=>$entertainment->id]);
+                return redirect()->route('load_entertainment_form_6', ['id' => $entertainment->id]);
                 break;
             case 'step-6':
-                return redirect()->route('load_entertainment_form_7',['id'=>$entertainment->id]);
+                return redirect()->route('load_entertainment_form_7', ['id' => $entertainment->id]);
                 break;
             case 'step-7':
-                return redirect()->route('load_entertainment_form_8',['id'=>$entertainment->id]);
+                return redirect()->route('load_entertainment_form_8', ['id' => $entertainment->id]);
                 break;
         }
     }
     public function destroy($id)
     {
         $entertainment = Entertainment::find($id);
-         $pre_image = EntertainmentImages::whereEntertainmentId($id)->exists();
-        if($pre_image){
+        $pre_image = EntertainmentImages::whereEntertainmentId($id)->exists();
+        if ($pre_image) {
             $delete_img = EntertainmentImages::whereEntertainmentId($id)->get();
             if (isset($delete_img)) {
-                foreach($delete_img as $key=>$data){
+                foreach ($delete_img as $key => $data) {
                     $file_path = public_path('/uploads/seller/entertainment/') . $data->image;
                     if (file_exists($file_path)) {
                         unlink($file_path);
@@ -393,6 +400,6 @@ class EntertainmentController extends UserBaseController
             }
         }
         $entertainment->delete();
-        return redirect()->route('my_listing')->with('success','Entertainment Deleted Successfully');
+        return redirect()->route('my_listing')->with('success', 'Entertainment Deleted Successfully');
     }
 }
