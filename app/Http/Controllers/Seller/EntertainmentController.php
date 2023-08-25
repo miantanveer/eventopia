@@ -326,40 +326,53 @@ class EntertainmentController extends UserBaseController
     }
     public function activities($id, $hour, $max, $discount, $join, $guest, $type)
     {
-        $activity = new EntertainmentActivities();
-        $activity->entertainment_id = $id;
-        $activity->hourly_rate = $hour;
-        $activity->max_hours = $max;
-        $activity->discount = $discount;
-        $activity->join = $join;
-        $activity->guest_capacity = $guest;
-        $activity->type = $type;
-        $activity->save();
+        $exists = EntertainmentActivities::whereId($id)->exists();
+        if($exists){
+            $activity = EntertainmentActivities::find($id);
+            $activity->entertainment_id = $id;
+            $activity->hourly_rate = $hour;
+            $activity->max_hours = $max;
+            $activity->discount = $discount;
+            $activity->join = $join;
+            $activity->guest_capacity = $guest;
+            $activity->type = $type;
+            $activity->save();
+        }else{
+            $activity = new EntertainmentActivities();
+            $activity->entertainment_id = $id;
+            $activity->hourly_rate = $hour;
+            $activity->max_hours = $max;
+            $activity->discount = $discount;
+            $activity->join = $join;
+            $activity->guest_capacity = $guest;
+            $activity->type = $type;
+            $activity->save();
+        }
     }
     public function resumeForm($id)
     {
-        $service = Entertainment::find($id);
-        switch ($service->last_steps) {
+        $entertainment = Entertainment::find($id);
+        switch ($entertainment->last_steps) {
             case 'step-1':
-                return redirect()->route('load_entertainment_form_2',['id'=>$service->id]);
+                return redirect()->route('load_entertainment_form_2',['id'=>$entertainment->id]);
                 break;
             case 'step-2':
-                return redirect()->route('load_entertainment_form_3',['id'=>$service->id]);
+                return redirect()->route('load_entertainment_form_3',['id'=>$entertainment->id]);
                 break;
             case 'step-3':
-                return redirect()->route('load_entertainment_form_4',['id'=>$service->id]);
+                return redirect()->route('load_entertainment_form_4',['id'=>$entertainment->id]);
                 break;
             case 'step-4':
-                return redirect()->route('load_entertainment_form_5',['id'=>$service->id]);
+                return redirect()->route('load_entertainment_form_5',['id'=>$entertainment->id]);
                 break;
             case 'step-5':
-                return redirect()->route('load_entertainment_form_6',['id'=>$service->id]);
+                return redirect()->route('load_entertainment_form_6',['id'=>$entertainment->id]);
                 break;
             case 'step-6':
-                return redirect()->route('load_entertainment_form_7',['id'=>$service->id]);
+                return redirect()->route('load_entertainment_form_7',['id'=>$entertainment->id]);
                 break;
             case 'step-7':
-                return redirect()->route('load_entertainment_form_8',['id'=>$service->id]);
+                return redirect()->route('load_entertainment_form_8',['id'=>$entertainment->id]);
                 break;
         }
     }

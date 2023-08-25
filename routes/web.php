@@ -185,7 +185,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Delete Service
     Route::delete('/service-delete/{id}', [ServiceController::class, 'destroy'])->name('service-delete');
     // Resume Service
-    Route::get('/resume/{id}', [ServiceController::class, 'resumeForm'])->name('service-form-resume');
+    Route::get('/service/resume/{id}', [ServiceController::class, 'resumeForm'])->name('service_form_resume');
 
     // Entertainment Routes
     Route::get('/entertainment-form-steps', function () {
@@ -219,7 +219,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Delete Enterainemnt
     Route::delete('/entertainment-delete/{id}', [EntertainmentController::class, 'destroy'])->name('entertainment-delete');
     // Resume Entertainment
-    Route::get('/resume/{id}', [EntertainmentController::class, 'resumeForm'])->name('entertainment-form-resume');
+    Route::get('/entertainment/resume/{id}', [EntertainmentController::class, 'resumeForm'])->name('entertainment-form-resume');
     // Update Entertainment Activities
     Route::get('/entertainment/load/form/step/6/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep6'])->name('load_entertainment_form_step_6');
     Route::post('/entertainment/update/form/step/6/{id}', [EntertainmentController::class, 'UpdateFormStep6'])->name('update_entertainment_form_6');
