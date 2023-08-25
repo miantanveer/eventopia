@@ -61,398 +61,195 @@
                                 </div>
                             @endif
                             <div id="step-6" class="mb-5">
-                                <form action="{{@$key !== null ? route('update_entertainment_form_6',$id) : route('entertainment_form_6', $id) }}" class="validation" method='post'>
+                                <form
+                                    action="{{ @$key !== null ? route('update_entertainment_form_6', $id) : route('entertainment_form_6', $id) }}"
+                                    class="validation" method='post'>
                                     @csrf
                                     <div class="m-lg-6">
                                         <div class="row">
-                                           @foreach($ent_activity as $data)
-                                           {{-- @dd($data) --}}
-                                            <div class="col-lg-4">
-                                                <div class="panel-group" id="accordion" role="tablist"
-                                                    aria-multiselectable="true">
-                                                    <div class="panel panel-default active">
-                                                        <div class="panel-heading" role="tab" id="headingOne1">
-                                                            <div class="card border-end shadow-none m-0">
-                                                                <div class="card-body p-0">
-                                                                    <div class="px-5 py-3 m-0 text-center bg-white">
-                                                                        <h5 class="text-dark m-0">{{$data->title}}</h5>
-                                                                        <hr class="bg-dark mb-0">
-                                                                    </div>
-                                                                    <div class="ms-5 my-4">
-                                                                        @foreach ($data->subActivities as $sub_activity)
-                                                                        <li class="text-dark mb-2">{{$sub_activity->title}}</li>
-                                                                        @endforeach
+                                            @foreach ($ent_activity as $data)
+                                                <div class="col-lg-4">
+                                                    <div class="panel-group" id="accordion" role="tablist"
+                                                        aria-multiselectable="true">
+                                                        <div class="panel panel-default active">
+                                                            <div class="panel-heading back-g-color" role="tab"
+                                                                id="headingOne1">
+                                                                <div class="card border-end shadow-none back-g-color m-0">
+                                                                    <div class="card-body p-0">
+                                                                        <div class="px-5 py-3 m-0 text-center bg-white">
+                                                                            <h5 class="text-dark m-0">
+                                                                                {{ $data->title }}</h5>
+                                                                            <hr class="bg-dark mb-0">
+                                                                        </div>
+                                                                        <div class="ms-5 my-4">
+                                                                            @foreach ($data->subActivities as $subActivity)
+                                                                                <li class="text-dark mb-2">
+                                                                                    {{ $subActivity->title }}</li>
+                                                                            @endforeach
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+
+                                                                <hr class="bg-dark mb-0 mt-1">
+                                                                <h4 class="panel-title bg-primary text-center">
+                                                                    <a role="button" data-bs-parent="#accordion"
+                                                                        data-bs-toggle="collapse"
+                                                                        href="#collapse{{ $loop->iteration }}"
+                                                                        class="text-white activity-toggle"
+                                                                        aria-expanded="true"
+                                                                        data-activity="{{ $data->id }}"
+                                                                        aria-controls="collapse{{ $loop->iteration }}">
+                                                                        Enable </a>
+                                                                </h4>
                                                             </div>
-                                                            <hr class="bg-dark mb-0 mt-1">
-                                                            <h4 class="panel-title bg-primary text-center">
-                                                                <a role="button" data-bs-toggle="collapse"
-                                                                    data-bs-parent="#accordion" href="#collapse{{$loop->iteration}}"
-                                                                    class="text-white" aria-expanded="true"
-                                                                    aria-controls="collapse1"> Enable </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div class="form-check d-none">
-                                                            <input class="form-check-input activity_checkbox" type="checkbox"
-                                                             activity_id="{{ $data->id }}"
-                                                                name="enabled_activities[]"
-                                                                id="activity-{{ $data->id }}">
-                                                        </div>
-                                                        <div id="collapse{{$loop->iteration}}" class="panel-collapse collapse" role="tabpanel"
-                                                            aria-labelledby="headingOne1">
-                                                            <div class="panel-body">
-                                                                <label class="form-label">Pricing</label>
-                                                                <hr class="bg-dark mt-0">
-                                                                <label class="mb-5">Hourly rate</label>
-                                                                <p>Please choose a base hourly rate. You
-                                                                    can customize your pricing with atten-
-                                                                    dee pricing, calendar pricing, add add-
-                                                                    ons once your listing are created.</p>
-                                                                <div class="form-group mb-6">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control" value="{{@$musical->hourly_rate}}"
-                                                                            placeholder="80" name="hourly_rate{{$loop->iteration}}"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text"
-                                                                            id="basic-addon2">SAR</span>
+                                                            <div class="form-check d-none">
+                                                                <input class="form-check-input activity_checkbox"
+                                                                    type="checkbox" activity_id="{{ $data->id }}"
+                                                                    name="enabled_activities[]"
+                                                                    id="activity-{{ $data->id }}">
+                                                            </div>
+                                                            <div id="collapse{{ $loop->iteration }}"
+                                                                class="panel-collapse collapse" role="tabpanel"
+                                                                aria-labelledby="headingOne1">
+                                                                <div class="panel-body">
+                                                                    <label class="form-label">Pricing</label>
+                                                                    <hr class="bg-dark mt-0">
+                                                                    <label class="mb-5">Hourly rate</label>
+                                                                    <p>Please choose a base hourly rate. You
+                                                                        can customize your pricing with atten-
+                                                                        dee pricing, calendar pricing, add add-
+                                                                        ons once your listing are created.</p>
+                                                                    <div class="form-group mb-6">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="80"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2"
+                                                                                name="activities[{{ $data->id }}][rate_per_hour][]">
+                                                                            <span class="input-group-text"
+                                                                                id="basic-addon2">SAR</span>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <p>Minimum number of hours</p>
-                                                                <p>Must be between 1-12 hours</p>
-                                                                <div class="form-group mb-4">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="5" name="max_hours{{$loop->iteration}}"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text" id="basic-addon2"><i
-                                                                                class="fa fa-calendar w-5 text-white"></i></span>
+                                                                    <p>Minimum number of hours</p>
+                                                                    <p>Must be between 1-12 hours</p>
+                                                                    <div class="form-group mb-4">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="5"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2"
+                                                                                name="activities[{{ $data->id }}][minimum_hour][]">
+                                                                            <span class="input-group-text"
+                                                                                id="basic-addon2"><i
+                                                                                    class="fa fa-calendar w-5 text-white"></i></span>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <label class="my-5">8+ hour discount</label>
-                                                                <p>Encourage guests to book longer by giving a discount for
-                                                                    bookings that are 8 hours or more.</p>
-                                                                <div class="form-group mb-3">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Optional" name="discount{{$loop->iteration}}"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text" id="basic-addon2">%
-                                                                            off</span>
+
+                                                                    <label class="my-5">8+ hour discount</label>
+                                                                    <p>Encourage guests to book longer by giving a discount
+                                                                        for
+                                                                        bookings that are 8 hours or more.</p>
+                                                                    <div class="form-group mb-3">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="Optional"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2"
+                                                                                name="activities[{{ $data->id }}][discount][]">
+                                                                            <span class="input-group-text"
+                                                                                id="basic-addon2">%
+                                                                                off</span>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <a href="#" class="mb-6">How is this calculated?</a>
-                                                                <label class="form-label">Who can book instantly?</label>
-                                                                <hr class="bg-dark mt-0">
-                                                                <div class="mb-5">
-                                                                    <label>
-                                                                        <input type="radio" name="join{{$loop->iteration}}"
-                                                                            value="everyone">
-                                                                        <span>Everyone</span>
-                                                                    </label>
-                                                                    <p>Guests who acknowledge and accept your host rules can
-                                                                        book instantly.</p>
-                                                                    <label>
-                                                                        <input type="radio" name="join{{$loop->iteration}}"
-                                                                            value="no one">
-                                                                        <span>No one</span>
-                                                                    </label>
-                                                                    <p>Booking requests will need to be manually accepted or
-                                                                        declined.</p>
-                                                                </div>
-                                                                <a href="#">Learn more?</a>
-                                                                <div class="my-5">
-                                                                    <p class="back-g-color p-3">{{$data->title}} listings get up to
-                                                                        2x
-                                                                        more bookings when guests can book instantly</p>
-                                                                </div>
-                                                                <label class="form-label">Capacity</label>
-                                                                <hr class="bg-dark mb-3">
-                                                                <p>Maximum number of guests</p>
-                                                                <div class="form-group mb-3">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="250"
-                                                                            name="guest_capacity{{$loop->iteration}}"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text"
-                                                                            id="basic-addon2"><i
-                                                                                class="fa fa-group w-5 text-white"></i></span>
+                                                                    <input type="hidden"
+                                                                        name="activities[{{ $data->id }}][space_activity_id][]"
+                                                                        value="{{ $data->id }}">
+                                                                    <a href="#" class="mb-6">How is this
+                                                                        calculated?</a>
+                                                                    <label class="form-label">Who can book
+                                                                        instantly?</label>
+                                                                    <hr class="bg-dark mt-0">
+                                                                    <div class="mb-5">
+                                                                        <label>
+                                                                            <input type="radio"
+                                                                                name="activities[{{ $data->id }}][instant_booking][]"
+                                                                                value="everyone">
+                                                                            <span>Everyone</span>
+                                                                        </label>
+                                                                        <p>Guests who acknowledge and accept your host rules
+                                                                            can
+                                                                            book instantly.</p>
+                                                                        <label>
+                                                                            <input type="radio"
+                                                                                name="activities[{{ $data->id }}][instant_booking][]"
+                                                                                value="no one">
+                                                                            <span>No one</span>
+                                                                        </label>
+                                                                        <p>Booking requests will need to be manually
+                                                                            accepted or
+                                                                            declined.</p>
                                                                     </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="span12 pagination-centered">
-                                                                        @foreach (@$data->entAmenities as $activityHavingAmenity)
-                                                                            <div class="checkbox">
-                                                                                <label><input type="checkbox"
-                                                                                        name="activities[{{ $data->id }}][activity_have_amenity][]"
-                                                                                        value="{{ @$activityHavingAmenity->id }}">{{ @$activityHavingAmenity->name }}
-                                                                                </label>
-                                                                            </div>
-                                                                        @endforeach
+                                                                    <a href="#">Learn more?</a>
+                                                                    <div class="my-5">
+                                                                        <p class="back-g-color p-3">Meeting listings get up
+                                                                            to
+                                                                            2x
+                                                                            more bookings when guests can book instantly</p>
+                                                                    </div>
+                                                                    <label class="form-label">Capacity</label>
+                                                                    <hr class="bg-dark mb-3">
+                                                                    <p>Maximum number of guests</p>
+                                                                    <div class="form-group mb-3">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="text" class="form-control"
+                                                                                placeholder="250"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2"
+                                                                                name="activities[{{ $data->id }}][max_guests][]">
+                                                                            <span class="input-group-text"
+                                                                                id="basic-addon2"><i
+                                                                                    class="fa fa-group w-5 text-white"></i></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr class="bg-dark mb-3">
+                                                                    <p>All amenities you select should be inclu-
+                                                                        ded in your hourly rate. If you have
+                                                                        amenities that you charge for, do not
+                                                                        include them here. You can add those in
+                                                                        a later section.
+                                                                    </p><br>
+                                                                    You must include WiFi, tables, and chairs
+                                                                    to offer meetings
+                                                                    <div class="row">
+                                                                        <div class="span12 pagination-centered">
+                                                                            @foreach (@$data->entAmenities as $activityHavingAmenity)
+                                                                                <div class="checkbox">
+                                                                                    <label><input type="checkbox"
+                                                                                            name="activities[{{ $data->id }}][activity_have_amenity][]"
+                                                                                            value="{{ @$activityHavingAmenity->id }}">{{ @$activityHavingAmenity->name }}
+                                                                                    </label>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             @endforeach
-                                            {{-- <div class="col-lg-4">
-                                                <div class="panel-group" id="accordion" role="tablist"
-                                                    aria-multiselectable="true">
-                                                    <div class="panel panel-default active">
-                                                        <div class="panel-heading" role="tab" id="headingTwo2">
-                                                            <div class="card border-end shadow-none m-0">
-                                                                <div class="card-body p-0">
-                                                                    <div class="px-5 py-3 m-0 text-center bg-white">
-                                                                        <h5 class="text-dark m-0">Entertainers</h5>
-                                                                        <hr class="bg-dark mb-0">
-                                                                    </div>
-                                                                    <div class="ms-5 my-4">
-                                                                        <li class="text-dark mb-2">Actors</li>
-                                                                        <li class="text-dark mb-2">Comedians</li>
-                                                                        <li class="text-dark mb-2">Children Party</li>
-                                                                        <li class="text-dark">More</li>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <hr class="bg-dark mb-0 mt-1">
-                                                            <h4 class="panel-title bg-primary text-center">
-                                                                <a class="collapsed text-white" role="button"
-                                                                    data-bs-toggle="collapse" data-bs-parent="#accordion"
-                                                                    href="#collapse2" aria-expanded="false"
-                                                                    aria-controls="collapse2"> Enable </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapse2" class="panel-collapse collapse"
-                                                            role="tabpanel" aria-labelledby="headingTwo2">
-                                                            <div class="panel-body">
-                                                                <label class="form-label">Pricing</label>
-                                                                <hr class="bg-dark mt-0">
-                                                                <label class="mb-5">Hourly rate</label>
-                                                                <p>Please choose a base hourly rate. You
-                                                                    can customize your pricing with atten-
-                                                                    dee pricing, calendar pricing, add add-
-                                                                    ons once your listing are created.</p>
-                                                                <div class="form-group mb-6">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="80"
-                                                                            name="entertainers_hourly_rate"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text"
-                                                                            id="basic-addon2">SAR</span>
-                                                                    </div>
-                                                                </div>
-                                                                <p>Minimum number of hours</p>
-                                                                <p>Must be between 1-12 hours</p>
-                                                                <div class="form-group mb-4">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="5" name="entertainers_max_hours"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text"
-                                                                            id="basic-addon2"><i
-                                                                                class="fa fa-calendar w-5 text-white"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <label class="my-5">8+ hour discount</label>
-                                                                <p>Encourage guests to book longer by giving a discount for
-                                                                    bookings that are 8 hours or more.</p>
-                                                                <div class="form-group mb-3">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Optional"
-                                                                            name="entertainers_discount"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text" id="basic-addon2">%
-                                                                            off</span>
-                                                                    </div>
-                                                                </div>
-                                                                <a href="#" class="mb-6">How is this
-                                                                    calculated?</a>
-                                                                <label class="form-label">Who can book instantly?</label>
-                                                                <hr class="bg-dark mt-0">
-                                                                <div class="mb-5">
-                                                                    <label>
-                                                                        <input type="radio" name="entertainers_join"
-                                                                            value="every one">
-                                                                        <span>Everyone</span>
-                                                                    </label>
-                                                                    <p>Guests who acknowledge and accept your host rules can
-                                                                        book instantly.</p>
-                                                                    <label>
-                                                                        <input type="radio" name="entertainers_join"
-                                                                            value="no one">
-                                                                        <span>No one</span>
-                                                                    </label>
-                                                                    <p>Booking requests will need to be manually accepted or
-                                                                        declined.</p>
-                                                                </div>
-                                                                <a href="#">Learn more?</a>
-                                                                <div class="my-5">
-                                                                    <p class="back-g-color p-3">Meeting listings get up to
-                                                                        2x
-                                                                        more bookings when guests can book instantly</p>
-                                                                </div>
-                                                                <label class="form-label">Capacity</label>
-                                                                <hr class="bg-dark mb-3">
-                                                                <p>Maximum number of guests</p>
-                                                                <div class="form-group mb-3">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="250"
-                                                                            name="entertainers_gust_capacity"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text"
-                                                                            id="basic-addon2"><i
-                                                                                class="fa fa-group w-5 text-white"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4">
-                                                <div class="panel-group" id="accordion" role="tablist"
-                                                    aria-multiselectable="true">
-                                                    <div class="panel panel-default active">
-                                                        <div class="panel-heading" role="tab" id="heading3">
-                                                            <div class="card border-end shadow-none m-0">
-                                                                <div class="card-body p-0">
-                                                                    <div class="px-5 py-3 m-0 text-center bg-white">
-                                                                        <h5 class="text-dark m-0">Event Services</h5>
-                                                                        <hr class="bg-dark mb-0">
-                                                                    </div>
-                                                                    <div class="ms-5 my-4">
-                                                                        <li class="text-dark mb-2">Beauty</li>
-                                                                        <li class="text-dark mb-2">Food & Beverage</li>
-                                                                        <li class="text-dark mb-2">Photos & videos</li>
-                                                                        <li class="text-dark">More</li>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <hr class="bg-dark mb-0 mt-1">
-                                                            <h4 class="panel-title bg-primary text-center">
-                                                                <a class="collapsed text-white" role="button"
-                                                                    data-bs-toggle="collapse" data-bs-parent="#accordion"
-                                                                    href="#collapse3" aria-expanded="false"
-                                                                    aria-controls="collapse3"> Enable </a>
-                                                            </h4>
-                                                        </div>
-                                                        <div id="collapse3" class="panel-collapse collapse"
-                                                            role="tabpanel" aria-labelledby="headingThree">
-                                                            <div class="panel-body">
-                                                                <label class="form-label">Pricing</label>
-                                                                <hr class="bg-dark mt-0">
-                                                                <label class="mb-5">Hourly rate</label>
-                                                                <p>Please choose a base hourly rate. You
-                                                                    can customize your pricing with atten-
-                                                                    dee pricing, calendar pricing, add add-
-                                                                    ons once your listing are created.</p>
-                                                                <div class="form-group mb-6">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="80" name="event_hourly_rate"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text"
-                                                                            id="basic-addon2">SAR</span>
-                                                                    </div>
-                                                                </div>
-                                                                <p>Minimum number of hours</p>
-                                                                <p>Must be between 1-12 hours</p>
-                                                                <div class="form-group mb-4">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="5" name="event_max_hours"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text"
-                                                                            id="basic-addon2"><i
-                                                                                class="fa fa-calendar w-5 text-white"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                                <label class="my-5">8+ hour discount</label>
-                                                                <p>Encourage guests to book longer by giving a discount for
-                                                                    bookings that are 8 hours or more.</p>
-                                                                <div class="form-group mb-3">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="Optional" name="event_discount"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text" id="basic-addon2">%
-                                                                            off</span>
-                                                                    </div>
-                                                                </div>
-                                                                <a href="#" class="mb-6">How is this
-                                                                    calculated?</a>
-                                                                <label class="form-label">Who can book instantly?</label>
-                                                                <hr class="bg-dark mt-0">
-                                                                <div class="mb-5">
-                                                                    <label>
-                                                                        <input type="radio" name="event_join"
-                                                                            value="every one">
-                                                                        <span>Everyone</span>
-                                                                    </label>
-                                                                    <p>Guests who acknowledge and accept your host rules can
-                                                                        book instantly.</p>
-                                                                    <label>
-                                                                        <input type="radio" name="event_join"
-                                                                            value="no one">
-                                                                        <span>No one</span>
-                                                                    </label>
-                                                                    <p>Booking requests will need to be manually accepted or
-                                                                        declined.</p>
-                                                                </div>
-                                                                <a href="#">Learn more?</a>
-                                                                <div class="my-5">
-                                                                    <p class="back-g-color p-3">Meeting listings get up to
-                                                                        2x
-                                                                        more bookings when guests can book instantly</p>
-                                                                </div>
-                                                                <label class="form-label">Capacity</label>
-                                                                <hr class="bg-dark mb-3">
-                                                                <p>Maximum number of guests</p>
-                                                                <div class="form-group mb-3">
-                                                                    <div class="input-group w-100">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="250" name="event_guest_capacity"
-                                                                            aria-label="Recipient's username"
-                                                                            aria-describedby="basic-addon2">
-                                                                        <span class="input-group-text"
-                                                                            id="basic-addon2"><i
-                                                                                class="fa fa-group w-5 text-white"></i></span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> --}}
                                         </div>
                                     </div>
-                                    @if(@$key !== null)
-                                    <div class="float-end">
-                                        <button class="btn btn-primary">Update</button>
-                                    </div>
+                                    @if (@$key !== null)
+                                        <div class="float-end">
+                                            <button class="btn btn-primary">Update</button>
+                                        </div>
                                     @else
-                                    <div class="float-end">
-                                        <a class="btn btn-light"
-                                            href="{{ route('load_entertainment_form_5', $id) }}">Previous</a>
-                                        <button class="btn btn-primary">Next</button>
-                                    </div>
+                                        <div class="float-end">
+                                            <a class="btn btn-light"
+                                                href="{{ route('load_entertainment_form_5', $id) }}">Previous</a>
+                                            <button class="btn btn-primary">Next</button>
+                                        </div>
                                     @endif
                                 </form>
                             </div>
@@ -480,6 +277,16 @@
         <script>
             $(document).ready(function() {
                 $('.validation').parsley();
+                $('.activity_checkbox').val('');
+                $('.activity-toggle').on('click', function() {
+                    const activityId = $(this).data('activity');
+                    const checkbox = $(`input[activity_id="${activityId}"]`);
+                    checkbox.val(activityId);
+    
+                    if (checkbox.length > 0) {
+                        checkbox.prop('checked', !checkbox.prop('checked'));
+                    }
+                });
             });
         </script>
     @endsection

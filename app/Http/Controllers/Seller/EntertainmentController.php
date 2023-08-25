@@ -12,6 +12,7 @@ use App\Models\EntertainmentImages;
 use App\Models\OperatingDay;
 use App\Models\OperatingHour;
 use App\Models\EntActivity;
+use App\Models\EntActivityAmenity;
 use Illuminate\Http\Request;
 
 class EntertainmentController extends UserBaseController
@@ -193,77 +194,114 @@ class EntertainmentController extends UserBaseController
         $this->event = EntertainmentActivity::whereEntertainmentId($id)->first();
         $this->ent_activity = EntActivity::with('subActivities','entAmenities')->get();
         $this->id = $id;
+        $this->key = $key;
         return view('content\seller\entertainment\create\form-step-6', $this->data);
     }
     public function FormStep6(Request $req, $id)
     {
-        $entertainment = Entertainment::find($id);
-        $entertainment->last_steps = 'step-6';
-        $entertainment->save();
+        try {
+            $data = $req->except('_token');
+            $space = Entertainment::find($id);
+            if (!$space) {
+                return redirect()->back()->with('error', 'Space not found.');
+            }
+            $space->update(['last_steps' => 'step-6']);
+            if (isset($data['enabled_activities'])) {
+                $enabledActivityIds = $data['enabled_activities'];
 
-        if ($req->musical_hourly_rate !== null) {
-            $req->validate([
-                'hourly_rate1' => 'required',
-                'max_hours1' => 'required',
-                'join1' => 'required',
-                'guest_capacity1' => 'required',
-            ]);
-            $this->activities($id, $req->hourly_rate1, $req->max_hours1, $req->discount1, $req->join1, $req->guest_capacity1, 'musical');
+                if ($space->entHaveActivities) {
+                    $space->entHaveActivities->each(function ($entHaveActivity) {
+                        $entHaveActivity->delete();
+                    });
+                }
+
+                // Loop through the activities and merge enabled activity IDs
+                foreach ($data['activities'] as $activityId => $activityData) {
+                    if (in_array($activityId, $enabledActivityIds)) {
+
+                        $ent_activity = new EntertainmentActivity();
+                        $ent_activity->entertainment_id = $id;
+                        $ent_activity->hourly_rate = $activityData['rate_per_hour'][0];
+                        $ent_activity->max_hours = $activityData['minimum_hour'][0];
+                        $ent_activity->discount = $activityData['discount'][0];
+                        $ent_activity->ent_activity_id = $activityData['space_activity_id'][0];
+                        $ent_activity->join	 = $activityData['instant_booking'][0];
+                        $ent_activity->guest_capacity = $activityData['max_guests'][0];
+                        $ent_activity->save();
+
+                        if ($activityData['activity_have_amenity'] && isset($activityData['activity_have_amenity'][0])) {
+
+                            foreach ($activityData['activity_have_amenity'] as $activity_have_amenity) {
+                                $SpaceActivityAmenity = new EntActivityAmenity();
+                                $SpaceActivityAmenity->entertainment_activity_id = $ent_activity->id;
+                                $SpaceActivityAmenity->ent_amenity_id = $activity_have_amenity;
+                                $SpaceActivityAmenity->save();
+                            }
+                        }
+                    }
+                }
+                return redirect()->route('load_entertainment_form_7', $id);
+            } else {
+                return redirect()->back()->with('error', 'Please select any activity.');
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
         }
-        // if ($req->entertainers_hourly_rate !== null) {
-        //     $req->validate([
-        //         'entertainers_hourly_rate' => 'required',
-        //         'entertainers_max_hours' => 'required',
-        //         'entertainers_join' => 'required',
-        //         'entertainers_gust_capacity' => 'required',
-        //     ]);
-        //     $this->activities($id, $req->entertainers_hourly_rate, $req->entertainers_max_hours, $req->entertainers_discount, $req->entertainers_join, $req->entertainers_guest_capacity, 'entertainers');
-        // }
-
-        // if ($req->event_hourly_rate !== null) {
-        //     $req->validate([
-        //         'event_hourly_rate' => 'required',
-        //         'event_max_hours' => 'required',
-        //         'event_join' => 'required',
-        //         'event_guest_capacity' => 'required',
-        //     ]);
-        //     $this->activities($id, $req->event_hourly_rate, $req->event_max_hours, $req->event_discount, $req->event_join, $req->event_guest_capacity, 'event');
-        // }
 
         return redirect()->route('load_entertainment_form_7', $id);
     }
     public function UpdateFormStep6(Request $req, $id)
     {
-        if ($req->musical_hourly_rate !== null) {
-            $req->validate([
-                'musical_hourly_rate' => 'required',
-                'musical_max_hours' => 'required',
-                'musical_join' => 'required',
-                'musical_guest_capacity' => 'required',
-            ]);
-            $this->activities($id, $req->musical_hourly_rate, $req->musical_max_hours, $req->musical_discount, $req->musical_join, $req->musical_guest_capacity, 'musical');
-        }
-        if ($req->entertainers_hourly_rate !== null) {
-            $req->validate([
-                'entertainers_hourly_rate' => 'required',
-                'entertainers_max_hours' => 'required',
-                'entertainers_join' => 'required',
-                'entertainers_gust_capacity' => 'required',
-            ]);
-            $this->activities($id, $req->entertainers_hourly_rate, $req->entertainers_max_hours, $req->entertainers_discount, $req->entertainers_join, $req->entertainers_guest_capacity, 'entertainers');
+        try {
+            $data = $req->except('_token');
+            $space = Entertainment::find($id);
+            if (!$space) {
+                return redirect()->back()->with('error', 'Space not found.');
+            }
+            $space->update(['last_steps' => 'step-8']);
+            if (isset($data['enabled_activities'])) {
+                $enabledActivityIds = $data['enabled_activities'];
+
+                if ($space->entHaveActivities) {
+                    $space->entHaveActivities->each(function ($entHaveActivity) {
+                        $entHaveActivity->delete();
+                    });
+                }
+
+                // Loop through the activities and merge enabled activity IDs
+                foreach ($data['activities'] as $activityId => $activityData) {
+                    if (in_array($activityId, $enabledActivityIds)) {
+
+                        $ent_activity = new EntertainmentActivity();
+                        $ent_activity->entertainment_id = $id;
+                        $ent_activity->hourly_rate = $activityData['rate_per_hour'][0];
+                        $ent_activity->max_hours = $activityData['minimum_hour'][0];
+                        $ent_activity->discount = $activityData['discount'][0];
+                        $ent_activity->ent_activity_id = $activityData['space_activity_id'][0];
+                        $ent_activity->join	 = $activityData['instant_booking'][0];
+                        $ent_activity->guest_capacity = $activityData['max_guests'][0];
+                        $ent_activity->save();
+
+                        if ($activityData['activity_have_amenity'] && isset($activityData['activity_have_amenity'][0])) {
+
+                            foreach ($activityData['activity_have_amenity'] as $activity_have_amenity) {
+                                $SpaceActivityAmenity = new EntActivityAmenity();
+                                $SpaceActivityAmenity->entertainment_activity_id = $ent_activity->id;
+                                $SpaceActivityAmenity->ent_amenity_id = $activity_have_amenity;
+                                $SpaceActivityAmenity->save();
+                            }
+                        }
+                    }
+                }
+                return redirect()->route('my-listing')->with('success','Entertainment Updated Successfully');
+            } else {
+                return redirect()->back()->with('error', 'Please select any activity.');
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
         }
 
-        if ($req->event_hourly_rate !== null) {
-            $req->validate([
-                'event_hourly_rate' => 'required',
-                'event_max_hours' => 'required',
-                'event_join' => 'required',
-                'event_guest_capacity' => 'required',
-            ]);
-            $this->activities($id, $req->event_hourly_rate, $req->event_max_hours, $req->event_discount, $req->event_join, $req->event_guest_capacity, 'event');
-        }
-
-        return redirect()->route('my-listing')->with('success','Listing Updated Successfully');
+        return redirect()->route('my-listing')->with('success','Entertainment Updated Successfully');
     }
     public function loadFormStep7($id)
     {
@@ -336,31 +374,31 @@ class EntertainmentController extends UserBaseController
         $hour->end_time = $end;
         $hour->save();
     }
-    public function activities($id, $hour, $max, $discount, $join, $guest, $type)
-    {
-        $exists = EntertainmentActivities::whereId($id)->exists();
-        if ($exists) {
-            $activity = EntertainmentActivities::find($id);
-            $activity->entertainment_id = $id;
-            $activity->hourly_rate = $hour;
-            $activity->max_hours = $max;
-            $activity->discount = $discount;
-            $activity->join = $join;
-            $activity->guest_capacity = $guest;
-            $activity->type = $type;
-            $activity->save();
-        } else {
-            $activity = new EntertainmentActivities();
-            $activity->entertainment_id = $id;
-            $activity->hourly_rate = $hour;
-            $activity->max_hours = $max;
-            $activity->discount = $discount;
-            $activity->join = $join;
-            $activity->guest_capacity = $guest;
-            $activity->type = $type;
-            $activity->save();
-        }
-    }
+    // public function activities($id, $hour, $max, $discount, $join, $guest, $type)
+    // {
+    //     $exists = EntertainmentActivities::whereId($id)->exists();
+    //     if ($exists) {
+    //         $activity = EntertainmentActivities::find($id);
+    //         $activity->entertainment_id = $id;
+    //         $activity->hourly_rate = $hour;
+    //         $activity->max_hours = $max;
+    //         $activity->discount = $discount;
+    //         $activity->join = $join;
+    //         $activity->guest_capacity = $guest;
+    //         $activity->type = $type;
+    //         $activity->save();
+    //     } else {
+    //         $activity = new EntertainmentActivities();
+    //         $activity->entertainment_id = $id;
+    //         $activity->hourly_rate = $hour;
+    //         $activity->max_hours = $max;
+    //         $activity->discount = $discount;
+    //         $activity->join = $join;
+    //         $activity->guest_capacity = $guest;
+    //         $activity->type = $type;
+    //         $activity->save();
+    //     }
+    // }
     public function resumeForm($id)
     {
         $entertainment = Entertainment::find($id);

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEntActivitiesTable extends Migration
+class CreateEntActivityAmenitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateEntActivitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ent_activities', function (Blueprint $table) {
+        Schema::create('ent_activity_amenities', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
-            $table->string('image')->nullable();
-            $table->string('description')->nullable();
+            $table->foreignId('ent_amenity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('entertainment_activity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateEntActivitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ent_activities');
+        Schema::dropIfExists('ent_activity_amenities');
     }
 }

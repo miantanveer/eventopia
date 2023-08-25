@@ -76,7 +76,7 @@
                                             break;
                                         // Add more cases as needed
                                     }
-
+                                    
                                 @endphp
                                 <div class="row">
                                     <div class="col-12 p-2">
@@ -134,7 +134,7 @@
                                             break;
                                         // Add more cases as needed
                                     }
-
+                                    
                                 @endphp
                                 <div class="row">
                                     <div class="col-12">
@@ -194,7 +194,7 @@
                                             break;
                                         // Add more cases as needed
                                     }
-
+                                    
                                 @endphp
                                 <div class="col-12">
                                     <div class="card border">
@@ -245,10 +245,12 @@
                                                 <div class="card-body p-0 p-sm-5">
                                                     <div class="mx-0 row w-100 align-items-center">
                                                         <div class="col-12 pt-4 pb-5 fw-bolder">
-                                                            <h5 class="card-title">{{ $space->space_title ?? "No Title" }}</h5>
+                                                            <h5 class="card-title">{{ $space->space_title ?? 'No Title' }}
+                                                            </h5>
                                                         </div>
                                                         <div class="col-sm-6 col-12 col-lg-8 pe-0">
-                                                            <p class="card-text">{{ $space->space_description ?? "No Description"}}</p>
+                                                            <p class="card-text">
+                                                                {{ $space->space_description ?? 'No Description' }}</p>
                                                         </div>
                                                         <div class="col-sm-6 col-12 col-lg-4 my-auto ps-0 mt-3 mt-sm-0">
                                                             <div class="text-end">
@@ -473,42 +475,7 @@
                         </div>
                     @endforeach
                     {!! $service->links() !!}
-
-                        @endphp
-                        <div class="col-12">
-                            <div class="card border">
-                                <div class="col-12 p-2">
-                                    <div class="card shadow-sm border">
-                                        <div class="card-body p-0">
-                                            <div class="row">
-                                                <div class="col-12 col-sm-4 col-lg-6">
-                                                    <h5 class="card-title mt-3 d-inline">New Space:</h5>
-                                                    <p class="d-inline mt-3" style="font-weight: 100; margin-left: 5px">
-                                                        {{ $data->title }}</p>
-                                                </div>
-                                                <div class="col-12 col-sm-4 col-lg-3">
-                                                    <div class="progress progress-md mt-3">
-                                                        <div class="progress-bar bg-primary"
-                                                            style="width: {{ $progress }}%;"> {{ $progress }}%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12 col-sm-4 col-lg-3 mt-5 mt-sm-0">
-                                                    <div class="text-end">
-                                                        <a href="{{ route('entertainment-form-resume', [ 'id'=>$data->id]) }}"
-                                                            class="btn btn-primary">Resume</a>
-                                                        <a class="modal-effect btn" data-bs-effect="effect-scale"
-                                                            onclick="deleteModal('{{ route('entertainment-delete', $data->id) }}')">
-                                                            <i class="fa fs-16 fa-trash text-danger"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
+                    {{-- @dd($entertainment[0]->entertainmentActivities) --}}
                     @foreach ($entertainment as $key => $data)
                         <div class="col-12">
                             <div class="card border">
@@ -575,120 +542,48 @@
                                         <h4 class="fw-bolder">Customize for different activities</h4>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12 p-2">
-                                        <div class="card shadow-sm border">
-                                            <div class="card-body p-0 p-sm-5">
-                                                <div class="row align-items-center">
-                                                    <div class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
-                                                        <span><img class="customize_img"
-                                                                src="{{ asset('assets/images/icons/teamicon.png') }}"></span>
-                                                        <h6 class="ps-4 d-inline d-sm-none">Meetings</h6>
-                                                    </div>
-                                                    <div class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
-                                                        <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">Meetings</h6>
-                                                        <div class="row ps-0 ps-sm-2 ps-lg-0">
-                                                            <div class="col-12">
-                                                                <span>From
-                                                                    SAR{{ @$data->entertainmentActivities[0]->hourly_rate }}/hr</span>
-                                                                &nbsp;
-                                                                <span><i class="ion ion-record"> </i> Updates
-                                                                    Required</span>
+                                @foreach ($ent_activity as $value)
+                                    <div class="row">
+                                        <div class="col-12 p-2">
+                                            <div class="card shadow-sm border">
+                                                <div class="card-body p-0 p-sm-5">
+                                                    <div class="row align-items-center">
+                                                        <div class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
+                                                            <span><img class="customize_img justify-content-start"
+                                                                    style="max-width: 65px !important"
+                                                                    src="{{ asset('assets/images/icons/' . $value->image) }}"></span>
+                                                            <h6 class="ps-4 d-inline d-sm-none">Meetings</h6>
+                                                        </div>
+                                                        <div class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
+                                                            <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">
+                                                                {{ $value->title }}</h6>
+                                                            <div class="row ps-0 ps-sm-2 ps-lg-0">
+                                                                <div class="col-12">
+                                                                    <span>{{ $value->description }}</span>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        @foreach ($data->entertainmentActivities as $val)
+                                                            @if (@$val->entertainment->id == $value->id)
+                                                                <div
+                                                                    class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
+                                                                    <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                        class="btn btn-white">Edit</a>
+                                                                </div>
+                                                            @else
+                                                                <div
+                                                                    class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
+                                                                    <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                        class="btn btn-white">Enable</a>
+                                                                </div>
+                                                            @endif
+                                                        @endforeach
                                                     </div>
-                                                    @if (@$data->entertainmentActivities[0]->type == 'musical')
-                                                        <div
-                                                            class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                            <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
-                                                                class="btn btn-white">Edit</a>
-                                                        </div>
-                                                    @else
-                                                        <div
-                                                            class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                            <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
-                                                                class="btn btn-white">Enable</a>
-                                                        </div>
-                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-2">
-                                        <div class="card shadow-sm border">
-                                            <div class="card-body p-0 p-sm-5">
-                                                <div class="row align-items-center">
-                                                    <div class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
-                                                        <span><i class="fa fs-2 fa-camera-retro customize_img"></i></span>
-                                                        <h6 class="ps-4 d-inline d-sm-none">Media productions</h6>
-                                                    </div>
-                                                    <div class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
-                                                        <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">Media
-                                                            productions
-                                                        </h6>
-                                                        <div class="row ps-0 ps-sm-2 ps-lg-0">
-                                                            <div class="col-12">
-                                                                <p>Video shoots, photo shoots, audio recording, etc</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    @if (@$data->entertainmentActivities[1]->type == 'entertainers')
-                                                        <div
-                                                            class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                            <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
-                                                                class="btn btn-white">Edit</a>
-                                                        </div>
-                                                    @else
-                                                        <div
-                                                            class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                            <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
-                                                                class="btn btn-white">Enable</a>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-12 p-2">
-                                        <div class="card shadow-sm border">
-                                            <div class="card-body p-0 p-sm-5">
-                                                <div class="row align-items-center">
-                                                    <div class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
-                                                        <span><img class="customize_img"
-                                                                src="{{ asset('assets/images/icons/events.png') }}"
-                                                                alt=""></span>
-                                                        <h6 class="ps-4 d-inline d-sm-none">Events</h6>
-                                                    </div>
-                                                    <div class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
-                                                        <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">Events</h6>
-                                                        <div class="row ps-0 ps-sm-2 ps-lg-0">
-                                                            <div class="col-12">
-                                                                <p>Birthday parties, baby showers, holiday parties, etc.</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    @if (@$data->entertainmentActivities[2]->type == 'event')
-                                                        <div
-                                                            class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                            <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
-                                                                class="btn btn-white">Edit</a>
-                                                        </div>
-                                                    @else
-                                                        <div
-                                                            class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                            <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
-                                                                class="btn btn-white">Enable</a>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     @endforeach

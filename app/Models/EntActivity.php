@@ -12,10 +12,6 @@ use App\Models\EntAmenity;
 class EntActivity extends Model
 {
     use HasFactory;
-    public function activities(){
-        return $this->hasMany(EntHavingActivity::class);
-    }
-
     public function subActivities(){
         return $this->hasMany(EntSubActivity::class);
     }
