@@ -5,9 +5,9 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Seller\ListingSpaceController;
 use Illuminate\Support\Facades\Route;
-Use App\Http\Controllers\Seller\ServiceController;
-Use App\Http\Controllers\Seller\EntertainmentController;
-Use App\Http\Controllers\Seller\ListingController;
+use App\Http\Controllers\Seller\ServiceController;
+use App\Http\Controllers\Seller\EntertainmentController;
+use App\Http\Controllers\Seller\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -156,7 +156,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::get('/service-form-steps', function () {
         $title = ServiceTitle::get();
-        return view('content.seller.service.create.form-step-1',['title'=>$title]);
+        return view('content.seller.service.create.form-step-1', ['title' => $title]);
     });
     // Service Form Step 1
     Route::post('/service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
@@ -223,7 +223,6 @@ Route::group(['middleware' => ['auth']], function () {
     // Update Entertainment Activities
     Route::get('/entertainment/load/form/step/6/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep6'])->name('load_entertainment_form_step_6');
     Route::post('/entertainment/update/form/step/6/{id}', [EntertainmentController::class, 'UpdateFormStep6'])->name('update_entertainment_form_6');
-
 });
 
 

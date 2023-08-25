@@ -35,12 +35,11 @@
                         </div>
                         <div class="col-6 pe-0">
                             <div class="text-end">
-                                <button type="button" class="btn btn-primary">Add a space</button>
+                                <a type="button" class="btn btn-primary" href="{{route('list-space')}}">Add a space</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                {{-- @dd($service[0]->serviceImages,$entertainment[0]->entertainmentActivities) --}}
                 <div class="card-body p-0 mt-5">
                     <div class="col-12 px-0 px-sm-2">
                         <div class="card border">
