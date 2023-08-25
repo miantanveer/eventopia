@@ -245,10 +245,12 @@
                                                 <div class="card-body p-0 p-sm-5">
                                                     <div class="mx-0 row w-100 align-items-center">
                                                         <div class="col-12 pt-4 pb-5 fw-bolder">
-                                                            <h5 class="card-title">{{ $space->space_title ?? "No Title" }}</h5>
+                                                            <h5 class="card-title">{{ $space->space_title ?? 'No Title' }}
+                                                            </h5>
                                                         </div>
                                                         <div class="col-sm-6 col-12 col-lg-8 pe-0">
-                                                            <p class="card-text">{{ $space->space_description ?? "No Description"}}</p>
+                                                            <p class="card-text">
+                                                                {{ $space->space_description ?? 'No Description' }}</p>
                                                         </div>
                                                         <div class="col-sm-6 col-12 col-lg-4 my-auto ps-0 mt-3 mt-sm-0">
                                                             <div class="text-end">
@@ -271,7 +273,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-3">
                                             <div class="col-12">
                                                 <h4 class="fw-bolder">Customize for different activities</h4>
                                             </div>
@@ -294,26 +296,28 @@
                                                                 <div class="row ps-0 ps-sm-2 ps-lg-0">
                                                                     <div class="col-12">
                                                                         <span>From
-                                                                            SAR{{ @$space->spaceHaveActivities[0]->rate_per_hour }}/hr</span>
+                                                                            SAR
+                                                                            {{ @$space->spaceHaveActivities[0]->rate_per_hour }}/hr</span>
                                                                         &nbsp;
                                                                         <span><i class="ion ion-record"> </i> Updates
                                                                             Required</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            {{-- @if (@$data->entertainmentActivities[0]->type == 'musical')
+                                                            @if (@$space->spaceHaveActivities[0]->space_activity_id == '1')
+                                                                {{-- @dd(@$space->spaceHaveActivities[0]) --}}
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
                                                                         class="btn btn-white">Edit</a>
                                                                 </div>
                                                             @else
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
                                                                         class="btn btn-white">Enable</a>
                                                                 </div>
-                                                            @endif --}}
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -342,19 +346,19 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            {{-- @if (@$data->entertainmentActivities[1]->type == 'entertainers')
+                                                            @if (@$space->spaceHaveActivities[0]->space_activity_id == '2')
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
                                                                         class="btn btn-white">Edit</a>
                                                                 </div>
                                                             @else
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                    <a href="{{ route('activities-step',['space_id' => $space->id, 'key' => 1]) }}"
                                                                         class="btn btn-white">Enable</a>
                                                                 </div>
-                                                            @endif --}}
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -383,19 +387,19 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            {{-- @if (@$data->entertainmentActivities[2]->type == 'event')
+                                                            @if (@$space->spaceHaveActivities[0]->space_activity_id == '3')
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
                                                                         class="btn btn-white">Edit</a>
                                                                 </div>
                                                             @else
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
                                                                         class="btn btn-white">Enable</a>
                                                                 </div>
-                                                            @endif --}}
+                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>

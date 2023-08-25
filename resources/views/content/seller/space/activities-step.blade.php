@@ -70,7 +70,7 @@
                         dd($space_activities[0]->activityHavingAmenities[0]->amenities
                         );
                         @endphp --}}
-                            <form id="acitivityForm" action="{{ route('add-activities', $space->id) }}" method="post">
+                            <form id="acitivityForm" action="{{ route('add-activities', ['space_id' => $space->id, 'key' => 0]) }}" method="post">
                                 @csrf
                                 <div id="step-8" class="mb-5">
                                     <div style="text-align:center">
@@ -125,8 +125,8 @@
                                                                 </h4>
                                                             </div>
                                                             <div class="form-check d-none">
-                                                                <input class="form-check-input activity_checkbox" type="checkbox"
-                                                                 activity_id="{{ $space_activity->id }}"
+                                                                <input class="form-check-input activity_checkbox"
+                                                                    type="checkbox" activity_id="{{ $space_activity->id }}"
                                                                     name="enabled_activities[]"
                                                                     id="activity-{{ $space_activity->id }}">
                                                             </div>
@@ -273,9 +273,14 @@
                                     </div>
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
-                                        <a class="btn btn-light"
-                                            href="{{ route('cancel-policy-step', $space->id) }}">Previous</a>
-                                        <button class="btn btn-primary">Next</button>
+                                        @if ($enable_req == 0)
+                                            <a class="btn btn-light"
+                                                href="{{ route('cancel-policy-step', $space->id) }}">Previous</a>
+                                            <button class="btn btn-primary">Next</button>
+                                        @else
+                                            <input type="hidden" name="enbale_req" value="1">
+                                            <button class="btn btn-primary">Update</button>
+                                        @endif
                                     </div>
                                 </div>
                             </form>

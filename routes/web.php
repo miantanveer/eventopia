@@ -111,7 +111,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('add-safety-measure/{space_id}', [ListingSpaceController::class, 'addSafetyMeasure'])->name('add-safety-measure');
     Route::get('cancel-policy-step/{space_id}', [ListingSpaceController::class, 'cancelPolicyStep'])->name('cancel-policy-step');
     Route::post('add-cancel-policy/{space_id}', [ListingSpaceController::class, 'addCancelPolicy'])->name('add-cancel-policy');
-    Route::get('activities-step/{space_id}', [ListingSpaceController::class, 'activitiesStep'])->name('activities-step');
+    Route::get('activities-step/{space_id}/{key}', [ListingSpaceController::class, 'activitiesStep'])->name('activities-step');
     Route::post('add-activities/{space_id}', [ListingSpaceController::class, 'addActivities'])->name('add-activities');
     Route::get('contact-step/{space_id}', [ListingSpaceController::class, 'contactStep'])->name('contact-step');
     Route::post('add-contact-info/{space_id}', [ListingSpaceController::class, 'addContactInfo'])->name('add-contact-info');
