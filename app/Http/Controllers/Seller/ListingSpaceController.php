@@ -309,22 +309,22 @@ class ListingSpaceController extends UserBaseController
             }
             $space->update($data);
 
-            return redirect()->route('activities-step', ['space_id' => $space_id]);
+            return redirect()->route('activities-step', ['space_id' => $space_id , 'key' => 0]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
     }
 
-    public function activitiesStep($space_id)
+    public function activitiesStep($space_id, $enable_req = null)
     {
         $this->space = Space::find($space_id);
         $this->space_activities = SpaceActivity::get();
+        $this->enable_req = $enable_req;
         return view('content.seller.space.activities-step', $this->data);
     }
 
     public function addActivities(Request $req, $space_id)
     {
-
         try {
             $data = $req->except('_token');
             $space = Space::find($space_id);
@@ -366,9 +366,18 @@ class ListingSpaceController extends UserBaseController
                         }
                     }
                 }
+                if ($req->enbale_req == 1) {
+                    $space->update(['last_step' => '10', 'status' => '1']);
+                    return redirect()->route('my-listing')->with('success', 'Listing Updated Successfully.');
+                }
                 return redirect()->route('contact-step', ['space_id' => $space_id]);
             } else {
                 return redirect()->back()->with('error', 'Please select any activity.');
+            }
+
+            if ($req->enbale_req == '1') {
+                $space->update(['last_step' => '10', 'status' => '1']);
+                return redirect()->route('my-listing')->with('success', 'Listing Updated Successfully.');
             }
 
             return redirect()->route('contact-step', ['space_id' => $space_id]);
@@ -415,7 +424,7 @@ class ListingSpaceController extends UserBaseController
             $userHasSpaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->exists();
 
             if ($userHasSpaces) {
-                $space->update(['last_step' => '10','status' => '1']);
+                $space->update(['last_step' => '10', 'status' => '1']);
                 return redirect()->route('complete')->with('success', 'Listing added successfully');
             } else {
                 return redirect()->route('policies-step', ['space_id' => $space_id]);

@@ -244,7 +244,7 @@
                                     </div>
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
-                                        <a class="btn btn-light" href="{{route('activities-step',$space->id)}}">Previous</a>
+                                        <a class="btn btn-light" href="{{route('activities-step',['space_id' => $space->id , 'key' => 0])}}">Previous</a>
                                         <button class="btn btn-primary">Next</button>
                                     </div>
                                 </form>
