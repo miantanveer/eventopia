@@ -77,5 +77,6 @@ class ActivityHaveAmenitySeeder extends Seeder
         \App\Models\ActivityHavingAmenity::create(['space_amenity_id' => 40,'space_activity_id' => 3]);
         \App\Models\ActivityHavingAmenity::create(['space_amenity_id' => 41,'space_activity_id' => 3]);
         \App\Models\ActivityHavingAmenity::create(['space_amenity_id' => 42,'space_activity_id' => 3]);
+        
     }
 }

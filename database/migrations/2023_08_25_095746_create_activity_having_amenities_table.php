@@ -15,8 +15,8 @@ class CreateActivityHavingAmenitiesTable extends Migration
     {
         Schema::create('activity_having_amenities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('space_amenity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('space_activity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('space_amenity_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('space_activity_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
