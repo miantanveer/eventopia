@@ -105,8 +105,9 @@
                                                 <div class="col-4">
                                                     <label class="checkbox-inline">
                                                         <input name="parking_option[]" class="parking_option"
-                                                            type="checkbox" value="{{ $parking_option->id }}"><span
-                                                            style="color:#434343"><b>{{ $parking_option->option }}</b></span>
+                                                            type="checkbox" value="{{ $parking_option->id }}"
+                                                            @if($space->spaceHaveParkingOptions->contains('id', $parking_option->id)) checked @endif>
+                                                            <span style="color:#434343"><b>{{ $parking_option->option }}</b></span>
                                                     </label>
                                                 </div>
                                             @endforeach

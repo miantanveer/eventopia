@@ -96,44 +96,24 @@ class ListingSpaceController extends UserBaseController
             }
             $space->update($data);
 
-            if (isset($data['parking_option']) && isset($data['parking_option'][0]) && $data['parking_option'][0] !== null) {
-                if ($space->spaceHaveParkings) {
-                    // Update existing parking options
-                    $existingParkingOptions = $space->spaceHaveParkings;
+            if (isset($data['parking_option']) && is_array($data['parking_option'])) {
+                $newParkingOptions = $data['parking_option'];
 
-                    // Remove any existing parking options not present in the new data
-                    $parkingOptionsToKeep = array_intersect($existingParkingOptions->pluck('parking_option_id')->toArray(), $data['parking_option']);
+                // Get the IDs of existing parking options associated with the space
+                $existingParkingOptionIds = $space->spaceHaveParkingOptions->pluck('id')->toArray();
 
-                    // Delete any parking options that are not in the list to keep
-                    $existingParkingOptions->whereNotIn('parking_option_id', $parkingOptionsToKeep)->each(function ($parkingOption) {
-                        $parkingOption->delete();
-                    });
-
-                    // Create new parking options if not already associated
-                    foreach ($data['parking_option'] as $parking_option) {
-                        if (!$existingParkingOptions->contains('parking_option_id', $parking_option)) {
-                            SpaceHavingParkingOption::create([
-                                'parking_option_id' => $parking_option,
-                                'space_id' => $space->id
-                            ]);
-                        }
-                    }
-                } else {
-                    // Create new parking options
-                    foreach ($data['parking_option'] as $parking_option) {
-                        SpaceHavingParkingOption::create([
-                            'parking_option_id' => $parking_option,
-                            'space_id' => $space->id
-                        ]);
-                    }
+                // Add new parking options that are not already associated
+                $optionsToAdd = array_diff($newParkingOptions, $existingParkingOptionIds);
+                foreach ($optionsToAdd as $parking_option) {
+                    $space->spaceHaveParkingOptions()->attach($parking_option);
                 }
+
+                // Remove associations with parking options that are not selected anymore
+                $optionsToRemove = array_diff($existingParkingOptionIds, $newParkingOptions);
+                $space->spaceHaveParkingOptions()->detach($optionsToRemove);
             } else {
-                // Remove parking options if toggle switch is off
-                if ($space->spaceHaveParkings) {
-                    $space->spaceHaveParkings->each(function ($parkingOption) {
-                        $parkingOption->delete();
-                    });
-                }
+                // If no parking options selected, remove all associations
+                $space->spaceHaveParkingOptions()->detach();
             }
 
             return redirect()->route('about-step', ['space_id' => $space->id]);
@@ -433,6 +413,7 @@ class ListingSpaceController extends UserBaseController
             $userHasSpaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->exists();
 
             if ($userHasSpaces) {
+                $space->update(['status' => '1']);
                 return redirect()->route('complete')->with('success', 'Listing added successfully');
             } else {
                 return redirect()->route('policies-step', ['space_id' => $space_id]);

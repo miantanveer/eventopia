@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Space extends Model
 {
@@ -34,15 +35,17 @@ class Space extends Model
         'c_u_fname',
         'c_u_lname',
         'c_u_phone',
-        'c_u_img'
+        'c_u_img',
+        'status'
     ];
 
     public function spaceImages(){
         return $this->hasMany(SpaceImage::class);
     }
 
-    public function spaceHaveParkings(){
-        return $this->hasMany(SpaceHavingParkingOption::class);
+    public function spaceHaveParkingOptions(): BelongsToMany
+    {
+        return $this->belongsToMany(ParkingOption::class,'space_having_parking_options');
     }
 
     public function spaceHaveMeasures(){

@@ -40,6 +40,7 @@ class CreateSpacesTable extends Migration
             $table->string('c_u_lname')->nullable()->comment = "contact user last name";
             $table->string('c_u_phone')->nullable()->comment = "contact user phone number";
             $table->string('c_u_img')->nullable()->comment = "contact user image";
+            $table->enum('status', [0, 1])->default(0)->comment = "0 => Pending, 1 => Active";
             $table->timestamps();
         });
     }
