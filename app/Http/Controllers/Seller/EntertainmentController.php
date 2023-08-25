@@ -251,7 +251,7 @@ class EntertainmentController extends UserBaseController
             $this->activities($id, $req->event_hourly_rate, $req->event_max_hours, $req->event_discount, $req->event_join, $req->event_guest_capacity, 'event');
         }
 
-        return redirect()->route('my_listing')->with('success','Listing Updated Successfully');
+        return redirect()->route('my-listing')->with('success','Listing Updated Successfully');
     }
     public function loadFormStep7($id)
     {
@@ -393,6 +393,6 @@ class EntertainmentController extends UserBaseController
             }
         }
         $entertainment->delete();
-        return redirect()->route('my_listing')->with('success','Entertainment Deleted Successfully');
+        return redirect()->route('my-listing')->with('success','Entertainment Deleted Successfully');
     }
 }

@@ -117,6 +117,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('add-contact-info/{space_id}', [ListingSpaceController::class, 'addContactInfo'])->name('add-contact-info');
     Route::get('policies-step/{space_id}', [ListingSpaceController::class, 'policiesStep'])->name('policies-step');
     Route::post('add-policies/{space_id}', [ListingSpaceController::class, 'addPolicies'])->name('add-policies');
+    Route::get('space-form-resume/{space_id}', [ListingController::class, 'resumeSpaceForm'])->name('space-form-resume');
+    Route::delete('space-delete/{space_id}', [ListingController::class, 'deleteListing'])->name('space-delete');
 
     Route::get('/list-entertainment', function () {
         return view('content.seller.list-entertainment');
@@ -148,7 +150,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.seller.operating-hours');
     });
     // My Listing
-    Route::get('/my-listings', [ListingController::class, 'index'])->name('my_listing');
+    Route::get('/my-listings', [ListingController::class, 'index'])->name('my-listing');
 
     // Service Forms
     Route::get('/list-service', function () {

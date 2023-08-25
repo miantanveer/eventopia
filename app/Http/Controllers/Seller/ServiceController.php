@@ -89,7 +89,7 @@ class ServiceController extends UserBaseController
         $service->save();
         return response()->json($image);
         // }
-        
+
     }
     public function loadserviceForm3($id)
     {
@@ -254,7 +254,7 @@ class ServiceController extends UserBaseController
                 return redirect()->route('service-form-7',['id'=>$service->id]);
                 break;
         }
-        
+
     }
     public function destroy($id)
     {
@@ -273,6 +273,6 @@ class ServiceController extends UserBaseController
             }
         }
         $service->delete();
-        return redirect()->route('my_listing')->with('success','Service Deleted Successfully');
+        return redirect()->route('my-listing')->with('success','Service Deleted Successfully');
     }
 }

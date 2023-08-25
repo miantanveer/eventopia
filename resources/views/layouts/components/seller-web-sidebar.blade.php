@@ -34,7 +34,7 @@
                                         Service</span></a>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('my_listing') }}"><img
+                                <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('my-listing') }}"><img
                                         class="me-2" src="{{ asset('assets/images/icons/my-listing.png') }}"
                                         alt=""><span class="side-menu__label text-white"> My Listing</span></a>
                             </li>

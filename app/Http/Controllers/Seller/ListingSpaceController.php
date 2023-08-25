@@ -206,6 +206,8 @@ class ListingSpaceController extends UserBaseController
             if ($req->has('friday')) $this->operatingDay($space_id, $req->friday, $req->friday_radio, $req->friday_start_time, $req->friday_end_time);
             if ($req->has('saturday')) $this->operatingDay($space_id, $req->saturday, $req->saturday_radio, $req->saturday_start_time, $req->saturday_end_time);
             if ($req->has('sunday')) $this->operatingDay($space_id, $req->sunday, $req->sunday_radio, $req->sunday_start_time, $req->sunday_end_time);
+
+            $space->update(["last_step" => '5']);
             return redirect()->route('safety-measure-step', ['space_id' => $space_id]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
@@ -413,7 +415,7 @@ class ListingSpaceController extends UserBaseController
             $userHasSpaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->exists();
 
             if ($userHasSpaces) {
-                $space->update(['status' => '1']);
+                $space->update(['last_step' => '10','status' => '1']);
                 return redirect()->route('complete')->with('success', 'Listing added successfully');
             } else {
                 return redirect()->route('policies-step', ['space_id' => $space_id]);

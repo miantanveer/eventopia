@@ -91,6 +91,7 @@
                                                 a Booking Confirmation but no later than 48 hours prior to the Event start
                                                 time.
                                             </p>
+                                            <input type="hidden" name="last_step" value="7">
                                             <div class="row">
                                                 {{-- @dd($space->cancellationPolicy); --}}
                                                 @foreach ($cancel_policies as $cancel_policy)
