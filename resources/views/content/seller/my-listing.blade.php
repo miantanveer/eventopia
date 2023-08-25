@@ -40,6 +40,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- @dd($service[0]->serviceImages,$entertainment[0]->entertainmentActivities) --}}
                 <div class="card-body p-0 mt-5">
                     <div class="col-12 px-0 px-sm-2">
                         <div class="card border">
@@ -286,13 +287,10 @@
                                                 </div>
                                                 <div class="col-12 col-sm-4 col-lg-3 mt-5 mt-sm-0">
                                                     <div class="text-end">
-                                                        <a href="{{ route('service-form-resume',$data->id) }}" class="btn btn-primary">Resume</a>
+                                                        <a href="{{ route('service_form_resume',$data->id) }}" class="btn btn-primary">Resume</a>
                                                         <a class="modal-effect btn" data-bs-effect="effect-scale"
                                                             onclick="deleteModal('{{ route('service-delete', $data->id) }}')">
                                                             <i class="fa fs-16 fa-trash text-danger"></i></a>
-                                                        {{-- <a href="{{ route('service-delete', $data->id) }}" class="btn">
-                                                            <i class="fa fs-16 fa-trash text-danger"></i>
-                                                        </a> --}}
                                                     </div>
                                                 </div>
                                             </div>
