@@ -139,7 +139,7 @@
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
                                             alt="img"><b>Examples: 'Apartment' 'Photo Studio' 'Restaurant'</b></p>
                                     <input type="text" class="form-control rounded-0" readonly name="space_type"
-                                        placeholder="Gallery for art">{{session('space')$space->spaceType->type}}
+                                        placeholder="Gallery for art">{{session('space').@$space->spaceType->type}}
                                     <br>
                                     <hr class="style1"><br>
                                     <div class="inner-steps2 mt-2 mb-3">
