@@ -36,7 +36,7 @@ class Entertainment extends Model
         return $this->hasMany(EntertainmentActivity::class);
     }
 
-    public function operatingDay()
+    public function operatingDays()
     {
         return $this->hasMany(OperatingDay::class);
     }

@@ -188,6 +188,12 @@
 .edit-profile-3 {
     transform: translate(0px, 0px) !important;
 }
+.input_placeholder::-moz-placeholder {
+    color: black;
+}
+.input_placeholder:-ms-input-placeholder {
+    color: black;
+}
 .input_placeholder::placeholder {
     color: black;
 }
@@ -251,3 +257,4 @@
         width: 150px !important;
     }
 }
+

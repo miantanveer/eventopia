@@ -72,4 +72,7 @@ class Space extends Model
         return $this->hasMany(SpaceHaveCompanyPolicy::class);
     }
 
+    public function blockTime(){
+        return $this->hasMany(BlockTime::class);
+    }
 }

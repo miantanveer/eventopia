@@ -33,7 +33,7 @@
 
             @include('layouts.components.seller-header')
 
-            @include('layouts.components.calendar-sidebar')
+            {{-- @include('layouts.components.calendar-sidebar') --}}
 
             <!--app-content open-->
             <div class="main-content app-content mt-0">
@@ -65,7 +65,7 @@
     @include('layouts.components.global-helper')
 
     @include('layouts.components.footer')
-
+    @include('layouts.components.notification-scripts')
     @include('layouts.components.scripts')
 
     <!-- INTERNAL SELECT2 JS -->

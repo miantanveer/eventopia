@@ -3,6 +3,7 @@
 use App\Models\ServiceTitle;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\Customer\DashboardController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\Seller\ListingSpaceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Seller\ServiceController;
@@ -131,9 +132,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/add-service', function () {
         return view('content.seller.add-services');
     });
-    // Route::get('/my-listings', function () {
-    //     return view('content.seller.my-listing');
-    // });
     Route::get('/pending-bookings', function () {
         return view('content.seller.pending-bookings');
     });
@@ -143,14 +141,13 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/payments', function () {
         return view('content.seller.payments');
     });
-    Route::get('/calendar', function () {
-        return view('content.seller.calendar');
-    });
-    Route::get('/operating-hours', function () {
-        return view('content.seller.operating-hours');
-    });
+    Route::get('calendar',[LandingPageController::class, 'calendarIndex'])->name('calendar');
+    Route::get('get-operating-hours/{id}/{type}',[LandingPageController::class, 'getOperatingHours']);
+    Route::get('operating-hours/{id}/{type}',[LandingPageController::class, 'getOperatingHoursIndex'])->name('operating-hours');
+    Route::post('new-operating-hours/{id}/{type}',[LandingPageController::class, 'newOperatingHours'])->name('new-operating-hours');
+    Route::post('add-block-time',[LandingPageController::class, 'addBlockTime'])->name('add-block-time');
     // My Listing
-    Route::get('/my-listings', [ListingController::class, 'index'])->name('my-listing');
+    Route::get('my-listings', [ListingController::class, 'index'])->name('my-listing');
 
     // Service Forms
     Route::get('/list-service', function () {

@@ -17,19 +17,80 @@
         }
 
         .day,
-        .header-day, .cal1 .clndr .clndr-controls {
+        .header-day,
+        .cal1 .clndr .clndr-controls {
             border: 0 !important;
         }
     </style>
 @endsection
 
 @section('content')
+    <!--app-sidebar-->
+    <div class="sticky">
+        <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+        <div class="app-sidebar bg-primary">
+            <div class="main-sidemenu">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group mt-4 ms-3 me-3">
+                            <select name="listing" class="form-control text-white form-select select2" id="listingSelect">
+                                <option value="" selected disabled>Select your listing</option>
+
+                                <!-- Spaces -->
+                                <optgroup label="Spaces">
+                                    @foreach ($spaces as $space)
+                                        <option value="{{ $space->id }}" data-type="space">{{ $space->space_title }}
+                                        </option>
+                                    @endforeach
+                                </optgroup>
+
+                                <!-- Divider -->
+                                <option disabled>──────────</option>
+
+                                <!-- Entertainment -->
+                                <optgroup label="Entertainment">
+                                    @foreach ($entertainments as $entertainment)
+                                        <option value="{{ $entertainment->id }}" data-type="entertainment">
+                                            {{ $entertainment->title }}</option>
+                                    @endforeach
+                                </optgroup>
+
+                                <!-- Divider -->
+                                <option disabled>──────────</option>
+
+                                <!-- Services -->
+                                <optgroup label="Services">
+                                    @foreach ($services as $service)
+                                        <option value="{{ $service->id }}" data-type="service">{{ $service->title }}
+                                        </option>
+                                    @endforeach
+                                </optgroup>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-5">
+                        <div class="form-group mt-4 text-md-end">
+                            <a class="btn text-white operating-hours-link" href="">
+                                <span class="operating-hours-text">Operating Hours</span>
+                            </a>
+                            <a class="modal-effect btn bg-white block-time-link" data-bs-effect="effect-scale"
+                                data-bs-toggle="modal" data-id="" data-type="" href="#blockTimeModal">Block Time</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/APP-SIDEBAR-->
+    </div>
+    <!--app-sidebar-->
+
     <!-- ROW-1 -->
     <div class="row mt-5">
         <div class="col-xl-8 col-lg-12 col-md-12">
             <div class="card" id="modal3">
                 <div class="card-body border p-4 pb-5">
-                    <h2 class="mx-4 fw-bolder">Tuesday, June 20 </h2>
+                    <h2 class="mx-4 fw-bolder" id="currentDate"></h2>
                     <p class="mx-4">Operating Hours : 6:00 AM - 6:00 AM</p>
                 </div>
                 <div class="card-footer text-center">
@@ -96,20 +157,9 @@
                     </div>
 
                     <hr style="border-top: 1px solid black">
-                    <h4 class="col-10 mt-5 ps-3">Monday <span class="float-end">7:00 AM - 10:00
-                            PM</span></h4>
-                    <h4 class="col-10 mt-5 ps-3">Tuesday <span class="float-end">7:00 AM - 10:00
-                            PM</span></h4>
-                    <h4 class="col-10 mt-5 ps-3">Wednesday <span class="float-end">7:00 AM - 10:00
-                            PM</span></h4>
-                    <h4 class="col-10 mt-5 ps-3">Thursday <span class="float-end">7:00 AM - 10:00
-                            PM</span></h4>
-                    <h4 class="col-10 mt-5 ps-3">Friday <span class="float-end">7:00 AM - 10:00
-                            PM</span></h4>
-                    <h4 class="col-10 mt-5 ps-3">Saturday <span class="float-end">7:00 AM - 10:00
-                            PM</span></h4>
-                    <h4 class="col-10 mt-5 ps-3">Sunday <span class="float-end">7:00 AM - 10:00
-                            PM</span></h4>
+                    <div class="operating-hours-container">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -174,4 +224,105 @@
     <script src="{{ asset('assets/plugins/calendar/moment.js') }}"></script>
     <script src="{{ asset('assets/plugins/calendar/calendar.js') }}"></script>
     <script src="{{ asset('assets/plugins/calendar/defaultcalendar.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            const listingSelect = $("#listingSelect");
+            const operatingHoursContainer = $(".operating-hours-container");
+            const currentDateElement = $("#currentDate");
+            const operatingHoursLink = $(".operating-hours-link");
+            const blockTimeLink = $(".block-time-link");
+
+            listingSelect.on("change", function() {
+                const selectedValue = $(this).val();
+                const selectedType = $(this).find(":selected").data("type");
+                operatingHoursLink.attr("data-id", selectedValue);
+                operatingHoursLink.attr("data-type", selectedType);
+
+                // Update data attributes of the Block Time link
+                blockTimeLink.attr("data-id", selectedValue);
+                blockTimeLink.attr("data-type", selectedType);
+
+                // Update the data attributes of the link
+                operatingHoursLink.attr("data-id", selectedValue);
+                operatingHoursLink.attr("data-type", selectedType);
+
+                // Construct the updated href
+                const updatedHref =
+                    "{{ route('operating-hours', ['id' => 'data-id', 'type' => 'data-type']) }}"
+                    .replace('data-id', selectedValue)
+                    .replace('data-type', selectedType);
+
+                // Update the link's href attribute
+                operatingHoursLink.attr("href", updatedHref);
+
+                if (selectedValue && selectedType) {
+                    $.ajax({
+                        url: `get-operating-hours/${selectedValue}/${selectedType}`,
+                        dataType: "json",
+                        success: function(data) {
+                            operatingHoursContainer.empty(); // Clear previous data
+
+                            for (const day in data) {
+                                const operatingHours = data[day];
+                                const dayElement = $("<h4>").addClass("col-10 mt-5 ps-3").text(
+                                    day);
+                                const hoursElement = $("<span>").addClass("float-end");
+
+                                if (operatingHours[0].radio === '0') {
+                                    hoursElement.text("6:00 AM - 12:00 AM");
+                                } else if (operatingHours[0].radio === '1') {
+                                    hoursElement.text(
+                                        `${operatingHours[0].start_time} - ${operatingHours[0].end_time}`
+                                    );
+                                } else {
+                                    hoursElement.text("Closed");
+                                }
+
+                                dayElement.append(hoursElement);
+                                operatingHoursContainer.append(dayElement);
+                            }
+                            // Set current date
+                            const today = new Date();
+                            const options = {
+                                weekday: 'long',
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            };
+                            currentDateElement.text(today.toLocaleDateString('en-US', options));
+                        },
+                        error: function(error) {
+                            console.error(error);
+                        }
+                    });
+                }
+                operatingHoursLink.on("click", function(e) {
+                    const selectedId = operatingHoursLink.attr("data-id");
+                    const selectedType = operatingHoursLink.attr("data-type");
+
+                    if (!selectedId || !selectedType) {
+                        e.preventDefault(); // Prevent link navigation
+
+                        // Show an error message or perform any other action
+                        alert("Please select an option first.");
+                    }
+                });
+                blockTimeLink.on("click", function() {
+                    const blockTimeId = blockTimeLink.data("id");
+                    const blockTimeType = blockTimeLink.data("type");
+
+                    if (!blockTimeId || !blockTimeType) {
+                        alert("Please select an option first.");
+                    } else {
+                        // Show the modal with the selected ID and Type
+                        $("#blockTimeModal").modal("show");
+                        // Update modal content with selected ID and Type
+                        $("#id").val(blockTimeId);
+                        $("#type").val(blockTimeType);
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

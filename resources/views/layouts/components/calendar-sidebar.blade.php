@@ -6,6 +6,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="form-group mt-4 ms-3 me-3">
+                                    {{-- @dd($spaces,$entertainments,$services); --}}
                                     <select name="lisitng" class="form-control text-white form-select select2"
                                         data-bs-placeholder="Select listing">
                                         <option value="br"> Birthday event </option>
