@@ -196,34 +196,29 @@
                                     }
                                     
                                 @endphp
-                                <div class="col-12">
-                                    <div class="card border">
-                                        <div class="col-12 p-2">
-                                            <div class="card shadow-sm border">
-                                                <div class="card-body p-0">
-                                                    <div class="row">
-                                                        <div class="col-12 col-sm-4 col-lg-6">
-                                                            <h5 class="card-title mt-3 d-inline">New Space:</h5>
-                                                            <p class="d-inline mt-3"
-                                                                style="font-weight: 100; margin-left: 5px">
-                                                                {{ $data->title }}</p>
-                                                        </div>
-                                                        <div class="col-12 col-sm-4 col-lg-3">
-                                                            <div class="progress progress-md mt-3">
-                                                                <div class="progress-bar bg-primary"
-                                                                    style="width: {{ $progress }}%;">
-                                                                    {{ $progress }}%
-                                                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card border">
+                                            <div class="col-12 p-2">
+                                                <div class="row">
+                                                    <div class="col-12 col-sm-4 col-lg-6">
+                                                        <h5 class="card-title mt-3 d-inline">{{ $data->title }}</h5>
+                                                    </div>
+                                                    <div class="col-12 col-sm-4 col-lg-3">
+                                                        <div class="progress progress-md mt-3">
+                                                            <div class="progress-bar bg-primary"
+                                                                style="width: {{ $progress }}%;">
+                                                                {{ $progress }}%
                                                             </div>
                                                         </div>
-                                                        <div class="col-12 col-sm-4 col-lg-3 mt-5 mt-sm-0">
-                                                            <div class="text-end">
-                                                                <a href="{{ route('entertainment-form-resume', $data->id) }}"
-                                                                    class="btn btn-primary">Resume</a>
-                                                                <a class="modal-effect btn" data-bs-effect="effect-scale"
-                                                                    onclick="deleteModal('{{ route('entertainment-delete', $data->id) }}')">
-                                                                    <i class="fa fs-16 fa-trash text-danger"></i></a>
-                                                            </div>
+                                                    </div>
+                                                    <div class="col-12 col-sm-4 col-lg-3 mt-5 mt-sm-0">
+                                                        <div class="text-end">
+                                                            <a href="{{ route('entertainment-form-resume', $data->id) }}"
+                                                                class="btn btn-primary">Resume</a>
+                                                            <a class="modal-effect btn" data-bs-effect="effect-scale"
+                                                                onclick="deleteModal('{{ route('entertainment-delete', $data->id) }}')">
+                                                                <i class="fa fs-16 fa-trash text-danger"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -261,8 +256,7 @@
                                                                         data-bs-toggle="dropdown">
                                                                         <i class="icon icon-options"></i>
                                                                     </button>
-                                                                    <ul class="dropdown-menu" role="menu"
-                                                                        style="">
+                                                                    <ul class="dropdown-menu" role="menu" style="">
                                                                         <li><a onclick="deleteModal('{{ route('space-delete', $space->id) }}')"
                                                                                 class="text-danger">Delete</a></li>
                                                                     </ul>
@@ -355,7 +349,7 @@
                                                             @else
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('activities-step',['space_id' => $space->id, 'key' => 1]) }}"
+                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
                                                                         class="btn btn-white">Enable</a>
                                                                 </div>
                                                             @endif
@@ -477,7 +471,6 @@
                         </div>
                     @endforeach
                     {!! $service->links() !!}
-                    {{-- @dd($entertainment[0]->entertainmentActivities) --}}
                     @foreach ($entertainment as $key => $data)
                         <div class="col-12">
                             <div class="card border">
@@ -565,21 +558,31 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        @php
+                                                            $editButtonShown = false;
+                                                        @endphp
+
                                                         @foreach ($data->entertainmentActivities as $val)
-                                                            @if (@$val->entertainment->id == $value->id)
+                                                            @if (!$editButtonShown && @$val->entertainment->id == $value->id)
+                                                                @php
+                                                                    $editButtonShown = true;
+                                                                @endphp
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
                                                                     <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
                                                                         class="btn btn-white">Edit</a>
                                                                 </div>
-                                                            @else
-                                                                <div
-                                                                    class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
-                                                                        class="btn btn-white">Enable</a>
-                                                                </div>
                                                             @endif
                                                         @endforeach
+
+                                                        @if (!$editButtonShown)
+                                                            <div
+                                                                class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
+                                                                <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                    class="btn btn-white">Enable</a>
+                                                            </div>
+                                                        @endif
+
                                                     </div>
                                                 </div>
                                             </div>

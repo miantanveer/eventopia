@@ -180,9 +180,6 @@ class EntertainmentController extends UserBaseController
     }
     public function loadFormStep6($id)
     {
-        $this->musical = EntertainmentActivity::whereEntertainmentId($id)->first();
-        $this->entertainers = EntertainmentActivity::whereEntertainmentId($id)->first();
-        $this->event = EntertainmentActivity::whereEntertainmentId($id)->first();
         $this->ent_activity = EntActivity::with('subActivities','entAmenities')->get();
         $this->id = $id;
         return view('content\seller\entertainment\create\form-step-6', $this->data);

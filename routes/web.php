@@ -156,34 +156,35 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/list-service', function () {
         return view('content.seller.list-service');
     });
+    // Service Form Step 1
     Route::get('/service-form-steps', function () {
         $title = ServiceTitle::get();
         return view('content.seller.service.create.form-step-1', ['title' => $title]);
     });
-    // Service Form Step 1
     Route::post('/service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
-    Route::get('/service-form-2/{id}', [ServiceController::class, 'loadServiceForm2'])->name('service-form-2');
-    // Service Form Step 2
-    Route::post('/service_form_2/{id}', [ServiceController::class, 'serviceForm2'])->name('service_form_2');
-    Route::get('/service-form-3/{id}', [ServiceController::class, 'loadserviceForm3'])->name('service-form-3');
-    // Service Form Step 3
-    Route::post('/service_form_3/{id}', [ServiceController::class, 'serviceForm3'])->name('service_form_3');
-    Route::get('/service-form-4/{id}', [ServiceController::class, 'loadserviceForm4'])->name('service-form-4');
-    // Service Form Step 4
-    Route::post('/service_form_4/{id}', [ServiceController::class, 'serviceForm4'])->name('service_form_4');
-    Route::get('/service-form-5/{id}', [ServiceController::class, 'loadserviceForm5'])->name('service-form-5');
-    // Service Form Step 5
-    Route::post('/service_form_5/{id}', [ServiceController::class, 'serviceForm5'])->name('service_form_5');
-    Route::get('/service-form-6/{id}', [ServiceController::class, 'loadserviceForm6'])->name('service-form-6');
-    // Service Form Step 6
-    Route::post('/service_form_6/{id}', [ServiceController::class, 'serviceForm6'])->name('service_form_6');
-    Route::get('/service-form-7/{id}', [ServiceController::class, 'loadserviceForm7'])->name('service-form-7');
-    // Service Form Step 7
-    Route::post('/service_form_7/{id}', [ServiceController::class, 'serviceForm7'])->name('service_form_7');
-    Route::get('/completed', [ServiceController::class, 'complete'])->name('complete');
     // Load Previous View Form Step 1
     Route::get('/service-form-step-1/{id}', [ServiceController::class, 'loadFormStep1'])->name('service-form-1');
     Route::post('/service_form_step_1/{id}', [ServiceController::class, 'UpdateFormStep1'])->name('update_service_form_1');
+    // Service Form Step 2
+    Route::get('/service-form-2/{id}', [ServiceController::class, 'loadServiceForm2'])->name('service-form-2');
+    Route::post('/service_form_2/{id}', [ServiceController::class, 'serviceForm2'])->name('service_form_2');
+    // Service Form Step 3
+    Route::get('/service-form-3/{id}', [ServiceController::class, 'loadserviceForm3'])->name('service-form-3');
+    Route::post('/service_form_3/{id}', [ServiceController::class, 'serviceForm3'])->name('service_form_3');
+    // Service Form Step 4
+    Route::get('/service-form-4/{id}', [ServiceController::class, 'loadserviceForm4'])->name('service-form-4');
+    Route::post('/service_form_4/{id}', [ServiceController::class, 'serviceForm4'])->name('service_form_4');
+    // Service Form Step 5
+    Route::get('/service-form-5/{id}', [ServiceController::class, 'loadserviceForm5'])->name('service-form-5');
+    Route::post('/service_form_5/{id}', [ServiceController::class, 'serviceForm5'])->name('service_form_5');
+    // Service Form Step 6
+    Route::get('/service-form-6/{id}', [ServiceController::class, 'loadserviceForm6'])->name('service-form-6');
+    Route::post('/service_form_6/{id}', [ServiceController::class, 'serviceForm6'])->name('service_form_6');
+    // Service Form Step 7
+    Route::get('/service-form-7/{id}', [ServiceController::class, 'loadserviceForm7'])->name('service-form-7');
+    Route::post('/service_form_7/{id}', [ServiceController::class, 'serviceForm7'])->name('service_form_7');
+    // Complete Service Form
+    Route::get('/completed', [ServiceController::class, 'complete'])->name('complete');
     // Delete Service
     Route::delete('/service-delete/{id}', [ServiceController::class, 'destroy'])->name('service-delete');
     // Resume Service
