@@ -342,12 +342,12 @@
                 }
             });
 
-            // let currentSpaceIdFieldId = null;
+            let currentSpaceIdFieldId = null;
             // Next button event
             $(".sw-btn-next", this.main).on("click", function (e) {
                 e.preventDefault();
                 let currentForm = $(`#step-${mi.current_index + 1} form`);
-                // let nextForm = $(`#step-${mi.current_index + 2} form`);
+                let nextForm = $(`#step-${mi.current_index + 2} form`);
 
                 var url = currentForm.attr("action");
                 var formData = currentForm.serialize();
@@ -358,32 +358,32 @@
                     data: formData,
                     success: function (res) {
                         if (res.success) {
-                            // var responseData = res.data;
+                            var responseData = res.data;
                             // Remove the existing space_id field if it exists
-                            // if (currentSpaceIdFieldId !== null) {
-                            //     $(`#${currentSpaceIdFieldId}`).remove();
-                            // }
+                            if (currentSpaceIdFieldId !== null) {
+                                $(`#${currentSpaceIdFieldId}`).remove();
+                            }
 
                             // Append hidden field with the value from responseData
-                            // let spaceIdFieldId = `spaceId_${mi.current_index + 2}`;
-                            // currentSpaceIdFieldId = spaceIdFieldId;
-                            // nextForm.append(`<input type="hidden" class="space_id" id="${spaceIdFieldId}" name="space_id" value="${responseData}">`);
+                            let spaceIdFieldId = `spaceId_${mi.current_index + 2}`;
+                            currentSpaceIdFieldId = spaceIdFieldId;
+                            nextForm.append(`<input type="hidden" class="space_id" id="${spaceIdFieldId}" name="space_id" value="${responseData}">`);
 
                             mi._showNext();
                         }
                     },
                     error: function (err) {
-                    } 
+                    }
                 })
             });
             // Previous button event
             $(".sw-btn-prev", this.main).on("click", function (e) {
                 e.preventDefault();
                 // Remove the existing space_id field if it exists
-                // if (currentSpaceIdFieldId !== null) {
-                //     $(`#${currentSpaceIdFieldId}`).remove();
-                //     currentSpaceIdFieldId = null;
-                // }
+                if (currentSpaceIdFieldId !== null) {
+                    $(`#${currentSpaceIdFieldId}`).remove();
+                    currentSpaceIdFieldId = null;
+                }
                 mi._showPrevious();
             });
 
