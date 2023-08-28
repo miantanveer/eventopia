@@ -1,5 +1,8 @@
 @extends('layouts.seller-web-layout')
-
+@section('styles')
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    {{--  <link href="{{ asset('assets/plugins/dropzone/dropzone.min.css') }}" rel="stylesheet" type="text/css" />  --}}
+@endsection
 @section('styles')
     <style>
         .seller-web-sidebar {
@@ -19,8 +22,8 @@
                 <div class="card-body">
                     <div id="smartwizard-3">
                         <ul class="justify-content-around">
-                            <li><a href="#step-1">Photos</a></li>
-                            <li><a href="#step-2">About Service</a></li>
+                            <li><a href="#step-1">About Service</a></li>
+                            <li><a href="#step-2">Photos</a></li>
                             <li><a href="#step-3">Detail</a></li>
                             <li><a href="#step-4">Pricing</a></li>
                             <li><a href="#step-5">Team</a></li>
@@ -29,66 +32,15 @@
                             <div id="step-1" class="mb-5">
                                 <div class="text-center">
                                     <h2 class="fw-bolder">
-                                        Upload photos of your services
-                                    </h2>
-                                    <p>Photos are the first thing that guests will see. We recommend adding 10 or more high
-                                        quality photos.</p>
-                                </div>
-                                <div class="row">
-                                    <h5>Photo requirements:</h5>
-                                    <div class="col-6">
-                                        <ul>
-                                            <li class="m-3" style="list-style: circle">
-                                                High resolution - At least 1,000 pixels wide
-                                            </li>
-                                            <li class="m-3" style="list-style: circle">
-                                                Color photos - No black & white
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul>
-                                            <li class="m-3" style="list-style: circle">
-                                                Horizontal orientation - No vertical photos
-                                            </li>
-                                            <li class="m-3" style="list-style: circle">
-                                                Misc. - No collages, screenshots, or watermarks
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <form class="mt-4 mb-5" id="form-step-1" method="post" action="{{ route('service_form_1') }}">
-                                    @csrf
-                                    <div class="control-group form-group row">
-                                        <div class="col-12">
-                                            <label class="form-label">Please add at least 4 space photos</label>
-                                            <input id="demo" type="file" name="files"
-                                                accept=".jpg, .png, image/jpeg, image/png" multiple>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <p><i class="ion-lightbulb text-warning fs-3 me-3"></i> Drag and drop your
-                                                photos to change the order. Your first photo is what your guests will see
-                                                when browsing so make sure it
-                                                represents your space.</p>
-                                        </div>
-                                    </div>
-                                </form>
-
-                            </div>
-                            <div id="step-2" class="mb-5">
-                                <div class="text-center">
-                                    <h2 class="fw-bolder">
                                         About your service
                                     </h2>
                                     <p>Create a title that will grab a guest’s interest and describes your entertainment &
                                         talent. Do not include your business’s name.</p>
                                 </div>
                                 <br>
-                                <form class="mt-4 mb-5">
+
+
+                                <form action="{{route('service_form_1')}}" class="mt-4 mb-5" >
                                     <div class="form-group">
                                         <h3 class="fw-bolder">Add title to your service</h3>
                                         <select name="service-title"
@@ -125,6 +77,55 @@
                                         </div>
                                     </div>
                                     <hr class="border-3 bg-dark">
+                                </form>
+
+                            </div>
+                            <div id="step-2" class="mb-5">
+                                <div class="text-center">
+                                    <h2 class="fw-bolder">
+                                        Upload photos of your services
+                                    </h2>
+                                    <p>Photos are the first thing that guests will see. We recommend adding 10 or more high
+                                        quality photos.</p>
+                                </div>
+                                <div class="row">
+                                    <h5>Photo requirements:</h5>
+                                    <div class="col-6">
+                                        <ul>
+                                            <li class="m-3" style="list-style: circle">
+                                                High resolution - At least 1,000 pixels wide
+                                            </li>
+                                            <li class="m-3" style="list-style: circle">
+                                                Color photos - No black & white
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+                                        <ul>
+                                            <li class="m-3" style="list-style: circle">
+                                                Horizontal orientation - No vertical photos
+                                            </li>
+                                            <li class="m-3" style="list-style: circle">
+                                                Misc. - No collages, screenshots, or watermarks
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <form id="filedrop" class="dropzone">
+                                    @csrf
+                                    <div class="fallback">
+                                        <input name="file" id="file" type="file" enctype="multipart/form-data"
+                                            multiple="multiple">
+                                    </div>
+                                    <div class="dz-message needsclick">
+                                        <div class="mb-3">
+                                            <i class="display-4 text-muted uil uil-cloud-upload"></i>
+                                        </div>
+
+                                        <h4>Drop files here or click to upload.</h4>
+                                    </div>
+
                                 </form>
                             </div>
                             <div id="step-3" class="">
@@ -262,12 +263,15 @@
     <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
 
     <!-- FILE UPLOADES JS -->
-    <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
+    {{--  <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>  --}}
+    {{--  <script src="{{ asset('assets/plugins/dropzone/dropzone.min.js') }}"></script>  --}}
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
 
     <!-- FORM WIZARD JS-->
-    <script src="{{ asset('assets/plugins/formwizard/jquery.smartWizard.js') }}"></script>
-    <script src="{{ asset('assets/plugins/formwizard/fromwizard.js') }}"></script>
+    {{--  <script src="{{ asset('assets/plugins/formwizard/jquery.smartWizard.js') }}"></script>  --}}
+    <script src="{{ asset('assets/plugins/formwizard/jquery.service.smartWizard.js') }}"></script>
+    <script src="{{ asset('assets/plugins/formwizard/Service.fromwizard.js') }}"></script>
 
     <!-- INTERNAl Jquery.steps js -->
     <script src="{{ asset('assets/plugins/jquery-steps/jquery.steps.min.js') }}"></script>
@@ -287,41 +291,8 @@
 
     <script>
         $(document).ready(function() {
-            $('.mydropify').dropify({
-                messages: {
-                    'default': 'Upload Company Image',
-                    'replace': 'Uploaded',
-                    'remove': 'Remove',
-                    'error': 'Ooops, something wrong appended.'
-                },
-                error: {
-                    'fileSize': 'The file size is too big (2M max).'
-                }
-            });
-            var maxGroup = 4;
-            $(".addMore").click(function() {
-                var ri = $('.fieldGroup').length;
-                if ($('body').find('.fieldGroup').length < maxGroup) {
-                    var fieldHTML =
-                        `<div class="row fieldGroup align-items-center my-3">
-                            <div class="col-11">
-                                <div class="form-group">
-                                    <input type="text" name="destination" placeholder="Enter Name" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-1 ps-0">
-                                <a class="btn btn-danger remove ms-1 text-white mb-4" style="padding-left:1.1rem; padding-right:1.1rem;"> - </a>
-                            </div>
-                        </div>`;
+            var finishBtn = $('.sw-btn-group-extra').addClass('d-none');
 
-                    $('body').find('.fieldGroup:last').after(fieldHTML);
-                } else {
-                    alert('Maximum ' + maxGroup + ' are allowed.');
-                }
-            });
-            $("body").on("click", ".remove", function() {
-                $(this).parents(".fieldGroup").remove();
-            });
             $('.sw-btn-next').on('click', function(e) {
                 var checkSecondClass = $('.sw-btn-next').hasClass('last_step_btn');
                 $('.last_step_btn').on('click', function(e) {

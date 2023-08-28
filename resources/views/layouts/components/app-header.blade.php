@@ -16,7 +16,7 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                                     <div class="d-flex order-lg-2">
                                         <div class="d-flex seller-btn">
-                                            <button class="btn-pill p-2 text-info bg-white border-info"><a href="{{URL('/seller-dashboard')}}">Become a Seller</a></button>
+                                            <a href="{{URL('/seller-dashboard')}}"><button class="btn-pill p-2 text-info bg-white border-info">Become a Seller</button></a>
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
@@ -85,13 +85,13 @@
                                         </div>
                                         <div class="dropdown d-flex profile-1">
                                             <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
-                                                <img src="{{asset('assets/images/users/21.jpg')}}" alt="profile-user" class="avatar  profile-user brround cover-image">
+                                                <img src="{{ auth()->user()->image ?? asset('assets/images/users/profile.png') }}" alt="profile-user" class="avatar profile-user brround cover-image">
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <a class="dropdown-item" href="{{url('/customer-dashboard')}}">
                                                     <i class="dropdown-icon fe fe-home"></i> Dashboard
                                                 </a>
-                                                <a class="dropdown-item" href="{{url('/edit-profile')}}">
+                                                <a class="dropdown-item" href="{{ route('edit-profile-index') }}">
                                                     <i class="dropdown-icon fe fe-user"></i> Manage Account
                                                 </a>
                                                 <form method="POST" action="{{ route('logout') }}">

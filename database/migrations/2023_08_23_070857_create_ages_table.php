@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSpaceHavingAmenitiesTable extends Migration
+class CreateAgesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateSpaceHavingAmenitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('space_having_amenities', function (Blueprint $table) {
+        Schema::create('ages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('space_amenity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('space_having_activity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('name')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateSpaceHavingAmenitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('space_having_amenities');
+        Schema::dropIfExists('ages');
     }
 }

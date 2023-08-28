@@ -157,7 +157,10 @@ class AuthenticationController extends UserBaseController
             if (!$match) {
                 return redirect()->back()->with('error', 'Your credentials are not correct or your account is not active');
             }
-
+            if($match){
+                $des = 'Logged in successfully';
+                notification('Logged in',$des,auth()->user()->id);
+            }
             return redirect(route('dashboard'))->with('success', 'Login Successfully.');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
@@ -220,6 +223,8 @@ class AuthenticationController extends UserBaseController
             }
 
             $user->update(['password' => $req->password]);
+            $des = 'Password reset successfully';
+            notification('Password Reset',$des,auth()->user()->id);
             return redirect(route('login'))->with('success', "Password reset successfully");
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());

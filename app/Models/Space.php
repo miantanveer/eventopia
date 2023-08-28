@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Space extends Model
 {
@@ -20,22 +21,31 @@ class Space extends Model
         'postal_code',
         'lat',
         'lng',
+        'allowed_age',
         'parking_description',
         'security_devices_description',
         'space_title',
         'space_description',
-        'space_size	',
+        'space_size',
         'space_rules',
         'wifi_password',
-        'arrival_instruction'
+        'arrival_instruction',
+        'cleaning_process',
+        'last_step',
+        'c_u_fname',
+        'c_u_lname',
+        'c_u_phone',
+        'c_u_img',
+        'status'
     ];
 
     public function spaceImages(){
         return $this->hasMany(SpaceImage::class);
     }
 
-    public function spaceHaveParkings(){
-        return $this->hasMany(SpaceHavingParkingOption::class);
+    public function spaceHaveParkingOptions(): BelongsToMany
+    {
+        return $this->belongsToMany(ParkingOption::class,'space_having_parking_options');
     }
 
     public function spaceHaveMeasures(){
@@ -53,4 +63,13 @@ class Space extends Model
     public function spaceType(){
         return $this->belongsTo(SpaceType::class);
     }
+
+    public function cancellationPolicy(){
+        return $this->belongsTo(CancellationPolicy::class, 'cancellation_policy_id');
+    }
+
+    public function spaceHavePolicies(){
+        return $this->hasMany(SpaceHaveCompanyPolicy::class);
+    }
+
 }

@@ -31,7 +31,7 @@
                                             <p class="ms-5">Upload photos & videos and select a cover image</p>
                                         </div>
                                         <div class="col-6 text-end">
-                                            <button class="btn btn-primary mt-3"><a href="{{url('/entertainment-form-steps')}}" class="text-white" >Start</a></button>
+                                            <a href="{{url('/entertainment-form-steps')}}" class="btn btn-primary mt-3 text-white" >Start</a>
                                         </div>
                                     </div>
                                 </li>

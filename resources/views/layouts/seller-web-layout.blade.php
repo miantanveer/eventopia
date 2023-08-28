@@ -16,7 +16,7 @@
     <title>Eventopia</title>
 
     @include('layouts.components.styles')
-
+    @yield('styles')
 </head>
 
 <body class="app sidebar-mini ltr">
@@ -65,6 +65,7 @@
     @include('layouts.components.footer')
 
     @include('layouts.components.scripts')
+    @include('layouts.components.notification-scripts')
 
 </body>
 

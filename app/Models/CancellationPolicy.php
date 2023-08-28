@@ -9,7 +9,7 @@ class CancellationPolicy extends Model
 {
     use HasFactory;
 
-    public function cancellationPolicy(){
-        return $this->hasOne(CancellationPolicy::class);
+    public function spaces(){
+        return $this->hasMany(Space::class);
     }
 }

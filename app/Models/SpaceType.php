@@ -9,7 +9,7 @@ class SpaceType extends Model
 {
     use HasFactory;
 
-    public function spaceType(){
-        return $this->hasOne(Space::class);
+    public function spaces(){
+        return $this->hasMany(Space::class);
     }
 }

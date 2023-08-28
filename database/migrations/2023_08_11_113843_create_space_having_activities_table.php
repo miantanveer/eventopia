@@ -17,12 +17,12 @@ class CreateSpaceHavingActivitiesTable extends Migration
             $table->id();
             $table->foreignId('space_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('space_activity_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->bigInteger('rate_per_hour');
-            $table->bigInteger('minimum_hour');
+            $table->bigInteger('rate_per_hour')->nullable();
+            $table->bigInteger('minimum_hour')->nullable();
             $table->string('discount')->nullable();
-            $table->bigInteger('cleaning_fee');
-            $table->enum('instant_booking', [1, 2])->default(2)->comment = "1 => Everyone, 2 => No One";
-            $table->bigInteger('max_guests');
+            $table->bigInteger('cleaning_fee')->nullable();
+            $table->string('instant_booking')->nullable();
+            $table->bigInteger('max_guests')->nullable();
             $table->timestamps();
         });
     }

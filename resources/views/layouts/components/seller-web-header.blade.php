@@ -16,7 +16,8 @@
                                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                                     <div class="d-flex order-lg-2">
                                         <div class="d-flex seller-btn me-2">
-                                            <button class="btn-pill p-2 text-info bg-white border-info"><a href="{{URL('/customer-dashboard')}}">Become a Customer</a></button>
+                                            <a href="{{URL('/dashboard')}}"><button class="btn-pill p-2 text-info bg-white border-info">Become a Customer</button></a>
+                                            {{-- <a class="btn-pill p-2 text-info bg-white border-info" href="{{URL('/customer-dashboard')}}">Become a Customer</a> --}}
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
@@ -85,7 +86,7 @@
                                         </div>
                                         <div class="dropdown d-flex profile-1">
                                             <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
-                                                <img src="{{asset('assets/images/users/21.jpg')}}" alt="profile-user" class="avatar  profile-user brround cover-image">
+                                                <img src="{{asset('assets/images/users/'. (auth()->user()->image ?? 'profile.png'))}}" alt="profile-user" class="avatar  profile-user brround cover-image">
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <a class="dropdown-item" href="{{url('/customer-dashboard')}}">

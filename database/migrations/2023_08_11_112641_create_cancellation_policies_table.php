@@ -16,7 +16,7 @@ class CreateCancellationPoliciesTable extends Migration
         Schema::create('cancellation_policies', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }

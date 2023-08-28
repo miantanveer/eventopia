@@ -15,8 +15,10 @@ class CreateOperatingDaysTable extends Migration
     {
         Schema::create('operating_days', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('space_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('week_day');
+            $table->foreignId('space_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('service_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('entertainment_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('week_day')->nullable();
             $table->timestamps();
         });
     }

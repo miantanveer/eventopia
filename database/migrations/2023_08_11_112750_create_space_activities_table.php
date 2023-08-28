@@ -16,6 +16,8 @@ class CreateSpaceActivitiesTable extends Migration
         Schema::create('space_activities', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('image');
+            $table->string('description');
             $table->timestamps();
         });
     }

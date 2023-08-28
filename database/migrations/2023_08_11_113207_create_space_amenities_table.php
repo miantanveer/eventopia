@@ -15,7 +15,6 @@ class CreateSpaceAmenitiesTable extends Migration
     {
         Schema::create('space_amenities', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name');
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOperatingHoursTable extends Migration
+class CreateSpaceHaveCompanyPoliciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateOperatingHoursTable extends Migration
      */
     public function up()
     {
-        Schema::create('operating_hours', function (Blueprint $table) {
+        Schema::create('space_have_company_policies', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('operating_day_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('start_time');
-            $table->string('end_time');
+            $table->foreignId('space_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('company_policy_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateOperatingHoursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('operating_hours');
+        Schema::dropIfExists('space_have_company_policies');
     }
 }

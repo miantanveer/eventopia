@@ -11,6 +11,7 @@
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "league/flysystem-aws-s3-v3": "^1.0",
         "livewire/livewire": "^2.12",
         "twilio/sdk": "^7.7"
     },
@@ -32,7 +33,10 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "scripts": {
         "post-autoload-dump": [
