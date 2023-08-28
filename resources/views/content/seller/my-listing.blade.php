@@ -76,7 +76,7 @@
                                             break;
                                         // Add more cases as needed
                                     }
-                                    
+
                                 @endphp
                                 <div class="row">
                                     <div class="col-12 p-2">
@@ -134,7 +134,7 @@
                                             break;
                                         // Add more cases as needed
                                     }
-                                    
+
                                 @endphp
                                 <div class="row">
                                     <div class="col-12">
@@ -194,7 +194,7 @@
                                             break;
                                         // Add more cases as needed
                                     }
-                                    
+
                                 @endphp
                                 <div class="row">
                                     <div class="col-12">
@@ -272,133 +272,60 @@
                                                 <h4 class="fw-bolder">Customize for different activities</h4>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-12 p-2">
-                                                <div class="card shadow-sm border">
-                                                    <div class="card-body p-0 p-sm-5">
-                                                        <div class="row align-items-center">
-                                                            <div
-                                                                class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
-                                                                <span><img class="customize_img"
-                                                                        src="{{ asset('assets/images/icons/teamicon.png') }}"></span>
-                                                                <h6 class="ps-4 d-inline d-sm-none">Meetings</h6>
-                                                            </div>
-                                                            <div
-                                                                class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
-                                                                <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">Meetings
-                                                                </h6>
-                                                                <div class="row ps-0 ps-sm-2 ps-lg-0">
-                                                                    <div class="col-12">
-                                                                        <span>From
-                                                                            SAR
-                                                                            {{ @$space->spaceHaveActivities[0]->rate_per_hour }}/hr</span>
-                                                                        &nbsp;
-                                                                        <span><i class="ion ion-record"> </i> Updates
-                                                                            Required</span>
+                                        @foreach ($space_acitivities as $space_acitiviy)
+                                            <div class="row">
+                                                <div class="col-12 p-2">
+                                                    <div class="card shadow-sm border">
+                                                        <div class="card-body p-0 p-sm-5">
+                                                            <div class="row align-items-center">
+                                                                <div
+                                                                    class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
+                                                                    <span><img class="customize_img justify-content-start"
+                                                                            style="max-width: 65px !important"
+                                                                            src="{{ asset('assets/images/icons/' . $space_acitiviy->image) }}"></span>
+                                                                    {{-- <h6 class="ps-4 d-inline d-sm-none">Meetings</h6> --}}
+                                                                </div>
+                                                                <div
+                                                                    class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
+                                                                    <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">
+                                                                        {{ $space_acitiviy->title }}</h6>
+                                                                    <div class="row ps-0 ps-sm-2 ps-lg-0">
+                                                                        <div class="col-12">
+                                                                            <span>{{ $space_acitiviy->description }}</span>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
+                                                                @php
+                                                                    $editButtonShown = false;
+                                                                @endphp
+
+                                                                @foreach ($space->spaceHaveActivities as $spaceHaveActivity)
+                                                                    @if (!$editButtonShown && $spaceHaveActivity->activities->id == $space_acitiviy->id)
+                                                                        @php
+                                                                            $editButtonShown = true;
+                                                                        @endphp
+                                                                        <div
+                                                                            class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
+                                                                            <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
+                                                                                class="btn btn-white">Edit</a>
+                                                                        </div>
+                                                                    @endif
+                                                                @endforeach
+
+                                                                @if (!$editButtonShown)
+                                                                    <div
+                                                                        class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
+                                                                        <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
+                                                                            class="btn btn-white">Enable</a>
+                                                                    </div>
+                                                                @endif
+
                                                             </div>
-                                                            @if (@$space->spaceHaveActivities[0]->space_activity_id == '1')
-                                                                {{-- @dd(@$space->spaceHaveActivities[0]) --}}
-                                                                <div
-                                                                    class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
-                                                                        class="btn btn-white">Edit</a>
-                                                                </div>
-                                                            @else
-                                                                <div
-                                                                    class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
-                                                                        class="btn btn-white">Enable</a>
-                                                                </div>
-                                                            @endif
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 p-2">
-                                                <div class="card shadow-sm border">
-                                                    <div class="card-body p-0 p-sm-5">
-                                                        <div class="row align-items-center">
-                                                            <div
-                                                                class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
-                                                                <span><i
-                                                                        class="fa fs-2 fa-camera-retro customize_img"></i></span>
-                                                                <h6 class="ps-4 d-inline d-sm-none">Media productions</h6>
-                                                            </div>
-                                                            <div
-                                                                class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
-                                                                <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">Media
-                                                                    productions
-                                                                </h6>
-                                                                <div class="row ps-0 ps-sm-2 ps-lg-0">
-                                                                    <div class="col-12">
-                                                                        <p>Video shoots, photo shoots, audio recording, etc
-                                                                        </p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            @if (@$space->spaceHaveActivities[0]->space_activity_id == '2')
-                                                                <div
-                                                                    class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
-                                                                        class="btn btn-white">Edit</a>
-                                                                </div>
-                                                            @else
-                                                                <div
-                                                                    class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
-                                                                        class="btn btn-white">Enable</a>
-                                                                </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12 p-2">
-                                                <div class="card shadow-sm border">
-                                                    <div class="card-body p-0 p-sm-5">
-                                                        <div class="row align-items-center">
-                                                            <div
-                                                                class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
-                                                                <span><img class="customize_img"
-                                                                        src="{{ asset('assets/images/icons/events.png') }}"
-                                                                        alt=""></span>
-                                                                <h6 class="ps-4 d-inline d-sm-none">Events</h6>
-                                                            </div>
-                                                            <div
-                                                                class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
-                                                                <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">Events
-                                                                </h6>
-                                                                <div class="row ps-0 ps-sm-2 ps-lg-0">
-                                                                    <div class="col-12">
-                                                                        <p>Birthday parties, baby showers, holiday parties,
-                                                                            etc.</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            @if (@$space->spaceHaveActivities[0]->space_activity_id == '3')
-                                                                <div
-                                                                    class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
-                                                                        class="btn btn-white">Edit</a>
-                                                                </div>
-                                                            @else
-                                                                <div
-                                                                    class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
-                                                                        class="btn btn-white">Enable</a>
-                                                                </div>
-                                                            @endif
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             @endforeach
@@ -547,7 +474,7 @@
                                                             <span><img class="customize_img justify-content-start"
                                                                     style="max-width: 65px !important"
                                                                     src="{{ asset('assets/images/icons/' . $value->image) }}"></span>
-                                                            <h6 class="ps-4 d-inline d-sm-none">Meetings</h6>
+                                                            {{-- <h6 class="ps-4 d-inline d-sm-none">Meetings</h6> --}}
                                                         </div>
                                                         <div class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
                                                             <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">

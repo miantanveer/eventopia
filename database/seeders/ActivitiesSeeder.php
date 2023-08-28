@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\SpaceActivity;
 use Illuminate\Database\Seeder;
 
 class ActivitiesSeeder extends Seeder
@@ -13,8 +14,10 @@ class ActivitiesSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\SpaceActivity::create(['title' => 'Meetings']);
-        \App\Models\SpaceActivity::create(['title' => 'Events']);
-        \App\Models\SpaceActivity::create(['title' => 'Media Productions']);
+        SpaceActivity::insert([
+            ['title'=>'Meetings','image'=>'teamicon.png','description'=>'Workshops, Presentations, Retreats etc ','created_at'=>now(),'updated_at'=>now()],
+            ['title'=>'Events','image'=>'events.png','description'=>'Birthday parties, baby showers, holiday parties, etc.','created_at'=>now(),'updated_at'=>now()],
+            ['title'=>'Media Productions','image'=>'camera.png','description'=>'Video shoots, photo shoots, audio recording, etc.','created_at'=>now(),'updated_at'=>now()],
+        ]);
     }
 }

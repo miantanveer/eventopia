@@ -7,14 +7,16 @@ use App\Models\Entertainment;
 use App\Models\Service;
 use App\Models\Space;
 use App\Models\EntActivity;
+use App\Models\SpaceActivity;
 
 class ListingController extends UserBaseController
 {
     public function index()
     {
         // Space Getting
-        $this->spaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->whereStatus('1')->paginate(2);
+        $this->spaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->whereStatus('1')->with('spaceHaveActivities.activities')->paginate(2);
         $this->spaces_remaining = Space::where('last_step', '!=', '10')->whereStatus('0')->paginate(2);
+        $this->space_acitivities = SpaceActivity::get();
         // Entertainment Getting
         $this->entertainment_remaining = Entertainment::whereUserId(auth()->user()->id)->where('last_steps', '!=', 'step-8')->get();
         $this->entertainment = Entertainment::whereUserId(auth()->user()->id)->whereLastSteps('step-8')->with('entertainmentImages', 'entertainmentActivities.entertainment')->paginate(2);
