@@ -22,7 +22,7 @@ class SpaceHavingActivity extends Model
     ];
 
     public function activities(){
-        return $this->hasMany(SpaceActivity::class);
+        return $this->belongsTo(SpaceActivity::class,'space_activity_id');
     }
 
     // public function spaceHaveActivityHaveAmenity(){
