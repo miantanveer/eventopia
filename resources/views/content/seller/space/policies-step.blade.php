@@ -66,9 +66,18 @@
 
                         </ul> --}}
                         <div>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div id="step-10" class="mb-5">
                                 <div class="form">
-                                    <form action="{{route('add-policies',$space->id)}}" method="post">
+                                    <form class="validation" action="{{route('add-policies',$space->id)}}" method="post">
                                         @csrf
                                         <div class="container">
                                             <div class="text-center mb-6">
@@ -84,7 +93,7 @@
                                                         @foreach ($company_policies as $company_policy)
                                                             <div class="form-check">
                                                                 <input class="form-check-input" name="company_policy[]" type="checkbox" value="{{$company_policy->id}}"
-                                                                    id="invalidCheck{{$company_policy->id}}" required>
+                                                                    id="invalidCheck{{$company_policy->id}}" required data-parsley-required-message="These values are required" data-parsley-errors-container="#p_error">
                                                                 <label class="form-check-label" for="invalidCheck{{$company_policy->id}}">
                                                                     <p>{{$company_policy->title}}</p>
                                                                     <p>{{$company_policy->description}}</p>
@@ -93,6 +102,7 @@
                                                             <hr class="bg-dark">
                                                         @endforeach
                                                     </div>
+                                                    <div id="p_error"></div>
                                                 </div>
                                             </div>
                                             <input type="hidden" name="last_step" value="10">
@@ -136,4 +146,9 @@
     <!-- Jquery/buttons JS-->
     <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.validation').parsley();
+        });
+    </script>
 @endsection

@@ -40,6 +40,11 @@
             display: flex;
 
         }
+        .parsley-minlength {
+            font-size: 12px;
+            color: #ff5c77;
+            margin-top: 3px;
+        }
     </style>
 @endsection
 
@@ -66,8 +71,17 @@
 
                         </ul> --}}
                         <div>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div id="step-2">
-                                <form action="{{ route('add-parking',$space->id) }}" method="POST">
+                                <form class="validation" action="{{ route('add-parking', $space->id) }}" method="POST">
                                     @csrf
                                     <div style="text-align:center;">
                                         <h2>Step 2 of 9</h2>
@@ -78,10 +92,12 @@
                                     </div>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
                                             alt="img"><b>Examples: 'Apartment' 'Photo Studio' 'Restaurant'</b></p>
-                                    <select name="space_type_id" class="form-control text-white form-select select2"
+                                    <select name="space_type_id" required class="form-control text-white form-select select2"
                                         id="space_types">
                                         @foreach ($space_types as $space_type)
-                                            <option value="{{$space_type->id }}" {{@$space->spaceType->id == $space_type->id ? 'selected' : ''}}>{{$space_type->type }}</option>
+                                            <option value="{{ $space_type->id }}"
+                                                {{ @$space->spaceType->id == $space_type->id ? 'selected' : '' }}>
+                                                {{ $space_type->type }}</option>
                                         @endforeach
                                     </select>
                                     <br>
@@ -91,23 +107,23 @@
                                         <div class="form-check form-switch">
                                             <p><b>Are there parking options at or near your space?</b>
                                                 <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                                <input style="margin-left:32rem;" class="form-check-input" type="checkbox"
+                                                <input style="margin-left:32rem;" required  class="form-check-input" type="checkbox"
                                                     role="switch" id="flexSwitchCheckChecked3" checked
                                                     onchange="toggleOptions()">
                                             </p>
                                         </div>
                                         <h1><strong>Select all</strong></h1>
                                     </div>
-
                                     <div id="options">
                                         <div class="row">
                                             @foreach ($parking_options as $parking_option)
                                                 <div class="col-4">
                                                     <label class="checkbox-inline">
-                                                        <input name="parking_option[]" class="parking_option"
+                                                        <input name="parking_option[]"  class="parking_option"
                                                             type="checkbox" value="{{ $parking_option->id }}"
-                                                            @if($space->spaceHaveParkingOptions->contains('id', $parking_option->id)) checked @endif>
-                                                            <span style="color:#434343"><b>{{ $parking_option->option }}</b></span>
+                                                            @if ($space->spaceHaveParkingOptions->contains('id', $parking_option->id)) checked @endif>
+                                                        <span
+                                                            style="color:#434343"><b>{{ $parking_option->option }}</b></span>
                                                     </label>
                                                 </div>
                                             @endforeach
@@ -119,8 +135,8 @@
                                         include private information. This will be shown publicly.</p>
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1"></label>
-                                        <textarea style="height:150px;" class="form-control rounded-0" name="parking_description"
-                                            id="exampleFormControlTextarea1" rows="2">{{@$space->parking_description ?? ''}}</textarea>
+                                        <textarea style="height:150px;" required data-parsley-minlength="35" class="form-control rounded-0" name="parking_description"
+                                            id="exampleFormControlTextarea1" rows="2">{{ @$space->parking_description ?? '' }}</textarea>
                                         <p class="text-end">Minimum 35 characters</p>
                                         <br>
                                         <hr class="style1"><br>
@@ -149,7 +165,7 @@
                                                         off.
                                                     </p>
                                                     <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5"
-                                                        class="form-control w-100 p-5" placeholder="Add description">{{@$space->security_devices_description ?? ''}}</textarea>
+                                                        class="form-control w-100 p-5" placeholder="Add description">{{ @$space->security_devices_description ?? '' }}</textarea>
                                                     <p class="text-end">Minimum 50 characters</p>
                                                 </div>
                                             </div>
@@ -161,7 +177,8 @@
                                     <input type="hidden" name="last_step" value="2">
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
-                                        <a class="btn btn-light" href="{{route('edit-space-address',$space->id)}}">Previous</a>
+                                        <a class="btn btn-light"
+                                            href="{{ route('edit-space-address', $space->id) }}">Previous</a>
                                         <button class="btn btn-primary">Next</button>
                                     </div>
                                 </form>
@@ -201,6 +218,9 @@
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
     </script>
     <script>
+        $(document).ready(function (){
+            $('.validation').parsley();
+        });
         function toggleTextArea() {
             const checkbox = document.getElementById('flexSwitchCheckChecked2');
             const textAreaDiv = document.getElementById('textAreaDiv');

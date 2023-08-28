@@ -37,6 +37,13 @@ class ListingSpaceController extends UserBaseController
 
     public function addAddress(Request $req)
     {
+        $req->validate([
+            'address'=>'required',
+            'country'=>'required',
+            'state'=>'required',
+            'city'=>'required',
+            'postal_code'=>'required',
+        ]);
         try {
             $data = $req->except('_token');
 
@@ -87,6 +94,11 @@ class ListingSpaceController extends UserBaseController
 
     public function addParking(Request $req, $space_id)
     {
+        $req->validate([
+            'space_type_id'=>'required',
+            'parking_option'=>'required',
+            'parking_description'=>'required|min:35',
+        ]);
         try {
             $data = $req->except('_token');
 
@@ -130,6 +142,14 @@ class ListingSpaceController extends UserBaseController
 
     public function addAbout(Request $req, $space_id)
     {
+        $req->validate([
+            'space_title'=>'required',
+            'space_description'=>'required',
+            'space_size'=>'required',
+            'space_rules'=>'required',
+            'allowed_age'=>'required',
+            'arrival_instruction'=>'required',
+        ]);
         try {
             $data = $req->except('_token');
             $space = Space::find($space_id);
@@ -237,6 +257,10 @@ class ListingSpaceController extends UserBaseController
 
     public function addSafetyMeasure(Request $req, $space_id)
     {
+        $req->validate([
+            'safety_measure'=>'required',
+            'cleaning_process'=>'required',
+        ]);
         try {
             $data = $req->except('_token');
             $space = Space::find($space_id);
@@ -300,6 +324,9 @@ class ListingSpaceController extends UserBaseController
 
     public function addCancelPolicy(Request $req, $space_id)
     {
+        $req->validate([
+            'cancellation_policy_id'=>'required'
+        ]);
 
         try {
             $data = $req->except('_token');
@@ -394,6 +421,11 @@ class ListingSpaceController extends UserBaseController
 
     public function addContactInfo(Request $req, $space_id)
     {
+        $req->validate([
+            'c_u_fname'=>'required',
+            'c_u_lname'=>'required',
+            'c_u_phone'=>'required',
+        ]);
         try {
             $data = $req->except('_token', 'c_u_img');
             $space = Space::find($space_id);
@@ -445,7 +477,9 @@ class ListingSpaceController extends UserBaseController
 
     public function addPolicies(Request $req, $space_id)
     {
-
+        $req->validate([
+            'company_policy'=>'required'
+        ]);
         try {
             $data = $req->except('_token');
 

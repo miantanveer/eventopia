@@ -66,9 +66,19 @@
 
                         </ul> --}}
                         <div>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div id="step-9" class="mb-5">
                                 <h1 style="text-align:center;">Step 9 of 9</h1>
-                                <form method="POST" action="{{ route('add-contact-info', $space->id) }}" enctype="multipart/form-data">
+                                <form class="validation" method="POST" action="{{ route('add-contact-info', $space->id) }}"
+                                    enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-8">
@@ -82,22 +92,22 @@
                                                 <div class="col-lg-6 col-md-12">
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" name="c_u_fname"
-                                                            placeholder="john" required value="{{@$space->c_u_fname ?? ''}}"
-                                                            data-parsley-required-message="Password is required*">
+                                                            placeholder="john" required
+                                                            value="{{ @$space->c_u_fname ?? '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-12">
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" name="c_u_lname"
-                                                            placeholder="Smith" required value="{{@$space->c_u_lname ?? ''}}"
-                                                            data-parsley-required-message="Confirm Password is required*">
+                                                            placeholder="Smith" required
+                                                            value="{{ @$space->c_u_lname ?? '' }}">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <input type="tel" class="form-control" name="c_u_phone"
-                                                    placeholder="(123) 345 -4567" required value="{{@$space->c_u_phone ?? ''}}"
-                                                    data-parsley-required-message="Phone number is required*">
+                                                    placeholder="(123) 345 -4567" required
+                                                    value="{{ @$space->c_u_phone ?? '' }}">
                                             </div>
                                             <div class="bg-light-gray p-3 mb-3">
                                                 <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>Your number
@@ -113,7 +123,8 @@
                                                 <div class="avatar avatar-xxl chat-profile mb-3 brround"
                                                     id="uploadContainer">
                                                     <a class="" href="#">
-                                                        <img alt="avatar" src="{{ @$space->c_u_img ?? asset('assets/images/users/23.jpeg') }}"
+                                                        <img alt="avatar"
+                                                            src="{{ @$space->c_u_img ?? asset('assets/images/users/23.jpeg') }}"
                                                             class="avatar avatar-xxl chat-profile mb-3 brround"
                                                             id="avatarImage">
                                                     </a>
@@ -172,8 +183,8 @@
                                                                 article</label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value=""
-                                                                id="invalidCheck-3">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                value="" id="invalidCheck-3">
                                                             <label class="form-check-label" for="invalidCheck-3">Contacted
                                                                 by
                                                                 Peerspace</label>
@@ -244,7 +255,8 @@
                                     </div>
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
-                                        <a class="btn btn-light" href="{{route('activities-step',['space_id' => $space->id , 'key' => 0])}}">Previous</a>
+                                        <a class="btn btn-light"
+                                            href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 0]) }}">Previous</a>
                                         <button class="btn btn-primary">Next</button>
                                     </div>
                                 </form>
@@ -279,6 +291,11 @@
     <!-- Jquery/buttons JS-->
     <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.validation').parsley();
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const uploadBtn = document.getElementById('uploadBtn');

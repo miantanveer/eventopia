@@ -66,10 +66,19 @@
 
                         </ul> --}}
                         <div>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div id="step-7" class="">
                                 <h2 style="text-align:center;">Step 7 of 9</h2>
                                 <div id="step-5" class="mb-5">
-                                    <form action="{{ route('add-cancel-policy', $space->id) }}" method="post">
+                                    <form class="validation" action="{{ route('add-cancel-policy', $space->id) }}" method="post">
                                         @csrf
                                         <div class="container">
                                             <div class="text-center mb-6">
@@ -97,7 +106,7 @@
                                                 @foreach ($cancel_policies as $cancel_policy)
                                                     <div class="col-3">
                                                         <label class=" flex-basis-20-sm flex-basis-100" for="{{$cancel_policy->title}}">
-                                                            <input type="radio" id="{{$cancel_policy->title}}"
+                                                            <input type="radio" required data-parsley-required-message="Please select a value" data-parsley-errors-container="#c_error" id="{{$cancel_policy->title}}"
                                                                 name="cancellation_policy_id" value="{{$cancel_policy->id}}" {{@$space->cancellationPolicy->id == $cancel_policy->id ? 'checked' : ''}}>
                                                             <span>{{$cancel_policy->title}}</span>
                                                         </label>
@@ -109,6 +118,7 @@
                                                     <hr class="bg-dark border-2">
                                                 @endforeach
                                             </div>
+                                            <div id="c_error"></div>
                                         </div>
                                         <div class="float-end">
                                             <a class="btn btn-light" href="{{route('safety-measure-step',$space->id)}}">Previous</a>
@@ -147,4 +157,9 @@
     <!-- Jquery/buttons JS-->
     <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.validation').parsley();
+        });
+    </script>
 @endsection

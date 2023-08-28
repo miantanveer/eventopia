@@ -143,7 +143,7 @@
                                                                         ons once your listing are created.</p>
                                                                     <div class="form-group mb-6">
                                                                         <div class="input-group w-100">
-                                                                            <input type="text" class="form-control"
+                                                                            <input type="number" class="form-control"
                                                                                 placeholder="80"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
@@ -156,7 +156,7 @@
                                                                     <p>Must be between 1-12 hours</p>
                                                                     <div class="form-group mb-4">
                                                                         <div class="input-group w-100">
-                                                                            <input type="text" class="form-control"
+                                                                            <input type="number" class="form-control"
                                                                                 placeholder="5"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
@@ -173,7 +173,7 @@
                                                                         bookings that are 8 hours or more.</p>
                                                                     <div class="form-group mb-3">
                                                                         <div class="input-group w-100">
-                                                                            <input type="text" class="form-control"
+                                                                            <input type="number" class="form-control"
                                                                                 placeholder="Optional"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
@@ -223,7 +223,7 @@
                                                                     <p>Maximum number of guests</p>
                                                                     <div class="form-group mb-3">
                                                                         <div class="input-group w-100">
-                                                                            <input type="text" class="form-control"
+                                                                            <input type="number" class="form-control"
                                                                                 placeholder="250"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"

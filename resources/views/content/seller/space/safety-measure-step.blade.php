@@ -40,6 +40,11 @@
             display: flex;
 
         }
+        .parsley-minlength {
+            font-size: 12px;
+            color: #ff5c77;
+            margin-top: 3px;
+        }
     </style>
 @endsection
 
@@ -66,8 +71,17 @@
 
                         </ul> --}}
                         <div>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div id="step-6" class="">
-                                <form method="POST" action="{{ route('add-safety-measure', $space->id) }}">
+                                <form class="validation" method="POST" action="{{ route('add-safety-measure', $space->id) }}">
                                     @csrf
                                     <div style="text-align:center;">
                                         <h2>Step 6 of 9</h2>
@@ -89,7 +103,7 @@
 
                                     @php
                                         $selectedSafetyMeasureIds = []; // Initialize an array to store selected safety measure IDs
-
+                                        
                                         // Assuming $selectedSafetyMeasures contains the list of selected safety measures for the space
                                         foreach ($space->spaceHaveMeasures as $selectedSafetyMeasure) {
                                             $selectedSafetyMeasureIds[] = $selectedSafetyMeasure->safety_measure_id;
@@ -106,11 +120,11 @@
                                                 @for ($i = 0; $i < ($section == 1 || $section == 3 ? 5 : 4); $i++)
                                                     <div class="checkbox">
                                                         <label>
-                                                            <input name="safety_measure[]" class="safety_measure"
-                                                                type="checkbox"
-                                                                value="{{ $safety_measures[$counter]->id }}"
+                                                            <input name="safety_measure[]" required data-parsley-errors-container="#sf_error" class="safety_measure"
+                                                                type="checkbox" value="{{ $safety_measures[$counter]->id }}"
                                                                 {{ in_array($safety_measures[$counter]->id, $selectedSafetyMeasureIds) ? 'checked' : '' }}>
-                                                                <span style="color:#434343"><b>{{ $safety_measures[$counter]->safety_measure_options }}</b></span>
+                                                            <span
+                                                                style="color:#434343"><b>{{ $safety_measures[$counter]->safety_measure_options }}</b></span>
                                                         </label>
                                                     </div>
                                                     @php
@@ -137,15 +151,18 @@
                                             <p style="color:#858585;"><strong>Select all that apply</strong></p>
                                         @endif
                                     @endfor
+                                    <div id="sf_error"></div>
+
 
                                     <h4 class="mt-5">Tell your guests more about your cleaning process</h4>
                                     <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                    <textarea style="height:150px;" name="cleaning_process" class="form-control rounded-0" id="" rows="3">{{@$space->cleaning_process ?? ''}}</textarea>
+                                    <textarea style="height:150px;" required data-parsley-minlength="50" name="cleaning_process" class="form-control rounded-0" id="" rows="3">{{ @$space->cleaning_process ?? '' }}</textarea>
                                     <p class="text-end">Minimum 50 characters</p>
                                     <input type="hidden" name="last_step" value="6">
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
-                                        <a class="btn btn-light" href="{{route('operating-hour-step',$space->id)}}">Previous</a>
+                                        <a class="btn btn-light"
+                                            href="{{ route('operating-hour-step', $space->id) }}">Previous</a>
                                         <button class="btn btn-primary">Next</button>
                                     </div>
                                 </form>
@@ -180,4 +197,9 @@
     <!-- Jquery/buttons JS-->
     <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.validation').parsley();
+        });
+    </script>
 @endsection
