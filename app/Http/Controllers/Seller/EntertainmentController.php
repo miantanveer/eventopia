@@ -371,31 +371,6 @@ class EntertainmentController extends UserBaseController
         $hour->end_time = $end;
         $hour->save();
     }
-    // public function activities($id, $hour, $max, $discount, $join, $guest, $type)
-    // {
-    //     $exists = EntertainmentActivities::whereId($id)->exists();
-    //     if ($exists) {
-    //         $activity = EntertainmentActivities::find($id);
-    //         $activity->entertainment_id = $id;
-    //         $activity->hourly_rate = $hour;
-    //         $activity->max_hours = $max;
-    //         $activity->discount = $discount;
-    //         $activity->join = $join;
-    //         $activity->guest_capacity = $guest;
-    //         $activity->type = $type;
-    //         $activity->save();
-    //     } else {
-    //         $activity = new EntertainmentActivities();
-    //         $activity->entertainment_id = $id;
-    //         $activity->hourly_rate = $hour;
-    //         $activity->max_hours = $max;
-    //         $activity->discount = $discount;
-    //         $activity->join = $join;
-    //         $activity->guest_capacity = $guest;
-    //         $activity->type = $type;
-    //         $activity->save();
-    //     }
-    // }
     public function resumeForm($id)
     {
         $entertainment = Entertainment::find($id);
