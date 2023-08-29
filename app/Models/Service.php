@@ -16,7 +16,11 @@ class Service extends Model
         return $this->hasOne(ServiceTeam::class);
     }
 
-    public function operatingDay(){
+    public function operatingDays(){
         return $this->hasMany(OperatingDay::class);
+    }
+
+    public function blockTime(){
+        return $this->hasMany(BlockTime::class);
     }
 }

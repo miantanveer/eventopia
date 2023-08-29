@@ -48,6 +48,9 @@ class Space extends Model
         return $this->belongsToMany(ParkingOption::class,'space_having_parking_options');
     }
 
+    public function spaceHaveSafetyMeasures(){
+        return $this->belongsToMany(SafetyMeasure::class,'space_having_measures');
+    }
     public function spaceHaveMeasures(){
         return $this->hasMany(SpaceHavingMeasure::class);
     }
@@ -72,4 +75,7 @@ class Space extends Model
         return $this->hasMany(SpaceHaveCompanyPolicy::class);
     }
 
+    public function blockTime(){
+        return $this->hasMany(BlockTime::class);
+    }
 }
