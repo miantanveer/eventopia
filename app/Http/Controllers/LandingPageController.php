@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlockTime;
 use App\Models\Entertainment;
 use App\Models\OperatingDay;
 use App\Models\OperatingHour;
 use App\Models\Service;
 use App\Models\Space;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 
 class LandingPageController extends UserBaseController
@@ -21,8 +24,6 @@ class LandingPageController extends UserBaseController
             $this->entertainments = Entertainment::whereUserId(auth()->user()->id)->whereLastSteps('step-8')->get();
             $this->services = Service::whereUserId(auth()->user()->id)->whereLastSteps('step-7')->get();
 
-            // $this->listings = collect([$spaces, $entertainments, $services])->flatten();
-            // dd($this->listings);
             return view('content.seller.calendar', $this->data);
         }
         return view('content.auth.login');
@@ -88,13 +89,13 @@ class LandingPageController extends UserBaseController
                 $data->operatingDays()->delete(); // Assuming you have a relationship method named operatingDays
             }
 
-            if ($req->has('monday')) $this->operatingDay($req->id,$req->type, $req->monday, $req->monday_radio, $req->monday_start_time, $req->monday_end_time);
-            if ($req->has('tuesday')) $this->operatingDay($req->id,$req->type, $req->tuesday, $req->tuesday_radio, $req->tuesday_start_time, $req->tuesday_end_time);
-            if ($req->has('wednesday')) $this->operatingDay($req->id,$req->type, $req->wednesday, $req->wednesday_radio, $req->wednesday_start_time, $req->wednesday_end_time);
-            if ($req->has('thursday')) $this->operatingDay($req->id,$req->type, $req->thursday, $req->thursday_radio, $req->thursday_start_time, $req->thursday_end_time);
-            if ($req->has('friday')) $this->operatingDay($req->id,$req->type, $req->friday, $req->friday_radio, $req->friday_start_time, $req->friday_end_time);
-            if ($req->has('saturday')) $this->operatingDay($req->id,$req->type, $req->saturday, $req->saturday_radio, $req->saturday_start_time, $req->saturday_end_time);
-            if ($req->has('sunday')) $this->operatingDay($req->id,$req->type, $req->sunday, $req->sunday_radio, $req->sunday_start_time, $req->sunday_end_time);
+            if ($req->has('monday')) $this->operatingDay($req->id, $req->type, $req->monday, $req->monday_radio, $req->monday_start_time, $req->monday_end_time);
+            if ($req->has('tuesday')) $this->operatingDay($req->id, $req->type, $req->tuesday, $req->tuesday_radio, $req->tuesday_start_time, $req->tuesday_end_time);
+            if ($req->has('wednesday')) $this->operatingDay($req->id, $req->type, $req->wednesday, $req->wednesday_radio, $req->wednesday_start_time, $req->wednesday_end_time);
+            if ($req->has('thursday')) $this->operatingDay($req->id, $req->type, $req->thursday, $req->thursday_radio, $req->thursday_start_time, $req->thursday_end_time);
+            if ($req->has('friday')) $this->operatingDay($req->id, $req->type, $req->friday, $req->friday_radio, $req->friday_start_time, $req->friday_end_time);
+            if ($req->has('saturday')) $this->operatingDay($req->id, $req->type, $req->saturday, $req->saturday_radio, $req->saturday_start_time, $req->saturday_end_time);
+            if ($req->has('sunday')) $this->operatingDay($req->id, $req->type, $req->sunday, $req->sunday_radio, $req->sunday_start_time, $req->sunday_end_time);
 
             return redirect()->route('calendar')->with('success', 'Operating hours updated');
         } catch (\Throwable $th) {
@@ -102,7 +103,7 @@ class LandingPageController extends UserBaseController
         }
     }
 
-    public function operatingDay($id,$type, $week_day, $radio, $start, $end)
+    public function operatingDay($id, $type, $week_day, $radio, $start, $end)
     {
         $day = new OperatingDay();
         $property = $type . '_id';
@@ -119,6 +120,48 @@ class LandingPageController extends UserBaseController
 
     public function addBlockTime(Request $req)
     {
-        dd($req);
+        try {
+            $validator = Validator::make($req->all(), [
+                'id' => 'required',
+                'title' => 'required',
+                'start_time' => [
+                    Rule::requiredIf(!$req->all_day),
+                ],
+                'end_time' => [
+                    Rule::requiredIf(!$req->all_day),
+                ],
+            ], [
+                'id.required' => 'Please Select your listing first.',
+            ]);
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+
+            $data = $req->except('_token');
+            $type_id = $req->type . '_id';
+            $data[$type_id] = $req->id;
+
+            // Check if a block time already exists for the given type
+            $existingBlockTime = BlockTime::where($type_id, $req->id)->first();
+
+            if ($existingBlockTime) {
+                // Update the existing block time
+                $existingBlockTime->update($data);
+                $message = 'Block Time has been updated.';
+            } else {
+                // Create a new block time entry
+                $blockTime = BlockTime::create($data);
+
+                if (!$blockTime) {
+                    return redirect()->back()->with('error', 'Block Time is not created.');
+                }
+
+                $message = 'Block Time has been created.';
+            }
+
+            return redirect()->back()->with('success', $message);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
 }

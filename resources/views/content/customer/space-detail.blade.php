@@ -68,59 +68,24 @@
         <div class="col-xl-8 col-lg-12 col-md-12">
             <div class="card custom-card overflow-hidden">
                 <div class="card-body p-3">
-                    <a href="javascript:void(0)"><img src="{{ asset('assets/images/users/spaces/4.jpg') }}" alt="img"
-                            class="br-5 w-100"></a>
+                    <a href="javascript:void(0)"><img
+                            src="{{ $space->spaceImages[0]->image ?? asset('assets/images/users/spaces/4.jpg') }}"
+                            alt="image not found" class="br-5 w-100"></a>
                 </div>
                 <div class="card-body pt-0 h-100">
                     <div class="owl-carousel owl-carousel-icons2">
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/11.jpg') }}"
-                                        alt="img"></a>
+                        @foreach ($space->spaceImages as $spaceImage)
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <a href="#"><img src="{{ $spaceImage->image }}" alt="img"></a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
-                                        alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
-                                        alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
-                                        alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
-                                        alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/9.jpg') }}"
-                                        alt="img"></a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset('assets/images/users/spaces/10.jpg') }}"
-                                        alt="img"></a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="card-footer">
-                    <h2 class="fw-bold text-dark">Modern and budget friendly space</h2>
-                    <p><i class="text-primary side-menu__icon fe fe-map-pin"></i> Address,
-                        California, USA</p>
+                    <h2 class="fw-bold text-dark">{{ $space->space_title }}</h2>
+                    <p><i class="text-primary side-menu__icon fe fe-map-pin"></i>{{ ' ' . $space->address }}</p>
                     <div class="row">
                         <div class="mb-2 col-md-2 col-sm-3 text-warning">
                             <i class="fa fa-star text-warning"></i>
@@ -140,12 +105,7 @@
                         <h3 class="text-dark">
                             About the space
                         </h3>
-                        <p>Utilise the building's north side, which has a bright, industrial-white
-                            wall with even illumination for the majority of the day. On one of
-                            our white walls and our portrait plant wall inside, we provide
-                            west-facing windows for natural light. A striking natural light source
-                            can
-                            be seen in the studio's black gallery wall area..... Read more</p>
+                        <p>{{ $space->description }}</p>
                     </div>
                     <div class="mt-5">
                         <div class="accordion" id="accordionExample">
@@ -160,13 +120,13 @@
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <h4 class="text-dark">Parking options</h4>
-                                        <p>Free onsite parking, Free street parking, Nearby parking
-                                            lot</p>
-
+                                        <p>
+                                            @foreach ($space->spaceHaveParkingOptions as $parkingOption)
+                                                {{ $parkingOption->option . ',' }}
+                                            @endforeach
+                                        </p>
                                         <h4 class="text-dark">Parking description</h4>
-                                        <p>Parking in our semi-circle driveway is very easy and we
-                                            also have an empty dirt lot next to us available for
-                                            parking. Can fit 50+ vehicles or more.</p>
+                                        <p>{{ $space->parking_description ?? 'Empty' }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -174,17 +134,13 @@
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Host Rules
+                                        House Rules
                                     </button>
                                 </h2>
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <h4 class="text-dark">General Rules</h4>
-                                        <p>HOUSE INFO - thank you for your understanding! We do have
-                                            a few security cameras in family room, backyard area,
-                                            and front courtyard area for your safety and the safety
-                                            of our space.</p>
+                                        <p>{{ $space->space_rules }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -193,11 +149,7 @@
                     <hr>
                     <div class="mt-5">
                         <h3 class="text-dark">Location</h3>
-                        <div style="height: 300px;">
-                            <iframe class="gmap_iframe h-100 w-100" frameborder="0" scrolling="no" id="gmap_iframe"
-                                marginheight="0" marginwidth="0"
-                                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                            </iframe>
+                        <div style="height: 300px;" id="map">
                         </div>
                     </div>
                     <hr>
@@ -205,7 +157,9 @@
                         <h3 class="text-dark">
                             Health and Safety Measures
                         </h3>
-                        <p>Between appointments and on a daily basis, the area is cleaned.</p>
+                        @foreach ($space->spaceHaveSafetyMeasures as $safetyMeasure)
+                            <p>{{ $loop->iteration . ' ' . $safetyMeasure->safety_measure_options }}</p>
+                        @endforeach
                     </div>
                     <div class="mt-5">
                         <div class="accordion" id="accordionExample">
@@ -216,30 +170,10 @@
                                         Cleaning protocol
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                    data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <h4 class="text-dark">Enhanced cleaning measures:
-                                        </h4>
-                                        <p>High touch surfaces and shared amenities have been
-                                            disinfected
-                                            The space is cleaned and disinfected in accordance with
-                                            guidelines from local health authorities
-                                            Bookings are spaced apart to allow for enhanced cleaning
-                                            Soft, porous materials have been properly cleaned or
-                                            removed</p>
-
-                                        <h4 class="text-dark">All hosts are required to do the
-                                            following prior to each booking:</h4>
-                                        <p>Sweep, mop, vacuum and clean the space.
-                                            Supply a hand washing station with soap, warm water, and
-                                            paper towels or hand sanitizer with at least 60%
-                                            alcohol.
-                                            Clean common areas allowing guest access including
-                                            bathrooms, kitchens, and entrances.
-                                            Collect and clean dishes, silverware, and other provided
-                                            host amenities, if applicable.
-                                            Remove garbage and add new lining to cans.</p>
+                                        <p>{{ $space->cleaning_process }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -250,13 +184,8 @@
                         <h3 class="text-dark">
                             Cancellation Policy
                         </h3>
-                        <h5 class="text-dark">Flexible</h5>
-                        <p>A complete refund of the booking price (including all fees) is available
-                            to guests who cancel their reservation up to 7 days before the
-                            event's start time. A 50% refund (excluding fees) of the booking price
-                            is available to guests who cancel between seven days and
-                            twenty-four hours prior to the commencement of the event.
-                            Booking....Learn more</p>
+                        <h5 class="text-dark">{{ $space->cancellationPolicy->title }}</h5>
+                        <p>{{ $space->cancellationPolicy->description }}</p>
                     </div>
                     <hr>
                     <div class="mt-5">
@@ -361,8 +290,6 @@
                         </div>
 
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -370,19 +297,18 @@
             <div class="card custom-card">
                 <div class="card-body">
                     <div class="mt-3 text-center">
-                        <h2>SAR40 /hr</h2>
-                        <p>1 hour minimum</p>
+                        <h2>SAR {{ $space->spaceHaveActivities[0]->rate_per_hour }} /hr</h2>
+                        <p>{{ $space->spaceHaveActivities[0]->minimum_hour }} hour minimum</p>
                     </div>
                     <hr>
                     <div class="">
                         <div class="row">
                             <div class="col-7">
-                                <h4>8+ hour discount <i class="mdi mdi-alert-circle-outline"></i>
+                                <h4>{{ $space->spaceHaveActivities[0]->discount }} hour discount <i
+                                        class="mdi mdi-alert-circle-outline"></i>
                                 </h4>
                             </div>
                             <div class="col-3 offset-2">
-                                <span class="badge rounded-pill bg-default badge-sm me-1 mb-1 mt-1">15%
-                                    off</span>
                             </div>
                         </div>
                     </div>
@@ -396,8 +322,8 @@
                                     <div class="input-group">
                                         <div class="input-group-text">
                                             <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-                                        </div><input class="form-control fc-datepicker" placeholder="MM/DD/YYYY"
-                                            type="text">
+                                        </div>
+                                        <input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="text" >
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-6">
@@ -478,36 +404,13 @@
                     <div class="text-center">
                         <h3 class="mb-3 booking-heading">Included in your booking</h3>
                     </div>
-                    <h4 class="mt-5">Amentities</h4>
+                    <h4 class="mt-5 fw-bold">Amentities</h4>
                     <div class="row mb-6">
-                        <div class="col-6">
-                            <p class=""><i class="fa fa-address-book pe-2"
-                                    style="color: rgb(17, 101, 255); font-size: 22px"></i>Chairs
-                            </p>
-                        </div>
-                        <div class="col-6">
-                            <p><i class="fa fa-address-card pe-2"
-                                    style="color: rgb(17, 101, 255); font-size: 22px"></i>Speakers
-                            </p>
-                        </div>
-                    </div>
-
-                    <h3>Features</h3>
-                    <div class="row">
-                        <div class="col-6">
-                            <p><i class="fa fa-resistance pe-2"
-                                    style="color: rgb(17, 101, 255); font-size: 22px"></i>Restrooms
-                            </p>
-                        </div>
-                        <div class="col-6">
-                            <p><i class="fa fa-resistance pe-2"
-                                    style="color: rgb(17, 101, 255); font-size: 22px"></i>Restrooms
-                            </p>
-                        </div>
-                        <div class="col-12 mt-2">
-                            <p><i class="fa fa-bus pe-2" style="color: rgb(17, 101, 255); font-size: 22px"></i>Public
-                                Transportation</p>
-                        </div>
+                        @foreach ($space->spaceHaveActivities[0]->spaceAmenities as $spaceAmenity)
+                            <div class="col-6">
+                                <p class="">{{ $spaceAmenity->name }}</p>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -515,24 +418,9 @@
                 <div>
                     <h3 class="mt-4 ps-3">Operating Hours</h3>
                     <hr style="border-top: 1px solid black">
-                    <h4 class="col-sm-10 mt-5 ps-3">Monday <span class="float-end">7:00 AM - 10:00
-                            PM</span></h4>
-                    <h4 class="col-sm-10 mt-5 ps-3">Tuesday <span class="float-end">7:00 AM -
-                            10:00
-                            PM</span></h4>
-                    <h4 class="col-sm-10 mt-5 ps-3">Wednesday <span class="float-end">7:00 AM -
-                            10:00
-                            PM</span></h4>
-                    <h4 class="col-sm-10 mt-5 ps-3">Thursday <span class="float-end">7:00 AM -
-                            10:00
-                            PM</span></h4>
-                    <h4 class="col-sm-10 mt-5 ps-3">Friday <span class="float-end">7:00 AM - 10:00
-                            PM</span></h4>
-                    <h4 class="col-sm-10 mt-5 ps-3">Saturday <span class="float-end">7:00 AM -
-                            10:00
-                            PM</span></h4>
-                    <h4 class="col-sm-10 mt-5 ps-3">Sunday <span class="float-end">7:00 AM - 10:00
-                            PM</span></h4>
+                    @foreach ($space->operatingDays as $operatingDay)
+                        <h4 class="col-sm-10 mt-5 ps-3">{{ $operatingDay->week_day }} <span class="float-end">{{$operatingDay->operatingHours[0]->radio === '1' ? $operatingDay->operatingHours[0]->start_time . ' - ' . $operatingDay->operatingHours[0]->end_time : '6 : 00 AM - 12 AM'}}</span></h4>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -541,17 +429,47 @@
 
 @section('scripts')
     <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Get latitude, longitude, and title from PHP variable
+            var lat = {{ $space->lat }};
+            var lng = {{ $space->lng }};
+            var title = "{{ $space->space_title }}";
+
+            // Create a map centered at the specified location
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: lat,
+                    lng: lng
+                },
+                zoom: 14
+            });
+
+            // Create a marker at the specified location
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: lat,
+                    lng: lng
+                },
+                map: map,
+                title: title
+            });
+        });
+    </script>
     <!-- FILE UPLOADES JS -->
     <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
     <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
     <!-- INTERNAL Bootstrap-Datepicker js-->
-    <script src="{{ asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+    {{-- <script src="{{ asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script> --}}
     <!-- TIMEPICKER JS -->
-    <script src="{{ asset('assets/plugins/time-picker/jquery.timepicker.js') }}"></script>
-    <script src="{{ asset('assets/plugins/time-picker/toggles.min.js') }}"></script>
+    {{-- <script src="{{ asset('assets/plugins/time-picker/jquery.timepicker.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/plugins/time-picker/toggles.min.js') }}"></script> --}}
     <!-- DATEPICKER JS -->
-    <script src="{{ asset('assets/plugins/date-picker/date-picker.js') }}"></script>
-    <script src="{{ asset('assets/plugins/date-picker/jquery-ui.js') }}"></script>
+    {{-- <script src="{{ asset('assets/plugins/date-picker/date-picker.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assets/plugins/date-picker/jquery-ui.js') }}"></script> --}}
     <!-- FORMELEMENTS JS -->
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
     <script>
@@ -559,4 +477,5 @@
             $('#profile_form').parsley();
         });
     </script>
+
 @endsection

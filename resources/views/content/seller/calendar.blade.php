@@ -84,14 +84,21 @@
         <!--/APP-SIDEBAR-->
     </div>
     <!--app-sidebar-->
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <!-- ROW-1 -->
     <div class="row mt-5">
         <div class="col-xl-8 col-lg-12 col-md-12">
             <div class="card" id="modal3">
                 <div class="card-body border p-4 pb-5">
                     <h2 class="mx-4 fw-bolder" id="currentDate"></h2>
-                    <p class="mx-4">Operating Hours : 6:00 AM - 6:00 AM</p>
                 </div>
                 <div class="card-footer text-center">
                     <h5 class="fw-bolder text-success"><i class="fa fa-check"></i> Space is available</h5>
@@ -164,10 +171,78 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="blockTimeModal">
+        <div class="modal-dialog modal-dialog-centered text-center" role="document">
+            <div class="modal-content modal-content-demo">
+                <div class="modal-header">
+                    <div class="text-center m-auto">
+                        <h4 class="modal-title fw-bolder">Block time</h4>
+                        <p class="mx-2">Your space will be marked unavailable.</p>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('add-block-time') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-5">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
+                                        </div><input type="date" name="start_time" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-2 text-center">
+                                <h6 class="mt-3">To</h6>
+                            </div>
+                            <div class="col-5">
+                                <div class="input-group">
+                                    <div class="input-group">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
+                                        </div><input type="date" name="end_time" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mt-3 text-start">
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" name="all_day">
+                                    <span class="custom-control-label">All Day</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12 mt-5 text-start">
+                                <div class="form-group w-100">
+                                    <label for="Title" class="form-label">Title</label>
+                                    <div class="form-group ">
+                                        <input type="text" class="form-control" id="title" name="title">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" id="id">
+                        <input type="hidden" name="type" id="type">
+                        <div class="row">
+                            <div class="col-12 mt-3">
+                                <button class="btn w-100 btn-primary" type="submit">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ROW-1 END -->
 @endsection
 
 @section('scripts')
+
+    @include('layouts.components.notification-scripts')
     <!-- SPARKLINE JS-->
     <script src="{{ asset('assets/plugins/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
 

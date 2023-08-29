@@ -2,6 +2,7 @@
 
 use App\Models\ServiceTitle;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\Seller\ListingSpaceController;
@@ -64,9 +65,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/services', function () {
         return view('content.customer.services');
     });
-    Route::get('/space-details', function () {
-        return view('content.customer.space-detail');
-    });
+
+    Route::get('space-details/{space_id}', [BookingController::class, 'spaceDetail'])->name('space-details');
+    // Route::get('/space-details', function () {
+    //     return view('content.customer.space-detail');
+    // });
     Route::get('/service-details', function () {
         return view('content.customer.service-detail');
     });

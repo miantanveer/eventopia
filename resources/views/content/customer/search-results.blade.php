@@ -278,7 +278,7 @@
                                                         class="fa fa-shopping-bag p-3"></i></span>
                                             </div>
                                         </div>
-                                        <a href="http://eventopia.test/space-details">
+                                        <a href="{{route('space-details',['space_id' => 1])}}">
                                             <img src="{{ asset('assets/images/users/spaces/9.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="card-body">

@@ -9,7 +9,11 @@ class SafetyMeasure extends Model
 {
     use HasFactory;
 
+    public function spaces(){
+        return $this->belongsToMany(Space::class,'space_having_measures');
+    }
     public function saftyMeasures(){
         return $this->hasMany(SpaceHavingMeasure::class);
     }
+
 }

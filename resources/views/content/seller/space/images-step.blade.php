@@ -175,7 +175,7 @@
             parallelUploads: 10,
             maxFilesize: 2,
             addRemoveLinks: true,
-            acceptedFiles: ".png, .jpeg",
+            acceptedFiles: ".png, .jpeg, .jpg",
             init: function() {
                 var uploads = 0;
                 this.on("success", function(file, response) {

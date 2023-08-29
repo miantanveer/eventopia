@@ -44,4 +44,8 @@ class Entertainment extends Model
     {
         return $this->hasMany(EntertainmentActivity::class);
     }
+
+    public function blockTime(){
+        return $this->hasMany(BlockTime::class);
+    }
 }

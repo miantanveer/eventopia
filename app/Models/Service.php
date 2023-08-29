@@ -19,4 +19,8 @@ class Service extends Model
     public function operatingDays(){
         return $this->hasMany(OperatingDay::class);
     }
+
+    public function blockTime(){
+        return $this->hasMany(BlockTime::class);
+    }
 }
