@@ -1,9 +1,6 @@
 <?php
 
 use App\Models\ServiceTitle;
-use App\Models\Space;
-use App\Models\Service;
-use App\Models\EntertainmentActivity;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Customer\BookingController;
@@ -72,19 +69,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/search-results', function () {
         return view('content.customer.search-results');
     });
-    Route::get('/talent-&-entertainments', function () {
-        $ent = EntertainmentActivity::with('sub_act', 'sub_act.act', 'ent', 'ent.entertainmentImages')->get();
-        return view('content.customer.search-results-of-talent&entertainment',['ent'=>$ent]);
-    });
-    Route::get('/services', function () {
-        $service = Service::with('serviceImages')->get();
-        return view('content.customer.services',['service'=>$service]);
-    });
 
-    Route::get('/spaces', function () {
-        $space = Space::with('spaceHaveActivities','spaceImages')->get();
-        return view('content.customer.space',['space'=>$space]);
-    });
+    Route::get('/spaces', [BookingController::class, 'space_index'])->name('spaces');
+    Route::get('/talent-&-entertainments', [BookingController::class, 'entertainment_index'])->name('entertainments_index');
+    Route::get('/services', [BookingController::class, 'service_index'])->name('services');
+    
     Route::get('space-details/{space_id}', [BookingController::class, 'spaceDetail'])->name('space-details');
     // Route::get('/space-details', function () {
     //     return view('content.customer.space-detail');

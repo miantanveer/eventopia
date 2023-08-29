@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserBaseController;
 use App\Models\OperatingDay;
 use App\Models\Space;
+use App\Models\Service;
+use App\Models\Entertainment;
+use App\Models\EntertainmentActivity;
 use Illuminate\Http\Request;
 
 class BookingController extends UserBaseController
@@ -37,4 +40,25 @@ class BookingController extends UserBaseController
         //     }
         return view('content.customer.space-detail', $this->data);
     }
+    public function space_index()
+    {
+        $this->space = Space::whereLastStep('10')->whereStatus('1')->with('spaceHaveActivities','spaceImages')->get();
+        $this->count = Space::whereStatus('1')->whereLastStep('10')->count();
+        return view('content.customer.space',$this->data);
+    } 
+    public function entertainment_index()
+    {
+        $this->ent = EntertainmentActivity::with('sub_act', 'sub_act.act', 'ent', 'ent.entertainmentImages')
+        ->whereHas('ent', function ($ent_query) {
+            $ent_query->whereLastSteps('step-9');
+          })->get();
+        $this->count = Entertainment::where('last_steps','step-9')->count();
+        return view('content.customer.search-results-of-talent&entertainment',$this->data);
+    } 
+    public function service_index()
+    {
+        $this->service = Service::whereLastSteps('step-7')->with('serviceImages')->get();
+        $this->count = Service::whereLastSteps('step-7')->count();
+        return view('content.customer.services',$this->data);
+    } 
 }

@@ -278,7 +278,7 @@
                                     </div>
                                 @else
                                     <div class="card-header border-bottom-0 ms-3">
-                                        4,333 party hall spaces near USA
+                                        {{$count}} entertainment found
                                     </div>
                                     @foreach (@$ent as $value)
                                         @php
