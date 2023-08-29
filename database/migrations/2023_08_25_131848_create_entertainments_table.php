@@ -30,6 +30,13 @@ class CreateEntertainmentsTable extends Migration
             $table->longText('contact_num')->nullable();
             $table->longText('image')->nullable();
             $table->longText('eventopia_hear')->nullable();
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->string('lng')->nullable();
+            $table->string('lat')->nullable();
             $table->string('last_steps')->nullable();
             $table->string('status')->default(0)->comment('0=>Pending,1=>Active,2=>Cancelled');
             $table->timestamps();

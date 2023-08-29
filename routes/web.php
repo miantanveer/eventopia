@@ -2,6 +2,7 @@
 
 use App\Models\ServiceTitle;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Seller\ListingSpaceController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,15 @@ use App\Http\Controllers\Seller\ListingController;
 Route::get('/', function () {
     return view('content.landing-page');
 });
+// Space Search
+Route::get('/space_landing', [LandingController::class, 'space_index'])->name('space_landing_index');
+Route::get('/space_results', [LandingController::class, 'space_search'])->name('space_search_results');
+// Entertainments Search
+Route::get('/entertainment_landing', [LandingController::class, 'entertainment_index'])->name('entertainment_landing_index');
+Route::get('/entertainment_results', [LandingController::class, 'entertainment_search'])->name('entertainment_search_results');
+// Space Search
+Route::get('/service_landing', [LandingController::class, 'service_index'])->name('service_landing_index');
+Route::get('/service_results', [LandingController::class, 'service_search'])->name('service_search_results');
 
 // Authentications
 Route::get('signup', [AuthenticationController::class, 'signupIndex'])->name('signup');
@@ -219,13 +229,16 @@ Route::group(['middleware' => ['auth']], function () {
     // Form Step 8
     Route::get('/entertainment/load/form/step/8/{id}', [EntertainmentController::class, 'loadFormStep8'])->name('load_entertainment_form_8');
     Route::post('/entertainment/form/step/8/{id}', [EntertainmentController::class, 'formStep8'])->name('entertainment_form_8');
+    // Form Step 9
+    Route::get('/entertainment/load/form/step/9/{id}', [EntertainmentController::class, 'loadFormStep9'])->name('load_entertainment_form_9');
+    Route::post('/entertainment/form/step/9/{id}', [EntertainmentController::class, 'formStep9'])->name('entertainment_form_9');
     // Delete Enterainemnt
     Route::delete('/entertainment-delete/{id}', [EntertainmentController::class, 'destroy'])->name('entertainment-delete');
     // Resume Entertainment
     Route::get('/entertainment/resume/{id}', [EntertainmentController::class, 'resumeForm'])->name('entertainment-form-resume');
     // Update Entertainment Activities
-    Route::get('/entertainment/update/form/step/6/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep6'])->name('load_entertainment_form_step_6');
-    Route::post('/entertainment/update/form/step/6/{id}', [EntertainmentController::class, 'UpdateFormStep6'])->name('update_entertainment_form_6');
+    Route::get('/entertainment/update/form/step/7/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep7'])->name('load_entertainment_form_step_7');
+    Route::post('/entertainment/update/form/step/7/{id}', [EntertainmentController::class, 'UpdateFormStep7'])->name('update_entertainment_form_7');
 });
 
 

@@ -1,147 +1,243 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
-    <style>
-        .tab-content {
-            min-height: auto !important;
-        }
+<style>
+    .tab-content {
+        min-height: auto !important;
+    }
 
-        .sw-container {
-            min-height: auto !important;
-        }
+    .sw-container {
+        min-height: auto !important;
+    }
 
-        .back-g-color {
-            background-color: #F2F8FF !important;
-        }
+    .back-g-color {
+        background-color: #F2F8FF !important;
+    }
 
-        .sw-btn-group-extra {
-            display: none;
-        }
+    .sw-btn-group-extra {
+        display: none;
+    }
 
-        .remove {
-            width: 25px;
-            height: 25px;
-            border: 1px solid transparent;
-            border-radius: 50% !important;
-            background: black;
-            color: white;
-            padding: auto;
-            padding-left: 8px;
-            position: absolute;
-            right: 0;
-            top: -10px;
-            cursor: pointer;
-        }
-    </style>
+    .remove {
+        width: 25px;
+        height: 25px;
+        border: 1px solid transparent;
+        border-radius: 50% !important;
+        background: black;
+        color: white;
+        padding: auto;
+        padding-left: 8px;
+        position: absolute;
+        right: 0;
+        top: -10px;
+        cursor: pointer;
+    }
+</style>
 @endsection
 @section('content')
-    <!--Row open-->
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div id="smartwizard-3">
-                        <ul class="justify-content-around">
-                            <li><a href="#step-1">Step 1</a></li>
-                            <li><a href="#step-2">Step 2</a></li>
-                            <li><a href="#step-3">Step 3</a></li>
-                            <li><a href="#step-4">Step 4</a></li>
-                            <li><a href="#step-5">Step 5</a></li>
-                            <li><a href="#step-6">Step 6</a></li>
-                            <li><a href="#step-7">Step 7</a></li>
-                            <li><a href="#step-8">Step 8</a></li>
-                        </ul>
-                        <div>
-                            <div id="step-8" class="mb-5">
-                                <form action="{{route('entertainment_form_8',$id)}}" method="post" class="validation">
-                                    @csrf
-                                    <div class="container">
-                                        <div class="text-center mb-6">
-                                            <h3 class="mt-3 mt-1"><b>Please review the following Eventopia policies</b>
-                                            </h3>
-                                            <p class=""><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                    class="w-5" alt=""> I agree and
-                                                understand that as a Eventopia host I am required to:</p>
+<!--Row open-->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div id="smartwizard-3">
+                    <ul class="justify-content-around">
+                        <li><a href="#step-1">Step 1</a></li>
+                        <li><a href="#step-2">Step 2</a></li>
+                        <li><a href="#step-3">Step 3</a></li>
+                        <li><a href="#step-4">Step 4</a></li>
+                        <li><a href="#step-5">Step 5</a></li>
+                        <li><a href="#step-6">Step 6</a></li>
+                        <li><a href="#step-7">Step 7</a></li>
+                        <li><a href="#step-8">Step 8</a></li>
+                    </ul>
+                    <div>
+                        <div id="step-7" class="mb-5">
+                            <form action="{{route('entertainment_form_8',$id)}}" method="post" enctype="multipart/form-data" class="validation">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="mb-lg-5 mb-3">
+                                            <h2 class="mb-1"><b class="h-3">Who will guests be contacting?</b>
+                                            </h2>
+                                            <b>Please do not use a business name, so it’s more personal for your
+                                                guests.</b>
                                         </div>
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-10">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="on_company" type="checkbox" value="keep on company"
-                                                            id="invalidCheck-1" checked required>
-                                                        <label class="form-check-label" for="invalidCheck-1">
-                                                            <p>Keep conversations on Eventopia</p>
-                                                            <p>Keep conversations with guests on the platform so everyone
-                                                                knows what was agreed to.</p>
-                                                        </label>
-                                                    </div>
-                                                    <hr class="bg-dark">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment"
-                                                            id="invalidCheck-2" required>
-                                                        <label class="form-check-label" for="invalidCheck-2">
-                                                            <p>Use Eventopia to process payments</p>
-                                                            <p>All payments must be processed on Eventopia and honor our
-                                                                service fee. All payouts will be made via direct deposit to
-                                                                your bank account.</p>
-                                                        </label>
-                                                    </div>
-                                                    <hr class="bg-dark">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="booking_and_cancellation" type="checkbox" value="Booking and Cancellation policy"
-                                                            id="invalidCheck-3" required>
-                                                        <label class="form-check-label" for="invalidCheck-3">
-                                                            <p>Follow the booking, cancellation, and overtime policies</p>
-                                                            <p>All bookings are covered by the Eventopia Services Agreement.
-                                                                Contracts that conflict with these policies are not allowed.
-                                                            </p>
-                                                        </label>
-                                                    </div>
-                                                    <hr class="bg-dark">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="local_regulatioins" type="checkbox" value="Local Regulations"
-                                                            id="invalidCheck-4" required>
-                                                        <label class="form-check-label" for="invalidCheck-4">
-                                                            <p>Make sure my space meets local regulations</p>
-                                                            <p>Follow local regulations to ensure the safety of your guests,
-                                                                yourself, and your space.</p>
-                                                        </label>
-                                                    </div>
-                                                    <hr class="bg-dark">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" value="{{@$entertainment->contact_first_name}}" name="contact_first_name" class="form-control" id="exampleInputname"
+                                                        placeholder="john" required
+                                                        data-parsley-required-message="Password is required*">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" id="exampleInputname1"
+                                                        placeholder="Smith" value="{{@$entertainment->contact_last_name}}" name="contact_last_name" required
+                                                        data-parsley-required-message="Confirm Password is required*">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="tel" class="form-control" id="exampleInputphone1"
+                                                placeholder="(123) 345 -4567" value="{{@$entertainment->contact_num}}" name="contact_num" required
+                                                data-parsley-required-message="Phone Number is required*">
+                                        </div>
+                                        <div class="bg-light-gray p-3 mb-3">
+                                            <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>Your number
+                                                needs
+                                                to be verified</p>
+                                        </div>
+                                        <p class="mb-5">We won’t share your number publicly. Guests will only see it
+                                            after they book to coordinate with you.</p>
+                                        <hr class="bg-dark my-6">
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="text-center chat-image mb-5">
+                                            <input type="file" name='image'  value="{{@$entertainment->image}}" class="dropify" required data-parsley-errors-container='#file_error' data-parsley-required-message="Team Image is required"  />
+                                            <div id="file_error"></div>
+                                        </div>
+                                        <div class="text-center px-8">
+                                            <p class="text-muted">Choose a friendly, accurate photo to help instill a
+                                                sense of trust and verification in your listing</p>
+                                        </div>
+                                        <div class="px-8">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <ul>
+                                                        <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
+                                                                class="w-4" alt=""> No photos of the
+                                                            space</li>
+                                                        <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
+                                                                class="w-4" alt=""> No business logos
+                                                        </li>
+                                                        <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
+                                                                class="w-4" alt=""> No group photos</li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="float-end">
-                                        <a class="btn btn-light"
-                                            href="{{ route('load_entertainment_form_7', $id) }}">Previous</a>
-                                        <button class="btn btn-primary">Finish</button>
+                                    <div class="row">
+                                        <div class="col-9">
+                                            <h3><b class="h-3">How did you hear about entertainment / talent with
+                                                    Eventopia?</b></h3>
+                                            <p>Select all that apply to help us find more hosts like you.</p>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="f&C"
+                                                            id="invalidCheck-1" {{@$entertainment->eventopia_hear == 'f&C' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label" for="invalidCheck-1">Friend,
+                                                            family, or colleague</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="N&B"
+                                                            id="invalidCheck-2" {{@$entertainment->eventopia_hear == 'N&B' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label" for="invalidCheck-2">News or
+                                                            blog
+                                                            article</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="CP"
+                                                            id="invalidCheck-3" {{@$entertainment->eventopia_hear == 'CP' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label" for="invalidCheck-3">Contacted
+                                                            by
+                                                            Peerspace</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="TV"
+                                                            id="invalidCheck-4" {{@$entertainment->eventopia_hear == 'TV' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label" for="invalidCheck-4">TV</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="Bill"
+                                                            id="invalidCheck-5" {{@$entertainment->eventopia_hear == 'Bill' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label"
+                                                            for="invalidCheck-5">Billboard</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="online"
+                                                            id="invalidCheck-7" {{@$entertainment->eventopia_hear == 'online' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label" for="invalidCheck-7">Online
+                                                            ad</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-5">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="SM"
+                                                            id="invalidCheck-8" {{@$entertainment->eventopia_hear == 'SM' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label" for="invalidCheck-8">Social
+                                                            media</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="RFE"
+                                                            id="invalidCheck-9" {{@$entertainment->eventopia_hear == 'RFE' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label" for="invalidCheck-9">Referral
+                                                            from
+                                                            a Eventopia host</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="OS"
+                                                            id="invalidCheck-10" {{@$entertainment->eventopia_hear == 'OS' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label" for="invalidCheck-10">Online
+                                                            search</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="AEE"
+                                                            id="invalidCheck-11" {{@$entertainment->eventopia_hear == 'AEE' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label" for="invalidCheck-11">Attended
+                                                            an
+                                                            event in a Eventopia</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="Other"
+                                                            id="invalidCheck-12" {{@$entertainment->eventopia_hear == 'Other' ? 'checked' : ''}} required>
+                                                        <label class="form-check-label"
+                                                            for="invalidCheck-12">Other</label>
+                                                    </div>
+                                                </div>
+                                                <hr class="bg-dark my-6">
+                                            </div>
+                                        </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                                <div class="float-end">
+                                    <a class="btn btn-light"
+                                        href="{{ route('load_entertainment_form_7', $id) }}">Previous</a>
+                                    <button class="btn btn-primary">Next</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--row closed-->
+    </div>
+    <!--row closed-->
     @endsection
     @section('scripts')
-        <!-- Jquery/min JS-->
-        <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
-        <!-- INTERNAL File-Uploads Js-->
-        <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
-        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
-        <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
-        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
-        <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
-        <!-- Jquery/buttons JS-->
-        <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
-        <script src="{{ asset('assets/js/select2.js') }}"></script>
-        <script src="{{ asset('assets/plugins/parsleyjs/parsley.min.js') }}"></script>
+    <!-- Jquery/min JS-->
+    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+ 
+    <!-- Jquery/buttons JS-->
+    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/js/select2.js') }}"></script>
+    <script src="{{ asset('assets/plugins/parsleyjs/parsley.min.js') }}"></script>
 
-        <script>
-            $(document).ready(function(){
-                $('.validation').parsley();
-            });
-        </script>
+    <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
+
+    <!-- INTERNAl Upload js -->
+    <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.validation').parsley();
+        });
+    </script>
     @endsection

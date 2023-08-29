@@ -12,9 +12,17 @@ class EntertainmentActivity extends Model
     {
         return $this->belongsTo(EntActivity::class,'ent_activity_id');
     }
+    public function sub_act()
+    {
+        return $this->belongsTo(EntSubActivity::class,'ent_activity_id');
+    }
     public function entActivityAmenity()
     {
         return $this->belongsTo(EntActivityAmenity::class,'entertainment_activity_id');
+    }
+    public function ent()
+    {
+        return $this->belongsTo(Entertainment::class,'entertainment_id');
     }
 
 }

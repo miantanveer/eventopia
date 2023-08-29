@@ -75,14 +75,16 @@ class ServiceController extends UserBaseController
         // }
         // else{
             $filename = '';
+            $foldername = '';
         if ($request->hasFile('file')) {
             $image = $request->file;
             $filename = time() . '-' . $image->getClientOriginalName();
+            $foldername = '/uploads/seller/service/';
             $image->move(public_path('/uploads/seller/service/'), $filename);
         }
         $image = new ServiceImages();
         $image->service_id = $id;
-        $image->image = $filename;
+        $image->image = $foldername.$filename;
         $image->save();
         $service = Service::find($id);
         $service->last_steps = 'step-2';

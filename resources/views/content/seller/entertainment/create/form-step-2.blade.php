@@ -100,7 +100,7 @@
                                                     500 m m conference room, you would enter “500”.</p>
                                                 <div class="form-group">
                                                     <div class="input-group w-30">
-                                                        <input type="text" name="space"
+                                                        <input type="number" name="space"
                                                             value="{{ @$entertainment->space }}" class="form-control"
                                                             placeholder="1 to 500" required data-parsley-errors-container="#error"
                                                             data-parsley-required-message="Please Enter Space">

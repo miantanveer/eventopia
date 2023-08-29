@@ -282,7 +282,7 @@
                                                                     class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
                                                                     <span><img class="customize_img justify-content-start"
                                                                             style="max-width: 65px !important"
-                                                                            src="{{ asset('assets/images/icons/' . $space_acitiviy->image) }}"></span>
+                                                                            src="{{ asset('assets/images/icons/'.$space_acitiviy->title) }}"></span>
                                                                     {{-- <h6 class="ps-4 d-inline d-sm-none">Meetings</h6> --}}
                                                                 </div>
                                                                 <div
@@ -403,7 +403,7 @@
                             <div class="card border">
                                 <div class="row g-0">
                                     <div class="col-md-4 pe-3 pe-lg-0">
-                                        <img src="{{ asset('/uploads/seller/entertainment/' . $data->entertainmentImages[0]->image) }}"
+                                        <img src="{{ asset($data->entertainmentImages[0]->image) }}"
                                             class="card-img-left h-100 image_lg" width="200px" height="auto"
                                             alt="img">
                                     </div>
@@ -496,7 +496,7 @@
                                                                 @endphp
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                    <a href="{{ route('load_entertainment_form_step_7', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
                                                                         class="btn btn-white">Edit</a>
                                                                 </div>
                                                             @endif
@@ -505,7 +505,7 @@
                                                         @if (!$editButtonShown)
                                                             <div
                                                                 class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                <a href="{{ route('load_entertainment_form_step_6', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
+                                                                <a href="{{ route('load_entertainment_form_step_7', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
                                                                     class="btn btn-white">Enable</a>
                                                             </div>
                                                         @endif

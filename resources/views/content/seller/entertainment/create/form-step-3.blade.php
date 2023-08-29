@@ -60,72 +60,68 @@
                         </ul>
                         <div>
 
-                            <div id="step-3" class="mb-5">
-                                <div class="container">
-                                    <div class="text-center mb-6">
-                                        <h3 class="mt-3 mt-1"><b>Upload photos / videos of your entertainment &
-                                                talent</b>
-                                        </h3>
-                                        <p class="">Photos / videos are the first thing that guests will see. We
-                                            recommend
-                                            adding 10 or more high quality photos.</p>
+                            <div id="step-4">
+                                @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
                                     </div>
-                                    <p class="mb-3"><b>Photo requirements:</b></p>
-                                    <div class="row mb-5">
-                                        <div class="col-md-6">
-                                            <li>High resolution - At least 1,000 pixels wide</li>
-                                            <li>Horizontal orientation - No vertical photos</li>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <li>Color photos - No black & white</li>
-                                            <li>Misc. - No collages, screenshots, or watermarks</li>
-                                        </div>
-                                    </div>
-                                    @if ($errors->any())
-                                        <div class="alert alert-danger">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                    <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    @endif
-                                    <input type="hidden" name="url" id="url"
-                                        value="{{ route('load_entertainment_form_4', $id) }}">
-                                    <form action="{{ route('entertainment_form_3', $id) }}" method="post" id="filedrop"
-                                        class="dropzone .custom-validation">
-                                        @csrf
-                                        @method('post')
-                                        <div class="fallback">
-                                            <input name="file" id="file" type="file" required
-                                                enctype="multipart/form-data" multiple="multiple">
-                                        </div>
-                                        <div class="dz-message needsclick">
-                                            <div class="mb-3">
-                                                <i class="display-4 text-muted uil uil-cloud-upload"></i>
-                                            </div>
-
-                                            <h4>Drop files here or click to upload.</h4>
-                                        </div>
-                                    </form>
+                                @endif
+                                <form action="{{ route('entertainment_form_3', $id) }}" method="POST"
+                                    class="border mt-5 validate">
+                                    @csrf
+                                    <hr>
                                     <div class="row">
-                                        <div class="col-12">
-                                            <p><img src="{{ asset('assets/images/brand/light-bulb.png') }}" class="w-5"
-                                                    alt=""> Drag and drop your photos to change
-                                                the order. Your
-                                                first photo
-                                                is what your guests will see when browsing so make sure it represents
-                                                your
-                                                space.</p>
+                                        <div class="card-header  mb-3">
+                                            <h1 style="text-align:center;" class="card-title">Entertainment Address</h1>
                                         </div>
+                                        <div class="card-body col-md-5 col-lg-12">
+                                            <label class="form-control-label">Street Address</label>
+                                            <span class="tx-danger">*</span></label>
+                                            <input class="form-control rounded-0" value="{{ @$entertainment->address }}"
+                                                id="address" name="address" placeholder="Add Address" required
+                                                data-parsley-required-message="Please enter your address" type="text">
+                                        </div>
+                                        <div class="col-md-5 col-lg-6 mt-3">
+                                            <label class="form-control-label">Country</label>
+                                            <span class="tx-danger">*</span></label>
+                                            <input class="form-control rounded-0" value="{{ @$entertainment->country }}"
+                                                id="country" name="country" placeholder="" required readonly
+                                                type="text">
+                                        </div>
+                                        <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
+                                            <label class="form-control-label">State<span class="tx-danger">*</span></label>
+                                            <input class="form-control rounded-0" value="{{ @$entertainment->state }}"
+                                                id="state" name="state" placeholder="" required readonly
+                                                type="text">
+                                        </div>
+                                        <div class="col-md-5 col-lg-6 mt-3">
+                                            <label class="form-control-label">City</label> <span
+                                                class="tx-danger">*</span></label>
+                                            <input class="form-control rounded-0" id="city"
+                                                value="{{ @$entertainment->city }}" name="city" placeholder="" required
+                                                readonly type="text">
+                                        </div>
+                                        <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
+                                            <label class="form-control-label">Postal Code<span
+                                                    class="tx-danger">*</span></label>
+                                            <input class="form-control rounded-0" value="{{ @$entertainment->postal_code }}"
+                                                id="postal_code" name="postal_code" placeholder="" required
+                                                data-parsley-required-message="Please enter a value" type="text">
+                                        </div>
+                                        <input type="hidden" name="lat" value="{{ @$entertainment->lat }}" id="lat">
+                                        <input type="hidden" name="lng" value="{{ @$entertainment->lng }}" id="lng">
                                     </div>
-                                    <hr class="bg-dark border-3">
-                                </div>
-                                <div class="float-end">
-                                    <a class="btn btn-light"
-                                        href="{{ route('load_entertainment_form_2', $id) }}">Previous</a>
-                                    <button class="btn btn-primary" onclick="upload()">Next</button>
-                                </div>
+                                    <br>
+                                    <hr class="border-3 bg-dark">
+                                    <div class="float-end mt-8">
+                                        <a class="btn btn-light" href="{{ route('load_entertainment_form_2', $id) }}">Previous</a>
+                                        <button class="btn btn-primary">Next</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -142,51 +138,56 @@
         <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
         <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
         <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
-        <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+        <script src="{{ asset('assets/plugins/parsleyjs/parsley.min.js') }}"></script>
         <!-- Jquery/buttons JS-->
         <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
         <script src="{{ asset('assets/js/select2.js') }}"></script>
+        <!-- Gogole Loaction API -->
+        <script
+            src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+        </script>
+
         <script>
-            var myDropzone;
-            var alertShown = false; // Flag to track whether the alert has been shown
-            Dropzone.autoDiscover = false;
-
-            myDropzone = new Dropzone("form#filedrop", {
-                autoProcessQueue: false,
-                parallelUploads: 10,
-                maxFilesize: 2,
-                addRemoveLinks: true,
-                acceptedFiles: ".png, .jpeg",
-                init: function() {
-                    var uploads = 0;
-                    var dropzone = this; // Store a reference to the Dropzone instance
-                    this.on("success", function(file, response) {
-                        if (myDropzone.getQueuedFiles().length === 0 && myDropzone.getUploadingFiles()
-                            .length === 0) {
-                            var id = $('#service_id').val();
-                            var url = $('#url').val();
-                            window.location.replace(url);
-                        }
-                        uploads++
-                    });
-                   
-                    this.on("addedfile", function(file) {
-                        if (!alertShown && myDropzone.files.length < 3) {
-                            alertShown = true;
-                            alert("Please upload at least 4 files.");
-                        }
-                    });
-                },
+            $(document).ready(function() {
+                $('.validate').parsley();
             });
+        </script>
 
-            function upload() {
-                if (alertShown === false && myDropzone.files.length < 4 || alertShown === false && myDropzone.files.length ===
-                    0) {
-                    alert("Please upload at least 4 files.");
-                } else {
-                    var files = myDropzone.files;
-                    myDropzone.processQueue(files);
-                }
-            }
+        <script>
+            var searchInput = 'address';
+            $(document).ready(function() {
+                var autocomplete;
+                autocomplete = new google.maps.places.Autocomplete((document.getElementById(searchInput)), {
+                    fields: ["address_components", "geometry"],
+                    types: ["address"],
+                });
+                google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                    var place = autocomplete.getPlace();
+                    var lat = place.geometry['location'].lat();
+                    var lng = place.geometry['location'].lng();
+                    var myarr = place.address_components;
+                    var keyapi = 'AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E';
+                    $('#city').val('')
+                    $('#state').val('')
+                    $('#country').val('')
+                    $('#postal_code').val('')
+                    $('#lat').val(lat)
+                    $('#lng').val(lng)
+                    var myarr = place.address_components;
+                    for (let i = 0; i < myarr.length; i++) {
+                        var components = myarr[i];
+                        if (components.types[0] == 'postal_code') {
+                            $('#postal_code').val(components.long_name)
+                        } else if (components.types[0] == 'country') {
+                            $('#country').val(components.long_name);
+                        } else if (components.types[0] == 'administrative_area_level_1') {
+                            $('#state').val(components.long_name)
+                        } else if (components.types[0] == 'locality' || components.types[0] == 'postal_town' ||
+                            components.types[0] == 'administrative_area_level_2') {
+                            $('#city').val(components.long_name)
+                        } else {}
+                    }
+                });
+            });
         </script>
     @endsection

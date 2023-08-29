@@ -32,7 +32,7 @@
 
         .btn_background {
             background: white !important;
-            border: 1px solid rgba(95, 95, 95, 0.74)!important;
+            border: 1px solid rgba(95, 95, 95, 0.74) !important;
         }
 
         .card_height {
@@ -136,11 +136,13 @@
                     </div>
                     <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4 ps-0">
                         <div class="mt-2 mb-2">
-                                <input type="text" id="typeCategories" class="form-control btn_background text-dark"
-                                    placeholder="Type">
-                                <div class="search-dropdown-results" id="searchResults"></div>
+                            <input type="text" id="typeCategories" class="form-control btn_background text-dark"
+                                placeholder="Type">
+                            <div class="search-dropdown-results" id="searchResults"></div>
                         </div>
                     </div>
+                    {{-- @dd($data) --}}
+
                     <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4 ps-0">
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
@@ -262,323 +264,136 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-header border-bottom-0 ms-3">
-                            4,333 party hall spaces near USA
-                        </div>
+
                         <div class="card-body pt-0">
                             <div class="row">
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
-                                        </div>
-                                        <a href="http://eventopia.test/space-details">
-                                            <img src="{{ asset('assets/images/users/spaces/9.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
-                                                <i class="fa fa-group"></i> 25 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
+                                @if ($data->isEmpty())
+                                    <div class="text-center">
+                                        <h2><strong>We couldn't find any spaces.</strong></h2>
                                     </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
-                                        </div>
-                                        <a href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stunning Event Venue</h5>
-                                                <i class="fa fa-group"></i> 25 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
+                                    <div class="card-header border-bottom-0 ms-1 justify-content-center">
+                                        Try zooming out or expanding your filter criteria.
                                     </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
+                                @else
+                                    @if (@$type == 'space')
+                                        <div class="card-header border-bottom-0 ms-3">
+                                            4,333 party hall spaces near USA
                                         </div>
-                                        <a href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
-                                                <i class="fa fa-group"></i> 33 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
+                                        @foreach (@$data as $value)
+                                            @php
+                                                $lat = $value->lat;
+                                                $lng = $value->lng;
+                                                $title = $value->space_title;
+                                            @endphp
+                                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                                <div class="card overflow-hidden">
+                                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
+                                                        <div class="ms-1 card-border float-start">
+                                                            <p class="text-dark p-2 bg-primary">From
+                                                                SAR{{ $value->spaceHaveActivities[0]->rate_per_hour }}/hour
+                                                            </p>
+                                                        </div>
+                                                        <div class="me-2 card-background float-end">
+                                                            <span class="mini-stat-icon p-0"><i
+                                                                    class="fa fa-shopping-bag p-3"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#">
+                                                        <img src="{{ asset($value->spaceImages[0]->image) }}"
+                                                            class="card-img-top" style="width: 200px;padding-top: 10px"
+                                                            alt="img">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">{{ $value->space_title }}</h5>
+                                                            <i class="fa fa-group"></i> 25 &nbsp;
+                                                            <i class="fa fa-star" style="color:#f1c40f"></i>
+                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                            <p>Responds within 1 hour</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
+                                        @endforeach
+                                    @elseif (@$type == 'entertainment')
+                                        @foreach (@$data as $value)
+                                            @php
+                                                $lat = $value->ent->lat;
+                                                $lng = $value->ent->lng;
+                                                $title = $value->ent->title;
+                                            @endphp
+                                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                                <div class="card overflow-hidden">
+                                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
+                                                        <div class="ms-1 card-border float-start">
+                                                            <p class="text-dark p-2 bg-primary">From
+                                                                SAR{{ @$value->hourly_rate }}/hour</p>
+                                                        </div>
+                                                        <div class="me-2 card-background float-end">
+                                                            <span class="mini-stat-icon p-0"><i
+                                                                    class="fa fa-shopping-bag p-3"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#">
+                                                        <img src="{{ asset(@$value->ent->entertainmentImages[0]->image) }}"
+                                                            class="card-img-top" style="width: 200px;padding-top: 10px"
+                                                            alt="img">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">{{ @$value->ent->title }}</h5>
+                                                            <i class="fa fa-group"></i> 25 &nbsp;
+                                                            <i class="fa fa-star" style="color:#f1c40f"></i>
+                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                            <p>Responds within 1 hour</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
+                                        @endforeach
+                                    @elseif(@$type == 'service')
+                                        @foreach (@$data as $value)
+                                            @php
+                                                $lat = $value->lat;
+                                                $lng = $value->lng;
+                                                $title = $value->title;
+                                            @endphp
+                                            <div class="col-xl-4 col-md-6 col-sm-12">
+                                                <div class="card overflow-hidden">
+                                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
+                                                        <div class="ms-1 card-border float-start">
+                                                            <p class="text-dark p-2 bg-primary">From
+                                                                SAR{{ @$value->price }}</p>
+                                                        </div>
+                                                        <div class="me-2 card-background float-end">
+                                                            <span class="mini-stat-icon p-0"><i
+                                                                    class="fa fa-shopping-bag p-3"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <a href="#">
+                                                        <img src="{{ asset(@$value->serviceImages[0]->image) }}"
+                                                            class="card-img-top" style="width: 200px;padding-top: 10px"
+                                                            alt="img">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">{{ @$value->title }}</h5>
+                                                            <i class="fa fa-group"></i> 25 &nbsp;
+                                                            <i class="fa fa-star" style="color:#f1c40f"></i>
+                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                            <p>Responds within 1 hour</p>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <a href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/5.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stunning Event Venue</h5>
-                                                <i class="fa fa-group"></i> 13 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
-                                        </div>
-                                        <a href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/9.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Great Space for Events</h5>
-                                                <i class="fa fa-group"></i> 35 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
-                                        </div>
-                                        <a href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stunning Event Venue</h5>
-                                                <i class="fa fa-group"></i> 77 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
-                                        </div>
-                                        <a href="http://eventopia.test/space-details">
-                                            <img src="http://eventopia.test/assets/images/users/spaces/2.jpg"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
-                                                <i class="fa fa-group"></i> 25 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
-                                        </div>
-                                        <a href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stunning Event Venue</h5>
-                                                <i class="fa fa-group"></i> 25 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
-                                        </div>
-                                        <a href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stunning Studio Great For Private Classes</h5>
-                                                <i class="fa fa-group"></i> 33 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
-                                        </div>
-                                        <a href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/5.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stunning Event Venue</h5>
-                                                <i class="fa fa-group"></i> 13 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
-                                        </div>
-                                        <a href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/9.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Great Space for Events</h5>
-                                                <i class="fa fa-group"></i> 35 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-md-6 col-sm-12">
-                                    <div class="card overflow-hidden">
-                                        <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                            <div class="ms-1 card-border float-start">
-                                                <p class="text-dark p-2 bg-primary">From SAR40/hour</p>
-                                            </div>
-                                            <div class="me-2 card-background float-end">
-                                                <span class="mini-stat-icon p-0"><i
-                                                        class="fa fa-shopping-bag p-3"></i></span>
-                                            </div>
-                                        </div>
-                                        <a href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
-                                                class="card-img-top" alt="img">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Stunning Event Venue</h5>
-                                                <i class="fa fa-group"></i> 77 &nbsp;
-                                                <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <p>Responds within 1 hour</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                        @endforeach
+                                    @endif
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-12 mt-5 mt-lg-0" id="mapColumn">
-            <div class="container-fluid">
+        <div class="col-lg-4 col-12 mt-5 mt-lg-0" id="map">
+            {{-- <div class="container-fluid">
                 <div class="card custom-card">
                     <div class="card-body map_height overflow-auto" id="mapContainer">
                         <iframe class="gmap_iframe" frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0"
@@ -586,9 +401,9 @@
                             src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                         </iframe>
                     </div>
-                </div>
-            </div>
+                </div> --}}
         </div>
+    </div>
     </div>
 
 
@@ -596,6 +411,34 @@
 @endsection
 
 @section('scripts')
+    <script
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Get latitude, longitude, and title from PHP variable
+            var lat = {{ $lat }};
+            var lng = {{ $lng }};
+            var title = "{{ $title }}";
+            // Create a map centered at the specified location
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: lat,
+                    lng: lng
+                },
+                zoom: 14
+            });
+            // Create a marker at the specified location
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: lat,
+                    lng: lng
+                },
+                map: map,
+                title: title
+            });
+        });
+    </script>
     <!-- OWL CAROUSEL JS-->
     <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>

@@ -12,7 +12,7 @@
     <title>Eventopia | Landing Page</title>
     <link rel="stylesheet" href="{{ asset('assets/css/flatpicker.min.css') }}">
     @include('layouts.components.styles')
-
+    @yield('styles')
 </head>
 
 <body class="app sidebar-mini ltr bg-white">

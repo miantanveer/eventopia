@@ -1,243 +1,292 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
-<style>
-    .tab-content {
-        min-height: auto !important;
-    }
+    <style>
+        .tab-content {
+            min-height: auto !important;
+        }
 
-    .sw-container {
-        min-height: auto !important;
-    }
+        .sw-container {
+            min-height: auto !important;
+        }
 
-    .back-g-color {
-        background-color: #F2F8FF !important;
-    }
+        .back-g-color {
+            background-color: #F2F8FF !important;
+        }
 
-    .sw-btn-group-extra {
-        display: none;
-    }
+        .sw-btn-group-extra {
+            display: none;
+        }
 
-    .remove {
-        width: 25px;
-        height: 25px;
-        border: 1px solid transparent;
-        border-radius: 50% !important;
-        background: black;
-        color: white;
-        padding: auto;
-        padding-left: 8px;
-        position: absolute;
-        right: 0;
-        top: -10px;
-        cursor: pointer;
-    }
-</style>
+        .remove {
+            width: 25px;
+            height: 25px;
+            border: 1px solid transparent;
+            border-radius: 50% !important;
+            background: black;
+            color: white;
+            padding: auto;
+            padding-left: 8px;
+            position: absolute;
+            right: 0;
+            top: -10px;
+            cursor: pointer;
+        }
+    </style>
 @endsection
 @section('content')
-<!--Row open-->
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <div id="smartwizard-3">
-                    <ul class="justify-content-around">
-                        <li><a href="#step-1">Step 1</a></li>
-                        <li><a href="#step-2">Step 2</a></li>
-                        <li><a href="#step-3">Step 3</a></li>
-                        <li><a href="#step-4">Step 4</a></li>
-                        <li><a href="#step-5">Step 5</a></li>
-                        <li><a href="#step-6">Step 6</a></li>
-                        <li><a href="#step-7">Step 7</a></li>
-                        <li><a href="#step-8">Step 8</a></li>
-                    </ul>
-                    <div>
-                        <div id="step-7" class="mb-5">
-                            <form action="{{route('entertainment_form_7',$id)}}" method="post" enctype="multipart/form-data" class="validation">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="mb-lg-5 mb-3">
-                                            <h2 class="mb-1"><b class="h-3">Who will guests be contacting?</b>
-                                            </h2>
-                                            <b>Please do not use a business name, so it’s more personal for your
-                                                guests.</b>
-                                        </div>
+    <!--Row open-->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div id="smartwizard-3">
+                        <ul class="justify-content-around">
+                            <li><a href="#step-1">Step 1</a></li>
+                            <li><a href="#step-2">Step 2</a></li>
+                            <li><a href="#step-3">Step 3</a></li>
+                            <li><a href="#step-4">Step 4</a></li>
+                            <li><a href="#step-5">Step 5</a></li>
+                            <li><a href="#step-6">Step 6</a></li>
+                            <li><a href="#step-7">Step 7</a></li>
+                            <li><a href="#step-8">Step 8</a></li>
+                        </ul>
+                        <div>
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <div id="step-6" class="mb-5">
+                                <form
+                                    action="{{ @$key !== null ? route('update_entertainment_form_7', $id) : route('entertainment_form_7', $id) }}"
+                                    class="validation" method='post'>
+                                    @csrf
+                                    <div class="m-lg-6">
                                         <div class="row">
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" value="{{@$entertainment->contact_first_name}}" name="contact_first_name" class="form-control" id="exampleInputname"
-                                                        placeholder="john" required
-                                                        data-parsley-required-message="Password is required*">
+                                            @foreach ($ent_activity as $data)
+                                                <div class="col-lg-4">
+                                                    <div class="panel-group" id="accordion" role="tablist"
+                                                        aria-multiselectable="true">
+                                                        <div class="panel panel-default active">
+                                                            <div class="panel-heading back-g-color" role="tab"
+                                                                id="headingOne1">
+                                                                <div class="card border-end shadow-none back-g-color m-0">
+                                                                    <div class="card-body p-0">
+                                                                        <div class="px-5 py-3 m-0 text-center bg-white">
+                                                                            <h5 class="text-dark m-0">
+                                                                                {{ $data->title }}</h5>
+                                                                            <hr class="bg-dark mb-0">
+                                                                        </div>
+                                                                        <div class="ms-5 my-4">
+                                                                            @foreach ($data->subActivities as $subActivity)
+                                                                                <li class="text-dark mb-2">
+                                                                                    {{ $subActivity->title }}</li>
+                                                                            @endforeach
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <hr class="bg-dark mb-0 mt-1">
+                                                                <h4 class="panel-title bg-primary text-center">
+                                                                    <a role="button" data-bs-parent="#accordion"
+                                                                        data-bs-toggle="collapse"
+                                                                        href="#collapse{{ $loop->iteration }}"
+                                                                        class="text-white activity-toggle"
+                                                                        aria-expanded="true"
+                                                                        data-activity="{{ $data->id }}"
+                                                                        aria-controls="collapse{{ $loop->iteration }}">
+                                                                        Enable </a>
+                                                                </h4>
+                                                            </div>
+                                                            <div class="form-check d-none">
+                                                                <input class="form-check-input activity_checkbox"
+                                                                    type="checkbox" activity_id="{{ $data->id }}"
+                                                                    name="enabled_activities[]"
+                                                                    id="activity-{{ $data->id }}">
+                                                            </div>
+                                                            <div id="collapse{{ $loop->iteration }}"
+                                                                class="panel-collapse collapse" role="tabpanel"
+                                                                aria-labelledby="headingOne1">
+                                                                <div class="panel-body">
+                                                                    <label class="form-label">Pricing</label>
+                                                                    <hr class="bg-dark mt-0">
+                                                                    <label class="mb-5">Hourly rate</label>
+                                                                    <p>Please choose a base hourly rate. You
+                                                                        can customize your pricing with atten-
+                                                                        dee pricing, calendar pricing, add add-
+                                                                        ons once your listing are created.</p>
+                                                                    <div class="form-group mb-6">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="80" 
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2"
+                                                                                name="activities[{{ $data->id }}][rate_per_hour][]">
+                                                                            <span class="input-group-text"
+                                                                                id="basic-addon2">SAR</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p>Minimum number of hours</p>
+                                                                    <p>Must be between 1-12 hours</p>
+                                                                    <div class="form-group mb-4">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="5"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2"
+                                                                                name="activities[{{ $data->id }}][minimum_hour][]">
+                                                                            <span class="input-group-text"
+                                                                                id="basic-addon2"><i
+                                                                                    class="fa fa-calendar w-5 text-white"></i></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <label class="my-5">8+ hour discount</label>
+                                                                    <p>Encourage guests to book longer by giving a discount
+                                                                        for
+                                                                        bookings that are 8 hours or more.</p>
+                                                                    <div class="form-group mb-3">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="Optional"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2"
+                                                                                name="activities[{{ $data->id }}][discount][]">
+                                                                            <span class="input-group-text"
+                                                                                id="basic-addon2">%
+                                                                                off</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <input type="hidden"
+                                                                        name="activities[{{ $data->id }}][space_activity_id][]"
+                                                                        value="{{ $data->id }}">
+                                                                    <a href="#" class="mb-6">How is this
+                                                                        calculated?</a>
+                                                                    <label class="form-label">Who can book
+                                                                        instantly?</label>
+                                                                    <hr class="bg-dark mt-0">
+                                                                    <div class="mb-5">
+                                                                        <label>
+                                                                            <input type="radio"
+                                                                                name="activities[{{ $data->id }}][instant_booking][]"
+                                                                                value="everyone">
+                                                                            <span>Everyone</span>
+                                                                        </label>
+                                                                        <p>Guests who acknowledge and accept your host rules
+                                                                            can
+                                                                            book instantly.</p>
+                                                                        <label>
+                                                                            <input type="radio"
+                                                                                name="activities[{{ $data->id }}][instant_booking][]"
+                                                                                value="no one">
+                                                                            <span>No one</span>
+                                                                        </label>
+                                                                        <p>Booking requests will need to be manually
+                                                                            accepted or
+                                                                            declined.</p>
+                                                                    </div>
+                                                                    <a href="#">Learn more?</a>
+                                                                    <div class="my-5">
+                                                                        <p class="back-g-color p-3">Meeting listings get up
+                                                                            to
+                                                                            2x
+                                                                            more bookings when guests can book instantly</p>
+                                                                    </div>
+                                                                    <label class="form-label">Capacity</label>
+                                                                    <hr class="bg-dark mb-3">
+                                                                    <p>Maximum number of guests</p>
+                                                                    <div class="form-group mb-3">
+                                                                        <div class="input-group w-100">
+                                                                            <input type="number" class="form-control"
+                                                                                placeholder="250"
+                                                                                aria-label="Recipient's username"
+                                                                                aria-describedby="basic-addon2"
+                                                                                name="activities[{{ $data->id }}][max_guests][]">
+                                                                            <span class="input-group-text"
+                                                                                id="basic-addon2"><i
+                                                                                    class="fa fa-group w-5 text-white"></i></span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <hr class="bg-dark mb-3">
+                                                                    <p>All amenities you select should be inclu-
+                                                                        ded in your hourly rate. If you have
+                                                                        amenities that you charge for, do not
+                                                                        include them here. You can add those in
+                                                                        a later section.
+                                                                    </p><br>
+                                                                    You must include WiFi, tables, and chairs
+                                                                    to offer meetings
+                                                                    <div class="row">
+                                                                        <div class="span12 pagination-centered">
+                                                                            @foreach (@$data->entAmenities as $activityHavingAmenity)
+                                                                                <div class="checkbox">
+                                                                                    <label><input type="checkbox"
+                                                                                            name="activities[{{ $data->id }}][activity_have_amenity][]"
+                                                                                            value="{{ @$activityHavingAmenity->id }}">{{ @$activityHavingAmenity->name }}
+                                                                                    </label>
+                                                                                </div>
+                                                                            @endforeach
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" id="exampleInputname1"
-                                                        placeholder="Smith" value="{{@$entertainment->contact_last_name}}" name="contact_last_name" required
-                                                        data-parsley-required-message="Confirm Password is required*">
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="form-group">
-                                            <input type="tel" class="form-control" id="exampleInputphone1"
-                                                placeholder="(123) 345 -4567" value="{{@$entertainment->contact_num}}" name="contact_num" required
-                                                data-parsley-required-message="Phone Number is required*">
-                                        </div>
-                                        <div class="bg-light-gray p-3 mb-3">
-                                            <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>Your number
-                                                needs
-                                                to be verified</p>
-                                        </div>
-                                        <p class="mb-5">We won’t share your number publicly. Guests will only see it
-                                            after they book to coordinate with you.</p>
-                                        <hr class="bg-dark my-6">
                                     </div>
-                                    <div class="col-4">
-                                        <div class="text-center chat-image mb-5">
-                                            <input type="file" name='image'  value="{{@$entertainment->image}}" class="dropify" required data-parsley-errors-container='#file_error' data-parsley-required-message="Team Image is required"  />
-                                            <div id="file_error"></div>
+                                    @if (@$key !== null)
+                                        <div class="float-end">
+                                            <button class="btn btn-primary">Update</button>
                                         </div>
-                                        <div class="text-center px-8">
-                                            <p class="text-muted">Choose a friendly, accurate photo to help instill a
-                                                sense of trust and verification in your listing</p>
+                                    @else
+                                        <div class="float-end">
+                                            <a class="btn btn-light"
+                                                href="{{ route('load_entertainment_form_6', $id) }}">Previous</a>
+                                            <button class="btn btn-primary">Next</button>
                                         </div>
-                                        <div class="px-8">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <ul>
-                                                        <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                                class="w-4" alt=""> No photos of the
-                                                            space</li>
-                                                        <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                                class="w-4" alt=""> No business logos
-                                                        </li>
-                                                        <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                                class="w-4" alt=""> No group photos</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-9">
-                                            <h3><b class="h-3">How did you hear about entertainment / talent with
-                                                    Eventopia?</b></h3>
-                                            <p>Select all that apply to help us find more hosts like you.</p>
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="f&C"
-                                                            id="invalidCheck-1" {{@$entertainment->eventopia_hear == 'f&C' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label" for="invalidCheck-1">Friend,
-                                                            family, or colleague</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="N&B"
-                                                            id="invalidCheck-2" {{@$entertainment->eventopia_hear == 'N&B' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label" for="invalidCheck-2">News or
-                                                            blog
-                                                            article</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="CP"
-                                                            id="invalidCheck-3" {{@$entertainment->eventopia_hear == 'CP' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label" for="invalidCheck-3">Contacted
-                                                            by
-                                                            Peerspace</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="TV"
-                                                            id="invalidCheck-4" {{@$entertainment->eventopia_hear == 'TV' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label" for="invalidCheck-4">TV</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="Bill"
-                                                            id="invalidCheck-5" {{@$entertainment->eventopia_hear == 'Bill' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label"
-                                                            for="invalidCheck-5">Billboard</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="online"
-                                                            id="invalidCheck-7" {{@$entertainment->eventopia_hear == 'online' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label" for="invalidCheck-7">Online
-                                                            ad</label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-5">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="SM"
-                                                            id="invalidCheck-8" {{@$entertainment->eventopia_hear == 'SM' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label" for="invalidCheck-8">Social
-                                                            media</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="RFE"
-                                                            id="invalidCheck-9" {{@$entertainment->eventopia_hear == 'RFE' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label" for="invalidCheck-9">Referral
-                                                            from
-                                                            a Eventopia host</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="OS"
-                                                            id="invalidCheck-10" {{@$entertainment->eventopia_hear == 'OS' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label" for="invalidCheck-10">Online
-                                                            search</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="AEE"
-                                                            id="invalidCheck-11" {{@$entertainment->eventopia_hear == 'AEE' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label" for="invalidCheck-11">Attended
-                                                            an
-                                                            event in a Eventopia</label>
-                                                    </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" name="eventopia_hear" type="radio" value="Other"
-                                                            id="invalidCheck-12" {{@$entertainment->eventopia_hear == 'Other' ? 'checked' : ''}} required>
-                                                        <label class="form-check-label"
-                                                            for="invalidCheck-12">Other</label>
-                                                    </div>
-                                                </div>
-                                                <hr class="bg-dark my-6">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="float-end">
-                                    <a class="btn btn-light"
-                                        href="{{ route('load_entertainment_form_6', $id) }}">Previous</a>
-                                    <button class="btn btn-primary">Next</button>
-                                </div>
-                            </form>
+                                    @endif
+                                </form>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--row closed-->
+        <!--row closed-->
     @endsection
     @section('scripts')
-    <!-- Jquery/min JS-->
-    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
- 
-    <!-- Jquery/buttons JS-->
-    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('assets/js/select2.js') }}"></script>
-    <script src="{{ asset('assets/plugins/parsleyjs/parsley.min.js') }}"></script>
+        <!-- Jquery/min JS-->
+        <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+        <!-- INTERNAL File-Uploads Js-->
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+        <!-- Jquery/buttons JS-->
+        <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+        <script src="{{ asset('assets/js/select2.js') }}"></script>
+        <script src="{{ asset('assets/plugins/parsleyjs/parsley.min.js') }}"></script>
 
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
-
-    <!-- INTERNAl Upload js -->
-    <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
-
-    <script>
-        $(document).ready(function(){
-            $('.validation').parsley();
-        });
-    </script>
+        @include('layouts.components.setHoursScript')
+        <script>
+            $(document).ready(function() {
+                $('.validation').parsley();
+                $('.activity_checkbox').val('');
+                $('.activity-toggle').on('click', function() {
+                    const activityId = $(this).data('activity');
+                    const checkbox = $(`input[activity_id="${activityId}"]`);
+                    checkbox.val(activityId);
+    
+                    if (checkbox.length > 0) {
+                        checkbox.prop('checked', !checkbox.prop('checked'));
+                    }
+                });
+            });
+        </script>
     @endsection
