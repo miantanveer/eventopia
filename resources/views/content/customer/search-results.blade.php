@@ -267,7 +267,7 @@
 
                         <div class="card-body pt-0">
                             <div class="row">
-                                @if ($data->isEmpty())
+                                @if (@$data->isEmpty())
                                     <div class="text-center">
                                         <h2><strong>We couldn't find any spaces.</strong></h2>
                                     </div>

@@ -282,8 +282,7 @@
                                                                     class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
                                                                     <span><img class="customize_img justify-content-start"
                                                                             style="max-width: 65px !important"
-                                                                            src="{{ asset('assets/images/icons/'.$space_acitiviy->title) }}"></span>
-                                                                    {{-- <h6 class="ps-4 d-inline d-sm-none">Meetings</h6> --}}
+                                                                            src="{{ asset('assets/images/icons/'.$space_acitiviy->image) }}"></span>
                                                                 </div>
                                                                 <div
                                                                     class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
@@ -339,7 +338,7 @@
 
                                 <div class="row g-0">
                                     <div class="col-md-4 pe-3 pe-lg-0">
-                                        <img src="{{ asset('/uploads/seller/service/' . $data->serviceImages[0]->image) }}"
+                                        <img src="{{ asset($data->serviceImages[0]->image) }}"
                                             class="card-img-left h-100 image_lg" width="200px" alt="img">
                                     </div>
                                     <div class="col-md-8 ps-3 ps-md-0 pe-0 pe-lg-2">

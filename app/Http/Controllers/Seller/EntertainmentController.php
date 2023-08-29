@@ -156,7 +156,7 @@ class EntertainmentController extends UserBaseController
         try {
             $entertainment = Entertainment::find($id);
             if ($entertainment) {
-                $entertainment->operatingDay()->delete(); // Assuming you have a relationship method named operatingDays
+                $entertainment->operatingDays()->delete(); // Assuming you have a relationship method named operatingDays
             }
             if ($req->has('monday')) {
                 $this->operatingDay($id, $req->monday, $req->monday_radio, $req->monday_start_time, $req->monday_end_time);
