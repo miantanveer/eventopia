@@ -13,6 +13,7 @@ class BookingController extends UserBaseController
     public function spaceDetail($id)
     {
         $this->space = Space::find($id);
+
         // $operatingDays = OperatingDay::where($operatingDayModel, $id)->get();
 
         //     $operatingHoursData = [];
@@ -47,7 +48,7 @@ class BookingController extends UserBaseController
         $this->ent = EntertainmentActivity::with('sub_act', 'entActivityAmenity.activity', 'sub_act.act', 'ent', 'ent.entertainmentImages','ent.operatingDays','ent.operatingDays.operatingHours')
         ->whereHas('ent', function ($ent_query) use ($id) {
             $ent_query->whereId($id);
-            
+
         })->first();
         return view('content.customer.entertainment-detail', $this->data);
     }

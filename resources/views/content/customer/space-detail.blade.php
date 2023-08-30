@@ -315,7 +315,30 @@
                         </div>
                     </div>
                     <hr>
-{{-- @dd($space) --}}
+                    @php
+                        $operatingHours = []; // Initialize the array
+                        $enabledDays = [];
+                        $weekDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+                        // Assuming $space->operatingDays is a collection of operating days for the space
+                        foreach ($space->operatingDays as $operatingDay) {
+                            $dayOfWeek = strtolower($operatingDay->week_day);
+                            $operatingHours[$dayOfWeek] = []; // Initialize the array for the day
+
+                            // Populate the operating hours for the day
+                            foreach ($operatingDay->operatingHours as $operatingHour) {
+                                $operatingHours[$dayOfWeek][] = [
+                                    'start_time' => $operatingHour->start_time,
+                                    'end_time' => $operatingHour->end_time,
+                                    'radio' => $operatingHour->radio,
+                                ];
+                            }
+
+                            $numericDay = array_search($dayOfWeek, $weekDays);
+                            if ($numericDay !== false) {
+                                $enabledDays[] = $numericDay;
+                            }
+                        }
+                    @endphp
                     <div class="">
                         <div class="row">
                             <div class="col-xl-12">
@@ -325,54 +348,25 @@
                                         <div class="input-group-text">
                                             <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
                                         </div>
-                                        {{-- <input class="form-control fc-datepicker" placeholder="MM/DD/YYYY" type="text" > --}}
-                                        <input class="form-control" placeholder="mm/dd/yy" type="text" id="datepick">
-
+                                        <input class="form-control" placeholder="yy-mm-dd" type="text"
+                                            id="datepick">
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="star-time"
-                                                    class="form-control form-select select2 select2-hidden-accessible"
-                                                    data-bs-placeholder="Select Country" tabindex="-1"
-                                                    aria-hidden="true">
-                                                    <option value="">9 AM</option>
-                                                    <option value="">10 AM</option>
-                                                    <option value="">11 AM</option>
-                                                    <option value="">12 AM</option>
-                                                    <option value="">1 PM</option>
-                                                    <option value="">2 PM</option>
-                                                    <option value="">3 PM</option>
-                                                    <option value="">4 PM</option>
-                                                    <option value="">5 PM</option>
-                                                    <option value="">6 PM</option>
-                                                    <option value="">7 PM</option>
-                                                    <option value="" selected="" disabled>Start
-                                                        Time
-                                                    </option>
+                                                <select name="start-time"
+                                                    class="form-control form-select select2 select2-hidden-accessible">
+                                                    <!-- Start time options will be populated dynamically -->
+                                                    <option selected disabled>Start Time</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="star-time"
-                                                    class="form-control form-select select2 select2-hidden-accessible"
-                                                    data-bs-placeholder="Select Country" tabindex="-1"
-                                                    aria-hidden="true">
-                                                    <option value="">9 AM</option>
-                                                    <option value="">10 AM</option>
-                                                    <option value="">11 AM</option>
-                                                    <option value="">12 AM</option>
-                                                    <option value="">1 PM</option>
-                                                    <option value="">2 PM</option>
-                                                    <option value="">3 PM</option>
-                                                    <option value="">4 PM</option>
-                                                    <option value="">5 PM</option>
-                                                    <option value="">6 PM</option>
-                                                    <option value="">7 PM</option>
-                                                    <option value="" selected="" disabled>End
-                                                        Time
-                                                    </option>
+                                                <select name="end-time"
+                                                    class="form-control form-select select2 select2-hidden-accessible">
+                                                    <!-- End time options will be populated dynamically -->
+                                                    <option selected disabled>End Time</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -479,19 +473,70 @@
 
     <!-- FORMELEMENTS JS -->
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
+
     <script>
         $(document).ready(function() {
-            // $('#profile_form').parsley();
+            var operatingHours = @json($operatingHours);
+            var disabledDates = [];
+            var enabledDays = @json($enabledDays);
+            // Check if all_day is 'on'
+            if ("{{ $space->blockTime[0]->all_day }}" != "on") {
+                var startTime = "{{ $space->blockTime[0]->start_time }}";
+                var endTime = "{{ $space->blockTime[0]->end_time }}";
 
-            // Define an array of dates to disable (in MM/DD/YYYY format)
-            var disabledDates = ["08/30/2023","08/16/2023"];
+                var currentDate = new Date(startTime);
+                var endDate = new Date(endTime);
+
+                // Loop through dates from start to end and add them to disabledDates array
+                while (currentDate <= endDate) {
+                    var dateString = $.datepicker.formatDate("yy-mm-dd", currentDate);
+                    disabledDates.push(dateString);
+                    currentDate.setDate(currentDate.getDate() + 1);
+                }
+            } else {
+                var startTime = "{{ $space->blockTime[0]->start_time }}";
+                var dateString = $.datepicker.formatDate("yy-mm-dd", new Date(startTime));
+                disabledDates.push(dateString);
+            }
 
             // Initialize the datepicker
             $("#datepick").datepicker({
-                dateFormat: "mm/dd/yy", // Use lowercase 'mm/dd/yy' here
+                dateFormat: "yy-mm-dd",
                 beforeShowDay: function(date) {
-                    var dateString = $.datepicker.formatDate("mm/dd/yy", date);
-                    return [disabledDates.indexOf(dateString) === -1];
+                    var dateString = $.datepicker.formatDate("yy-mm-dd", date);
+                    if (enabledDays.indexOf(date.getDay()) === -1) {
+                        return [false, "ui-datepicker-unselectable"];
+                    } else {
+                        return [disabledDates.indexOf(dateString) === -1];
+                    }
+                },
+                onSelect: function(selectedDate) {
+                    var selectedDay = new Date(selectedDate).toLocaleDateString('en-US', {
+                        weekday: 'long'
+                    }).toLowerCase();
+                    var startTimeSelect = $("select[name='start-time']");
+                    var endTimeSelect = $("select[name='end-time']");
+
+                    startTimeSelect.empty();
+                    endTimeSelect.empty();
+
+                    if (operatingHours[selectedDay]) {
+                        var radioValue = operatingHours[selectedDay][0].radio;
+                        if (radioValue == 0) {
+                            startTimeSelect.append(new Option("6 AM", "06:00"));
+                            endTimeSelect.append(new Option("12 AM", "00:00"));
+                        } else if (operatingHours[selectedDay]) {
+                            operatingHours[selectedDay].forEach(function(hours) {
+                                startTimeSelect.append(new Option(hours.start_time, hours
+                                    .start_time));
+                                endTimeSelect.append(new Option(hours.end_time, hours
+                                    .end_time));
+                            });
+                        }
+
+                        startTimeSelect.prop('disabled', false);
+                        endTimeSelect.prop('disabled', false);
+                    }
                 }
             });
         });
