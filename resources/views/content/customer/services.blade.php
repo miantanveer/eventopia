@@ -297,11 +297,11 @@
                                                             SAR{{ @$value->price }}</p>
                                                     </div>
                                                     <div class="me-2 card-background float-end">
-                                                        <a href="{{ route('cart-stores',['id'=>$value->id,'type'=>'service']) }}">
+                                                        {{-- <a href="{{ route('cart-stores',['id'=>$value->id,'type'=>'service']) }}"> --}}
                                                             <span class="mini-stat-icon p-0">
                                                                 <i class="fa fa-shopping-bag p-3"></i>
                                                             </span>
-                                                        </a>
+                                                        {{-- </a> --}}
                                                     </div>
                                                 </div>
                                                 <a href="{{route('service-details',@$value->id)}}">

@@ -87,6 +87,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
     // Review & Payment
     Route::post('/review-pay', [PaymentController::class, 'review'])->name('review-pay');
+    Route::get('/payment-successfull', [PaymentController::class, 'successfull'])->name('payment-successfull');
+    Route::post('/payment', [PaymentController::class, 'store_payment'])->name('payment-store');
     // Route::get('/space-details', function () {
     //     return view('content.customer.space-detail');
     // });
@@ -99,9 +101,9 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/review-pay', function () {
     //     return view('layouts.components.review');
     // });
-    Route::get('/payment-successfull', function () {
-        return view('layouts.components.payment-successfull');
-    });
+    // Route::get('/payment-successfull', function () {
+    //     return view('layouts.components.payment-successfull');
+    // });
     Route::get('/bookings', function () {
         return view('layouts.components.bookings-sample');
     });

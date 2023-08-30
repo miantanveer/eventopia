@@ -167,7 +167,6 @@
                                 <i class="fa fa-shopping-bag me-1"></i>Place Order
                             </button>
                         </form>
-
                     </div>
                 </div>
             </div>
