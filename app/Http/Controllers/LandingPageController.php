@@ -21,7 +21,7 @@ class LandingPageController extends UserBaseController
         if (Auth::check()) {
 
             $this->spaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->whereStatus('1')->get();
-            $this->entertainments = Entertainment::whereUserId(auth()->user()->id)->whereLastSteps('step-8')->get();
+            $this->entertainments = Entertainment::whereUserId(auth()->user()->id)->whereLastSteps('step-9')->get();
             $this->services = Service::whereUserId(auth()->user()->id)->whereLastSteps('step-7')->get();
 
             return view('content.seller.calendar', $this->data);
