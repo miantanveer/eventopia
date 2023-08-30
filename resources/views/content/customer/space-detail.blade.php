@@ -71,12 +71,12 @@
             <div class="card custom-card overflow-hidden">
                 <div class="card-body p-3">
                     <a href="javascript:void(0)"><img
-                            src="{{ $space->spaceImages[0]->image ?? asset('assets/images/users/spaces/4.jpg') }}"
+                            src="{{ @$space->spaceImages[0]->image ?? asset('assets/images/users/spaces/4.jpg') }}"
                             alt="image not found" class="br-5 w-100"></a>
                 </div>
                 <div class="card-body pt-0 h-100">
                     <div class="owl-carousel owl-carousel-icons2">
-                        @foreach ($space->spaceImages as $spaceImage)
+                        @foreach (@$space->spaceImages as $spaceImage)
                             <div class="item">
                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                     <a href="#"><img src="{{ $spaceImage->image }}" alt="img"></a>
@@ -159,7 +159,7 @@
                         <h3 class="text-dark">
                             Health and Safety Measures
                         </h3>
-                        @foreach ($space->spaceHaveSafetyMeasures as $safetyMeasure)
+                        @foreach (@$space->spaceHaveSafetyMeasures as $safetyMeasure)
                             <p>{{ $loop->iteration . ' ' . $safetyMeasure->safety_measure_options }}</p>
                         @endforeach
                     </div>
@@ -299,14 +299,14 @@
             <div class="card custom-card">
                 <div class="card-body">
                     <div class="mt-3 text-center">
-                        <h2>SAR {{ $space->spaceHaveActivities[0]->rate_per_hour }} /hr</h2>
-                        <p>{{ $space->spaceHaveActivities[0]->minimum_hour }} hour minimum</p>
+                        <h2>SAR {{ @$space->spaceHaveActivities[0]->rate_per_hour }} /hr</h2>
+                        <p>{{ @$space->spaceHaveActivities[0]->minimum_hour }} hour minimum</p>
                     </div>
                     <hr>
                     <div class="">
                         <div class="row">
                             <div class="col-7">
-                                <h4>{{ $space->spaceHaveActivities[0]->discount }} hour discount <i
+                                <h4>{{ @$space->spaceHaveActivities[0]->discount }} hour discount <i
                                         class="mdi mdi-alert-circle-outline"></i>
                                 </h4>
                             </div>
@@ -320,12 +320,12 @@
                         $enabledDays = [];
                         $weekDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
                         // Assuming $space->operatingDays is a collection of operating days for the space
-                        foreach ($space->operatingDays as $operatingDay) {
+                        foreach (@$space->operatingDays as $operatingDay) {
                             $dayOfWeek = strtolower($operatingDay->week_day);
                             $operatingHours[$dayOfWeek] = []; // Initialize the array for the day
 
                             // Populate the operating hours for the day
-                            foreach ($operatingDay->operatingHours as $operatingHour) {
+                            foreach (@$operatingDay->operatingHours as $operatingHour) {
                                 $operatingHours[$dayOfWeek][] = [
                                     'start_time' => $operatingHour->start_time,
                                     'end_time' => $operatingHour->end_time,
@@ -404,7 +404,7 @@
                     </div>
                     <h4 class="mt-5 fw-bold">Amentities</h4>
                     <div class="row mb-6">
-                        @foreach ($space->spaceHaveActivities[0]->spaceAmenities as $spaceAmenity)
+                        @foreach (@$space->spaceHaveActivities[0]->spaceAmenities as $spaceAmenity)
                             <div class="col-6">
                                 <p class="">{{ $spaceAmenity->name }}</p>
                             </div>
@@ -416,7 +416,7 @@
                 <div>
                     <h3 class="mt-4 ps-3">Operating Hours</h3>
                     <hr style="border-top: 1px solid black">
-                    @foreach ($space->operatingDays as $operatingDay)
+                    @foreach (@$space->operatingDays as $operatingDay)
                         <h4 class="col-sm-10 mt-5 ps-3">{{ $operatingDay->week_day }} <span
                                 class="float-end">{{ $operatingDay->operatingHours[0]->radio === '1' ? $operatingDay->operatingHours[0]->start_time . ' - ' . $operatingDay->operatingHours[0]->end_time : '6 : 00 AM - 12 AM' }}</span>
                         </h4>
@@ -435,9 +435,9 @@
     <script>
         $(document).ready(function() {
             // Get latitude, longitude, and title from PHP variable
-            var lat = {{ $space->lat }};
-            var lng = {{ $space->lng }};
-            var title = "{{ $space->space_title }}";
+            var lat = {{ @$space->lat }};
+            var lng = {{ @$space->lng }};
+            var title = "{{ @$space->space_title }}";
 
             // Create a map centered at the specified location
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -480,9 +480,9 @@
             var disabledDates = [];
             var enabledDays = @json($enabledDays);
             // Check if all_day is 'on'
-            if ("{{ $space->blockTime[0]->all_day }}" != "on") {
-                var startTime = "{{ $space->blockTime[0]->start_time }}";
-                var endTime = "{{ $space->blockTime[0]->end_time }}";
+            if ("{{ @$space->blockTime[0]->all_day }}" != "on") {
+                var startTime = "{{ @$space->blockTime[0]->start_time }}";
+                var endTime = "{{ @$space->blockTime[0]->end_time }}";
 
                 var currentDate = new Date(startTime);
                 var endDate = new Date(endTime);
@@ -494,7 +494,7 @@
                     currentDate.setDate(currentDate.getDate() + 1);
                 }
             } else {
-                var startTime = "{{ $space->blockTime[0]->start_time }}";
+                var startTime = "{{ @$space->blockTime[0]->start_time }}";
                 var dateString = $.datepicker.formatDate("yy-mm-dd", new Date(startTime));
                 disabledDates.push(dateString);
             }

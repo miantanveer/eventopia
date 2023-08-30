@@ -16,9 +16,9 @@ class UserBaseController extends Controller
 
     public function __get($property) {
         if (property_exists($this, $property)) {
-            // if($property == 'stripe'){
-            //     return new \Stripe\StripeClient(config('stripe.LIVE_MODE') ? config('stripe.LIVE_SECRET_KEY') : config('stripe.TEST_SECRET_KEY'));
-            // }
+            if($property == 'stripe'){
+                return new \Stripe\StripeClient(config('stripe.LIVE_MODE') ? config('stripe.LIVE_SECRET_KEY') : config('stripe.TEST_SECRET_KEY'));
+            }
             return $this->$property;
         }else{
             return $this->data[$property];

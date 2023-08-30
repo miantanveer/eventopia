@@ -147,18 +147,16 @@ class LandingPageController extends UserBaseController
             if ($existingBlockTime) {
                 // Delete the existing block time
                 $existingBlockTime->delete();
-
-                // Create a new block time entry
-                $blockTime = BlockTime::create($data);
-
-                if (!$blockTime) {
-                    return redirect()->back()->with('error', 'Block Time is not created.');
-                }
-
-                $message = 'Block Time has been created.';
             }
 
-            return redirect()->back()->with('success', $message);
+            // Create a new block time entry
+            $blockTime = BlockTime::create($data);
+
+            if (!$blockTime) {
+                return redirect()->back()->with('error', 'Block Time is not created.');
+            }
+
+            return redirect()->back()->with('success', 'Block Time has been created.');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
