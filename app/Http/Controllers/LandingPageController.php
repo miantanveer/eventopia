@@ -145,10 +145,9 @@ class LandingPageController extends UserBaseController
             $existingBlockTime = BlockTime::where($type_id, $req->id)->first();
 
             if ($existingBlockTime) {
-                // Update the existing block time
-                $existingBlockTime->update($data);
-                $message = 'Block Time has been updated.';
-            } else {
+                // Delete the existing block time
+                $existingBlockTime->delete();
+
                 // Create a new block time entry
                 $blockTime = BlockTime::create($data);
 
