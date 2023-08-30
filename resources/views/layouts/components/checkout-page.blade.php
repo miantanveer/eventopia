@@ -25,188 +25,126 @@
                 <div class="card-body m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%) !important;">
                     <label class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" name="checkbox1" id="all_select">
-                        <span class="custom-control-label">Select all Spaces</span>
+                        <span class="custom-control-label">Select all</span>
                     </label>
                 </div>
             </div>
             <div class="card custom-card overflow-hidden">
-                <div class="card-body p-3 m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%);">
-                    <div class="row g-0 ">
-                        <div class="col-1 pe-0 my-auto">
-                            <label class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input cards" name="checkbox1" value="option1"
-                                    id="first_card">
-                                <span class="custom-control-label"></span>
-                            </label>
-                        </div>
-                        <div class="col-sm-3 col-11 ps-sm-0 pe-3 pe-md-0 ">
-                            <img src="{{ asset('assets/images/users/spaces/5.jpg') }}" class="card-img-left h-100"
-                                alt="img">
-                        </div>
-                        <div class="col-sm-8 ps-6 ps-md-0 mt-6 mt-md-0">
-                            <div class="card-body py-0">
-                                <div class="row">
-                                    <div class="col-sm-10 col-9">
-                                        <h5 class="card-title">Great Space for Events</h5>
-                                    </div>
-                                    <div class="col-sm-2 col-3 text-end">
-                                        <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip" title=""
-                                            data-bs-original-title="fa fa-trash" aria-label="fa fa-trash"></i>
-                                        <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip"
-                                            title="" data-bs-original-title="fa fa-heart-o"
-                                            aria-label="fa fa-heart-o"></i>
-                                    </div>
+                @foreach (@$user->cart as $data)
+                    @if ($data->type == 'entertainment')
+                        <div class="card-body p-3 m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%);">
+                            <div class="row g-0 ">
+                                <div class="col-1 pe-0 my-auto">
+                                    <label class="custom-control custom-checkbox">
+                                        {{-- <input type="checkbox" class="custom-control-input cards" name="checkbox1"
+                                            value="option1" id="first_card"> --}}
+                                        <input type="checkbox" class="custom-control-input cards" name="checkbox1"
+                                            value="option1" id="first_card" data-type="entertainment"
+                                            data-amount="{{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}"
+                                            data-title="{{ @$data->entertainment->title }}"
+                                            data-discount="{{ @$data->entertainment->entertainmentActivities[0]->discount }}"
+                                            data-image="{{ asset(@$data->entertainment->entertainmentImages[0]->image) }}">
+                                        <span class="custom-control-label"></span>
+                                    </label>
                                 </div>
-                                <p class="card-text mt-3 mt-md-0">Amount : $65/hour</p>
-                                <p class="card-text"><small class="text-muted">Spaces (Available :
-                                        12)</small></p>
-                                <div class="row">
-                                    <div class="col-sm-5 col-7">
-                                        <div class="input-group input-indec input-indec1">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="minus btn btn-white btn-number btn-icon br-7">
-                                                    <i class="fa fa-minus text-muted"></i>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quantity" class="form-control text-center qty"
-                                                value="1">
-                                            <span class="input-group-btn">
-                                                <button type="button"
-                                                    class="quantity-right-plus btn btn-white btn-number btn-icon br-7 add">
-                                                    <i class="fa fa-plus text-muted"></i>
-                                                </button>
-                                            </span>
+                                <div class="col-sm-3 col-11 ps-sm-0 pe-3 pe-md-0 ">
+                                    <img id="ent-img"
+                                        src="{{ asset(@$data->entertainment->entertainmentImages[0]->image) }}"
+                                        style="width: 130px; height: auto" class="card-img-left h-100" alt="img">
+                                </div>
+                                <div class="col-sm-8 ps-6 ps-md-0 mt-6 mt-md-0">
+                                    <div class="card-body py-0">
+                                        <div class="row">
+                                            <div class="col-sm-10 col-9">
+                                                <h5 class="card-title">{{ @$data->entertainment->title }}</h5>
+                                            </div>
+                                            <div class="col-sm-2 col-3 text-end">
+                                                <a
+                                                    onclick="deleteModal('{{ route('cart-delete', ['id' => @$data->id, 'type' => 'entertainment']) }}')">
+                                                    <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip"
+                                                        title=""
+                                                        data-bs-original-title="{{ @$data->entertainment->title }}"></i>
+                                                </a>
+                                                {{-- <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip"
+                                            title="" data-bs-original-title="fa fa-heart-o"
+                                            aria-label="fa fa-heart-o"></i> --}}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="text-end">
-                                        <button type="button" class="btn btn-gray mt-1 mb-1 me-3" disabled>
-                                            <span>Total : $55</span>
-                                        </button>
+                                        <p class="card-text mt-3 mt-md-0">Amount :
+                                            {{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}/hour</p>
+                                        <p class="card-text"><small class="text-muted">Entertainment (Available :
+                                                {{ @$data->entertainment->entertainmentActivities[0]->max_hours }})</small>
+                                        </p>
+                                        <div class="row">
+                                            <div class="text-end">
+                                                <button type="button" class="btn btn-gray mt-1 mb-1 me-3" disabled>
+                                                    <span>Total :
+                                                        {{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}</span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="card-body p-3 m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%);">
-                    <div class="row g-0 ">
-                        <div class="col-1 pe-0 my-auto">
-                            <label class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input cards" name="checkbox1" value="option1"
-                                    id="second_card">
-                                <span class="custom-control-label"></span>
-                            </label>
-                        </div>
-                        <div class="col-sm-3 col-11 ps-sm-0 pe-3 pe-md-0 ">
-                            <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-left h-100"
-                                alt="img">
-                        </div>
-                        <div class="col-sm-8 ps-6 ps-md-0 mt-6 mt-md-0">
-                            <div class="card-body py-0">
-                                <div class="row">
-                                    <div class="col-sm-10 col-9">
-                                        <h5 class="card-title">Great Space for Events</h5>
-                                    </div>
-                                    <div class="col-sm-2 col-3 text-end">
-                                        <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip" title=""
-                                            data-bs-original-title="fa fa-trash" aria-label="fa fa-trash"></i>
-                                        <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip"
-                                            title="" data-bs-original-title="fa fa-heart-o"
-                                            aria-label="fa fa-heart-o"></i>
-                                    </div>
+                    @endif
+                    @if ($data->type == 'space')
+                        <div class="card-body p-3 m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%);">
+                            <div class="row g-0 ">
+                                <div class="col-1 pe-0 my-auto">
+                                    <label class="custom-control custom-checkbox">
+                                        {{-- <input type="checkbox" class="custom-control-input cards" name="checkbox1"
+                                            value="option1" id="first_card"> --}}
+                                        <input type="checkbox" class="custom-control-input cards" name="checkbox1"
+                                            value="option1" id="first_card" data-type="space"
+                                            data-amount="{{ @$data->space->spaceHaveActivities[0]->rate_per_hour }}"
+                                            data-title="{{ @$data->space->space_title }}"
+                                            data-discount="{{ @$data->space->spaceHaveActivities[0]->discount }}"
+                                            data-image="{{ asset(@$data->space->spaceImages[0]->image) }}">
+
+                                        <span class="custom-control-label"></span>
+                                    </label>
                                 </div>
-                                <p class="card-text mt-3 mt-md-0">Amount : $65/hour</p>
-                                <p class="card-text"><small class="text-muted">Spaces (Available :
-                                        12)</small></p>
-                                <div class="row">
-                                    <div class="col-sm-5 col-7">
-                                        <div class="input-group input-indec input-indec1">
-                                            <span class="input-group-btn">
-                                                <button type="button"
-                                                    class="minus btn btn-white btn-number btn-icon br-7">
-                                                    <i class="fa fa-minus text-muted"></i>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quantity" class="form-control text-center qty"
-                                                value="1">
-                                            <span class="input-group-btn">
-                                                <button type="button"
-                                                    class="quantity-right-plus btn btn-white btn-number btn-icon br-7 add">
-                                                    <i class="fa fa-plus text-muted"></i>
-                                                </button>
-                                            </span>
+                                <div class="col-sm-3 col-11 ps-sm-0 pe-3 pe-md-0 ">
+                                    <img id="space-img" src="{{ asset(@$data->space->spaceImages[0]->image) }}"
+                                        style="width: 130px; height: auto" class="card-img-left h-100" alt="img">
+                                </div>
+                                <div class="col-sm-8 ps-6 ps-md-0 mt-6 mt-md-0">
+                                    <div class="card-body py-0">
+                                        <div class="row">
+                                            <div class="col-sm-10 col-9">
+                                                <h5 class="card-title">{{ @$data->space->space_title }}</h5>
+                                            </div>
+                                            <div class="col-sm-2 col-3 text-end">
+                                                <a
+                                                    onclick="deleteModal('{{ route('cart-delete', ['id' => @$data->id, 'type' => 'space']) }}')">
+                                                    <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip"
+                                                        title=""
+                                                        data-bs-original-title="{{ @$data->space->space_title }}"></i>
+                                                </a>
+                                                {{-- <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip"
+                                            title="" data-bs-original-title="fa fa-heart-o"
+                                            aria-label="fa fa-heart-o"></i> --}}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="text-end">
-                                        <button type="button" class="btn btn-gray mt-1 mb-1 me-3" disabled>
-                                            <span>Total : $55</span>
-                                        </button>
+                                        <p class="card-text mt-3 mt-md-0">Amount :
+                                            {{ @$data->space->spaceHaveActivities[0]->rate_per_hour }}/hour</p>
+                                        <p class="card-text"><small class="text-muted">Entertainment (Available :
+                                                {{ @$data->space->spaceHaveActivities[0]->minimum_hour }})</small></p>
+                                        <div class="row">
+                                            <div class="text-end">
+                                                <button type="button" class="btn btn-gray mt-1 mb-1 me-3" disabled>
+                                                    <span>Total :
+                                                        {{ @$data->space->spaceHaveActivities[0]->rate_per_hour }}</span>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="card-body p-3 m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%);">
-                    <div class="row g-0 ">
-                        <div class="col-1 pe-0 my-auto">
-                            <label class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input cards" name="checkbox1" value="option1"
-                                    id="third_card">
-                                <span class="custom-control-label"></span>
-                            </label>
-                        </div>
-                        <div class="col-sm-3 col-11 ps-sm-0 pe-3 pe-md-0 ">
-                            <img src="{{ asset('assets/images/users/spaces/3.jpg') }}" class="card-img-left h-100"
-                                alt="img">
-                        </div>
-                        <div class="col-sm-8 ps-6 ps-md-0 mt-6 mt-md-0">
-                            <div class="card-body py-0">
-                                <div class="row">
-                                    <div class="col-sm-10 col-9">
-                                        <h5 class="card-title">Great Space for Events</h5>
-                                    </div>
-                                    <div class="col-sm-2 col-3 text-end">
-                                        <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip"
-                                            title="" data-bs-original-title="fa fa-trash"
-                                            aria-label="fa fa-trash"></i>
-                                        <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip"
-                                            title="" data-bs-original-title="fa fa-heart-o"
-                                            aria-label="fa fa-heart-o"></i>
-                                    </div>
-                                </div>
-                                <p class="card-text  mt-3 mt-md-0">Amount : $65/hour</p>
-                                <p class="card-text"><small class="text-muted">Spaces (Available :
-                                        12)</small></p>
-                                <div class="row">
-                                    <div class="col-sm-5 col-7">
-                                        <div class="input-group input-indec input-indec1">
-                                            <span class="input-group-btn">
-                                                <button type="button"
-                                                    class="minus btn btn-white btn-number btn-icon br-7">
-                                                    <i class="fa fa-minus text-muted"></i>
-                                                </button>
-                                            </span>
-                                            <input type="text" name="quantity" class="form-control text-center qty"
-                                                value="1">
-                                            <span class="input-group-btn">
-                                                <button type="button"
-                                                    class="quantity-right-plus btn btn-white btn-number btn-icon br-7 add">
-                                                    <i class="fa fa-plus text-muted"></i>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="text-end">
-                                        <button type="button" class="btn btn-gray mt-1 mb-1 me-3" disabled>
-                                            <span>Total : $55</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
             </div>
         </div>
         <div class="col-xl-4 col-lg-12 col-md-12">
@@ -214,66 +152,22 @@
                 <div class="card-header">
                     <h3 class="card-title">Order Summary</h3>
                 </div>
-                <div class="card-body py-2">
-                    <div class="row">
-                        <div class="col-4">
-                            <h5 class="mb-3 fw-bold">Space</h5>
-                            <div class="">
-                                <img class="avatar-xxl br-7" class=""
-                                    src="{{ asset('assets/images/users/spaces/3.jpg') }}" alt="img">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <h5 class="mb-3 fw-bold">Space Details</h5>
-                            <div class="align-middle">
-                                <p>Great Space for Events</p>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <h5 class="mb-3 fw-bold">Amount</h5>
-                            <div class="SAR65">
-                                SAR65
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3 py-3 border-top">
-                        <div class="col-6 float-left">
-                            <h6>Sub Total</h6>
-                        </div>
-                        <div class="col-6 text-end">
-                            $568
-                        </div>
-                    </div>
-                    <div class="row mt-3 py-3 border-top">
-                        <div class="col-6 float-left">
-                            <h6>Vet %</h6>
-                        </div>
-                        <div class="col-6 text-end">
-                            SARO
-                        </div>
-                    </div>
-                    <div class="row mt-3 py-3 border-top">
-                        <div class="col-6 float-left">
-                            <h6>Admin Fees</h6>
-                        </div>
-                        <div class="col-6 text-end">
-                            $200
-                        </div>
-                    </div>
-                    <div class="row mt-3 py-3 border-top" style="background-color: #E3E3E3">
-                        <div class="col-6 float-left">
-                            <h6>Total:</h6>
-                        </div>
-                        <div class="col-6 text-end">
-                            $600
-                        </div>
-                    </div>
-                </div>
+                <div id="order-summary"></div>
                 <div class="card-footer">
-                    <div class="btn-list">
-                        <a href="{{ url('shop') }}" class="btn "></i>Continue Shopping</a>
-                        <a href="{{ url('review-pay') }}" class="btn btn-primary float-sm-end"><i
-                                class="fa fa-shopping-bag me-1"></i>Place Order</a>
+                    <div class="btn-list display-inline">
+                        <form action="{{ url('review-pay') }}" method="POST">
+                            @csrf
+                            @method('post')
+                            <input type="hidden" id="subtotal" name="subtotal" value="0">
+                            <input type="hidden" id="admin-fees" name="admin_fees" value="200">
+                            <input type="hidden" id="discount" name="discount" value="0">
+                            <!-- ...other form fields... -->
+                        <a href="{{ url('shop') }}" class="btn"></i>Continue Shopping</a>
+                            <button type="submit" class="btn btn-primary float-sm-end" id="place-order-btn" disabled>
+                                <i class="fa fa-shopping-bag me-1"></i>Place Order
+                            </button>
+                        </form>
+
                     </div>
                 </div>
             </div>
@@ -286,153 +180,29 @@
             <div class="card custom-card">
                 <div class="card-body p-0 h-100">
                     <div class="owl-carousel owl-carousel-icons2">
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Stunning Studio Great</h5>
-                                            <i class="fa fa-users"></i> 25 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 19
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
+                        @foreach ($spaces as $space)
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ route('space-details', @$space->id) }}">
+                                            <img src="{{ asset(@$space->spaceImages[0]->image) }}" class="card-img-top"
+                                                alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ @$space->space_title }}</h5>
+                                                <i class="fa fa-users"></i> 25 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                &nbsp; 19
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Stunning Event Venue</h5>
-                                            <i class="fa fa-users"></i> 30 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 21
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/3.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Great Space for Events</h5>
-                                            <i class="fa fa-users"></i> 32 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 21
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/4.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Great Space for Events</h5>
-                                            <i class="fa fa-users"></i> 30 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 18
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/5.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Stunning Studio Great</h5>
-                                            <i class="fa fa-users"></i> 25 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 19
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Stunning Event Venue</h5>
-                                            <i class="fa fa-users"></i> 30 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 21
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/7.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Great Space for Events</h5>
-                                            <i class="fa fa-users"></i> 32 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 19
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -442,154 +212,48 @@
             <div class="card custom-card">
                 <div class="card-body p-0 h-100">
                     <div class="owl-carousel owl-carousel-icons2">
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Stunning Studio Great</h5>
-                                            <i class="fa fa-users"></i> 25 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 19
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
+                        @foreach ($ents as $ent)
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0">
+                                        <a href="{{ route('entertainment-details', @$ent->id) }}">
+                                            <img src="{{ asset(@$ent->entertainmentImages[0]->image) }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ @$ent->title }}</h5>
+                                                <i class="fa fa-users"></i> 25 &nbsp;
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                &nbsp; 19
+                                                <p>Responds within 1 hour</p>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Stunning Event Venue</h5>
-                                            <i class="fa fa-users"></i> 30 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 21
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/3.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Great Space for Events</h5>
-                                            <i class="fa fa-users"></i> 32 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 21
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/4.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Great Space for Events</h5>
-                                            <i class="fa fa-users"></i> 30 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 18
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/5.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Stunning Studio Great</h5>
-                                            <i class="fa fa-users"></i> 25 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 19
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Stunning Event Venue</h5>
-                                            <i class="fa fa-users"></i> 30 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 21
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/7.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Great Space for Events</h5>
-                                            <i class="fa fa-users"></i> 32 &nbsp;
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            <i class="fa fa-star" style="color: #f1c40f"></i>
-                                            &nbsp; 19
-                                            <p>Responds within 1 hour</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="delete-modal">
+        <div class="modal-dialog modal-dialog-centered text-center" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body text-center p-4 pb-5">
+                    <button aria-label="Close" class="btn-close position-absolute" data-bs-dismiss="modal"><span
+                            aria-hidden="true">&times;</span></button>
+                    <i class="icon icon-close fs-70 text-danger lh-1 my-5 d-inline-block"></i>
+                    <form action="" id="delete-form" method="POST">
+                        @csrf
+                        @method('delete')
+                        <h2 class="text-danger">Warning!</h2>
+                        <h4 class="text-danger">Are you sure you want to remove this item?</h4>
+                        <button class="btn btn-danger pd-x-25">Continue</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -622,5 +286,98 @@
                 }
             });
         });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#place-order-btn').prop('disabled', true);
+            $('#all_select').on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.cards').prop('checked', true);
+                } else {
+                    $('.cards').prop('checked', false);
+                }
+                updateOrderSummary(); // Call the function to update order summary
+            });
+
+            // Listen for checkbox changes
+            $('.cards').on('change', function() {
+                updateOrderSummary();
+            });
+
+            // Function to update the order summary
+            function updateOrderSummary() {
+                var totalAmount = 0;
+                var discountTotal = 0; // Initialize a variable to track the total discount
+
+                var orderSummary ='<div class="card-body py-2">';
+
+                // Loop through each checked checkbox
+                $('.cards:checked').each(function() {
+                    var type = $(this).data('type');
+                    var image = $(this).data('image');
+                    var title = $(this).data('title');
+                    var amount = parseFloat($(this).data('amount'));
+                    var discount = parseFloat($(this).data('discount'));
+
+                    // Add the amount to the total
+                    totalAmount += amount;
+
+                    // Add the discount to the discount total
+                    discountTotal += discount;
+
+                    // Add details for the current item to the order summary
+                    orderSummary += '<div class="row">';
+                    orderSummary += '<div class="col-6"><h5 class="mb-3 fw-bold">' + type + '</h5>';
+                    orderSummary += '<div class=""><img class="avatar-xxl br-7" class="" src="' + image +
+                        '" alt="img"></div>';
+                    orderSummary += '</div>';
+                    orderSummary += '<div class="col-6"><h5 class="mb-3 fw-bold">'+ type +' Details</h5>';
+                    orderSummary += '<div class="align-middle"><p>' + title + '</p></div>';
+                    orderSummary += '</div>';
+                    orderSummary += '</div>';
+                });
+                $('#subtotal').val(totalAmount.toFixed(2));
+                $('#discount').val(discountTotal.toFixed(2));
+
+                // Calculate the total including admin fees
+                var totalIncludingFees = totalAmount - discountTotal + 200;
+                $('#admin-fees').val('200'); // Set admin fees
+
+                // Enable or disable the "Place Order" button based on checkboxes
+                if ($('.cards:checked').length > 0) {
+                    $('#place-order-btn').prop('disabled', false);
+                } else {
+                    $('#place-order-btn').prop('disabled', true);
+                }
+                orderSummary += '<div class="row mt-3 py-3 border-top">';
+                orderSummary += '<div class="col-6 float-left"><h6>Sub Total</h6></div>';
+                orderSummary += '<div class="col-6 text-end">' + totalAmount.toFixed(2) + '</div>';
+                orderSummary += '</div>';
+                orderSummary += '<div class="row mt-3 py-3 border-top">';
+                orderSummary += '<div class="col-6 float-left"><h6>Discount %</h6></div>';
+                orderSummary += '<div class="col-6 text-end">' + discountTotal.toFixed(2) + '</div>';
+                orderSummary += '</div>';
+                orderSummary += '<div class="row mt-3 py-3 border-top">';
+                orderSummary += '<div class="col-6 float-left"><h6>Admin Fees</h6></div>';
+                orderSummary += '<div class="col-6 text-end">$200</div>';
+                orderSummary += '</div>';
+                orderSummary += '<div class="row mt-3 py-3 border-top" style="background-color: #E3E3E3">';
+                orderSummary += '<div class="col-6 float-left"><h6>Total:</h6></div>';
+                orderSummary += '<div class="col-6 text-end">' + (totalAmount - discountTotal + 200).toFixed(2) +
+                    '</div>';
+                orderSummary += '</div>';
+
+                // Update the HTML in the #order-summary container
+                $('#order-summary').html(orderSummary);
+            }
+
+        });
+    </script>
+
+    <script>
+        function deleteModal(url) {
+            $('#delete-form').attr('action', url);
+            $('#delete-modal').modal('show');
+        }
     </script>
 @endsection

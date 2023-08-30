@@ -15,10 +15,18 @@
                 <div class="card-body">
                     <div class="row m-3 border-bottom py-2">
                         <div class="col-6">
-                            SubTotal
+                            Discount
                         </div>
                         <div class="col-6 text-end">
-                            $65
+                            {{@$discount}}
+                        </div>
+                    </div>
+                    <div class="row m-3 border-bottom py-2">
+                        <div class="col-6">
+                            Admin Fees
+                        </div>
+                        <div class="col-6 text-end">
+                            {{@$admin_fees}}
                         </div>
                     </div>
                     <div class="row m-3 border-bottom py-2">
@@ -26,15 +34,7 @@
                             SubTotal
                         </div>
                         <div class="col-6 text-end">
-                            $65
-                        </div>
-                    </div>
-                    <div class="row m-3 border-bottom py-2">
-                        <div class="col-6">
-                            SubTotal
-                        </div>
-                        <div class="col-6 text-end">
-                            $65
+                            {{@$subtotal}}
                         </div>
                     </div>
 

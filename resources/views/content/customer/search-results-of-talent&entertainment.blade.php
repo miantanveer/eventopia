@@ -294,11 +294,14 @@
                                                             SAR{{ @$value->hourly_rate }}/hour</p>
                                                     </div>
                                                     <div class="me-2 card-background float-end">
-                                                        <span class="mini-stat-icon p-0"><i
-                                                                class="fa fa-shopping-bag p-3"></i></span>
+                                                        <a href="{{ route('cart-stores',['id'=>$value->id,'type'=>'entertainment']) }}">
+                                                            <span class="mini-stat-icon p-0">
+                                                                <i class="fa fa-shopping-bag p-3"></i>
+                                                            </span>
+                                                        </a>
                                                     </div>
                                                 </div>
-                                                <a href="#">
+                                                <a href="{{route('entertainment-details',@$value->id)}}">
                                                     <img src="{{ asset(@$value->ent->entertainmentImages[0]->image) }}"
                                                         class="card-img-top" style="width: 200px;padding-top: 10px"
                                                         alt="img">
@@ -346,9 +349,9 @@
     <script>
         $(document).ready(function() {
             // Get latitude, longitude, and title from PHP variable
-            var lat = {{ $lat }};
-            var lng = {{ $lng }};
-            var title = "{{ $title }}";
+            var lat = {{ @$lat }};
+            var lng = {{ @$lng }};
+            var title = "{{ @$title }}";
             // Create a map centered at the specified location
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {

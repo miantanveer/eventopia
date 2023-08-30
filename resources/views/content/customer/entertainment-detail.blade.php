@@ -66,28 +66,29 @@
 @endsection
 
 @section('content')
+{{-- @dd(@$ent) --}}
     <div class="row row-sm">
         <div class="col-xl-8 col-lg-12 col-md-12">
             <div class="card custom-card overflow-hidden">
                 <div class="card-body p-3">
                     <a href="javascript:void(0)"><img
-                            src="{{ $space->spaceImages[0]->image ?? asset('assets/images/users/spaces/4.jpg') }}"
+                            src="{{ @$ent->ent->entertainmentImages[0]->image ?? asset('assets/images/users/spaces/4.jpg') }}"
                             alt="image not found" class="br-5 w-100"></a>
                 </div>
                 <div class="card-body pt-0 h-100">
                     <div class="owl-carousel owl-carousel-icons2">
-                        @foreach ($space->spaceImages as $spaceImage)
+                        @foreach (@$ent->ent->entertainmentImages as $entImage)
                             <div class="item">
                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <a href="#"><img src="{{ $spaceImage->image }}" alt="img"></a>
+                                    <a href="#"><img src="{{ @$entImage->image }}" alt="img"></a>
                                 </div>
                             </div>
                         @endforeach
                     </div>
                 </div>
                 <div class="card-footer">
-                    <h2 class="fw-bold text-dark">{{ $space->space_title }}</h2>
-                    <p><i class="text-primary side-menu__icon fe fe-map-pin"></i>{{ ' ' . $space->address }}</p>
+                    <h2 class="fw-bold text-dark">{{ @$ent->ent->title }}</h2>
+                    <p><i class="text-primary side-menu__icon fe fe-map-pin"></i>{{ ' ' . @$ent->ent->address }}</p>
                     <div class="row">
                         <div class="mb-2 col-md-2 col-sm-3 text-warning">
                             <i class="fa fa-star text-warning"></i>
@@ -105,48 +106,9 @@
                     <hr>
                     <div class="mt-5">
                         <h3 class="text-dark">
-                            About the space
+                            About the Entertainment
                         </h3>
-                        <p>{{ $space->description }}</p>
-                    </div>
-                    <div class="mt-5">
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Parking
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <h4 class="text-dark">Parking options</h4>
-                                        <p>
-                                            @foreach ($space->spaceHaveParkingOptions as $parkingOption)
-                                                {{ $parkingOption->option . ',' }}
-                                            @endforeach
-                                        </p>
-                                        <h4 class="text-dark">Parking description</h4>
-                                        <p>{{ $space->parking_description ?? 'Empty' }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        House Rules
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>{{ $space->space_rules }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <p>{{ @$ent->ent->description }}</p>
                     </div>
                     <hr>
                     <div class="mt-5">
@@ -155,39 +117,12 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="mt-5">
-                        <h3 class="text-dark">
-                            Health and Safety Measures
-                        </h3>
-                        @foreach ($space->spaceHaveSafetyMeasures as $safetyMeasure)
-                            <p>{{ $loop->iteration . ' ' . $safetyMeasure->safety_measure_options }}</p>
-                        @endforeach
-                    </div>
-                    <div class="mt-5">
-                        <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Cleaning protocol
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                    data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <p>{{ $space->cleaning_process }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <hr>
                     <div class="mt-5">
                         <h3 class="text-dark">
                             Cancellation Policy
                         </h3>
-                        <h5 class="text-dark">{{ $space->cancellationPolicy->title }}</h5>
-                        <p>{{ $space->cancellationPolicy->description }}</p>
+                        <p>{{ @$ent->ent->cancellationPolicy->description }}</p>
                     </div>
                     <hr>
                     <div class="mt-5">
@@ -299,14 +234,14 @@
             <div class="card custom-card">
                 <div class="card-body">
                     <div class="mt-3 text-center">
-                        <h2>SAR {{ $space->spaceHaveActivities[0]->rate_per_hour }} /hr</h2>
-                        <p>{{ $space->spaceHaveActivities[0]->minimum_hour }} hour minimum</p>
+                        <h2>SAR {{ @$ent->hourly_rate }} /hr</h2>
+                        <p>{{ @$ent->max_hours }} hour minimum</p>
                     </div>
                     <hr>
                     <div class="">
                         <div class="row">
                             <div class="col-7">
-                                <h4>{{ $space->spaceHaveActivities[0]->discount }} hour discount <i
+                                <h4>{{ @$ent->discount }} hour discount <i
                                         class="mdi mdi-alert-circle-outline"></i>
                                 </h4>
                             </div>
@@ -315,7 +250,6 @@
                         </div>
                     </div>
                     <hr>
-{{-- @dd($space) --}}
                     <div class="">
                         <div class="row">
                             <div class="col-xl-12">
@@ -380,7 +314,7 @@
 
                                     <div class="row mt-4">
                                         <div class="col-10 pe-0">
-                                            <a href="{{ route('cart-store',['id'=>$space->id,'type'=>'space']) }}" class="btn btn-primary text-white w-100">
+                                            <a href="{{ route('cart-store',['id'=>@$ent->ent->id,'type'=>'entertainment']) }}" class="btn btn-primary text-white w-100">
                                                 Checkout
                                             </a>
                                         </div>
@@ -410,9 +344,9 @@
                     </div>
                     <h4 class="mt-5 fw-bold">Amentities</h4>
                     <div class="row mb-6">
-                        @foreach ($space->spaceHaveActivities[0]->spaceAmenities as $spaceAmenity)
-                            <div class="col-6">
-                                <p class="">{{ $spaceAmenity->name }}</p>
+                        @foreach (@$ent->entActivityAmenity as $entAmenity)
+                        <div class="col-6">
+                                <p class="">{{ @$entAmenity->activity->name }}</p>
                             </div>
                         @endforeach
                     </div>
@@ -422,7 +356,7 @@
                 <div>
                     <h3 class="mt-4 ps-3">Operating Hours</h3>
                     <hr style="border-top: 1px solid black">
-                    @foreach ($space->operatingDays as $operatingDay)
+                    @foreach (@$ent->ent->operatingDays as $operatingDay)
                         <h4 class="col-sm-10 mt-5 ps-3">{{ $operatingDay->week_day }} <span
                                 class="float-end">{{ $operatingDay->operatingHours[0]->radio === '1' ? $operatingDay->operatingHours[0]->start_time . ' - ' . $operatingDay->operatingHours[0]->end_time : '6 : 00 AM - 12 AM' }}</span>
                         </h4>
@@ -441,9 +375,9 @@
     <script>
         $(document).ready(function() {
             // Get latitude, longitude, and title from PHP variable
-            var lat = {{ $space->lat }};
-            var lng = {{ $space->lng }};
-            var title = "{{ $space->space_title }}";
+            var lat = {{ @$ent->ent->lat }};
+            var lng = {{ @$ent->ent->lng }};
+            var title = "{{ @$ent->ent->title }}";
 
             // Create a map centered at the specified location
             var map = new google.maps.Map(document.getElementById('map'), {

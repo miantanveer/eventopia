@@ -65,6 +65,7 @@
     @include('layouts.components.dark-footer')
 
     @include('layouts.components.scripts')
+    @include('layouts.components.notification-scripts')
 
     <!-- INTERNAL Bootstrap-Datepicker js-->
     <script src="{{ asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>

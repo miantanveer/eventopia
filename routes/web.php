@@ -5,6 +5,8 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Customer\DashboardController;
+use App\Http\Controllers\Customer\CartController;
+use App\Http\Controllers\Customer\PaymentController;
 use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\Seller\ListingSpaceController;
 use Illuminate\Support\Facades\Route;
@@ -75,18 +77,28 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/services', [BookingController::class, 'service_index'])->name('services');
     
     Route::get('space-details/{space_id}', [BookingController::class, 'spaceDetail'])->name('space-details');
+    Route::get('service-details/{id}', [BookingController::class, 'serviceDetail'])->name('service-details');
+    Route::get('entertainment-details/{id}', [BookingController::class, 'entertainmentDetail'])->name('entertainment-details');
+    // Cart Functions
+    Route::get('cart-stores/{id}/{type}', [CartController::class, 'stores'])->name('cart-stores');
+    Route::get('cart-store/{id}/{type}', [CartController::class, 'store'])->name('cart-store');
+    Route::delete('delete-item/{id}/{type}', [CartController::class, 'destroy'])->name('cart-delete');
+    // Checkout
+    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    // Review & Payment
+    Route::post('/review-pay', [PaymentController::class, 'review'])->name('review-pay');
     // Route::get('/space-details', function () {
     //     return view('content.customer.space-detail');
     // });
-    Route::get('/service-details', function () {
-        return view('content.customer.service-detail');
-    });
-    Route::get('/checkout', function () {
-        return view('layouts.components.checkout-page');
-    });
-    Route::get('/review-pay', function () {
-        return view('layouts.components.review');
-    });
+    // Route::get('/service-details', function () {
+    //     return view('content.customer.service-detail');
+    // });
+    // Route::get('/checkout', function () {
+    //     return view('layouts.components.checkout-page');
+    // });
+    // Route::get('/review-pay', function () {
+    //     return view('layouts.components.review');
+    // });
     Route::get('/payment-successfull', function () {
         return view('layouts.components.payment-successfull');
     });
