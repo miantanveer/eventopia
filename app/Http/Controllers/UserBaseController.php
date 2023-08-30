@@ -12,7 +12,7 @@ class UserBaseController extends Controller
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     private $data = [];
-    // private $stripe = '';
+    private $stripe = '';
 
     public function __get($property) {
         if (property_exists($this, $property)) {

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\UserBaseController;
 
 use App\Mail\EmailVerfication;
 use App\Models\User;
@@ -21,7 +22,7 @@ class AuthenticationController extends UserBaseController
 
     public function signup(Request $req)
     {
-        try {
+        // try {
             $validator = Validator::make($req->all(), [
                 'first_name' => 'required',
                 'last_name' => 'required',
@@ -61,14 +62,18 @@ class AuthenticationController extends UserBaseController
             }
 
             $data = $req->except('_token');
+            $data['customer_id'] = $this->stripe->customers->create([
+                'name' => $data['first_name'].' '.$data['last_name'],
+                'email' => $data['email'],
+            ])->id;
             User::create($data);
 
             $this->sendOtp($req);
 
             return redirect(route('verify-email-phone'))->with(['email' => $req->email ?? '', 'phone_number' => $req->phone_number ?? '']);
-        } catch (\Throwable $th) {
-            return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
-        }
+        // } catch (\Throwable $th) {
+        //     return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
+        // }
     }
 
     public function verifyEmailPhoneIndex()
