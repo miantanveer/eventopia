@@ -13,29 +13,6 @@ class BookingController extends UserBaseController
     public function spaceDetail($id)
     {
         $this->space = Space::find($id);
-
-        // $operatingDays = OperatingDay::where($operatingDayModel, $id)->get();
-
-        //     $operatingHoursData = [];
-
-        //     foreach ($operatingDays as $operatingDay) {
-        //         $operatingHoursData[$operatingDay->week_day] = [];
-
-        //         foreach ($operatingDay->operatingHours as $operatingHour) {
-        //             $hours = [
-        //                 'radio' => $operatingHour->radio,
-        //                 'start_time' => $operatingHour->start_time,
-        //                 'end_time' => $operatingHour->end_time,
-        //             ];
-
-        //             if ($operatingHour->radio === '0') {
-        //                 $hours['start_time'] = '6:00 AM';
-        //                 $hours['end_time'] = '12:00 AM';
-        //             }
-
-        //             $operatingHoursData[$operatingDay->week_day][] = $hours;
-        //         }
-        //     }
         return view('content.customer.space-detail', $this->data);
     }
     public function serviceDetail($id)

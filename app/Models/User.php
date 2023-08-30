@@ -19,6 +19,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
+        'customer_id',
         'first_name',
         'last_name',
         'date_of_birth',
@@ -72,5 +73,5 @@ class User extends Authenticatable
     function cart()
     {
         return $this->hasMany(Cart::class);
-    }  
+    }
 }
