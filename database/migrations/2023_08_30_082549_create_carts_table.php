@@ -23,7 +23,7 @@ class CreateCartsTable extends Migration
             $table->string('date');
             $table->string('start_time');
             $table->string('end_time')->nullable();
-            $table->string('status')->default(0);
+            $table->string('status')->default(0)->comment('0 => Unchecked,1 => Checked');
             $table->timestamps();
         });
     }

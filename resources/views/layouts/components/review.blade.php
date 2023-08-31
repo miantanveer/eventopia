@@ -56,15 +56,20 @@
                     <input type="hidden" name="amount" value="{{ @$subtotal }}">
                     <input type="text" class="my-3 form-control" name="card_holder_name" placeholder="Cardholder's Name">
                     <label for="card_number">Card Number*</label>
-                    <input type="number" id="card_number" name="card_num" class="mb-3 form-control"
+                    <input type="number" id="card_number" name="card_number" class="mb-3 form-control"
                         placeholder="1234 1234 1234 1234">
                     <div class="row">
-                        <div class="col-6">
-                            <label for="expiration">Expiration*</label>
-                            <input type="text" id="expiration" name="expiration" placeholder="Expiration"
+                        <div class="col-4">
+                            <label for="expiration">Expiration Month*</label>
+                            <input type="text" id="exp_month" name="exp_month" placeholder="Expiration"
                                 class="mb-3 form-control">
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
+                            <label for="expiration">Expiration Year*</label>
+                            <input type="text" id="exp_year" name="exp_year" placeholder="Expiration"
+                                class="mb-3 form-control">
+                        </div>
+                        <div class="col-4">
                             <label for="cvc">CVC*</label>
                             <input type="text" id="cvc" name="cvc" placeholder="CVC" class="mb-3 form-control">
                         </div>

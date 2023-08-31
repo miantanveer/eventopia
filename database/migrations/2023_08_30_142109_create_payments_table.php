@@ -16,11 +16,9 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('amount')->nullable();
+            $table->string('card_id')->nullable();
             $table->string('card_holder_name')->nullable();
-            $table->string('card_num')->nullable();
-            $table->string('expiration')->nullable();
-            $table->string('cvc')->nullable();
+            $table->string('amount')->nullable();
             $table->timestamps();
         });
     }

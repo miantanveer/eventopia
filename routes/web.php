@@ -86,7 +86,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Checkout
     Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
     // Review & Payment
-    Route::get('/Review', [PaymentController::class, 'loadReview'])->name('load-review');
+    Route::get('/review', [PaymentController::class, 'loadReview'])->name('load-review');
     Route::post('/review-pay', [PaymentController::class, 'review'])->name('review-pay');
     Route::get('/payment-successfull', [PaymentController::class, 'successfull'])->name('payment-successfull');
     Route::post('/payment', [PaymentController::class, 'store_payment'])->name('payment-store');
@@ -160,9 +160,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/add-service', function () {
         return view('content.seller.add-services');
     });
-    Route::get('/pending-bookings', function () {
-        return view('content.seller.pending-bookings');
-    });
+    Route::get('pending-bookings', [BookingController::class, 'pendingBookings'])->name('pending-bookings');
+    Route::post('accept-bookings/{id}', [BookingController::class, 'acceptBookings'])->name('accept-bookings');
+
+    // Route::get('/pending-bookings', function () {
+    //     return view('content.seller.pending-bookings');
+    // });
     Route::get('/create-quote', function () {
         return view('content.seller.create-quote');
     });
