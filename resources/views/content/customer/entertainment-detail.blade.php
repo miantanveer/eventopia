@@ -278,18 +278,19 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <h5 class="text-primary">Date and time</h5>
-                                <form action="#">
+                                <form class="validation" action="{{ route('cart-store',['id'=>@$ent->ent->id,'type'=>'entertainment']) }}" method="post">
+                                    @csrf
                                     <div class="input-group">
                                         <div class="input-group-text">
                                             <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
                                         </div>
-                                        <input class="form-control" placeholder="yy-mm-dd" type="text"
+                                        <input class="form-control" name="date" placeholder="yy-mm-dd" type="text"
                                             id="datepick">
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="start-time"
+                                                <select name="start_time"
                                                     class="form-control form-select select2 select2-hidden-accessible">
                                                     <!-- Start time options will be populated dynamically -->
                                                     <option selected disabled>Start Time</option>
@@ -298,7 +299,7 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="end-time"
+                                                <select name="end_time"
                                                     class="form-control form-select select2 select2-hidden-accessible">
                                                     <!-- End time options will be populated dynamically -->
                                                     <option selected disabled>End Time</option>
@@ -309,12 +310,12 @@
 
                                     <div class="row mt-4">
                                         <div class="col-10 pe-0">
-                                            <a href="{{ route('cart-store',['id'=>@$ent->ent->id,'type'=>'entertainment']) }}" class="btn btn-primary text-white w-100">
+                                            <button class="btn btn-primary text-white w-100">
                                                 Checkout
-                                            </a>
+                                            </button>
                                         </div>
                                         <div class="col-2 text-end">
-                                            <a class="">
+                                            <a href="{{ route('cart-stores',['id'=>@$ent->ent->id,'type'=>'entertainment']) }}">
                                                 <i class="fa fa-cart-plus border text-primary"></i><span
                                                     class="fs-16 ms-2 d-none d-xl-block"></span>
                                             </a>
@@ -448,8 +449,8 @@
                     var selectedDay = new Date(selectedDate).toLocaleDateString('en-US', {
                         weekday: 'long'
                     }).toLowerCase();
-                    var startTimeSelect = $("select[name='start-time']");
-                    var endTimeSelect = $("select[name='end-time']");
+                    var startTimeSelect = $("select[name='start_time']");
+                    var endTimeSelect = $("select[name='end_time']");
 
                     startTimeSelect.empty();
                     endTimeSelect.empty();

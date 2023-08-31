@@ -18,7 +18,7 @@ class CartController extends UserBaseController
         $this->user = User::whereId(auth()->user()->id)->with('cart')->first();
         return view('layouts.components.checkout-page',$this->data);
     }
-    public function store($id,$type)
+    public function store(Request $req,$id,$type)
     {
         if($type == 'entertainment'){
             $exists = Cart::whereEntertainmentId($id)->whereUserId(auth()->user()->id)->exists();
@@ -26,27 +26,17 @@ class CartController extends UserBaseController
                 return redirect()->route('checkout');
             }
             else{
-                $this->cartStore($id,$type);
+                $this->cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
                 return redirect()->route('checkout');
             }
         }
-        // elseif($type == 'service'){
-        //     $exists = Cart::whereServiceId($id)->whereUserId(auth()->user()->id)->exists();
-        //     if($exists){
-        //         return redirect()->route('checkout');
-        //     }
-        //     else{
-        //         $this->cartStore($id,$type);
-        //         return redirect()->route('checkout');
-        //     }
-        // }
         elseif($type == 'space'){
             $exists = Cart::whereSpaceId($id)->whereUserId(auth()->user()->id)->exists();
             if($exists){
                 return redirect()->route('checkout');
             }
             else{
-                $this->cartStore($id,$type);
+                $this->cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
                 return redirect()->route('checkout');
             }
         }
@@ -90,13 +80,16 @@ class CartController extends UserBaseController
         $cart->delete();
         return redirect()->back()->with('success','Item Deleted Successfully');
     }
-    public function cartStore($id,$col)
+    public function cartStore($id,$col,$date,$start_time,$end_time)
     {
         $colum = $col.'_id';
         $cart = new Cart();
         $cart->$colum = $id;
         $cart->user_id = auth()->user()->id;
         $cart->type = $col;
+        $cart->date = $date;
+        $cart->start_time = $start_time;
+        $cart->end_time = $end_time;
         $cart->save();
     }
    

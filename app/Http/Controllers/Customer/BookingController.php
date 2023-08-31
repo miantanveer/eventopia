@@ -42,7 +42,7 @@ class BookingController extends UserBaseController
                 $ent_query->whereLastSteps('step-9');
             })->get();
         $this->count = Entertainment::where('last_steps', 'step-9')->count();
-        return view('content.customer.search-results-of-talent&entertainment', $this->data);
+        return view('content.customer.entertainments', $this->data);
     }
     public function service_index()
     {

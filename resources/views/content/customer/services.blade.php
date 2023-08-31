@@ -211,55 +211,15 @@
                                 </div>
                                 <div class="card-body pt-0 h-100">
                                     <div class="owl-carousel owl-carousel-icons2">
+                                        @foreach(@$service $value)   
                                         <div class="item card_height">
                                             <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
-                                                <a href="#" class="h-100"><img class="h-100"
-                                                        src="{{ asset('assets/images/users/spaces/11.jpg') }}"
+                                                <a href="{{route('service-details',@$value->id)}}" class="h-100"><img class="h-100"
+                                                        src="{{ asset(@$value->serviceImages[0]->image) }}"
                                                         alt="img"></a>
                                             </div>
                                         </div>
-                                        <div class="item card_height">
-                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                                <a href="#" class=""><img
-                                                        src="{{ asset('assets/images/users/spaces/2.jpg') }}"
-                                                        alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <div class="item card_height">
-                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                                <a href="#" class=""><img
-                                                        src="{{ asset('assets/images/users/spaces/3.jpg') }}"
-                                                        alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <div class="item card_height">
-                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                                <a href="#" class=""><img
-                                                        src="{{ asset('assets/images/users/spaces/4.jpg') }}"
-                                                        alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <div class="item card_height">
-                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                                <a href="#" class=""><img
-                                                        src="{{ asset('assets/images/users/spaces/7.jpg') }}"
-                                                        alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <div class="item card_height">
-                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                                <a href="#" class=""><img
-                                                        src="{{ asset('assets/images/users/spaces/9.jpg') }}"
-                                                        alt="img"></a>
-                                            </div>
-                                        </div>
-                                        <div class="item card_height">
-                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                                <a href="#" class=""><img
-                                                        src="{{ asset('assets/images/users/spaces/3.jpg') }}"
-                                                        alt="img"></a>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

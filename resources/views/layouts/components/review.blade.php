@@ -18,15 +18,7 @@
                             Discount
                         </div>
                         <div class="col-6 text-end">
-                            {{ @$discount }}
-                        </div>
-                    </div>
-                    <div class="row m-3 border-bottom py-2">
-                        <div class="col-6">
-                            Admin Fees
-                        </div>
-                        <div class="col-6 text-end">
-                            {{ @$admin_fees }}
+                            {{ @$discount }}%
                         </div>
                     </div>
                     <div class="row m-3 border-bottom py-2">
@@ -34,7 +26,7 @@
                             SubTotal
                         </div>
                         <div class="col-6 text-end">
-                            {{ @$subtotal }}
+                            SAR {{ @$subtotal }}
                         </div>
                     </div>
 
@@ -61,15 +53,7 @@
             <div class="my-5">
                 <form action="{{ route('payment-store') }}" method="POST">
                     @csrf
-                    {{-- <select name="" id="" class="my-3 form-control" >
-                        <option value="">Select Card</option>
-                        <option value="">Card 1</option>
-                        <option value="">Card 2</option>
-                        <option value="">Card 3</option>
-                        <option value="">Card 4</option>
-                    </select> --}}
                     <input type="hidden" name="amount" value="{{ @$subtotal }}">
-                    <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
                     <input type="text" class="my-3 form-control" name="card_holder_name" placeholder="Cardholder's Name">
                     <label for="card_number">Card Number*</label>
                     <input type="number" id="card_number" name="card_num" class="mb-3 form-control"
@@ -85,16 +69,6 @@
                             <input type="text" id="cvc" name="cvc" placeholder="CVC" class="mb-3 form-control">
                         </div>
                     </div>
-                    {{-- <select name="" id="" class="form-control" >
-                        <option value="" selected>Select Country</option>
-                        <option value="">Pakistan</option>
-                        <option value="">Afganistan</option>
-                        <option value="">India</option>
-                        <option value="">Japan</option>
-                        <option value="">Korea</option>
-                        <option value="">United States of America</option>
-                        <option value="">United Arab Emirates</option>
-                    </select> --}}
                     <div class="my-5">
                         <p>By providing your card information, you allow Eventopia, Inc. to
                             charge your card for future payments in accordance

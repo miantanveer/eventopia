@@ -43,7 +43,8 @@
                                             data-amount="{{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}"
                                             data-title="{{ @$data->entertainment->title }}"
                                             data-discount="{{ @$data->entertainment->entertainmentActivities[0]->discount }}"
-                                            data-image="{{ asset(@$data->entertainment->entertainmentImages[0]->image) }}">
+                                            data-image="{{ asset(@$data->entertainment->entertainmentImages[0]->image) }}"
+                                            data-id="{{ @$data->entertainment->id }}">
                                         <span class="custom-control-label"></span>
                                     </label>
                                 </div>
@@ -100,7 +101,8 @@
                                             data-amount="{{ @$data->space->spaceHaveActivities[0]->rate_per_hour }}"
                                             data-title="{{ @$data->space->space_title }}"
                                             data-discount="{{ @$data->space->spaceHaveActivities[0]->discount }}"
-                                            data-image="{{ asset(@$data->space->spaceImages[0]->image) }}">
+                                            data-image="{{ asset(@$data->space->spaceImages[0]->image) }}"
+                                            data-id="{{ @$data->space->id }}">
 
                                         <span class="custom-control-label"></span>
                                     </label>
@@ -159,10 +161,13 @@
                             @csrf
                             @method('post')
                             <input type="hidden" id="subtotal" name="subtotal" value="0">
-                            <input type="hidden" id="admin-fees" name="admin_fees" value="200">
                             <input type="hidden" id="discount" name="discount" value="0">
+                            <input type="hidden" id="listing_id_space" name="listing_id_space[]" value="0">
+                            <input type="hidden" id="listing_id_entertainment" name="listing_id_entertainment[]"
+                                value="0">
+                            <div id="selected-types"></div>
                             <!-- ...other form fields... -->
-                        <a href="{{ url('shop') }}" class="btn"></i>Continue Shopping</a>
+                            <a href="{{ url('shop') }}" class="btn"></i>Continue Shopping</a>
                             <button type="submit" class="btn btn-primary float-sm-end" id="place-order-btn" disabled>
                                 <i class="fa fa-shopping-bag me-1"></i>Place Order
                             </button>
@@ -289,6 +294,8 @@
     <script>
         $(document).ready(function() {
             $('#place-order-btn').prop('disabled', true);
+            var selectedListingIdsByType = {}; // Initialize an object to store selected listing IDs by type
+            var selectedTypes = [];
             $('#all_select').on('change', function() {
                 if ($(this).prop('checked')) {
                     $('.cards').prop('checked', true);
@@ -298,25 +305,35 @@
                 updateOrderSummary(); // Call the function to update order summary
             });
 
-            // Listen for checkbox changes
-            $('.cards').on('change', function() {
-                updateOrderSummary();
-            });
-
             // Function to update the order summary
             function updateOrderSummary() {
                 var totalAmount = 0;
-                var discountTotal = 0; // Initialize a variable to track the total discount
-
-                var orderSummary ='<div class="card-body py-2">';
+                var discountTotal = 0;
+                selectedTypes = [];
+                var orderSummary = '<div class="card-body py-2">';
 
                 // Loop through each checked checkbox
                 $('.cards:checked').each(function() {
+                    var id = $(this).data('id');
                     var type = $(this).data('type');
                     var image = $(this).data('image');
                     var title = $(this).data('title');
                     var amount = parseFloat($(this).data('amount'));
                     var discount = parseFloat($(this).data('discount'));
+
+                    // Check if the type exists in the selectedListingIdsByType object
+                    if (!(type in selectedListingIdsByType)) {
+                        selectedListingIdsByType[
+                            type] = []; // Initialize an array for the type if it doesn't exist
+                    }
+
+                    // Check if the ID is not already in the selectedListingIds array for this type
+                    if (selectedListingIdsByType[type].indexOf(id) === -1) {
+                        selectedListingIdsByType[type].push(id); // Add the ID to the array
+                    }
+                    if (selectedTypes.indexOf(type) === -1) {
+                        selectedTypes.push(type); // Add the type
+                    }
 
                     // Add the amount to the total
                     totalAmount += amount;
@@ -327,20 +344,39 @@
                     // Add details for the current item to the order summary
                     orderSummary += '<div class="row">';
                     orderSummary += '<div class="col-6"><h5 class="mb-3 fw-bold">' + type + '</h5>';
-                    orderSummary += '<div class=""><img class="avatar-xxl br-7" class="" src="' + image +
+                    orderSummary += '<div class=""><img class="avatar-xxl br-7" src="' + image +
                         '" alt="img"></div>';
                     orderSummary += '</div>';
-                    orderSummary += '<div class="col-6"><h5 class="mb-3 fw-bold">'+ type +' Details</h5>';
+                    orderSummary += '<div class="col-6"><h5 class="mb-3 fw-bold">' + type + ' Details</h5>';
                     orderSummary += '<div class="align-middle"><p>' + title + '</p></div>';
                     orderSummary += '</div>';
                     orderSummary += '</div>';
                 });
+
+                // Remove unchecked IDs from the selectedListingIds array for each type
+                $('.cards:not(:checked)').each(function() {
+                    var id = $(this).data('id');
+                    var type = $(this).data('type');
+
+                    if (type in selectedListingIdsByType) {
+                        var index = selectedListingIdsByType[type].indexOf(id);
+                        if (index !== -1) {
+                            selectedListingIdsByType[type].splice(index, 1); // Remove the ID from the array
+                        }
+                    }
+                });
+
+                // Update hidden form fields for each type and selected IDs
+                for (var type in selectedListingIdsByType) {
+                    $('#listing_id_' + type).val(selectedListingIdsByType[type].join(','));
+                }
+                var selectedTypesHtml = '<input type="hidden" id="type" name="type" value="' + selectedTypes.join(
+                    ', ') + '">';
+                $('#selected-types').html(selectedTypesHtml);
+
                 $('#subtotal').val(totalAmount.toFixed(2));
                 $('#discount').val(discountTotal.toFixed(2));
 
-                // Calculate the total including admin fees
-                var totalIncludingFees = totalAmount - discountTotal + 200;
-                $('#admin-fees').val('200'); // Set admin fees
 
                 // Enable or disable the "Place Order" button based on checkboxes
                 if ($('.cards:checked').length > 0) {
@@ -348,6 +384,7 @@
                 } else {
                     $('#place-order-btn').prop('disabled', true);
                 }
+
                 orderSummary += '<div class="row mt-3 py-3 border-top">';
                 orderSummary += '<div class="col-6 float-left"><h6>Sub Total</h6></div>';
                 orderSummary += '<div class="col-6 text-end">' + totalAmount.toFixed(2) + '</div>';
@@ -356,13 +393,9 @@
                 orderSummary += '<div class="col-6 float-left"><h6>Discount %</h6></div>';
                 orderSummary += '<div class="col-6 text-end">' + discountTotal.toFixed(2) + '</div>';
                 orderSummary += '</div>';
-                orderSummary += '<div class="row mt-3 py-3 border-top">';
-                orderSummary += '<div class="col-6 float-left"><h6>Admin Fees</h6></div>';
-                orderSummary += '<div class="col-6 text-end">$200</div>';
-                orderSummary += '</div>';
                 orderSummary += '<div class="row mt-3 py-3 border-top" style="background-color: #E3E3E3">';
                 orderSummary += '<div class="col-6 float-left"><h6>Total:</h6></div>';
-                orderSummary += '<div class="col-6 text-end">' + (totalAmount - discountTotal + 200).toFixed(2) +
+                orderSummary += '<div class="col-6 text-end">' + (totalAmount - discountTotal).toFixed(2) +
                     '</div>';
                 orderSummary += '</div>';
 
@@ -370,6 +403,13 @@
                 $('#order-summary').html(orderSummary);
             }
 
+            // Listen for checkbox changes
+            $('.cards').on('change', function() {
+                updateOrderSummary();
+            });
+
+            // Initialize the order summary when the page loads
+            updateOrderSummary();
         });
     </script>
 
