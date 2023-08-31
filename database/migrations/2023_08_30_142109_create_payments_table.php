@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             // $table->string('listing_id')->nullable();
-            $table->string('amount')->nullable();
+            // $table->string('amount')->nullable();
             $table->string('amount')->nullable();
             $table->string('card_holder_name')->nullable();
             $table->string('card_num')->nullable();
