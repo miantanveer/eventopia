@@ -62,10 +62,12 @@ class AuthenticationController extends UserBaseController
             }
 
             $data = $req->except('_token');
-            $data['customer_id'] = $this->stripe->customers->create([
+            $params = array_filter([
                 'name' => $data['first_name'].' '.$data['last_name'],
-                'email' => $data['email'],
-            ])->id;
+                'email' => $data['email'] ?? null,
+                'phone' => $data['phone_number'] ?? null,
+            ]);
+            $data['customer_id'] = $this->stripe->customers->create([$params])->id;
             User::create($data);
 
             $this->sendOtp($req);
