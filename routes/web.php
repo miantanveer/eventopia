@@ -75,7 +75,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/spaces', [BookingController::class, 'space_index'])->name('spaces');
     Route::get('/talent-&-entertainments', [BookingController::class, 'entertainment_index'])->name('entertainments_index');
     Route::get('/services', [BookingController::class, 'service_index'])->name('services');
-    
+
     Route::get('space-details/{space_id}', [BookingController::class, 'spaceDetail'])->name('space-details');
     Route::get('service-details/{id}', [BookingController::class, 'serviceDetail'])->name('service-details');
     Route::get('entertainment-details/{id}', [BookingController::class, 'entertainmentDetail'])->name('entertainment-details');
@@ -90,6 +90,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/review-pay', [PaymentController::class, 'review'])->name('review-pay');
     Route::get('/payment-successfull', [PaymentController::class, 'successfull'])->name('payment-successfull');
     Route::post('/payment', [PaymentController::class, 'store_payment'])->name('payment-store');
+    // Route::get('/test', [PaymentController::class, 'test'])->name('test');
+
     // Route::get('/space-details', function () {
     //     return view('content.customer.space-detail');
     // });

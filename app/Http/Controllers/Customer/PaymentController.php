@@ -113,4 +113,43 @@ class PaymentController extends UserBaseController
         $order->discount = $discount;
         $order->save();
     }
+
+    // public function test()
+    // {
+        // $token = $this->stripe->tokens->create([
+        //     'card' => [
+        //         'number' => 4242424242424242,
+        //         'exp_month' => 12,
+        //         'exp_year' => 2025,
+        //         'cvc' => 123,
+        //     ],
+        // ]);
+
+        // $card = $this->stripe->customers->createSource(
+        //     auth()->user()->customer_id,
+        //     ['source' => $token->id]
+        // )->toArray();
+
+        // $pay = $this->stripe->charges->create([
+        //     'amount' => 200 * 100,
+        //     'currency' => 'usd',
+        //     'customer' => auth()->user()->customer_id,
+        //     'source' => $card['id'],
+        //     'capture' => false,
+        //     'description' => auth()->user()->first_name . ' ' . auth()->user()->last_name . ' pay amount',
+        // ]);
+
+        // $refund = $this->stripe->refunds->create([
+        //     'charge' => 'ch_3Nl9WjHgu2WR3PQ119kt66eI',
+        //     // Optionally, you can specify an amount to refund
+        //     // 'amount' => 100 * 100,  // Amount in cents
+        // ]);
+
+        // dd($refund);
+
+                // $caop = $this->stripe->charges->capture(
+                //     $pay['id'],
+                //     ['amount' => 20 * 100,],
+                // );
+    // }
 }

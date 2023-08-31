@@ -22,7 +22,7 @@ class AuthenticationController extends UserBaseController
 
     public function signup(Request $req)
     {
-        // try {
+        try {
             $validator = Validator::make($req->all(), [
                 'first_name' => 'required',
                 'last_name' => 'required',
@@ -62,18 +62,20 @@ class AuthenticationController extends UserBaseController
             }
 
             $data = $req->except('_token');
-            $data['customer_id'] = $this->stripe->customers->create([
+            $params = array_filter([
                 'name' => $data['first_name'].' '.$data['last_name'],
-                'email' => $data['email'],
-            ])->id;
+                'email' => $data['email'] ?? null,
+                'phone' => $data['phone_number'] ?? null,
+            ]);
+            $data['customer_id'] = $this->stripe->customers->create([$params])->id;
             User::create($data);
 
             $this->sendOtp($req);
 
             return redirect(route('verify-email-phone'))->with(['email' => $req->email ?? '', 'phone_number' => $req->phone_number ?? '']);
-        // } catch (\Throwable $th) {
-        //     return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
-        // }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
+        }
     }
 
     public function verifyEmailPhoneIndex()
