@@ -64,7 +64,7 @@ class PaymentController extends UserBaseController
     }
     public function store_payment(Request $req)
     {
-        if (isset($req->amount) || $req->amount == 0) {
+        if ($req->amount == 0) {
             return redirect()->route('spaces')->with('error', 'Please select a space for booking first.');
         }
         try {
