@@ -373,7 +373,7 @@
         channel.bind('notification-event', function(data) {
             // alert(JSON.stringify(data));
             $('#quote-modal').modal('show');
-            console.log(data.message);
+            console.log(data);
 
         });
     </script>

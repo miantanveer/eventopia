@@ -292,24 +292,19 @@
                     <div class="">
                         <div class="row">
                             <div class="col-xl-12">
-                                <form action="#">
-                                    <input type="text" class="form-control mb-3" value="First Name">
-                                    <input type="text" class="form-control mb-3" value="Last Name">
-                                    <input type="email" id="example-email mb-3" name="example-email"
-                                        class="form-control" placeholder="Email">
+                                <form action="{{route('send_quote',@$service->id)}}" method="post">
+                                    @csrf
                                     <div class="input-group mt-3">
                                         <div class="input-group-text">
                                             <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-                                        </div><input class="form-control fc-datepicker" placeholder="Wedding Date"
-                                            type="text">
+                                        </div><input class="form-control fc-datepicker" name="date" placeholder="Select Date" type="text">
                                     </div>
-                                    <div class="custom-control custom-checkbox mb-3 mt-2">
-                                        <input type="checkbox" class="custom-control-input" name="example-checkbox1"
-                                            value="option1">
-                                        <span class="custom-control-label">My wedding date is flexible</span>
+                                    <div class="custom-checkbox my-3 display-inline">
+                                        <input type="checkbox" class="form-input" name="flexible_date" value="1">
+                                        <span>My wedding date is flexible</span>
                                     </div>
-                                    <input type="text" class="form-control mb-3" value="Number of Guests">
-                                    <textarea name="" id="" class="form-control" rows="3" class="mb-3"
+                                    <input type="text" class="form-control mb-3" name="guests" value="Number of Guests">
+                                    <textarea name="description" id="description" class="form-control" rows="3" class="mb-3"
                                         placeholder="Interduce yourself and the share your event vision"></textarea>
                                     <div class="mt-3">
                                         <p>By clicking 'Request Quote', you agree that your information
@@ -318,8 +313,9 @@
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-12 pe-0">
-                                            <input type='button' class="btn btn-primary text-white w-100" id='quote-btn'
-                                                value="Request a Quote">
+                                            <button class="btn btn-primary text-white w-100">Request a Quote</button>
+                                            {{-- <input type='button' class="btn btn-primary text-white w-100" id='quote-btn'
+                                                value="Request a Quote"> --}}
                                         </div>
                                     </div>
                                 </form>

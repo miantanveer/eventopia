@@ -211,7 +211,7 @@
                                 </div>
                                 <div class="card-body pt-0 h-100">
                                     <div class="owl-carousel owl-carousel-icons2">
-                                        @foreach(@$service $value)   
+                                        @foreach(@$service as $value)   
                                         <div class="item card_height">
                                             <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
                                                 <a href="{{route('service-details',@$value->id)}}" class="h-100"><img class="h-100"

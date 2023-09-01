@@ -9,6 +9,6 @@ class NotificationController extends UserBaseController
 {
     public function index()
     {
-        event(new NotificationEvent('hello world'));
+        event(new NotificationEvent(['from'=>auth()->user()->id,'message'=>true]));
     }
 }

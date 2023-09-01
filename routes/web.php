@@ -4,6 +4,7 @@ use App\Models\ServiceTitle;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Customer\CartController;
@@ -73,11 +74,14 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.customer.search-results');
     });
 
+    // Notification test
     Route::get('/test', [NotificationController::class, 'index'])->name('test');
+    
+    // Load Listings
     Route::get('/spaces', [BookingController::class, 'space_index'])->name('spaces');
     Route::get('/talent-&-entertainments', [BookingController::class, 'entertainment_index'])->name('entertainments_index');
     Route::get('/services', [BookingController::class, 'service_index'])->name('services');
-
+    // Load a listing 
     Route::get('space-details/{space_id}', [BookingController::class, 'spaceDetail'])->name('space-details');
     Route::get('service-details/{id}', [BookingController::class, 'serviceDetail'])->name('service-details');
     Route::get('entertainment-details/{id}', [BookingController::class, 'entertainmentDetail'])->name('entertainment-details');
@@ -92,6 +96,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/review-pay', [PaymentController::class, 'review'])->name('review-pay');
     Route::get('/payment-successfull', [PaymentController::class, 'successfull'])->name('payment-successfull');
     Route::post('/payment', [PaymentController::class, 'store_payment'])->name('payment-store');
+    
+    // Qutoe functions
+    Route::post('/send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
+    
     // Route::get('/test', [PaymentController::class, 'test'])->name('test');
 
     // Route::get('/space-details', function () {
