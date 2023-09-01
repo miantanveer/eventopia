@@ -21,6 +21,11 @@
                 <div class="card-body">
                     <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
                         <div class="row">
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                             <div class="col-sm-12">
                                 <table id="example2"
                                     class="table text-nowrap border rounded-3 dataTable no-footer dtr-inline p-0"
@@ -96,9 +101,11 @@
                                                 </td>
                                                 <td class="text-end">
                                                     @if (@$pendingBooking->status == 3)
-                                                        <span disabled class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">Declined</span>
+                                                        <span disabled
+                                                            class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">Declined</span>
                                                     @elseif (@$pendingBooking->status == 2)
-                                                        <span disabled class="badge bg-success-gradient badge-sm me-1 mb-1 mt-1">Accepted</span>
+                                                        <span disabled
+                                                            class="badge bg-success-gradient badge-sm me-1 mb-1 mt-1">Accepted</span>
                                                     @else
                                                         <a href="{{ route('decline-bookings', @$pendingBooking->id) }}"
                                                             class="btn text-danger border-0">Decline</a>
