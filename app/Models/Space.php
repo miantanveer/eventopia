@@ -78,4 +78,9 @@ class Space extends Model
     public function blockTime(){
         return $this->hasMany(BlockTime::class,'space_id');
     }
+
+    public function spaceHaveOrders(){
+        return $this->hasMany(Order::class);
+    }
+
 }

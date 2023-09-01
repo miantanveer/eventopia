@@ -343,19 +343,20 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <h5 class="text-primary">Date and time</h5>
-                                <form class="validation" action="{{ route('cart-store',['id'=>$space->id,'type'=>'space']) }}" method="post">
+                                <form class="validation"
+                                    action="{{ route('cart-store', ['id' => $space->id, 'type' => 'space']) }}" method="post">
                                     @csrf
                                     <div class="input-group">
                                         <div class="input-group-text">
                                             <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
                                         </div>
                                         <input class="form-control" name="date" placeholder="yy-mm-dd" type="text"
-                                            id="datepick" >
+                                            id="datepick">
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="start_time" 
+                                                <select name="start_time"
                                                     class="form-control form-select select2 select2-hidden-accessible">
                                                     <!-- Start time options will be populated dynamically -->
                                                     <option selected disabled>Start Time</option>
@@ -364,7 +365,7 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="end_time" 
+                                                <select name="end_time"
                                                     class="form-control form-select select2 select2-hidden-accessible">
                                                     <!-- End time options will be populated dynamically -->
                                                     <option selected disabled>End Time</option>
@@ -375,15 +376,22 @@
 
                                     <div class="row mt-4">
                                         <div class="col-10 pe-0">
-                                            <button class="btn btn-primary text-white w-100">
-                                                Checkout
+                                            <button class="btn btn-primary text-white w-100"
+                                                {{ @$order->status == '1' ? 'disabled' : '' }}>
+                                                {{ @$order->status == '1' ? 'In-Review (already paid)' : 'Checkout' }}
                                             </button>
                                         </div>
                                         <div class="col-2 text-end">
-                                            <a href="{{ route('cart-stores',['id'=>$space->id,'type'=>'space']) }}" type="button">
+                                            @if (@$order->status == '1')
                                                 <i class="fa fa-cart-plus border text-primary"></i><span
                                                     class="fs-16 ms-2 d-none d-xl-block"></span>
-                                            </a>
+                                            @else
+                                                <a href="{{ route('cart-stores', ['id' => $space->id, 'type' => 'space']) }}"
+                                                    type="button">
+                                                    <i class="fa fa-cart-plus border text-primary"></i><span
+                                                        class="fs-16 ms-2 d-none d-xl-block"></span>
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 </form>
@@ -524,8 +532,8 @@
                     if (operatingHours[selectedDay]) {
                         var radioValue = operatingHours[selectedDay][0].radio;
                         if (radioValue == 0) {
-                            startTimeSelect.append(new Option("6 AM", "06:00"));
-                            endTimeSelect.append(new Option("12 AM", "00:00"));
+                            startTimeSelect.append(new Option("6 AM", "6 AM"));
+                            endTimeSelect.append(new Option("12 AM", "12 AM"));
                         } else if (operatingHours[selectedDay]) {
                             operatingHours[selectedDay].forEach(function(hours) {
                                 startTimeSelect.append(new Option(hours.start_time, hours

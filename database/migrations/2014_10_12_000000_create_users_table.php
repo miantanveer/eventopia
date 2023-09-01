@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('stripe_customer_id')->unique()->nullable();
             $table->string('date_of_birth')->nullable();
             $table->string('password');
-            $table->enum('status', [1, 2])->default(2)->comment = "1=>Active,2=>Pending";
+            $table->enum('status', [1, 2])->default(2)->comment = "1 => Active, 2 => Pending";
             $table->string('otp')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('phone_number_verified_at')->nullable();

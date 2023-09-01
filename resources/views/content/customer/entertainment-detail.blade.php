@@ -310,15 +310,22 @@
 
                                     <div class="row mt-4">
                                         <div class="col-10 pe-0">
-                                            <button class="btn btn-primary text-white w-100">
-                                                Checkout
+                                            <button class="btn btn-primary text-white w-100"
+                                                {{ @$order->status == '1' ? 'disabled' : '' }}>
+                                                {{ @$order->status == '1' ? 'In-Review (already paid)' : 'Checkout' }}
                                             </button>
                                         </div>
                                         <div class="col-2 text-end">
-                                            <a href="{{ route('cart-stores',['id'=>@$ent->ent->id,'type'=>'entertainment']) }}">
+                                            @if (@$order->status == '1')
                                                 <i class="fa fa-cart-plus border text-primary"></i><span
                                                     class="fs-16 ms-2 d-none d-xl-block"></span>
-                                            </a>
+                                            @else
+                                                <a href="{{ route('cart-stores', ['id' => $ent->ent->id, 'type' => 'entertainment']) }}"
+                                                    type="button">
+                                                    <i class="fa fa-cart-plus border text-primary"></i><span
+                                                        class="fs-16 ms-2 d-none d-xl-block"></span>
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 </form>
@@ -458,8 +465,8 @@
                     if (operatingHours[selectedDay]) {
                         var radioValue = operatingHours[selectedDay][0].radio;
                         if (radioValue == 0) {
-                            startTimeSelect.append(new Option("6 AM", "06:00"));
-                            endTimeSelect.append(new Option("12 AM", "00:00"));
+                            startTimeSelect.append(new Option("6 AM", "6 AM"));
+                            endTimeSelect.append(new Option("12 AM", "12 AM"));
                         } else if (operatingHours[selectedDay]) {
                             operatingHours[selectedDay].forEach(function(hours) {
                                 startTimeSelect.append(new Option(hours.start_time, hours

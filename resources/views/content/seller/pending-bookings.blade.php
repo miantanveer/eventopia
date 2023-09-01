@@ -56,137 +56,33 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="text-center">
-                                            <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
-                                                Service</td>
-                                            <td>New England</td>
-                                            <td>John Smith</td>
-                                            <td>07/28/2023</td>
-                                            <td>$150</td>
-                                            <td>101 - 150</td>
-                                            <td>Wedding</td>
-                                            <td class="text-end"><a href="#"
-                                                    class="btn text-danger border-0">Decline</a><a
-                                                    href="{{ URL('/create-quote') }}" class="btn btn-primary ms-3">Send
-                                                    Quote</a></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
-                                                Service</td>
-                                            <td>New England</td>
-                                            <td>John Smith</td>
-                                            <td>07/28/2023</td>
-                                            <td>$150</td>
-                                            <td>101 - 150</td>
-                                            <td>Wedding</td>
-                                            <td class="text-end"><a href="#"
-                                                    class="btn text-danger border-0">Decline</a><a href="#"
-                                                    class="btn btn-primary ms-3">Accept</a></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
-                                                Service</td>
-                                            <td>New England</td>
-                                            <td>John Smith</td>
-                                            <td>07/28/2023</td>
-                                            <td>$150</td>
-                                            <td>101 - 150</td>
-                                            <td>Wedding</td>
-                                            <td class="text-end"><a href="#"
-                                                    class="btn text-danger border-0">Decline</a><a href="#"
-                                                    class="btn btn-primary ms-3">Accept</a></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
-                                                Service</td>
-                                            <td>New England</td>
-                                            <td>John Smith</td>
-                                            <td>07/28/2023</td>
-                                            <td>$150</td>
-                                            <td>101 - 150</td>
-                                            <td>Wedding</td>
-                                            <td class="text-end"><a href="#"
-                                                    class="btn text-danger border-0">Decline</a><a href="#"
-                                                    class="btn btn-primary ms-3">Accept</a></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
-                                                Service</td>
-                                            <td>New England</td>
-                                            <td>John Smith</td>
-                                            <td>07/28/2023</td>
-                                            <td>$150</td>
-                                            <td>101 - 150</td>
-                                            <td>Wedding</td>
-                                            <td class="text-end"><a href="#"
-                                                    class="btn text-danger border-0">Decline</a><a href="#"
-                                                    class="btn btn-primary ms-3">Accept</a></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
-                                                Service</td>
-                                            <td>New England</td>
-                                            <td>John Smith</td>
-                                            <td>07/28/2023</td>
-                                            <td>$150</td>
-                                            <td>101 - 150</td>
-                                            <td>Wedding</td>
-                                            <td class="text-end"><a href="#"
-                                                    class="btn text-danger border-0">Decline</a><a href="#"
-                                                    class="btn btn-primary ms-3">Accept</a></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
-                                                Service</td>
-                                            <td>New England</td>
-                                            <td>John Smith</td>
-                                            <td>07/28/2023</td>
-                                            <td>$150</td>
-                                            <td>101 - 150</td>
-                                            <td>Wedding</td>
-                                            <td class="text-end"><a href="#"
-                                                    class="btn text-danger border-0">Decline</a><a href="#"
-                                                    class="btn btn-primary ms-3">Accept</a></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
-                                                Service</td>
-                                            <td>New England</td>
-                                            <td>John Smith</td>
-                                            <td>07/28/2023</td>
-                                            <td>$150</td>
-                                            <td>101 - 150</td>
-                                            <td>Wedding</td>
-                                            <td class="text-end"><a href="#"
-                                                    class="btn text-danger border-0">Decline</a><a href="#"
-                                                    class="btn btn-primary ms-3">Accept</a></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
-                                                Service</td>
-                                            <td>New England</td>
-                                            <td>John Smith</td>
-                                            <td>07/28/2023</td>
-                                            <td>$150</td>
-                                            <td>101 - 150</td>
-                                            <td>Wedding</td>
-                                            <td class="text-end"><a href="#"
-                                                    class="btn text-danger border-0">Decline</a><a href="#"
-                                                    class="btn btn-primary ms-3">Accept</a></td>
-                                        </tr>
-                                        <tr class="text-center">
-                                            <td class="dtr-control sorting_1" tabindex="0">Wedding Planner
-                                                Service</td>
-                                            <td>New England</td>
-                                            <td>John Smith</td>
-                                            <td>07/28/2023</td>
-                                            <td>$150</td>
-                                            <td>101 - 150</td>
-                                            <td>Wedding</td>
-                                            <td class="text-end"><a href="#"
-                                                    class="btn text-danger border-0">Decline</a><a href="#"
-                                                    class="btn btn-primary ms-3">Accept</a></td>
-                                        </tr>
+                                        @foreach (@$pendingBookings as $pendingBooking)
+                                            <tr class="text-center">
+                                                <td class="dtr-control sorting_1" tabindex="0">
+                                                    {{ @$pendingBooking->type }}</td>
+                                                <td>{{ Str::limit(@$pendingBooking->type == 'space' ? @$pendingBooking->space->address : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->address : @$pendingBooking->service->address), 30, $end = '...') }}
+                                                </td>
+                                                <td>{{ @$pendingBooking->user->first_name . ' ' . @$pendingBooking->user->last_name }}
+                                                </td>
+                                                <td>{{ @$pendingBooking->date }}</td>
+                                                <td>{{ @$pendingBooking->amount }}</td>
+                                                <td>101 - 150</td>
+                                                <td>{{ @$pendingBooking->type == 'space' ? @$pendingBooking->space->spaceType->type : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->title : @$pendingBooking->service->category) }}
+                                                </td>
+                                                <td class="text-end">
+                                                    @if (@$pendingBooking->status == 3)
+                                                        <span disabled class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">Declined</span>
+                                                    @elseif (@$pendingBooking->status == 2)
+                                                        <span disabled class="badge bg-success-gradient badge-sm me-1 mb-1 mt-1">Accepted</span>
+                                                    @else
+                                                        <a href="{{ route('decline-bookings', @$pendingBooking->id) }}"
+                                                            class="btn text-danger border-0">Decline</a>
+                                                        <a href="{{ @$pendingBooking->type == 'space' || @$pendingBooking->type == 'entertainment' ? route('accept-bookings', @$pendingBooking->id) : URL('/create-quote') }}"
+                                                            class="btn btn-primary ms-3">{{ @$pendingBooking->type == 'space' || @$pendingBooking->type == 'entertainment' ? 'Accept' : 'Send Quote' }}</a>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

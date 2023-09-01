@@ -717,7 +717,7 @@
             <form action="{{ route('entertainment_search_results') }}" class="ms-5 form-blur-border">
                 <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing form-border FormBorder-1"
                     id="form-border-1">
-                    <input type="hidden" id="entertaimnet_search_url" value="{{route('entertainment_landing_index')}}">  
+                    <input type="hidden" id="entertaimnet_search_url" value="{{route('entertainment_landing_index')}}">
                     <div class="col-sm-4 px-0 border-end border-end0">
                         <label class="mb-0 label-none my-font-size"><b>What have you got planned?</b></label>
                         <input type="text" name="planCatagories_1" id="planCatagories-1" class="form-control px-0"
