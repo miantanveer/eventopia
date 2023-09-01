@@ -44,7 +44,9 @@ class PaymentController extends UserBaseController
                         }
                     } else {
                         $cart = Cart::where($col, $id)->whereType($type)->first();
-                        $this->orderStore($id, $type, $cart->date, $cart->start_time, $cart->end_time, $req->subtotal, $req->discount);
+                        $this->orderStore($id, $type, $cart->date, $cart->start_time, $cart->end_time,
+                         ($type == 'space' ? @$cart->space->spaceHaveActivities[0]->rate_per_hour : @$cart->entertainment->entertainmentActivities[0]->hourly_rate),
+                         ($type == 'space' ? @$cart->space->spaceHaveActivities[0]->discount : @$cart->entertainment->entertainmentActivities[0]->discount));
                         $carts = Cart::where($col, $id)->whereType($type)->get();
                         if ($carts) {
                             foreach ($carts as $cart) {

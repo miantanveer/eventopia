@@ -19,9 +19,9 @@
     <script src="{{ asset('assets/plugins/p-scroll/pscroll.js') }}"></script>
     <script src="{{ asset('assets/plugins/p-scroll/pscroll-1.js') }}"></script>
 
-    <script src="{{asset('assets/plugins/notify/js/rainbow.js')}}"></script>
-    <script src="{{asset('assets/plugins/notify/js/sample.js')}}"></script>
-    <script src="{{asset('assets/plugins/notify/js/notifIt.js')}}"></script>
+    <script src="{{ asset('assets/plugins/notify/js/rainbow.js') }}"></script>
+    <script src="{{ asset('assets/plugins/notify/js/sample.js') }}"></script>
+    <script src="{{ asset('assets/plugins/notify/js/notifIt.js') }}"></script>
 
     @yield('scripts')
 
@@ -37,7 +37,7 @@
     <!-- SWEET-ALERT JS -->
     <script src="{{ asset('assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>
-
+    
     <!-- Custom JavaScript code -->
     <script>
         $(document).ready(function() {
