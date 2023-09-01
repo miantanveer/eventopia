@@ -118,16 +118,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.279.9",
+            "version": "3.280.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "cbf446e410c04a405192cc0d018f29a91fe36375"
+                "reference": "2b2bb8cc5be21e252fb5803d229f1d7fbbec0222"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/cbf446e410c04a405192cc0d018f29a91fe36375",
-                "reference": "cbf446e410c04a405192cc0d018f29a91fe36375",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2b2bb8cc5be21e252fb5803d229f1d7fbbec0222",
+                "reference": "2b2bb8cc5be21e252fb5803d229f1d7fbbec0222",
                 "shasum": ""
             },
             "require": {
@@ -207,9 +207,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.279.9"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.280.1"
             },
-            "time": "2023-08-29T18:11:18+00:00"
+            "time": "2023-08-31T18:56:31+00:00"
         },
         {
             "name": "brick/math",
@@ -1473,16 +1473,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "2.4.0",
+            "version": "2.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "d44a24690f16b8c1808bf13b1bd54ae4c63ea048"
+                "reference": "3669d6d5f7a47a93c08ddff335e6d945481a1dd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/d44a24690f16b8c1808bf13b1bd54ae4c63ea048",
-                "reference": "d44a24690f16b8c1808bf13b1bd54ae4c63ea048",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/3669d6d5f7a47a93c08ddff335e6d945481a1dd5",
+                "reference": "3669d6d5f7a47a93c08ddff335e6d945481a1dd5",
                 "shasum": ""
             },
             "require": {
@@ -1575,7 +1575,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-24T15:16:10+00:00"
+            "time": "2023-08-30T16:55:00+00:00"
         },
         {
             "name": "league/config",
@@ -3473,16 +3473,16 @@
         },
         {
             "name": "stripe/stripe-php",
-            "version": "v12.0.0",
+            "version": "v12.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "732996be0714154716f19f73f956d77bafc99334"
+                "reference": "8ef18513811e3ad0cac50f699deac4032409ae07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/732996be0714154716f19f73f956d77bafc99334",
-                "reference": "732996be0714154716f19f73f956d77bafc99334",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/8ef18513811e3ad0cac50f699deac4032409ae07",
+                "reference": "8ef18513811e3ad0cac50f699deac4032409ae07",
                 "shasum": ""
             },
             "require": {
@@ -3528,9 +3528,9 @@
             ],
             "support": {
                 "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v12.0.0"
+                "source": "https://github.com/stripe/stripe-php/tree/v12.1.0"
             },
-            "time": "2023-08-18T18:55:28+00:00"
+            "time": "2023-08-31T20:23:14+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

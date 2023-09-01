@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Helpers\NotificationEvent;
+use App\Events\NotificationEvent;
 
 class NotificationController extends UserBaseController
 {

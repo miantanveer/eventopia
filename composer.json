@@ -37,8 +37,7 @@
             "Tests\\": "tests/"
         },
         "files": [
-            "app/helpers.php",
-            "app/Helpers/NotificationEvent.php"
+            "app/helpers.php"
         ]
     },
     "scripts": {
