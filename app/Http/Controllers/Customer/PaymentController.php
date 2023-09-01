@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Customer;
 use App\Http\Controllers\UserBaseController;
 use App\Models\Cart;
 use App\Models\Order;
-use App\Models\Payment;
+use App\Models\CardDetails;
 use Illuminate\Http\Request;
 
 class PaymentController extends UserBaseController
 {
     public function loadReview()
     {
-        $this->subtotal = Order::whereStatus(0)->sum('amount');
-        $this->discount = Order::whereStatus(0)->sum('discount');
+        $this->subtotal = Order::whereUserId(auth()->user()->id)->whereStatus(0)->sum('amount');
+        $this->discount = Order::whereUserId(auth()->user()->id)->whereStatus(0)->sum('discount');
         return view('layouts.components.review', $this->data);
     }
     public function review(Request $req)
@@ -44,14 +44,24 @@ class PaymentController extends UserBaseController
                         }
                     } else {
                         $cart = Cart::where($col, $id)->whereType($type)->first();
-                        $this->orderStore($id, $type, $cart->date, $cart->start_time, $cart->end_time,
-                         ($type == 'space' ? @$cart->space->spaceHaveActivities[0]->rate_per_hour : @$cart->entertainment->entertainmentActivities[0]->hourly_rate),
-                         ($type == 'space' ? @$cart->space->spaceHaveActivities[0]->discount : @$cart->entertainment->entertainmentActivities[0]->discount));
-                        $carts = Cart::where($col, $id)->whereType($type)->get();
-                        if ($carts) {
-                            foreach ($carts as $cart) {
-                                $cart->status = 1;
-                                $cart->save();
+                        $exists = Order::where($col, $id)->whereStatus(1)->whereUserId(auth()->user()->id)->exists();
+                        if ($exists) {
+                        } else {
+                            $this->orderStore(
+                                $id,
+                                $type,
+                                $cart->date,
+                                $cart->start_time,
+                                $cart->end_time,
+                                ($type == 'space' ? @$cart->space->spaceHaveActivities[0]->rate_per_hour : @$cart->entertainment->entertainmentActivities[0]->hourly_rate),
+                                ($type == 'space' ? @$cart->space->spaceHaveActivities[0]->discount : @$cart->entertainment->entertainmentActivities[0]->discount)
+                            );
+                            $carts = Cart::where($col, $id)->whereType($type)->get();
+                            if ($carts) {
+                                foreach ($carts as $cart) {
+                                    $cart->status = 1;
+                                    $cart->save();
+                                }
                             }
                         }
                     }
@@ -93,13 +103,6 @@ class PaymentController extends UserBaseController
                 ['source' => $token->id]
             )->toArray();
 
-            $payment = new Payment();
-            $payment->user_id = auth()->user()->id;
-            $payment->card_id = $card['id'];
-            $payment->card_holder_name = $req->card_holder_name;
-            $payment->amount = $req->amount;
-            $payment->save();
-
             $carts = Cart::whereStatus(1)->whereUserId(auth()->user()->id)->get();
             if ($carts) {
                 foreach ($carts as $cart) {
@@ -110,7 +113,7 @@ class PaymentController extends UserBaseController
             if ($orders) {
                 foreach ($orders as $order) {
                     $order->status = 1;
-                    $order->payment_id = $payment->id;
+                    $order->stripe_card_id = $card['id'];
                     $order->save();
                 }
             }
@@ -134,42 +137,4 @@ class PaymentController extends UserBaseController
         $order->save();
     }
 
-    // public function test()
-    // {
-    // $token = $this->stripe->tokens->create([
-    //     'card' => [
-    //         'number' => 4242424242424242,
-    //         'exp_month' => 12,
-    //         'exp_year' => 2025,
-    //         'cvc' => 123,
-    //     ],
-    // ]);
-
-    // $card = $this->stripe->customers->createSource(
-    //     auth()->user()->customer_id,
-    //     ['source' => $token->id]
-    // )->toArray();
-
-    // $pay = $this->stripe->charges->create([
-    //     'amount' => 200 * 100,
-    //     'currency' => 'usd',
-    //     'customer' => auth()->user()->customer_id,
-    //     'source' => $card['id'],
-    //     'capture' => false,
-    //     'description' => auth()->user()->first_name . ' ' . auth()->user()->last_name . ' pay amount',
-    // ]);
-
-    // $refund = $this->stripe->refunds->create([
-    //     'charge' => 'ch_3Nl9WjHgu2WR3PQ119kt66eI',
-    //     // Optionally, you can specify an amount to refund
-    //     // 'amount' => 100 * 100,  // Amount in cents
-    // ]);
-
-    // dd($refund);
-
-    // $caop = $this->stripe->charges->capture(
-    //     $pay['id'],
-    //     ['amount' => 20 * 100,],
-    // );
-    // }
 }

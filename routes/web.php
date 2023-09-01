@@ -163,7 +163,8 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.seller.add-services');
     });
     Route::get('pending-bookings', [BookingController::class, 'pendingBookings'])->name('pending-bookings');
-    Route::post('accept-bookings/{id}', [BookingController::class, 'acceptBookings'])->name('accept-bookings');
+    Route::get('accept-bookings/{id}', [BookingController::class, 'acceptBookings'])->name('accept-bookings');
+    Route::get('decline-bookings/{id}', [BookingController::class, 'declineBookings'])->name('decline-bookings');
 
     // Route::get('/pending-bookings', function () {
     //     return view('content.seller.pending-bookings');

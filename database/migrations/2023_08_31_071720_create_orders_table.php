@@ -19,7 +19,6 @@ class CreateOrdersTable extends Migration
             $table->foreignId('service_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('entertainment_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreignId('payment_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('type');
             $table->string('date');
             $table->string('start_time');
@@ -27,6 +26,8 @@ class CreateOrdersTable extends Migration
             $table->string('amount');
             $table->string('discount')->nullable();
             $table->string('status')->default(0)->comment('0 => pending, 1 => review, 2 => active, 3 => cancelled , 4 => completed');
+            $table->string('stripe_card_id')->nullable();
+            $table->json('stripe_txn_resp')->nullable()->comment('stripe transasction response.');
             $table->timestamps();
         });
     }
