@@ -25,4 +25,9 @@ class QuoteController extends UserBaseController
         notification('Service','New Quote Received',user_id(),false);
         return redirect()->back()->with('success','Quote requested Successfully');
     }
+    public function receive_quote($id)
+    {
+        $this->quote = Quote::find($id);
+        return view('content.seller.create-quote',$this->data);
+    }
 }

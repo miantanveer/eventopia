@@ -99,6 +99,7 @@ Route::group(['middleware' => ['auth']], function () {
     
     // Qutoe functions
     Route::post('/send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
+    Route::post('/quote/{id}', [QuoteController::class, 'receive_quote'])->name('recieve_quote');
     
     // Route::get('/test', [PaymentController::class, 'test'])->name('test');
 
