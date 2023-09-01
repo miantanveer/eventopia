@@ -77,7 +77,7 @@ class BookingController extends UserBaseController
         try {
             $order = Order::find($id);
             if (!$order) return redirect()->back()->with('error', 'Order not found.');
-            
+
             $charge = $this->stripe->charges->create([
                 'amount' => $order->amount * 100,
                 'currency' => 'sar',
@@ -86,16 +86,31 @@ class BookingController extends UserBaseController
                 'description' => $order->user->first_name . ' ' . $order->user->last_name . ' paid for ' . $order->type . '.',
             ]);
 
-            $order->update(['status' => 2 , 'stripe_txn_resp' => $charge]);
+            $order->update(['status' => 2, 'stripe_txn_resp' => json_encode($charge)]);
 
             return redirect()->back()->with('success', 'Booking request accepted successfully.');
-        } catch (\Throwable $th) {
-            return redirect()->back()->with('error', $th->getMessage());
+        } catch (\Stripe\Exception\CardException $e) {
+            $error = $e->getMessage();
+        }
+
+        if (isset($error)) {
+            return redirect()->back()->with('error', $error);
         }
     }
 
     public function declineBookings($id)
     {
         if (Order::find($id)->update(['status' => 3])) return redirect()->back()->with('success', 'Booking request declined successfully.');
+    }
+
+    public function bookings()
+    {
+        $this->orders = Order::whereUserId(auth()->user()->id)->paginate(2);
+        if(!$this->orders->isEmpty())
+        {
+            return view('layouts.components.bookings',$this->data);
+        }
+
+        return view('layouts.components.booking');
     }
 }

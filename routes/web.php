@@ -60,9 +60,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('edit-profile', [DashboardController::class, 'editProfileIndex'])->name('edit-profile-index');
     Route::post('edit-profile', [DashboardController::class, 'editProfile'])->name('edit-profile');
-    // Route::get('/edit-profile', function () {
-    //     return view('content.edit-profile');
-    // });
     Route::get('/add-space', function () {
         return view('content.seller.add-space');
     });
@@ -76,12 +73,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Notification test
     Route::get('/test', [NotificationController::class, 'index'])->name('test');
-    
+
     // Load Listings
     Route::get('/spaces', [BookingController::class, 'space_index'])->name('spaces');
     Route::get('/talent-&-entertainments', [BookingController::class, 'entertainment_index'])->name('entertainments_index');
     Route::get('/services', [BookingController::class, 'service_index'])->name('services');
-    // Load a listing 
+    // Load a listing
     Route::get('space-details/{space_id}', [BookingController::class, 'spaceDetail'])->name('space-details');
     Route::get('service-details/{id}', [BookingController::class, 'serviceDetail'])->name('service-details');
     Route::get('entertainment-details/{id}', [BookingController::class, 'entertainmentDetail'])->name('entertainment-details');
@@ -96,33 +93,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/review-pay', [PaymentController::class, 'review'])->name('review-pay');
     Route::get('/payment-successfull', [PaymentController::class, 'successfull'])->name('payment-successfull');
     Route::post('/payment', [PaymentController::class, 'store_payment'])->name('payment-store');
-    
+
     // Qutoe functions
     Route::post('/send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
-    
-    // Route::get('/test', [PaymentController::class, 'test'])->name('test');
 
-    // Route::get('/space-details', function () {
-    //     return view('content.customer.space-detail');
-    // });
-    // Route::get('/service-details', function () {
-    //     return view('content.customer.service-detail');
-    // });
-    // Route::get('/checkout', function () {
-    //     return view('layouts.components.checkout-page');
-    // });
-    // Route::get('/review-pay', function () {
-    //     return view('layouts.components.review');
-    // });
-    // Route::get('/payment-successfull', function () {
-    //     return view('layouts.components.payment-successfull');
-    // });
-    Route::get('/bookings', function () {
-        return view('layouts.components.bookings-sample');
-    });
-    Route::get('/booking', function () {
-        return view('layouts.components.booking');
-    });
+    Route::get('bookings', [BookingController::class, 'bookings'])->name('bookings');
 
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana
@@ -174,9 +149,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('accept-bookings/{id}', [BookingController::class, 'acceptBookings'])->name('accept-bookings');
     Route::get('decline-bookings/{id}', [BookingController::class, 'declineBookings'])->name('decline-bookings');
 
-    // Route::get('/pending-bookings', function () {
-    //     return view('content.seller.pending-bookings');
-    // });
     Route::get('/create-quote', function () {
         return view('content.seller.create-quote');
     });

@@ -23,4 +23,8 @@ class Service extends Model
     public function blockTime(){
         return $this->hasMany(BlockTime::class);
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
