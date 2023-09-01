@@ -4,6 +4,12 @@
 @endsection
 
 @section('content')
+    @php
+        $dateString = '13-Sep-2007';
+        $dateTime = DateTime::createFromFormat('d-M-Y', $dateString);
+        $formattedDate = $dateTime->format('Y-m-d');
+        
+    @endphp
     <div class="container">
         <div class="row justify-content-center">
             <div class="container">
@@ -15,57 +21,52 @@
                                 <p>This quote is made for the service Wedding Planner</p>
                             </div>
                             <hr class="m-0 bg-dark">
-                            <form action="">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                            <form action="{{ route('send_seller_quote',@$quote->id) }}" class="validation" method="post">
+                                @csrf
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="exampleInputPhone2"
-                                                    placeholder="Service type">
+                                                    placeholder="Service type" required value="{{ @$quote->service->title }}"
+                                                    readonly>
                                             </div>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="exampleInputEmail1"
-                                                    placeholder="Location">
+                                                    placeholder="Location" required value="{{ @$quote->service->address }}" readonly>
                                             </div>
                                             <div class="form-group">
-                                                <input type="date" class="form-control" id="exampleInputPhone2"
-                                                    placeholder="Wedding date">
+                                                <input type="date" name="date" class="form-control"
+                                                    id="exampleInputPhone2" required placeholder="Wedding date"
+                                                    value="{{ @$formattedDate }}">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                                    placeholder="Number of guests">
+                                                <input type="text" name="guests" class="form-control"
+                                                    id="exampleInputEmail1" required placeholder="Number of guests"
+                                                    value="{{ @$quote->guests }}">
                                             </div>
                                             <div class="form-group">
-                                                <textarea class="form-control" id="exampleInputEmail1" placeholder="Description" style="height: 100px"></textarea>
+                                                <input type="text" name="amount" required class="form-control"
+                                                    id="exampleInputPhone2" placeholder="Amount">
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea class="form-control" required name="description" id="exampleInputEmail1" {{ @$quote->description }}
+                                                    placeholder="Description" style="height: 100px">{{ @$quote->description }}</textarea>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="exampleInputPhone2"
-                                                    placeholder="Amount">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                                    placeholder="Sub Total">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="exampleInputPhone2"
-                                                    placeholder="Vat %">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                                    placeholder="Admin fees">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="file" class="form-control" id="exampleInputPhone2"
-                                                    placeholder="Images">
-                                            </div>
-                                            <div class="float-end">
-                                                <a href="#" class="me-3">Preview</a>
-                                                <input type='submit' class="btn btn-primary text-white px-6" id='quote-btn'
-                                                    value="Send">
-                                            </div>
-                                        </div>
+                                    </div>
+                                    <div class="float-end">
+                                        <a href="{{ route('pending-bookings') }}" class="btn btn-light">back</a>
+                                        <button class="btn btn-primary">Send</button>
                                     </div>
                                 </div>
                             </form>
@@ -78,14 +79,11 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
+
     <script>
-        $('#quote-btn').on("click", function(e) {
-            $('body').addClass('timer-alert');
-            swal({
-                title: 'Quotation sent',
-                text: 'Your quotation has been sent to customer. Wait for the response.',
-                timer: 3000
-            });
+        $(document).ready(function() {
+            $('.validation').parsley();
         });
     </script>
 @endsection

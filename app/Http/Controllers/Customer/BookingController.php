@@ -8,6 +8,7 @@ use App\Models\EntertainmentActivity;
 use App\Models\Order;
 use App\Models\Service;
 use App\Models\Space;
+use App\Models\Quote;
 
 class BookingController extends UserBaseController
 {
@@ -45,6 +46,7 @@ class BookingController extends UserBaseController
     public function serviceDetail($id)
     {
         $this->service = Service::with('serviceImages')->find($id);
+        $this->quote = Quote::whereServiceId($this->service->id)->first();
         return view('content.customer.service-detail', $this->data);
     }
 
@@ -64,11 +66,11 @@ class BookingController extends UserBaseController
             $query->whereHas('space', function ($subquery) {
                 $subquery->whereUserId(auth()->user()->id);
             })
-                ->orWhereHas('entertainment', function ($subquery) {
-                    $subquery->whereUserId(auth()->user()->id);
-                });
-        })
-            ->get();
+            ->orWhereHas('entertainment', function ($subquery) {
+                $subquery->whereUserId(auth()->user()->id);
+            });
+        })->get();
+        $this->quotes = Quote::get();
         return view('content.seller.pending-bookings', $this->data);
     }
 

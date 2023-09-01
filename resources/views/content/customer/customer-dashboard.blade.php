@@ -306,6 +306,7 @@
             </div>
         </div>
     </div>
+    <input type="hidden" id="user_id" value="{{ user_id() }}">
     <!-- ROW-3 END -->
 @endsection
 
@@ -364,7 +365,6 @@
     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
     <script>
         Pusher.logToConsole = true;
-
         var pusher = new Pusher('2cd8b23ab488aef87078', {
             cluster: 'ap3'
         });
@@ -372,10 +372,17 @@
         var channel = pusher.subscribe('notification-channel');
         channel.bind('notification-event', function(data) {
             // alert(JSON.stringify(data));
-            $('#quote-modal').modal('show');
+            var user = $('#user_id').val();
+            if (user == data.id && data.message == false) {
+                notif({
+                    type: success,
+                    msg: 'You just received a quote request',
+                    autohide: true
+                });
+            }
+            // $('#quote-modal').modal('show');
             console.log(data);
 
         });
     </script>
-
 @endsection

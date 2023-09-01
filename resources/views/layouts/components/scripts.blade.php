@@ -53,3 +53,26 @@
             });
         });
     </script>
+     <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+     <script>
+        'use strict';
+         Pusher.logToConsole = true;
+         var pusher = new Pusher('2cd8b23ab488aef87078', {
+             cluster: 'ap3'
+         });
+         var channel = pusher.subscribe('notification-channel');
+         channel.bind('notification-event', function(data) {
+             // alert(JSON.stringify(data));
+             console.log(data.message.message);
+
+            //  if (data.message.id == user && data.message.message == false) {
+                 notif({
+                     type: 'success',
+                     msg: 'You just received a quote request',
+                     autohide: true
+                 });
+            //  }
+             // $('#quote-modal').modal('show');
+ 
+         });
+     </script>

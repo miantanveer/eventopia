@@ -56,9 +56,34 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach (@$quotes as $quote)
+                                            <tr class="text-center">
+                                                <td class="dtr-control sorting_1" tabindex="0">Service</td>
+                                                <td>{{ Str::limit(@$quote->service->address, 30,'...') }}
+                                                </td>
+                                                <td>{{ @$quote->user->first_name . ' ' . @$quote->user->last_name }}
+                                                </td>
+                                                <td>{{ @$quote->date }}</td>
+                                                <td>{{ @$quote->amount ?? 'N/A' }}</td>
+                                                <td>{{@$quote->guests}}</td>
+                                                <td>{{ @$quote->service->category }}</td>
+                                                <td class="text-end">
+                                                    @if (@$quote->status == 3)
+                                                        <span disabled class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">Declined</span>
+                                                    @elseif (@$quote->status == 2)
+                                                        <span disabled class="badge bg-success-gradient badge-sm me-1 mb-1 mt-1">Accepted</span>
+                                                    @else
+                                                        <a href="{{ route('decline_quote', @$quote->id) }}"
+                                                            class="btn text-danger border-0">Decline</a>
+                                                        <a href="{{ route('recieve_quote',@$quote->id) }}"
+                                                            class="btn btn-primary ms-3">Send Quote</a>
+                                                    @endif
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                         @foreach (@$pendingBookings as $pendingBooking)
                                             <tr class="text-center">
-                                                <td class="dtr-control sorting_1" tabindex="0">
+                                                <td class="dtr-control sorting_1" tabindex="{{$loop->iteration}}">
                                                     {{ @$pendingBooking->type }}</td>
                                                 <td>{{ Str::limit(@$pendingBooking->type == 'space' ? @$pendingBooking->space->address : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->address : @$pendingBooking->service->address), 30, $end = '...') }}
                                                 </td>

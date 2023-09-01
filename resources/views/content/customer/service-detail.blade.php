@@ -292,19 +292,19 @@
                     <div class="">
                         <div class="row">
                             <div class="col-xl-12">
-                                <form action="{{route('send_quote',@$service->id)}}" method="post">
+                                <form class="validation" action="{{route('send_quote',@$service->id)}}" method="post">
                                     @csrf
                                     <div class="input-group mt-3">
                                         <div class="input-group-text">
                                             <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-                                        </div><input class="form-control fc-datepicker" name="date" placeholder="Select Date" type="text">
+                                        </div><input class="form-control fc-datepicker" required name="date" placeholder="Select Date" type="text">
                                     </div>
                                     <div class="custom-checkbox my-3 display-inline">
                                         <input type="checkbox" class="form-input" name="flexible_date" value="1">
                                         <span>My wedding date is flexible</span>
                                     </div>
-                                    <input type="text" class="form-control mb-3" name="guests" value="Number of Guests">
-                                    <textarea name="description" id="description" class="form-control" rows="3" class="mb-3"
+                                    <input type="text" class="form-control mb-3" required name="guests" placeholder="Number of Guests">
+                                    <textarea name="description" id="description" required class="form-control" rows="3" class="mb-3"
                                         placeholder="Interduce yourself and the share your event vision"></textarea>
                                     <div class="mt-3">
                                         <p>By clicking 'Request Quote', you agree that your information
@@ -313,7 +313,9 @@
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-12 pe-0">
-                                            <button class="btn btn-primary text-white w-100">Request a Quote</button>
+                                            <button class="btn btn-primary text-white w-100" {{@$quote->status == null ? '' : (@$quote->status == 0 ? 'disabled' : (@$quote->status == 3 ? 'disabled' : ''))}}>
+                                                {{@$quote->status == null ? 'Request a Quote' : (@$quote->status == 0 ? 'Requested' : (@$quote->status == 3 ? 'Request Cancelled' : 'Request a Quote'))}}
+                                            </button>
                                             {{-- <input type='button' class="btn btn-primary text-white w-100" id='quote-btn'
                                                 value="Request a Quote"> --}}
                                         </div>
@@ -337,7 +339,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#profile_form').parsley();
+            $('.validation').parsley();
             $(document).on("click", "#quote-btn", function(e) {
                 $('body').addClass('timer-alert');
                 swal({
