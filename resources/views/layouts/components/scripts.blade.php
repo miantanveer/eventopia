@@ -62,17 +62,12 @@
          });
          var channel = pusher.subscribe('notification-channel');
          channel.bind('notification-event', function(data) {
-             // alert(JSON.stringify(data));
-             console.log(data.message.message);
-
-            //  if (data.message.id == user && data.message.message == false) {
+            if (data.message.id == (`{{auth()->user()->id}}`) && data.message.message == false) {
                  notif({
                      type: 'success',
                      msg: 'You just received a quote request',
                      autohide: true
                  });
-            //  }
-             // $('#quote-modal').modal('show');
- 
+             } 
          });
      </script>

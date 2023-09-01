@@ -353,5 +353,4 @@
     <script src="{{ asset('assets/plugins/calendar/moment.js') }}"></script>
     <script src="{{ asset('assets/plugins/calendar/calendar.js') }}"></script>
     <script src="{{ asset('assets/plugins/calendar/defaultcalendar.js') }}"></script>
-   
 @endsection
