@@ -361,5 +361,21 @@
     <!-- INTERNAL INDEX JS -->
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="{{ asset('assets/js/index1.js') }}"></script>
+    <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
+    <script>
+        Pusher.logToConsole = true;
+
+        var pusher = new Pusher('2cd8b23ab488aef87078', {
+            cluster: 'ap3'
+        });
+
+        var channel = pusher.subscribe('notification-channel');
+        channel.bind('notification-event', function(data) {
+            // alert(JSON.stringify(data));
+            $('#quote-modal').modal('show');
+            console.log(data.message);
+
+        });
+    </script>
 
 @endsection

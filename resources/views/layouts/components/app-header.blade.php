@@ -42,7 +42,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="notifications-menu">
-                                                    <a class="dropdown-item d-flex" data-bs-toggle="modal" data-bs-target="#quote-modal">
+                                                    <a class="dropdown-item d-flex" data-bs-toggle="modal" onclick="quoteModal()">
                                                         <div class="me-3 notifyimg  bg-primary brround box-shadow-primary">
                                                             <i class="fe fe-dollar-sign"></i>
                                                         </div>
@@ -51,6 +51,7 @@
                                                             <span class="notification-subtext">1 days ago</span>
                                                         </div>
                                                     </a>
+                                                    
                                                     <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg  bg-secondary brround box-shadow-secondary">
                                                             <i class="fe fe-check-circle"></i>

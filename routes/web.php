@@ -2,6 +2,7 @@
 
 use App\Models\ServiceTitle;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Customer\DashboardController;
@@ -72,6 +73,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.customer.search-results');
     });
 
+    Route::get('/test', [NotificationController::class, 'index'])->name('test');
     Route::get('/spaces', [BookingController::class, 'space_index'])->name('spaces');
     Route::get('/talent-&-entertainments', [BookingController::class, 'entertainment_index'])->name('entertainments_index');
     Route::get('/services', [BookingController::class, 'service_index'])->name('services');
