@@ -79,7 +79,7 @@ class PaymentController extends UserBaseController
         if ($req->amount == 0) {
             return redirect()->route('spaces')->with('error', 'Please select a space for booking first.');
         }
-        try {
+        // try {
             $req->validate([
                 'amount' => 'required',
                 'card_holder_name' => 'required',
@@ -118,9 +118,9 @@ class PaymentController extends UserBaseController
                 }
             }
             return redirect()->route('payment-successfull')->with('success', 'Payment Successfull');
-        } catch (\Throwable $th) {
-            return redirect()->back()->with('error', $th->getMessage());
-        }
+        // } catch (\Throwable $th) {
+        //     return redirect()->back()->with('error', $th->getMessage());
+        // }
     }
     public function orderStore($id, $col, $date, $start_time, $end_time = '', $amount, $discount)
     {
