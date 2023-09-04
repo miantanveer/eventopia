@@ -10,6 +10,6 @@ class Notification extends Model
     use HasFactory;
     public function quote()
     {
-        return $this->hasMany(Quote::class);
+        return $this->belongsTo(Quote::class);
     }
 }

@@ -31,6 +31,64 @@
             </div>
             <div class="card custom-card overflow-hidden">
                 @foreach (@$user->cart as $data)
+                    @if ($data->type == 'service')
+                        <div class="card-body p-3 m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%);">
+                            <div class="row g-0 ">
+                                <div class="col-1 pe-0 my-auto">
+                                    <label class="custom-control custom-checkbox">
+                                        {{-- <input type="checkbox" class="custom-control-input cards" name="checkbox1"
+                                            value="option1" id="first_card"> --}}
+                                        <input type="checkbox" class="custom-control-input cards" name="checkbox1"
+                                            value="option1" id="first_card" data-type="service"
+                                            data-amount="{{ @$data->service->quote[0]->amount }}"
+                                            data-title="{{ @$data->service->title }}"
+                                            data-discount="0"
+                                            data-image="{{ asset(@$data->service->serviceImages[0]->image) }}"
+                                            data-id="{{ @$data->service->id }}">
+                                        <span class="custom-control-label"></span>
+                                    </label>
+                                </div>
+                                <div class="col-sm-3 col-11 ps-sm-0 pe-3 pe-md-0 ">
+                                    <img id="ent-img"
+                                        src="{{ asset(@$data->service->serviceImages[0]->image) }}"
+                                        style="width: 130px; height: auto" class="card-img-left h-100" alt="img">
+                                </div>
+                                <div class="col-sm-8 ps-6 ps-md-0 mt-6 mt-md-0">
+                                    <div class="card-body py-0">
+                                        <div class="row">
+                                            <div class="col-sm-10 col-9">
+                                                <h5 class="card-title">{{ @$data->service->title }}</h5>
+                                            </div>
+                                            <div class="col-sm-2 col-3 text-end">
+                                                <a
+                                                    onclick="deleteModal('{{ route('cart-delete', ['id' => @$data->id, 'type' => 'entertainment']) }}')">
+                                                    <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip"
+                                                        title=""
+                                                        data-bs-original-title="{{ @$data->service->title }}"></i>
+                                                </a>
+                                                {{-- <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip"
+                                            title="" data-bs-original-title="fa fa-heart-o"
+                                            aria-label="fa fa-heart-o"></i> --}}
+                                            </div>
+                                        </div>
+                                        <p class="card-text mt-3 mt-md-0">Amount :
+                                            {{ @$data->service->quote[0]->amount }}</p>
+                                        <p class="card-text"><small class="text-muted">Service (Available for 
+                                                {{ @$data->service->quote[0]->guests }}) guests</small>
+                                        </p>
+                                        <div class="row">
+                                            <div class="text-end">
+                                                <button type="button" class="btn btn-gray mt-1 mb-1 me-3" disabled>
+                                                    <span>Total :
+                                                        {{ @$data->service->quote[0]->amount }}</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                     @if ($data->type == 'entertainment')
                         <div class="card-body p-3 m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%);">
                             <div class="row g-0 ">
@@ -163,6 +221,7 @@
                             <input type="hidden" id="subtotal" name="subtotal" value="0">
                             <input type="hidden" id="discount" name="discount" value="0">
                             <input type="hidden" id="listing_id_space" name="listing_id_space[]" value="0">
+                            <input type="hidden" id="listing_id_service" name="listing_id_service[]" value="0">
                             <input type="hidden" id="listing_id_entertainment" name="listing_id_entertainment[]"
                                 value="0">
                             <div id="selected-types"></div>
@@ -323,8 +382,7 @@
 
                     // Check if the type exists in the selectedListingIdsByType object
                     if (!(type in selectedListingIdsByType)) {
-                        selectedListingIdsByType[
-                            type] = []; // Initialize an array for the type if it doesn't exist
+                        selectedListingIdsByType[type] = []; // Initialize an array for the type if it doesn't exist
                     }
 
                     // Check if the ID is not already in the selectedListingIds array for this type

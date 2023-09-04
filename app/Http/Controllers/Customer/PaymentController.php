@@ -53,8 +53,8 @@ class PaymentController extends UserBaseController
                                 $cart->date,
                                 $cart->start_time,
                                 $cart->end_time,
-                                ($type == 'space' ? @$cart->space->spaceHaveActivities[0]->rate_per_hour : @$cart->entertainment->entertainmentActivities[0]->hourly_rate),
-                                ($type == 'space' ? @$cart->space->spaceHaveActivities[0]->discount : @$cart->entertainment->entertainmentActivities[0]->discount)
+                                ($type == 'space' ? @$cart->space->spaceHaveActivities[0]->rate_per_hour : ($type == 'service' ? @$cart->service->quote[0]->amount : @$cart->entertainment->entertainmentActivities[0]->hourly_rate)),
+                                ($type == 'space' ? @$cart->space->spaceHaveActivities[0]->discount : ($type == 'service' ? '0' : @$cart->entertainment->entertainmentActivities[0]->discount))
                             );
                             $carts = Cart::where($col, $id)->whereType($type)->get();
                             if ($carts) {

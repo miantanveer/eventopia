@@ -97,7 +97,7 @@
             <div class="modal-header border-0 mx-auto">
                 <div class="text-center align-middle">
                     <h3 class="modal-title fw-bolder">Quotation from Seller</h3>
-                    <p>This quote is made for the service Wedding Planner</p>
+                    <p id="">This quote is made for the service Wedding Planner</p>
                 </div>
             </div>
             <div class="modal-body pb-0">
@@ -105,9 +105,7 @@
                     <div class="col-md-3 col-12 ">
                         <h6 class="fw-bolder">Service</h6>
                     </div>
-                    <div class="col-12 d-flex d-md-none p-4">
-                        <img src="{{ asset('assets/images/users/spaces/10.jpg') }}" alt="">
-                    </div>
+                    <div class="col-12 d-flex d-md-none p-4" id="img"></div>
                     <div class="col-6">
                         <h6 class="fw-bolder">Service type & description </h6>
                     </div>
@@ -116,71 +114,47 @@
                     </div>
                 </div>
                 <div class="row p-4  border-bottom align-items-center">
-                    <div class="col-3 d-none d-md-flex"> <img src="{{ asset('assets/images/users/spaces/10.jpg') }}"
-                            alt="">
+                    <div class="col-3 d-none d-md-flex" id="img1"> 
                     </div>
                     <div class="col-6">
-                        <p> Wedding Planner </p>
-                        <p> Hello—I am John Smith we’re planning our 07/28/2023 wedding
-                            and are interested in learning more about your packages. We’re
-                            expecting 101-150 guests at our wedding.
-                            Thanks!
-                        </p>
+                        <p id="title"></p>
+                        <p id="description">Description</p>
                     </div>
-                    <div class="col-md-3 col-6 text-end">SAR65</div>
+                    <div class="col-md-3 col-6 text-end" id="amount"></div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center">
                     <div class="col-6">
                         <h6 class="fw-bolder">Location </h6>
                     </div>
-                    <div class="col-6  text-end">England</div>
+                    <div class="col-6  text-end" id="location"></div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center">
                     <div class="col-6">
                         <h6 class="fw-bolder">Wedding Date</h6>
                     </div>
-                    <div class="col-6  text-end">07/28/2023</div>
+                    <div class="col-6  text-end" id="date"></div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center">
                     <div class="col-6">
                         <h6 class="fw-bolder">Attendees</h6>
                     </div>
-                    <div class="col-6  text-end">101-150</div>
-                </div>
-                <div class="row p-4 border-bottom align-items-center">
-                    <div class="col-6">
-                        <h6 class="fw-bolder">Sub Total :</h6>
-                    </div>
-                    <div class="col-6  text-end">SAR65</div>
-                </div>
-                <div class="row p-4 border-bottom align-items-center">
-                    <div class="col-6">
-                        <h6 class="fw-bolder">Vat %</h6>
-                    </div>
-                    <div class="col-6  text-end">SAR0</div>
-                </div>
-                <div class="row p-4 border-bottom align-items-center">
-                    <div class="col-6">
-                        <h6 class="fw-bolder">Admin Fee</h6>
-                    </div>
-                    <div class="col-6  text-end">SAR10</div>
+                    <div class="col-6  text-end" id="guests"></div>
                 </div>
                 <div class="row p-4 border-bottom align-items-center bg-light-gray">
                     <div class="col-6">
                         <h6 class="fw-bolder">Total : </h6>
                     </div>
-                    <div class="col-6  text-end">SAR75.00</div>
+                    <div class="col-6  text-end" id="total"></div>
                 </div>
             </div>
             <div class="modal-footer mx-auto">
-                <button class="btn btn-white text-danger border-0" data-bs-dismiss="modal">Decline</button>
-                <button class="btn btn-primary"><a href="{{ URL('/checkout') }}"
-                        class="text-white">Accept</a></button>
+                <div id="decline_btn"></div>
+                <div id="accept_btn"></div>
             </div>
         </div>
     </div>
 </div>
-</div>
+
 <!-- Country-selector modal-->
 
 <!--account list-space-->

@@ -6,6 +6,7 @@ use App\Http\Controllers\UserBaseController;
 use Illuminate\Http\Request;
 use App\Events\NotificationEvent;
 use App\Models\Quote;
+use App\Models\Cart;
 use App\Models\Service;
 
 class QuoteController extends UserBaseController
@@ -38,11 +39,32 @@ class QuoteController extends UserBaseController
         }
         return redirect()->back()->with('success','Quote requested Successfully');
     }
+    
     public function receive_quote($id)
     {
         $this->quote = Quote::find($id);
         return view('content.seller.create-quote',$this->data);
     }
+
+    public function load_accept_quote($id)
+    {
+        $quote = Quote::with('service','service.serviceImages')->find($id);
+        return response()->json($quote,200);
+    }
+
+    public function accept_quote($id)
+    {
+        $quote = Quote::find($id);
+        $exists = Cart::whereServiceId($id)->whereUserId(auth()->user()->id)->exists();
+        if($exists){
+            return redirect()->route('checkout');
+        }
+        else{
+            cartStore(@$quote->service_id,'service',@$quote->date,'null','null');
+            return redirect()->route('checkout');
+        }
+    }
+
     public function send_seller_quote(Request $req,$id)
     {
         $req->validate([
@@ -58,8 +80,15 @@ class QuoteController extends UserBaseController
         $quote->description = $req->description;
         $quote->status = 2;
         $quote->save();
+
+        if (is_int($quote->user_id)) {
+            $event = new NotificationEvent(['id'=>$quote->user_id,'message'=>true,'data_id'=>$quote->id]);
+            $event->broadcastOn("user.$quote->user_id");
+            event($event);
+        }
         return redirect()->route('pending-bookings')->with('success','Quote Send Successfully.');
     }
+    
     public function decline_quote($id)
     {
         $quote = Quote::find($id);

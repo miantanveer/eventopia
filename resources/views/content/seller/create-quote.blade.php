@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
                                     <div class="float-end">
-                                        <a href="{{ route('pending-bookings') }}" class="btn btn-light">back</a>
+                                        <a href="{{ route('pending-bookings') }}" class="btn btn-light">Back</a>
                                         <button class="btn btn-primary">Send</button>
                                     </div>
                                 </div>

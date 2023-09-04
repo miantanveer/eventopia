@@ -22,7 +22,7 @@ class CreateQuotesTable extends Migration
             $table->string('guests');
             $table->string('amount')->nullable();
             $table->longText('description');
-            $table->string('status')->default(0)->comment('0=>pending, 1=>active, 2=>cancelled, 3=>completed');
+            $table->string('status')->default(0)->comment('0=>pending, 1=>active, 2=>completed, 3=>cancelled');
             $table->timestamps();
         });
     }

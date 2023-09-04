@@ -37,44 +37,33 @@
     <!-- SWEET-ALERT JS -->
     <script src="{{ asset('assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>
-
     <script>
-        function handleNotify(url) {
+        function quoteModal(url) {
+            $("#quote-modal").modal('show');
             $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
-                },
-                type: 'GET',
+                headers: { 'X-CSRF-TOKEN': "{{ csrf_token() }}" },
+                type: 'POST',
                 url: url,
-                success: function(res) {
-                    $.each(res, function(index, value) {
-                        console.log(value);
-                        if (value.type === 'service' && value.quote_id) {
-                            // Create the HTML for the item
-                            var html ='<a class="dropdown-item d-flex" data-bs-toggle="modal" onclick="quoteModal()">';
-                            html +='<div class="me-3 notifyimg bg-primary brround box-shadow-primary">';
-                            html += '<i class="fe fe-dollar-sign"></i>';
-                            html += '</div>';
-                            html += '<div class="mt-1">';
-                            html += '<h5 class="notification-label mb-1">'+ value.description +'</h5>';
-                            html += '<span class="notification-subtext">'+ value.created_at +'</span>';
-                            html += '</div>';
-                            html += '</a>';
-
-                            // Append the HTML to the #notify_service element
-                            $('#notify_service').append(html);
-                        }
-                    });
-
+                success: function(res){
+                    var route_name = "{{ route('accept_quote', ['id' => 'route_id']) }}".replace('route_id',res.id);
+                    var decline_name = "{{ route('decline_quote', ['id' => 'route_id']) }}".replace('route_id',res.id);
+                    $('#img').html('<img src="'+ res.service.service_images[0].image+'" alt="">');
+                    $('#img1').html('<img src="'+ res.service.service_images[0].image+'" alt="">');
+                    $('#title').html(res.service.title);
+                    $('p#description').text(res.service.description);
+                    $('#amount').html(res.amount);
+                    $('#date').html(res.date);
+                    $('#location').text(res.service.address);
+                    $('#guests').html(res.guests);
+                    $('#total').html(res.amount);
+                    $('#decline_btn').html('<a href="'+ decline_name +'" class="text-white"><button class="btn btn-white text-danger border-0">Decline</button></a>');
+                    $('#accept_btn').html('<a href="'+ route_name +'" class="text-white"><button class="btn btn-primary">Accept</button></a>');
                 }
             });
-        };
+        }
     </script>
     <!-- Custom JavaScript code -->
     <script>
-        function quoteModal() {
-            $('#quote-modal').modal('show');
-        };
         $(document).ready(function() {
             $(document).on("submit", "#contactForm", function(e) {
                 e.preventDefault();
@@ -104,6 +93,15 @@
                         msg: 'You just received a quote request',
                         autohide: true
                     });
+                }
+                if (data.message.id == (`{{ auth()->user()->id }}`) && data.message.message == true) {
+                    notif({
+                        type: 'success',
+                        msg: 'You quote quote got reply',
+                        autohide: true
+                    });
+                    var route_name = "{{ route('load_accept_quote', ['id' => 'route_id']) }}".replace('route_id',data.message.data_id);
+                    quoteModal(route_name);
                 }
             });
         </script>
