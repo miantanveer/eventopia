@@ -94,6 +94,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/payment-successfull', [PaymentController::class, 'successfull'])->name('payment-successfull');
     Route::post('/payment', [PaymentController::class, 'store_payment'])->name('payment-store');
 
+    // Seller payment methods
+    Route::get('payments', [PaymentController::class, 'paymentMethod'])->name('payments');
+    Route::get('add-account', [PaymentController::class, 'addBankAccount'])->name('add-bank-account');
+
+
     // Qutoe functions
     Route::post('/send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
     Route::get('/quote/{id}', [QuoteController::class, 'receive_quote'])->name('recieve_quote');
@@ -103,6 +108,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Route::get('/test', [PaymentController::class, 'test'])->name('test');
 
     Route::get('bookings', [BookingController::class, 'bookings'])->name('bookings');
+
 
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana
@@ -156,9 +162,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/create-quote', function () {
         return view('content.seller.create-quote');
-    });
-    Route::get('/payments', function () {
-        return view('content.seller.payments');
     });
     Route::get('calendar',[LandingPageController::class, 'calendarIndex'])->name('calendar');
     Route::get('get-operating-hours/{id}/{type}',[LandingPageController::class, 'getOperatingHours']);

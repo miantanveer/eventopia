@@ -6,6 +6,7 @@ use App\Http\Controllers\UserBaseController;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\CardDetails;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class PaymentController extends UserBaseController
@@ -79,7 +80,7 @@ class PaymentController extends UserBaseController
         if ($req->amount == 0) {
             return redirect()->route('spaces')->with('error', 'Please select a space for booking first.');
         }
-        // try {
+        try {
             $req->validate([
                 'amount' => 'required',
                 'card_holder_name' => 'required',
@@ -118,9 +119,9 @@ class PaymentController extends UserBaseController
                 }
             }
             return redirect()->route('payment-successfull')->with('success', 'Payment Successfull');
-        // } catch (\Throwable $th) {
-        //     return redirect()->back()->with('error', $th->getMessage());
-        // }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
     }
     public function orderStore($id, $col, $date, $start_time, $end_time = '', $amount, $discount)
     {
@@ -135,6 +136,35 @@ class PaymentController extends UserBaseController
         $order->amount = $amount;
         $order->discount = $discount;
         $order->save();
+    }
+
+    // public function test()
+    // {
+    //     // $acc =  $this->stripe->accounts->create([
+    //     //     'type' => 'express',
+    //     //     'country' => 'SA', // Saudi Arabia ke liye country code
+    //     //     'default_currency' => 'sar', // Saudi Riyal (SAR) currency
+    //     // ]);
+
+    //     $acc =  $this->stripe->accountLinks->create([
+    //         'account' => 'acct_1NmcpPHCRJphytUJ',
+    //         'refresh_url' => 'http://eventopia.pk/test',
+    //         'return_url' => 'http://eventopia.pk/test',
+    //         'type' => 'account_onboarding',
+    //     ]);
+    //     dd($acc);
+    // }
+
+    public function paymentMethod()
+    {
+        $this->countries = Country::get();
+        return view('content.seller.payments',$this->data);
+    }
+
+    public function addBankAccount(Request $req)
+    {
+        $this->countries = Country::get();
+        return view('content.seller.payments',$this->data);
     }
 
 }
