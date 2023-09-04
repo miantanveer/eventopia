@@ -1,4 +1,4 @@
-@extends('layouts.customer-web-layout')
+@extends('layouts.app')
 
 @section('styles')
     <style>
@@ -332,7 +332,10 @@
 
 @section('scripts')
     <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
-
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('assets/plugins/date-picker/date-picker.js') }}"></script>
+    <script src="{{ asset('assets/plugins/date-picker/jquery-ui.js') }}"></script>
+    <script src="{{ asset('assets/plugins/input-mask/jquery.maskedinput.js') }}"></script>
     <!-- FILE UPLOADES JS -->
     <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
     <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>

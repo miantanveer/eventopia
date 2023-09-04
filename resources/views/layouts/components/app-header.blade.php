@@ -33,7 +33,7 @@
                                             </a>
                                         </div>
                                         <div class="dropdown  d-flex notifications">
-                                            <a class="nav-link icon" data-bs-toggle="dropdown"><i class="fe fe-bell"></i><span class=" pulse"></span>
+                                            <a class="nav-link icon" onclick="handleNotify('{{route('notify')}}')" data-bs-toggle="dropdown"><i class="fe fe-bell"></i><span class="pulse"></span>
 												</a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <div class="drop-heading border-bottom">
@@ -42,7 +42,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="notifications-menu">
-                                                    <a class="dropdown-item d-flex" data-bs-toggle="modal" onclick="quoteModal()">
+                                                    <div id="notify_service"></div>
+                                                    {{-- <a class="dropdown-item d-flex" data-bs-toggle="modal" onclick="quoteModal()">
                                                         <div class="me-3 notifyimg  bg-primary brround box-shadow-primary">
                                                             <i class="fe fe-dollar-sign"></i>
                                                         </div>
@@ -50,7 +51,7 @@
                                                             <h5 class="notification-label mb-1">New Quotation received</h5>
                                                             <span class="notification-subtext">1 days ago</span>
                                                         </div>
-                                                    </a>
+                                                    </a> --}}
                                                     
                                                     <a class="dropdown-item d-flex" href="#">
                                                         <div class="me-3 notifyimg  bg-secondary brround box-shadow-secondary">

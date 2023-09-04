@@ -15,11 +15,13 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('description')->nullable();
+            $table->string('name');
+            $table->string('description');
             $table->string('is_read')->default(0)->comment('0=>Unread,1=>Read');
             $table->string('link')->nullable();
-            $table->string('user_id')->nullable();
+            $table->string('type');
+            $table->foreignId('quote_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

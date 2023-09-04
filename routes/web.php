@@ -71,8 +71,8 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.customer.search-results');
     });
 
-    // Notification test
-    Route::get('/test', [NotificationController::class, 'index'])->name('test');
+    // Notification
+    Route::get('/notification', [NotificationController::class, 'index'])->name('notify');
 
     // Load Listings
     Route::get('/spaces', [BookingController::class, 'space_index'])->name('spaces');

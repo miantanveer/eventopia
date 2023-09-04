@@ -18,7 +18,7 @@ class CreateQuotesTable extends Migration
             $table->foreignId('service_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('date')->nullable();
-            $table->string('flexible_date')->default(0)->comment('0 => Not Flexible, 1 => Flexible');
+            $table->string('flexible_date')->nullable();
             $table->string('guests');
             $table->string('amount')->nullable();
             $table->longText('description');
