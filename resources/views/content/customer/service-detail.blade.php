@@ -297,13 +297,13 @@
                                     <div class="input-group mt-3">
                                         <div class="input-group-text">
                                             <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
-                                        </div><input class="form-control fc-datepicker" required name="date" placeholder="Select Date" type="text">
+                                        </div><input class="form-control fc-datepicker" required name="date" placeholder="Select Date" type="date">
                                     </div>
                                     <div class="custom-checkbox my-3 display-inline">
                                         <input type="checkbox" class="form-input" name="flexible_date" value="1">
                                         <span>My wedding date is flexible</span>
                                     </div>
-                                    <input type="text" class="form-control mb-3" required name="guests" placeholder="Number of Guests">
+                                    <input type="number" class="form-control mb-3" required name="guests" placeholder="Number of Guests">
                                     <textarea name="description" id="description" required class="form-control" rows="3" class="mb-3"
                                         placeholder="Interduce yourself and the share your event vision"></textarea>
                                     <div class="mt-3">

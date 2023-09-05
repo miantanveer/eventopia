@@ -255,13 +255,7 @@
                                                         <p class="text-dark p-2 bg-primary">From
                                                             SAR{{ @$value->price }}</p>
                                                     </div>
-                                                    <div class="me-2 card-background float-end">
-                                                        {{-- <a href="{{ route('cart-stores',['id'=>$value->id,'type'=>'service']) }}"> --}}
-                                                        <span class="mini-stat-icon p-0">
-                                                            <i class="fa fa-shopping-bag p-3"></i>
-                                                        </span>
-                                                        {{-- </a> --}}
-                                                    </div>
+                                                  
                                                 </div>
                                                 <a href="{{ route('service-details', @$value->id) }}">
                                                     <img src="{{ asset(@$value->serviceImages[0]->image) }}"

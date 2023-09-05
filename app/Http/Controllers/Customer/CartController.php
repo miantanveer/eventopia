@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\User;
 use App\Models\Space;
+use App\Models\Service;
 use App\Models\Entertainment;
 
 class CartController extends UserBaseController
@@ -15,6 +16,7 @@ class CartController extends UserBaseController
     {
         $this->spaces = Space::get();
         $this->ents = Entertainment::get();
+        $this->service = Service::get();
         $this->user = User::whereId(auth()->user()->id)->with('cart')->first();
         return view('layouts.components.checkout-page',$this->data);
     }
@@ -26,7 +28,7 @@ class CartController extends UserBaseController
                 return redirect()->route('checkout');
             }
             else{
-                $this->cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
+                cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
                 return redirect()->route('checkout');
             }
         }
@@ -36,7 +38,7 @@ class CartController extends UserBaseController
                 return redirect()->route('checkout');
             }
             else{
-                $this->cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
+                cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
                 return redirect()->route('checkout');
             }
         }
@@ -49,7 +51,7 @@ class CartController extends UserBaseController
                 return redirect()->back()->with('error','Item Already Exists in your Cart');
             }
             else{
-                $this->cartStore($id,$type);
+                cartStore($id,$type);
                 return redirect()->back()->with('success','Item Added to Cart successfully');
             }
         }
@@ -59,7 +61,7 @@ class CartController extends UserBaseController
         //         return redirect()->back()->with('error','Item Already Exists in your Cart');
         //     }
         //     else{
-        //         $this->cartStore($id,$type);
+        //         cartStore($id,$type);
         //         return redirect()->back()->with('success','Item Added to Cart successfully');
         //     }
         // }
@@ -69,7 +71,7 @@ class CartController extends UserBaseController
                 return redirect()->back()->with('error','Item Already Exists in your Cart');
             }
             else{
-                $this->cartStore($id,$type);
+                cartStore($id,$type);
                 return redirect()->back()->with('success','Item Added to Cart successfully');
             }
         }
@@ -80,17 +82,6 @@ class CartController extends UserBaseController
         $cart->delete();
         return redirect()->back()->with('success','Item Deleted Successfully');
     }
-    public function cartStore($id,$col,$date,$start_time,$end_time)
-    {
-        $colum = $col.'_id';
-        $cart = new Cart();
-        $cart->$colum = $id;
-        $cart->user_id = auth()->user()->id;
-        $cart->type = $col;
-        $cart->date = $date;
-        $cart->start_time = $start_time;
-        $cart->end_time = $end_time;
-        $cart->save();
-    }
+ 
    
 }

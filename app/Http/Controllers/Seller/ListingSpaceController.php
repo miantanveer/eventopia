@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserBaseController;
 use App\Models\CancellationPolicy;
 use App\Models\CompanyPolicy;
+use App\Models\Entertainment;
 use App\Models\OperatingDay;
 use App\Models\OperatingHour;
 use App\Models\ParkingOption;
@@ -454,8 +455,9 @@ class ListingSpaceController extends UserBaseController
             }
 
             $userHasSpaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->exists();
+            $userHasEnt = Entertainment::whereUserId(auth()->user()->id)->whereLastStep('step-9')->exists();
 
-            if ($userHasSpaces) {
+            if ($userHasSpaces || $userHasEnt) {
                 $space->update(['last_step' => '10', 'status' => '1']);
                 return redirect()->route('complete')->with('success', 'Listing added successfully');
             } else {

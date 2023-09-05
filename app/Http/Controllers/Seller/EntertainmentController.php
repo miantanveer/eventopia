@@ -13,6 +13,7 @@ use App\Models\OperatingDay;
 use App\Models\OperatingHour;
 use App\Models\EntActivity;
 use App\Models\EntActivityAmenity;
+use App\Models\Space;
 use Illuminate\Http\Request;
 
 class EntertainmentController extends UserBaseController
@@ -106,7 +107,7 @@ class EntertainmentController extends UserBaseController
         $entertainment->save();
         return redirect()->route('load_entertainment_form_4',['id'=>$id]);
 
-    } 
+    }
     public function loadFormStep4($id)
     {
         $entertainment = Entertainment::find($id);
@@ -364,8 +365,10 @@ class EntertainmentController extends UserBaseController
     }
     public function loadFormStep9($id)
     {
-        $review = CompanyReview::whereUserId(auth()->user()->id)->exists();
-        if ($review) {
+        $userHasEnt = Entertainment::whereUserId(auth()->user()->id)->whereLastStep('step-9')->exists();
+        $userHasSpaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->exists();
+
+        if ($userHasEnt || $userHasSpaces) {
             $entertainment = Entertainment::find($id);
             $entertainment->last_steps = 'step-9';
             $entertainment->save();

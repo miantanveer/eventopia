@@ -36,36 +36,42 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="exampleInputPhone2"
+                                                <label for="title">Title</label>
+                                                <input type="text" class="form-control" id="title"
                                                     placeholder="Service type" required value="{{ @$quote->service->title }}"
                                                     readonly>
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="exampleInputEmail1"
+                                                <label for="address">Address</label>
+                                                <input type="text" class="form-control" id="address"
                                                     placeholder="Location" required value="{{ @$quote->service->address }}" readonly>
                                             </div>
                                             <div class="form-group">
+                                                <label for="date">Date</label>
                                                 <input type="date" name="date" class="form-control"
-                                                    id="exampleInputPhone2" required placeholder="Wedding date"
+                                                    id="date" required placeholder="Wedding date"
                                                     value="{{ @$formattedDate }}">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="guests" class="form-control"
-                                                    id="exampleInputEmail1" required placeholder="Number of guests"
+                                                <label for="guests">Guests</label>
+                                                <input type="number" name="guests" class="form-control"
+                                                    id="guests" required placeholder="Number of guests"
                                                     value="{{ @$quote->guests }}">
                                             </div>
                                             <div class="form-group">
-                                                <input type="text" name="amount" required class="form-control"
-                                                    id="exampleInputPhone2" placeholder="Amount">
+                                                <label for="amount">Amount</label>
+                                                <input type="number" name="amount" required class="form-control"
+                                                    id="amount" placeholder="Amount">
                                             </div>
                                             <div class="form-group">
-                                                <textarea class="form-control" required name="description" id="exampleInputEmail1" {{ @$quote->description }}
+                                                <label for="description">Description</label>
+                                                <textarea class="form-control" required name="description" id="description" {{ @$quote->description }}
                                                     placeholder="Description" style="height: 100px">{{ @$quote->description }}</textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="float-end">
-                                        <a href="{{ route('pending-bookings') }}" class="btn btn-light">back</a>
+                                        <a href="{{ route('pending-bookings') }}" class="btn btn-light">Back</a>
                                         <button class="btn btn-primary">Send</button>
                                     </div>
                                 </div>

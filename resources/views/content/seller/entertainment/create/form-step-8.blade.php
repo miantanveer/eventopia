@@ -40,7 +40,7 @@
         <div class="card">
             <div class="card-body">
                 <div id="smartwizard-3">
-                    <ul class="justify-content-around">
+                    {{-- <ul class="justify-content-around">
                         <li><a href="#step-1">Step 1</a></li>
                         <li><a href="#step-2">Step 2</a></li>
                         <li><a href="#step-3">Step 3</a></li>
@@ -49,7 +49,7 @@
                         <li><a href="#step-6">Step 6</a></li>
                         <li><a href="#step-7">Step 7</a></li>
                         <li><a href="#step-8">Step 8</a></li>
-                    </ul>
+                    </ul> --}}
                     <div>
                         <div id="step-7" class="mb-5">
                             <form action="{{route('entertainment_form_8',$id)}}" method="post" enctype="multipart/form-data" class="validation">

@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Notification extends Model
+class Country extends Model
 {
     use HasFactory;
-    public function quote()
+
+    function bankAccounts()
     {
-        return $this->belongsTo(Quote::class);
+        return $this->hasMany(BankAccount::class);
     }
 }

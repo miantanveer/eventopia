@@ -143,7 +143,7 @@
                                                     a 500 m ft conference room, you would enter “500”.</b></p>
 
                                             <div class="btn-group">
-                                                <input type="text" class="btn btn-outline-default rounded-0"
+                                                <input type="number" class="btn btn-outline-default rounded-0"
                                                     name="space_size" required data-parsley-errors-container="#sq_error" value="{{ @$space->space_size ?? '' }}">
                                                 <button type="button" class="btn btn-outline-default rounded-0">sq
                                                     m</button>

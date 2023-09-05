@@ -18,13 +18,13 @@
             <div class="card">
                 <div class="card-body">
                     <div id="smartwizard-3">
-                        <ul class="justify-content-around">
+                        {{-- <ul class="justify-content-around">
                             <li><a href="#step-1">About Service</a></li>
                             <li><a href="#step-2">Photos</a></li>
                             <li><a href="#step-3">Detail</a></li>
                             <li><a href="#step-4">Pricing</a></li>
                             <li><a href="#step-5">Team</a></li>
-                        </ul>
+                        </ul> --}}
                         <div id="step-3">
                             <div class="text-center">
                                 <h2 class="fw-bolder">

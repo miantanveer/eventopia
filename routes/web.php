@@ -71,13 +71,11 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.customer.search-results');
     });
 
-    // Notification
-    Route::get('/notification', [NotificationController::class, 'index'])->name('notify');
 
     // Load Listings
-    Route::get('/spaces', [BookingController::class, 'space_index'])->name('spaces');
-    Route::get('/talent-&-entertainments', [BookingController::class, 'entertainment_index'])->name('entertainments_index');
-    Route::get('/services', [BookingController::class, 'service_index'])->name('services');
+    Route::get('spaces', [BookingController::class, 'space_index'])->name('spaces');
+    Route::get('talent-&-entertainments', [BookingController::class, 'entertainment_index'])->name('entertainments_index');
+    Route::get('services', [BookingController::class, 'service_index'])->name('services');
     // Load a listing
     Route::get('space-details/{space_id}', [BookingController::class, 'spaceDetail'])->name('space-details');
     Route::get('service-details/{id}', [BookingController::class, 'serviceDetail'])->name('service-details');
@@ -87,22 +85,31 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('cart-store/{id}/{type}', [CartController::class, 'store'])->name('cart-store');
     Route::delete('delete-item/{id}/{type}', [CartController::class, 'destroy'])->name('cart-delete');
     // Checkout
-    Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+    Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
     // Review & Payment
-    Route::get('/review', [PaymentController::class, 'loadReview'])->name('load-review');
-    Route::post('/review-pay', [PaymentController::class, 'review'])->name('review-pay');
-    Route::get('/payment-successfull', [PaymentController::class, 'successfull'])->name('payment-successfull');
-    Route::post('/payment', [PaymentController::class, 'store_payment'])->name('payment-store');
+    Route::get('review', [PaymentController::class, 'loadReview'])->name('load-review');
+    Route::post('review-pay', [PaymentController::class, 'review'])->name('review-pay');
+    Route::get('payment-successfull', [PaymentController::class, 'successfull'])->name('payment-successfull');
+    Route::post('payment', [PaymentController::class, 'store_payment'])->name('payment-store');
+
+    // Seller payment methods
+    Route::get('payments', [PaymentController::class, 'paymentMethod'])->name('payments');
+    Route::post('add-account', [PaymentController::class, 'addBankAccount'])->name('add-bank-account');
+    Route::post('delete-account/{id}', [PaymentController::class, 'deleteBankAccount'])->name('delete-bank-account');
+
 
     // Qutoe functions
-    Route::post('/send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
-    Route::get('/quote/{id}', [QuoteController::class, 'receive_quote'])->name('recieve_quote');
-    Route::get('/decline_quote/{id}', [QuoteController::class, 'decline_quote'])->name('decline_quote');
-    Route::post('/send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
+    Route::post('send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
+    Route::get('quote/{id}', [QuoteController::class, 'receive_quote'])->name('recieve_quote');
+    Route::post('load-accept-quote/{id}', [QuoteController::class, 'load_accept_quote'])->name('load_accept_quote');
+    Route::get('accept-quote/{id}', [QuoteController::class, 'accept_quote'])->name('accept_quote');
+    Route::get('decline_quote/{id}', [QuoteController::class, 'decline_quote'])->name('decline_quote');
+    Route::get('seller_decline_quote/{id}', [QuoteController::class, 'seller_decline_quote'])->name('seller_decline_quote');
+    Route::post('send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
 
     // Route::get('/test', [PaymentController::class, 'test'])->name('test');
-
     Route::get('bookings', [BookingController::class, 'bookings'])->name('bookings');
+
 
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana
@@ -156,9 +163,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/create-quote', function () {
         return view('content.seller.create-quote');
-    });
-    Route::get('/payments', function () {
-        return view('content.seller.payments');
     });
     Route::get('calendar',[LandingPageController::class, 'calendarIndex'])->name('calendar');
     Route::get('get-operating-hours/{id}/{type}',[LandingPageController::class, 'getOperatingHours']);
