@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.customer-web-layout')
 
 @section('styles')
 @endsection
