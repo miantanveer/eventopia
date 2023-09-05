@@ -455,7 +455,7 @@ class ListingSpaceController extends UserBaseController
             }
 
             $userHasSpaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->exists();
-            $userHasEnt = Entertainment::whereUserId(auth()->user()->id)->whereLastStep('step-9')->exists();
+            $userHasEnt = Entertainment::whereUserId(auth()->user()->id)->whereLastSteps('step-9')->exists();
 
             if ($userHasSpaces || $userHasEnt) {
                 $space->update(['last_step' => '10', 'status' => '1']);

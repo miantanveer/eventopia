@@ -365,7 +365,7 @@ class EntertainmentController extends UserBaseController
     }
     public function loadFormStep9($id)
     {
-        $userHasEnt = Entertainment::whereUserId(auth()->user()->id)->whereLastStep('step-9')->exists();
+        $userHasEnt = Entertainment::whereUserId(auth()->user()->id)->whereLastSteps('step-9')->exists();
         $userHasSpaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->exists();
 
         if ($userHasEnt || $userHasSpaces) {
