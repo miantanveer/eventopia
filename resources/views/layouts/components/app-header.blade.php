@@ -56,7 +56,7 @@
                                                 <div class="notifications-menu">
                                                     @php
                                                         $notifies = \App\Models\Notification::whereIsRead(0)->whereHas('quote', function ($query) {
-                                                            $query->where('status', 2);
+                                                            $query->where('status', 1);
                                                         })->get();
                                                     @endphp
                                                     <div id="notify_service"></div>

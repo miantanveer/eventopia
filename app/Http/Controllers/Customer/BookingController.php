@@ -68,9 +68,12 @@ class BookingController extends UserBaseController
             })
             ->orWhereHas('entertainment', function ($subquery) {
                 $subquery->whereUserId(auth()->user()->id);
+            })
+            ->orWhereHas('service', function ($subquery) {
+                $subquery->whereUserId(auth()->user()->id);
             });
         })->get();
-        $this->quotes = Quote::get();
+        $this->quotes = Quote::where('status','!=',2)->get();
         return view('content.seller.pending-bookings', $this->data);
     }
 

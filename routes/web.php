@@ -98,6 +98,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('load-accept-quote/{id}', [QuoteController::class, 'load_accept_quote'])->name('load_accept_quote');
     Route::get('accept-quote/{id}', [QuoteController::class, 'accept_quote'])->name('accept_quote');
     Route::get('decline_quote/{id}', [QuoteController::class, 'decline_quote'])->name('decline_quote');
+    Route::get('seller_decline_quote/{id}', [QuoteController::class, 'seller_decline_quote'])->name('seller_decline_quote');
     Route::post('send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
 
     // Route::get('/test', [PaymentController::class, 'test'])->name('test');

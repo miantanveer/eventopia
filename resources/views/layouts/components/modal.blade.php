@@ -97,7 +97,7 @@
             <div class="modal-header border-0 mx-auto">
                 <div class="text-center align-middle">
                     <h3 class="modal-title fw-bolder">Quotation from Seller</h3>
-                    <p id="">This quote is made for the service Wedding Planner</p>
+                    <p>This quote is made for the service <span id="header"></span></p>
                 </div>
             </div>
             <div class="modal-body pb-0">

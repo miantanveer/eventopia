@@ -13,7 +13,7 @@
                     <a class="dropdown-item" data-bs-target="#country-selector" data-bs-toggle="modal">
                         <i class="dropdown-icon fe fe-globe"></i> Language
                     </a>
-                    @if(Auth::check())
+                    @if (Auth::check())
                         <a class="dropdown-item" href="{{ URL('/seller-dashboard') }}">
                             <i class="dropdown-icon fa fa-user"></i> Become a Seller
                         </a>
@@ -51,25 +51,25 @@
             </a>
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
                 <!-- SEARCH -->
-                @if(Auth::check())
-                    <div class="dropdown d-flex d-lg-none profile-1">
-                        <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
-                            <span class="navbar-toggler-icon fe fe-more-vertical text-white"></span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3 second_drop">
+                <div class="dropdown d-flex d-lg-none profile-1">
+                    <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
+                        <span class="navbar-toggler-icon fe fe-more-vertical text-white"></span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3 second_drop">
 
+                        @if (Auth::check())
                             <a class="dropdown-item" href="{{ url('/edit-profile') }}">
                                 <i class="dropdown-icon fe fe-home"></i> Profile
                             </a>
                             <a class="dropdown-item" href="{{ URL('/payments') }}">
                                 <i class="dropdown-icon fe fe-user"></i> Payment
                             </a>
-                            <a class="dropdown-item" href="{{ url('/login') }}">
-                                <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
-                            </a>
-                        </div>
+                        @endif
+                        <a class="dropdown-item" href="{{ url('/login') }}">
+                            <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
+                        </a>
                     </div>
-                @endif
+                </div>
                 <div class="navbar navbar-collapse responsive-navbar p-0">
                     <div class="collapse navbar-collapse" id="landingNavbarHeader">
                         <div class="d-flex order-lg-2">
@@ -148,28 +148,28 @@
                                     </a>
                                 </div>
                             @endif
-                                <!-- SIDE-MENU -->
-                            @if(Auth::check())
-                                <div class="dropdown d-flex profile-1" id="third_drop">
-                                    <a href="javascript:void(0)" data-bs-toggle="dropdown"
-                                        class="nav-link leading-none d-flex">
-                                        <img src="{{ asset('assets/images/users/21.jpg') }}" alt="profile-user"
-                                            class="avatar  profile-user brround cover-image">
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow third_drop">
+                            <!-- SIDE-MENU -->
+                            <div class="dropdown d-flex profile-1" id="third_drop">
+                                <a href="javascript:void(0)" data-bs-toggle="dropdown"
+                                    class="nav-link leading-none d-flex">
+                                    <img src="{{ auth()->user()->image ?? asset('assets/images/users/profile.png') }}" alt="profile-user"
+                                        class="avatar  profile-user brround cover-image">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow third_drop">
 
+                                    @if (Auth::check())
                                         <a class="dropdown-item" href="{{ url('/edit-profile') }}">
                                             <i class="dropdown-icon fe fe-home"></i> Profile
                                         </a>
                                         <a class="dropdown-item" href="{{ URL('/payments') }}">
                                             <i class="dropdown-icon fe fe-user"></i> Payment
                                         </a>
-                                        <a class="dropdown-item" href="{{ url('/login') }}">
-                                            <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
-                                        </a>
-                                    </div>
+                                    @endif
+                                    <a class="dropdown-item" href="{{ url('/login') }}">
+                                        <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
+                                    </a>
                                 </div>
-                            @endif
+                            </div>
                         </div>
                     </div>
                 </div>

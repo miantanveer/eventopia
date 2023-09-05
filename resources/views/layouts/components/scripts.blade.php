@@ -50,6 +50,7 @@
                     $('#img').html('<img src="'+ res.service.service_images[0].image+'" alt="">');
                     $('#img1').html('<img src="'+ res.service.service_images[0].image+'" alt="">');
                     $('#title').html(res.service.title);
+                    $('#header').html(res.service.title);
                     $('p#description').text(res.service.description);
                     $('#amount').html(res.amount);
                     $('#date').html(res.date);
@@ -93,10 +94,17 @@
                         autohide: true
                     });
                 }
+                if (data.message.id == (`{{ auth()->user()->id }}`) && data.message.message == false && data.message.error == 'Rejected') {
+                    notif({
+                        type: 'error',
+                        msg: 'Quote request declined',
+                        autohide: true
+                    });
+                }
                 if (data.message.id == (`{{ auth()->user()->id }}`) && data.message.message == true) {
                     notif({
                         type: 'success',
-                        msg: 'You quote quote got reply',
+                        msg: 'Your quote got reply',
                         autohide: true
                     });
                     var route_name = "{{ route('load_accept_quote', ['id' => 'route_id']) }}".replace('route_id',data.message.data_id);

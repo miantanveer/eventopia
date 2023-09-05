@@ -63,30 +63,25 @@
                                                     <div id="notify_service"></div>
                                                     @foreach (@$notifies as $notify)
                                                         @if (@$notify->type == 'service')
-                                                            <a class="dropdown-item d-flex"
-                                                                onclick="quoteModal('{{ route('load_accept_quote', @$notify->id) }}')">
-                                                                <div
-                                                                    class="me-3 notifyimg bg-primary brround box-shadow-primary">
+                                                            <a class="dropdown-item d-flex" href="{{route('pending-bookings')}}">
+                                                                <div class="me-3 notifyimg bg-primary brround box-shadow-primary">
                                                                     <i class="fe fe-dollar-sign"></i>
                                                                 </div>
                                                                 <div class="mt-1">
                                                                     <h5 class="notification-label mb-1">
                                                                         {{ @$notify->description }}</h5>
-                                                                    <span
-                                                                        class="notification-subtext">{{ @$notify->created_at->diffForHumans() }}</span>
+                                                                    <span class="notification-subtext">{{ @$notify->created_at->diffForHumans() }}</span>
                                                                 </div>
                                                             </a>
                                                         @else
                                                             <a class="dropdown-item d-flex">
-                                                                <div
-                                                                    class="me-3 notifyimg bg-secondary brround box-shadow-primary">
+                                                                <div class="me-3 notifyimg bg-secondary brround box-shadow-primary">
                                                                     <i class="fe fe-bell"></i>
                                                                 </div>
                                                                 <div class="mt-1">
                                                                     <h5 class="notification-label mb-1">
                                                                         {{ @$notify->description }}</h5>
-                                                                    <span
-                                                                        class="notification-subtext">{{ @$notify->created_at->diffForHumans() }}</span>
+                                                                    <span class="notification-subtext">{{ @$notify->created_at->diffForHumans() }}</span>
                                                                 </div>
                                                             </a>
                                                         @endif

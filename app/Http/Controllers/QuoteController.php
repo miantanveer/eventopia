@@ -55,12 +55,18 @@ class QuoteController extends UserBaseController
     public function accept_quote($id)
     {
         $quote = Quote::find($id);
-        $exists = Cart::whereServiceId($id)->whereUserId(auth()->user()->id)->exists();
+        $exists = Cart::whereServiceId($quote->service_id)->whereUserId(user_id())->exists();
         if($exists){
+            $quot = Quote::find($id);
+            $quot->status == 2;
+            $quot->save();
             return redirect()->route('checkout');
         }
         else{
             cartStore(@$quote->service_id,'service',@$quote->date,'null','null');
+            $quot = Quote::find($id);
+            $quot->status == 2;
+            $quot->save();
             return redirect()->route('checkout');
         }
     }
@@ -78,7 +84,7 @@ class QuoteController extends UserBaseController
         $quote->date = $req->date;
         $quote->amount = $req->amount;
         $quote->description = $req->description;
-        $quote->status = 2;
+        $quote->status = 1;
         $quote->save();
 
         if (is_int($quote->user_id)) {
@@ -89,11 +95,28 @@ class QuoteController extends UserBaseController
         return redirect()->route('pending-bookings')->with('success','Quote Send Successfully.');
     }
     
+    public function seller_decline_quote($id)
+    {
+        $quote = Quote::find($id);
+        $quote->status = 3;
+        $quote->save();
+        if (is_int($quote->user_id)) {
+            $event = new NotificationEvent(['id'=>$quote->user_id,'message'=>false,'error'=>'Rejected']);
+            $event->broadcastOn("user.$quote->user_id");
+            event($event);
+        }
+        return redirect()->back()->with('success','Quote Declined Successfully.');
+    }
     public function decline_quote($id)
     {
         $quote = Quote::find($id);
         $quote->status = 3;
         $quote->save();
+        if (is_int($quote->user_id)) {
+            $event = new NotificationEvent(['id'=>$quote->service->user_id,'message'=>false,'error'=>'Rejected']);
+            $event->broadcastOn("user.$quote->user_id");
+            event($event);
+        }
         return redirect()->back()->with('success','Quote Declined Successfully.');
     }
 }
