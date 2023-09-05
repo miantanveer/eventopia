@@ -3,17 +3,19 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\UserBaseController;
+use App\Models\BankAccount;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\CardDetails;
+use App\Models\Country;
 use Illuminate\Http\Request;
 
 class PaymentController extends UserBaseController
 {
     public function loadReview()
     {
-        $this->subtotal = Order::whereUserId(auth()->user()->id)->whereStatus(0)->sum('amount');
-        $this->discount = Order::whereUserId(auth()->user()->id)->whereStatus(0)->sum('discount');
+        $this->subtotal = Order::whereUserId(user_id())->whereStatus(0)->sum('amount');
+        $this->discount = Order::whereUserId(user_id())->whereStatus(0)->sum('discount');
         return view('layouts.components.review', $this->data);
     }
     public function review(Request $req)
@@ -33,7 +35,7 @@ class PaymentController extends UserBaseController
                 }
                 foreach ($allIds as $id) {
                     $col = $type . '_id';
-                    $exists = Order::where($col, $id)->whereStatus(0)->whereUserId(auth()->user()->id)->exists();
+                    $exists = Order::where($col, $id)->whereStatus(0)->whereUserId(user_id())->exists();
                     if ($exists) {
                         $carts = Cart::where($col, $id)->whereType($type)->get();
                         if ($carts) {
@@ -44,7 +46,7 @@ class PaymentController extends UserBaseController
                         }
                     } else {
                         $cart = Cart::where($col, $id)->whereType($type)->first();
-                        $exists = Order::where($col, $id)->whereStatus(1)->whereUserId(auth()->user()->id)->exists();
+                        $exists = Order::where($col, $id)->whereStatus(1)->whereUserId(user_id())->exists();
                         if ($exists) {
                         } else {
                             $this->orderStore(
@@ -103,13 +105,13 @@ class PaymentController extends UserBaseController
                 ['source' => $token->id]
             )->toArray();
 
-            $carts = Cart::whereStatus(1)->whereUserId(auth()->user()->id)->get();
+            $carts = Cart::whereStatus(1)->whereUserId(user_id())->get();
             if ($carts) {
                 foreach ($carts as $cart) {
                     $cart->delete();
                 }
             }
-            $orders = Order::whereUserId(auth()->user()->id)->whereStatus(0)->get();
+            $orders = Order::whereUserId(user_id())->whereStatus(0)->get();
             if ($orders) {
                 foreach ($orders as $order) {
                     $order->status = 1;
@@ -127,7 +129,7 @@ class PaymentController extends UserBaseController
         $colum = $col . '_id';
         $order = new Order();
         $order->$colum = $id;
-        $order->user_id = auth()->user()->id;
+        $order->user_id = user_id();
         $order->type = $col;
         $order->date = $date;
         $order->start_time = $start_time;
@@ -135,6 +137,36 @@ class PaymentController extends UserBaseController
         $order->amount = $amount;
         $order->discount = $discount;
         $order->save();
+    }
+
+    public function paymentMethod()
+    {
+        $this->countries = Country::get();
+        $this->bankAccounts = BankAccount::whereUserId(user_id())->get();
+        return view('content.seller.payments',$this->data);
+    }
+
+    public function addBankAccount(Request $req)
+    {
+        $data = $req->except('_token');
+        $data['user_id'] = user_id();
+        $result = BankAccount::create($data);
+
+        if (!$result) {
+            return redirect()->back()->with('error', 'Bank Acoount is not created.');
+        }
+
+        return redirect()->back()->with('success', 'Bank Acoount created successfully.');
+    }
+
+    public function deleteBankAccount($id)
+    {
+        $result = BankAccount::find($id)->delete();
+        if (!$result) {
+            return redirect()->back()->with('error', 'Bank Acoount is not Deleted.');
+        }
+
+        return redirect()->back()->with('success', 'Bank Acoount deleted successfully.');
     }
 
 }
