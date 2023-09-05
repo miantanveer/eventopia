@@ -21,6 +21,7 @@
                                         <li><a href="#tab6" data-bs-toggle="tab" class="">Payment methods</a>
                                         </li>
                                         <li><a href="#tab7" data-bs-toggle="tab" class="">Taxes</a></li>
+                                        <li><a href="#tab8" data-bs-toggle="tab" class="">Accounts</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -40,11 +41,17 @@
                                                 <h3 class="card-title fw-bolder">Direct Deposit</h3>
                                             </div>
                                             <div class="card-body border p-4 pb-5">
-                                                <p class="mb-4 mx-4">Add a bank account so you can
-                                                    get paid after completing a booking.</p>
-                                                <a class="modal-effect btn btn-primary-light mb-3"
-                                                    data-bs-effect="effect-slide-in-right" data-bs-toggle="modal"
-                                                    href="#add_new_modal">Get Started</a>
+                                                <div class="row">
+                                                    <div class="col-9">
+                                                        <p class="my-3 mx-4">Add a bank account so you can
+                                                            get paid after completing a booking.</p>
+                                                    </div>
+                                                    <div class="col-3">
+                                                        <a class="modal-effect btn btn-primary-light"
+                                                            data-bs-effect="effect-slide-in-right" data-bs-toggle="modal"
+                                                            href="#add_new_modal">Get Started</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="card" id="modal3">
@@ -179,12 +186,57 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab7">
-                                        <div class="tab-pane active" id="tab5">
+                                        <div class="tab-pane active">
                                             <div class="card" id="modal3">
                                                 <div class="card-body text-center border p-4 pb-5">
                                                     <p class="mb-4 mt-4 mx-4">There is no tax
                                                         information at this time.</p>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane" id="tab8">
+                                        <div class="tab-pane active">
+                                            <div class="card" id="modal3">
+                                                @forelse (@$bankAccounts as $bankAccount)
+                                                    <table id="example2"
+                                                        class="table text-nowrap border rounded-3 dataTable no-footer dtr-inline p-0"
+                                                        role="grid" aria-describedby="example2_info">
+                                                        <thead class="table_head_row">
+                                                            <tr role="row" class="text-center">
+                                                                <th class="p-4"> Bank Name</th>
+                                                                <th class="p-4"> Account Title</th>
+                                                                <th class="p-4"> Country</th>
+                                                                <th class="p-4"> Account Number</th>
+                                                                <th class="p-4"> Swift Code</th>
+                                                                <th class="p-4"> Address</th>
+                                                                <th class="p-4"> Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr class="text-center">
+                                                                <td class="p-4">{{ @$bankAccount->bank_name }}</td>
+                                                                <td class="p-4">{{ @$bankAccount->account_title }} </td>
+                                                                <td class="p-4">{{ @$bankAccount->country->name }} </td>
+                                                                <td class="p-4">{{ @$bankAccount->account_number }}</td>
+                                                                <td class="p-4">{{ @$bankAccount->swift_code }}</td>
+                                                                <td class="p-4">{{ @$bankAccount->bank_address }}</td>
+                                                                <td class="text-end">
+                                                                    <a class="modal-effect btn btn-danger"
+                                                                        onclick="deleteModal('{{ route('delete-bank-account', @$bankAccount->id) }}')">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                @empty
+                                                <div class="card-body text-center border p-4 pb-5">
+                                                    <p class="mb-4 mt-4 mx-4">There is no Account
+                                                        information at this time.</p>
+                                                </div>
+                                                @endforelse
                                             </div>
                                         </div>
                                     </div>
@@ -200,8 +252,7 @@
     <div class="modal" id="add_new_modal" role="dialog" style="z-index: 9999;">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content modal-data">
-                <form method="POST" class=" custom-validation" action="{{route('add-bank-account')}}">
-                    <input type="hidden" name="user_type" id="user_type" value="1" />
+                <form method="POST" data-parsley-validate id="bank_form" action="{{ route('add-bank-account') }}">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Bank Account Details</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
@@ -224,8 +275,8 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label required" class="control-label">Country Of Bank</label>
                                 <select style="width:100%;" class="form-select beautyselect"
-                                    data-parsley-required-message="Country of Bank is Required*" name="country" required
-                                    id="country">
+                                    data-parsley-required-message="Country of Bank is Required*" name="country_id"
+                                    required id="country">
                                     <option value="">Select Country</option>
                                     @foreach ($countries as $country)
                                         <option value="{{ $country->id }}"
@@ -238,7 +289,7 @@
                             <div class="mb-3 col-md-6">
                                 <label class="form-label" for="bank_number">Account Number</label>
                                 <input type="text" class="form-control" id="bank_number" placeholder="Account Number"
-                                    name="bank_number" data-parsley-required-message="Account Number is Required*"
+                                    name="account_number" data-parsley-required-message="Account Number is Required*"
                                     required>
                                 <span id="Address_err" class="text-danger">
                                     @error('location')
@@ -274,18 +325,18 @@
                                     placeholder="Account Holder Name" name="account_title"
                                     data-parsley-required-message="Title is Required*" required>
                             </div>
-                            <div class="mb-3 col-md-6">
+                            {{-- <div class="mb-3 col-md-6">
                                 <div class="form-group">
                                     <label for="bank_status" class="form-label" class="control-label">Select
                                         Status</label>
-                                    <select id="bank_status" class="form-control" name="bank_status"
+                                    <select id="bank_status" class="form-control" name="account_status"
                                         data-parsley-required-message="Status is Required*" required>
                                         <option value="">Select Status</option>
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="mb-3 col-md-6">
                                 <div class="form-group">
                                     <label for="account_type" class="form-label" class="control-label">Select Account
@@ -315,7 +366,37 @@
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="deleteModal">
+        <div class="modal-dialog modal-dialog-centered text-center" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body text-center p-4 pb-5">
+                    <button aria-label="Close" class="btn-close position-absolute" data-bs-dismiss="modal"><span
+                            aria-hidden="true">&times;</span></button>
+                    <i class="icon icon-close fs-70 text-danger lh-1 my-5 d-inline-block"></i>
+                    <form action="" id="delete-form" method="POST">
+                        @csrf
+                        <h2 class="text-danger">Warning!</h2>
+                        <h4 class="text-danger">Are you sure you want to delete this Account?</h4>
+                        <p class="mg-b-20 mg-x-20">This action is not repeatable.</p>
+                        <button class="btn btn-danger pd-x-25">Continue</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#bank_form').parsley();
+        });
+    </script>
+    <script>
+        function deleteModal(url) {
+            $('#delete-form').attr('action', url);
+            $('#deleteModal').modal('show');
+        }
+    </script>
 @endsection

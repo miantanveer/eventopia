@@ -96,7 +96,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Seller payment methods
     Route::get('payments', [PaymentController::class, 'paymentMethod'])->name('payments');
-    Route::get('add-account', [PaymentController::class, 'addBankAccount'])->name('add-bank-account');
+    Route::post('add-account', [PaymentController::class, 'addBankAccount'])->name('add-bank-account');
+    Route::post('delete-account/{id}', [PaymentController::class, 'deleteBankAccount'])->name('delete-bank-account');
 
 
     // Qutoe functions
@@ -106,7 +107,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
 
     // Route::get('/test', [PaymentController::class, 'test'])->name('test');
-
     Route::get('bookings', [BookingController::class, 'bookings'])->name('bookings');
 
 

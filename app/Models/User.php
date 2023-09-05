@@ -70,8 +70,14 @@ class User extends Authenticatable
     public function amenities(){
         return $this->hasMany(SpaceAmenity::class);
     }
+
     function cart()
     {
         return $this->hasMany(Cart::class);
+    }
+
+    function accounts()
+    {
+        return $this->hasMany(BankAccount::class);
     }
 }
