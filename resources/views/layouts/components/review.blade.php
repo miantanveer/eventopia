@@ -54,10 +54,11 @@
                 <form action="{{ route('payment-store') }}" method="POST">
                     @csrf
                     <input type="hidden" name="amount" value="{{ @$subtotal }}">
-                    <input type="text" class="my-3 form-control" value="John Wick" name="card_holder_name" placeholder="Cardholder's Name">
+                    <input type="text" class="my-3 form-control" value="John Wick" name="card_holder_name"
+                        placeholder="Cardholder's Name">
                     <label for="card_number">Card Number*</label>
-                    <input type="number" value="4242424242424242" id="card_number" name="card_number" class="mb-3 form-control"
-                        placeholder="1234 1234 1234 1234">
+                    <input type="number" value="4242424242424242" id="card_number" name="card_number"
+                        class="mb-3 form-control" placeholder="1234 1234 1234 1234">
                     <div class="row">
                         <div class="col-4">
                             <label for="expiration">Expiration Month*</label>
@@ -71,7 +72,8 @@
                         </div>
                         <div class="col-4">
                             <label for="cvc">CVC*</label>
-                            <input type="text" id="cvc" name="cvc" value="123" placeholder="CVC" class="mb-3 form-control">
+                            <input type="text" id="cvc" name="cvc" value="123" placeholder="CVC"
+                                class="mb-3 form-control">
                         </div>
                     </div>
                     <div class="my-5">
