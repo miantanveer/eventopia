@@ -52,19 +52,6 @@
                 </div>
                 <div class="card-body">
                     <div id="smartwizard-3">
-                        {{-- <ul>
-                            <li><a href="#step-1">Space Address</a></li>
-                            <li><a href="#step-2">Setup</a></li>
-                            <li><a href="#step-3">About your space</a></li>
-                            <li><a href="#step-4">Photos</a></li>
-                            <li><a href="#step-5">Hours</a></li>
-                            <li><a href="#step-6">Cleaning Policy</a></li>
-                            <li><a href="#step-7">Cancellation</a></li>
-                            <li><a href="#step-8">Listing</a></li>
-                            <li><a href="#step-9">Profile</a></li>
-                            <li><a href="#step-10">Review Policies</a></li>
-
-                        </ul> --}}
                         <div>
                             @if ($errors->any())
                                 <div class="alert alert-danger">
