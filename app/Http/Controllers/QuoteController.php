@@ -39,7 +39,7 @@ class QuoteController extends UserBaseController
         }
         return redirect()->back()->with('success','Quote requested Successfully');
     }
-    
+
     public function receive_quote($id)
     {
         $this->quote = Quote::find($id);
@@ -94,7 +94,7 @@ class QuoteController extends UserBaseController
         }
         return redirect()->route('pending-bookings')->with('success','Quote Send Successfully.');
     }
-    
+
     public function seller_decline_quote($id)
     {
         $quote = Quote::find($id);

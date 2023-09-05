@@ -97,7 +97,7 @@
                                 </button>
                                 <div class="dropdown-menu">
                                     @if (Auth::check())
-                                        <a class="dropdown-item" href="{{ URL('/list-space') }}">List Space</a>
+                                        <a class="dropdown-item" href="{{ route('list-space') }}">List Space</a>
                                         <a class="dropdown-item" href="{{ URL('/list-entertainment') }}">List
                                             Entertainment & Talent</a>
                                         <a class="dropdown-item" href="{{ URL('/list-service') }}">List Service</a>

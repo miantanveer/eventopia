@@ -67,7 +67,7 @@
                                     <div class="form-group mt-3">
                                         <h3 class="fw-bolder">Describe your company</h3>
                                         <textarea name="description"  required data-parsley-required-message="Description is required" data-parsley-minlength="100" cols="30" rows="5" class="w-100 form-control" placeholder="About Seller">
-                                            {{@$service->descrption}}
+                                            {{@$service->description}}
                                         </textarea>
                                         <p class="text-end mt-2">Minimum 100 characters</p>
                                     </div>

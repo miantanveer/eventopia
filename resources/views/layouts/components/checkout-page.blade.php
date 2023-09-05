@@ -61,7 +61,7 @@
                                             </div>
                                             <div class="col-sm-2 col-3 text-end">
                                                 <a
-                                                    onclick="deleteModal('{{ route('cart-delete', ['id' => @$data->id, 'type' => 'entertainment']) }}')">
+                                                    onclick="deleteModal('{{ route('cart-delete', ['id' => @$data->id, 'type' => @$data->type]) }}')">
                                                     <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip"
                                                         title=""
                                                         data-bs-original-title="{{ @$data->service->title }}"></i>
@@ -73,7 +73,7 @@
                                         </div>
                                         <p class="card-text mt-3 mt-md-0">Amount :
                                             {{ @$data->service->quote[0]->amount }}</p>
-                                        <p class="card-text"><small class="text-muted">Service (Available for 
+                                        <p class="card-text"><small class="text-muted">Service (Available for
                                                 {{ @$data->service->quote[0]->guests }}) guests</small>
                                         </p>
                                         <div class="row">
@@ -119,7 +119,7 @@
                                             </div>
                                             <div class="col-sm-2 col-3 text-end">
                                                 <a
-                                                    onclick="deleteModal('{{ route('cart-delete', ['id' => @$data->id, 'type' => 'entertainment']) }}')">
+                                                    onclick="deleteModal('{{ route('cart-delete', ['id' => @$data->id, 'type' => @$data->type]) }}')">
                                                     <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip"
                                                         title=""
                                                         data-bs-original-title="{{ @$data->entertainment->title }}"></i>
@@ -177,7 +177,7 @@
                                             </div>
                                             <div class="col-sm-2 col-3 text-end">
                                                 <a
-                                                    onclick="deleteModal('{{ route('cart-delete', ['id' => @$data->id, 'type' => 'space']) }}')">
+                                                    onclick="deleteModal('{{ route('cart-delete', ['id' => @$data->id, 'type' => @$data->type]) }}')">
                                                     <i class="fa fa-trash" style="color: red" data-bs-toggle="tooltip"
                                                         title=""
                                                         data-bs-original-title="{{ @$data->space->space_title }}"></i>

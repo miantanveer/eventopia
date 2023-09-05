@@ -281,9 +281,9 @@
                                         </div>
                                         @foreach (@$data as $value)
                                             @php
-                                                $lat = $value->lat;
-                                                $lng = $value->lng;
-                                                $title = $value->space_title;
+                                                @$lat = $value->lat;
+                                                @$lng = $value->lng;
+                                                @$title = $value->space_title;
                                             @endphp
                                             <div class="col-xl-4 col-md-6 col-sm-12">
                                                 <div class="card overflow-hidden">
@@ -417,9 +417,9 @@
     <script>
         $(document).ready(function() {
             // Get latitude, longitude, and title from PHP variable
-            var lat = {{ $lat }};
-            var lng = {{ $lng }};
-            var title = "{{ $title }}";
+            var lat = {{ @$lat }};
+            var lng = {{ @$lng }};
+            var title = "{{ @$title }}";
             // Create a map centered at the specified location
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
