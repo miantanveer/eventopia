@@ -27,7 +27,6 @@ class LandingController extends UserBaseController
         ];
 
         return response()->json($res, 200);
-
     }
     public function space_search(Request $req)
     {
@@ -35,8 +34,11 @@ class LandingController extends UserBaseController
             ->whereHas('spaceType', function ($query) use ($req) {
                 $query->where('type', $req->planCatagories);
             })
-            ->where(function ($query) use ($req) {
-                $query->where('address', 'like', '%' . $req->location . '%')
+            ->orWhereHas('spaceHaveActivities.activities', function ($query) use ($req) {
+                $query->where('title', $req->planCatagories);
+            })
+            ->orWhere(function ($query) use ($req) {
+                $query->where('address', $req->location)
                     ->orWhere('country', $req->location)
                     ->orWhere('city', $req->location)
                     ->orWhere('state', $req->location)
@@ -50,7 +52,6 @@ class LandingController extends UserBaseController
         $this->type = 'space';
         $this->data = $space;
         return view('content.customer.search-results', $this->data);
-
     }
     public function entertainment_index()
     {
@@ -62,12 +63,11 @@ class LandingController extends UserBaseController
         ];
 
         return response()->json($res, 200);
-
     }
     public function entertainment_search(Request $req)
     {
         $ent = EntertainmentActivity::with('sub_act', 'sub_act.act', 'ent', 'ent.entertainmentImages')
-            ->where(function ($query) use ($req) {
+            ->orWhere(function ($query) use ($req) {
                 $query->whereHas('sub_act', function ($subQuery) use ($req) {
                     $subQuery->whereTitle($req->planCatagories_1);
                 })
@@ -75,9 +75,9 @@ class LandingController extends UserBaseController
                         $activityQuery->whereTitle($req->planCatagories_1);
                     });
             })
-            ->whereHas('ent', function ($ent_query) use ($req) {
+            ->orWhereHas('ent', function ($ent_query) use ($req) {
                 $ent_query->whereLastSteps('step-9');
-                $ent_query->where('address', 'like', '%' . $req->location_1 . '%')
+                $ent_query->where('address', $req->location_1)
                     ->orWhere('country', $req->location_1)
                     ->orWhere('city', $req->location_1)
                     ->orWhere('state', $req->location_1);

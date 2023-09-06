@@ -65,7 +65,7 @@
                                 <br>
                                 <hr class="border-3 bg-dark">
                                 <div class="float-end mt-8">
-                                    <a class="btn btn-light" href="{{route('service-form-1',$id)}}">Previous</a>
+                                    <a class="btn btn-light" href="{{route('service-form-2',$id)}}">Previous</a>
                                     <button class="btn btn-primary">Next</button>
                                 </div>
                             </form>

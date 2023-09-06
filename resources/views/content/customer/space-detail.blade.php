@@ -343,7 +343,7 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <h5 class="text-primary">Date and time</h5>
-                                <form class="validation"
+                                <form class="validation" id="bookingForm"
                                     action="{{ route('cart-store', ['id' => $space->id, 'type' => 'space']) }}" method="post">
                                     @csrf
                                     <div class="input-group">
@@ -373,7 +373,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <input type="hidden" name="cart_action" id="cart_action" value="check_out"> <!-- Hidden input field for cart action -->
                                     <div class="row mt-4">
                                         <div class="col-10 pe-0">
                                             <button class="btn btn-primary text-white w-100"
@@ -386,8 +386,7 @@
                                                 <i class="fa fa-cart-plus border text-primary"></i><span
                                                     class="fs-16 ms-2 d-none d-xl-block"></span>
                                             @else
-                                                <a href="{{ route('cart-stores', ['id' => $space->id, 'type' => 'space']) }}"
-                                                    type="button">
+                                                <a type="button" href="#" id="cart-icon">
                                                     <i class="fa fa-cart-plus border text-primary"></i><span
                                                         class="fs-16 ms-2 d-none d-xl-block"></span>
                                                 </a>
@@ -471,14 +470,6 @@
     <!-- FILE UPLOADES JS -->
     <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
     <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
-    <!-- INTERNAL Bootstrap-Datepicker js-->
-    {{-- <script src="{{ asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script> --}}
-    <!-- TIMEPICKER JS -->
-    {{-- <script src="{{ asset('assets/plugins/time-picker/jquery.timepicker.js') }}"></script> --}}
-    {{-- <script src="{{ asset('assets/plugins/time-picker/toggles.min.js') }}"></script> --}}
-    <!-- DATEPICKER JS -->
-    {{-- <script src="{{ asset('assets/plugins/date-picker/date-picker.js') }}"></script> --}}
-    {{-- <script src="{{ asset('assets/plugins/date-picker/jquery-ui.js') }}"></script> --}}
 
     <!-- FORMELEMENTS JS -->
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
@@ -550,4 +541,22 @@
             });
         });
     </script>
+    <script>
+        $(document).ready(function() {
+            // Handle click event of "Cart Icon"
+            $('#cart-icon').click(function(e) {
+                e.preventDefault(); // Prevent the default link behavior
+
+                // Get the current value of the hidden input field
+                var cartAction = $('#cart_action').val();
+
+                // Toggle the cart action value
+                if (cartAction === 'check_out') {
+                    $('#cart_action').val('add_to_cart');
+                }
+                $("#bookingForm").submit();
+            });
+        });
+    </script>
+
 @endsection

@@ -254,14 +254,6 @@
                                                         <p class="text-dark p-2 bg-primary">From
                                                             SAR{{ @$value->hourly_rate }}/hour</p>
                                                     </div>
-                                                    <div class="me-2 card-background float-end">
-                                                        <a
-                                                            href="{{ route('cart-stores', ['id' => $value->id, 'type' => 'entertainment']) }}">
-                                                            <span class="mini-stat-icon p-0">
-                                                                <i class="fa fa-shopping-bag p-3"></i>
-                                                            </span>
-                                                        </a>
-                                                    </div>
                                                 </div>
                                                 <a href="{{ route('entertainment-details', @$value->id) }}">
                                                     <img src="{{ asset(@$value->ent->entertainmentImages[0]->image) }}"

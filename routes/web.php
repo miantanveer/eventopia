@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Customer\CartController;
@@ -85,7 +86,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('service-details/{id}', [BookingController::class, 'serviceDetail'])->name('service-details');
     Route::get('entertainment-details/{id}', [BookingController::class, 'entertainmentDetail'])->name('entertainment-details');
     // Cart Functions
-    Route::post('cart-stores/{id}/{type}', [CartController::class, 'stores'])->name('cart-stores');
     Route::post('cart-store/{id}/{type}', [CartController::class, 'store'])->name('cart-store');
     Route::delete('delete-item/{id}/{type}', [CartController::class, 'destroy'])->name('cart-delete');
     // Checkout
@@ -101,6 +101,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('add-account', [PaymentController::class, 'addBankAccount'])->name('add-bank-account');
     Route::post('delete-account/{id}', [PaymentController::class, 'deleteBankAccount'])->name('delete-bank-account');
 
+    // Language Function
+    Route::get('language/{code}',[LanguageController::class, 'local'])->name('local');
 
     // Qutoe functions
     Route::post('send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
@@ -120,9 +122,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/seller-dashboard', function () {
         return view('content.seller.dashboard');
     });
-    Route::get('/add-space', function () {
-        return view('content.seller.add-space');
-    });
+    // Route::get('/add-space', function () {
+    //     return view('content.seller.add-space');
+    // });
 
     Route::get('space-form-steps', [ListingSpaceController::class, 'listSpace'])->name('list-space');
     Route::get('address-step', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');

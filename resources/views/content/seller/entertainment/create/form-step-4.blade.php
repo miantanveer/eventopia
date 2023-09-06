@@ -169,20 +169,13 @@
                         }
                         uploads++
                     });
-                   
-                    this.on("addedfile", function(file) {
-                        if (!alertShown && myDropzone.files.length < 3) {
-                            alertShown = true;
-                            alert("Please upload at least 4 files.");
-                        }
-                    });
+                    
                 },
             });
 
             function upload() {
-                if (alertShown === false && myDropzone.files.length < 4 || alertShown === false && myDropzone.files.length ===
-                    0) {
-                    alert("Please upload at least 4 files.");
+                if (alertShown === false && myDropzone.files.length < 4 || alertShown === false && myDropzone.files.length === 0 || alertShown === false && myDropzone.files.length > 8) {
+                    warningModal();
                 } else {
                     var files = myDropzone.files;
                     myDropzone.processQueue(files);
