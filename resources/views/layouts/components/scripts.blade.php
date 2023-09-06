@@ -23,6 +23,20 @@
     <script src="{{ asset('assets/plugins/notify/js/sample.js') }}"></script>
     <script src="{{ asset('assets/plugins/notify/js/notifIt.js') }}"></script>
 
+    <!-- INTERNAL Bootstrap-Datepicker js-->
+    <script src="{{ asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+
+    <!-- INTERNAL Bootstrap-Datepicker js-->
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/bootstrap-datepicker.js') }}"></script>
+
+    <!-- TIMEPICKER JS -->
+    <script src="{{ asset('assets/plugins/time-picker/jquery.timepicker.js') }}"></script>
+    <script src="{{ asset('assets/plugins/time-picker/toggles.min.js') }}"></script>
+<!-- DATEPICKER JS -->
+    <script src="{{ asset('assets/plugins/date-picker/date-picker.js') }}"></script>
+    <script src="{{ asset('assets/plugins/date-picker/jquery-ui.js') }}"></script>
+    <script src="{{ asset('assets/plugins/input-mask/jquery.maskedinput.js') }}"></script>
+
     @yield('scripts')
 
     <!-- Color Theme js -->
@@ -128,3 +142,15 @@
             });
         </script>
     @endif
+
+    {{-- <script>
+        // Wait for the document to be ready
+        $(document).ready(function() {
+            // Handle click event of "View Details" button
+            $('.cart_icon').click(function() {
+                // Get the data attributes
+                var action = $(this).data('url');
+                $("#cart_form").attr('action', action);
+            });
+        });
+    </script> --}}

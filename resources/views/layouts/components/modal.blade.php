@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="row p-4  border-bottom align-items-center">
-                    <div class="col-3 d-none d-md-flex" id="img1"> 
+                    <div class="col-3 d-none d-md-flex" id="img1">
                     </div>
                     <div class="col-6">
                         <p id="title"></p>
@@ -326,3 +326,5 @@
         </div>
     </div>
 </div>
+
+
