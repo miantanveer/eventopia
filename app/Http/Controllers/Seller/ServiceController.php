@@ -12,10 +12,18 @@ use App\Models\ServiceTeam;
 use App\Models\ServiceTimeSetting;
 use App\Models\ServiceTitle;
 use App\Models\TeamMembers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ServiceController extends UserBaseController
 {
+    public function listService()
+    {
+        if (Auth::check()) return view('content.seller.list-service');
+
+        return view('content.seller.add-services');
+    }
+
     public function serviceForm1(Request $request)
     {
         $request->validate([

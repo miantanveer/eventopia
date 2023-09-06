@@ -14,10 +14,18 @@ use App\Models\OperatingHour;
 use App\Models\EntActivity;
 use App\Models\EntActivityAmenity;
 use App\Models\Space;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class EntertainmentController extends UserBaseController
 {
+    public function listEntertainment()
+    {
+        if (Auth::check()) return view('content.seller.list-entertainment');
+
+        return view('content.seller.add-entertainment');
+    }
+
     public function formStep1(Request $req)
     {
         $req->validate([

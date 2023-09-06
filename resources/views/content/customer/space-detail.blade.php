@@ -351,25 +351,33 @@
                                             <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
                                         </div>
                                         <input class="form-control" name="date" placeholder="yy-mm-dd" type="text"
-                                            id="datepick">
+                                            id="datepick" required required data-parsley-required-message="Date is required*"
+                                        data-parsley-errors-container="#date">
+                                        <span class="text-danger" id="date"></span>
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="start_time"
+                                                <select name="start_time" required
+                                                 required data-parsley-required-message="Start Time is required*"
+                                                    data-parsley-errors-container="#start_time"
                                                     class="form-control form-select select2 select2-hidden-accessible">
                                                     <!-- Start time options will be populated dynamically -->
                                                     <option selected disabled>Start Time</option>
                                                 </select>
+                                                 <span class="text-danger" id="start_time"></span>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="end_time"
+                                                <select name="end_time" required
+                                                 required data-parsley-required-message="End Time is required*"
+                                                    data-parsley-errors-container="#end_time"
                                                     class="form-control form-select select2 select2-hidden-accessible">
                                                     <!-- End time options will be populated dynamically -->
                                                     <option selected disabled>End Time</option>
                                                 </select>
+                                                <span class="text-danger" id="end_time"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -543,6 +551,8 @@
     </script>
     <script>
         $(document).ready(function() {
+            $('#bookingForm').parsley();
+
             // Handle click event of "Cart Icon"
             $('#cart-icon').click(function(e) {
                 e.preventDefault(); // Prevent the default link behavior
