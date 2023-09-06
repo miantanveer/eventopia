@@ -81,7 +81,7 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
                     <div class="card mt-3 pending-booking-card">
-                        <div class="card-body">
+                        <div class="card-body mt-3">
                             <div class="d-flex">
                                 <div class="text-black mt-2">
                                     <h3 class="mb-2 number-font">25</h3>
@@ -90,7 +90,7 @@
                                     <img src="{{ asset('assets/images/icons/pending-file.png') }}" alt="">
                                 </div>
                             </div>
-                            <div class="mb-5 mt-3">
+                            <div class="mb-5 mt-6">
                                 <p class="text-black mb-5">Pending Booking Acceptance</p>
                             </div>
                             <div class="row mt-5">
@@ -105,10 +105,9 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <div class="text-end mb-2 mt-5">
+                            <div class="text-center mb-2 mt-5">
                                 <div class="btn-list">
-                                    <a href="#" class="btn ">Pending</a>
-                                    <a href="{{URL('/pending-bookings')}}" class="btn btn-primary float-sm-end">Manage</a>
+                                    <a href="{{URL('/pending-bookings')}}" class="btn btn-primary">Manage</a>
                                 </div>
                             </div>
                         </div>

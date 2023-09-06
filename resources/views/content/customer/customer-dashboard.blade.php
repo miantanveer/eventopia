@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="col-6 ml-3 text-end">
                                     <div style="margin-top: 40px;">
-                                        <a href="#" class="btn btn-primary text-white">Manage</a>
+                                        <a href="/manage-bookings" class="btn btn-primary text-white">Manage</a>
                                     </div>
                                 </div>
                             </div>
