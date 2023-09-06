@@ -81,8 +81,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('service-details/{id}', [BookingController::class, 'serviceDetail'])->name('service-details');
     Route::get('entertainment-details/{id}', [BookingController::class, 'entertainmentDetail'])->name('entertainment-details');
     // Cart Functions
-    Route::post('cart-stores/{id}/{type}', [CartController::class, 'stores'])->name('cart-stores');
     Route::post('cart-store/{id}/{type}', [CartController::class, 'store'])->name('cart-store');
+    Route::get('add-to-cart/{id}/{type}', [CartController::class, 'addToCart'])->name('add-to-cart');
     Route::delete('delete-item/{id}/{type}', [CartController::class, 'destroy'])->name('cart-delete');
     // Checkout
     Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
