@@ -1,5 +1,4 @@
 @extends('layouts.seller-web-layout')
-
 @section('styles')
     <style>
         .seller-web-sidebar {
@@ -61,6 +60,7 @@
 @endsection
 
 @section('content')
+
     <!-- ROW-1 -->
     <div class="row mt-5">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
@@ -70,13 +70,13 @@
                         alt="">
                     <div class="position-absolute text-white">
                         <div class="welcome_card">
-                            <h1 class="headingOne">Hello, John Doe </h1>
-                            <h5 class="headingTwo d-block d-sm-none">Hello, John Doe</h5>
-                            <p class="fs-sm-5 fs-6">Welcome Back!</p>
+                            <h1 class="headingOne">{{lang('Hello, John Doe')}} </h1>
+                            <h5 class="headingTwo d-block d-sm-none">{{lang('Hello, John Doe')}}</h5>
+                            <p class="fs-sm-5 fs-6">{{lang('Welcome Back!')}}</p>
                         </div>
                     </div>
                     <div class="position-absolute">
-                        <a href="#" class="btn btn-white get_started_btn">Get Started</a>
+                        <a href="#" class="btn btn-white get_started_btn">{{lang('Get Started')}}</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
@@ -84,23 +84,21 @@
                         <div class="card-body mt-3">
                             <div class="d-flex">
                                 <div class="text-black mt-2">
-                                    <h3 class="mb-2 number-font">25</h3>
+                                    <h3 class="mb-2 number-font">{{lang('25')}}</h3>
                                 </div>
                                 <div class="card-options">
                                     <img src="{{ asset('assets/images/icons/pending-file.png') }}" alt="">
                                 </div>
                             </div>
-                            <div class="mb-5 mt-6">
-                                <p class="text-black mb-5">Pending Booking Acceptance</p>
+                            <div class="mb-5 mt-3">
+                                <p class="text-black mb-5">{{lang('Pending Booking Acceptance')}}</p>
                             </div>
                             <div class="row mt-5">
                                 <div class="col-6">
-                                    <img src="{{ asset('assets/images/icons/icon1.png') }}" alt=""> <small> Recent
-                                        Spaces</small>
+                                    <img src="{{ asset('assets/images/icons/icon1.png') }}" alt=""> <small>{{lang('Recent Spaces')}}</small>
                                 </div>
                                 <div class="col-6">
-                                    <img src="{{ asset('assets/images/icons/icon2.png') }}" alt=""><small> Other
-                                        Spaces</small>
+                                    <img src="{{ asset('assets/images/icons/icon2.png') }}" alt=""><small>{{lang('Other Spaces')}}</small>
                                 </div>
                             </div>
                         </div>

@@ -258,7 +258,7 @@
 
                                                 </div>
                                                 <a href="{{ route('service-details', @$value->id) }}">
-                                                    <img src="{{ asset(@$value->serviceImages[0]->image) }}"
+                                                    <img src="{{ asset(@$value->serviceImages[0]->                                                  image) }}"
                                                         class="card-img-top" style="width: 200px;padding-top: 10px"
                                                         alt="img">
                                                     <div class="card-body">
