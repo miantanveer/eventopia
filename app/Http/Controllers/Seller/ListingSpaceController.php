@@ -20,6 +20,7 @@ use App\Models\SpaceHavingMeasure;
 use App\Models\SpaceHavingParkingOption;
 use App\Models\SpaceImage;
 use App\Models\SpaceType;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,9 @@ class ListingSpaceController extends UserBaseController
 {
     public function listSpace()
     {
-        return view('content.seller.list-space');
+        if (Auth::check()) return view('content.seller.list-space');
+
+        return view('content.seller.add-space');
     }
 
     public function addSpaceForm()

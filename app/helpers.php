@@ -4,7 +4,7 @@ use App\Models\Notification;
 use App\Models\Cart;
 
 if (!function_exists('notification')) {
-    function notification($name, $description, $user_id,$type,$quote_id)
+    function notification($name, $description, $user_id,$type = null,$quote_id = null)
     {
         $notification = new Notification();
         $notification->name = $name;

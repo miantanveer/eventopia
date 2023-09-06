@@ -82,7 +82,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('entertainment-details/{id}', [BookingController::class, 'entertainmentDetail'])->name('entertainment-details');
     // Cart Functions
     Route::post('cart-store/{id}/{type}', [CartController::class, 'store'])->name('cart-store');
-    Route::get('add-to-cart/{id}/{type}', [CartController::class, 'addToCart'])->name('add-to-cart');
     Route::delete('delete-item/{id}/{type}', [CartController::class, 'destroy'])->name('cart-delete');
     // Checkout
     Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
@@ -116,9 +115,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/seller-dashboard', function () {
         return view('content.seller.dashboard');
     });
-    Route::get('/add-space', function () {
-        return view('content.seller.add-space');
-    });
+    // Route::get('/add-space', function () {
+    //     return view('content.seller.add-space');
+    // });
 
     Route::get('space-form-steps', [ListingSpaceController::class, 'listSpace'])->name('list-space');
     Route::get('address-step', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
