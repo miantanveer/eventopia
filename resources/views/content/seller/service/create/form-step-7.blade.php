@@ -42,7 +42,7 @@
                                         <h3 class="fw-bolder">Full Name</h3>
                                         <div class="col-11">
                                             <div class="form-group mt-3">
-                                                <input type="text" name="destination" value="{{@$team->destination}}" data-parsley-required-message="Team name is required" placeholder="Enter Name"
+                                                <input type="text" name="destination" value="{{@$team->team_name}}" data-parsley-required-message="Team name is required" placeholder="Enter Name"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -54,7 +54,7 @@
                                     <div class="form-group mt-3">
                                         <h3 class="fw-bolder">Description</h3>
                                         <textarea name="decription" cols="30" rows="5" required data-parsley-required-message="Description is required" class="w-100 form-control" placeholder="About Team">
-                                            {{@$team->description}}
+                                            {{@$team->team_description}}
                                         </textarea>
                                         <p class="text-end mt-2">Minimum 100 characters</p>
                                     </div>

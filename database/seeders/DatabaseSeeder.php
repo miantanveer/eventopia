@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             EntActivitiesSeeder::class,
             EntSubActivitySeeder::class,
             EntHavingAmenitiesSeeder::class,
+            LanguageSeeder::class,
         ]);
     }
 }

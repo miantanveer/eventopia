@@ -38,17 +38,26 @@
     <script src="{{ asset('assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>
     <script>
+        function warningModal() {
+            $('#warning-modal').modal('show');
+        }
+    </script>
+    <script>
         function quoteModal(url) {
             $("#quote-modal").modal('show');
             $.ajax({
-                headers: { 'X-CSRF-TOKEN': "{{ csrf_token() }}" },
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
                 type: 'POST',
                 url: url,
-                success: function(res){
-                    var route_name = "{{ route('accept_quote', ['id' => 'route_id']) }}".replace('route_id',res.id);
-                    var decline_name = "{{ route('decline_quote', ['id' => 'route_id']) }}".replace('route_id',res.id);
-                    $('#img').html('<img src="'+ res.service.service_images[0].image+'" alt="">');
-                    $('#img1').html('<img src="'+ res.service.service_images[0].image+'" alt="">');
+                success: function(res) {
+                    var route_name = "{{ route('accept_quote', ['id' => 'route_id']) }}".replace('route_id',
+                        res.id);
+                    var decline_name = "{{ route('decline_quote', ['id' => 'route_id']) }}".replace('route_id',
+                        res.id);
+                    $('#img').html('<img src="' + res.service.service_images[0].image + '" alt="">');
+                    $('#img1').html('<img src="' + res.service.service_images[0].image + '" alt="">');
                     $('#title').html(res.service.title);
                     $('#header').html(res.service.title);
                     $('p#description').text(res.service.description);
@@ -57,8 +66,11 @@
                     $('#location').text(res.service.address);
                     $('#guests').html(res.guests);
                     $('#total').html(res.amount);
-                    $('#decline_btn').html('<a href="'+ decline_name +'" class="text-white"><button class="btn btn-white text-danger border-0">Decline</button></a>');
-                    $('#accept_btn').html('<a href="'+ route_name +'" class="text-white"><button class="btn btn-primary">Accept</button></a>');
+                    $('#decline_btn').html('<a href="' + decline_name +
+                        '" class="text-white"><button class="btn btn-white text-danger border-0">Decline</button></a>'
+                        );
+                    $('#accept_btn').html('<a href="' + route_name +
+                        '" class="text-white"><button class="btn btn-primary">Accept</button></a>');
                 }
             });
         }
@@ -95,7 +107,8 @@
                         autohide: true
                     });
                 }
-                if (data.message.id == (`{{ auth()->user()->id }}`) && data.message.message == false && data.message.error == 'Rejected') {
+                if (data.message.id == (`{{ auth()->user()->id }}`) && data.message.message == false && data.message
+                    .error == 'Rejected') {
                     notif({
                         type: 'error',
                         msg: 'Quote request declined',
@@ -108,7 +121,8 @@
                         msg: 'Your quote got reply',
                         autohide: true
                     });
-                    var route_name = "{{ route('load_accept_quote', ['id' => 'route_id']) }}".replace('route_id',data.message.data_id);
+                    var route_name = "{{ route('load_accept_quote', ['id' => 'route_id']) }}".replace('route_id', data
+                        .message.data_id);
                     quoteModal(route_name);
                 }
             });

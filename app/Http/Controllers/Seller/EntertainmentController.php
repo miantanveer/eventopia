@@ -111,23 +111,21 @@ class EntertainmentController extends UserBaseController
     public function loadFormStep4($id)
     {
         $entertainment = Entertainment::find($id);
+        $images = Entertainment::whereUserId(user_id())->with('entertainmentImages')->get();
+        foreach ($images as $img) {
+            foreach ($img->entertainmentImages as $data) {
+                $file_path = public_path($data->image);
+                if (file_exists($file_path)) {
+                    unlink($file_path);
+                }
+                $data->delete();
+            }
+        }
         return view('content\seller\entertainment\create\form-step-4', ['id' => $id, 'entertainment' => $entertainment]);
     }
 
     public function FormStep4(Request $req, $id)
     {
-        // $pre_image = EntertainmentImages::whereEntertainmentId($id)->exists();
-        // if($pre_image){
-        //     $delete_img = EntertainmentImages::whereEntertainmentId($id)->first();
-        //     if ($delete_img) {
-        //             $file_path = public_path('/uploads/seller/entertainment/') . $delete_img->image;
-        //             if (file_exists($file_path)) {
-        //                 unlink($file_path);
-        //                 $data->delete();
-        //             }
-        //     }
-        // }
-        // else{
         $filename = '';
         if ($req->hasFile('file')) {
             $image = $req->file;
@@ -143,7 +141,6 @@ class EntertainmentController extends UserBaseController
         $entertainment->last_steps = 'step-4';
         $entertainment->save();
         return response()->json($image);
-        // }
     }
     public function loadFormStep5($id)
     {

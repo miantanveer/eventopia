@@ -8,88 +8,39 @@
             </div>
             <div class="modal-body">
                 <ul class="row p-3">
+                    @php
+                        $langs = \App\Models\Language::get();
+                    @endphp
+                    @foreach ($langs as $lang)
                     <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block active">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/us_flag.jpg') }}"
-                                    class="me-3 language"></span>USA
+                        <a href="{{locale($lang->code)}}"  class="btn btn-country btn-lg btn-block">
+                            <span class="country-selector
+                            "><img alt=""src="{{ asset($lang->image) }}"class="me-3 language"></span>
+                            {{$lang->name}}
                         </a>
                     </li>
-                    <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/italy_flag.jpg') }}"
-                                    class="me-3 language"></span>Italy
-                        </a>
-                    </li>
-                    <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/sa.svg') }}" class="me-3 language"></span>Arabic
-                        </a>
-                    </li>
-                    <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/spain_flag.jpg') }}"
-                                    class="me-3 language"></span>Spain
-                        </a>
-                    </li>
-                    <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/india_flag.jpg') }}"
-                                    class="me-3 language"></span>India
-                        </a>
-                    </li>
-                    <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/french_flag.jpg') }}"
-                                    class="me-3 language"></span>French
-                        </a>
-                    </li>
-                    <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/russia_flag.jpg') }}"
-                                    class="me-3 language"></span>Russia
-                        </a>
-                    </li>
-                    <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/germany_flag.jpg') }}"
-                                    class="me-3 language"></span>Germany
-                        </a>
-                    </li>
-                    <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/argentina.jpg') }}"
-                                    class="me-3 language"></span>Argentina
-                        </a>
-                    </li>
-                    <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/malaysia.jpg') }}"
-                                    class="me-3 language"></span>Malaysia
-                        </a>
-                    </li>
-                    <li class="col-lg-6 mb-2">
-                        <a href="#" class="btn btn-country btn-lg btn-block">
-                            <span class="country-selector"><img alt=""
-                                    src="{{ asset('assets/images/flags/turkey.jpg') }}"
-                                    class="me-3 language"></span>Turkey
-                        </a>
-                    </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
     </div>
 </div>
 
+{{-- Waring Image Modal --}}
+<div class="modal fade" id="warning-modal">
+    <div class="modal-dialog modal-dialog-centered text-center" role="document">
+        <div class="modal-content tx-size-sm">
+            <div class="modal-body text-center p-4 pb-5">
+                <button aria-label="Close" class="btn-close position-absolute" data-bs-dismiss="modal"><span
+                        aria-hidden="true">&times;</span></button>
+                <i class="icon icon-close fs-70 text-danger lh-1 my-5 d-inline-block"></i>
+                    <h2 class="text-danger">Warning!</h2>
+                    <h4 class="text-danger">Atleast 4 and maximum 8 images are required.</h4>
+                    <button class="btn btn-danger pd-x-25" data-bs-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Quote Modal -->
 <div class="modal fade" id="quote-modal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg " role="document">
