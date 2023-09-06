@@ -327,7 +327,6 @@
                                 </div>
                             @endforeach
                             {!! $spaces->links() !!}
-
                         </div>
                     </div>
                     @foreach ($service as $key => $data)

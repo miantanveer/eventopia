@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Customer\CartController;
@@ -97,6 +98,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('add-account', [PaymentController::class, 'addBankAccount'])->name('add-bank-account');
     Route::post('delete-account/{id}', [PaymentController::class, 'deleteBankAccount'])->name('delete-bank-account');
 
+    // Language Function
+    Route::get('language/{code}',[LanguageController::class, 'local'])->name('local');
 
     // Qutoe functions
     Route::post('send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');

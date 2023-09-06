@@ -13,7 +13,7 @@
                     @endphp
                     @foreach ($langs as $lang)
                     <li class="col-lg-6 mb-2">
-                        <a href="{{locale($lang->code)}}"  class="btn btn-country btn-lg btn-block">
+                        <a href="{{route('local',$lang->code)}}"  class="btn btn-country btn-lg btn-block">
                             <span class="country-selector
                             "><img alt=""src="{{ asset($lang->image) }}"class="me-3 language"></span>
                             {{$lang->name}}
