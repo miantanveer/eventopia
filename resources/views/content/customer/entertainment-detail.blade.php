@@ -271,7 +271,7 @@
                             if ($numericDay !== false) {
                                 $enabledDays[] = $numericDay;
                             }
-                        }
+                        } 
                     @endphp
                     <div class="">
                         <div class="row">
