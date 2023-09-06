@@ -255,7 +255,7 @@
                                                         <p class="text-dark p-2 bg-primary">From
                                                             SAR{{ @$value->price }}</p>
                                                     </div>
-                                                  
+
                                                 </div>
                                                 <a href="{{ route('service-details', @$value->id) }}">
                                                     <img src="{{ asset(@$value->serviceImages[0]->image) }}"

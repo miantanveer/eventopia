@@ -338,14 +338,14 @@
 
     <!-- OWL Carousel js -->
     <script src="{{ asset('assets/js/carousel.js') }}"></script>
-    {{-- <script>
+    <script>
         $(document).ready(function() {
             $('#flexSwitchCheckChecked').on('click', function() {
                 $('#mapColumn').toggleClass('d-none');
                 $('#galleryColumn').toggleClass('col-lg-12');
             });
         });
-    </script> --}}
+    </script>
     <script>
         $(document).ready(function() {
             function hideDropdown(resultsDiv, inputDiv) {
