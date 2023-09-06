@@ -84,7 +84,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="text-black mt-2">
-                                    <h3 class="mb-2 number-font">25</h3>
+                                    <h3 class="mb-2 number-font">{{lang('25')}}</h3>
                                 </div>
                                 <div class="card-options">
                                     <img src="{{ asset('assets/images/icons/pending-file.png') }}" alt="">
@@ -105,7 +105,7 @@
                         <div class="col-12">
                             <div class="text-end mb-2 mt-5">
                                 <div class="btn-list">
-                                    <a href="#" class="btn ">Pending</a>
+                                    <a href="#" class="btn ">{{lang('Pending')}}</a>
                                     <a href="{{URL('/pending-bookings')}}" class="btn btn-primary float-sm-end">Manage</a>
                                 </div>
                             </div>
