@@ -65,18 +65,18 @@
                                         <label class="form-control-label">Country</label>
                                         <span class="tx-danger">*</span></label>
                                         <input class="form-control rounded-0" value="{{@$service->country}}" id="country" name="country" placeholder=""
-                                            required readonly type="text">
+                                            required type="text">
                                     </div>
                                     <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
                                         <label class="form-control-label">State<span class="tx-danger">*</span></label>
                                         <input class="form-control rounded-0" value="{{@$service->state}}" id="state" name="state" placeholder=""
-                                            required readonly type="text">
+                                            required type="text">
                                     </div>
                                     <div class="col-md-5 col-lg-6 mt-3">
                                         <label class="form-control-label">City</label> <span
                                             class="tx-danger">*</span></label>
                                         <input class="form-control rounded-0" id="city" value="{{@$service->city}}" name="city" placeholder=""
-                                            required readonly type="text">
+                                            required type="text">
                                     </div>
                                     <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
                                         <label class="form-control-label">Postal Code<span

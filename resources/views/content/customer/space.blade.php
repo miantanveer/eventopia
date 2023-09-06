@@ -254,13 +254,6 @@
                                                             SAR{{ @$value->spaceHaveActivities[0]->rate_per_hour }}/hour
                                                         </p>
                                                     </div>
-                                                    <div class="me-2 card-background float-end">
-                                                        <a href="{{ route('cart-stores',['id'=>@$value->id,'type'=>'space']) }}">
-                                                            <span class="mini-stat-icon p-0">
-                                                                <i class="fa fa-shopping-bag p-3"></i>
-                                                            </span>
-                                                        </a>
-                                                    </div>
                                                 </div>
                                                 <a href="{{ route('space-details', @$value->id) }}">
                                                     <img src="{{ asset(@$value->spaceImages[0]->image) }}"
@@ -338,14 +331,14 @@
 
     <!-- OWL Carousel js -->
     <script src="{{ asset('assets/js/carousel.js') }}"></script>
-    {{-- <script>
+    <script>
         $(document).ready(function() {
             $('#flexSwitchCheckChecked').on('click', function() {
                 $('#mapColumn').toggleClass('d-none');
                 $('#galleryColumn').toggleClass('col-lg-12');
             });
         });
-    </script> --}}
+    </script>
     <script>
         $(document).ready(function() {
             function hideDropdown(resultsDiv, inputDiv) {

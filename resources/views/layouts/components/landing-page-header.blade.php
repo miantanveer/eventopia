@@ -7,39 +7,24 @@
                     <span class="navbar-toggler-icon fa fa-align-left text-white"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3 first_drop">
-                    <a class="dropdown-item" href="{{ url('/checkout') }}">
+                    <a class="dropdown-item" href="{{ route('checkout') }}">
                         <i class="dropdown-icon fa fa-shopping-bag"></i> Cart
                     </a>
                     <a class="dropdown-item" data-bs-target="#country-selector" data-bs-toggle="modal">
                         <i class="dropdown-icon fe fe-globe"></i> Language
                     </a>
-                    @if (Auth::check())
-                        <a class="dropdown-item" href="{{ URL('/seller-dashboard') }}">
-                            <i class="dropdown-icon fa fa-user"></i> Become a Seller
-                        </a>
-                        <a class="dropdown-item" href="{{ URL('/my-listings') }}">
-                            <i class="dropdown-icon icon icon-layers"></i> Listing
-                        </a>
-                        <a class="dropdown-item" href="{{ URL('/bookings') }}">
-                            <i class="dropdown-icon icon icon-layers"></i> Bookings
-                        </a>
-                        <a class="dropdown-item" href="{{ URL('/calendar') }}">
-                            <i class="dropdown-icon fa fa-calendar"></i> Calendar
-                        </a>
-                    @else
-                        <a class="dropdown-item" href="{{ URL('/signup') }}">
-                            <i class="dropdown-icon fa fa-user"></i> Become a Seller
-                        </a>
-                        <a class="dropdown-item" href="{{ URL('/signup') }}">
-                            <i class="dropdown-icon icon icon-layers"></i> Listing
-                        </a>
-                        <a class="dropdown-item" href="{{ URL('/signup') }}">
-                            <i class="dropdown-icon icon icon-layers"></i> Bookings
-                        </a>
-                        <a class="dropdown-item" href="{{ URL('/signup') }}">
-                            <i class="dropdown-icon fa fa-calendar"></i> Calendar
-                        </a>
-                    @endif
+                    <a class="dropdown-item" href="{{ url('/seller-dashboard') }}">
+                        <i class="dropdown-icon fa fa-user"></i> Become a Seller
+                    </a>
+                    <a class="dropdown-item" href="{{ route('my-listing') }}">
+                        <i class="dropdown-icon icon icon-layers"></i> Listing
+                    </a>
+                    <a class="dropdown-item" href="{{ route('bookings') }}">
+                        <i class="dropdown-icon icon icon-layers"></i> Bookings
+                    </a>
+                    <a class="dropdown-item" href="{{ route('calendar') }}">
+                        <i class="dropdown-icon fa fa-calendar"></i> Calendar
+                    </a>
                 </div>
             </div>
             <!-- sidebar-toggle-->
@@ -58,14 +43,14 @@
                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3 second_drop">
 
                         @if (Auth::check())
-                            <a class="dropdown-item" href="{{ url('/edit-profile') }}">
+                            <a class="dropdown-item" href="{{ route('edit-profile-index') }}">
                                 <i class="dropdown-icon fe fe-home"></i> Profile
                             </a>
-                            <a class="dropdown-item" href="{{ URL('/payments') }}">
+                            <a class="dropdown-item" href="{{ route('payments') }}">
                                 <i class="dropdown-icon fe fe-user"></i> Payment
                             </a>
                         @endif
-                        <a class="dropdown-item" href="{{ url('/login') }}">
+                        <a class="dropdown-item" href="{{ route('login') }}">
                             <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
                         </a>
                     </div>
@@ -75,7 +60,7 @@
                         <div class="d-flex order-lg-2">
                             <!-- Cart -->
                             <div class="d-flex">
-                                <a class="nav-link icon text-center style" href="{{ URL('/checkout') }}">
+                                <a class="nav-link icon text-center style" href="{{ route('checkout') }}">
                                     <i class="fa fa-shopping-bag text-white"></i><span
                                         class="fs-16 ms-2 d-none d-xl-block"></span>
                                 </a>
@@ -96,76 +81,48 @@
                                     Become a Seller
                                 </button>
                                 <div class="dropdown-menu">
-                                    @if (Auth::check())
-                                        <a class="dropdown-item" href="{{ route('list-space') }}">List Space</a>
-                                        <a class="dropdown-item" href="{{ URL('/list-entertainment') }}">List
-                                            Entertainment & Talent</a>
-                                        <a class="dropdown-item" href="{{ URL('/list-service') }}">List Service</a>
-                                    @else
-                                        <a class="dropdown-item" href="{{ URL('/add-space') }}">List Space</a>
-                                        <a class="dropdown-item" href="{{ URL('/add-entertainment') }}">List
-                                            Entertainment & Talent</a>
-                                        <a class="dropdown-item" href="{{ URL('/add-services') }}">List Service</a>
-                                    @endif
+                                    <a class="dropdown-item" href="{{ route('list-space') }}">List Space</a>
+                                    <a class="dropdown-item" href="{{ route('list-entertainment') }}">List
+                                        Entertainment & Talent</a>
+                                    <a class="dropdown-item" href="{{ route('list-service') }}">List Service</a>
                                 </div>
                             </div>
-                            @if (Auth::check())
                                 <div class="d-flex listing-btn">
                                     <a class="nav-link py-3 px-5 m-2 active text-white" role="tab"
-                                        aria-selected="true" href="{{ URL('/my-listings') }}">
+                                        aria-selected="true" href="{{ route('my-listing') }}">
                                         Listing
                                     </a>
                                 </div>
                                 <div class="d-flex booking-btn">
                                     <a class="nav-link py-3 px-5 m-2 active text-white" role="tab"
-                                        aria-selected="true" href="{{ URL('/bookings') }}">
+                                        aria-selected="true" href="{{ route('bookings') }}">
                                         Bookings
                                     </a>
                                 </div>
                                 <div class="d-flex calendar-btn">
-                                    <a class="nav-link py-3 px-5 m-2 active text-white" href="{{ URL('/calendar') }}"
+                                    <a class="nav-link py-3 px-5 m-2 active text-white" href="{{ route('calendar') }}"
                                         role="tab" aria-selected="true">
                                         Calendar
                                     </a>
                                 </div>
-                            @else
-                                <div class="d-flex listing-btn">
-                                    <a class="nav-link py-3 px-5 m-2 active text-white" role="tab"
-                                        aria-selected="true" href="{{ URL('/signup') }}">
-                                        Listing
-                                    </a>
-                                </div>
-                                <div class="d-flex booking-btn">
-                                    <a class="nav-link py-3 px-5 m-2 active text-white" role="tab"
-                                        aria-selected="true" href="{{ URL('/signup') }}">
-                                        Bookings
-                                    </a>
-                                </div>
-                                <div class="d-flex calendar-btn">
-                                    <a class="nav-link py-3 px-5 m-2 active text-white" href="{{ URL('/signup') }}"
-                                        role="tab" aria-selected="true">
-                                        Calendar
-                                    </a>
-                                </div>
-                            @endif
                             <!-- SIDE-MENU -->
                             <div class="dropdown d-flex profile-1" id="third_drop">
                                 <a href="javascript:void(0)" data-bs-toggle="dropdown"
                                     class="nav-link leading-none d-flex">
-                                    <img src="{{ auth()->user()->image ?? asset('assets/images/users/profile.png') }}" alt="profile-user"
-                                        class="avatar  profile-user brround cover-image">
+                                    <img src="{{ auth()->user()->image ?? asset('assets/images/users/profile.png') }}"
+                                        alt="profile-user" class="avatar  profile-user brround cover-image">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow third_drop">
 
                                     @if (Auth::check())
-                                        <a class="dropdown-item" href="{{ url('/edit-profile') }}">
+                                        <a class="dropdown-item" href="{{ route('edit-profile') }}">
                                             <i class="dropdown-icon fe fe-home"></i> Profile
                                         </a>
-                                        <a class="dropdown-item" href="{{ URL('/payments') }}">
+                                        <a class="dropdown-item" href="{{ route('payments') }}">
                                             <i class="dropdown-icon fe fe-user"></i> Payment
                                         </a>
                                     @endif
-                                    <a class="dropdown-item" href="{{ url('/login') }}">
+                                    <a class="dropdown-item" href="{{ route('login') }}">
                                         <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
                                     </a>
                                 </div>

@@ -66,7 +66,7 @@
 @endsection
 
 @section('content')
-{{-- @dd(@$ent) --}}
+    {{-- @dd(@$ent) --}}
     <div class="row row-sm">
         <div class="col-xl-8 col-lg-12 col-md-12">
             <div class="card custom-card overflow-hidden">
@@ -241,8 +241,7 @@
                     <div class="">
                         <div class="row">
                             <div class="col-7">
-                                <h4>{{ @$ent->discount }} hour discount <i
-                                        class="mdi mdi-alert-circle-outline"></i>
+                                <h4>{{ @$ent->discount }} hour discount <i class="mdi mdi-alert-circle-outline"></i>
                                 </h4>
                             </div>
                             <div class="col-3 offset-2">
@@ -278,36 +277,47 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <h5 class="text-primary">Date and time</h5>
-                                <form class="validation" action="{{ route('cart-store',['id'=>@$ent->ent->id,'type'=>'entertainment']) }}" method="post">
+                                <form id="bookingForm" data-parsley-validate
+                                    action="{{ route('cart-store', ['id' => @$ent->ent->id, 'type' => 'entertainment']) }}"
+                                    method="post">
                                     @csrf
                                     <div class="input-group">
                                         <div class="input-group-text">
                                             <i class="fa fa-calendar tx-16 lh-0 op-6"></i>
                                         </div>
                                         <input class="form-control" name="date" placeholder="yy-mm-dd" type="text"
-                                            id="datepick">
+                                            id="datepick" required required data-parsley-required-message="Date is required*"
+                                        data-parsley-errors-container="#date">
+                                        <span class="text-danger" id="date"></span>
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="start_time"
+                                                <select name="start_time" required
+                                                 required data-parsley-required-message="Start Time is required*"
+                                                    data-parsley-errors-container="#start_time"
                                                     class="form-control form-select select2 select2-hidden-accessible">
                                                     <!-- Start time options will be populated dynamically -->
                                                     <option selected disabled>Start Time</option>
                                                 </select>
+                                                 <span class="text-danger" id="start_time"></span>
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="end_time"
+                                                <select name="end_time" required
+                                                 required data-parsley-required-message="End Time is required*"
+                                                    data-parsley-errors-container="#end_time"
                                                     class="form-control form-select select2 select2-hidden-accessible">
                                                     <!-- End time options will be populated dynamically -->
                                                     <option selected disabled>End Time</option>
                                                 </select>
+                                                <span class="text-danger" id="end_time"></span>
                                             </div>
                                         </div>
                                     </div>
-
+                                    <input type="hidden" name="cart_action" id="cart_action" value="check_out">
+                                    <!-- Hidden input field for cart action -->
                                     <div class="row mt-4">
                                         <div class="col-10 pe-0">
                                             <button class="btn btn-primary text-white w-100"
@@ -320,8 +330,7 @@
                                                 <i class="fa fa-cart-plus border text-primary"></i><span
                                                     class="fs-16 ms-2 d-none d-xl-block"></span>
                                             @else
-                                                <a href="{{ route('cart-stores', ['id' => $ent->ent->id, 'type' => 'entertainment']) }}"
-                                                    type="button">
+                                                <a type="button" href="#" id="cart-icon">
                                                     <i class="fa fa-cart-plus border text-primary"></i><span
                                                         class="fs-16 ms-2 d-none d-xl-block"></span>
                                                 </a>
@@ -348,7 +357,7 @@
                     <h4 class="mt-5 fw-bold">Amentities</h4>
                     <div class="row mb-6">
                         @foreach (@$ent->entActivityAmenity as $entAmenity)
-                        <div class="col-6">
+                            <div class="col-6">
                                 <p class="">{{ @$entAmenity->activity->name }}</p>
                             </div>
                         @endforeach
@@ -405,14 +414,6 @@
     <!-- FILE UPLOADES JS -->
     <script src="{{ asset('assets/plugins/fileuploads/js/fileupload.js') }}"></script>
     <script src="{{ asset('assets/plugins/fileuploads/js/file-upload.js') }}"></script>
-    <!-- INTERNAL Bootstrap-Datepicker js-->
-    {{-- <script src="{{ asset('assets/plugins/bootstrap-daterangepicker/daterangepicker.js') }}"></script> --}}
-    <!-- TIMEPICKER JS -->
-    {{-- <script src="{{ asset('assets/plugins/time-picker/jquery.timepicker.js') }}"></script> --}}
-    {{-- <script src="{{ asset('assets/plugins/time-picker/toggles.min.js') }}"></script> --}}
-    <!-- DATEPICKER JS -->
-    {{-- <script src="{{ asset('assets/plugins/date-picker/date-picker.js') }}"></script> --}}
-    {{-- <script src="{{ asset('assets/plugins/date-picker/jquery-ui.js') }}"></script> --}}
 
     <!-- FORMELEMENTS JS -->
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
@@ -480,6 +481,26 @@
                         endTimeSelect.prop('disabled', false);
                     }
                 }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#bookingForm').parsley();
+
+            // Handle click event of "Cart Icon"
+            $('#cart-icon').click(function(e) {
+                e.preventDefault(); // Prevent the default link behavior
+
+                // Get the current value of the hidden input field
+                var cartAction = $('#cart_action').val();
+
+                // Toggle the cart action value
+                if (cartAction === 'check_out') {
+                    $('#cart_action').val('add_to_cart');
+                }
+                $("#bookingForm").submit();
             });
         });
     </script>

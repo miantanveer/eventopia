@@ -212,13 +212,14 @@
                                 <div class="card-body pt-0 h-100">
                                     <div class="owl-carousel owl-carousel-icons2">
                                         @foreach (@$ent as $value)
-                                        <div class="item card_height">
-                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
-                                                <a href="{{route('entertainment-details',@$value->id)}}" class="h-100"><img class="h-100"
-                                                        src="{{ asset(@$value->ent->entertainmentImages[0]->image) }}"
-                                                        alt="img"></a>
+                                            <div class="item card_height">
+                                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
+                                                    <a href="{{ route('entertainment-details', @$value->id) }}"
+                                                        class="h-100"><img class="h-100"
+                                                            src="{{ asset(@$value->ent->entertainmentImages[0]->image) }}"
+                                                            alt="img"></a>
+                                                </div>
                                             </div>
-                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -238,7 +239,7 @@
                                     </div>
                                 @else
                                     <div class="card-header border-bottom-0 ms-3">
-                                        {{$count}} entertainment found
+                                        {{ $count }} entertainment found
                                     </div>
                                     @foreach (@$ent as $value)
                                         @php
@@ -253,15 +254,8 @@
                                                         <p class="text-dark p-2 bg-primary">From
                                                             SAR{{ @$value->hourly_rate }}/hour</p>
                                                     </div>
-                                                    <div class="me-2 card-background float-end">
-                                                        <a href="{{ route('cart-stores',['id'=>$value->id,'type'=>'entertainment']) }}">
-                                                            <span class="mini-stat-icon p-0">
-                                                                <i class="fa fa-shopping-bag p-3"></i>
-                                                            </span>
-                                                        </a>
-                                                    </div>
                                                 </div>
-                                                <a href="{{route('entertainment-details',@$value->id)}}">
+                                                <a href="{{ route('entertainment-details', @$value->id) }}">
                                                     <img src="{{ asset(@$value->ent->entertainmentImages[0]->image) }}"
                                                         class="card-img-top" style="width: 200px;padding-top: 10px"
                                                         alt="img">
@@ -293,9 +287,9 @@
                             src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                         </iframe>
                     </div>
-                </div> --}}
+                </div>
+            </div> --}}
         </div>
-    </div>
     </div>
 
 
@@ -337,14 +331,14 @@
 
     <!-- OWL Carousel js -->
     <script src="{{ asset('assets/js/carousel.js') }}"></script>
-    {{-- <script>
+    <script>
         $(document).ready(function() {
             $('#flexSwitchCheckChecked').on('click', function() {
                 $('#mapColumn').toggleClass('d-none');
                 $('#galleryColumn').toggleClass('col-lg-12');
             });
         });
-    </script> --}}
+    </script>
     <script>
         $(document).ready(function() {
             function hideDropdown(resultsDiv, inputDiv) {

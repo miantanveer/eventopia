@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServiceTeamsTable extends Migration
+class CreateLanguagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateServiceTeamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('service_teams', function (Blueprint $table) {
+        Schema::create('languages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('team_name');
-            $table->string('team_description');
-            $table->string('image');
+            $table->string('name')->nullable();
+            $table->string('code')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateServiceTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('service_teams');
+        Schema::dropIfExists('languages');
     }
 }

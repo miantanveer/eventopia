@@ -20,6 +20,7 @@ use App\Models\SpaceHavingMeasure;
 use App\Models\SpaceHavingParkingOption;
 use App\Models\SpaceImage;
 use App\Models\SpaceType;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,9 @@ class ListingSpaceController extends UserBaseController
 {
     public function listSpace()
     {
-        return view('content.seller.list-space');
+        if (Auth::check()) return view('content.seller.list-space');
+
+        return view('content.seller.add-space');
     }
 
     public function addSpaceForm()
@@ -166,6 +169,16 @@ class ListingSpaceController extends UserBaseController
 
     public function imagesStep($space_id)
     {
+        $images = Space::whereUserId(user_id())->with('spaceImages')->get();
+        foreach ($images as $img) {
+            foreach ($img->spaceImages as $data) {
+                $file_path = public_path($data->image);
+                if (file_exists($file_path)) {
+                    unlink($file_path);
+                }
+                $data->delete();
+            }
+        }
         $space = Space::find($space_id);
         return view('content.seller.space.images-step', ['space' => $space]);
     }
@@ -182,19 +195,6 @@ class ListingSpaceController extends UserBaseController
             }
 
             Space::find($space_id)->update(["last_step" => '4']);
-            // if ($space->spaceImages) {
-            //     foreach ($space->spaceImages as $existingImage) {
-            //         // Delete image file from storage
-            //         $imagePath = public_path() . $existingImage->image;
-            //         if (file_exists($imagePath)) {
-            //             unlink($imagePath);
-            //         }
-            //         // Storage::delete($existingImage->image);
-
-            //         // Delete image record from database
-            //         $existingImage->delete();
-            //     }
-            // }
             SpaceImage::create([
                 'space_id' => $space_id,
                 'image' =>  $foldername . $filename,

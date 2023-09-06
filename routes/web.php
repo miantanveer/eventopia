@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Customer\BookingController;
 use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Customer\CartController;
@@ -53,16 +54,18 @@ Route::get('reset-password', [AuthenticationController::class, 'resetPasswordInd
 Route::post('reset-password', [AuthenticationController::class, 'resetPassword']);
 Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
 
+Route::get('list-space', [ListingSpaceController::class, 'listSpace'])->name('list-space');
+Route::get('list-entertainment', [EntertainmentController::class, 'listEntertainment'])->name('list-entertainment');
+Route::get('list-service', [ServiceController::class, 'listService'])->name('list-service');
+
 //Logout
 Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
+
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('edit-profile', [DashboardController::class, 'editProfileIndex'])->name('edit-profile-index');
     Route::post('edit-profile', [DashboardController::class, 'editProfile'])->name('edit-profile');
-    Route::get('/add-space', function () {
-        return view('content.seller.add-space');
-    });
 
     Route::get('/notify-list', function () {
         return view('layouts.components.notify-list');
@@ -71,6 +74,9 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.customer.search-results');
     });
 
+    Route::get('/manage-bookings', function () {
+        return view('content.customer.manage-bookings');
+    });
 
     // Load Listings
     Route::get('spaces', [BookingController::class, 'space_index'])->name('spaces');
@@ -81,7 +87,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('service-details/{id}', [BookingController::class, 'serviceDetail'])->name('service-details');
     Route::get('entertainment-details/{id}', [BookingController::class, 'entertainmentDetail'])->name('entertainment-details');
     // Cart Functions
-    Route::post('cart-stores/{id}/{type}', [CartController::class, 'stores'])->name('cart-stores');
     Route::post('cart-store/{id}/{type}', [CartController::class, 'store'])->name('cart-store');
     Route::delete('delete-item/{id}/{type}', [CartController::class, 'destroy'])->name('cart-delete');
     // Checkout
@@ -97,6 +102,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('add-account', [PaymentController::class, 'addBankAccount'])->name('add-bank-account');
     Route::post('delete-account/{id}', [PaymentController::class, 'deleteBankAccount'])->name('delete-bank-account');
 
+    // Language Function
+    Route::get('language/{code}',[LanguageController::class, 'local'])->name('local');
 
     // Qutoe functions
     Route::post('send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
@@ -116,11 +123,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/seller-dashboard', function () {
         return view('content.seller.dashboard');
     });
-    Route::get('/add-space', function () {
-        return view('content.seller.add-space');
-    });
 
-    Route::get('space-form-steps', [ListingSpaceController::class, 'listSpace'])->name('list-space');
     Route::get('address-step', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
     Route::post('add-address', [ListingSpaceController::class, 'addAddress'])->name('add-address');
     Route::get('edit-space-address/{space_id}', [ListingSpaceController::class, 'editSpaceAddress'])->name('edit-space-address');
@@ -146,13 +149,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('space-form-resume/{space_id}', [ListingController::class, 'resumeSpaceForm'])->name('space-form-resume');
     Route::delete('space-delete/{space_id}', [ListingController::class, 'deleteListing'])->name('space-delete');
 
-    Route::get('/list-entertainment', function () {
-        return view('content.seller.list-entertainment');
-    });
     Route::get('/add-entertainment', function () {
         return view('content.seller.add-entertainment');
     });
-
 
     Route::get('/add-service', function () {
         return view('content.seller.add-services');
@@ -173,9 +172,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('my-listings', [ListingController::class, 'index'])->name('my-listing');
 
     // Service Forms
-    Route::get('/list-service', function () {
-        return view('content.seller.list-service');
-    });
+    
     // Service Form Step 1
     Route::get('/service-form-steps', function () {
         $title = ServiceTitle::get();
