@@ -105,7 +105,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('delete-account/{id}', [PaymentController::class, 'deleteBankAccount'])->name('delete-bank-account');
 
     // Language Function
-    Route::get('language/{code}',[LanguageController::class, 'local'])->name('local');
+    Route::get('language/{code}', [LanguageController::class, 'local'])->name('local');
 
     // Qutoe functions
     Route::post('send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
@@ -164,11 +164,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/create-quote', function () {
         return view('content.seller.create-quote');
     });
-    Route::get('calendar',[LandingPageController::class, 'calendarIndex'])->name('calendar');
-    Route::get('get-operating-hours/{id}/{type}',[LandingPageController::class, 'getOperatingHours']);
-    Route::get('operating-hours/{id}/{type}',[LandingPageController::class, 'getOperatingHoursIndex'])->name('operating-hours');
-    Route::post('new-operating-hours/{id}/{type}',[LandingPageController::class, 'newOperatingHours'])->name('new-operating-hours');
-    Route::post('add-block-time',[LandingPageController::class, 'addBlockTime'])->name('add-block-time');
+    Route::get('calendar', [LandingPageController::class, 'calendarIndex'])->name('calendar');
+    Route::get('get-operating-hours/{id}/{type}', [LandingPageController::class, 'getOperatingHours']);
+    Route::get('operating-hours/{id}/{type}', [LandingPageController::class, 'getOperatingHoursIndex'])->name('operating-hours');
+    Route::post('new-operating-hours/{id}/{type}', [LandingPageController::class, 'newOperatingHours'])->name('new-operating-hours');
+    Route::post('add-block-time', [LandingPageController::class, 'addBlockTime'])->name('add-block-time');
     // My Listing
     Route::get('my-listings', [ListingController::class, 'index'])->name('my-listing');
 
