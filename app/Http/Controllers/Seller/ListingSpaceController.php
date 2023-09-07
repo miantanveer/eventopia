@@ -169,7 +169,7 @@ class ListingSpaceController extends UserBaseController
 
     public function imagesStep($space_id)
     {
-        $images = Space::whereUserId(user_id())->with('spaceImages')->get();
+        $images = Space::whereId($id)->whereUserId(user_id())->with('spaceImages')->get();
         foreach ($images as $img) {
             foreach ($img->spaceImages as $data) {
                 $file_path = public_path($data->image);

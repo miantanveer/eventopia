@@ -93,7 +93,7 @@
 
                                                 </div>
                                                 <div class="dropdown-divider m-0"></div>
-                                                <a href="{{ url('notify-list') }}"
+                                                <a href="{{ route('notifications') }}"
                                                     class="dropdown-item text-center p-3 text-muted">{{lang('View all
                                                     Notification')}}</a>
                                             </div>

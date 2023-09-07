@@ -119,7 +119,7 @@ class EntertainmentController extends UserBaseController
     public function loadFormStep4($id)
     {
         $entertainment = Entertainment::find($id);
-        $images = Entertainment::whereUserId(user_id())->with('entertainmentImages')->get();
+        $images = Entertainment::whereId($id)->whereUserId(user_id())->with('entertainmentImages')->get();
         foreach ($images as $img) {
             foreach ($img->entertainmentImages as $data) {
                 $file_path = public_path($data->image);

@@ -212,13 +212,11 @@
                                 <div class="card-body pt-0 h-100">
                                     <div class="owl-carousel owl-carousel-icons2">
                                         @foreach (@$ent as $value)
-                                            <div class="item card_height">
-                                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
-                                                    <a href="{{ route('entertainment-details', @$value->id) }}"
-                                                        class="h-100"><img class="h-100"
-                                                            src="{{ asset(@$value->ent->entertainmentImages[0]->image) }}"
-                                                            alt="img"></a>
-                                                </div>
+                                        <div class="item card_height">
+                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
+                                                <a href="{{route('entertainment-details',@$value->id)}}" class="h-100"><img class="h-100"
+                                                        src="{{ asset(@$value->entertainmentImages[0]->image) }}"
+                                                        alt="img"></a>
                                             </div>
                                         @endforeach
                                     </div>
@@ -243,23 +241,23 @@
                                     </div>
                                     @foreach (@$ent as $value)
                                         @php
-                                            $lat = $value->ent->lat;
-                                            $lng = $value->ent->lng;
-                                            $title = $value->ent->title;
+                                            $lat = $value->lat;
+                                            $lng = $value->lng;
+                                            $title = $value->title;
                                         @endphp
                                         <div class="col-xl-4 col-md-6 col-sm-12">
                                             <div class="card overflow-hidden">
                                                 <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
                                                     <div class="ms-1 card-border float-start">
-                                                        <p class="text-dark p-2 bg-primary">{{lang('From SAR ')}}{{ @$value->hourly_rate }}/hour</p>
+                                                        <p class="text-dark p-2 bg-primary">{{lang('From SAR ')}}{{ @$value->entertainmentActivities[0]->hourly_rate }}{{lang('/hour')}}</p>
                                                     </div>
                                                 </div>
-                                                <a href="{{ route('entertainment-details', @$value->id) }}">
-                                                    <img src="{{ asset(@$value->ent->entertainmentImages[0]->image) }}"
+                                                <a href="{{route('entertainment-details',@$value->id)}}">
+                                                    <img src="{{ asset(@$value->entertainmentImages[0]->image) }}"
                                                         class="card-img-top" style="width: 200px;padding-top: 10px"
                                                         alt="img">
                                                     <div class="card-body">
-                                                        <h5 class="card-title">{{ @$value->ent->title }}</h5>
+                                                        <h5 class="card-title">{{ @$value->title }}</h5>
                                                         <i class="fa fa-group"></i> 25 &nbsp;
                                                         <i class="fa fa-star" style="color:#f1c40f"></i>
                                                         <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -300,29 +298,62 @@
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
     </script>
     <script>
-        $(document).ready(function() {
-            // Get latitude, longitude, and title from PHP variable
-            var lat = {{ @$lat }};
-            var lng = {{ @$lng }};
-            var title = "{{ @$title }}";
+        $(document).ready(function () {
+            // Create an array to hold marker data
+            var markers = [
+                @foreach (@$ent as $value)
+                {
+                    lat: {{ @$value->lat }},
+                    lng: {{ @$value->lng }},
+                    title: "{{ @$value->title }}"
+                },
+                @endforeach
+            ];
+
             // Create a map centered at the specified location
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
-                    lat: lat,
-                    lng: lng
+                    lat: {{ @$lat }},
+                    lng: {{ @$lng }}
                 },
-                zoom: 14
+                zoom: 10
             });
-            // Create a marker at the specified location
-            var marker = new google.maps.Marker({
-                position: {
-                    lat: lat,
-                    lng: lng
-                },
-                map: map,
-                title: title
+
+            // Loop through the markers array and create markers for each data point
+            markers.forEach(function (markerData) {
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: markerData.lat,
+                        lng: markerData.lng
+                    },
+                    map: map,
+                    title: markerData.title
+                });
             });
         });
+        // $(document).ready(function() {
+        //     // Get latitude, longitude, and title from PHP variable
+        //     var lat = {{ @$lat }};
+        //     var lng = {{ @$lng }};
+        //     var title = "{{ @$title }}";
+        //     // Create a map centered at the specified location
+        //     var map = new google.maps.Map(document.getElementById('map'), {
+        //         center: {
+        //             lat: lat,
+        //             lng: lng
+        //         },
+        //         zoom: 14
+        //     });
+        //     // Create a marker at the specified location
+        //     var marker = new google.maps.Marker({
+        //         position: {
+        //             lat: lat,
+        //             lng: lng
+        //         },
+        //         map: map,
+        //         title: title
+        //     });
+        // });
     </script>
     <!-- OWL CAROUSEL JS-->
     <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>

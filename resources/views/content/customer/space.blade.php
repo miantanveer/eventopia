@@ -301,29 +301,62 @@
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
     </script>
     <script>
-        $(document).ready(function() {
-            // Get latitude, longitude, and title from PHP variable
-            var lat = {{ @$lat }};
-            var lng = {{ @$lng }};
-            var title = "{{ @$title }}";
+        $(document).ready(function () {
+            // Create an array to hold marker data
+            var markers = [
+                @foreach (@$space as $value)
+                {
+                    lat: {{ @$value->lat }},
+                    lng: {{ @$value->lng }},
+                    title: "{{ @$value->title }}"
+                },
+                @endforeach
+            ];
+
             // Create a map centered at the specified location
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
-                    lat: lat,
-                    lng: lng
+                    lat: {{ @$lat }},
+                    lng: {{ @$lng }}
                 },
-                zoom: 14
+                zoom: 10
             });
-            // Create a marker at the specified location
-            var marker = new google.maps.Marker({
-                position: {
-                    lat: lat,
-                    lng: lng
-                },
-                map: map,
-                title: title
+
+            // Loop through the markers array and create markers for each data point
+            markers.forEach(function (markerData) {
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: markerData.lat,
+                        lng: markerData.lng
+                    },
+                    map: map,
+                    title: markerData.title
+                });
             });
         });
+        // $(document).ready(function() {
+        //     // Get latitude, longitude, and title from PHP variable
+        //     var lat = {{ @$lat }};
+        //     var lng = {{ @$lng }};
+        //     var title = "{{ @$title }}";
+        //     // Create a map centered at the specified location
+        //     var map = new google.maps.Map(document.getElementById('map'), {
+        //         center: {
+        //             lat: lat,
+        //             lng: lng
+        //         },
+        //         zoom: 14
+        //     });
+        //     // Create a marker at the specified location
+        //     var marker = new google.maps.Marker({
+        //         position: {
+        //             lat: lat,
+        //             lng: lng
+        //         },
+        //         map: map,
+        //         title: title
+        //     });
+        // });
     </script>
     <!-- OWL CAROUSEL JS-->
     <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
