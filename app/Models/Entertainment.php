@@ -27,22 +27,22 @@ class Entertainment extends Model
         'status',
     ];
     use HasFactory;
+    
     public function entertainmentImages()
     {
         return $this->hasMany(EntertainmentImages::class);
     }
+
     public function entertainmentActivities()
     {
         return $this->hasMany(EntertainmentActivity::class);
     }
+
     public function operatingDays()
     {
         return $this->hasMany(OperatingDay::class);
     }
-    public function entHaveActivities()
-    {
-        return $this->hasMany(EntertainmentActivity::class);
-    }
+
     public function blockTime(){
         return $this->hasMany(BlockTime::class);
     }

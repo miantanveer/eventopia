@@ -76,10 +76,8 @@
                                 <span class="text-danger" id="password_err"></span>
                             </div>
                             <div class="col-6">
-                                <input type="checkbox" id="check" data-parsley-required="true"
-                                   required data-parsley-errors-container="#checkbox_err">
+                                <input type="checkbox" id="check" >
                                 <label for="check">Remember me</label>
-                                <span class="text-denger" id="checkbox_err"></span>
                             </div>
                             <div class="col-6 text-end">
                                 <a href="{{route('forget-password')}}" style="color:#006CE4;">Forget Password?</a>

@@ -21,10 +21,7 @@ class BookingController extends UserBaseController
 
     public function entertainment_index()
     {
-        $this->ent = EntertainmentActivity::with('sub_act', 'sub_act.act', 'ent', 'ent.entertainmentImages')
-            ->whereHas('ent', function ($ent_query) {
-                $ent_query->whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id);
-            })->get();
+        $this->ent = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id)->get();
         $this->count = Entertainment::where('last_steps', 'step-9')->where('user_id', '!=', auth()->user()->id)->count();
         return view('content.customer.entertainments', $this->data);
     }
@@ -108,9 +105,22 @@ class BookingController extends UserBaseController
         if (Order::find($id)->update(['status' => 3])) return redirect()->back()->with('success', 'Booking request declined successfully.');
     }
 
-    public function bookings()
+    public function bookings($type = null)
     {
-        $this->orders = Order::whereUserId(auth()->user()->id)->paginate(2);
+        if ($type == 'space') {
+            $this->orders = Order::whereType('space')->whereUserId(auth()->user()->id)->paginate(2);
+        }elseif ($type == 'entertainment') {
+            $this->orders = Order::whereType('entertainment')->whereUserId(auth()->user()->id)->paginate(2);
+        }elseif ($type == 'service') {
+            $this->orders = Order::whereType('service')->whereUserId(auth()->user()->id)->paginate(2);
+        }elseif ($type == 'active') {
+            $this->orders = Order::whereUserId(auth()->user()->id)->whereStatus(2)->paginate(2);
+        }elseif ($type == 'cancel') {
+            $this->orders = Order::whereUserId(auth()->user()->id)->whereStatus(3)->paginate(2);
+        }else {
+            $this->orders = Order::whereUserId(auth()->user()->id)->paginate(2);
+        }
+
         if(!$this->orders->isEmpty())
         {
             return view('layouts.components.bookings',$this->data);

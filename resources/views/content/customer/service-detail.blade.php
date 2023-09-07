@@ -79,7 +79,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <h2 class="fw-bold text-dark">Modern and budget friendly Service</h2>
+                    <h2 class="fw-bold text-dark">{{lang('Modern and budget friendly Service')}}</h2>
                     <p><i class="text-primary side-menu__icon fe fe-map-pin"></i>{{@$service->address}}</p>
                     <div class="row">
                         <div class="mb-3 col-sm-3 text-warning">
@@ -90,26 +90,26 @@
                             <i class="fa fa-star-o text-warning"></i>
                             &nbsp;
                         </div>
-                        <p class="col-sm-3">45 reviews</p>
-                        <p class="col-sm-3"><i class="fa fa-group"></i> 12 people </p>
-                        <p class="col-sm-3"><i class="mdi mdi-alarm text-primary"></i> 1 hr 5 min</p>
+                        <p class="col-sm-3">{{lang('45 reviews')}}</p>
+                        <p class="col-sm-3"><i class="fa fa-group"></i> {{lang('12 people')}} </p>
+                        <p class="col-sm-3"><i class="mdi mdi-alarm text-primary"></i> {{lang('1 hr 5 min')}}</p>
                     </div>
                     <hr class="border-3">
                     <div class="mt-5">
                         <h3 class="text-dark">
-                            About this Service
+                            {{lang('About this Service')}}
                         </h3>
                         <p>{{@$service->description}}</p>
                     </div>
                     <hr class="border-3">
                     <div class="mt-5">
                         <h3 class="text-dark mb-3">
-                            Details
+                            {{lang('Details')}}
                         </h3>
                         <div class="row">
 
                             <div class="col-6">
-                                <h5 class="text-dark">Planning</h5>
+                                <h5 class="text-dark">{{lang('Planning')}}</h5>
                                 <p>{{@$service->planning}}</p>
                             </div>
                             <div class="col-6">
@@ -122,7 +122,7 @@
                     <hr class="border-3">
                     <div class="mt-5">
                         <h3 class="text-dark mb-5">
-                            Pricing for {{@$service->title}}
+                            {{lang('Pricing for')}} {{@$service->title}}
                         </h3>
                         <div class="row">
                             <div class="col-12">
@@ -131,9 +131,9 @@
                                         <div class="d-flex">
                                             <div> <i class="fa fa-dollar text-white fs-30 me-3 mt-2"></i> </div>
                                             <div class="text-white">
-                                                <h2 class="mb-0 number-font">Curious to learn more?</h2>
+                                                <h2 class="mb-0 number-font">{{lang('Curious to learn more?')}}</h2>
                                                 <a href="#">
-                                                    <p class="text-white mb-0">Ask about pricing</p>
+                                                    <p class="text-white mb-0">{{lang('Ask about pricing')}}</p>
                                                 </a>
                                             </div>
 
@@ -147,7 +147,7 @@
                     <hr class="border-3">
                     <div class="mt-5">
                         <h3 class="text-dark">
-                            Reviews (87)
+                            {{lang('Reviews (87)')}}
                         </h3>
                         <div class="row ms-0 border mb-5 p-4 br-5 col-12">
                             <div class="col-md-1 col-2">
@@ -156,11 +156,11 @@
                                 </a>
                             </div>
                             <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
-                                <h5 class="mt-3 text-dark">Gavin Murray</h5>
+                                <h5 class="mt-3 text-dark">{{lang('Gavin Murray')}}</h5>
                             </div>
                             <div class="col-md-1 col-2 empty"></div>
                             <div class="col-md-9 col-sm-8 col-10 reply-content">
-                                <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
+                                <span class="tex-dark">{{lang('June 14, 2023 at 8:00 pm')}}</span>
                                 <div class="rating-stars" id="rating-1" data-stars="2"
                                     style="cursor: pointer; text-align:left !important;font-size: 14px">
                                     <input type="hidden" name="rating-1" value="0"><i class="fa fa-star"
@@ -170,13 +170,13 @@
                                         style="color:#ecf0f1"></i><i class="fa fa-star" style="color:#ecf0f1"></i>
 
                                 </div>
-                                <p class="font-13 text-muted mt-2">In reality space is
-                                    bigger than it seems in photo's.</p>
+                                <p class="font-13 text-muted mt-2">{{lang("In reality space is
+                                    bigger than it seems in photo's.")}}</p>
                             </div>
                             <div class="col-sm-2 col-12 my-auto content-button">
                                 <div class="float-end">
                                     <a href="javascript:void(0);" class="btn btn-primary px-2">
-                                        <i class="zmdi zmdi-mail-reply me-1"></i>Reply
+                                        <i class="zmdi zmdi-mail-reply me-1"></i>{{lang('Reply')}}
                                     </a>
                                 </div>
                             </div>
@@ -188,11 +188,11 @@
                                 </a>
                             </div>
                             <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
-                                <h5 class="mt-3 text-dark">Gavin Murray</h5>
+                                <h5 class="mt-3 text-dark">{{lang('Gavin Murray')}}</h5>
                             </div>
                             <div class="col-md-1 col-2 empty"></div>
                             <div class="col-md-9 col-sm-8 col-10 reply-content">
-                                <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
+                                <span class="tex-dark">{{lang('June 14, 2023 at 8:00 pm')}}</span>
                                 <div class="rating-stars" id="rating-1" data-stars="2"
                                     style="cursor: pointer; text-align:left !important;font-size: 14px">
                                     <input type="hidden" name="rating-1" value="0"><i class="fa fa-star"
@@ -202,13 +202,13 @@
                                         style="color:#ecf0f1"></i><i class="fa fa-star" style="color:#ecf0f1"></i>
 
                                 </div>
-                                <p class="font-13 text-muted mt-2">In reality space is
-                                    bigger than it seems in photo's.</p>
+                                <p class="font-13 text-muted mt-2">{{lang("In reality space is
+                                    bigger than it seems in photo's.")}}</p>
                             </div>
                             <div class="col-sm-2 col-12 my-auto content-button">
                                 <div class="float-end">
                                     <a href="javascript:void(0);" class="btn btn-primary px-2">
-                                        <i class="zmdi zmdi-mail-reply me-1"></i>Reply
+                                        <i class="zmdi zmdi-mail-reply me-1"></i>{{lang('Reply')}}
                                     </a>
                                 </div>
                             </div>
@@ -220,11 +220,11 @@
                                 </a>
                             </div>
                             <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
-                                <h5 class="mt-3 text-dark">Gavin Murray</h5>
+                                <h5 class="mt-3 text-dark">{{lang('Gavin Murray')}}</h5>
                             </div>
                             <div class="col-md-1 col-2 empty"></div>
                             <div class="col-md-9 col-sm-8 col-10 reply-content">
-                                <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
+                                <span class="tex-dark">{{lang('June 14, 2023 at 8:00 pm')}}</span>
                                 <div class="rating-stars" id="rating-1" data-stars="2"
                                     style="cursor: pointer; text-align:left !important;font-size: 14px">
                                     <input type="hidden" name="rating-1" value="0"><i class="fa fa-star"
@@ -234,13 +234,13 @@
                                         style="color:#ecf0f1"></i><i class="fa fa-star" style="color:#ecf0f1"></i>
 
                                 </div>
-                                <p class="font-13 text-muted mt-2">In reality space is
-                                    bigger than it seems in photo's.</p>
+                                <p class="font-13 text-muted mt-2">{{lang("In reality space is
+                                    bigger than it seems in photo's.")}}</p>
                             </div>
                             <div class="col-sm-2 col-12 my-auto content-button">
                                 <div class="float-end">
                                     <a href="javascript:void(0);" class="btn btn-primary px-2">
-                                        <i class="zmdi zmdi-mail-reply me-1"></i>Reply
+                                        <i class="zmdi zmdi-mail-reply me-1"></i>{{lang('Reply')}}
                                     </a>
                                 </div>
                             </div>
@@ -249,7 +249,7 @@
                     <hr class="border-3">
                     <div class="mt-5">
                         <h3 class="text-dark mb-5">
-                            Meet the Team
+                            {{lang('Meet the Team')}}
                         </h3>
                         <div class="row">
                             <div class="col-md-1 col-2">
@@ -258,12 +258,12 @@
                                 </a>
                             </div>
                             <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
-                                <h5 class="mt-2 text-dark">Ellison Wane</h5>
-                                <span class="tex-dark">Owner</span>
+                                <h5 class="mt-2 text-dark">{{lang('Ellison Wane')}}</h5>
+                                <span class="tex-dark">{{lang('Owner')}}</span>
                             </div>
                             <div class="col-md-1 col-2 empty"></div>
                             <div class="col-md-9 col-sm-8 col-10 reply-content">
-                                <p class="font-13 text-muted mt-2">I've worked in the events industry for more than ten
+                                <p class="font-13 text-muted mt-2">{{lang("I've worked in the events industry for more than ten
                                     years, organizing international weddings and overseeing significant regional
                                     events. I relocated to Paris to work with Fete in France, assisting in the development
                                     of international events, after spending several
@@ -271,9 +271,9 @@
                                     begin organizing weddings and events on
                                     my own because of my years of experience and love of event planning. Creating stunning,
                                     once-in-a-lifetime events for my couples
-                                    and clients gives me immense excitement.</p>
+                                    and clients gives me immense excitement.")}}</p>
                                 <div class="d-flex seller-btn">
-                                    <a href="javascript:void(0)" class="btn btn-outline-primary">Message Seller</a>
+                                    <a href="javascript:void(0)" class="btn btn-outline-primary">{{lang('Message Seller')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -285,8 +285,8 @@
             <div class="card custom-card">
                 <div class="card-body">
                     <div class="mt-3 text-center">
-                        <h2>Message Seller</h2>
-                        <p>Starting Cost: $$$ - Moderate</p>
+                        <h2>{{lang('Message Seller')}}</h2>
+                        <p>{{lang('Starting Cost: $$$ - Moderate')}}</p>
                     </div>
                     <hr class="border-3">
                     <div class="">
@@ -301,15 +301,15 @@
                                     </div>
                                     <div class="custom-checkbox my-3 display-inline">
                                         <input type="checkbox" class="form-input" name="flexible_date" value="1">
-                                        <span>My wedding date is flexible</span>
+                                        <span>{{lang('My wedding date is flexible')}}</span>
                                     </div>
                                     <input type="number" class="form-control mb-3" required name="guests" placeholder="Number of Guests">
                                     <textarea name="description" id="description" required class="form-control" rows="3" class="mb-3"
                                         placeholder="Interduce yourself and the share your event vision"></textarea>
                                     <div class="mt-3">
-                                        <p>By clicking 'Request Quote', you agree that your information
+                                        <p>{{lang("By clicking 'Request Quote', you agree that your information
                                             will be shared with the vendor. Please see our Privacy Policy
-                                            and Terms of Use for details..</p>
+                                            and Terms of Use for details..")}}</p>
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-12 pe-0">

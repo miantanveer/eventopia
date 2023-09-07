@@ -169,7 +169,7 @@ class ListingSpaceController extends UserBaseController
 
     public function imagesStep($space_id)
     {
-        $images = Space::whereUserId(user_id())->with('spaceImages')->get();
+        $images = Space::whereId($space_id)->whereUserId(user_id())->with('spaceImages')->get();
         foreach ($images as $img) {
             foreach ($img->spaceImages as $data) {
                 $file_path = public_path($data->image);
@@ -219,15 +219,29 @@ class ListingSpaceController extends UserBaseController
             if ($space) {
                 $space->operatingDays()->delete(); // Assuming you have a relationship method named operatingDays
             }
-
-            if ($req->has('monday')) $this->operatingDay($space_id, $req->monday, $req->monday_radio, $req->monday_start_time, $req->monday_end_time);
-            if ($req->has('tuesday')) $this->operatingDay($space_id, $req->tuesday, $req->tuesday_radio, $req->tuesday_start_time, $req->tuesday_end_time);
-            if ($req->has('wednesday')) $this->operatingDay($space_id, $req->wednesday, $req->wednesday_radio, $req->wednesday_start_time, $req->wednesday_end_time);
-            if ($req->has('thursday')) $this->operatingDay($space_id, $req->thursday, $req->thursday_radio, $req->thursday_start_time, $req->thursday_end_time);
-            if ($req->has('friday')) $this->operatingDay($space_id, $req->friday, $req->friday_radio, $req->friday_start_time, $req->friday_end_time);
-            if ($req->has('saturday')) $this->operatingDay($space_id, $req->saturday, $req->saturday_radio, $req->saturday_start_time, $req->saturday_end_time);
-            if ($req->has('sunday')) $this->operatingDay($space_id, $req->sunday, $req->sunday_radio, $req->sunday_start_time, $req->sunday_end_time);
-
+            $weekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+            $counts = [0, 1, 2, 3, 4];
+            foreach ($weekDay as $weekDay) {
+                if ($req->$weekDay == $weekDay) {
+                    $day = new OperatingDay();
+                    $day->space_id = $space_id;
+                    $day->week_day = $weekDay;
+                    $day->save();
+                    $week_day = $weekDay . '_radio';
+                }
+                foreach ($counts as $count) {
+                    $start_time = $weekDay . '_start_time_' . $count;
+                    $end_time = $weekDay . '_end_time_' . $count;
+                    if ($req->$start_time && $req->$end_time !== null) {
+                        $hour = new OperatingHour();
+                        $hour->operating_day_id = $day->id;
+                        $hour->radio = $req->$week_day;
+                        $hour->start_time = $req->$start_time;
+                        $hour->end_time = $req->$end_time;
+                        $hour->save();
+                    }
+                }
+            }
             $space->update(["last_step" => '5']);
             return redirect()->route('safety-measure-step', ['space_id' => $space_id]);
         } catch (\Throwable $th) {

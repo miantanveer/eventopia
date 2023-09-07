@@ -22,40 +22,59 @@ class CartController extends UserBaseController
     }
     public function store(Request $req,$id,$type)
     {
-        if($type == 'entertainment'){
-            $exists = Cart::whereEntertainmentId($id)->whereUserId(auth()->user()->id)->exists();
-            if($exists){
-                if ($req->cart_action == 'check_out') {
+        if(Auth::check()){
+            if($type == 'entertainment'){
+                $exists = Cart::whereEntertainmentId($id)->whereUserId(auth()->user()->id)->exists();
+                if($exists){
                     return redirect()->route('checkout');
-                }elseif ($req->cart_action == 'add_to_cart') {
-                    return redirect()->back()->with('error','Item Already Exists in your Cart');
+                }
+                else{
+                    cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
+                    return redirect()->route('checkout');
                 }
             }
-            else{
-                cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
-                if ($req->cart_action == 'check_out') {
+            elseif($type == 'space'){
+                $exists = Cart::whereSpaceId($id)->whereUserId(auth()->user()->id)->exists();
+                if($exists){
                     return redirect()->route('checkout');
-                }elseif ($req->cart_action == 'add_to_cart') {
-                    return redirect()->back()->with('success','Item Added to Cart successfully');
+                }
+                else{
+                    cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
+                    return redirect()->route('checkout');
                 }
             }
         }
+    }
+    public function stores($id,$type)
+    {
+        if($type == 'entertainment'){
+            $exists = Cart::whereEntertainmentId($id)->whereUserId(auth()->user()->id)->exists();
+            if($exists){
+                return redirect()->back()->with('error','Item Already Exists in your Cart');
+            }
+            else{
+                cartStore($id,$type);
+                return redirect()->back()->with('success','Item Added to Cart successfully');
+            }
+        }
+        // elseif($type == 'service'){
+        //     $exists = Cart::whereServiceId($id)->whereUserId(auth()->user()->id)->exists();
+        //     if($exists){
+        //         return redirect()->back()->with('error','Item Already Exists in your Cart');
+        //     }
+        //     else{
+        //         cartStore($id,$type);
+        //         return redirect()->back()->with('success','Item Added to Cart successfully');
+        //     }
+        // }
         elseif($type == 'space'){
             $exists = Cart::whereSpaceId($id)->whereUserId(auth()->user()->id)->exists();
             if($exists){
-                if ($req->cart_action == 'check_out') {
-                    return redirect()->route('checkout');
-                }elseif ($req->cart_action == 'add_to_cart') {
-                    return redirect()->back()->with('error','Item Already Exists in your Cart');
-                }
+                return redirect()->back()->with('error','Item Already Exists in your Cart');
             }
             else{
-                cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
-                if ($req->cart_action == 'check_out') {
-                    return redirect()->route('checkout');
-                }elseif ($req->cart_action == 'add_to_cart') {
-                    return redirect()->back()->with('success','Item Added to Cart successfully');
-                }
+                cartStore($id,$type);
+                return redirect()->back()->with('success','Item Added to Cart successfully');
             }
         }
     }

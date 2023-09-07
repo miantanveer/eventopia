@@ -34,30 +34,30 @@
                                         <tr role="row" class="text-center">
                                             <th class="sorting sorting_asc text-white p-4" tabindex="0"
                                                 aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending"
-                                                aria-label="Name: activate to sort column descending">Category</th>
+                                                aria-label="Name: activate to sort column descending">{{lang('Category')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Position: activate to sort column ascending">Location
+                                                aria-label="Position: activate to sort column ascending">{{lang('Location')}}
                                             </th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Office: activate to sort column ascending">Customer name</th>
+                                                aria-label="Office: activate to sort column ascending">{{lang('Customer name')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Age: activate to sort column ascending">Time</th>
+                                                aria-label="Age: activate to sort column ascending">{{lang('Time')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Age: activate to sort column ascending">Price</th>
+                                                aria-label="Age: activate to sort column ascending">{{lang('Price')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Start date: activate to sort column ascending">Attendees
+                                                aria-label="Start date: activate to sort column ascending">{{lang('Attendees')}}
                                                 Number</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Salary: activate to sort column ascending">Type</th>
+                                                aria-label="Salary: activate to sort column ascending">{{lang('Type')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Salary: activate to sort column ascending">Action</th>
+                                                aria-label="Salary: activate to sort column ascending">{{lang('Action')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>

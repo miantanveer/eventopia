@@ -63,22 +63,22 @@
                             <div id="step-3" class="mb-5">
                                 <div class="container">
                                     <div class="text-center mb-6">
-                                        <h3 class="mt-3 mt-1"><b>Upload photos / videos of your entertainment &
-                                                talent</b>
+                                        <h3 class="mt-3 mt-1"><b>{{lang('Upload photos / videos of your entertainment &
+                                                talent')}}</b>
                                         </h3>
-                                        <p class="">Photos / videos are the first thing that guests will see. We
+                                        <p class="">{{lang('Photos / videos are the first thing that guests will see. We
                                             recommend
-                                            adding 10 or more high quality photos.</p>
+                                            adding 10 or more high quality photos.')}}</p>
                                     </div>
-                                    <p class="mb-3"><b>Photo requirements:</b></p>
+                                    <p class="mb-3"><b>{{lang('Photo requirements:')}}</b></p>
                                     <div class="row mb-5">
                                         <div class="col-md-6">
-                                            <li>High resolution - At least 1,000 pixels wide</li>
-                                            <li>Horizontal orientation - No vertical photos</li>
+                                            <li>{{lang('High resolution - At least 1,000 pixels wide')}}</li>
+                                            <li>{{lang('Horizontal orientation - No vertical photos')}}</li>
                                         </div>
                                         <div class="col-md-6">
-                                            <li>Color photos - No black & white</li>
-                                            <li>Misc. - No collages, screenshots, or watermarks</li>
+                                            <li>{{lang('Color photos - No black & white')}}</li>
+                                            <li>{{lang('Misc. - No collages, screenshots, or watermarks')}}</li>
                                         </div>
                                     </div>
                                     @if ($errors->any())
@@ -105,26 +105,26 @@
                                                 <i class="display-4 text-muted uil uil-cloud-upload"></i>
                                             </div>
 
-                                            <h4>Drop files here or click to upload.</h4>
+                                            <h4>{{lang('Drop files here or click to upload.')}}</h4>
                                         </div>
                                     </form>
                                     <div class="row">
                                         <div class="col-12">
                                             <p><img src="{{ asset('assets/images/brand/light-bulb.png') }}" class="w-5"
-                                                    alt=""> Drag and drop your photos to change
+                                                    alt=""> {{lang('Drag and drop your photos to change
                                                 the order. Your
                                                 first photo
                                                 is what your guests will see when browsing so make sure it represents
                                                 your
-                                                space.</p>
+                                                space.')}}</p>
                                         </div>
                                     </div>
                                     <hr class="bg-dark border-3">
                                 </div>
                                 <div class="float-end">
                                     <a class="btn btn-light"
-                                        href="{{ route('load_entertainment_form_3', $id) }}">Previous</a>
-                                    <button class="btn btn-primary" onclick="upload()">Next</button>
+                                        href="{{ route('load_entertainment_form_3', $id) }}">{{lang('Previous')}}</a>
+                                    <button class="btn btn-primary" onclick="upload()">{{lang('Next')}}</button>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +169,7 @@
                         }
                         uploads++
                     });
-                    
+
                 },
             });
 

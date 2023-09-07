@@ -23,8 +23,8 @@
                                     <div class="d-flex order-lg-2">
                                         <div class="d-flex seller-btn">
                                             <a href="{{ URL('/seller-dashboard') }}"><button
-                                                    class="btn-pill p-2 text-info bg-white border-info">Become a
-                                                    Seller</button></a>
+                                                    class="btn-pill p-2 text-info bg-white border-info">{{lang('Become a
+                                                    Seller')}}</button></a>
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
@@ -49,7 +49,7 @@
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <div class="drop-heading border-bottom">
                                                     <div class="d-flex">
-                                                        <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark">Notifications
+                                                        <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark">{{lang('Notifications')}}
                                                         </h6>
                                                     </div>
                                                 </div>
@@ -70,7 +70,7 @@
                                                                 </div>
                                                                 <div class="mt-1">
                                                                     <h5 class="notification-label mb-1">
-                                                                        {{ @$notify->description }}</h5>
+                                                                        {{ lang(@$notify->description) }}</h5>
                                                                     <span
                                                                         class="notification-subtext">{{ @$notify->created_at->diffForHumans() }}</span>
                                                                 </div>
@@ -83,7 +83,7 @@
                                                                 </div>
                                                                 <div class="mt-1">
                                                                     <h5 class="notification-label mb-1">
-                                                                        {{ @$notify->description }}</h5>
+                                                                        {{ lang(@$notify->description) }}</h5>
                                                                     <span
                                                                         class="notification-subtext">{{ @$notify->created_at->diffForHumans() }}</span>
                                                                 </div>
@@ -93,9 +93,9 @@
 
                                                 </div>
                                                 <div class="dropdown-divider m-0"></div>
-                                                <a href="{{ url('notify-list') }}"
-                                                    class="dropdown-item text-center p-3 text-muted">View all
-                                                    Notification</a>
+                                                <a href="{{ route('notifications') }}"
+                                                    class="dropdown-item text-center p-3 text-muted">{{lang('View all
+                                                    Notification')}}</a>
                                             </div>
                                         </div>
                                         <div class="dropdown d-flex profile-1">
@@ -106,15 +106,15 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <a class="dropdown-item" href="{{ url('/customer-dashboard') }}">
-                                                    <i class="dropdown-icon fe fe-home"></i> Dashboard
+                                                    <i class="dropdown-icon fe fe-home"></i> {{lang('Dashboard')}}
                                                 </a>
                                                 <a class="dropdown-item" href="{{ route('edit-profile-index') }}">
-                                                    <i class="dropdown-icon fe fe-user"></i> Manage Account
+                                                    <i class="dropdown-icon fe fe-user"></i> {{lang('Manage Account')}}
                                                 </a>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <button class="dropdown-item">
-                                                        <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
+                                                        <i class="dropdown-icon fe fe-alert-circle"></i> {{lang('Sign out')}}
                                                     </button>
                                                 </form>
                                             </div>

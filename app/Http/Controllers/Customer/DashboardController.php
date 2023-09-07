@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserBaseController;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -13,7 +14,40 @@ class DashboardController extends UserBaseController
 {
     public function index()
     {
-        return view('content.customer.customer-dashboard');
+        $totalSpaceOrders = Order::whereType('space')->whereUserId(user_id())->count();
+        $this->upComingSpaceBookings = Order::whereType('space')->whereUserId(user_id())->whereStatus(1)->count();
+        $this->cancelSpaceBookings = Order::whereType('space')->whereUserId(user_id())->whereStatus(3)->count();
+        $this->previousSpaceBookings = Order::whereType('space')->whereUserId(user_id())->whereStatus(4)->count();
+
+        $totalEnterOrders = Order::whereType('entertainment')->whereUserId(user_id())->count();
+        $this->upComingEnterBookings = Order::whereType('entertainment')->whereUserId(user_id())->whereStatus(1)->count();
+        $this->cancelEnterBookings = Order::whereType('entertainment')->whereUserId(user_id())->whereStatus(3)->count();
+        $this->previousEnterBookings = Order::whereType('entertainment')->whereUserId(user_id())->whereStatus(4)->count();
+
+        $totalServiceOrders = Order::whereType('service')->whereUserId(user_id())->count();
+        $this->upComingServiceBookings = Order::whereType('service')->whereUserId(user_id())->whereStatus(1)->count();
+        $this->cancelServiceBookings = Order::whereType('service')->whereUserId(user_id())->whereStatus(3)->count();
+        $this->previousServiceBookings = Order::whereType('service')->whereUserId(user_id())->whereStatus(4)->count();
+
+        $this->spaceUpcomingProgress = $totalSpaceOrders ? ($this->upComingSpaceBookings / $totalSpaceOrders) * 100 : 0 ;
+        $this->spaceCancelProgress = $totalSpaceOrders ? ($this->cancelSpaceBookings / $totalSpaceOrders) * 100 : 0 ;
+        $this->spacePreviousProgress = $totalSpaceOrders ? ($this->previousSpaceBookings / $totalSpaceOrders) * 100 : 0 ;
+
+        $this->enterUpcomingProgress = $totalEnterOrders ? ($this->upComingEnterBookings / $totalEnterOrders) * 100 : 0 ;
+        $this->enterCancelProgress = $totalEnterOrders ? ($this->cancelEnterBookings / $totalEnterOrders) * 100 : 0 ;
+        $this->enterPreviousProgress = $totalEnterOrders ? ($this->previousEnterBookings / $totalEnterOrders) * 100 : 0 ;
+
+        $this->serviceUpcomingProgress = $totalServiceOrders ? ($this->upComingServiceBookings / $totalServiceOrders) * 100 : 0 ;
+        $this->serviceCancelProgress = $totalServiceOrders ? ($this->cancelServiceBookings / $totalServiceOrders) * 100 : 0 ;
+        $this->servicePreviousProgress = $totalServiceOrders ? ($this->previousServiceBookings / $totalServiceOrders) * 100 : 0 ;
+
+        $this->totalBookingsCount = $totalSpaceOrders + $totalEnterOrders + $totalServiceOrders;
+        $this->totalBookings = Order::whereIn('status', [1, 2, 3])->take(5)->get();
+
+        $this->cancelBookingCount = $this->cancelSpaceBookings + $this->cancelEnterBookings + $this->cancelServiceBookings;
+        $this->activeBookingCount = Order::whereUserId(user_id())->whereStatus(2)->count();
+
+        return view('content.customer.customer-dashboard',$this->data);
     }
 
     public function editProfileIndex()

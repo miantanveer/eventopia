@@ -6,22 +6,24 @@ use App\Http\Controllers\UserBaseController;
 use App\Models\Age;
 use App\Models\CancellationPolicy;
 use App\Models\CompanyReview;
+use App\Models\EntActivity;
+use App\Models\EntActivityAmenity;
 use App\Models\Entertainment;
 use App\Models\EntertainmentActivity;
 use App\Models\EntertainmentImages;
 use App\Models\OperatingDay;
 use App\Models\OperatingHour;
-use App\Models\EntActivity;
-use App\Models\EntActivityAmenity;
 use App\Models\Space;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EntertainmentController extends UserBaseController
 {
     public function listEntertainment()
     {
-        if (Auth::check()) return view('content.seller.list-entertainment');
+        if (Auth::check()) {
+            return view('content.seller.list-entertainment');
+        }
 
         return view('content.seller.add-entertainment');
     }
@@ -94,14 +96,14 @@ class EntertainmentController extends UserBaseController
         $entertainment = Entertainment::find($id);
         return view('content\seller\entertainment\create\form-step-3', ['id' => $id, 'entertainment' => $entertainment]);
     }
-    public function FormStep3(Request $req,$id)
+    public function FormStep3(Request $req, $id)
     {
         $req->validate([
-            'address'=>'required',
-            'country'=>'required',
-            'city'=>'required',
-            'state'=>'required',
-            'postal_code'=>'required'
+            'address' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'postal_code' => 'required',
         ]);
         $entertainment = Entertainment::find($id);
         $entertainment->address = $req->address;
@@ -113,13 +115,13 @@ class EntertainmentController extends UserBaseController
         $entertainment->lat = $req->lat;
         $entertainment->last_steps = 'step-3';
         $entertainment->save();
-        return redirect()->route('load_entertainment_form_4',['id'=>$id]);
+        return redirect()->route('load_entertainment_form_4', ['id' => $id]);
 
     }
     public function loadFormStep4($id)
     {
         $entertainment = Entertainment::find($id);
-        $images = Entertainment::whereUserId(user_id())->with('entertainmentImages')->get();
+        $images = Entertainment::whereId($id)->whereUserId(user_id())->with('entertainmentImages')->get();
         foreach ($images as $img) {
             foreach ($img->entertainmentImages as $data) {
                 $file_path = public_path($data->image);
@@ -143,7 +145,7 @@ class EntertainmentController extends UserBaseController
         }
         $image = new EntertainmentImages();
         $image->entertainment_id = $id;
-        $image->image = $foldername.$filename;
+        $image->image = $foldername . $filename;
         $image->save();
         $entertainment = Entertainment::find($id);
         $entertainment->last_steps = 'step-4';
@@ -162,34 +164,30 @@ class EntertainmentController extends UserBaseController
         try {
             $entertainment = Entertainment::find($id);
             if ($entertainment) {
-                $entertainment->operatingDays()->delete(); // Assuming you have a relationship method named operatingDays
+                $entertainment->operatingDays()->delete();
             }
-            if ($req->has('monday')) {
-                $this->operatingDay($id, $req->monday, $req->monday_radio, $req->monday_start_time, $req->monday_end_time);
-            }
-
-            if ($req->has('tuesday')) {
-                $this->operatingDay($id, $req->tuesday, $req->tuesday_radio, $req->tuesday_start_time, $req->tuesday_end_time);
-            }
-
-            if ($req->has('wednesday')) {
-                $this->operatingDay($id, $req->wednesday, $req->wednesday_radio, $req->wednesday_start_time, $req->wednesday_end_time);
-            }
-
-            if ($req->has('thursday')) {
-                $this->operatingDay($id, $req->thursday, $req->thursday_radio, $req->thursday_start_time, $req->thursday_end_time);
-            }
-
-            if ($req->has('friday')) {
-                $this->operatingDay($id, $req->friday, $req->friday_radio, $req->friday_start_time, $req->friday_end_time);
-            }
-
-            if ($req->has('saturday')) {
-                $this->operatingDay($id, $req->saturday, $req->saturday_radio, $req->saturday_start_time, $req->saturday_end_time);
-            }
-
-            if ($req->has('sunday')) {
-                $this->operatingDay($id, $req->sunday, $req->sunday_radio, $req->sunday_start_time, $req->sunday_end_time);
+            $weekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+            $counts = [0, 1, 2, 3, 4];
+            foreach ($weekDay as $weekDay) {
+                if ($req->$weekDay == $weekDay) {
+                    $day = new OperatingDay();
+                    $day->entertainment_id = $id;
+                    $day->week_day = $weekDay;
+                    $day->save();
+                    $week_day = $weekDay . '_radio';
+                }
+                foreach ($counts as $count) {
+                    $start_time = $weekDay . '_start_time_' . $count;
+                    $end_time = $weekDay . '_end_time_' . $count;
+                    if ($req->$start_time && $req->$end_time !== null) {
+                        $hour = new OperatingHour();
+                        $hour->operating_day_id = $day->id;
+                        $hour->radio = $req->$week_day;
+                        $hour->start_time = $req->$start_time;
+                        $hour->end_time = $req->$end_time;
+                        $hour->save();
+                    }
+                }
             }
             return redirect()->route('load_entertainment_form_6', ['id' => $id]);
         } catch (\Throwable $th) {
@@ -215,7 +213,7 @@ class EntertainmentController extends UserBaseController
     }
     public function loadFormStep7($id)
     {
-        $this->ent_activity = EntActivity::with('subActivities','entAmenities')->get();
+        $this->ent_activity = EntActivity::with('subActivities', 'entAmenities')->get();
         $this->id = $id;
         return view('content\seller\entertainment\create\form-step-7', $this->data);
     }
@@ -224,7 +222,7 @@ class EntertainmentController extends UserBaseController
         $this->musical = EntertainmentActivity::whereEntertainmentId($id)->first();
         $this->entertainers = EntertainmentActivity::whereEntertainmentId($id)->first();
         $this->event = EntertainmentActivity::whereEntertainmentId($id)->first();
-        $this->ent_activity = EntActivity::with('subActivities','entAmenities')->get();
+        $this->ent_activity = EntActivity::with('subActivities', 'entAmenities')->get();
         $this->id = $id;
         $this->key = $key;
         return view('content\seller\entertainment\create\form-step-7', $this->data);
@@ -257,7 +255,7 @@ class EntertainmentController extends UserBaseController
                         $ent_activity->max_hours = $activityData['minimum_hour'][0];
                         $ent_activity->discount = $activityData['discount'][0];
                         $ent_activity->ent_activity_id = $activityData['space_activity_id'][0];
-                        $ent_activity->join	 = $activityData['instant_booking'][0];
+                        $ent_activity->join = $activityData['instant_booking'][0];
                         $ent_activity->guest_capacity = $activityData['max_guests'][0];
                         $ent_activity->save();
 
@@ -310,7 +308,7 @@ class EntertainmentController extends UserBaseController
                         $ent_activity->max_hours = $activityData['minimum_hour'][0];
                         $ent_activity->discount = $activityData['discount'][0];
                         $ent_activity->ent_activity_id = $activityData['space_activity_id'][0];
-                        $ent_activity->join	 = $activityData['instant_booking'][0];
+                        $ent_activity->join = $activityData['instant_booking'][0];
                         $ent_activity->guest_capacity = $activityData['max_guests'][0];
                         $ent_activity->save();
                         $ent = Entertainment::find($id);
@@ -327,7 +325,7 @@ class EntertainmentController extends UserBaseController
                         }
                     }
                 }
-                return redirect()->route('my-listing')->with('success','Entertainment Updated Successfully');
+                return redirect()->route('my-listing')->with('success', 'Entertainment Updated Successfully');
             } else {
                 return redirect()->back()->with('error', 'Please select any activity.');
             }
@@ -335,7 +333,7 @@ class EntertainmentController extends UserBaseController
             return redirect()->back()->with('error', $th->getMessage());
         }
 
-        return redirect()->route('my-listing')->with('success','Entertainment Updated Successfully');
+        return redirect()->route('my-listing')->with('success', 'Entertainment Updated Successfully');
     }
     public function loadFormStep8($id)
     {
@@ -363,7 +361,7 @@ class EntertainmentController extends UserBaseController
         $entertainment->contact_first_name = $req->contact_first_name;
         $entertainment->contact_last_name = $req->contact_last_name;
         $entertainment->contact_num = $req->contact_num;
-        $entertainment->image = $foldername.$filename;
+        $entertainment->image = $foldername . $filename;
         $entertainment->last_steps = 'step-8';
         $entertainment->save();
         return redirect()->route('load_entertainment_form_9', $id);
@@ -399,19 +397,7 @@ class EntertainmentController extends UserBaseController
         return view('content\seller\entertainment\create\form-step-10', ['id' => $id]);
 
     }
-    public function operatingDay($id, $week_day, $radio, $start, $end)
-    {
-        $day = new OperatingDay();
-        $day->entertainment_id = $id;
-        $day->week_day = $week_day;
-        $day->save();
-        $hour = new OperatingHour();
-        $hour->operating_day_id = $day->id;
-        $hour->radio = $radio;
-        $hour->start_time = $start;
-        $hour->end_time = $end;
-        $hour->save();
-    }
+
     public function resumeForm($id)
     {
         $entertainment = Entertainment::find($id);
@@ -459,6 +445,6 @@ class EntertainmentController extends UserBaseController
             }
         }
         $entertainment->delete();
-        return redirect()->route('my-listing')->with('success','Entertainment Deleted Successfully');
+        return redirect()->route('my-listing')->with('success', 'Entertainment Deleted Successfully');
     }
 }

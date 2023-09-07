@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\EntActivity;
-use App\Models\EntertainmentActivity;
+use App\Models\Entertainment;
 use App\Models\EntSubActivity;
 use App\Models\Service;
 use App\Models\ServiceCategory;
@@ -66,23 +66,22 @@ class LandingController extends UserBaseController
     }
     public function entertainment_search(Request $req)
     {
-        $ent = EntertainmentActivity::with('sub_act', 'sub_act.act', 'ent', 'ent.entertainmentImages')
-            ->orWhere(function ($query) use ($req) {
-                $query->whereHas('sub_act', function ($subQuery) use ($req) {
-                    $subQuery->whereTitle($req->planCatagories_1);
+        $ent = Entertainment::with('entertainmentActivities', 'entertainmentActivities.entertainment','entertainmentActivities.sub_act', 'entertainmentActivities.sub_act.act')
+            ->where(function ($query) use ($req) {
+                $query->whereHas('entertainmentActivities.entertainment', function ($subQuery) use ($req) {
+                    $subQuery->orWhere('title',$req->planCatagories_1)
+                    ->orWhere('description','Like','%'.$req->planCatagories_1.'%');
                 })
-                    ->orWhereHas('sub_act.act', function ($activityQuery) use ($req) {
-                        $activityQuery->whereTitle($req->planCatagories_1);
+                    ->orWhere(function ($locationQuery) use ($req) {
+                        if ($req->location_1) {
+                            $locationQuery->where('address', $req->location_1)
+                                ->orWhere('country', $req->location_1)
+                                ->orWhere('city', $req->location_1)
+                                ->orWhere('state', $req->location_1);
+                        }
                     });
             })
-            ->orWhereHas('ent', function ($ent_query) use ($req) {
-                $ent_query->whereLastSteps('step-9');
-                $ent_query->where('address', $req->location_1)
-                    ->orWhere('country', $req->location_1)
-                    ->orWhere('city', $req->location_1)
-                    ->orWhere('state', $req->location_1);
-            })
-            ->orderBy('id', 'desc')
+            ->whereLastSteps('step-9')
             ->get();
         $this->type = 'entertainment';
         $this->data = $ent;

@@ -12,14 +12,16 @@ use App\Models\ServiceTeam;
 use App\Models\ServiceTimeSetting;
 use App\Models\ServiceTitle;
 use App\Models\TeamMembers;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends UserBaseController
 {
     public function listService()
     {
-        if (Auth::check()) return view('content.seller.list-service');
+        if (Auth::check()) {
+            return view('content.seller.list-service');
+        }
 
         return view('content.seller.add-services');
     }
@@ -64,7 +66,7 @@ class ServiceController extends UserBaseController
     }
     public function loadServiceForm2($id)
     {
-        $images = Service::whereUserId(user_id())->with('serviceImages')->get();
+        $images = Service::whereId($id)->whereUserId(user_id())->with('serviceImages')->get();
         foreach ($images as $img) {
             foreach ($img->serviceImages as $data) {
                 $file_path = public_path($data->image);
@@ -150,40 +152,43 @@ class ServiceController extends UserBaseController
         $time = ServiceTimeSetting::whereServiceId($id)->first();
         return view('content.seller.service.create.form-step-5', ['id' => $id, 'time' => $time]);
     }
-    public function serviceForm5(Request $request, $id)
+    public function serviceForm5(Request $req, $id)
     {
         $service = Service::find($id);
         $service->last_steps = 'step-5';
         $service->save();
-        if ($request->has('monday')) {
-            $this->operatingDay($id, $request->monday, $request->monday_radio, $request->monday_start_time, $request->monday_end_time);
+        try {
+            $service = Service::find($id);
+            if ($service) {
+                $service->operatingDays()->delete();
+            }
+            $weekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+            $counts = [0, 1, 2, 3, 4];
+            foreach ($weekDay as $weekDay) {
+                if ($req->$weekDay == $weekDay) {
+                    $day = new OperatingDay();
+                    $day->service_id = $id;
+                    $day->week_day = $weekDay;
+                    $day->save();
+                    $week_day = $weekDay . '_radio';
+                }
+                foreach ($counts as $count) {
+                    $start_time = $weekDay . '_start_time_' . $count;
+                    $end_time = $weekDay . '_end_time_' . $count;
+                    if ($req->$start_time && $req->$end_time !== null) {
+                        $hour = new OperatingHour();
+                        $hour->operating_day_id = $day->id;
+                        $hour->radio = $req->$week_day;
+                        $hour->start_time = $req->$start_time;
+                        $hour->end_time = $req->$end_time;
+                        $hour->save();
+                    }
+                }
+            }
+            return redirect()->route('service-form-6', ['id' => $id]);
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
         }
-
-        if ($request->has('tuesday')) {
-            $this->operatingDay($id, $request->tuesday, $request->tuesday_radio, $request->tuesday_start_time, $request->tuesday_end_time);
-        }
-
-        if ($request->has('wednesday')) {
-            $this->operatingDay($id, $request->wednesday, $request->wednesday_radio, $request->wednesday_start_time, $request->wednesday_end_time);
-        }
-
-        if ($request->has('thursday')) {
-            $this->operatingDay($id, $request->thursday, $request->thursday_radio, $request->thursday_start_time, $request->thursday_end_time);
-        }
-
-        if ($request->has('friday')) {
-            $this->operatingDay($id, $request->friday, $request->friday_radio, $request->friday_start_time, $request->friday_end_time);
-        }
-
-        if ($request->has('saturday')) {
-            $this->operatingDay($id, $request->saturday, $request->saturday_radio, $request->saturday_start_time, $request->saturday_end_time);
-        }
-
-        if ($request->has('sunday')) {
-            $this->operatingDay($id, $request->sunday, $request->sunday_radio, $request->sunday_start_time, $request->sunday_end_time);
-        }
-
-        return redirect()->route('service-form-6', ['id' => $id]);
     }
     public function loadserviceForm6($id)
     {

@@ -109,7 +109,7 @@
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
                                 data-bs-toggle="dropdown">
-                                Price <span class="caret"></span>
+                                {{lang('Price')}} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <div class="custom-controls-stacked">
@@ -117,17 +117,17 @@
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option1" checked="">
-                                            <span class="custom-control-label">Up to $100</span>
+                                            <span class="custom-control-label">{{lang('Up to $100')}}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option2">
-                                            <span class="custom-control-label">$100 to & $250</span>
+                                            <span class="custom-control-label">{{lang('$100 to & $250')}}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">$250 to & $450</span>
+                                            <span class="custom-control-label">{{lang('$250 to & $450')}}</span>
                                         </label>
                                     </form>
                                 </div>
@@ -147,7 +147,7 @@
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
                                 data-bs-toggle="dropdown">
-                                Attendees <span class="caret"></span>
+                                {{lang('Attendees')}} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <div class="custom-controls-stacked">
@@ -155,22 +155,22 @@
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option1" checked="">
-                                            <span class="custom-control-label">0 to 10</span>
+                                            <span class="custom-control-label">{{lang('0 to 10')}}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option2">
-                                            <span class="custom-control-label">11 to 25</span>
+                                            <span class="custom-control-label">{{lang('11 to 25')}}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">51 to 100</span>
+                                            <span class="custom-control-label">{{lang('51 to 100')}}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">Over 100</span>
+                                            <span class="custom-control-label">{{lang('Over 100')}}</span>
                                         </label>
                                     </form>
                                 </div>
@@ -189,7 +189,7 @@
                     </div>
                     <div class="col-lg-1 text-center mt-4 mx-6 form-check form-switch d-lg-block d-none">
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                        <label class="form-check-label" for="flexSwitchCheckChecked">Map</label>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">{{lang('Map')}}</label>
                     </div>
                 </div>
             </div>
@@ -207,17 +207,18 @@
                         <div class="container-fluid">
                             <div class="card custom-card">
                                 <div class="card-header border-bottom-0">
-                                    The talent & entertainments you might be looking for?
+                                    {{lang('The talent & entertainments you might be looking for?')}}
                                 </div>
                                 <div class="card-body pt-0 h-100">
                                     <div class="owl-carousel owl-carousel-icons2">
-                                        @foreach(@$service as $value)
+                                        @foreach (@$service as $value)
                                         <div class="item card_height">
                                             <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
                                                 <a href="{{route('service-details',@$value->id)}}" class="h-100"><img class="h-100"
                                                         src="{{ asset(@$value->serviceImages[0]->image) }}"
                                                         alt="img"></a>
                                             </div>
+                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -233,14 +234,14 @@
                                         $title = 0;
                                     @endphp
                                     <div class="text-center">
-                                        <h2><strong>We couldn't find any spaces.</strong></h2>
+                                        <h2><strong>{{lang("We couldn't find any spaces.")}}</strong></h2>
                                     </div>
                                     <div class="card-header border-bottom-0 ms-1 justify-content-center">
-                                        Try zooming out or expanding your filter criteria.
+                                        {{lang('Try zooming out or expanding your filter criteria.')}}
                                     </div>
                                 @else
                                     <div class="card-header border-bottom-0 ms-3">
-                                        {{ $count }} services found
+                                        {{ $count }} {{lang('services found')}}
                                     </div>
                                     @foreach (@$service as $value)
                                         @php
@@ -252,13 +253,13 @@
                                             <div class="card overflow-hidden">
                                                 <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
                                                     <div class="ms-1 card-border float-start">
-                                                        <p class="text-dark p-2 bg-primary">From
-                                                            SAR{{ @$value->price }}</p>
+                                                        <p class="text-dark p-2 bg-primary">{{lang('From
+                                                            SAR')}}{{ @$value->price }}</p>
                                                     </div>
 
                                                 </div>
-                                                <a href="{{ route('service-details', @$value->id) }}">
-                                                    <img src="{{ asset(@$value->serviceImages[0]->                                                  image) }}"
+                                                <a href="{{route('service-details',@$value->id)}}">
+                                                    <img src="{{ asset(@$value->serviceImages[0]->image) }}"
                                                         class="card-img-top" style="width: 200px;padding-top: 10px"
                                                         alt="img">
                                                     <div class="card-body">
@@ -267,7 +268,7 @@
                                                         <i class="fa fa-star" style="color:#f1c40f"></i>
                                                         <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
                                                         <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                        <p>Responds within 1 hour</p>
+                                                        <p>{{lang('Responds within 1 hour')}}</p>
                                                     </div>
                                                 </a>
                                             </div>
@@ -303,6 +304,41 @@
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
     </script>
     <script>
+        $(document).ready(function () {
+            // Create an array to hold marker data
+            var markers = [
+                @foreach (@$service as $value)
+                {
+                    lat: {{ @$value->lat }},
+                    lng: {{ @$value->lng }},
+                    title: "{{ @$value->title }}"
+                },
+                @endforeach
+            ];
+
+            // Create a map centered at the specified location
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: {{ @$lat }},
+                    lng: {{ @$lng }}
+                },
+                zoom: 10
+            });
+
+            // Loop through the markers array and create markers for each data point
+            markers.forEach(function (markerData) {
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: markerData.lat,
+                        lng: markerData.lng
+                    },
+                    map: map,
+                    title: markerData.title
+                });
+            });
+        });
+    </script>
+    {{-- <script>
         $(document).ready(function() {
             // Get latitude, longitude, and title from PHP variable
             var lat = {{ @$lat }};
@@ -326,21 +362,21 @@
                 title: title
             });
         });
-    </script>
+    </script> --}}
     <!-- OWL CAROUSEL JS-->
     <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
 
     <!-- OWL Carousel js -->
     <script src="{{ asset('assets/js/carousel.js') }}"></script>
-    {{-- <script>
+    <script>
         $(document).ready(function() {
             $('#flexSwitchCheckChecked').on('click', function() {
                 $('#mapColumn').toggleClass('d-none');
                 $('#galleryColumn').toggleClass('col-lg-12');
             });
         });
-    </script> --}}
+    </script>
     <script>
         $(document).ready(function() {
             function hideDropdown(resultsDiv, inputDiv) {
