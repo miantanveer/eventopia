@@ -1,14 +1,17 @@
 <script>
-    function startTime() {
-        var selectedValue = $('.start-time-select').val();
-        var startSelect1 = $('.start-time-select1');
-        var startSelectOptions = $('.start-time-select .option');
+    function startTime(day) {
+        var startDay = day+'-start-time';
+        var endDay = day+'-end-time';
+        var selectedValue = $('#'+startDay).val();
+        var startSelect1 = $('#'+endDay);
+        var startSelectOptions = $('#'+startDay+' .option');
         var selectedFound = false;
 
         startSelect1.empty(); // Clear existing options
 
         startSelectOptions.each(function() {
             var optionValue = $(this).val();
+            
 
             if (!selectedFound && optionValue === selectedValue) {
                 selectedFound = true;
@@ -63,12 +66,15 @@
     // Call the startTime() function initially and whenever the select value changes
     $('.start-time-select-toggle').on('change', startTimeToggle);
 
-    function handleSwitchToggle(inputId, descriptionClass, contentClass, selectClass, HoursMore) {
+    function handleSwitchToggle(inputId, descriptionClass, contentClass, selectClass, HoursMore, day) {
         const switchInput = document.getElementById(inputId);
         const switchDescription = document.querySelector(`.${descriptionClass}`);
         const rowContent = document.querySelector(`.${contentClass}`);
         const SelectContent = document.querySelector(`.${selectClass}`);
         const MoreHours = document.querySelector(`.${HoursMore}`);
+        const weeksDay = day;
+        console.log('handleSwitchToggle',weeksDay);
+        
 
         switchInput.addEventListener('change', function() {
             if (this.checked) {
@@ -87,7 +93,7 @@
 
     // Call the function for each instance
     handleSwitchToggle('custom-switch-checkbox1', 'custom-switch-description-1', 'row-content-1', 'select-content-1',
-        'Add-Hours-1');
+        'Add-Hours-1','monday');
     handleSwitchToggle('custom-switch-checkbox2', 'custom-switch-description-2', 'row-content-2', 'select-content-2',
         'Add-Hours-2');
     handleSwitchToggle('custom-switch-checkbox3', 'custom-switch-description-3', 'row-content-3', 'select-content-3',
@@ -101,13 +107,16 @@
     handleSwitchToggle('custom-switch-checkbox7', 'custom-switch-description-7', 'row-content-7', 'select-content-7',
         'Add-Hours-7');
 
-    function handleRadioToggle(timeInputId, setHourInputId, selectContentId, addHourBtn, insideHourBtn, showContent) {
+    function handleRadioToggle(timeInputId, setHourInputId, selectContentId, addHourBtn, insideHourBtn, showContent, day) {
         const timeInput = document.getElementById(timeInputId);
         const HourInput = document.getElementById(setHourInputId);
         const selectInput = document.getElementById(selectContentId);
         const HourButton = document.getElementById(addHourBtn);
         const InsideHourButton = document.querySelector(`.${insideHourBtn}`);
         const ShowFullContent = document.getElementById(showContent);
+        const weekDay = day;
+        console.log('handleRadioToggle',weekDay);
+     
 
         selectInput.style.display = 'none';
         HourButton.style.display = 'none';
@@ -133,7 +142,7 @@
                             <div class="row position-relative">
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select name="star-time" class="form-control form-select select2" id="start-time-select-toggle`+iteration+`"
+                                        <select name="`+weekDay+`_start_time_`+iteration+`" class="form-control form-select select2" id="start-time-select-toggle`+iteration+`"
                                             data-bs-placeholder="Select Country" tabindex="-1" onchange="startTimeToggle(`+iteration+`)" aria-hidden="true">
                                             <option value="" selected="" disabled>Start Time</option>
                                             <option value="9 AM" class="option">9 AM</option>
@@ -152,7 +161,7 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <select name="end-time" class="form-control form-select select2 " id="start-time-select1-toggle`+iteration+`"
+                                        <select name="`+weekDay+`_end_time_`+iteration+`" class="form-control form-select select2 " id="start-time-select1-toggle`+iteration+`"
                                             data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                             <option value="" selected="" disabled>Start Time</option>
                                             <option value="9 AM" class="option">9 AM</option>
@@ -185,17 +194,17 @@
 
     // Call the handleRadioToggle function for each instance
     handleRadioToggle('time-radio-1', 'set-hour-radio-1', 'custom-time-selection-1', 'Add-Hours-1', 'addMore-1',
-        'showContent-1');
+        'showContent-1','monday');
     handleRadioToggle('time-radio-2', 'set-hour-radio-2', 'custom-time-selection-2', 'Add-Hours-2', 'addMore-2',
-        'showContent-2');
+        'showContent-2','tuesday');
     handleRadioToggle('time-radio-3', 'set-hour-radio-3', 'custom-time-selection-3', 'Add-Hours-3', 'addMore-3',
-        'showContent-3');
+        'showContent-3','wednesday');
     handleRadioToggle('time-radio-4', 'set-hour-radio-4', 'custom-time-selection-4', 'Add-Hours-4', 'addMore-4',
-        'showContent-4');
+        'showContent-4','thursday');
     handleRadioToggle('time-radio-5', 'set-hour-radio-5', 'custom-time-selection-5', 'Add-Hours-5', 'addMore-5',
-        'showContent-5');
+        'showContent-5','friday');
     handleRadioToggle('time-radio-6', 'set-hour-radio-6', 'custom-time-selection-6', 'Add-Hours-6', 'addMore-6',
-        'showContent-6');
+        'showContent-6','saturday');
     handleRadioToggle('time-radio-7', 'set-hour-radio-7', 'custom-time-selection-7', 'Add-Hours-7', 'addMore-7',
-        'showContent-7');
+        'showContent-7','sunday');
 </script>
