@@ -34,7 +34,7 @@
                     <div class="col-3">
                         <div class="form-group mt-4 ms-3 me-3">
                             <select name="listing" class="form-control text-white form-select select2" id="listingSelect">
-                                <option value="" selected disabled>Select your listing</option>
+                                <option value="" selected disabled>{{lang('Select your listing')}}</option>
 
                                 <!-- Spaces -->
                                 <optgroup label="Spaces">
@@ -72,10 +72,10 @@
                     <div class="offset-md-4 col-5">
                         <div class="form-group mt-4 text-md-end">
                             <a class="btn text-white operating-hours-link" href="">
-                                <span class="operating-hours-text">Operating Hours</span>
+                                <span class="operating-hours-text">{{lang('Operating Hours')}}</span>
                             </a>
                             <a class="modal-effect btn bg-white block-time-link" data-bs-effect="effect-scale"
-                                data-bs-toggle="modal" data-id="" data-type="" href="#blockTimeModal">Block Time</a>
+                                data-bs-toggle="modal" data-id="" data-type="" href="#blockTimeModal">{{lang('Block Time')}}</a>
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                     <h2 class="mx-4 fw-bolder" id="currentDate"></h2>
                 </div>
                 <div class="card-footer text-center">
-                    <h5 class="fw-bolder text-success"><i class="fa fa-check"></i> Space is available</h5>
+                    <h5 class="fw-bolder text-success"><i class="fa fa-check"></i> {{lang('Space is available')}}</h5>
                 </div>
             </div>
         </div>
@@ -114,22 +114,22 @@
                     <hr>
                     <div class="row">
                         <div class="col-4">
-                            <p><i class="mdi mdi-circle text-primary p-2 fs-12"></i> Inquiry</p>
+                            <p><i class="mdi mdi-circle text-primary p-2 fs-12"></i> {{lang('Inquiry')}}</p>
                         </div>
                         <div class="col-4">
-                            <p><i class="mdi mdi-circle text-warning p-2 fs-12"></i> Request</p>
+                            <p><i class="mdi mdi-circle text-warning p-2 fs-12"></i> {{lang('Request')}}</p>
                         </div>
                         <div class="col-4">
-                            <p><i class="mdi mdi-circle text-danger p-2 fs-12"></i> Offer</p>
+                            <p><i class="mdi mdi-circle text-danger p-2 fs-12"></i> {{lang('Offer')}}</p>
                         </div>
                         <div class="col-4">
-                            <p><i class="mdi mdi-circle text-success p-2 fs-12"></i> Booking</p>
+                            <p><i class="mdi mdi-circle text-success p-2 fs-12"></i> {{lang('Booking')}}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="mt-3">
-                                <p>Updated 5 days ago</p>
+                                <p>{{lang('Updated 5 days ago')}}</p>
                             </div>
                         </div>
                     </div>
@@ -137,17 +137,17 @@
             </div>
             <div class="card custom-card">
                 <div class="card-header">
-                    <h3>External Calendar</h3>
+                    <h3>{{lang('External Calendar')}}</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 bg-light-gray pb-3">
                             <div class="">
-                                <p class="p-3">Increase bookings by keeping your
+                                <p class="p-3">{{lang('Increase bookings by keeping your
                                     calendar updated. Import your events
-                                    into Eventopia.</p>
+                                    into Eventopia.')}}</p>
                                 <div class="">
-                                    <button class="btn btn-primary w-100">Get Started</button>
+                                    <button class="btn btn-primary w-100">{{lang('Get Started')}}</button>
                                 </div>
                             </div>
                         </div>
@@ -158,7 +158,7 @@
                 <div>
                     <div class="row justify-content-between">
                         <div class="col-6">
-                            <h3 class="mt-4 ps-3">Operating Hours </h3>
+                            <h3 class="mt-4 ps-3">{{lang('Operating Hours ')}}</h3>
                         </div>
                         <div class="col-6 text-end "><a class="btn mt-4"><i class="fa fa-edit fs-15"></i></a></div>
                     </div>
@@ -176,8 +176,8 @@
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
                     <div class="text-center m-auto">
-                        <h4 class="modal-title fw-bolder">Block time</h4>
-                        <p class="mx-2">Your space will be marked unavailable.</p>
+                        <h4 class="modal-title fw-bolder">{{lang('Block time')}}</h4>
+                        <p class="mx-2">{{lang('Your space will be marked unavailable.')}}</p>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -194,7 +194,7 @@
                                 </div>
                             </div>
                             <div class="col-2 text-center">
-                                <h6 class="mt-3">To</h6>
+                                <h6 class="mt-3">{{lang('To')}}</h6>
                             </div>
                             <div class="col-5">
                                 <div class="input-group">
@@ -210,7 +210,7 @@
                             <div class="col-12 mt-3 text-start">
                                 <label class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" name="all_day">
-                                    <span class="custom-control-label">All Day</span>
+                                    <span class="custom-control-label">{{lang('All Day')}}</span>
                                 </label>
                             </div>
                         </div>
@@ -218,7 +218,7 @@
                         <div class="row">
                             <div class="col-12 mt-5 text-start">
                                 <div class="form-group w-100">
-                                    <label for="Title" class="form-label">Title</label>
+                                    <label for="Title" class="form-label">{{lang('Title')}}</label>
                                     <div class="form-group ">
                                         <input type="text" class="form-control" id="title" name="title">
                                     </div>
@@ -229,7 +229,7 @@
                         <input type="hidden" name="type" id="type">
                         <div class="row">
                             <div class="col-12 mt-3">
-                                <button class="btn w-100 btn-primary" type="submit">Save</button>
+                                <button class="btn w-100 btn-primary" type="submit">{{lang('Save')}}</button>
                             </div>
                         </div>
                     </form>

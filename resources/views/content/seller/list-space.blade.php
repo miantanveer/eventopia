@@ -12,10 +12,10 @@
                     <div class="card-header pb-0 border-bottom-0">
                         <div class="row w-100 align-items-center">
                             <div class="col-12">
-                                <h3 class="number-font mb-2">Hb, tell us about your space</h3>
+                                <h3 class="number-font mb-2">{{lang('Hb, tell us about your space')}}</h3>
                             </div>
                             <div class="col-12 pe-0">
-                                <p>The more you share, the faster you can get a booking.</p>
+                                <p>{{lang('The more you share, the faster you can get a booking.')}}</p>
                             </div>
                         </div>
                     </div>
@@ -28,78 +28,78 @@
                                             <div class="col-6">
                                                 <h5><i
                                                         class="fa fa-check-square text-primary"></i>&nbsp;
-                                                    1.Location</h5>
-                                                <p class="ms-5">Enter your address</p>
+                                                    {{lang('1.Location')}}</h5>
+                                                <p class="ms-5">{{lang('Enter your address')}}</p>
                                             </div>
                                             <div class="col-6 text-end">
                                                 <button class="btn btn-primary mt-3"><a
                                                         href="{{ route('add-space') }}"
-                                                        class="text-white">Start</a></button>
+                                                        class="text-white">{{lang('Start')}}</a></button>
                                             </div>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="">
                                             <h5><i class="fa fa-check-square text-primary"></i> &nbsp;
-                                                2. Setup </h5>
-                                            <p class="ms-5">Add your space type, parking options, and
-                                                surveillance devices</p>
+                                                {{lang('2. Setu')}}p </h5>
+                                            <p class="ms-5">{{lang('Add your space type, parking options, and
+                                                surveillance devices')}}</p>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="">
                                             <h5><i class="fa fa-check-square text-primary"></i> &nbsp;
-                                                3. About your space </h5>
-                                            <p class="ms-5">Add a title, description, and rules</p>
+                                                {{lang('3. About your space')}} </h5>
+                                            <p class="ms-5">{{lang('Add a title, description, and rules')}}</p>
                                         </div>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="">
                                             <h5><i class="fa fa-check-square text-primary"></i> &nbsp;
-                                                4. Photos </h5>
-                                            <p class="ms-5">Upload photos and select a cover image</p>
+                                                {{lang('4. Photos')}} </h5>
+                                            <p class="ms-5">{{lang('Upload photos and select a cover image')}}</p>
                                         </div>
                                     </li>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="">
-                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;5.
-                                                Availability </h5>
-                                            <p class="ms-5">Set your operating hours</p>
+                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;{{lang('5.
+                                                Availability')}} </h5>
+                                            <p class="ms-5">{{lang('Set your operating hours')}}</p>
                                         </div>
                                     </li>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="">
-                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;6.
-                                                Cleaning </h5>
-                                            <p class="ms-5">Specify your cleaning protocol for guests
+                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;{{lang('6.
+                                                Cleaning')}} </h5>
+                                            <p class="ms-5">{{lang('Specify your cleaning protocol for guests')}}
                                             </p>
                                         </div>
                                     </li>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="">
-                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;7.
-                                                Cancellations </h5>
-                                            <p class="ms-5">Select your cancellation policy</p>
+                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;{{lang('7.
+                                                Cancellations')}} </h5>
+                                            <p class="ms-5">{{lang('Select your cancellation policy')}}</p>
                                         </div>
                                     </li>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="">
-                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;8.
-                                                Activities </h5>
-                                            <p class="ms-5">Pick the activities you’d like to host and
-                                                set your price</p>
+                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;{{lang('8.
+                                                Activities')}} </h5>
+                                            <p class="ms-5">{{lang('Pick the activities you’d like to host and
+                                                set your price')}}</p>
                                         </div>
                                     </li>
                                     </li>
                                     <li class="list-group-item">
                                         <div class="">
-                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;9.
-                                                Profile</h5>
-                                            <p class="ms-5">Add a photo and contact information</p>
+                                            <h5><i class="fa fa-check-square text-primary"></i> &nbsp;{{lang('9.
+                                                Profile')}}</h5>
+                                            <p class="ms-5">{{lang('Add a photo and contact information')}}</p>
                                         </div>
                                     </li>
 

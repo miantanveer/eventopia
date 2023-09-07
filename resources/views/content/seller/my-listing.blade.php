@@ -31,11 +31,11 @@
                 <div class="card-header pb-0 border-bottom-0">
                     <div class="row w-100 align-items-center">
                         <div class="col-6 ps-0">
-                            <h3 class="number-font mb-0">Listings</h3>
+                            <h3 class="number-font mb-0">{{lang('Listings')}}</h3>
                         </div>
                         <div class="col-6 pe-0">
                             <div class="text-end">
-                                <a type="button" class="btn btn-primary" href="{{ route('list-space') }}">Add a space</a>
+                                <a type="button" class="btn btn-primary" href="{{ route('list-space') }}">{{lang('Add a space')}}</a>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                                             break;
                                         // Add more cases as needed
                                     }
-                                    
+
                                 @endphp
                                 <div class="row">
                                     <div class="col-12 p-2">
@@ -97,7 +97,7 @@
                                                     <div class="col-12 col-sm-4 col-lg-3 mt-5 mt-sm-0">
                                                         <div class="text-end">
                                                             <a href="{{ route('space-form-resume', $space_remaining->id) }}"
-                                                                class="btn btn-primary">Resume</a>
+                                                                class="btn btn-primary">{{lang('Resume')}}</a>
                                                             <a class="modal-effect btn" data-bs-effect="effect-scale"
                                                                 onclick="deleteModal('{{ route('space-delete', $space_remaining->id) }}')">
                                                                 <i class="fa fs-16 fa-trash text-danger"></i></a>
@@ -134,7 +134,7 @@
                                             break;
                                         // Add more cases as needed
                                     }
-                                    
+
                                 @endphp
                                 <div class="row">
                                     <div class="col-12">
@@ -155,7 +155,7 @@
                                                     <div class="col-12 col-sm-4 col-lg-3 mt-5 mt-sm-0">
                                                         <div class="text-end">
                                                             <a href="{{ route('service_form_resume', $data->id) }}"
-                                                                class="btn btn-primary">Resume</a>
+                                                                class="btn btn-primary">{{lang('Resume')}}</a>
                                                             <a class="modal-effect btn" data-bs-effect="effect-scale"
                                                                 onclick="deleteModal('{{ route('service-delete', $data->id) }}')">
                                                                 <i class="fa fs-16 fa-trash text-danger"></i></a>
@@ -194,7 +194,7 @@
                                             break;
                                         // Add more cases as needed
                                     }
-                                    
+
                                 @endphp
                                 <div class="row">
                                     <div class="col-12">
@@ -215,7 +215,7 @@
                                                     <div class="col-12 col-sm-4 col-lg-3 mt-5 mt-sm-0">
                                                         <div class="text-end">
                                                             <a href="{{ route('entertainment-form-resume', $data->id) }}"
-                                                                class="btn btn-primary">Resume</a>
+                                                                class="btn btn-primary">{{lang('Resume')}}</a>
                                                             <a class="modal-effect btn" data-bs-effect="effect-scale"
                                                                 onclick="deleteModal('{{ route('entertainment-delete', $data->id) }}')">
                                                                 <i class="fa fs-16 fa-trash text-danger"></i></a>
@@ -249,7 +249,7 @@
                                                     <div class="col-sm-6 col-12 col-lg-4 my-auto ps-0 mt-3 mt-sm-0">
                                                         <div class="text-end">
                                                             <a href="{{ route('edit-space-address', @$space->id) }}"
-                                                                class="btn btn-primary">Edit</a>
+                                                                class="btn btn-primary">{{lang('Edit')}}</a>
                                                             <div class="btn-group mt-2 mb-2">
                                                                 <button type="button" class="btn border rounded-1 p-2"
                                                                     data-bs-toggle="dropdown">
@@ -257,7 +257,7 @@
                                                                 </button>
                                                                 <ul class="dropdown-menu" role="menu" style="">
                                                                     <li><a onclick="deleteModal('{{ route('space-delete', @$space->id) }}')"
-                                                                            class="text-danger">Delete</a></li>
+                                                                            class="text-danger">{{lang('Delete')}}</a></li>
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -268,7 +268,7 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-12">
-                                            <h4 class="fw-bolder">Customize for different activities</h4>
+                                            <h4 class="fw-bolder">{{lang('Customize for different activities')}}</h4>
                                         </div>
                                     </div>
                                     @foreach (@$space_acitivities as $space_acitiviy)
@@ -305,7 +305,7 @@
                                                                     <div
                                                                         class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
                                                                         <a href="{{ route('activities-step', ['space_id' => @$space->id, 'key' => 1]) }}"
-                                                                            class="btn btn-white">Edit</a>
+                                                                            class="btn btn-white">{{lang('Edit')}}</a>
                                                                     </div>
                                                                 @endif
                                                             @endforeach
@@ -314,7 +314,7 @@
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
                                                                     <a href="{{ route('activities-step', ['space_id' => @$space->id, 'key' => 1]) }}"
-                                                                        class="btn btn-white">Enable</a>
+                                                                        class="btn btn-white">{{lang('Enable')}}</a>
                                                                 </div>
                                                             @endif
 
@@ -350,7 +350,7 @@
                                                 <div class="col-sm-6 col-12 col-lg-4 my-auto ps-0 mt-3 mt-sm-0">
                                                     <div class="text-end">
                                                         <a href="{{ route('service-form-1', $data->id) }}"
-                                                            class="btn btn-primary">Edit</a>
+                                                            class="btn btn-primary">{{lang('Edit')}}</a>
                                                         <div class="btn-group mt-2 mb-2">
                                                             <button type="button" class="btn border rounded-1 p-2"
                                                                 data-bs-toggle="dropdown">
@@ -358,7 +358,7 @@
                                                             </button>
                                                             <ul class="dropdown-menu" role="menu" style="">
                                                                 <li><a onclick="deleteModal('{{ route('service-delete', $data->id) }}')"
-                                                                        class="text-danger">Delete</a></li>
+                                                                        class="text-danger">{{lang('Delete')}}</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -374,15 +374,15 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-12">
-                                                            <h6><i class="fe fe-alert-circle me-3"></i>We have received
+                                                            <h6><i class="fe fe-alert-circle me-3"></i>{{lang('We have received
                                                                 your
-                                                                submission</h6>
-                                                            <p>Your submission is currently under review by our host
+                                                                submission')}}</h6>
+                                                            <p>{{lang('Your submission is currently under review by our host
                                                                 onboarding
                                                                 team. To avoid any delays in your activation, please review
                                                                 our
                                                                 requirements to
-                                                                go live.</p>
+                                                                go live.')}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -415,7 +415,7 @@
                                                 <div class="col-sm-6 col-12 col-lg-4 my-auto ps-0 mt-3 mt-sm-0">
                                                     <div class="text-end">
                                                         <a href="{{ route('load_entertainment_form_1', $data->id) }}"
-                                                            class="btn btn-primary">Edit</a>
+                                                            class="btn btn-primary">{{lang('Edit')}}</a>
                                                         <div class="btn-group mt-2 mb-2">
                                                             <button type="button" class="btn border rounded-1 p-2"
                                                                 data-bs-toggle="dropdown">
@@ -423,7 +423,7 @@
                                                             </button>
                                                             <ul class="dropdown-menu" role="menu" style="">
                                                                 <li><a onclick="deleteModal('{{ route('entertainment-delete', $data->id) }}')"
-                                                                        class="text-danger">Delete</a></li>
+                                                                        class="text-danger">{{lang('Delete')}}</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -439,15 +439,15 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-12">
-                                                            <h6><i class="fe fe-alert-circle me-3"></i>We have received
+                                                            <h6><i class="fe fe-alert-circle me-3"></i>{{lang('We have received
                                                                 your
-                                                                submission</h6>
-                                                            <p>Your submission is currently under review by our host
+                                                                submission')}}</h6>
+                                                            <p>{{lang('Your submission is currently under review by our host
                                                                 onboarding
                                                                 team. To avoid any delays in your activation, please review
                                                                 our
                                                                 requirements to
-                                                                go live.</p>
+                                                                go live.')}}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -457,7 +457,7 @@
                                 @endif
                                 <div class="row">
                                     <div class="col-12">
-                                        <h4 class="fw-bolder">Customize for different activities</h4>
+                                        <h4 class="fw-bolder">{{lang('Customize for different activities')}}</h4>
                                     </div>
                                 </div>
                                 @foreach ($ent_activity as $value)
@@ -493,7 +493,7 @@
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
                                                                     <a href="{{ route('load_entertainment_form_step_7', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
-                                                                        class="btn btn-white">Edit</a>
+                                                                        class="btn btn-white">{{lang('Edit')}}</a>
                                                                 </div>
                                                             @endif
                                                         @endforeach
@@ -502,7 +502,7 @@
                                                             <div
                                                                 class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
                                                                 <a href="{{ route('load_entertainment_form_step_7', ['id' => $data->id, 'key' => rand(0000, 9999)]) }}"
-                                                                    class="btn btn-white">Enable</a>
+                                                                    class="btn btn-white">{{lang('Enable')}}</a>
                                                             </div>
                                                         @endif
 
@@ -531,10 +531,10 @@
                     <form action="" id="delete-form" method="POST">
                         @csrf
                         @method('delete')
-                        <h2 class="text-danger">Warning!</h2>
-                        <h4 class="text-danger">Are you sure you want to delete this Listing?</h4>
-                        <p class="mg-b-20 mg-x-20">This action is not repeatable.</p>
-                        <button class="btn btn-danger pd-x-25">Continue</button>
+                        <h2 class="text-danger">{{lang('Warning!')}}</h2>
+                        <h4 class="text-danger">{{lang('Are you sure you want to delete this Listing?')}}</h4>
+                        <p class="mg-b-20 mg-x-20">{{lang('This action is not repeatable.')}}</p>
+                        <button class="btn btn-danger pd-x-25">{{lang('Continue')}}</button>
                     </form>
                 </div>
             </div>

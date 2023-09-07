@@ -67,21 +67,21 @@
                                                 <div class="form-group">
                                                     <input type="text" value="{{@$entertainment->contact_first_name}}" name="contact_first_name" class="form-control" id="exampleInputname"
                                                         placeholder="{{lang('john')}}" required
-                                                        data-parsley-required-message="Password is required*">
+                                                        data-parsley-required-message="{{lang('Password is required*')}}">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-12">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" id="exampleInputname1"
                                                         placeholder="{{lang('Smith')}}" value="{{@$entertainment->contact_last_name}}" name="contact_last_name" required
-                                                        data-parsley-required-message="Confirm Password is required*">
+                                                        data-parsley-required-message="{{lang('Confirm Password is required*')}}">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <input type="tel" class="form-control" id="exampleInputphone1"
                                                 placeholder="(123) 345 -4567" value="{{@$entertainment->contact_num}}" name="contact_num" required
-                                                data-parsley-required-message="Phone Number is required*">
+                                                data-parsley-required-message="{{lang('Phone Number is required*')}}">
                                         </div>
                                         <div class="bg-light-gray p-3 mb-3">
                                             <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>{{lang('Your number
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="col-4">
                                         <div class="text-center chat-image mb-5">
-                                            <input type="file" name='image'  value="{{@$entertainment->image}}" class="dropify" required data-parsley-errors-container='#file_error' data-parsley-required-message="Team Image is required"  />
+                                            <input type="file" name='image'  value="{{@$entertainment->image}}" class="dropify" required data-parsley-errors-container='#file_error' data-parsley-required-message="{{lang('Team Image is required')}}"  />
                                             <div id="file_error"></div>
                                         </div>
                                         <div class="text-center px-8">

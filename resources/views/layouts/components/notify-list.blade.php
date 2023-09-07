@@ -25,9 +25,9 @@
                     <li>
                         <div class="notification-time">
                             @if (@$notificationDate == @$todayDate)
-                                <span class="date">Today</span>
+                                <span class="date">{{lang('Today')}}</span>
                             @elseif (@$notificationDate == @$yesterdayDate)
-                                <span class="date">Yesterday</span>
+                                <span class="date">{{lang('Yesterday')}}</span>
                             @else
                                 <span class="date">{{ @$notify->created_at->format('F j, Y') }}</span>
                             @endif
@@ -38,9 +38,9 @@
                         </div>
                         <div class="notification-time-date mb-2 d-block d-md-none">
                             @if (@$notificationDate == @$todayDate)
-                                <span class="date">Today</span>
+                                <span class="date">{{lang('Today')}}</span>
                             @elseif (@$notificationDate == @$yesterdayDate)
-                                <span class="date">Yesterday</span>
+                                <span class="date">{{lang('Yesterday')}}</span>
                             @else
                                 <span class="date">{{ @$notify->created_at->format('F j, Y') }}</span>
                             @endif
@@ -69,9 +69,9 @@
                     <li>
                         <div class="notification-time">
                             @if (@$notificationDate == @$todayDate)
-                                <span class="date">Today</span>
+                                <span class="date">{{lang('Today')}}</span>
                             @elseif (@$notificationDate == @$yesterdayDate)
-                                <span class="date">Yesterday</span>
+                                <span class="date">{{lang('Yesterday')}}</span>
                             @else
                                 <span class="date">{{ @$notify->created_at->format('F j, Y') }}</span>
                             @endif
@@ -82,9 +82,9 @@
                         </div>
                         <div class="notification-time-date mb-2 d-block d-md-none">
                             @if (@$notificationDate == @$todayDate)
-                                <span class="date">Today</span>
+                                <span class="date">{{lang('Today')}}</span>
                             @elseif (@$notificationDate == @$yesterdayDate)
-                                <span class="date">Yesterday</span>
+                                <span class="date">{{lang('Yesterday')}}</span>
                             @else
                                 <span class="date">{{ @$notify->created_at->format('F j, Y') }}</span>
                             @endif
@@ -114,7 +114,7 @@
         </ul>
         @if ($notifies && !$notifies->isEmpty())
         <div class="text-center mb-4">
-            <a href="{{route('mark_as_read')}}" class="btn ripple btn-primary w-md">Mark all as read</a>
+            <a href="{{route('mark_as_read')}}" class="btn ripple btn-primary w-md">{{lang('Mark all as read')}}</a>
         </div>
         @endif
     </div>

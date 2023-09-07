@@ -41,18 +41,18 @@
                                 <div class=" p-4 pb-5">
 
                                     <div class="text-start bg-gray-light">
-                                        <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; Operating
+                                        <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; {{lang('Operating
                                             hours end times are
                                             restricted to 12 AM for this space type. Read our Social Events Policy for more
-                                            information.</p>
+                                            information.')}}</p>
                                     </div>
                                     @include('layouts.components.setHoursHTMLCode')
                                     <div class="text-end mb-2 mt-5">
                                     </div>
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end mt-8">
-                                        <a class="btn btn-light" href="{{ route('service-form-4', $id) }}">Previous</a>
-                                        <button class="btn btn-primary">Next</button>
+                                        <a class="btn btn-light" href="{{ route('service-form-4', $id) }}">{{lang('Previous')}}</a>
+                                        <button class="btn btn-primary">{{lang('Next')}}</button>
                                     </div>
                             </form>
                         </div>

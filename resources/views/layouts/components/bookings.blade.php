@@ -37,7 +37,7 @@
                                                     </h5>
                                                     <p class="card-text">
                                                         {{ @$order->start_time . ' - ' . @$order->end_time }}</p>
-                                                    <p class="card-text">From SAR {{ @$order->amount }}/hour</p>
+                                                    <p class="card-text">{{lang('From SAR')}} {{ @$order->amount }}{{lang('/hour')}}</p>
                                                     <p
                                                         class="card-text text-{{ @$order->status == 0 ? 'info' : (@$order->status == 1 ? 'primary' : (@$order->status == 2 ? 'success' : 'danger')) }}">
                                                         {{ @$order->status == 0 ? 'Pending' : (@$order->status == 1 ? 'Review' : (@$order->status == 2 ? 'Active' : 'Cancelled')) }}
@@ -56,7 +56,7 @@
                                                             data-address="{{ @$order->type == 'space' ? @$order->space->address : (@$order->type == 'entertainment' ? @$order->entertainment->address : @$order->service->address) }}"
                                                             data-title="{{ @$order->type == 'space' ? @$order->space->space_title : (@$order->type == 'entertainment' ? @$order->entertainment->title : @$order->service->title) }}"
                                                             data-status="{{ @$order->status }}" href="#modaldemo8">View
-                                                            Details</a>
+                                                            {{lang('Details')}}</a>
                                                     </div>
                                                 </div>
                                             </div>

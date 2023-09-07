@@ -25,22 +25,22 @@
 
                                         <div class="d-flex seller-btn">
                                             <a class="nav-link border py-3 px-5 m-2 active text-white" href="{{URL('/dashboard')}}" role="tab" aria-selected="true">
-                                                Customer Page
+                                                {{lang('Customer Page')}}
                                             </a>
                                         </div>
                                         <div class="d-flex seller-btn">
                                             <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true" href="{{URL('my-listings')}}">
-                                                Listing
+                                                {{lang('Listing')}}
                                             </a>
                                         </div>
                                         <div class="d-flex seller-btn">
                                             <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true" href="{{URL('bookings')}}">
-                                                Booking
+                                                {{lang('Booking')}}
                                             </a>
                                         </div>
                                         <div class="d-flex seller-btn">
                                             <a class="nav-link py-3 px-5 m-2 active text-white" href="{{URL('/calendar')}}" role="tab" aria-selected="true">
-                                                Calendar
+                                                {{lang('Calendar')}}
                                             </a>
                                         </div>
 
@@ -52,13 +52,13 @@
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
 
                                                 <a class="dropdown-item" href="{{url('/edit-profile')}}">
-                                                    <i class="dropdown-icon fe fe-home"></i> Manage Account
+                                                    <i class="dropdown-icon fe fe-home"></i> {{lang('Manage Account')}}
                                                 </a>
                                                 <a class="dropdown-item" href="{{url('/edit-profile')}}">
-                                                    <i class="dropdown-icon fe fe-user"></i> Dashboard
+                                                    <i class="dropdown-icon fe fe-user"></i> {{lang('Dashboard')}}
                                                 </a>
                                                 <a class="dropdown-item" href="{{route('logout')}}">
-                                                    <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
+                                                    <i class="dropdown-icon fe fe-alert-circle"></i> {{lang('Sign out')}}
                                                 </a>
                                             </div>
                                         </div>

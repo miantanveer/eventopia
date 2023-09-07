@@ -11,29 +11,29 @@
                         class="header-brand-img desktop-logo w-50 my-2" alt="logo">
                 </div>
                 <div class="col-md-2 col-sm-3 col-6 text-center text-sm-left">
-                    <a href="javascript:;" class="mb-4 text-white"><p>Company</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>About</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Listing</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Bookings</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Company')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('About')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Listing')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Bookings')}}</p></a>
                 </div>
                 <div class="col-md-2 col-sm-3 col-6 text-center text-sm-left">
-                    <a href="javascript:;" class="mb-4 text-white"><p>Explore</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Activities</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Locations</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Events</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Explore')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Activities')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Locations')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Events')}}</p></a>
                 </div>
                 <div class="col-md-2 col-sm-3 col-6 text-center text-sm-left">
-                    <a href="javascript:;" class="mb-4 text-white"><p>Host</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Spaces</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Entertainment & Talents</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Services</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Host')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Spaces')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Entertainment & Talents')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Services')}}</p></a>
                 </div>
                 <div class="col-md-2 col-sm-3 col-6 text-center text-sm-left">
-                    <a href="javascript:;" class="mb-4 text-white"><p>Support</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Help center</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Contact</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Trust & Safety</p></a>
-                    <a href="javascript:;" class="mb-4 text-white"><p>Cookie preferences</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Support')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Help center')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Contact')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Trust & Safety')}}</p></a>
+                    <a href="javascript:;" class="mb-4 text-white"><p>{{lang('Cookie preferences')}}</p></a>
                 </div>
                 </a>
             </div>

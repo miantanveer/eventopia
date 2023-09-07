@@ -21,8 +21,7 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="monday_radio" value="0"
                                     id="time-radio-1"   {{@$time->monday_radio == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">{{lang('6:00 AM - 12:00
-                                    AM')}}</span>
+                                <span class="custom-control-label">6:00 AM - 12:00 AM</span>
                             </label>
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="monday_radio" value="1"
@@ -40,17 +39,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->monday_start_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->monday_start_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->monday_start_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->monday_start_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->monday_start_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->monday_start_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->monday_start_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->monday_start_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->monday_start_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->monday_start_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->monday_start_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->monday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="12 AM" {{@$time->monday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="10 AM" {{@$time->monday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->monday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="1 PM" {{@$time->monday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->monday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->monday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->monday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->monday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->monday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->monday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -60,17 +59,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->monday_end_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->monday_end_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->monday_end_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->monday_end_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->monday_end_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->monday_end_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->monday_end_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->monday_end_time == '4 PM' ? 'checked' : ''}}>{{lang('4 P')}}M</option>
-                                    <option value="5 PM" {{@$time->monday_end_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->monday_end_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->monday_end_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->monday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->monday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->monday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->monday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->monday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->monday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->monday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->monday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->monday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->monday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->monday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -103,7 +102,7 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="tuesday_radio" value="0"
                                     id="time-radio-2"  {{@$time->tuesday_radio == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">{{lang('6:00 AM - 12:00')}}
+                                <span class="custom-control-label">6:00 AM - 12:00
                                     AM</span>
                             </label>
                             <label class="custom-control custom-radio">
@@ -122,17 +121,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->tuesday_start_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->tuesday_start_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->tuesday_start_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->tuesday_start_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->tuesday_start_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->tuesday_start_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->tuesday_start_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->tuesday_start_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->tuesday_start_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->tuesday_start_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->tuesday_start_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->tuesday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->tuesday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->tuesday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->tuesday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->tuesday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->tuesday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->tuesday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->tuesday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->tuesday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->tuesday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->tuesday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -142,17 +141,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->tuesday_end_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->tuesday_end_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->tuesday_end_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->tuesday_end_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->tuesday_end_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->tuesday_end_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->tuesday_end_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->tuesday_end_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->tuesday_end_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->tuesday_end_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->tuesday_end_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->tuesday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->tuesday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->tuesday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->tuesday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->tuesday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->tuesday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->tuesday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->tuesday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->tuesday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->tuesday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->tuesday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -185,8 +184,7 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="wednesday_radio"
                                     value="0" id="time-radio-3" {{@$time->wednesday == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">{{lang('6:00 AM - 12:00
-                                    AM')}}</span>
+                                <span class="custom-control-label">6:00 AM - 12:00 AM</span>
                             </label>
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="wednesday_radio"
@@ -205,16 +203,16 @@
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
                                     <option value="9 AM" {{@$time->wednesday_start_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->wednesday_start_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->wednesday_start_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->wednesday_start_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->wednesday_start_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->wednesday_start_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->wednesday_start_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->wednesday_start_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->wednesday_start_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->wednesday_start_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->wednesday_start_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="10 AM" {{@$time->wednesday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->wednesday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->wednesday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->wednesday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->wednesday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->wednesday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->wednesday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->wednesday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->wednesday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->wednesday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -224,17 +222,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->wednesday_end_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->wednesday_end_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->wednesday_end_time == '11 AM' ? 'checked' : ''}}>{{lang('11 A')}}M</option>
-                                    <option value="12 AM" {{@$time->wednesday_end_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->wednesday_end_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->wednesday_end_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->wednesday_end_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->wednesday_end_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->wednesday_end_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->wednesday_end_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->wednesday_end_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->wednesday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->wednesday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->wednesday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->wednesday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->wednesday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->wednesday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->wednesday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->wednesday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->wednesday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->wednesday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->wednesday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -267,8 +265,7 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="thursday_radio"
                                     value="0" id="time-radio-4"  {{@$time->thursday_radio == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">{{lang('6:00 AM - 12:00
-                                    AM')}}</span>
+                                <span class="custom-control-label">6:00 AM - 12:00 AM</span>
                             </label>
                             <label class="custom-control custom-radio" id="btn1">
                                 <input type="radio" class="custom-control-input" name="thursday_radio"
@@ -286,17 +283,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->thursday_start_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->thursday_start_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->thursday_start_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->thursday_start_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->thursday_start_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->thursday_start_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->thursday_start_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->thursday_start_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->thursday_start_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->thursday_start_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->thursday_start_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->thursday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->thursday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->thursday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->thursday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->thursday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->thursday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->thursday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->thursday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->thursday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->thursday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->thursday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -306,17 +303,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->thursday_end_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->thursday_end_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->thursday_end_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->thursday_end_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->thursday_end_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->thursday_end_time == '2 PM' ? 'checked' : ''}}>{{lang('2 P')}}M</option>
-                                    <option value="3 PM" {{@$time->thursday_end_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->thursday_end_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->thursday_end_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->thursday_end_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->thursday_end_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->thursday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->thursday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->thursday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->thursday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->thursday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->thursday_end_time == '2 PM' ? 'checked' : ''}}>2 P'</option>
+                                    <option value="3 PM" {{@$time->thursday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->thursday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->thursday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->thursday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->thursday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -349,8 +346,7 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="friday_radio"
                                     value="0" id="time-radio-5"  {{@$time->friday_radio == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">{{lang('6:00 AM - 12:00
-                                    AM')}}</span>
+                                <span class="custom-control-label">6:00 AM - 12:00 AM</span>
                             </label>
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="friday_radio"
@@ -368,17 +364,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>Start Time</option>
-                                    <option value="9 AM" {{@$time->friday_start_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->friday_start_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->friday_start_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->friday_start_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->friday_start_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->friday_start_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->friday_start_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->friday_start_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->friday_start_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->friday_start_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->friday_start_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->friday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->friday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->friday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->friday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->friday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->friday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->friday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->friday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->friday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->friday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->friday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -388,17 +384,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->friday_end_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->friday_end_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->friday_end_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->friday_end_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->friday_end_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->friday_end_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->friday_end_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->friday_end_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->friday_end_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->friday_end_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->friday_end_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->friday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->friday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->friday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->friday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->friday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->friday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->friday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->friday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->friday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->friday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->friday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -431,8 +427,8 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="saturday_radio"
                                     value="0" id="time-radio-6"  {{@$time->saturday_radio == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">{{lang('6:00 AM - 12:00
-                                    AM')}}</span>
+                                <span class="custom-control-label">6:00 AM - 12:00
+                                    AM</span>
                             </label>
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="saturday_radio"
@@ -450,17 +446,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->saturday_start_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->saturday_start_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->saturday_start_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->saturday_start_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->saturday_start_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->saturday_start_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->saturday_start_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->saturday_start_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->saturday_start_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->saturday_start_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->saturday_start_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->saturday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->saturday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->saturday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->saturday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->saturday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->saturday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->saturday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->saturday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->saturday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->saturday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->saturday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -470,17 +466,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->saturday_end_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->saturday_end_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->saturday_end_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->saturday_end_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->saturday_end_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->saturday_end_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->saturday_end_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->saturday_end_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->saturday_end_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->saturday_end_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->saturday_end_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->saturday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->saturday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->saturday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->saturday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->saturday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->saturday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->saturday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->saturday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->saturday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->saturday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->saturday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -513,8 +509,8 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="sunday_radio"
                                     value="0" id="time-radio-7"  {{@$time->sunday_radio == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">{{lang('6:00 AM - 12:00
-                                    AM')}}</span>
+                                <span class="custom-control-label">6:00 AM - 12:00
+                                    AM</span>
                             </label>
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="sunday_radio"
@@ -532,17 +528,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->sunday_start_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->sunday_start_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->sunday_start_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->sunday_start_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->sunday_start_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->sunday_start_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->sunday_start_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->sunday_start_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->sunday_start_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->sunday_start_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->sunday_start_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->sunday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->sunday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->sunday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->sunday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->sunday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->sunday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->sunday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->sunday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->sunday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->sunday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->sunday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -552,17 +548,17 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->sunday_end_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->sunday_end_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->sunday_end_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->sunday_end_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->sunday_end_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->sunday_end_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->sunday_end_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->sunday_end_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->sunday_end_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->sunday_end_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->sunday_end_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="9 AM" {{@$time->sunday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->sunday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->sunday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->sunday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->sunday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->sunday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->sunday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->sunday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->sunday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->sunday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->sunday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>

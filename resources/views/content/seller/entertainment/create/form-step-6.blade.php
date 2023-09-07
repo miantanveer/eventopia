@@ -84,7 +84,7 @@
                                             <div class="col-3">
                                                 <label class="custom-control">
                                                     <input type="radio" name="cancellation_policy" data-parsley-errors-container="#radio_errors" required
-                                                    data-parsley-required-message='Please select atleast one option' value="v_flexible" {{@$entertainment->cancellation_policy == 'v_flexible' ? 'checked' : ''}}>
+                                                    data-parsley-required-message='{{lang('Please select atleast one option')}}' value="v_flexible" {{@$entertainment->cancellation_policy == 'v_flexible' ? 'checked' : ''}}>
                                                     <span>{{$data->title}}</span>
                                                 </label>
                                             </div>

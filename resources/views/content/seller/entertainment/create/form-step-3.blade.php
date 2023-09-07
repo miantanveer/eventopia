@@ -83,7 +83,7 @@
                                             <span class="tx-danger">*</span></label>
                                             <input class="form-control rounded-0" value="{{ @$entertainment->address }}"
                                                 id="address" name="address" placeholder="{{lang('Add Address')}}" required
-                                                data-parsley-required-message="Please enter your address" type="text">
+                                                data-parsley-required-message="{{lang('Please enter your address')}}" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
                                             <label class="form-control-label">{{lang('Country')}}</label>
@@ -110,7 +110,7 @@
                                                     class="tx-danger">*</span></label>
                                             <input class="form-control rounded-0" value="{{ @$entertainment->postal_code }}"
                                                 id="postal_code" name="postal_code" placeholder="" required
-                                                data-parsley-required-message="Please enter a value" type="text">
+                                                data-parsley-required-message="{{lang('Please enter a value')}}" type="text">
                                         </div>
                                         <input type="hidden" name="lat" value="{{ @$entertainment->lat }}" id="lat">
                                         <input type="hidden" name="lng" value="{{ @$entertainment->lng }}" id="lng">

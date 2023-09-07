@@ -173,7 +173,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('my-listings', [ListingController::class, 'index'])->name('my-listing');
 
     // Service Forms
-    
+
     // Service Form Step 1
     Route::get('/service-form-steps', function () {
         $title = ServiceTitle::get();

@@ -13,10 +13,10 @@
                 <div class="card-header pb-0 border-bottom-0">
                     <div class="row w-100 align-items-center">
                         <div class="col-12">
-                            <h3 class="number-font mb-2">Hb, tell us about your entertainment & talent.</h3>
+                            <h3 class="number-font mb-2">{{lang('Hb, tell us about your entertainment & talent.')}}</h3>
                         </div>
                         <div class="col-12 pe-0">
-                            <p>The more you share, the faster you can get a booking.</p>
+                            <p>{{lang('The more you share, the faster you can get a booking.')}}</p>
                         </div>
                     </div>
                 </div>
@@ -27,48 +27,48 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class="col-6">
-                                            <h5><i class="fa fa-check-square text-primary"></i>&nbsp; 1. Photos</h5>
-                                            <p class="ms-5">Upload photos & videos and select a cover image</p>
+                                            <h5><i class="fa fa-check-square text-primary"></i>&nbsp; {{lang('1. Photos')}}</h5>
+                                            <p class="ms-5">{{lang('Upload photos & videos and select a cover image')}}</p>
                                         </div>
                                         <div class="col-6 text-end">
-                                            <a href="{{url('/entertainment-form-steps')}}" class="btn btn-primary mt-3 text-white" >Start</a>
+                                            <a href="{{url('/entertainment-form-steps')}}" class="btn btn-primary mt-3 text-white" >{{lang('Start')}}</a>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 2. About your entertainment & talent</h5>
-                                        <p class="ms-5" >Add a title, description, and rules</p>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('2. About your entertainment & talent')}}</h5>
+                                        <p class="ms-5" >{{lang('Add a title, description, and rules')}}</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 3. Photos / videos</h5>
-                                        <p class="ms-5" >Upload photos & videos and select a cover image</p>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('3. Photos / videos')}}</h5>
+                                        <p class="ms-5" >{{lang('Upload photos & videos and select a cover image')}}</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 4. Availability</h5>
-                                        <p class="ms-5" >Set your operating hours</p>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('4. Availability')}}</h5>
+                                        <p class="ms-5" >{{lang('Set your operating hours')}}</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 5. Cancellations</h5>
-                                        <p class="ms-5" >Select your cancellation policy</p>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('5. Cancellations')}}</h5>
+                                        <p class="ms-5" >{{lang('Select your cancellation policy')}}</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 6. Activities</h5>
-                                        <p class="ms-5" >Pick the activities you’d like to entertain and set your price</p>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp;{{lang(' 6. Activities')}}</h5>
+                                        <p class="ms-5" >{{lang('Pick the activities you’d like to entertain and set your price')}}</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 7. Profile</h5>
-                                        <p class="ms-5" >Add a photo and contact information</p>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('7. Profile')}}</h5>
+                                        <p class="ms-5" >{{lang('Add a photo and contact information')}}</p>
                                     </div>
                                 </li>
                             </ul>

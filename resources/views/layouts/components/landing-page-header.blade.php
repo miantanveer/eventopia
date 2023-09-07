@@ -8,22 +8,22 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3 first_drop">
                     <a class="dropdown-item" href="{{ route('checkout') }}">
-                        <i class="dropdown-icon fa fa-shopping-bag"></i> Cart
+                        <i class="dropdown-icon fa fa-shopping-bag"></i> {{lang('Cart')}}
                     </a>
                     <a class="dropdown-item" data-bs-target="#country-selector" data-bs-toggle="modal">
-                        <i class="dropdown-icon fe fe-globe"></i> Language
+                        <i class="dropdown-icon fe fe-globe"></i> {{lang('Language')}}
                     </a>
                     <a class="dropdown-item" href="{{ url('/seller-dashboard') }}">
-                        <i class="dropdown-icon fa fa-user"></i> Become a Seller
+                        <i class="dropdown-icon fa fa-user"></i> {{lang('Become a Seller')}}
                     </a>
                     <a class="dropdown-item" href="{{ route('my-listing') }}">
-                        <i class="dropdown-icon icon icon-layers"></i> Listing
+                        <i class="dropdown-icon icon icon-layers"></i> {{lang('Listing')}}
                     </a>
                     <a class="dropdown-item" href="{{ route('bookings') }}">
-                        <i class="dropdown-icon icon icon-layers"></i> Bookings
+                        <i class="dropdown-icon icon icon-layers"></i> {{lang('Bookings')}}
                     </a>
                     <a class="dropdown-item" href="{{ route('calendar') }}">
-                        <i class="dropdown-icon fa fa-calendar"></i> Calendar
+                        <i class="dropdown-icon fa fa-calendar"></i> {{lang('Calendar')}}
                     </a>
                 </div>
             </div>
@@ -44,14 +44,14 @@
 
                         @if (Auth::check())
                             <a class="dropdown-item" href="{{ route('edit-profile-index') }}">
-                                <i class="dropdown-icon fe fe-home"></i> Profile
+                                <i class="dropdown-icon fe fe-home"></i> {{lang('Profile')}}
                             </a>
                             <a class="dropdown-item" href="{{ route('payments') }}">
-                                <i class="dropdown-icon fe fe-user"></i> Payment
+                                <i class="dropdown-icon fe fe-user"></i> {{lang('Payment')}}
                             </a>
                         @endif
                         <a class="dropdown-item" href="{{ route('login') }}">
-                            <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
+                            <i class="dropdown-icon fe fe-alert-circle"></i> {{lang('Sign in')}}
                         </a>
                     </div>
                 </div>
@@ -78,31 +78,31 @@
                             <div class="d-flex btn-group seller-btn">
                                 <button class="nav-link border dropdown py-3 px-5 m-2 bg-transparent text-white"
                                     data-bs-toggle="dropdown" id="tab1" role="tab" aria-selected="true">
-                                    Become a Seller
+                                    {{lang('Become a Seller')}}
                                 </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="{{ route('list-space') }}">List Space</a>
                                     <a class="dropdown-item" href="{{ route('list-entertainment') }}">List
-                                        Entertainment & Talent</a>
+                                        {{lang('Entertainment & Talent')}}</a>
                                     <a class="dropdown-item" href="{{ route('list-service') }}">List Service</a>
                                 </div>
                             </div>
                                 <div class="d-flex listing-btn">
                                     <a class="nav-link py-3 px-5 m-2 active text-white" role="tab"
                                         aria-selected="true" href="{{ route('my-listing') }}">
-                                        Listing
+                                        {{lang('Listing')}}
                                     </a>
                                 </div>
                                 <div class="d-flex booking-btn">
                                     <a class="nav-link py-3 px-5 m-2 active text-white" role="tab"
                                         aria-selected="true" href="{{ route('bookings') }}">
-                                        Bookings
+                                        {{lang('Bookings')}}
                                     </a>
                                 </div>
                                 <div class="d-flex calendar-btn">
                                     <a class="nav-link py-3 px-5 m-2 active text-white" href="{{ route('calendar') }}"
                                         role="tab" aria-selected="true">
-                                        Calendar
+                                        {{lang('Calendar')}}
                                     </a>
                                 </div>
                             <!-- SIDE-MENU -->
@@ -116,14 +116,14 @@
 
                                     @if (Auth::check())
                                         <a class="dropdown-item" href="{{ route('edit-profile') }}">
-                                            <i class="dropdown-icon fe fe-home"></i> Profile
+                                            <i class="dropdown-icon fe fe-home"></i> {{lang('Profile')}}
                                         </a>
                                         <a class="dropdown-item" href="{{ route('payments') }}">
-                                            <i class="dropdown-icon fe fe-user"></i> Payment
+                                            <i class="dropdown-icon fe fe-user"></i> {{lang('Payment')}}
                                         </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('login') }}">
-                                        <i class="dropdown-icon fe fe-alert-circle"></i> Sign in
+                                        <i class="dropdown-icon fe fe-alert-circle"></i> {{lang('Sign in')}}
                                     </a>
                                 </div>
                             </div>

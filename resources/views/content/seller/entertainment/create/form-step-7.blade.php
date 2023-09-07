@@ -152,7 +152,7 @@
                                                                     <div class="form-group mb-3">
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
-                                                                                placeholder="Optional"
+                                                                                placeholder="{{lang('Optional')}}"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $data->id }}][discount][]">

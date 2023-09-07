@@ -20,9 +20,9 @@
                     <div id="step-5" class="">
                         <div class="text-center">
                             <h2 class="fw-bolder">
-                                Team
+                                {{lang('Team')}}
                             </h2>
-                            <p>Add team profile or details.</p>
+                            <p>{{lang('Add team profile or details.')}}</p>
                         </div>
                         <br>
                         @if ($errors->any())
@@ -39,10 +39,10 @@
                             <div class="row">
                                 <div class="col-9">
                                     <div class="row fieldGroup align-items-center">
-                                        <h3 class="fw-bolder">Full Name</h3>
+                                        <h3 class="fw-bolder">{{lang('Full Name')}}</h3>
                                         <div class="col-11">
                                             <div class="form-group mt-3">
-                                                <input type="text" name="destination" value="{{@$team->team_name}}" data-parsley-required-message="Team name is required" placeholder="Enter Name"
+                                                <input type="text" name="destination" value="{{@$team->team_name}}" data-parsley-required-message="{{lang('Team name is required')}}" placeholder="{{lang('Enter Name')}}"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -52,30 +52,30 @@
                                     </div>
                                     <hr class="border-3 bg-dark">
                                     <div class="form-group mt-3">
-                                        <h3 class="fw-bolder">Description</h3>
-                                        <textarea name="decription" cols="30" rows="5" required data-parsley-required-message="Description is required" class="w-100 form-control" placeholder="About Team">
+                                        <h3 class="fw-bolder">{{lang('Description')}}</h3>
+                                        <textarea name="decription" cols="30" rows="5" required data-parsley-required-message="{{lang('Description is required')}}" class="w-100 form-control" placeholder="{{lang('About Team')}}">
                                             {{@$team->team_description}}
                                         </textarea>
-                                        <p class="text-end mt-2">Minimum 100 characters</p>
+                                        <p class="text-end mt-2">{{lang('Minimum 100 characters')}}</p>
                                     </div>
                                     <br>
                                     <div class="row">
                                         <div class="col-12">
-                                            <p><i class="fa fa-lock text-gray fs-3 me-3"></i> Don't worry, we'll
+                                            <p><i class="fa fa-lock text-gray fs-3 me-3"></i> {{lang("Don't worry, we'll
                                                 only share
-                                                this with customers after you have accepted their booking.</p>
+                                                this with customers after you have accepted their booking.")}}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-3">
-                                    <input type="file" name='image' value="{{@$team->image}}" class="dropify" required data-parsley-errors-container='#file_error' data-parsley-required-message="Team Image is required"  />
+                                    <input type="file" name='image' value="{{@$team->image}}" class="dropify" required data-parsley-errors-container='#file_error' data-parsley-required-message="{{lang('Team Image is required')}}"  />
                                         <div id="file_error"></div>
                                 </div>
                             </div>
                             <hr class="border-3 bg-dark">
                             <div class="float-end mt-8">
-                                <a class="btn btn-light" href="{{route('service-form-6',$id)}}">Previous</a>
-                                <button class="btn btn-primary">Finish</button>
+                                <a class="btn btn-light" href="{{route('service-form-6',$id)}}">{{lang('Previous')}}</a>
+                                <button class="btn btn-primary">{{lang('Finish')}}</button>
                             </div>
                         </form>
                     </div>

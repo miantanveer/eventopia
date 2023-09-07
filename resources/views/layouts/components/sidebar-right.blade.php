@@ -15,16 +15,16 @@
                         <!-- Tabs -->
                         <ul class="nav panel-tabs">
                             <li class=""><a href="#side1" class="active" data-bs-toggle="tab"><i
-                                        class="fe fe-settings me-1"></i>Feeds</a></li>
-                            <li><a href="#side2" data-bs-toggle="tab"><i class="fe fe-message-circle"></i> Chat</a>
+                                        class="fe fe-settings me-1"></i>{{lang("Feeds")}}</a></li>
+                            <li><a href="#side2" data-bs-toggle="tab"><i class="fe fe-message-circle"></i> {{lang("Chat")}}</a>
                             </li>
-                            <li><a href="#side3" data-bs-toggle="tab"><i class="fe fe-anchor me-1"></i>Timeline</a>
+                            <li><a href="#side3" data-bs-toggle="tab"><i class="fe fe-anchor me-1"></i>{{lang("Timeline")}}</a>
                             </li>
                         </ul>
                     </div>
                     <div class="tab-content">
                         <div class="tab-pane active" id="side1">
-                            <div class="p-3 fw-semibold ps-5">Feeds</div>
+                            <div class="p-3 fw-semibold ps-5">{{lang("Feeds")}}</div>
                             <div class="card-body pt-2">
                                 <div class="browser-stats">
                                     <div class="row mb-4">
@@ -34,7 +34,7 @@
                                         </div>
                                         <div class="col-sm-10 ps-sm-0">
                                             <div class="d-flex align-items-end justify-content-between ms-2">
-                                                <h6 class="">New user registered</h6>
+                                                <h6 class="">{{lang("New user registered")}}</h6>
                                                 <div>
                                                     <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
                                                     <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
@@ -50,7 +50,7 @@
                                         </div>
                                         <div class="col-sm-10 ps-sm-0">
                                             <div class="d-flex align-items-end justify-content-between ms-2">
-                                                <h6 class="">New order delivered</h6>
+                                                <h6 class="">{{lang("New order delivered")}}</h6>
                                                 <div>
                                                     <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
                                                     <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
@@ -66,7 +66,7 @@
                                         </div>
                                         <div class="col-sm-10 ps-sm-0">
                                             <div class="d-flex align-items-end justify-content-between ms-2">
-                                                <h6 class="">You have pending tasks</h6>
+                                                <h6 class="">{{lang("You have pending tasks")}}</h6>
                                                 <div>
                                                     <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
                                                     <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
@@ -82,7 +82,7 @@
                                         </div>
                                         <div class="col-sm-10 ps-sm-0">
                                             <div class="d-flex align-items-end justify-content-between ms-2">
-                                                <h6 class="">New version arrived</h6>
+                                                <h6 class="">{{lang("New version arrived")}}</h6>
                                                 <div>
                                                     <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
                                                     <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
@@ -98,7 +98,7 @@
                                         </div>
                                         <div class="col-sm-10 ps-sm-0">
                                             <div class="d-flex align-items-end justify-content-between ms-2">
-                                                <h6 class="">Server #1 overloaded</h6>
+                                                <h6 class="">{{lang("Server #1 overloaded")}}</h6>
                                                 <div>
                                                     <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
                                                     <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
@@ -114,7 +114,7 @@
                                         </div>
                                         <div class="col-sm-10 ps-sm-0">
                                             <div class="d-flex align-items-end justify-content-between ms-2">
-                                                <h6 class="">New project launched</h6>
+                                                <h6 class="">{{lang("New project launched")}}</h6>
                                                 <div>
                                                     <a href="javascript:void(0)"><i class="fe fe-settings me-1"></i></a>
                                                     <a href="javascript:void(0)"><i class="fe fe-x"></i></a>
@@ -124,7 +124,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="p-3 fw-semibold ps-5">Settings</div>
+                            <div class="p-3 fw-semibold ps-5">{{lang("Settings")}}</div>
                             <div class="card-body pt-2">
                                 <div class="browser-stats">
                                     <div class="row mb-4">
@@ -134,7 +134,7 @@
                                         </div>
                                         <div class="col-sm-10 ps-sm-0">
                                             <div class="d-flex align-items-end justify-content-between ms-2">
-                                                <h6 class="">General Settings</h6>
+                                                <h6 class="">{{lang("General Settings")}}</h6>
                                                 <div>
                                                     <a href="javascript:void(0)"><i
                                                             class="fe fe-settings me-1"></i></a>
@@ -166,7 +166,7 @@
                                         </div>
                                         <div class="col-sm-10 ps-sm-0">
                                             <div class="d-flex align-items-end justify-content-between ms-2">
-                                                <h6 class="">Support Settings</h6>
+                                                <h6 class="">{{lang("Support Settings")}}</h6>
                                                 <div>
                                                     <a href="javascript:void(0)"><i
                                                             class="fe fe-settings me-1"></i></a>
@@ -182,7 +182,7 @@
                                         </div>
                                         <div class="col-sm-10 ps-sm-0">
                                             <div class="d-flex align-items-end justify-content-between ms-2">
-                                                <h6 class="">Payment Settings</h6>
+                                                <h6 class="">{{lang("Payment Settings")}}</h6>
                                                 <div>
                                                     <a href="javascript:void(0)"><i
                                                             class="fe fe-settings me-1"></i></a>
@@ -198,7 +198,7 @@
                                         </div>
                                         <div class="col-sm-10 ps-sm-0">
                                             <div class="d-flex align-items-end justify-content-between ms-2">
-                                                <h6 class="">Notification Settings</h6>
+                                                <h6 class="">{{lang("Notification Settings")}}</h6>
                                                 <div>
                                                     <a href="javascript:void(0)"><i
                                                             class="fe fe-settings me-1"></i></a>
@@ -211,7 +211,7 @@
                         </div>
                         <div class="tab-pane" id="side2">
                             <div class="list-group list-group-flush">
-                                <div class="pt-3 fw-semibold ps-5">Today</div>
+                                <div class="pt-3 fw-semibold ps-5">{{lang("Today")}}</div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
                                         <span class="avatar avatar-md brround cover-image"
@@ -220,8 +220,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Addie Minstra</div>
-                                            <p class="mb-0 fs-12 text-muted"> Hey! there I' am available.... </p>
+                                                data-target="#chatmodel">{{lang("Addie Minstra")}}</div>
+                                            <p class="mb-0 fs-12 text-muted"> {{lang("Hey! there I' am available....")}} </p>
                                         </a>
                                     </div>
                                 </div>
@@ -234,8 +234,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Rose Bush</div>
-                                            <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
+                                                data-target="#chatmodel">{{lang("Rose Bush")}}</div>
+                                            <p class="mb-0 fs-12 text-muted"> {{lang("Okay...I will be waiting for you")}} </p>
                                         </a>
                                     </div>
                                 </div>
@@ -247,8 +247,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Claude Strophobia</div>
-                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project......
+                                                data-target="#chatmodel">{{lang("Claude Strophobia")}}</div>
+                                            <p class="mb-0 fs-12 text-muted"> {{lang("Hi we can explain our new project......")}}
                                             </p>
                                         </a>
                                     </div>
@@ -261,8 +261,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Eileen Dover</div>
-                                            <p class="mb-0 fs-12 text-muted"> New product Launching... </p>
+                                                data-target="#chatmodel">{{lang("Eileen Dover")}}</div>
+                                            <p class="mb-0 fs-12 text-muted"> {{lang("New product Launching...")}} </p>
                                         </a>
                                     </div>
                                 </div>
@@ -275,8 +275,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Willie Findit</div>
-                                            <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
+                                                data-target="#chatmodel">{{lang("Willie Findit")}}</div>
+                                            <p class="mb-0 fs-12 text-muted"> {{lang("Okay...I will be waiting for you")}} </p>
                                         </a>
                                     </div>
                                 </div>
@@ -288,8 +288,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Manny Jah</div>
-                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project......
+                                                data-target="#chatmodel">{{lang("Manny Jah")}}</div>
+                                            <p class="mb-0 fs-12 text-muted"> {{lang("Hi we can explain our new project......")}}
                                             </p>
                                         </a>
                                     </div>
@@ -302,12 +302,12 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Cherry Blossom</div>
-                                            <p class="mb-0 fs-12 text-muted"> Hey! there I' am available....</p>
+                                                data-target="#chatmodel">{{lang("Cherry Blossom")}}</div>
+                                            <p class="mb-0 fs-12 text-muted"> {{lang("Hey! there I' am available....")}}</p>
                                         </a>
                                     </div>
                                 </div>
-                                <div class="pt-3 fw-semibold ps-5">Yesterday</div>
+                                <div class="pt-3 fw-semibold ps-5">{{lang("Yesterday")}}</div>
                                 <div class="list-group-item d-flex align-items-center">
                                     <div class="me-2">
                                         <span class="avatar avatar-md brround cover-image"
@@ -317,8 +317,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Simon Sais</div>
-                                            <p class="mb-0 fs-12 text-muted">Schedule Realease...... </p>
+                                                data-target="#chatmodel">{{lang("Simon Sais")}}</div>
+                                            <p class="mb-0 fs-12 text-muted">{{lang("Schedule Realease......")}} </p>
                                         </a>
                                     </div>
                                 </div>
@@ -330,8 +330,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Laura Biding</div>
-                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project......
+                                                data-target="#chatmodel">{{lang("Laura Biding")}}</div>
+                                            <p class="mb-0 fs-12 text-muted"> {{lang("Hi we can explain our new project......")}}
                                             </p>
                                         </a>
                                     </div>
@@ -346,7 +346,7 @@
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
                                                 data-target="#chatmodel">Addie Minstra</div>
-                                            <p class="mb-0 fs-12 text-muted">Contact me for details....</p>
+                                            <p class="mb-0 fs-12 text-muted">{{lang("Contact me for details....")}}</p>
                                         </a>
                                     </div>
                                 </div>
@@ -358,8 +358,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Ivan Notheridiya</div>
-                                            <p class="mb-0 fs-12 text-muted"> Hi we can explain our new project......
+                                                data-target="#chatmodel">{{lang("Ivan Notheridiya")}}</div>
+                                            <p class="mb-0 fs-12 text-muted"> {{lang("Hi we can explain our new project......")}}
                                             </p>
                                         </a>
                                     </div>
@@ -372,8 +372,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Dulcie Veeta</div>
-                                            <p class="mb-0 fs-12 text-muted"> Okay...I will be waiting for you </p>
+                                                data-target="#chatmodel">{{lang('Dulcie Veeta')}}</div>
+                                            <p class="mb-0 fs-12 text-muted"> {{lang('Okay...I will be waiting for you')}} </p>
                                         </a>
                                     </div>
                                 </div>
@@ -385,8 +385,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Florinda Carasco</div>
-                                            <p class="mb-0 fs-12 text-muted">New product Launching...</p>
+                                                data-target="#chatmodel">{{lang('Florinda Carasco')}}</div>
+                                            <p class="mb-0 fs-12 text-muted">{{lang('New product Launching...')}}</p>
                                         </a>
                                     </div>
                                 </div>
@@ -399,8 +399,8 @@
                                     <div class="">
                                         <a href="{{ url('chat') }}">
                                             <div class="fw-semibold text-dark" data-bs-toggle="modal"
-                                                data-target="#chatmodel">Cherry Blossom</div>
-                                            <p class="mb-0 fs-12 text-muted">cherryblossom@gmail.com</p>
+                                                data-target="#chatmodel">{{lang('Cherry Blossom')}}</div>
+                                            <p class="mb-0 fs-12 text-muted">{{lang('cherryblossom@gmail.com')}}</p>
                                         </a>
                                     </div>
                                 </div>
@@ -411,10 +411,10 @@
                                 <li class="d-sm-flex mt-4">
                                     <div>
                                         <i class="task-icon1"></i>
-                                        <h6 class="fw-semibold">Task Finished<span
-                                                class="text-muted fs-11 ms-2 fw-normal">09 January 2022</span></h6>
-                                        <p class="text-muted fs-12">Adam Berry finished task on<a
-                                                href="javascript:void(0)" class="fw-semibold"> Project Management</a>
+                                        <h6 class="fw-semibold">{{lang('Task Finished')}}<span
+                                                class="text-muted fs-11 ms-2 fw-normal">09 {{lang('January')}} 2022</span></h6>
+                                        <p class="text-muted fs-12">{{lang('Adam Berry finished task on')}}<a
+                                                href="javascript:void(0)" class="fw-semibold"> {{lang('Project Management')}}</a>
                                         </p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
@@ -427,10 +427,10 @@
                                 <li class="d-sm-flex">
                                     <div>
                                         <i class="task-icon1"></i>
-                                        <h6 class="fw-semibold">New Comment<span
-                                                class="text-muted fs-11 ms-2 fw-normal">05 January 2022</span></h6>
-                                        <p class="text-muted fs-12">Victoria commented on Project <a
-                                                href="javascript:void(0)" class="fw-semibold"> AngularJS Template</a>
+                                        <h6 class="fw-semibold">{{lang('New Comment')}}<span
+                                                class="text-muted fs-11 ms-2 fw-normal">05 {{lang('January')}} 2022</span></h6>
+                                        <p class="text-muted fs-12">{{lang('Victoria commented on Project')}} <a
+                                                href="javascript:void(0)" class="fw-semibold">{{lang(' AngularJS Template')}}</a>
                                         </p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
@@ -443,10 +443,10 @@
                                 <li class="d-sm-flex">
                                     <div>
                                         <i class="task-icon1"></i>
-                                        <h6 class="fw-semibold">New Comment<span
-                                                class="text-muted fs-11 ms-2 fw-normal">25 January 2022</span></h6>
-                                        <p class="text-muted fs-12">Victoria commented on Project <a
-                                                href="javascript:void(0)" class="fw-semibold"> AngularJS Template</a>
+                                        <h6 class="fw-semibold">{{lang('New Comment')}}<span
+                                                class="text-muted fs-11 ms-2 fw-normal">{{lang('25 January 2022')}}</span></h6>
+                                        <p class="text-muted fs-12">{{lang('Victoria commented on Project')}} <a
+                                                href="javascript:void(0)" class="fw-semibold"> {{lang('AngularJS Template')}}</a>
                                         </p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
@@ -459,11 +459,11 @@
                                 <li class="d-sm-flex">
                                     <div>
                                         <i class="task-icon1"></i>
-                                        <h6 class="fw-semibold">Task Overdue<span
-                                                class="text-muted fs-11 ms-2 fw-normal">14 January 2022</span></h6>
-                                        <p class="text-muted mb-0 fs-12">Petey Cruiser finished task <a
-                                                href="javascript:void(0)" class="fw-semibold"> Integrated
-                                                management</a></p>
+                                        <h6 class="fw-semibold">{{lang('Task Overdue')}}<span
+                                                class="text-muted fs-11 ms-2 fw-normal">14 {{lang('January')}} 2022</span></h6>
+                                        <p class="text-muted mb-0 fs-12">{{lang('Petey Cruiser finished task')}} <a
+                                                href="javascript:void(0)" class="fw-semibold"> {{lang('Integrated
+                                                management')}}</a></p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
                                         <a href="javascript:void(0)" class="text-muted me-2"><span
@@ -475,11 +475,11 @@
                                 <li class="d-sm-flex">
                                     <div>
                                         <i class="task-icon1"></i>
-                                        <h6 class="fw-semibold">Task Overdue<span
-                                                class="text-muted fs-11 ms-2 fw-normal">29 January 2022</span></h6>
-                                        <p class="text-muted mb-0 fs-12">Petey Cruiser finished task <a
-                                                href="javascript:void(0)" class="fw-semibold"> Integrated
-                                                management</a></p>
+                                        <h6 class="fw-semibold">{{lang('Task Overdue')}}<span
+                                                class="text-muted fs-11 ms-2 fw-normal">29 {{lang('January')}} 2022</span></h6>
+                                        <p class="text-muted mb-0 fs-12">{{lang('Petey Cruiser finished task')}} <a
+                                                href="javascript:void(0)" class="fw-semibold"> {{lang('Integrated
+                                                management')}}</a></p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">
                                         <a href="javascript:void(0)" class="text-muted me-2"><span
@@ -491,10 +491,10 @@
                                 <li class="d-sm-flex">
                                     <div>
                                         <i class="task-icon1"></i>
-                                        <h6 class="fw-semibold">Task Finished<span
-                                                class="text-muted fs-11 ms-2 fw-normal">09 January 2022</span></h6>
-                                        <p class="text-muted fs-12">Adam Berry finished task on<a
-                                                href="javascript:void(0)" class="fw-semibold"> Project Management</a>
+                                        <h6 class="fw-semibold">{{lang('Task Finished')}}<span
+                                                class="text-muted fs-11 ms-2 fw-normal">09 {{lang('January')}} 2022</span></h6>
+                                        <p class="text-muted fs-12">{{lang('Adam Berry finished task on')}}<a
+                                                href="javascript:void(0)" class="fw-semibold"> {{lang('Project Management')}}</a>
                                         </p>
                                     </div>
                                     <div class="ms-auto d-md-flex me-3">

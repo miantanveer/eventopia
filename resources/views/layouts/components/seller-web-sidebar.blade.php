@@ -12,31 +12,31 @@
                                 <a class="side-menu__item" data-bs-toggle="slide"
                                     href="{{ URL('/seller-dashboard') }}"><i
                                         class="side-menu__icon text-white fe fe-home"></i><span
-                                        class="side-menu__label text-white"> Dashboard</span></a>
+                                        class="side-menu__label text-white"> {{lang('Dashboard')}}</span></a>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide"
                                     href="{{ route('list-space') }}"><img class="me-2"
                                         src="{{ asset('assets/images/icons/list-space.png') }}" alt=""><span
-                                        class="side-menu__label text-white"> List a Space</span></a>
+                                        class="side-menu__label text-white"> {{lang('List a Space')}}</span></a>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide"
                                     href="{{ URL('/list-entertainment') }}"><img class="me-2"
                                         src="{{ asset('assets/images/icons/list-entertainment.png') }}"
-                                        alt=""><span class="side-menu__label text-white"> List an Entertainment
-                                        & Talent</span></a>
+                                        alt=""><span class="side-menu__label text-white"> {{lang('List an Entertainment
+                                        & Talent')}}</span></a>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="{{ URL('/list-service') }}"><img
                                         class="me-2" src="{{ asset('assets/images/icons/list-service.png') }}"
-                                        alt=""><span class="side-menu__label text-white"> List a
-                                        Service</span></a>
+                                        alt=""><span class="side-menu__label text-white"> {{lang('List a
+                                        Service')}}</span></a>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="{{ route('my-listing') }}"><img
                                         class="me-2" src="{{ asset('assets/images/icons/my-listing.png') }}"
-                                        alt=""><span class="side-menu__label text-white"> My Listing</span></a>
+                                        alt=""><span class="side-menu__label text-white"> {{lang('My Listing')}}</span></a>
                             </li>
                         </ul>
                         <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191"

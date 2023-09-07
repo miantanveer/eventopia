@@ -1,4 +1,5 @@
 <?php
+
 use App\Models\Cart;
 use App\Models\Notification;
 use Stichoza\GoogleTranslate\GoogleTranslate;
@@ -21,7 +22,6 @@ if (!function_exists('lang')) {
 
         $lang_file = file_get_contents(resource_path('lang/' . $code . '.json'));
         $langs = json_decode($lang_file, true);
-
         if (array_key_exists($string, $langs)) {
             return $langs[$string];
         } else {
@@ -32,13 +32,13 @@ if (!function_exists('lang')) {
             $final_data = json_encode($array_data, JSON_UNESCAPED_UNICODE);
 
             file_put_contents(resource_path('lang/' . $code . '.json'), $final_data);
-            
+
             return $tr->translate($string);
         }
     }
 }
 if (!function_exists('notification')) {
-    function notification($name, $description, $user_id,$type = null,$quote_id = null)
+    function notification($name, $description, $user_id, $type = null, $quote_id = null)
     {
         $notification = new Notification();
         $notification->name = $name;

@@ -52,7 +52,7 @@
                         <div style="display:flex;flex-direction:row;justify-content:space-between;"
                             class="account mt-5 mb-2">
                             <div>
-                                <h1 style="margin-left:20px;" class="pull-left"><strong>Account</strong></h1><br>
+                                <h1 style="margin-left:20px;" class="pull-left"><strong>{{lang('Account')}}</strong></h1><br>
 
                                 <span class="avatar avatar-xl brround cover-image"
                                     data-bs-image-src="{{ asset('assets/images/users/spaces/pro.png') }}"
@@ -65,7 +65,7 @@
                             </div>
                             <div>
                                 <button style="border-color:black;" type="button"
-                                    class="btn btn-outline-default pull-right"><strong>View Profile</strong></button>
+                                    class="btn btn-outline-default pull-right"><strong>{{lang('View Profile')}}</strong></button>
                             </div>
                         </div>
                         <!-- FORM -->
@@ -73,33 +73,33 @@
                             <div class="row mt-5 mb-3">
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label ">First Name <span class="text-red"></span></label>
+                                        <label class="form-label ">{{lang('First Name ')}}<span class="text-red"></span></label>
                                         <input type="text" class="form-control border border-default rounded-0"
-                                            placeholder="First name">
+                                            placeholder="{{lang('First name')}}">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label ">Last Name <span class="text-red "></span></label>
+                                        <label class="form-label ">{{lang('Last Name')}} <span class="text-red "></span></label>
                                         <input type="text" class="form-control border border-default rounded-0"
-                                            placeholder="Last name">
+                                            placeholder="{{lang('Last name')}}">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="form-label">Phone number <span class="text-red"></span></label>
+                                        <label class="form-label">{{lang('Phone number')}} <span class="text-red"></span></label>
                                         <input type="text" class="form-control border border-default rounded-0"
-                                            placeholder="Phone number">
+                                            placeholder="{{lang('Phone number')}}">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
 
-                                        <label class="form-label" for="cpassword">Email</label>
+                                        <label class="form-label" for="cpassword">{{lang('Email')}}</label>
                                         <div class="d-flex align-items-center input-container">
                                             <input type="email" class="form-control border border-default rounded-0"
                                                 value="" required
-                                                data-parsley-required-message="Confirm Password is required*"
+                                                data-parsley-required-message="{{lang('Confirm Password is required*')}}"
                                                 data-parsley-errors-container="#cpassword_err">
                                             <i class="fa fa-lock text-muted icon"></i>
                                         </div>
@@ -108,25 +108,25 @@
 
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label">Organization<span class="text-red"></span></label>
+                                        <label class="form-label">{{lang('Organization')}}<span class="text-red"></span></label>
                                         <input type="text" class="form-control border border-default rounded-0"
-                                            placeholder="Organization">
+                                            placeholder="{{lang('Organization')}}">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-6">
                                     <div class="form-group">
-                                        <label class="form-label">Job title <span class="text-red"></span></label>
+                                        <label class="form-label">{{lang('Job title')}} <span class="text-red"></span></label>
                                         <input type="text" class="form-control border border-default rounded-0"
-                                            placeholder="Job title">
+                                            placeholder="{{lang('Job title')}}">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- Last -->
                         <div class="notify mt-2 mb-6">
-                            <h1><b>Notifications</b></h1>
-                            <h3><b>Email prefrences</b></h3>
-                            <p>Send me exclusive deals, inspiration, news, and community updates via email.
+                            <h1><b>{{lang('Notifications')}}</b></h1>
+                            <h3><b>{{lang('Email prefrences')}}</b></h3>
+                            <p>{{lang('Send me exclusive deals, inspiration, news, and community updates via email.')}}
                                 <input style="margin-left:355px;" type="checkbox" id="vehicle1" name="vehicle1">
                             </p>
 
@@ -149,21 +149,21 @@
                 <div class="dropdown btn-group mt-2 mb-2">
                     <div class="btn-group mt-2 mb-2">
                         <button class="btn btn-pill btn-white border-info text-end dropdown-toggle" type="button"
-                            data-bs-toggle="dropdown" id="global-helper-btn">Do
-                            you need Help?</button>
+                            data-bs-toggle="dropdown" id="global-helper-btn">{{lang('Do
+                            you need Help?')}}</button>
                         <div class="dropdown-menu w-260" style="">
                             <form class="card-body pt-3" id="contactForm">
                                 <div class="form-group">
-                                    <input class="form-control" type="email" placeholder="Enter Email">
+                                    <input class="form-control" type="email" placeholder="{{lang('Enter Email')}}">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Enter your Name" type="text">
+                                    <input class="form-control" placeholder="{{lang('Enter your Name')}}" type="text">
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Enter Phone Number" type="text">
+                                    <input class="form-control" placeholder="{{lang('Enter Phone Number')}}" type="text">
                                 </div>
                                 <div class="submit">
-                                    <button class="btn btn-primary btn-block">Submit</button>
+                                    <button class="btn btn-primary btn-block">{{lang('Submit')}}</button>
                                 </div>
                             </form>
                         </div>

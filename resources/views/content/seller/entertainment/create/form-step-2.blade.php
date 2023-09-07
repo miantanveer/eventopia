@@ -83,9 +83,9 @@
                                                         class="w-5" alt=""> {{lang('Example: “Downtown Loft with Skyline
                                                     View”')}}</p>
                                                 <input type="text" class="w-100 p-4 bg-light-gray border-1 form-control"
-                                                    placeholder="Enter your entertainment & talent title" name="title"
+                                                    placeholder="{{lang('Enter your entertainment & talent title')}}" name="title"
                                                     value="{{ @$entertainment->title }}" required
-                                                    data-parsley-required-message="Please Enter entertainment title">
+                                                    data-parsley-required-message="{{lang('Please Enter entertainment title')}}">
                                                 <hr class="bg-dark">
                                             </div>
                                             <div class="mt-7">
@@ -103,7 +103,7 @@
                                                         <input type="number" name="space"
                                                             value="{{ @$entertainment->space }}" class="form-control"
                                                             placeholder="1 to 500" required data-parsley-errors-container="#error"
-                                                            data-parsley-required-message="Please Enter Space">
+                                                            data-parsley-required-message="{{lang('Please Enter Space')}}">
                                                         <span class="input-group-text" id="basic-addon2">{{lang('sq m')}}</span>
                                                     </div>
                                                     <div id="error"></div>
@@ -131,8 +131,8 @@
                                                 requirements.')}}
                                             </p>
                                             <select name="age" class="form-control form-select select2"
-                                                data-bs-placeholder="All Ages" required
-                                                data-parsley-required-message="Please Select a value">
+                                                data-bs-placeholder="{{lang('All Ages')}}" required
+                                                data-parsley-required-message="{{lang('Please Select a value')}}">
                                                 @foreach ($age as $key => $data)
                                                     <option value="{{ $data->name }}"
                                                         {{ @$entertainment->age == $data->name ? 'selected' : '' }}>{{ $data->name }}
