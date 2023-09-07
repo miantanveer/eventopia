@@ -76,37 +76,37 @@
                                     <hr>
                                     <div class="row">
                                         <div class="card-header  mb-3">
-                                            <h1 style="text-align:center;" class="card-title">Entertainment Address</h1>
+                                            <h1 style="text-align:center;" class="card-title">{{lang('Entertainment Address')}}</h1>
                                         </div>
                                         <div class="card-body col-md-5 col-lg-12">
-                                            <label class="form-control-label">Street Address</label>
+                                            <label class="form-control-label">{{lang('Street Address')}}</label>
                                             <span class="tx-danger">*</span></label>
                                             <input class="form-control rounded-0" value="{{ @$entertainment->address }}"
-                                                id="address" name="address" placeholder="Add Address" required
+                                                id="address" name="address" placeholder="{{lang('Add Address')}}" required
                                                 data-parsley-required-message="Please enter your address" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
-                                            <label class="form-control-label">Country</label>
+                                            <label class="form-control-label">{{lang('Country')}}</label>
                                             <span class="tx-danger">*</span></label>
                                             <input class="form-control rounded-0" value="{{ @$entertainment->country }}"
-                                                id="country" name="country" placeholder="" required readonly
+                                                id="country" name="country" placeholder="" required
                                                 type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
-                                            <label class="form-control-label">State<span class="tx-danger">*</span></label>
+                                            <label class="form-control-label">{{lang('State')}}<span class="tx-danger">*</span></label>
                                             <input class="form-control rounded-0" value="{{ @$entertainment->state }}"
-                                                id="state" name="state" placeholder="" required readonly
+                                                id="state" name="state" placeholder="" required
                                                 type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
-                                            <label class="form-control-label">City</label> <span
+                                            <label class="form-control-label">{{lang('City')}}</label> <span
                                                 class="tx-danger">*</span></label>
                                             <input class="form-control rounded-0" id="city"
                                                 value="{{ @$entertainment->city }}" name="city" placeholder="" required
-                                                readonly type="text">
+                                                type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
-                                            <label class="form-control-label">Postal Code<span
+                                            <label class="form-control-label">{{lang('Postal Code')}}<span
                                                     class="tx-danger">*</span></label>
                                             <input class="form-control rounded-0" value="{{ @$entertainment->postal_code }}"
                                                 id="postal_code" name="postal_code" placeholder="" required
@@ -118,8 +118,8 @@
                                     <br>
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end mt-8">
-                                        <a class="btn btn-light" href="{{ route('load_entertainment_form_2', $id) }}">Previous</a>
-                                        <button class="btn btn-primary">Next</button>
+                                        <a class="btn btn-light" href="{{ route('load_entertainment_form_2', $id) }}">{{lang('Previous')}}</a>
+                                        <button class="btn btn-primary">{{lang('Next')}}</button>
                                     </div>
                                 </form>
                             </div>

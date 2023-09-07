@@ -97,15 +97,15 @@
                             <i class="fa fa-star-o text-warning"></i>
                             &nbsp;
                         </div>
-                        <p class="col-md-2 col-sm-3">45 reviews</p>
-                        <p class="col-md-2 col-sm-3"><i class="fa fa-group"></i> 12 people </p>
-                        <p class="col-md-2 col-sm-3"><i class="mdi mdi-alarm text-primary"></i> 1 hr
-                            5 min</p>
+                        <p class="col-md-2 col-sm-3">{{lang('45 reviews')}}</p>
+                        <p class="col-md-2 col-sm-3"><i class="fa fa-group"></i> {{lang('12 people')}} </p>
+                        <p class="col-md-2 col-sm-3"><i class="mdi mdi-alarm text-primary"></i> 1{{lang(' hr
+                            5 min')}}</p>
                     </div>
                     <hr>
                     <div class="mt-5">
                         <h3 class="text-dark">
-                            About the space
+                            {{lang('About the space')}}
                         </h3>
                         <p>{{ $space->description }}</p>
                     </div>
@@ -115,19 +115,19 @@
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Parking
+                                        {{lang('Parking')}}
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <h4 class="text-dark">Parking options</h4>
+                                        <h4 class="text-dark">{{lang('Parking options')}}</h4>
                                         <p>
                                             @foreach ($space->spaceHaveParkingOptions as $parkingOption)
                                                 {{ $parkingOption->option . ',' }}
                                             @endforeach
                                         </p>
-                                        <h4 class="text-dark">Parking description</h4>
+                                        <h4 class="text-dark">{{lang('Parking description')}}</h4>
                                         <p>{{ $space->parking_description ?? 'Empty' }}</p>
                                     </div>
                                 </div>
@@ -136,7 +136,7 @@
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        House Rules
+                                        {{lang('House Rules')}}
                                     </button>
                                 </h2>
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
@@ -150,14 +150,14 @@
                     </div>
                     <hr>
                     <div class="mt-5">
-                        <h3 class="text-dark">Location</h3>
+                        <h3 class="text-dark">{{lang('Location')}}</h3>
                         <div style="height: 300px;" id="map">
                         </div>
                     </div>
                     <hr>
                     <div class="mt-5">
                         <h3 class="text-dark">
-                            Health and Safety Measures
+                            {{lang('Health and Safety Measures')}}
                         </h3>
                         @foreach (@$space->spaceHaveSafetyMeasures as $safetyMeasure)
                             <p>{{ $loop->iteration . ' ' . $safetyMeasure->safety_measure_options }}</p>
@@ -169,7 +169,7 @@
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                        Cleaning protocol
+                                        {{lang('Cleaning protocol')}}
                                     </button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -184,7 +184,7 @@
                     <hr>
                     <div class="mt-5">
                         <h3 class="text-dark">
-                            Cancellation Policy
+                            {{lang('Cancellation Policy')}}
                         </h3>
                         <h5 class="text-dark">{{ $space->cancellationPolicy->title }}</h5>
                         <p>{{ $space->cancellationPolicy->description }}</p>
@@ -192,7 +192,7 @@
                     <hr>
                     <div class="mt-5">
                         <h3 class="text-dark">
-                            Reviews (87)
+                            {{lang('Reviews (87)')}}
                         </h3>
                         <div class="row ms-0 border mb-5 p-4 br-5 col-12">
                             <div class="col-md-1 col-2">
@@ -201,11 +201,11 @@
                                 </a>
                             </div>
                             <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
-                                <h5 class="mt-3 text-dark">Gavin Murray</h5>
+                                <h5 class="mt-3 text-dark">{{lang('Gavin Murray')}}</h5>
                             </div>
                             <div class="col-md-1 col-2 empty"></div>
                             <div class="col-md-9 col-sm-8 col-10 reply-content">
-                                <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
+                                <span class="tex-dark">{{lang('June 14, 2023 at 8:00 pm')}}</span>
                                 <div class="rating-stars" id="rating-1" data-stars="2"
                                     style="cursor: pointer; text-align:left !important;font-size: 14px">
                                     <input type="hidden" name="rating-1" value="0"><i class="fa fa-star"
@@ -215,13 +215,13 @@
                                         style="color:#ecf0f1"></i><i class="fa fa-star" style="color:#ecf0f1"></i>
 
                                 </div>
-                                <p class="font-13 text-muted mt-2">In reality space is
-                                    bigger than it seems in photo's.</p>
+                                <p class="font-13 text-muted mt-2">{{lang("In reality space is
+                                    bigger than it seems in photo's.")}}</p>
                             </div>
                             <div class="col-sm-2 col-12 my-auto content-button">
                                 <div class="float-end">
                                     <a href="javascript:void(0);" class="btn btn-primary px-2">
-                                        <i class="zmdi zmdi-mail-reply me-1"></i>Reply
+                                        <i class="zmdi zmdi-mail-reply me-1"></i>{{lang('Reply')}}
                                     </a>
                                 </div>
                             </div>
@@ -233,11 +233,11 @@
                                 </a>
                             </div>
                             <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
-                                <h5 class="mt-3 text-dark">Gavin Murray</h5>
+                                <h5 class="mt-3 text-dark">{{lang('Gavin Murray')}}</h5>
                             </div>
                             <div class="col-md-1 col-2 empty"></div>
                             <div class="col-md-9 col-sm-8 col-10 reply-content">
-                                <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
+                                <span class="tex-dark">{{lang('June 14, 2023 at 8:00 pm')}}</span>
                                 <div class="rating-stars" id="rating-1" data-stars="2"
                                     style="cursor: pointer; text-align:left !important;font-size: 14px">
                                     <input type="hidden" name="rating-1" value="0"><i class="fa fa-star"
@@ -247,13 +247,13 @@
                                         style="color:#ecf0f1"></i><i class="fa fa-star" style="color:#ecf0f1"></i>
 
                                 </div>
-                                <p class="font-13 text-muted mt-2">In reality space is
-                                    bigger than it seems in photo's.</p>
+                                <p class="font-13 text-muted mt-2">{{lang("In reality space is
+                                    bigger than it seems in photo's.")}}</p>
                             </div>
                             <div class="col-sm-2 col-12 my-auto content-button">
                                 <div class="float-end">
                                     <a href="javascript:void(0);" class="btn btn-primary px-2">
-                                        <i class="zmdi zmdi-mail-reply me-1"></i>Reply
+                                        <i class="zmdi zmdi-mail-reply me-1"></i>{{lang('Reply')}}
                                     </a>
                                 </div>
                             </div>
@@ -265,11 +265,11 @@
                                 </a>
                             </div>
                             <div class="col-md-11 ps-md-5 ps-lg-2 col-10 reply-content-heading">
-                                <h5 class="mt-3 text-dark">Gavin Murray</h5>
+                                <h5 class="mt-3 text-dark">{{lang('Gavin Murray')}}</h5>
                             </div>
                             <div class="col-md-1 col-2 empty"></div>
                             <div class="col-md-9 col-sm-8 col-10 reply-content">
-                                <span class="tex-dark">June 14, 2023 at 8:00 pm</span>
+                                <span class="tex-dark">{{lang('June 14, 2023 at 8:00 pm')}}</span>
                                 <div class="rating-stars" id="rating-1" data-stars="2"
                                     style="cursor: pointer; text-align:left !important;font-size: 14px">
                                     <input type="hidden" name="rating-1" value="0"><i class="fa fa-star"
@@ -279,13 +279,13 @@
                                         style="color:#ecf0f1"></i><i class="fa fa-star" style="color:#ecf0f1"></i>
 
                                 </div>
-                                <p class="font-13 text-muted mt-2">In reality space is
-                                    bigger than it seems in photo's.</p>
+                                <p class="font-13 text-muted mt-2">{{lang("In reality space is
+                                    bigger than it seems in photo's.")}}</p>
                             </div>
                             <div class="col-sm-2 col-12 my-auto content-button">
                                 <div class="float-end">
                                     <a href="javascript:void(0);" class="btn btn-primary px-2">
-                                        <i class="zmdi zmdi-mail-reply me-1"></i>Reply
+                                        <i class="zmdi zmdi-mail-reply me-1"></i>{{lang('Reply')}}
                                     </a>
                                 </div>
                             </div>
@@ -299,14 +299,14 @@
             <div class="card custom-card">
                 <div class="card-body">
                     <div class="mt-3 text-center">
-                        <h2>SAR {{ @$space->spaceHaveActivities[0]->rate_per_hour }} /hr</h2>
-                        <p>{{ @$space->spaceHaveActivities[0]->minimum_hour }} hour minimum</p>
+                        <h2>SAR {{ @$space->spaceHaveActivities[0]->rate_per_hour }} {{lang('/hr')}}</h2>
+                        <p>{{ @$space->spaceHaveActivities[0]->minimum_hour }} {{lang('hour minimum')}}</p>
                     </div>
                     <hr>
                     <div class="">
                         <div class="row">
                             <div class="col-7">
-                                <h4>{{ @$space->spaceHaveActivities[0]->discount }} hour discount <i
+                                <h4>{{ @$space->spaceHaveActivities[0]->discount }} {{lang('hour discount')}} <i
                                         class="mdi mdi-alert-circle-outline"></i>
                                 </h4>
                             </div>
@@ -359,7 +359,7 @@
                                                 <select name="start_time"
                                                     class="form-control form-select select2 select2-hidden-accessible">
                                                     <!-- Start time options will be populated dynamically -->
-                                                    <option selected disabled>Start Time</option>
+                                                    <option selected disabled>{{lang('Start Time')}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -368,7 +368,7 @@
                                                 <select name="end_time"
                                                     class="form-control form-select select2 select2-hidden-accessible">
                                                     <!-- End time options will be populated dynamically -->
-                                                    <option selected disabled>End Time</option>
+                                                    <option selected disabled>{{lang('End Time')}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -395,9 +395,9 @@
                                     </div>
                                 </form>
                                 <div class="mt-3 text-center">
-                                    <h6><i class="mdi mdi-alarm"></i> John typically respond within
-                                        1 hr</h6>
-                                    <p>You won't be charged yet.</p>
+                                    <h6><i class="mdi mdi-alarm"></i> {{lang('John typically respond within
+                                        1 hr')}}</h6>
+                                    <p>{{lang("You won't be charged yet.")}}</p>
                                 </div>
                             </div>
                         </div>
@@ -408,9 +408,9 @@
                 <hr class="px-0 line">
                 <div class="card-body pb-0">
                     <div class="text-center">
-                        <h3 class="mb-3 booking-heading">Included in your booking</h3>
+                        <h3 class="mb-3 booking-heading">{{lang('Included in your booking')}}</h3>
                     </div>
-                    <h4 class="mt-5 fw-bold">Amentities</h4>
+                    <h4 class="mt-5 fw-bold">{{lang('Amentities')}}</h4>
                     <div class="row mb-6">
                         @foreach (@$space->spaceHaveActivities[0]->spaceAmenities as $spaceAmenity)
                             <div class="col-6">

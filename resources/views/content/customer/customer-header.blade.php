@@ -16,16 +16,16 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow edit-profile-3 space-dropdown">
 
                                     <a class="dropdown-item" href="{{url('/edit-profile')}}">
-                                        <i class="dropdown-icon fa fa-cart-plus"></i> Cart
+                                        <i class="dropdown-icon fa fa-cart-plus"></i> {{lang('Cart')}}
                                     </a>
                                     <a class="dropdown-item" data-bs-target="#country-selector" data-bs-toggle="modal">
-                                        <i class="dropdown-icon fe fe-globe"></i> Language
+                                        <i class="dropdown-icon fe fe-globe"></i> {{lang('Language')}}
                                     </a>
                                     <a class="dropdown-item" href="{{URL('/seller-dashboard')}}">
-                                        <i class="dropdown-icon fa fa-user"></i> Become a seller
+                                        <i class="dropdown-icon fa fa-user"></i> {{lang('Become a seller')}}
                                     </a>
                                     <a class="dropdown-item" href="#">
-                                        <i class="dropdown-icon icon icon-layers"></i> Booking
+                                        <i class="dropdown-icon icon icon-layers"></i> {{lang('Booking')}}
                                     </a>
                                 </div>
                             </div>
@@ -49,12 +49,12 @@
 
                                         <div class="d-flex seller-btn">
                                             <a class="nav-link border py-3 px-5 m-2 text-white" id="tab1" href="{{URL('/seller-dashboard')}}">
-                                                Become a Seller
+                                                {{lang('Become a Seller')}}
                                             </a>
                                         </div>
                                         <div class="d-flex seller-btn">
                                             <a class="nav-link py-3 px-5 m-2 active text-white" href="{{url('/bookings')}}" role="tab" aria-selected="true">
-                                                Booking
+                                                {{lang('Booking')}}
                                             </a>
                                         </div>
 
@@ -66,15 +66,15 @@
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
 
                                                 <a class="dropdown-item" href="{{url('/edit-profile')}}">
-                                                    <i class="dropdown-icon fe fe-home"></i> Manage Account
+                                                    <i class="dropdown-icon fe fe-home"></i> {{lang('Manage Account')}}
                                                 </a>
                                                 <a class="dropdown-item" href="{{url('/edit-profile')}}">
-                                                    <i class="dropdown-icon fe fe-user"></i> Dashboard
+                                                    <i class="dropdown-icon fe fe-user"></i> {{lang('Dashboard')}}
                                                 </a>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <button class="dropdown-item">
-                                                        <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
+                                                        <i class="dropdown-icon fe fe-alert-circle"></i> {{lang('Sign out')}}
                                                     </button>
                                                 </form>
                                             </div>

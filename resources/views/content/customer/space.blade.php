@@ -109,7 +109,7 @@
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
                                 data-bs-toggle="dropdown">
-                                Price <span class="caret"></span>
+                                {{lang('Price')}} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <div class="custom-controls-stacked">
@@ -117,17 +117,17 @@
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option1" checked="">
-                                            <span class="custom-control-label">Up to $100</span>
+                                            <span class="custom-control-label">{{lang('Up to $100')}}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option2">
-                                            <span class="custom-control-label">$100 to & $250</span>
+                                            <span class="custom-control-label">{{lang('$100 to & $250')}}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">$250 to & $450</span>
+                                            <span class="custom-control-label">{{lang('$250 to & $450')}}</span>
                                         </label>
                                     </form>
                                 </div>
@@ -137,7 +137,7 @@
                     <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4 ps-0">
                         <div class="mt-2 mb-2">
                             <input type="text" id="typeCategories" class="form-control btn_background text-dark"
-                                placeholder="Type">
+                                placeholder="{{lang('Type')}}">
                             <div class="search-dropdown-results" id="searchResults"></div>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
                                 data-bs-toggle="dropdown">
-                                Attendees <span class="caret"></span>
+                                {{lang('Attendees')}} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <div class="custom-controls-stacked">
@@ -155,22 +155,22 @@
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option1" checked="">
-                                            <span class="custom-control-label">0 to 10</span>
+                                            <span class="custom-control-label">{{lang('0 to 10')}}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option2">
-                                            <span class="custom-control-label">11 to 25</span>
+                                            <span class="custom-control-label">{{lang('11 to 25')}}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">51 to 100</span>
+                                            <span class="custom-control-label">{{lang('51 to 100')}}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">Over 100</span>
+                                            <span class="custom-control-label">{{lang('Over 100')}}</span>
                                         </label>
                                     </form>
                                 </div>
@@ -184,12 +184,12 @@
                     </div>
                     <div class="col-lg-2 col-md-3 col-12 col-xl-2 mb-2 mb-md-0 ps-0">
                         <form action="#" class="mt-2">
-                            <input type="text" class="form-control btn_background" placeholder="Enter a Keyword">
+                            <input type="text" class="form-control btn_background" placeholder="{{lang('Enter a Keyword')}}">
                         </form>
                     </div>
                     <div class="col-lg-1 text-center mt-4 mx-6 form-check form-switch d-lg-block d-none">
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                        <label class="form-check-label" for="flexSwitchCheckChecked">Map</label>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">{{lang('Map')}}</label>
                     </div>
                 </div>
             </div>
@@ -207,7 +207,7 @@
                         <div class="container-fluid">
                             <div class="card custom-card">
                                 <div class="card-header border-bottom-0">
-                                    The talent & entertainments you might be looking for?
+                                    {{lang('The talent & entertainments you might be looking for?')}}
                                 </div>
                                 <div class="card-body pt-0 h-100">
                                     <div class="owl-carousel owl-carousel-icons2">
@@ -234,11 +234,11 @@
                                         $title = 0;
                                     @endphp
                                     <div class="text-center">
-                                        <h2><strong>We couldn't find any spaces.</strong></h2>
+                                        <h2><strong>{{lang("We couldn't find any spaces.")}}</strong></h2>
                                     </div>
                                 @else
                                     <div class="card-header border-bottom-0 ms-3">
-                                        {{$count}} spaces found
+                                        {{$count}} {{lang('spaces found')}}
                                     </div>
                                     @foreach (@$space as $value)
                                         @php
@@ -250,8 +250,8 @@
                                             <div class="card overflow-hidden">
                                                 <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
                                                     <div class="ms-1 card-border float-start">
-                                                        <p class="text-dark p-2 bg-primary">From
-                                                            SAR{{ @$value->spaceHaveActivities[0]->rate_per_hour }}/hour
+                                                        <p class="text-dark p-2 bg-primary">{{lang('From
+                                                            SAR')}}{{ @$value->spaceHaveActivities[0]->rate_per_hour }}{{lang('/hour')}}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -265,7 +265,7 @@
                                                         <i class="fa fa-star" style="color:#f1c40f"></i>
                                                         <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
                                                         <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                        <p>Responds within 1 hour</p>
+                                                        <p>{{lang('Responds within 1 hour')}}</p>
                                                     </div>
                                                 </a>
                                             </div>

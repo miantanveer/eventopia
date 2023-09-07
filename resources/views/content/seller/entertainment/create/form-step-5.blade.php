@@ -65,21 +65,21 @@
                                 @csrf
                                 <div class="container">
                                     <div class="text-center mb-6">
-                                        <h3 class="mt-3 mt-1"><b>What are your operating hours?</b>
+                                        <h3 class="mt-3 mt-1"><b>{{lang('What are your operating hours?')}}</b>
                                         </h3>
-                                        <p class="">Operating hours are the days and hours of the week that your
+                                        <p class="">{{lang('Operating hours are the days and hours of the week that your
                                             space
                                             is
                                             open to host bookings (i.e. your general availability). Guests will not be
                                             able
-                                            to book times outside of your operating hours. Learn More.</p>
+                                            to book times outside of your operating hours. Learn More.')}}</p>
                                     </div>
-                                    <p class="mb-3"><b>Comedy event - 23408 Bernier Cliff Suite 526</b></p>
+                                    <p class="mb-3"><b>{{lang('Comedy event - 23408 Bernier Cliff Suite 526')}}</b></p>
                                     <div class="bg-gray px-4 py-3">
-                                        <p class="text-white m-0"><i class="fa fa-info-circle me-md-5"></i> Operating
+                                        <p class="text-white m-0"><i class="fa fa-info-circle me-md-5"></i> {{lang('Operating
                                             hours
                                             end times are restricted to 12
-                                            AM for this space type. Read our Social Events Policy for more information.
+                                            AM for this space type. Read our Social Events Policy for more information.')}}
                                         </p>
                                     </div>
                                     @include('layouts.components.setHoursHTMLCode')
@@ -87,8 +87,8 @@
                                 </div>
                                 <div class="float-end">
                                     <a class="btn btn-light"
-                                        href="{{ route('load_entertainment_form_4', $id) }}">Previous</a>
-                                    <button class="btn btn-primary">Next</button>
+                                        href="{{ route('load_entertainment_form_4', $id) }}">{{lang('Previous')}}</a>
+                                    <button class="btn btn-primary">{{lang('Next')}}</button>
                                 </div>
                             </form>
                         </div>

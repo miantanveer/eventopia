@@ -99,7 +99,7 @@
                                                                         aria-expanded="true"
                                                                         data-activity="{{ $data->id }}"
                                                                         aria-controls="collapse{{ $loop->iteration }}">
-                                                                        Enable </a>
+                                                                        {{lang('Enable')}} </a>
                                                                 </h4>
                                                             </div>
                                                             <div class="form-check d-none">
@@ -112,26 +112,26 @@
                                                                 class="panel-collapse collapse" role="tabpanel"
                                                                 aria-labelledby="headingOne1">
                                                                 <div class="panel-body">
-                                                                    <label class="form-label">Pricing</label>
+                                                                    <label class="form-label">{{lang('Pricing')}}</label>
                                                                     <hr class="bg-dark mt-0">
-                                                                    <label class="mb-5">Hourly rate</label>
-                                                                    <p>Please choose a base hourly rate. You
+                                                                    <label class="mb-5">{{lang('Hourly rate')}}</label>
+                                                                    <p>{{lang('Please choose a base hourly rate. You
                                                                         can customize your pricing with atten-
                                                                         dee pricing, calendar pricing, add add-
-                                                                        ons once your listing are created.</p>
+                                                                        ons once your listing are created.')}}</p>
                                                                     <div class="form-group mb-6">
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
-                                                                                placeholder="80" 
+                                                                                placeholder="80"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $data->id }}][rate_per_hour][]">
                                                                             <span class="input-group-text"
-                                                                                id="basic-addon2">SAR</span>
+                                                                                id="basic-addon2">{{lang('SAR')}}</span>
                                                                         </div>
                                                                     </div>
-                                                                    <p>Minimum number of hours</p>
-                                                                    <p>Must be between 1-12 hours</p>
+                                                                    <p>{{lang('Minimum number of hours')}}</p>
+                                                                    <p>{{lang('Must be between 1-12 hours')}}</p>
                                                                     <div class="form-group mb-4">
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
@@ -145,10 +145,10 @@
                                                                         </div>
                                                                     </div>
 
-                                                                    <label class="my-5">8+ hour discount</label>
-                                                                    <p>Encourage guests to book longer by giving a discount
+                                                                    <label class="my-5">{{lang('8+ hour discount')}}</label>
+                                                                    <p>{{lang('Encourage guests to book longer by giving a discount
                                                                         for
-                                                                        bookings that are 8 hours or more.</p>
+                                                                        bookings that are 8 hours or more.')}}</p>
                                                                     <div class="form-group mb-3">
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
@@ -158,47 +158,47 @@
                                                                                 name="activities[{{ $data->id }}][discount][]">
                                                                             <span class="input-group-text"
                                                                                 id="basic-addon2">%
-                                                                                off</span>
+                                                                                {{lang('off')}}</span>
                                                                         </div>
                                                                     </div>
                                                                     <input type="hidden"
                                                                         name="activities[{{ $data->id }}][space_activity_id][]"
                                                                         value="{{ $data->id }}">
-                                                                    <a href="#" class="mb-6">How is this
-                                                                        calculated?</a>
-                                                                    <label class="form-label">Who can book
-                                                                        instantly?</label>
+                                                                    <a href="#" class="mb-6">{{lang('How is this
+                                                                        calculated?')}}</a>
+                                                                    <label class="form-label">{{lang('Who can book
+                                                                        instantly?')}}</label>
                                                                     <hr class="bg-dark mt-0">
                                                                     <div class="mb-5">
                                                                         <label>
                                                                             <input type="radio"
                                                                                 name="activities[{{ $data->id }}][instant_booking][]"
                                                                                 value="everyone">
-                                                                            <span>Everyone</span>
+                                                                            <span>{{lang('Everyone')}}</span>
                                                                         </label>
-                                                                        <p>Guests who acknowledge and accept your host rules
+                                                                        <p>{{lang('Guests who acknowledge and accept your host rules
                                                                             can
-                                                                            book instantly.</p>
+                                                                            book instantly.')}}</p>
                                                                         <label>
                                                                             <input type="radio"
                                                                                 name="activities[{{ $data->id }}][instant_booking][]"
                                                                                 value="no one">
-                                                                            <span>No one</span>
+                                                                            <span>{{lang('No one')}}</span>
                                                                         </label>
-                                                                        <p>Booking requests will need to be manually
+                                                                        <p>{{lang('Booking requests will need to be manually
                                                                             accepted or
-                                                                            declined.</p>
+                                                                            declined.')}}</p>
                                                                     </div>
-                                                                    <a href="#">Learn more?</a>
+                                                                    <a href="#">{{lang('Learn more?')}}</a>
                                                                     <div class="my-5">
-                                                                        <p class="back-g-color p-3">Meeting listings get up
+                                                                        <p class="back-g-color p-3">{{lang('Meeting listings get up
                                                                             to
                                                                             2x
-                                                                            more bookings when guests can book instantly</p>
+                                                                            more bookings when guests can book instantly')}}</p>
                                                                     </div>
-                                                                    <label class="form-label">Capacity</label>
+                                                                    <label class="form-label">{{lang('Capacity')}}</label>
                                                                     <hr class="bg-dark mb-3">
-                                                                    <p>Maximum number of guests</p>
+                                                                    <p>{{lang('Maximum number of guests')}}</p>
                                                                     <div class="form-group mb-3">
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
@@ -212,14 +212,14 @@
                                                                         </div>
                                                                     </div>
                                                                     <hr class="bg-dark mb-3">
-                                                                    <p>All amenities you select should be inclu-
+                                                                    <p>{{lang('All amenities you select should be inclu-
                                                                         ded in your hourly rate. If you have
                                                                         amenities that you charge for, do not
                                                                         include them here. You can add those in
-                                                                        a later section.
+                                                                        a later section.')}}
                                                                     </p><br>
-                                                                    You must include WiFi, tables, and chairs
-                                                                    to offer meetings
+                                                                    {{lang('You must include WiFi, tables, and chairs
+                                                                    to offer meetings')}}
                                                                     <div class="row">
                                                                         <div class="span12 pagination-centered">
                                                                             @foreach (@$data->entAmenities as $activityHavingAmenity)
@@ -242,13 +242,13 @@
                                     </div>
                                     @if (@$key !== null)
                                         <div class="float-end">
-                                            <button class="btn btn-primary">Update</button>
+                                            <button class="btn btn-primary">{{lang('Update')}}</button>
                                         </div>
                                     @else
                                         <div class="float-end">
                                             <a class="btn btn-light"
-                                                href="{{ route('load_entertainment_form_6', $id) }}">Previous</a>
-                                            <button class="btn btn-primary">Next</button>
+                                                href="{{ route('load_entertainment_form_6', $id) }}">{{lang('Previous')}}</a>
+                                            <button class="btn btn-primary">{{lang('Next')}}</button>
                                         </div>
                                     @endif
                                 </form>
@@ -282,7 +282,7 @@
                     const activityId = $(this).data('activity');
                     const checkbox = $(`input[activity_id="${activityId}"]`);
                     checkbox.val(activityId);
-    
+
                     if (checkbox.length > 0) {
                         checkbox.prop('checked', !checkbox.prop('checked'));
                     }

@@ -56,11 +56,11 @@
                                     @csrf
                                     <div class="container">
                                         <div class="text-center mb-6">
-                                            <h3 class="mt-3 mt-1"><b>Please review the following Eventopia policies</b>
+                                            <h3 class="mt-3 mt-1"><b>{{lang('Please review the following Eventopia policies')}}</b>
                                             </h3>
                                             <p class=""><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                    class="w-5" alt=""> I agree and
-                                                understand that as a Eventopia host I am required to:</p>
+                                                    class="w-5" alt=""> {{lang('I agree and
+                                                understand that as a Eventopia host I am required to:')}}</p>
                                         </div>
                                         <div class="container">
                                             <div class="row">
@@ -69,9 +69,9 @@
                                                         <input class="form-check-input" name="on_company" type="checkbox" value="keep on company"
                                                             id="invalidCheck-1" checked required>
                                                         <label class="form-check-label" for="invalidCheck-1">
-                                                            <p>Keep conversations on Eventopia</p>
-                                                            <p>Keep conversations with guests on the platform so everyone
-                                                                knows what was agreed to.</p>
+                                                            <p>{{lang('Keep conversations on Eventopia')}}</p>
+                                                            <p>{{lang('Keep conversations with guests on the platform so everyone
+                                                                knows what was agreed to.')}}</p>
                                                         </label>
                                                     </div>
                                                     <hr class="bg-dark">
@@ -79,10 +79,10 @@
                                                         <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment"
                                                             id="invalidCheck-2" required>
                                                         <label class="form-check-label" for="invalidCheck-2">
-                                                            <p>Use Eventopia to process payments</p>
-                                                            <p>All payments must be processed on Eventopia and honor our
+                                                            <p>{{lang('Use Eventopia to process payments')}}</p>
+                                                            <p>{{lang('All payments must be processed on Eventopia and honor our
                                                                 service fee. All payouts will be made via direct deposit to
-                                                                your bank account.</p>
+                                                                your bank account.')}}</p>
                                                         </label>
                                                     </div>
                                                     <hr class="bg-dark">
@@ -90,9 +90,9 @@
                                                         <input class="form-check-input" name="booking_and_cancellation" type="checkbox" value="Booking and Cancellation policy"
                                                             id="invalidCheck-3" required>
                                                         <label class="form-check-label" for="invalidCheck-3">
-                                                            <p>Follow the booking, cancellation, and overtime policies</p>
-                                                            <p>All bookings are covered by the Eventopia Services Agreement.
-                                                                Contracts that conflict with these policies are not allowed.
+                                                            <p>{{lang('Follow the booking, cancellation, and overtime policies')}}</p>
+                                                            <p>{{lang('All bookings are covered by the Eventopia Services Agreement.
+                                                                Contracts that conflict with these policies are not allowed.')}}
                                                             </p>
                                                         </label>
                                                     </div>
@@ -101,9 +101,9 @@
                                                         <input class="form-check-input" name="local_regulatioins" type="checkbox" value="Local Regulations"
                                                             id="invalidCheck-4" required>
                                                         <label class="form-check-label" for="invalidCheck-4">
-                                                            <p>Make sure my space meets local regulations</p>
-                                                            <p>Follow local regulations to ensure the safety of your guests,
-                                                                yourself, and your space.</p>
+                                                            <p>{{lang('Make sure my space meets local regulations')}}</p>
+                                                            <p>{{lang('Follow local regulations to ensure the safety of your guests,
+                                                                yourself, and your space.')}}</p>
                                                         </label>
                                                     </div>
                                                     <hr class="bg-dark">
@@ -113,8 +113,8 @@
                                     </div>
                                     <div class="float-end">
                                         <a class="btn btn-light"
-                                            href="{{ route('load_entertainment_form_8', $id) }}">Previous</a>
-                                        <button class="btn btn-primary">Finish</button>
+                                            href="{{ route('load_entertainment_form_8', $id) }}">{{lang('Previou')}}s</a>
+                                        <button class="btn btn-primary">{{lang('Finish')}}</button>
                                     </div>
                                 </form>
                             </div>

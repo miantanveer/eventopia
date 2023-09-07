@@ -65,19 +65,19 @@
                                     @csrf
                                     <div class="container">
                                         <div class="text-center mb-6">
-                                            <h3 class="mt-3 mt-1"><b>Choose your Cancellation Policy</b>
+                                            <h3 class="mt-3 mt-1"><b>{{lang('Choose your Cancellation Policy')}}</b>
                                             </h3>
                                             <p class=""><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                    class="w-5" alt=""> Hosts with more flexible cancellation
+                                                    class="w-5" alt=""> {{lang('Hosts with more flexible cancellation
                                                 policies attract more
-                                                bookings.</p>
+                                                bookings.')}}</p>
                                             <hr class="bg-dark border-2">
                                         </div>
-                                        <p class="mb-7">Cancellation period: All Bookings are subject to Eventopia Period
+                                        <p class="mb-7">{{lang('Cancellation period: All Bookings are subject to Eventopia Period
                                             policy
                                             which provides a full refund for Bookings cancelled within 24 hours from receipt
                                             of
-                                            a Booking Confirmation but no later than 48 hours prior to the Event start time.
+                                            a Booking Confirmation but no later than 48 hours prior to the Event start time.')}}
                                         </p>
                                         <div class="row">
                                             @foreach($cancellation as $key=>$data)
@@ -99,8 +99,8 @@
                                     </div>
                                     <div class="float-end">
                                         <a class="btn btn-light"
-                                            href="{{ route('load_entertainment_form_5', $id) }}">Previous</a>
-                                        <button class="btn btn-primary">Next</button>
+                                            href="{{ route('load_entertainment_form_5', $id) }}">{{lang('Previous')}}</a>
+                                        <button class="btn btn-primary">{{lang('Next')}}</button>
                                     </div>
                                 </form>
                             </div>

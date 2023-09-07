@@ -72,17 +72,17 @@
                                     @csrf
                                     <div class="container">
                                         <div class="text-center mb-6">
-                                            <h3 class="mt-3 mt-1"><b>What type of entertainment & talent are you
-                                                    listing?</b>
+                                            <h3 class="mt-3 mt-1"><b>{{lang('What type of entertainment & talent are you
+                                                    listing?')}}</b>
                                             </h3>
-                                            <p class="">Enter the type of entertainment & talent that most closely
+                                            <p class="">{{lang('Enter the type of entertainment & talent that most closely
                                                 represents
-                                                the physical space being listed. <a href="#">Learn more</a></p>
+                                                the physical space being listed.')}} <a href="#">{{lang('Learn more')}}</a></p>
                                         </div>
                                         <div class="mt-6">
                                             <p><img src="{{ asset('assets/images/brand/light-bulb.png') }}" class="w-5"
                                                     alt="">
-                                                Examples: 'Comedian' 'Singers' 'Food & Beverages'
+                                                {{lang("Examples: 'Comedian' 'Singers' 'Food & Beverages'")}}
                                             </p>
                                             <input type="text" required name="comedian"
                                                 value="{{ @$entertainment->comedian }}"
@@ -90,40 +90,40 @@
                                                 class="w-100 p-4 bg-light-gray form-control"
                                                 placeholder="Comedian for event">
                                             <hr class="bg-dark">
-                                            <h1>what are your Entertainment and Talent rules</h1>
-                                            <p>Include any rules about what your guests can and cannot do in the space.</p>
-                                            <h3>Example rules:</h3>
+                                            <h1>{{lang('what are your Entertainment and Talent rules')}}</h1>
+                                            <p>{{lang('Include any rules about what your guests can and cannot do in the space.')}}</p>
+                                            <h3>{{lang('Example rules:')}}</h3>
                                             <ul style="list-style-type:disc">
-                                                <li class="ms-4">No smoking in the building</li>
-                                                <li class="ms-4">Outside catering is allowed</li>
-                                                <li class="ms-4">No alcohol allowed after 8pm</li>
+                                                <li class="ms-4">{{lang('No smoking in the building')}}</li>
+                                                <li class="ms-4">{{lang('Outside catering is allowed')}}</li>
+                                                <li class="ms-4">{{lang('No alcohol allowed after 8pm')}}</li>
                                             </ul><br>
-                                            <h2>Do not include:</h2>
+                                            <h2>{{lang('Do not include:')}}</h2>
                                             <ul style="list-style-type:disc">
-                                                <li class="ms-4"><b><span style="color:black;">Cleaning Fee</span></b> -
-                                                    Basic cleaning
+                                                <li class="ms-4"><b><span style="color:black;">{{lang('Cleaning Fee')}}</span></b> -
+                                                    {{lang('Basic cleaning
                                                     is the
                                                     responsibility of the host. If you charge a cleaning fee, you can add it
                                                     in a
-                                                    later section.</li>
-                                                <li class="ms-4"><b><span style="color:black;">Contracts </span></b> -
-                                                    Peerspace bookings
+                                                    later section.')}}</li>
+                                                <li class="ms-4"><b><span style="color:black;">{{lang('Contracts')}} </span></b> -
+                                                    {{lang('Peerspace bookings
                                                     are
                                                     covered by our Service Agreement. Do not paste your contract,
                                                     cancellation
                                                     policy, or
-                                                    liability policy.</li>
+                                                    liability policy.')}}</li>
                                             </ul>
                                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                             <textarea style="height:150px;" class="form-control rounded-0" required name="house_rules"
                                                 data-parsley-required-message="Please Enter house rules" data-parsley-minlength="100" id="exampleFormControlTextarea1" rows="3"
                                                 placeholder="Enter your house rules">{{ @$entertainment->house_rules }}</textarea>
-                                            <p class="text-end">Minimum 100 characters</h4>
+                                            <p class="text-end">{{lang('Minimum 100 characters')}}</h4>
                                                 <br>
                                                 <hr class="bg-dark"><br>
-                                            <h3 class="mb-2"><b>Security cameras and recording devices</b></h3>
+                                            <h3 class="mb-2"><b>{{lang('Security cameras and recording devices')}}</b></h3>
                                             <div class="w-50 float-start">
-                                                <p class="mb-3">Does the event have security cameras or recording devices?
+                                                <p class="mb-3">{{lang('Does the event have security cameras or recording devices?')}}
                                                 </p>
                                             </div>
                                             <div class="w-50 float-end">
@@ -134,19 +134,19 @@
                                             </div>
                                             <br>
                                             <div id="textAreaDiv" class="mt-5">
-                                                <p class="mb-1">Describe any device that records video, audio, or still
+                                                <p class="mb-1">{{lang('Describe any device that records video, audio, or still
                                                     images.
-                                                    Specify where each device is in your event and if they’ll be on or off.
+                                                    Specify where each device is in your event and if they’ll be on or off.')}}
                                                 </p>
                                                 <textarea cols="30" name="recordings" rows="5" class="w-100 p-5 form-control" placeholder="Add description">{{ @$entertainment->recordings }}</textarea>
-                                                <p class="text-end">Minimum 50 characters</p>
+                                                <p class="text-end">{{lang('Minimum 50 characters')}}</p>
                                             </div>
                                         </div>
                                         <hr class="bg-dark border-3">
                                     </div>
                                     <div class="float-end">
-                                        <button class="btn btn-light" disabled>Previous</button>
-                                        <button class="btn btn-primary">Next</button>
+                                        <button class="btn btn-light" disabled>{{lang('Previous')}}</button>
+                                        <button class="btn btn-primary">{{lang('Next')}}</button>
                                     </div>
                                 </form>
                             </div>
