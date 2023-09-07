@@ -84,7 +84,7 @@
                         <div class="card-body mt-3">
                             <div class="d-flex">
                                 <div class="text-black mt-2">
-                                    <h3 class="mb-2 number-font">{{lang('25')}}</h3>
+                                    <h3 class="mb-2 number-font">{{lang($upComingBookings)}}</h3>
                                 </div>
                                 <div class="card-options">
                                     <img src="{{ asset('assets/images/icons/pending-file.png') }}" alt="">
@@ -105,7 +105,7 @@
                         <div class="col-12">
                             <div class="text-center mb-2 mt-5">
                                 <div class="btn-list">
-                                    <a href="{{URL('/pending-bookings')}}" class="btn btn-primary">Manage</a>
+                                    <a href="{{route('pending-bookings')}}" class="btn btn-primary">Manage</a>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +127,7 @@
             <div class="card">
                 <div class="card-header pb-0 border-bottom-0">
                     <h3 class="number-font">Bookings</h3>
-                    <div class="card-options">
+                    {{-- <div class="card-options">
                         <div class="btn-group mt-2 mb-2">
                             <button type="button" class="btn btn-outline-primary btn-pill dropdown-toggle"
                                 data-bs-toggle="dropdown" aria-expanded="false" fdprocessedid="vh7rp"> Select <span
@@ -140,34 +140,34 @@
                                 <li><a href="javascript:void(0)">Services</a></li>
                             </ul>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="card-body pt-0">
                     <div class="mt-2 row">
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">46</h3>
+                            <h3 class="d-inline-block mb-2">{{$upComingBookings}}</h3>
                             <p>Upcoming Bookings</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: 50%;" role="progressbar"></div>
+                                <div class="progress-bar bg-primary" style="width: {{$UpcomingProgress}}%;" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">89</h3>
+                            <h3 class="d-inline-block mb-2">{{$cancelBookings}}</h3>
                             <p>Cancelled Booking</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-danger" style="width: 50%;" role="progressbar"></div>
+                                <div class="progress-bar bg-danger" style="width: {{$CancelProgress}}%;" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">49</h3>
+                            <h3 class="d-inline-block mb-2">{{$previousBookings}}</h3>
                             <p>Previous Booking</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: 50%;" role="progressbar"></div>
+                                <div class="progress-bar bg-primary" style="width: {{$PreviousProgress}}%;" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-12 text-end">
                             <div style="margin-top: 40px;">
-                                <a href="#" class="btn btn-primary text-white">Manage</a>
+                                <a href="{{route('bookings')}}" class="btn btn-primary text-white">Manage</a>
                             </div>
                         </div>
                     </div>
@@ -177,68 +177,58 @@
         <div class="col-xl-4 col-lg-6 col-md-12">
             <div class="card overflow-hidden">
                 <div class="card-header pb-0 border-bottom-0">
-                    <h3 class="number-font">Total Bookings</h3>
+                    <h3 class="number-font">{{ lang('Total Bookings') }}</h3>
                     <div class="card-options">
-                        <div class="btn-group mt-2 mb-2">
+                        <h6>{{ lang('Total: ') . $totalBookingsCount }}</h6>
+                        {{-- <div class="btn-group mt-2 mb-2">
                             <button type="button" class="btn btn-outline-primary btn-pill dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false"> Select <span
+                                data-bs-toggle="dropdown" aria-expanded="false"> {{lang('Select')}} <span
                                     class="fa fa-angle-down"></span> </button>
                             <ul class="dropdown-menu" role="menu" style="">
-                                <li><a href="javascript:void(0)">Upcoming Booking</a></li>
+                                <li><a href="javascript:void(0)">{{lang('Upcoming Booking')}}</a></li>
                                 <li class="divider"></li>
-                                <li><a href="javascript:void(0)">Previous Booking</a></li>
+                                <li><a href="javascript:void(0)">{{lang('Previous Booking')}}</a></li>
                                 <li class="divider"></li>
-                                <li><a href="javascript:void(0)">Cancelled Booking</a></li>
+                                <li><a href="javascript:void(0)">{{lang('Cancelled Booking')}}</a></li>
                             </ul>
-                        </div>
+                        </div> --}}
                     </div>
-                </div>
-                <div class="card-header">
-                    <p>Total: 15</p>
                 </div>
                 <div class="card-body p-0 mt-5">
                     <div class="table-responsive">
                         <table class="table border text-nowrap text-md-nowrap mb-0">
                             <thead class="bg-primary">
                                 <tr>
-                                    <th class="text-white ml-2">Space</th>
-                                    <th class="text-white">Date</th>
-                                    <th class="text-white">Price</th>
-                                    <th class="text-white">Location</th>
+                                    <th class="text-white ml-2">{{ lang('Category') }}</th>
+                                    <th class="text-white">{{ lang('Discount') }}</th>
+                                    <th class="text-white">{{ lang('Price') }}</th>
+                                    <th class="text-white">{{ lang('Status') }}</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Gallery</td>
-                                    <td>25-06-23</td>
-                                    <td>SAR152</td>
-                                    <td>Jeggah</td>
-                                </tr>
-                                <tr>
-                                    <td>Loft</td>
-                                    <td>05-12-23</td>
-                                    <td>SAR13</td>
-                                    <td>Westborough</td>
-                                </tr>
-                                <tr>
-                                    <td>Bar</td>
-                                    <td>28-03-23</td>
-                                    <td>SAR160</td>
-                                    <td>West Ned</td>
-                                </tr>
-                                <tr>
-                                    <td>Club</td>
-                                    <td>12-03-23</td>
-                                    <td>SAR160</td>
-                                    <td>Boyne Island</td>
-                                </tr>
-                            </tbody>
+                            @forelse ($totalBookings as $totalBooking)
+                                <tbody>
+                                    <tr>
+                                        <td>{{ lang($totalBooking->type) }}</td>
+                                        <td>{{ lang($totalBooking->discount) }}</td>
+                                        <td>{{ lang($totalBooking->amount) }}</td>
+                                        <td>{{ lang($totalBooking->status == 1 ? 'Upcoming' : ($totalBooking->status == 3 ? 'Cancel' : 'Previous')) }}
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            @empty
+                                <div>
+                                    <tr>
+                                        <td class="text-center">{{ lang('No Record Found') }}</td>
+                                    </tr>
+                                </div>
+                            @endforelse
                         </table>
                     </div>
                     <hr>
                     <div class="col-12 text-center">
                         <div class="mb-3">
-                            <a href="#" class="btn btn-primary text-white">Manage</a>
+                            <a href="{{route('bookings')}}" class="btn btn-primary text-white">{{ lang('Manage') }}</a>
                         </div>
                     </div>
                 </div>
@@ -252,7 +242,7 @@
                             <div class="d-flex">
                                 <div class="text-black">
                                     <h3 class="mb-2 number-font">Booking accepted</h3>
-                                    <p class="text-black mb-0">Average 72% completed</p>
+                                    <p class="text-black mb-0">Total : {{$acceptedBookingCount}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-check-o text-primary fa-3x"></i>
@@ -273,7 +263,7 @@
                             <div class="d-flex">
                                 <div class="text-black">
                                     <h3 class="mb-2 number-font">Booking cancelled</h3>
-                                    <p class="text-black mb-0">Total: 15</p>
+                                    <p class="text-black mb-0">Total: {{$cancelBookings}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
