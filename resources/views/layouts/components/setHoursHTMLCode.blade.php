@@ -37,8 +37,8 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="monday_start_time_0"
-                                    class="form-control form-select select2 select2-hidden-accessible start-time-select"
-                                    data-bs-placeholder="Select Country" onchange="startTime()" tabindex="-1" aria-hidden="true">
+                                    class="form-control form-select select2 select2-hidden-accessible" id="monday-start-time"
+                                    data-bs-placeholder="Select Country" onchange="startTime('monday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
@@ -57,7 +57,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="monday_end_time_0"
-                                    class="form-control form-select select2 select2-hidden-accessible start-time-select1"
+                                    class="form-control form-select select2 select2-hidden-accessible" id="monday-end-time"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
                                     <option value="9 AM" class="option">9 AM</option>
@@ -118,41 +118,41 @@
                     <div class="row" id="custom-time-selection-2">
                         <div class="col-6">
                             <div class="form-group">
-                                <select name="tuesday_start_time"
-                                    class="form-control form-select select2 select2-hidden-accessible "
-                                    data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
+                                <select name="tuesday_start_time_0"
+                                    class="form-control form-select select2 select2-hidden-accessible" id="tuesday-start-time"
+                                    data-bs-placeholder="Select Country" onchange="startTime('tuesday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->tuesday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->tuesday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->tuesday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->tuesday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->tuesday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->tuesday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->tuesday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->tuesday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->tuesday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->tuesday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->tuesday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <select name="tuesday_end_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
+                                <select name="tuesday_end_time_0"
+                                    class="form-control form-select select2 select2-hidden-accessible" id="tuesday-end-time"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->tuesday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->tuesday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->tuesday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->tuesday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->tuesday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->tuesday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->tuesday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->tuesday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->tuesday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->tuesday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->tuesday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
