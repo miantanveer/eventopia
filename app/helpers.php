@@ -22,7 +22,7 @@ if (!function_exists('lang')) {
         $lang_file = file_get_contents(resource_path('lang/' . $code . '.json'));
         $langs = json_decode($lang_file, true);
 
-        if (array_key_exists($string, $langs)) {
+        if (!is_null($langs) && array_key_exists($string, $langs)) {
             return $langs[$string];
         } else {
             $current_data = file_get_contents(resource_path('lang/' . $code . '.json'));
