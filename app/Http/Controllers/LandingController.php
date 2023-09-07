@@ -66,18 +66,11 @@ class LandingController extends UserBaseController
     }
     public function entertainment_search(Request $req)
     {
-<<<<<<< HEAD
-        $ent = EntertainmentActivity::with('sub_act', 'sub_act.act', 'ent', 'ent.entertainmentImages')
-            ->orWhere(function ($query) use ($req) {
-                $query->whereHas('sub_act', function ($subQuery) use ($req) {
-                    $subQuery->whereTitle($req->planCatagories_1);
-=======
         $ent = Entertainment::with('entertainmentActivities', 'entertainmentActivities.entertainment','entertainmentActivities.sub_act', 'entertainmentActivities.sub_act.act')
             ->where(function ($query) use ($req) {
                 $query->whereHas('entertainmentActivities.entertainment', function ($subQuery) use ($req) {
                     $subQuery->orWhere('title',$req->planCatagories_1)
                     ->orWhere('description','Like','%'.$req->planCatagories_1.'%');
->>>>>>> 4663fae (Updated maps functionality)
                 })
                     ->orWhere(function ($locationQuery) use ($req) {
                         if ($req->location_1) {
@@ -88,18 +81,7 @@ class LandingController extends UserBaseController
                         }
                     });
             })
-<<<<<<< HEAD
-            ->orWhereHas('ent', function ($ent_query) use ($req) {
-                $ent_query->whereLastSteps('step-9');
-                $ent_query->where('address', $req->location_1)
-                    ->orWhere('country', $req->location_1)
-                    ->orWhere('city', $req->location_1)
-                    ->orWhere('state', $req->location_1);
-            })
-            ->orderBy('id', 'desc')
-=======
             ->whereLastSteps('step-9')
->>>>>>> 4663fae (Updated maps functionality)
             ->get();
         $this->type = 'entertainment';
         $this->data = $ent;

@@ -139,7 +139,7 @@
                                         <div>
                                             <a style="padding-left:180px;padding-right:170px;"
                                                 class="modal-effect m-0 mt-3 mb-6 btn btn-info rounded-0"
-                                                data-bs-target="#add-entertainment" data-bs-toggle="modal">Get
+                                                data-bs-target="#my-modal" data-bs-toggle="modal">Get
                                                 Started</a>
                                         </div>
                                     </form>
@@ -528,6 +528,14 @@
     <!-- OWL CAROUSEL JS-->
     <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
+
+    <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#signUp_form').parsley();
+        });
+    </script>
+    <script src="{{ asset('assets/js/email-validate.js') }}"></script>
 
     <!-- OWL Carousel js -->
     <script src="{{ asset('assets/js/carousel.js') }}"></script>
