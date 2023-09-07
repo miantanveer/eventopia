@@ -227,11 +227,11 @@
                                     </div>
                                 </div>
                             @endforeach
-                            @foreach ($spaces as $space)
+                            @foreach (@$spaces as $space)
                                 <div class="col-12">
                                     <div class="row g-0">
                                         <div class="col-md-4 pe-3 pe-lg-0">
-                                            <img src="{{ asset($space->spaceImages[0]->image) ?? asset('assets/images/no-image-icon-15.png') }}"
+                                            <img src="{{ asset(@$space->spaceImages[0]->image) ?? asset('assets/images/no-image-icon-15.png') }}"
                                                 class="card-img-left h-100 image_lg" width="200px" height="auto"
                                                 alt="img">
                                         </div>
@@ -239,16 +239,16 @@
                                             <div class="card-body p-0 p-sm-5">
                                                 <div class="mx-0 row w-100 align-items-center">
                                                     <div class="col-12 pt-4 pb-5 fw-bolder">
-                                                        <h5 class="card-title">{{ $space->space_title ?? 'No Title' }}
+                                                        <h5 class="card-title">{{ @$space->space_title ?? 'No Title' }}
                                                         </h5>
                                                     </div>
                                                     <div class="col-sm-6 col-12 col-lg-8 pe-0">
                                                         <p class="card-text">
-                                                            {{ $space->space_description ?? 'No Description' }}</p>
+                                                            {{ @$space->space_description ?? 'No Description' }}</p>
                                                     </div>
                                                     <div class="col-sm-6 col-12 col-lg-4 my-auto ps-0 mt-3 mt-sm-0">
                                                         <div class="text-end">
-                                                            <a href="{{ route('edit-space-address', $space->id) }}"
+                                                            <a href="{{ route('edit-space-address', @$space->id) }}"
                                                                 class="btn btn-primary">Edit</a>
                                                             <div class="btn-group mt-2 mb-2">
                                                                 <button type="button" class="btn border rounded-1 p-2"
@@ -256,7 +256,7 @@
                                                                     <i class="icon icon-options"></i>
                                                                 </button>
                                                                 <ul class="dropdown-menu" role="menu" style="">
-                                                                    <li><a onclick="deleteModal('{{ route('space-delete', $space->id) }}')"
+                                                                    <li><a onclick="deleteModal('{{ route('space-delete', @$space->id) }}')"
                                                                             class="text-danger">Delete</a></li>
                                                                 </ul>
                                                             </div>
@@ -271,7 +271,7 @@
                                             <h4 class="fw-bolder">Customize for different activities</h4>
                                         </div>
                                     </div>
-                                    @foreach ($space_acitivities as $space_acitiviy)
+                                    @foreach (@$space_acitivities as $space_acitiviy)
                                         <div class="row">
                                             <div class="col-12 p-2">
                                                 <div class="card shadow-sm border">
@@ -281,15 +281,15 @@
                                                                 class="col-12 col-sm-1 col-lg-1 pt-3 ps-5 pt-sm-0 ps-sm-3">
                                                                 <span><img class="customize_img justify-content-start"
                                                                         style="max-width: 65px !important"
-                                                                        src="{{ asset('assets/images/icons/' . $space_acitiviy->image) }}"></span>
+                                                                        src="{{ asset('assets/images/icons/' . @$space_acitiviy->image) }}"></span>
                                                             </div>
                                                             <div
                                                                 class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
                                                                 <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">
-                                                                    {{ $space_acitiviy->title }}</h6>
+                                                                    {{ @$space_acitiviy->title }}</h6>
                                                                 <div class="row ps-0 ps-sm-2 ps-lg-0">
                                                                     <div class="col-12">
-                                                                        <span>{{ $space_acitiviy->description }}</span>
+                                                                        <span>{{ @$space_acitiviy->description }}</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -297,14 +297,14 @@
                                                                 $editButtonShown = false;
                                                             @endphp
 
-                                                            @foreach ($space->spaceHaveActivities as $spaceHaveActivity)
+                                                            @foreach (@$space->spaceHaveActivities as $spaceHaveActivity)
                                                                 @if (!$editButtonShown && $spaceHaveActivity->activities->id == $space_acitiviy->id)
                                                                     @php
                                                                         $editButtonShown = true;
                                                                     @endphp
                                                                     <div
                                                                         class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                        <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
+                                                                        <a href="{{ route('activities-step', ['space_id' => @$space->id, 'key' => 1]) }}"
                                                                             class="btn btn-white">Edit</a>
                                                                     </div>
                                                                 @endif
@@ -313,7 +313,7 @@
                                                             @if (!$editButtonShown)
                                                                 <div
                                                                     class="col-12 col-sm-5 col-lg-3 text-end align-self-md-center">
-                                                                    <a href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 1]) }}"
+                                                                    <a href="{{ route('activities-step', ['space_id' => @$space->id, 'key' => 1]) }}"
                                                                         class="btn btn-white">Enable</a>
                                                                 </div>
                                                             @endif
@@ -326,7 +326,7 @@
                                     @endforeach
                                 </div>
                             @endforeach
-                            {!! $spaces->links() !!}
+                            {!! @$spaces->links() !!}
                         </div>
                     </div>
                     @foreach ($service as $key => $data)
@@ -335,7 +335,7 @@
 
                                 <div class="row g-0">
                                     <div class="col-md-4 pe-3 pe-lg-0">
-                                        <img src="{{ asset($data->serviceImages[0]->image) }}"
+                                        <img src="{{ asset(@$data->serviceImages[0]->image) }}"
                                             class="card-img-left h-100 image_lg" width="200px" alt="img">
                                     </div>
                                     <div class="col-md-8 ps-3 ps-md-0 pe-0 pe-lg-2">

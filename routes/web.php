@@ -67,9 +67,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('edit-profile', [DashboardController::class, 'editProfileIndex'])->name('edit-profile-index');
     Route::post('edit-profile', [DashboardController::class, 'editProfile'])->name('edit-profile');
 
-    Route::get('/notify-list', function () {
-        return view('layouts.components.notify-list');
-    });
+    Route::get('notifications', [NotificationController::class, 'index'])->name('notifications');
+    Route::get('mark-as-read', [NotificationController::class, 'read'])->name('mark_as_read');
+    // Route::get('/notify-list', function () {
+    //     return view('layouts.components.notify-list');
+    // });
     Route::get('/search-results', function () {
         return view('content.customer.search-results');
     });
@@ -114,7 +116,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('seller_decline_quote/{id}', [QuoteController::class, 'seller_decline_quote'])->name('seller_decline_quote');
     Route::post('send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
 
-    // Route::get('/test', [PaymentController::class, 'test'])->name('test');
     Route::get('bookings', [BookingController::class, 'bookings'])->name('bookings');
 
 

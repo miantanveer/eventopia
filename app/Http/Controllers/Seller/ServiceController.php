@@ -64,7 +64,7 @@ class ServiceController extends UserBaseController
     }
     public function loadServiceForm2($id)
     {
-        $images = Service::whereUserId(user_id())->with('serviceImages')->get();
+        $images = Service::whereId($id)->whereUserId(user_id())->with('serviceImages')->get();
         foreach ($images as $img) {
             foreach ($img->serviceImages as $data) {
                 $file_path = public_path($data->image);

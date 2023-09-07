@@ -211,13 +211,14 @@
                                 </div>
                                 <div class="card-body pt-0 h-100">
                                     <div class="owl-carousel owl-carousel-icons2">
-                                        @foreach(@$service as $value)
+                                        @foreach (@$service as $value)
                                         <div class="item card_height">
                                             <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
                                                 <a href="{{route('service-details',@$value->id)}}" class="h-100"><img class="h-100"
                                                         src="{{ asset(@$value->serviceImages[0]->image) }}"
                                                         alt="img"></a>
                                             </div>
+                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -233,14 +234,11 @@
                                         $title = 0;
                                     @endphp
                                     <div class="text-center">
-                                        <h2><strong>We couldn't find any spaces.</strong></h2>
-                                    </div>
-                                    <div class="card-header border-bottom-0 ms-1 justify-content-center">
-                                        Try zooming out or expanding your filter criteria.
+                                        <h2><strong>We couldn't find any Emntertainment Listing.</strong></h2>
                                     </div>
                                 @else
                                     <div class="card-header border-bottom-0 ms-3">
-                                        {{ $count }} services found
+                                        {{$count}} entertainment found
                                     </div>
                                     @foreach (@$service as $value)
                                         @php
@@ -253,12 +251,12 @@
                                                 <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
                                                     <div class="ms-1 card-border float-start">
                                                         <p class="text-dark p-2 bg-primary">From
-                                                            SAR{{ @$value->price }}</p>
+                                                            SAR{{ @$value->price }}/hour</p>
                                                     </div>
-
+                                                    
                                                 </div>
-                                                <a href="{{ route('service-details', @$value->id) }}">
-                                                    <img src="{{ asset(@$value->serviceImages[0]->                                                  image) }}"
+                                                <a href="{{route('service-details',@$value->id)}}">
+                                                    <img src="{{ asset(@$value->serviceImages[0]->image) }}"
                                                         class="card-img-top" style="width: 200px;padding-top: 10px"
                                                         alt="img">
                                                     <div class="card-body">
@@ -303,6 +301,41 @@
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
     </script>
     <script>
+        $(document).ready(function () {
+            // Create an array to hold marker data
+            var markers = [
+                @foreach (@$service as $value)
+                {
+                    lat: {{ @$value->lat }},
+                    lng: {{ @$value->lng }},
+                    title: "{{ @$value->title }}"
+                },
+                @endforeach
+            ];
+
+            // Create a map centered at the specified location
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: {{ @$lat }},
+                    lng: {{ @$lng }}
+                },
+                zoom: 10
+            });
+
+            // Loop through the markers array and create markers for each data point
+            markers.forEach(function (markerData) {
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: markerData.lat,
+                        lng: markerData.lng
+                    },
+                    map: map,
+                    title: markerData.title
+                });
+            });
+        });
+    </script>
+    {{-- <script>
         $(document).ready(function() {
             // Get latitude, longitude, and title from PHP variable
             var lat = {{ @$lat }};
@@ -326,21 +359,21 @@
                 title: title
             });
         });
-    </script>
+    </script> --}}
     <!-- OWL CAROUSEL JS-->
     <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
 
     <!-- OWL Carousel js -->
     <script src="{{ asset('assets/js/carousel.js') }}"></script>
-    {{-- <script>
+    <script>
         $(document).ready(function() {
             $('#flexSwitchCheckChecked').on('click', function() {
                 $('#mapColumn').toggleClass('d-none');
                 $('#galleryColumn').toggleClass('col-lg-12');
             });
         });
-    </script> --}}
+    </script>
     <script>
         $(document).ready(function() {
             function hideDropdown(resultsDiv, inputDiv) {

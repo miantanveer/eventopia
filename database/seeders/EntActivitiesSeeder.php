@@ -15,9 +15,9 @@ class EntActivitiesSeeder extends Seeder
     public function run()
     {
         EntActivity::insert([
-            ['title'=>'Meetings','image'=>'teamicon.png','description'=>'Updates Required from ','created_at'=>now(),'updated_at'=>now()],
-            ['title'=>'Ententainers','image'=>'camera.png','description'=>'Video shoots, photo shoots, audio recording, etc.','created_at'=>now(),'updated_at'=>now()],
-            ['title'=>'Events','image'=>'events.png','description'=>'Birthday parties, baby showers, holiday parties, etc.','created_at'=>now(),'updated_at'=>now()],
+            ['title'=>'Meetings','image'=>'teamicon.png','description'=>'Workshops, Presentations, Retreats, More','created_at'=>now(),'updated_at'=>now()],
+            ['title'=>'Ententainers','image'=>'camera.png','description'=>'Birthdays, Networking Event, Corporate Party, More','created_at'=>now(),'updated_at'=>now()],
+            ['title'=>'Events','image'=>'events.png','description'=>'Film shoots, Photo shoots, Audio recording, More','created_at'=>now(),'updated_at'=>now()],
         ]);
     }
 }

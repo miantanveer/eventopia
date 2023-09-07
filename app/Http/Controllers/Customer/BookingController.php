@@ -21,10 +21,7 @@ class BookingController extends UserBaseController
 
     public function entertainment_index()
     {
-        $this->ent = EntertainmentActivity::with('sub_act', 'sub_act.act', 'ent', 'ent.entertainmentImages')
-            ->whereHas('ent', function ($ent_query) {
-                $ent_query->whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id);
-            })->get();
+        $this->ent = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id)->get();
         $this->count = Entertainment::where('last_steps', 'step-9')->where('user_id', '!=', auth()->user()->id)->count();
         return view('content.customer.entertainments', $this->data);
     }
