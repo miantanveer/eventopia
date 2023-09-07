@@ -46,6 +46,7 @@
         const HourButton = document.getElementById(addHourBtn);
         const InsideHourButton = document.querySelector(`.${insideHourBtn}`);
         const ShowFullContent = document.getElementById(showContent);
+
         selectInput.style.display = 'none';
         HourButton.style.display = 'none';
         timeInput.addEventListener('click', function() {
@@ -63,14 +64,18 @@
                 selectInput.style.display = 'flex';
                 HourButton.style.display = 'block';
                 $(InsideHourButton).click(function() {
+                  
                     var maxGroup = 5;
                     if ($(ShowFullContent).children().length < maxGroup) {
+
+                        console.log(ShowFullContent,"sahil");
+
                         var len = $(ShowFullContent).length;
                         console.log(len);
                         var fieldHTML =
                             `<div class="row position-relative">
                                         <div class="col-6">
-                                            <div class="form-group">
+                                            <div class="form-group ">
                                                 <select name="star-time" class="form-control form-select select2"
                                                     data-bs-placeholder="Select Country"
                                                     tabindex="-1" aria-hidden="true">
@@ -91,7 +96,7 @@
                                         </div>
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <select name="star-time" class="form-control form-select select2"
+                                                <select name="end-time" class="form-control form-select select2"
                                                     data-bs-placeholder="Select Country"
                                                     tabindex="-1" aria-hidden="true">
                                                     <option value="" selected="" disabled>Start Time</option>
