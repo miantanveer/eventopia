@@ -9,7 +9,7 @@
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="monday" id="custom-switch-checkbox1" value="monday"
-                                class="custom-switch-input"  {{@$time->monday == 'monday' ? 'checked' : ''}}>
+                                class="custom-switch-input" {{ @$time->monday == 'monday' ? 'checked' : '' }}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
                             <span class="custom-switch-description-1">{{lang('Close')}}</span>
                         </label>
@@ -57,7 +57,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="monday_end_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
+                                    class="form-control form-select select2 select2-hidden-accessible start-time-select1"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
                                     <option value="9 AM" {{@$time->monday_end_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
@@ -74,7 +74,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div id="showContent-1"></div>
+                        <div id="showContent-1" class="start-time-select2"></div>
                     </div>
                     <div class="ps-0" id="Add-Hours-1">
                         <a class="btn btn-white addMore-1 text-dark">{{lang('Add hours')}}</a>
@@ -91,7 +91,7 @@
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="tuesday" id="custom-switch-checkbox2" value="tuesday"
-                                class="custom-switch-input" {{@$time->tuesday == 'tuesday' ? 'checked' : ''}}>
+                                class="custom-switch-input" {{ @$time->tuesday == 'tuesday' ? 'checked' : '' }}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
                             <span class="custom-switch-description-2">{{lang('Close')}}</span>
                         </label>
@@ -119,7 +119,7 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="tuesday_start_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
+                                    class="form-control form-select select2 select2-hidden-accessible "
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
                                     <option value="9 AM" {{@$time->tuesday_start_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
@@ -172,8 +172,9 @@
                 <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
-                            <input type="checkbox" name="wednesday" {{@$time->wednesday == 'wednesday' ? 'checked' : ''}} id="custom-switch-checkbox3" value="wednesday"
-                                class="custom-switch-input" >
+                            <input type="checkbox" name="wednesday"
+                                {{ @$time->wednesday == 'wednesday' ? 'checked' : '' }} id="custom-switch-checkbox3"
+                                value="wednesday" class="custom-switch-input">
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
                             <span class="custom-switch-description-3">{{lang('Close')}}</span>
                         </label>
@@ -255,7 +256,8 @@
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="thursday" id="custom-switch-checkbox4"
-                                class="custom-switch-input" value="thursday" {{@$time->thursday == 'thursday' ? 'checked' : ''}}>
+                                class="custom-switch-input" value="thursday"
+                                {{ @$time->thursday == 'thursday' ? 'checked' : '' }}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
                             <span class="custom-switch-description-4">{{lang('Close')}}</span>
                         </label>
@@ -337,7 +339,8 @@
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="friday" id="custom-switch-checkbox5"
-                                class="custom-switch-input" value="friday" {{@$time->friday == 'friday' ? 'checked' : ''}}>
+                                class="custom-switch-input" value="friday"
+                                {{ @$time->friday == 'friday' ? 'checked' : '' }}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
                             <span class="custom-switch-description-5">{{lang('Close')}}</span>
                         </label>
@@ -419,7 +422,8 @@
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="saturday" id="custom-switch-checkbox6"
-                                class="custom-switch-input" value="saturday" {{@$time->saturday == 'saturday' ? 'checked' : ''}}>
+                                class="custom-switch-input" value="saturday"
+                                {{ @$time->saturday == 'saturday' ? 'checked' : '' }}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
                             <span class="custom-switch-description-6">{{lang('Close')}}</span>
                         </label>
@@ -469,18 +473,18 @@
                                 <select name="saturday_end_time"
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
-                                    <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->saturday_end_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->saturday_end_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->saturday_end_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->saturday_end_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->saturday_end_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->saturday_end_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->saturday_end_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->saturday_end_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->saturday_end_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->saturday_end_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->saturday_end_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="" selected disabled>End Time</option>
+                                    <option value="9 AM" {{@$time->saturday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->saturday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->saturday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->saturday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->saturday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->saturday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->saturday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->saturday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->saturday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->saturday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->saturday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -501,7 +505,7 @@
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="sunday" id="custom-switch-checkbox7" value="sunday"
-                                class="custom-switch-input" {{@$time->sunday == 'sunday' ? 'checked' : ''}}>
+                                class="custom-switch-input" {{ @$time->sunday == 'sunday' ? 'checked' : '' }}>
                             <span class="custom-switch-indicator custom-switch-indicator-md"></span>
                             <span class="custom-switch-description-7">{{lang('Close')}}</span>
                         </label>
@@ -513,8 +517,8 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="sunday_radio"
                                     value="0" id="time-radio-7"  {{@$time->sunday_radio == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">{{lang('6:00 AM - 12:00
-                                    AM')}}</span>
+                                <span class="custom-control-label">6:00 AM - 12:00
+                                    AM</span>
                             </label>
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="sunday_radio"
@@ -531,18 +535,18 @@
                                 <select name="sunday_start_time"
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
-                                    <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->sunday_start_time == '9 AM' ? 'checked' : ''}}>{{lang('9 AM')}}</option>
-                                    <option value="10 AM" {{@$time->sunday_start_time == '10 AM' ? 'checked' : ''}}>{{lang('10 AM')}}</option>
-                                    <option value="11 AM" {{@$time->sunday_start_time == '11 AM' ? 'checked' : ''}}>{{lang('11 AM')}}</option>
-                                    <option value="12 AM" {{@$time->sunday_start_time == '12 AM' ? 'checked' : ''}}>{{lang('12 AM')}}</option>
-                                    <option value="1 PM" {{@$time->sunday_start_time == '1 PM' ? 'checked' : ''}}>{{lang('1 PM')}}</option>
-                                    <option value="2 PM" {{@$time->sunday_start_time == '2 PM' ? 'checked' : ''}}>{{lang('2 PM')}}</option>
-                                    <option value="3 PM" {{@$time->sunday_start_time == '3 PM' ? 'checked' : ''}}>{{lang('3 PM')}}</option>
-                                    <option value="4 PM" {{@$time->sunday_start_time == '4 PM' ? 'checked' : ''}}>{{lang('4 PM')}}</option>
-                                    <option value="5 PM" {{@$time->sunday_start_time == '5 PM' ? 'checked' : ''}}>{{lang('5 PM')}}</option>
-                                    <option value="6 PM" {{@$time->sunday_start_time == '6 PM' ? 'checked' : ''}}>{{lang('6 PM')}}</option>
-                                    <option value="7 PM" {{@$time->sunday_start_time == '7 PM' ? 'checked' : ''}}>{{lang('7 PM')}}</option>
+                                    <option value="" selected disabled>Start Time</option>
+                                    <option value="9 AM" {{@$time->sunday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="10 AM" {{@$time->sunday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
+                                    <option value="11 AM" {{@$time->sunday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
+                                    <option value="12 AM" {{@$time->sunday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
+                                    <option value="1 PM" {{@$time->sunday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
+                                    <option value="2 PM" {{@$time->sunday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
+                                    <option value="3 PM" {{@$time->sunday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
+                                    <option value="4 PM" {{@$time->sunday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
+                                    <option value="5 PM" {{@$time->sunday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
+                                    <option value="6 PM" {{@$time->sunday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
+                                    <option value="7 PM" {{@$time->sunday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
                                 </select>
                             </div>
                         </div>

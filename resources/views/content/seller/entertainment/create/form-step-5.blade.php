@@ -1,46 +1,46 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
-<style>
-    .tab-content {
-        min-height: auto !important;
-    }
+    <style>
+        .tab-content {
+            min-height: auto !important;
+        }
 
-    .sw-container {
-        min-height: auto !important;
-    }
+        .sw-container {
+            min-height: auto !important;
+        }
 
-    .back-g-color {
-        background-color: #F2F8FF !important;
-    }
+        .back-g-color {
+            background-color: #F2F8FF !important;
+        }
 
-    .sw-btn-group-extra {
-        display: none;
-    }
+        .sw-btn-group-extra {
+            display: none;
+        }
 
-    .remove {
-        width: 25px;
-        height: 25px;
-        border: 1px solid transparent;
-        border-radius: 50% !important;
-        background: black;
-        color: white;
-        padding: auto;
-        padding-left: 8px;
-        position: absolute;
-        right: 0;
-        top: -10px;
-        cursor: pointer;
-    }
-</style>
+        .remove {
+            width: 25px;
+            height: 25px;
+            border: 1px solid transparent;
+            border-radius: 50% !important;
+            background: black;
+            color: white;
+            padding: auto;
+            padding-left: 8px;
+            position: absolute;
+            right: 0;
+            top: -10px;
+            cursor: pointer;
+        }
+    </style>
 @endsection
 @section('content')
-<!--Row open-->
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <div id="smartwizard-3">
-                    {{-- <ul class="justify-content-around">
+    <!--Row open-->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div id="smartwizard-3">
+                        {{-- <ul class="justify-content-around">
                         <li><a href="#step-1">Step 1</a></li>
                         <li><a href="#step-2">Step 2</a></li>
                         <li><a href="#step-3">Step 3</a></li>
@@ -96,21 +96,64 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!--row closed-->
+        <!--row closed-->
     @endsection
     @section('scripts')
-    <!-- Jquery/min JS-->
-    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- INTERNAL File-Uploads Js-->
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
-    <!-- Jquery/buttons JS-->
-    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('assets/js/select2.js') }}"></script>
+        <!-- Jquery/min JS-->
+        <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+        <!-- INTERNAL File-Uploads Js-->
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
+        <!-- Jquery/buttons JS-->
+        <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+        <script src="{{ asset('assets/js/select2.js') }}"></script>
 
-    @include('layouts.components.setHoursScript')
+        @include('layouts.components.setHoursScript')
+
+        <script>
+           function startTime() {
+                var selectedValue = $('.start-time-select').val();
+                var startSelect1 = $('.start-time-select1');
+                var startSelectOptions = $('.start-time-select .option');
+                var selectedFound = false;
+
+                startSelect1.empty(); // Clear existing options
+
+                startSelectOptions.each(function() {
+                    var optionValue = $(this).val();
+                    // alert(optionValue);
+
+                    if (!selectedFound && optionValue === selectedValue) {
+                        selectedFound = true;
+                    }
+
+                    if (selectedFound) {
+                        if(optionValue == selectedValue){
+                            startSelect1.append('<option value="' + optionValue + '" class="option" disabled>' + optionValue + '</option>');
+                        }else{
+                            startSelect1.append('<option value="' + optionValue + '" class="option">' + optionValue + '</option>');
+                        }
+                    }
+                });
+            };
+
+        </script>
+
+        {{-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const startTimeSelect = document.getElementById("start-time-select");
+
+        startTimeSelect.addEventListener("change", function() {
+            const selectedIndex = this.selectedIndex;
+            console.log(selectedIndex);
+
+            for (let i = 0; i < selectedIndex; i++) {
+                this.options[i].disabled = true;
+            }
+        });
+    });
+</script> --}}
     @endsection
