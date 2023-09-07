@@ -1,5 +1,68 @@
 <script>
-    // Function to handle the switch toggle
+    function startTime() {
+        var selectedValue = $('.start-time-select').val();
+        var startSelect1 = $('.start-time-select1');
+        var startSelectOptions = $('.start-time-select .option');
+        var selectedFound = false;
+
+        startSelect1.empty(); // Clear existing options
+
+        startSelectOptions.each(function() {
+            var optionValue = $(this).val();
+
+            if (!selectedFound && optionValue === selectedValue) {
+                selectedFound = true;
+            }
+
+            if (selectedFound) {
+                if (optionValue == selectedValue) {
+                    startSelect1.append('<option value="' + optionValue + '" class="option" disabled>' +
+                        optionValue + '</option>');
+                } else {
+                    startSelect1.append('<option value="' + optionValue + '" class="option">' + optionValue +
+                        '</option>');
+                }
+            }
+        });
+    }
+
+
+    // Call the startTime() function initially and whenever the select value changes
+    $('.start-time-select').on('change', startTime);
+    
+
+    function startTimeToggle(iteration) {
+        var start_id = 'start-time-select-toggle'+iteration;
+        var end_id = 'start-time-select1-toggle'+iteration;
+        var selectedValue = $('#'+start_id).val();
+        var startSelect1 = $('#'+end_id);
+        var startSelectOptions = $('#'+start_id+' .option');
+        var selectedFound = false;
+
+        startSelect1.empty(); // Clear existing options
+
+        startSelectOptions.each(function() {
+            var optionValue = $(this).val();
+
+            if (!selectedFound && optionValue === selectedValue) {
+                selectedFound = true;
+            }
+
+            if (selectedFound) {
+                if (optionValue == selectedValue) {
+                    startSelect1.append('<option value="' + optionValue + '" class="option" disabled>' +
+                        optionValue + '</option>');
+                } else {
+                    startSelect1.append('<option value="' + optionValue + '" class="option">' + optionValue +
+                        '</option>');
+                }
+            }
+        });
+    }
+
+    // Call the startTime() function initially and whenever the select value changes
+    $('.start-time-select-toggle').on('change', startTimeToggle);
+
     function handleSwitchToggle(inputId, descriptionClass, contentClass, selectClass, HoursMore) {
         const switchInput = document.getElementById(inputId);
         const switchDescription = document.querySelector(`.${descriptionClass}`);
@@ -9,15 +72,15 @@
 
         switchInput.addEventListener('change', function() {
             if (this.checked) {
-                switchDescription.textContent = 'Open'; // Change the text to 'Open' when checked
-                rowContent.style.display = 'block'; // Show the contents when checked
-                SelectContent.style.display = 'block'; // Show the contents when checked
-                MoreHours.style.display = 'block'; // Show the contents when
+                switchDescription.textContent = 'Open';
+                rowContent.style.display = 'block';
+                SelectContent.style.display = 'block';
+                MoreHours.style.display = 'block';
             } else {
-                switchDescription.textContent = 'Close'; // Change the text to 'Close' when unchecked
-                rowContent.style.display = 'none'; // Hide the contents when unchecked
-                SelectContent.style.display = 'none'; // Hide the contents when unchecked
-                MoreHours.style.display = 'none'; // Hide the contents when unchecked
+                switchDescription.textContent = 'Close';
+                rowContent.style.display = 'none';
+                SelectContent.style.display = 'none';
+                MoreHours.style.display = 'none';
             }
         });
     }
@@ -37,7 +100,6 @@
         'Add-Hours-6');
     handleSwitchToggle('custom-switch-checkbox7', 'custom-switch-description-7', 'row-content-7', 'select-content-7',
         'Add-Hours-7');
-    // Add more function calls for other instances, if needed
 
     function handleRadioToggle(timeInputId, setHourInputId, selectContentId, addHourBtn, insideHourBtn, showContent) {
         const timeInput = document.getElementById(timeInputId);
@@ -52,11 +114,10 @@
         timeInput.addEventListener('click', function() {
             timeInput.setAttribute('checked', 'true');
             HourInput.removeAttribute('checked');
-            if (timeInput.checked) {
-                selectInput.style.display = 'none';
-                HourButton.style.display = 'none';
-            }
+            selectInput.style.display = 'none';
+            HourButton.style.display = 'none';
         });
+
         HourInput.addEventListener('click', function() {
             timeInput.removeAttribute('checked');
             HourInput.setAttribute('checked', 'true');
@@ -64,58 +125,52 @@
                 selectInput.style.display = 'flex';
                 HourButton.style.display = 'block';
                 $(InsideHourButton).click(function() {
-                  
                     var maxGroup = 5;
                     if ($(ShowFullContent).children().length < maxGroup) {
-
-                        console.log(ShowFullContent,"sahil");
-
-                        var len = $(ShowFullContent).length;
-                        console.log(len);
-                        var fieldHTML =
-                            `<div class="row position-relative">
-                                        <div class="col-6">
-                                            <div class="form-group ">
-                                                <select name="star-time" class="form-control form-select select2"
-                                                    data-bs-placeholder="Select Country"
-                                                    tabindex="-1" aria-hidden="true">
-                                                    <option value="" selected="" disabled>Start Time</option>
-                                                    <option value="9 AM">9 AM</option>
-                                                    <option value="10 AM">10 AM</option>
-                                                    <option value="11 AM">11 AM</option>
-                                                    <option value="12 AM">12 AM</option>
-                                                    <option value="1 PM">1 PM</option>
-                                                    <option value="2 PM">2 PM</option>
-                                                    <option value="3 PM">3 PM</option>
-                                                    <option value="4 PM">4 PM</option>
-                                                    <option value="5 PM">5 PM</option>
-                                                    <option value="6 PM">6 PM</option>
-                                                    <option value="7 PM">7 PM</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <select name="end-time" class="form-control form-select select2"
-                                                    data-bs-placeholder="Select Country"
-                                                    tabindex="-1" aria-hidden="true">
-                                                    <option value="" selected="" disabled>Start Time</option>
-                                                    <option value="9 AM">9 AM</option>
-                                                    <option value="10 AM">10 AM</option>
-                                                    <option value="11 AM">11 AM</option>
-                                                    <option value="12 AM">12 AM</option>
-                                                    <option value="1 PM">1 PM</option>
-                                                    <option value="2 PM">2 PM</option>
-                                                    <option value="3 PM">3 PM</option>
-                                                    <option value="4 PM">4 PM</option>
-                                                    <option value="5 PM">5 PM</option>
-                                                    <option value="6 PM">6 PM</option>
-                                                    <option value="7 PM">7 PM</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <span class="remove"> x </span>
-                                    </div>`;
+                        var iteration = $(ShowFullContent).children().length;
+                        iteration += 1;
+                        var fieldHTML = `
+                            <div class="row position-relative">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <select name="star-time" class="form-control form-select select2" id="start-time-select-toggle`+iteration+`"
+                                            data-bs-placeholder="Select Country" tabindex="-1" onchange="startTimeToggle(`+iteration+`)" aria-hidden="true">
+                                            <option value="" selected="" disabled>Start Time</option>
+                                            <option value="9 AM" class="option">9 AM</option>
+                                            <option value="10 AM" class="option">10 AM</option>
+                                            <option value="11 AM" class="option">11 AM</option>
+                                            <option value="12 AM" class="option">12 AM</option>
+                                            <option value="1 PM" class="option">1 PM</option>
+                                            <option value="2 PM" class="option">2 PM</option>
+                                            <option value="3 PM" class="option">3 PM</option>
+                                            <option value="4 PM" class="option">4 PM</option>
+                                            <option value="5 PM" class="option">5 PM</option>
+                                            <option value="6 PM" class="option">6 PM</option>
+                                            <option value="7 PM" class="option">7 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <select name="end-time" class="form-control form-select select2 " id="start-time-select1-toggle`+iteration+`"
+                                            data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
+                                            <option value="" selected="" disabled>Start Time</option>
+                                            <option value="9 AM" class="option">9 AM</option>
+                                            <option value="10 AM" class="option">10 AM</option>
+                                            <option value="11 AM" class="option">11 AM</option>
+                                            <option value="12 AM" class="option">12 AM</option>
+                                            <option value="1 PM" class="option">1 PM</option>
+                                            <option value="2 PM" class="option">2 PM</option>
+                                            <option value="3 PM" class="option">3 PM</option>
+                                            <option value="4 PM" class="option">4 PM</option>
+                                            <option value="5 PM" class="option">5 PM</option>
+                                            <option value="6 PM" class="option">6 PM</option>
+                                            <option value="7 PM" class="option">7 PM</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <span class="remove"> x </span>
+                            </div>`;
                         $(ShowFullContent).append(fieldHTML);
                     } else {
                         alert('Maximum ' + maxGroup + ' are allowed.');
@@ -123,15 +178,12 @@
                     $(document).on('click', '.remove', function() {
                         $(this).parent().remove();
                     });
-                    // $('.remove').on("click", function() {
-                    //     $(this).parent().remove();
-                    // });
                 });
             }
         });
-
-
     }
+
+    // Call the handleRadioToggle function for each instance
     handleRadioToggle('time-radio-1', 'set-hour-radio-1', 'custom-time-selection-1', 'Add-Hours-1', 'addMore-1',
         'showContent-1');
     handleRadioToggle('time-radio-2', 'set-hour-radio-2', 'custom-time-selection-2', 'Add-Hours-2', 'addMore-2',

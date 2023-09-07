@@ -113,34 +113,10 @@
 
         @include('layouts.components.setHoursScript')
 
-        <script>
-           function startTime() {
-                var selectedValue = $('.start-time-select').val();
-                var startSelect1 = $('.start-time-select1');
-                var startSelectOptions = $('.start-time-select .option');
-                var selectedFound = false;
+        {{-- <script>
+          
 
-                startSelect1.empty(); // Clear existing options
-
-                startSelectOptions.each(function() {
-                    var optionValue = $(this).val();
-                    // alert(optionValue);
-
-                    if (!selectedFound && optionValue === selectedValue) {
-                        selectedFound = true;
-                    }
-
-                    if (selectedFound) {
-                        if(optionValue == selectedValue){
-                            startSelect1.append('<option value="' + optionValue + '" class="option" disabled>' + optionValue + '</option>');
-                        }else{
-                            startSelect1.append('<option value="' + optionValue + '" class="option">' + optionValue + '</option>');
-                        }
-                    }
-                });
-            };
-
-        </script>
+        </script> --}}
 
         {{-- <script>
     document.addEventListener("DOMContentLoaded", function() {
