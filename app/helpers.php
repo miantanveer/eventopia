@@ -7,32 +7,32 @@ use Google\Cloud\Translate\V2\TranslateClient;
 if (!function_exists('lang')) {
     function lang($string)
     {
-        // return $string;
         $code = \Session::get('locale');
-        // dd($code);
+
         if ($code == null) {
             $code = 'en';
         }
-        // dd($code);
+
         $langPath = resource_path('lang/');
+
         if (!file_exists($langPath) || !file_exists($langPath . '/' . $code . '.json')) {
-            // Create a new empty code.json file
             file_put_contents($langPath . '/' . $code . '.json', '{}');
         }
-        //    $tr = new GoogleTranslate($code);
-        //    $tr->translate($string);
+
         $lang_file = file_get_contents(resource_path('lang/' . $code . '.json'));
         $langs = json_decode($lang_file, true);
+
         if (array_key_exists($string, $langs)) {
             return $langs[$string];
         } else {
-            // ******** Write Data Into Json ***************
             $current_data = file_get_contents(resource_path('lang/' . $code . '.json'));
             $array_data = json_decode($current_data, true);
             $tr = new GoogleTranslate($code);
             $array_data[$string] = $tr->translate($string);
             $final_data = json_encode($array_data, JSON_UNESCAPED_UNICODE);
+
             file_put_contents(resource_path('lang/' . $code . '.json'), $final_data);
+            
             return $tr->translate($string);
         }
     }
