@@ -474,7 +474,7 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>End Time</option>
-                                    <option value="9 AM" {{@$time->saturday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
+                                    <option value="9 AM" {{@$time->saturday_end_time == '9 AM' ? 'checked' : ''}}> </option>
                                     <option value="10 AM" {{@$time->saturday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
                                     <option value="11 AM" {{@$time->saturday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
                                     <option value="12 AM" {{@$time->saturday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
