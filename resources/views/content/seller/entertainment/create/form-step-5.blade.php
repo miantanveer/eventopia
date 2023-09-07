@@ -102,26 +102,5 @@
         <!-- Jquery/buttons JS-->
         <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
         <script src="{{ asset('assets/js/select2.js') }}"></script>
-
         @include('layouts.components.setHoursScript')
-
-        {{-- <script>
-          
-
-        </script> --}}
-
-        {{-- <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const startTimeSelect = document.getElementById("start-time-select");
-
-        startTimeSelect.addEventListener("change", function() {
-            const selectedIndex = this.selectedIndex;
-            console.log(selectedIndex);
-
-            for (let i = 0; i < selectedIndex; i++) {
-                this.options[i].disabled = true;
-            }
-        });
-    });
-</script> --}}
     @endsection

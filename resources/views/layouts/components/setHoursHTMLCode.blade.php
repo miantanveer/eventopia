@@ -202,40 +202,40 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="wednesday_start_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
-                                    data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
+                                    class="form-control form-select select2 select2-hidden-accessible" id="wednesday-start-time"
+                                    data-bs-placeholder="Select Country" onchange="startTime('wednesday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->wednesday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->wednesday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->wednesday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->wednesday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->wednesday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->wednesday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->wednesday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->wednesday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->wednesday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->wednesday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->wednesday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="wednesday_end_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
+                                    class="form-control form-select select2 select2-hidden-accessible" id="wednesday-end-time"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->wednesday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->wednesday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->wednesday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->wednesday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->wednesday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->wednesday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->wednesday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->wednesday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->wednesday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->wednesday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->wednesday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -285,40 +285,40 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="thursday_start_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
-                                    data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
+                                    class="form-control form-select select2 select2-hidden-accessible" id="thursday-start-time"
+                                    data-bs-placeholder="Select Country" onchange="startTime('thursday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->thursday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->thursday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->thursday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->thursday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->thursday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->thursday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->thursday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->thursday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->thursday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->thursday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->thursday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="thursday_end_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
+                                    class="form-control form-select select2 select2-hidden-accessible" id="thursday-end-time"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->thursday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->thursday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->thursday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->thursday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->thursday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->thursday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->thursday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->thursday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->thursday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->thursday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->thursday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -368,40 +368,40 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="friday_start_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
-                                    data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
+                                    class="form-control form-select select2 select2-hidden-accessible" id="friday-start-time"
+                                    data-bs-placeholder="Select Country" onchange="startTime('friday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->friday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->friday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->friday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->friday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->friday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->friday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->friday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->friday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->friday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->friday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->friday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="friday_end_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
+                                    class="form-control form-select select2 select2-hidden-accessible" id="friday-end-time"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->friday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->friday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->friday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->friday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->friday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->friday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->friday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->friday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->friday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->friday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->friday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -451,40 +451,40 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="saturday_start_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
-                                    data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
+                                    class="form-control form-select select2 select2-hidden-accessible" id="saturday-start-time"
+                                    data-bs-placeholder="Select Country" onchange="startTime('saturday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->saturday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->saturday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->saturday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->saturday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->saturday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->saturday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->saturday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->saturday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->saturday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->saturday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->saturday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="saturday_end_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
+                                    class="form-control form-select select2 select2-hidden-accessible" id="saturday-end-time"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->saturday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->saturday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->saturday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->saturday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->saturday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->saturday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->saturday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->saturday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->saturday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->saturday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->saturday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -533,40 +533,40 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="sunday_start_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
-                                    data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
+                                    class="form-control form-select select2 select2-hidden-accessible" id="sunday-start-time"
+                                    data-bs-placeholder="Select Country" onchange="startTime('sunday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" {{@$time->sunday_start_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->sunday_start_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->sunday_start_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->sunday_start_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->sunday_start_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->sunday_start_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->sunday_start_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->sunday_start_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->sunday_start_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->sunday_start_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->sunday_start_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <select name="sunday_end_time"
-                                    class="form-control form-select select2 select2-hidden-accessible"
+                                    class="form-control form-select select2 select2-hidden-accessible" id="sunday-end-time"
                                     data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" {{@$time->sunday_end_time == '9 AM' ? 'checked' : ''}}>9 AM</option>
-                                    <option value="10 AM" {{@$time->sunday_end_time == '10 AM' ? 'checked' : ''}}>10 AM</option>
-                                    <option value="11 AM" {{@$time->sunday_end_time == '11 AM' ? 'checked' : ''}}>11 AM</option>
-                                    <option value="12 AM" {{@$time->sunday_end_time == '12 AM' ? 'checked' : ''}}>12 AM</option>
-                                    <option value="1 PM" {{@$time->sunday_end_time == '1 PM' ? 'checked' : ''}}>1 PM</option>
-                                    <option value="2 PM" {{@$time->sunday_end_time == '2 PM' ? 'checked' : ''}}>2 PM</option>
-                                    <option value="3 PM" {{@$time->sunday_end_time == '3 PM' ? 'checked' : ''}}>3 PM</option>
-                                    <option value="4 PM" {{@$time->sunday_end_time == '4 PM' ? 'checked' : ''}}>4 PM</option>
-                                    <option value="5 PM" {{@$time->sunday_end_time == '5 PM' ? 'checked' : ''}}>5 PM</option>
-                                    <option value="6 PM" {{@$time->sunday_end_time == '6 PM' ? 'checked' : ''}}>6 PM</option>
-                                    <option value="7 PM" {{@$time->sunday_end_time == '7 PM' ? 'checked' : ''}}>7 PM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
+                                    <option value="10 AM" class="option">10 AM</option>
+                                    <option value="11 AM" class="option">11 AM</option>
+                                    <option value="12 AM" class="option">12 AM</option>
+                                    <option value="1 PM" class="option">1 PM</option>
+                                    <option value="2 PM" class="option">2 PM</option>
+                                    <option value="3 PM" class="option">3 PM</option>
+                                    <option value="4 PM" class="option">4 PM</option>
+                                    <option value="5 PM" class="option">5 PM</option>
+                                    <option value="6 PM" class="option">6 PM</option>
+                                    <option value="7 PM" class="option">7 PM</option>
                                 </select>
                             </div>
                         </div>

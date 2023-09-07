@@ -107,7 +107,6 @@
     @if (Auth::check())
         <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
         <script>
-            Pusher.logToConsole = true;
             'use strict';
             var pusher = new Pusher('2cd8b23ab488aef87078', {
                 cluster: 'ap3'
