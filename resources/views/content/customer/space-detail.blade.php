@@ -123,8 +123,8 @@
                                     <div class="accordion-body">
                                         <h4 class="text-dark">{{lang('Parking options')}}</h4>
                                         <p>
-                                            @foreach ($space->spaceHaveParkingOptions as $parkingOption)
-                                                {{ $parkingOption->option . ',' }}
+                                            @foreach (@$space->spaceHaveParkingOptions as $parkingOption)
+                                                {{ @$parkingOption->option . ',' }}
                                             @endforeach
                                         </p>
                                         <h4 class="text-dark">{{lang('Parking description')}}</h4>
@@ -186,8 +186,8 @@
                         <h3 class="text-dark">
                             {{lang('Cancellation Policy')}}
                         </h3>
-                        <h5 class="text-dark">{{ $space->cancellationPolicy->title }}</h5>
-                        <p>{{ $space->cancellationPolicy->description }}</p>
+                        <h5 class="text-dark">{{ @$space->cancellationPolicy->title }}</h5>
+                        <p>{{ @$space->cancellationPolicy->description }}</p>
                     </div>
                     <hr>
                     <div class="mt-5">
