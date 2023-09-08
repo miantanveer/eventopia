@@ -109,7 +109,7 @@
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
                                 data-bs-toggle="dropdown">
-                                {{lang('Price')}} <span class="caret"></span>
+                                {{ lang('Price') }} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <div class="custom-controls-stacked">
@@ -117,17 +117,17 @@
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option1" checked="">
-                                            <span class="custom-control-label">{{lang('Up to $100')}}</span>
+                                            <span class="custom-control-label">{{ lang('Up to $100') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option2">
-                                            <span class="custom-control-label">{{lang('$100 to & $250')}}</span>
+                                            <span class="custom-control-label">{{ lang('$100 to & $250') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">{{lang('$250 to & $450')}}</span>
+                                            <span class="custom-control-label">{{ lang('$250 to & $450') }}</span>
                                         </label>
                                     </form>
                                 </div>
@@ -141,13 +141,11 @@
                             <div class="search-dropdown-results" id="searchResults"></div>
                         </div>
                     </div>
-                    {{-- @dd($data) --}}
-
                     <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4 ps-0">
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
                                 data-bs-toggle="dropdown">
-                                {{lang('Attendees')}} <span class="caret"></span>
+                                {{ lang('Attendees') }} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <div class="custom-controls-stacked">
@@ -155,22 +153,22 @@
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option1" checked="">
-                                            <span class="custom-control-label">{{lang('0 to 10')}}</span>
+                                            <span class="custom-control-label">{{ lang('0 to 10') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option2">
-                                            <span class="custom-control-label">{{lang('11 to 25')}}</span>
+                                            <span class="custom-control-label">{{ lang('11 to 25') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">{{lang('51 to 100')}}</span>
+                                            <span class="custom-control-label">{{ lang('51 to 100') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">{{lang('Over 100')}}</span>
+                                            <span class="custom-control-label">{{ lang('Over 100') }}</span>
                                         </label>
                                     </form>
                                 </div>
@@ -189,7 +187,7 @@
                     </div>
                     <div class="col-lg-1 text-center mt-4 mx-6 form-check form-switch d-lg-block d-none">
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                        <label class="form-check-label" for="flexSwitchCheckChecked">{{lang('Map')}}</label>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">{{ lang('Map') }}</label>
                     </div>
                 </div>
             </div>
@@ -207,7 +205,7 @@
                         <div class="container-fluid">
                             <div class="card custom-card">
                                 <div class="card-header border-bottom-0">
-                                    {{lang('The talent & entertainments you might be looking for?')}}
+                                    {{ lang('The talent & entertainments you might be looking for?') }}
                                 </div>
                                 <div class="card-body pt-0 h-100">
                                     <div class="owl-carousel owl-carousel-icons2">
@@ -269,121 +267,18 @@
                             <div class="row">
                                 @if (@$data->isEmpty())
                                     <div class="text-center">
-                                        <h2><strong>{{lang("We couldn't find any spaces.")}}</strong></h2>
+                                        <h2><strong>{{ lang("We couldn't find any spaces.") }}</strong></h2>
                                     </div>
                                     <div class="card-header border-bottom-0 ms-1 justify-content-center">
-                                        {{lang('Try zooming out or expanding your filter criteria.')}}
+                                        {{ lang('Try zooming out or expanding your filter criteria.') }}
                                     </div>
                                 @else
                                     @if (@$type == 'space')
-                                        <div class="card-header border-bottom-0 ms-3">
-                                            {{lang('4,333 party hall spaces near USA')}}
-                                        </div>
-                                        @foreach (@$data as $value)
-                                            @php
-                                                @$lat = $value->lat;
-                                                @$lng = $value->lng;
-                                                @$title = $value->space_title;
-                                            @endphp
-                                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                                <div class="card overflow-hidden">
-                                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                                        <div class="ms-1 card-border float-start">
-                                                            <p class="text-dark p-2 bg-primary">{{lang('From
-                                                                SAR')}}{{ $value->spaceHaveActivities[0]->rate_per_hour }}{{lang('/hour')}}
-                                                            </p>
-                                                        </div>
-                                                        <div class="me-2 card-background float-end">
-                                                            <span class="mini-stat-icon p-0"><i
-                                                                    class="fa fa-shopping-bag p-3"></i></span>
-                                                        </div>
-                                                    </div>
-                                                    <a href="{{route('space-details',@$value->id)}}">
-                                                        <img src="{{ asset($value->spaceImages[0]->image) }}"
-                                                            class="card-img-top" style="width: 200px;padding-top: 10px"
-                                                            alt="img">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">{{ $value->space_title }}</h5>
-                                                            <i class="fa fa-group"></i> 25 &nbsp;
-                                                            <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <p>{{lang('Responds within 1 hour')}}</p>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        @endforeach
+                                        @include('content.components.__space')
                                     @elseif (@$type == 'entertainment')
-                                        @foreach (@$data as $value)
-                                            @php
-                                                $lat = $value->lat;
-                                                $lng = $value->lng;
-                                                $title = $value->title;
-                                            @endphp
-                                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                                <div class="card overflow-hidden">
-                                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                                        <div class="ms-1 card-border float-start">
-                                                            <p class="text-dark p-2 bg-primary">{{lang('From
-                                                                SAR')}}{{ @$value->entertainmentActivities[0]->hourly_rate }}{{lang('/hour')}}</p>
-                                                        </div>
-                                                        <div class="me-2 card-background float-end">
-                                                            <span class="mini-stat-icon p-0"><i
-                                                                    class="fa fa-shopping-bag p-3"></i></span>
-                                                        </div>
-                                                    </div>
-                                                    <a href="{{route('entertainment-details',@$value->id)}}">
-                                                        <img src="{{ asset(@$value->entertainmentImages[0]->image) }}"
-                                                            class="card-img-top" style="width: 200px;padding-top: 10px"
-                                                            alt="img">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">{{ @$value->title }}</h5>
-                                                            <i class="fa fa-group"></i> 25 &nbsp;
-                                                            <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <p>{{lang('Responds within 1 hour')}}</p>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        @endforeach
+                                        @include('content.components.__entertainment')
                                     @elseif(@$type == 'service')
-                                        @foreach (@$data as $value)
-                                            @php
-                                                $lat = $value->lat;
-                                                $lng = $value->lng;
-                                                $title = $value->title;
-                                            @endphp
-                                            <div class="col-xl-4 col-md-6 col-sm-12">
-                                                <div class="card overflow-hidden">
-                                                    <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                                        <div class="ms-1 card-border float-start">
-                                                            <p class="text-dark p-2 bg-primary">{{lang('From
-                                                                SAR')}}{{ @$value->price }}</p>
-                                                        </div>
-                                                        <div class="me-2 card-background float-end">
-                                                            <span class="mini-stat-icon p-0"><i
-                                                                    class="fa fa-shopping-bag p-3"></i></span>
-                                                        </div>
-                                                    </div>
-                                                    <a href="{{route('service-details',@$value->id)}}">
-                                                        <img src="{{ asset(@$value->serviceImages[0]->image) }}"
-                                                            class="card-img-top" style="width: 200px;padding-top: 10px"
-                                                            alt="img">
-                                                        <div class="card-body">
-                                                            <h5 class="card-title">{{ @$value->title }}</h5>
-                                                            <i class="fa fa-group"></i> 25 &nbsp;
-                                                            <i class="fa fa-star" style="color:#f1c40f"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <p>{{lang('Responds within 1 hour')}}</p>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        @endforeach
+                                        @include('content.components.__service')
                                     @endif
                                 @endif
                             </div>
@@ -393,15 +288,14 @@
             </div>
         </div>
         <div class="col-lg-4 col-12 mt-5 mt-lg-0" id="map">
-            {{-- <div class="container-fluid">
-                <div class="card custom-card">
-                    <div class="card-body map_height overflow-auto" id="mapContainer">
-                        <iframe class="gmap_iframe" frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0"
+            @if ($data)
+                    <div class="map_height overflow-auto">
+                        <iframe class="gmap_iframe" frameborder="1" scrolling="no" id="gmap_iframe" marginheight="0"
                             marginwidth="0"
                             src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
                         </iframe>
                     </div>
-                </div> --}}
+            @endif
         </div>
     </div>
     </div>

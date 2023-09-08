@@ -72,9 +72,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('notifications', [NotificationController::class, 'index'])->name('notifications');
     Route::get('mark-as-read', [NotificationController::class, 'read'])->name('mark_as_read');
-    Route::get('/search-results', function () {
-        return view('content.customer.search-results');
-    });
+    // Route::get('/search-results', function () {
+    //     return view('content.customer.search-results');
+    // });
 
     Route::get('/manage-bookings', function () {
         return view('content.customer.manage-bookings');
