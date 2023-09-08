@@ -108,11 +108,11 @@
                                                         <label class=" flex-basis-20-sm flex-basis-100" for="{{$cancel_policy->title}}">
                                                             <input type="radio" required data-parsley-required-message="{{lang('Please select a value')}}" data-parsley-errors-container="#c_error" id="{{$cancel_policy->title}}"
                                                                 name="cancellation_policy_id" value="{{$cancel_policy->id}}" {{@$space->cancellationPolicy->id == $cancel_policy->id ? 'checked' : ''}}>
-                                                            <span>{{$cancel_policy->title}}</span>
+                                                            <span>{{lang($cancel_policy->title)}}</span>
                                                         </label>
                                                     </div>
                                                     <div class="col-9">
-                                                        <p>{{$cancel_policy->description}}
+                                                        <p>{{lang($cancel_policy->description)}}
                                                         </p>
                                                     </div>
                                                     <hr class="bg-dark border-2">

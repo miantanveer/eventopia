@@ -25,7 +25,7 @@
                 <div class="card-body m-3" style="box-shadow: 0px 0px 3px 3px rgb(0 0 0 / 8%) !important;">
                     <label class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" name="checkbox1" id="all_select">
-                        <span class="custom-control-label">{{lang('Select all')}}</span>
+                        <span class="custom-control-label">{{ lang('Select all') }}</span>
                     </label>
                 </div>
             </div>
@@ -37,20 +37,18 @@
                                 <div class="col-1 pe-0 my-auto">
                                     <label class="custom-control custom-checkbox">
                                         {{-- <input type="checkbox" class="custom-control-input cards" name="checkbox1"
-                                            value="option1" id="first_card"> --}}
+                                value="option1" id="first_card"> --}}
                                         <input type="checkbox" class="custom-control-input cards" name="checkbox1"
                                             value="option1" id="first_card" data-type="service"
                                             data-amount="{{ @$data->service->quote[0]->amount }}"
-                                            data-title="{{ @$data->service->title }}"
-                                            data-discount="0"
+                                            data-title="{{ @$data->service->title }}" data-discount="0"
                                             data-image="{{ asset(@$data->service->serviceImages[0]->image) }}"
                                             data-id="{{ @$data->service->id }}">
                                         <span class="custom-control-label"></span>
                                     </label>
                                 </div>
                                 <div class="col-sm-3 col-11 ps-sm-0 pe-3 pe-md-0 ">
-                                    <img id="ent-img"
-                                        src="{{ asset(@$data->service->serviceImages[0]->image) }}"
+                                    <img id="ent-img" src="{{ asset(@$data->service->serviceImages[0]->image) }}"
                                         style="width: 130px; height: auto" class="card-img-left h-100" alt="img">
                                 </div>
                                 <div class="col-sm-8 ps-6 ps-md-0 mt-6 mt-md-0">
@@ -67,14 +65,14 @@
                                                         data-bs-original-title="{{ @$data->service->title }}"></i>
                                                 </a>
                                                 {{-- <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip"
-                                            title="" data-bs-original-title="fa fa-heart-o"
-                                            aria-label="fa fa-heart-o"></i> --}}
+                                        title="" data-bs-original-title="fa fa-heart-o" aria-label="fa fa-heart-o"></i>
+                                    --}}
                                             </div>
                                         </div>
                                         <p class="card-text mt-3 mt-md-0">Amount :
                                             {{ @$data->service->quote[0]->amount }}</p>
-                                        <p class="card-text"><small class="text-muted">{{lang('Service (Available for
-                                                {{ @$data->service->quote[0]->guests }}) guests')}}</small>
+                                        <p class="card-text"><small
+                                                class="text-muted">{{ lang('Service (Available for ' . @$data->service->quote[0]->guests . ') guests') }}</small>
                                         </p>
                                         <div class="row">
                                             <div class="text-end">
@@ -95,7 +93,7 @@
                                 <div class="col-1 pe-0 my-auto">
                                     <label class="custom-control custom-checkbox">
                                         {{-- <input type="checkbox" class="custom-control-input cards" name="checkbox1"
-                                            value="option1" id="first_card"> --}}
+                                value="option1" id="first_card"> --}}
                                         <input type="checkbox" class="custom-control-input cards" name="checkbox1"
                                             value="option1" id="first_card" data-type="entertainment"
                                             data-amount="{{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}"
@@ -125,14 +123,15 @@
                                                         data-bs-original-title="{{ @$data->entertainment->title }}"></i>
                                                 </a>
                                                 {{-- <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip"
-                                            title="" data-bs-original-title="fa fa-heart-o"
-                                            aria-label="fa fa-heart-o"></i> --}}
+                                        title="" data-bs-original-title="fa fa-heart-o" aria-label="fa fa-heart-o"></i>
+                                    --}}
                                             </div>
                                         </div>
-                                        <p class="card-text mt-3 mt-md-0">{{lang('Amount :')}}
-                                            {{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}{{lang('/hour')}}</p>
-                                        <p class="card-text"><small class="text-muted">{{lang('Entertainment (Available :
-                                                {{ @$data->entertainment->entertainmentActivities[0]->max_hours }})')}}</small>
+                                        <p class="card-text mt-3 mt-md-0">
+                                            {{ lang('Amount :') }}{{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}{{ lang('/hour') }}
+                                        </p>
+                                        <p class="card-text"><small
+                                                class="text-muted">{{ lang('Entertainment (Available :' . @$data->entertainment->entertainmentActivities[0]->max_hours . ')') }}</small>
                                         </p>
                                         <div class="row">
                                             <div class="text-end">
@@ -153,7 +152,7 @@
                                 <div class="col-1 pe-0 my-auto">
                                     <label class="custom-control custom-checkbox">
                                         {{-- <input type="checkbox" class="custom-control-input cards" name="checkbox1"
-                                            value="option1" id="first_card"> --}}
+                                value="option1" id="first_card"> --}}
                                         <input type="checkbox" class="custom-control-input cards" name="checkbox1"
                                             value="option1" id="first_card" data-type="space"
                                             data-amount="{{ @$data->space->spaceHaveActivities[0]->rate_per_hour }}"
@@ -183,18 +182,20 @@
                                                         data-bs-original-title="{{ @$data->space->space_title }}"></i>
                                                 </a>
                                                 {{-- <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip"
-                                            title="" data-bs-original-title="fa fa-heart-o"
-                                            aria-label="fa fa-heart-o"></i> --}}
+                                        title="" data-bs-original-title="fa fa-heart-o" aria-label="fa fa-heart-o"></i>
+                                    --}}
                                             </div>
                                         </div>
-                                        <p class="card-text mt-3 mt-md-0">{{lang('Amount :')}}
-                                            {{ @$data->space->spaceHaveActivities[0]->rate_per_hour }}{{lang('/hour')}}</p>
-                                        <p class="card-text"><small class="text-muted">{{lang('Entertainment (Available :
-                                                {{ @$data->space->spaceHaveActivities[0]->minimum_hour }})')}}</small></p>
+                                        <p class="card-text mt-3 mt-md-0">{{ lang('Amount :') }}
+                                            {{ @$data->space->spaceHaveActivities[0]->rate_per_hour }}{{ lang('/hour') }}
+                                        </p>
+                                        <p class="card-text"><small
+                                                class="text-muted">{{ lang('Entertainment (Available :' . @$data->space->spaceHaveActivities[0]->minimum_hour . ')') }}</small>
+                                        </p>
                                         <div class="row">
                                             <div class="text-end">
                                                 <button type="button" class="btn btn-gray mt-1 mb-1 me-3" disabled>
-                                                    <span>{{lang('Total :')}}
+                                                    <span>{{ lang('Total :') }}
                                                         {{ @$data->space->spaceHaveActivities[0]->rate_per_hour }}</span>
                                                 </button>
                                             </div>
@@ -210,7 +211,7 @@
         <div class="col-xl-4 col-lg-12 col-md-12">
             <div class="card cart" style="border: 1px solid #cbcaca !important; border-radius: 0 !important;">
                 <div class="card-header">
-                    <h3 class="card-title">{{lang('Order Summary')}}</h3>
+                    <h3 class="card-title">{{ lang('Order Summary') }}</h3>
                 </div>
                 <div id="order-summary"></div>
                 <div class="card-footer">
@@ -226,9 +227,9 @@
                                 value="0">
                             <div id="selected-types"></div>
                             <!-- ...other form fields... -->
-                            <a href="{{ url('shop') }}" class="btn"></i>{{lang('Continue Shopping')}}</a>
+                            <a href="{{ url('shop') }}" class="btn"></i>{{ lang('Continue Shopping') }}</a>
                             <button type="submit" class="btn btn-primary float-sm-end" id="place-order-btn" disabled>
-                                <i class="fa fa-shopping-bag me-1"></i>{{lang('Place Order')}}
+                                <i class="fa fa-shopping-bag me-1"></i>{{ lang('Place Order') }}
                             </button>
                         </form>
                     </div>
@@ -236,9 +237,10 @@
             </div>
         </div>
 
-        <h3 class="p-3 mb-5 text-dark">{{lang('When checking out your space, you may add these Talents or
-            Services.')}}</h3>
-        <h6 class="p-3 mb-5 text-dark">{{lang('The spaces you might be looking for?')}}</h6>
+        <h3 class="p-3 mb-5 text-dark">
+            {{ lang('When checking out your space, you may add these Talents or
+                                Services.') }}</h3>
+        <h6 class="p-3 mb-5 text-dark">{{ lang('The spaces you might be looking for?') }}</h6>
         <div class="col-12 px-lg-0 px-6 bg-white">
             <div class="card custom-card">
                 <div class="card-body p-0 h-100">
@@ -259,7 +261,7 @@
                                                 <i class="fa fa-star" style="color: #f1c40f"></i>
                                                 <i class="fa fa-star" style="color: #f1c40f"></i>
                                                 &nbsp; 19
-                                                <p>{{lang('Responds within 1 hour')}}</p>
+                                                <p>{{ lang('Responds within 1 hour') }}</p>
                                             </div>
                                         </a>
                                     </div>
@@ -270,7 +272,7 @@
                 </div>
             </div>
         </div>
-        <h3 class="p-3 mb-5 text-dark">{{lang('Talents & Entertainments you might be looking for?')}}</h3>
+        <h3 class="p-3 mb-5 text-dark">{{ lang('Talents & Entertainments you might be looking for?') }}</h3>
         <div class="col-12 px-lg-0 px-6 bg-white">
             <div class="card custom-card">
                 <div class="card-body p-0 h-100">
@@ -291,7 +293,7 @@
                                                 <i class="fa fa-star" style="color: #f1c40f"></i>
                                                 <i class="fa fa-star" style="color: #f1c40f"></i>
                                                 &nbsp; 19
-                                                <p>{{lang('Responds within 1 hour')}}</p>
+                                                <p>{{ lang('Responds within 1 hour') }}</p>
                                             </div>
                                         </a>
                                     </div>
@@ -313,9 +315,9 @@
                     <form action="" id="delete-form" method="POST">
                         @csrf
                         @method('delete')
-                        <h2 class="text-danger">{{lang('Warning!')}}</h2>
-                        <h4 class="text-danger">{{lang('Are you sure you want to remove this item?')}}</h4>
-                        <button class="btn btn-danger pd-x-25">{{lang('Continue')}}</button>
+                        <h2 class="text-danger">{{ lang('Warning!') }}</h2>
+                        <h4 class="text-danger">{{ lang('Are you sure you want to remove this item?') }}</h4>
+                        <button class="btn btn-danger pd-x-25">{{ lang('Continue') }}</button>
                     </form>
                 </div>
             </div>
@@ -382,7 +384,8 @@
 
                     // Check if the type exists in the selectedListingIdsByType object
                     if (!(type in selectedListingIdsByType)) {
-                        selectedListingIdsByType[type] = []; // Initialize an array for the type if it doesn't exist
+                        selectedListingIdsByType[
+                            type] = []; // Initialize an array for the type if it doesn't exist
                     }
 
                     // Check if the ID is not already in the selectedListingIds array for this type

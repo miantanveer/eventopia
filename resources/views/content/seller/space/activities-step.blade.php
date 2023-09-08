@@ -100,13 +100,13 @@
                                                                     <div class="card-body p-0">
                                                                         <div class="px-5 py-3 m-0 text-center bg-white">
                                                                             <h5 class="text-dark m-0">
-                                                                                {{ $space_activity->title }}</h5>
+                                                                                {{ lang($space_activity->title) }}</h5>
                                                                             <hr class="bg-dark mb-0">
                                                                         </div>
                                                                         <div class="ms-5 my-4">
                                                                             @foreach ($space_activity->subActivities as $subActivity)
                                                                                 <li class="text-dark mb-2">
-                                                                                    {{ $subActivity->title }}</li>
+                                                                                    {{ lang($subActivity->title) }}</li>
                                                                             @endforeach
                                                                         </div>
                                                                     </div>
@@ -136,8 +136,8 @@
                                                                 <div class="panel-body">
                                                                     <label class="form-label">{{lang('Pricing')}}</label>
                                                                     <hr class="bg-dark mt-0">
-                                                                    <label class="mb-5">{{lang('Hourly rate</label>
-                                                                    <p>Please choose a base hourly rate. You
+                                                                    <label class="mb-5">{{lang('Hourly rate')}}</label>
+                                                                    <p>{{lang('Please choose a base hourly rate. You
                                                                         can customize your pricing with atten-
                                                                         dee pricing, calendar pricing, add add-
                                                                         ons once your listing are created.')}}</p>
@@ -248,7 +248,7 @@
                                                                                 <div class="checkbox">
                                                                                     <label><input type="checkbox"
                                                                                             name="activities[{{ $space_activity->id }}][activity_have_amenity][]"
-                                                                                            value="{{ @$activityHavingAmenity->id }}">{{ @$activityHavingAmenity->name }}
+                                                                                            value="{{ @$activityHavingAmenity->id }}">{{ lang(@$activityHavingAmenity->name) }}
                                                                                     </label>
                                                                                 </div>
                                                                             @endforeach

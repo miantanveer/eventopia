@@ -152,7 +152,7 @@
                                             <div class="col-4">
                                                 <label class="checkbox-inline">
                                                     <input name="parking_option[]" class="parking_option" type="checkbox" value="{{$parking_option->id}}"><span
-                                                        style="color:#434343"><b>{{$parking_option->option}}</b></span>
+                                                        style="color:#434343"><b>{{lang($parking_option->option)}}</b></span>
                                                 </label>
                                             </div>
                                             @endforeach
@@ -193,7 +193,7 @@
                                                         off.')}}
                                                     </p>
                                                     <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5" class="form-control w-100 p-5"
-                                                        placeholder="Add description"></textarea>
+                                                        placeholder="{{lang('Add description')}}"></textarea>
                                                     <p class="text-end">{{lang('Minimum 50 characters')}}</p>
                                                 </div>
                                             </div>

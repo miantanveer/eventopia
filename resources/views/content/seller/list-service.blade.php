@@ -15,7 +15,7 @@
             <div class="card-header pb-0 border-bottom-0">
                 <div class="row w-100 align-items-center">
                     <div class="col-12">
-                        <h3 class="number-font mb-2">{{lang(auth()->user()->first_name) ?? lang('Hi')}}, {{lang('tell us
+                        <h3 class="number-font mb-2">{{lang(user_name()) ?? lang('Hi')}}, {{lang('tell us
                             about
                             your service')}}</h3>
                     </div>

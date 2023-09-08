@@ -50,8 +50,8 @@
                                                 aria-label="Age: activate to sort column ascending">{{lang('Price')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Start date: activate to sort column ascending">{{lang('Attendees')}}
-                                                Number</th>
+                                                aria-label="Start date: activate to sort column ascending">{{lang('Attendees Number')}}
+                                                </th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Salary: activate to sort column ascending">{{lang('Type')}}</th>

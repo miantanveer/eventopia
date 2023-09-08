@@ -68,8 +68,8 @@
                                                     </td>
                                                     <td>{{ lang(@$quote->user->first_name . ' ' . @$quote->user->last_name) }}
                                                     </td>
-                                                    <td>{{ lang(@$quote->date) }}</td>
-                                                    <td>{{ lang(@$quote->amount ?? 'N/A') }}</td>
+                                                    <td>{{ @$quote->date }}</td>
+                                                    <td>{{ @$quote->amount ?? lang('N/A') }}</td>
                                                     <td>{{ lang(@$quote->guests) }}</td>
                                                     <td>{{ lang(@$quote->service->category) }}</td>
                                                     <td class="text-end">
