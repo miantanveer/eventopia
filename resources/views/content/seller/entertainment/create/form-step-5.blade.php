@@ -1,46 +1,46 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
-<style>
-    .tab-content {
-        min-height: auto !important;
-    }
+    <style>
+        .tab-content {
+            min-height: auto !important;
+        }
 
-    .sw-container {
-        min-height: auto !important;
-    }
+        .sw-container {
+            min-height: auto !important;
+        }
 
-    .back-g-color {
-        background-color: #F2F8FF !important;
-    }
+        .back-g-color {
+            background-color: #F2F8FF !important;
+        }
 
-    .sw-btn-group-extra {
-        display: none;
-    }
+        .sw-btn-group-extra {
+            display: none;
+        }
 
-    .remove {
-        width: 25px;
-        height: 25px;
-        border: 1px solid transparent;
-        border-radius: 50% !important;
-        background: black;
-        color: white;
-        padding: auto;
-        padding-left: 8px;
-        position: absolute;
-        right: 0;
-        top: -10px;
-        cursor: pointer;
-    }
-</style>
+        .remove {
+            width: 25px;
+            height: 25px;
+            border: 1px solid transparent;
+            border-radius: 50% !important;
+            background: black;
+            color: white;
+            padding: auto;
+            padding-left: 8px;
+            position: absolute;
+            right: 0;
+            top: -10px;
+            cursor: pointer;
+        }
+    </style>
 @endsection
 @section('content')
-<!--Row open-->
-<div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <div id="smartwizard-3">
-                    {{-- <ul class="justify-content-around">
+    <!--Row open-->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <div id="smartwizard-3">
+                        {{-- <ul class="justify-content-around">
                         <li><a href="#step-1">Step 1</a></li>
                         <li><a href="#step-2">Step 2</a></li>
                         <li><a href="#step-3">Step 3</a></li>
@@ -67,19 +67,11 @@
                                     <div class="text-center mb-6">
                                         <h3 class="mt-3 mt-1"><b>{{lang('What are your operating hours?')}}</b>
                                         </h3>
-                                        <p class="">{{lang('Operating hours are the days and hours of the week that your
-                                            space
-                                            is
-                                            open to host bookings (i.e. your general availability). Guests will not be
-                                            able
-                                            to book times outside of your operating hours. Learn More.')}}</p>
+                                        <p class="">{{lang('Operating hours are the days and hours of the week that your space is open to host bookings (i.e. your general availability). Guests will not be able to book times outside of your operating hours. Learn More.')}}</p>
                                     </div>
                                     <p class="mb-3"><b>{{lang('Comedy event - 23408 Bernier Cliff Suite 526')}}</b></p>
                                     <div class="bg-gray px-4 py-3">
-                                        <p class="text-white m-0"><i class="fa fa-info-circle me-md-5"></i> {{lang('Operating
-                                            hours
-                                            end times are restricted to 12
-                                            AM for this space type. Read our Social Events Policy for more information.')}}
+                                        <p class="text-white m-0"><i class="fa fa-info-circle me-md-5"></i> {{lang('Operating hours end times are restricted to 12 AM for this space type. Read our Social Events Policy for more information.')}}
                                         </p>
                                     </div>
                                     @include('layouts.components.setHoursHTMLCode')
@@ -96,21 +88,19 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!--row closed-->
+        <!--row closed-->
     @endsection
     @section('scripts')
-    <!-- Jquery/min JS-->
-    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
-    <!-- INTERNAL File-Uploads Js-->
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
-    <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
-    <!-- Jquery/buttons JS-->
-    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
-    <script src="{{ asset('assets/js/select2.js') }}"></script>
-
-    @include('layouts.components.setHoursScript')
+        <!-- Jquery/min JS-->
+        <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+        <!-- INTERNAL File-Uploads Js-->
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+        <script src="{{ asset('assets/plugins/fancyuploder/fancy-uploader.js') }}"></script>
+        <!-- Jquery/buttons JS-->
+        <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+        <script src="{{ asset('assets/js/select2.js') }}"></script>
+        @include('layouts.components.setHoursScript')
     @endsection

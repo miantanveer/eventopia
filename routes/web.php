@@ -11,6 +11,7 @@ use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Customer\CartController;
 use App\Http\Controllers\Customer\PaymentController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Seller\ListingSpaceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Seller\ServiceController;
@@ -31,6 +32,12 @@ use App\Http\Controllers\Seller\ListingController;
 Route::get('/', function () {
     return view('content.landing-page');
 });
+
+// Header become seller
+Route::get('list-space', [ListingSpaceController::class, 'listSpace'])->name('list-space');
+Route::get('list-entertainment', [EntertainmentController::class, 'listEntertainment'])->name('list-entertainment');
+Route::get('list-service', [ServiceController::class, 'listService'])->name('list-service');
+
 // Space Search
 Route::get('/space_landing', [LandingController::class, 'space_index'])->name('space_landing_index');
 Route::get('/space_results', [LandingController::class, 'space_search'])->name('space_search_results');
@@ -54,10 +61,6 @@ Route::get('reset-password', [AuthenticationController::class, 'resetPasswordInd
 Route::post('reset-password', [AuthenticationController::class, 'resetPassword']);
 Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
 
-Route::get('list-space', [ListingSpaceController::class, 'listSpace'])->name('list-space');
-Route::get('list-entertainment', [EntertainmentController::class, 'listEntertainment'])->name('list-entertainment');
-Route::get('list-service', [ServiceController::class, 'listService'])->name('list-service');
-
 //Logout
 Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
 
@@ -69,9 +72,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('notifications', [NotificationController::class, 'index'])->name('notifications');
     Route::get('mark-as-read', [NotificationController::class, 'read'])->name('mark_as_read');
-    // Route::get('/notify-list', function () {
-    //     return view('layouts.components.notify-list');
-    // });
     Route::get('/search-results', function () {
         return view('content.customer.search-results');
     });
@@ -121,9 +121,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana
-    Route::get('/seller-dashboard', function () {
-        return view('content.seller.dashboard');
-    });
+    Route::get('seller-dashboard',[OrderController::class,'sellerDashboard'])->name('seller-dashboard');
 
     Route::get('address-step', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
     Route::post('add-address', [ListingSpaceController::class, 'addAddress'])->name('add-address');

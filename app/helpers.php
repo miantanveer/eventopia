@@ -22,7 +22,8 @@ if (!function_exists('lang')) {
 
         $lang_file = file_get_contents(resource_path('lang/' . $code . '.json'));
         $langs = json_decode($lang_file, true);
-        if (array_key_exists($string, $langs)) {
+
+        if (!is_null($langs) && array_key_exists($string, $langs)) {
             return $langs[$string];
         } else {
             $current_data = file_get_contents(resource_path('lang/' . $code . '.json'));
@@ -56,26 +57,13 @@ if (!function_exists('user_id')) {
         return auth()->user()->id;
     }
 }
-// if (!function_exists('local')) {
-//     function local($str)
-//     {
-//         // Check if the language file exists for the given locale
-//         $langPath = resource_path('lang/');
-//         if (!file_exists($langPath) || !file_exists($langPath . '/' . $str . '.json')) {
-//             // Create a new empty code.json file
-//             file_put_contents($langPath . '/' . $str . '.json', '{}');
-//         }
 
-//         // Get the current locale from the session
-//         $currentLocale = Session::get('locale');
-
-//         // Store the selected locale in the session if it's empty or different
-//         if (empty($currentLocale) || $currentLocale !== $str) {
-//             Session::put('locale', $str);
-//         }
-//     }
-// }
-
+if (!function_exists('user_name')) {
+    function user_name()
+    {
+        return auth()->user()->first_name . ' ' . auth()->user()->last_name;
+    }
+}
 
 if (!function_exists('cartStore')) {
     function cartStore($id, $col, $date, $start_time, $end_time)

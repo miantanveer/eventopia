@@ -499,6 +499,15 @@
 
     <!-- Internal Timeline js-->
     <script src="    {{ asset('assets/js/timline.js') }}"></script>
+
+    <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#signUp_form').parsley();
+        });
+    </script>
+    <script src="{{ asset('assets/js/email-validate.js') }}"></script>
+    
     <!-- Custom JavaScript code -->
     <script>
         $(document).ready(function() {

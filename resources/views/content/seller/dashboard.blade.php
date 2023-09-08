@@ -70,8 +70,8 @@
                         alt="">
                     <div class="position-absolute text-white">
                         <div class="welcome_card">
-                            <h1 class="headingOne">{{lang('Hello, John Doe')}} </h1>
-                            <h5 class="headingTwo d-block d-sm-none">{{lang('Hello, John Doe')}}</h5>
+                            <h1 class="headingOne">{{lang('Hello, '.user_name())}} </h1>
+                            <h5 class="headingTwo d-block d-sm-none">{{lang('Hello, '.user_name())}}</h5>
                             <p class="fs-sm-5 fs-6">{{lang('Welcome Back!')}}</p>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                         <div class="card-body mt-3">
                             <div class="d-flex">
                                 <div class="text-black mt-2">
-                                    <h3 class="mb-2 number-font">{{lang('25')}}</h3>
+                                    <h3 class="mb-2 number-font">{{lang($upComingBookings)}}</h3>
                                 </div>
                                 <div class="card-options">
                                     <img src="{{ asset('assets/images/icons/pending-file.png') }}" alt="">
@@ -105,7 +105,7 @@
                         <div class="col-12">
                             <div class="text-center mb-2 mt-5">
                                 <div class="btn-list">
-                                    <a href="{{URL('/pending-bookings')}}" class="btn btn-primary">{{lang('Manage')}}</a>
+                                    <a href="{{route('pending-bookings')}}" class="btn btn-primary">{{lang('Manage')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -127,47 +127,33 @@
             <div class="card">
                 <div class="card-header pb-0 border-bottom-0">
                     <h3 class="number-font">{{lang('Bookings')}}</h3>
-                    <div class="card-options">
-                        <div class="btn-group mt-2 mb-2">
-                            <button type="button" class="btn btn-outline-primary btn-pill dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false" fdprocessedid="vh7rp"> {{lang('Select')}} <span
-                                    class="fa fa-angle-down"></span> </button>
-                            <ul class="dropdown-menu" role="menu" style="">
-                                <li><a href="javascript:void(0)">{{lang('Spaces')}}</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:void(0)">{{lang('Entertainment & Talent')}}</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:void(0)">{{lang('Services')}}</a></li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
                 <div class="card-body pt-0">
                     <div class="mt-2 row">
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">46</h3>
+                            <h3 class="d-inline-block mb-2">{{$upComingBookings}}</h3>
                             <p>{{lang('Upcoming Bookings')}}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: 50%;" role="progressbar"></div>
+                                <div class="progress-bar bg-primary" style="width: {{$UpcomingProgress}}%;" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">89</h3>
+                            <h3 class="d-inline-block mb-2">{{$cancelBookings}}</h3>
                             <p>{{lang('Cancelled Booking')}}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-danger" style="width: 50%;" role="progressbar"></div>
+                                <div class="progress-bar bg-danger" style="width: {{$CancelProgress}}%;" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">49</h3>
+                            <h3 class="d-inline-block mb-2">{{$previousBookings}}</h3>
                             <p>{{lang('Previous Booking')}}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: 50%;" role="progressbar"></div>
+                                <div class="progress-bar bg-primary" style="width: {{$PreviousProgress}}%;" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-12 text-end">
                             <div style="margin-top: 40px;">
-                                <a href="#" class="btn btn-primary text-white">{{lang('Manage')}}</a>
+                                <a href="{{route('bookings')}}" class="btn btn-primary text-white">{{lang('Manage')}}</a>
                             </div>
                         </div>
                     </div>
@@ -179,66 +165,44 @@
                 <div class="card-header pb-0 border-bottom-0">
                     <h3 class="number-font">{{lang('Total Bookings')}}</h3>
                     <div class="card-options">
-                        <div class="btn-group mt-2 mb-2">
-                            <button type="button" class="btn btn-outline-primary btn-pill dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false"> {{lang('Select')}} <span
-                                    class="fa fa-angle-down"></span> </button>
-                            <ul class="dropdown-menu" role="menu" style="">
-                                <li><a href="javascript:void(0)">{{lang('Upcoming Booking')}}</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:void(0)">{{lang('Previous Booking')}}</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:void(0)">{{lang('Cancelled Booking')}}</a></li>
-                            </ul>
-                        </div>
+                        <h6>{{ lang('Total: ') . $totalBookingsCount }}</h6>
                     </div>
-                </div>
-                <div class="card-header">
-                    <p>{{lang('Total: 15')}}</p>
                 </div>
                 <div class="card-body p-0 mt-5">
                     <div class="table-responsive">
                         <table class="table border text-nowrap text-md-nowrap mb-0">
                             <thead class="bg-primary">
                                 <tr>
-                                    <th class="text-white ml-2">{{lang('Space')}}</th>
-                                    <th class="text-white">{{lang('Date')}}</th>
-                                    <th class="text-white">{{lang('Price')}}</th>
-                                    <th class="text-white">{{lang('Location')}}</th>
+                                    <th class="text-white ml-2">{{ lang('Category') }}</th>
+                                    <th class="text-white">{{ lang('Discount') }}</th>
+                                    <th class="text-white">{{ lang('Price') }}</th>
+                                    <th class="text-white">{{ lang('Status') }}</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{lang('Gallery')}}</td>
-                                    <td>25-06-23</td>
-                                    <td>{{lang('SAR152')}}</td>
-                                    <td>{{lang('Jeggah')}}</td>
-                                </tr>
-                                <tr>
-                                    <td>{{lang('Loft')}}</td>
-                                    <td>05-12-23</td>
-                                    <td>{{lang('SAR13')}}</td>
-                                    <td>{{lang('Westborough')}}</td>
-                                </tr>
-                                <tr>
-                                    <td>{{lang('Bar')}}</td>
-                                    <td>28-03-23</td>
-                                    <td>{{lang('SAR160')}}</td>
-                                    <td>{{lang('West Ned')}}</td>
-                                </tr>
-                                <tr>
-                                    <td>{{lang('Club')}}</td>
-                                    <td>12-03-23</td>
-                                    <td>{{lang('SAR160')}}</td>
-                                    <td>{{lang('Boyne Island')}}</td>
-                                </tr>
-                            </tbody>
+                            @forelse ($totalBookings as $totalBooking)
+                                <tbody>
+                                    <tr>
+                                        <td>{{ lang($totalBooking->type) }}</td>
+                                        <td>{{ lang($totalBooking->discount) }}</td>
+                                        <td>{{ lang($totalBooking->amount) }}</td>
+                                        <td>{{ lang($totalBooking->status == 1 ? 'Upcoming' : ($totalBooking->status == 3 ? 'Cancel' : 'Previous')) }}
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            @empty
+                                <div>
+                                    <tr>
+                                        <td class="text-center">{{ lang('No Record Found') }}</td>
+                                    </tr>
+                                </div>
+                            @endforelse
                         </table>
                     </div>
                     <hr>
                     <div class="col-12 text-center">
                         <div class="mb-3">
-                            <a href="#" class="btn btn-primary text-white">{{lang('Manage')}}</a>
+                            <a href="{{route('bookings')}}" class="btn btn-primary text-white">{{ lang('Manage') }}</a>
                         </div>
                     </div>
                 </div>
@@ -252,7 +216,7 @@
                             <div class="d-flex">
                                 <div class="text-black">
                                     <h3 class="mb-2 number-font">{{lang('Booking accepted')}}</h3>
-                                    <p class="text-black mb-0">{{lang('Average 72% completed')}}</p>
+                                    <p class="text-black mb-0">{{lang('Total :')}} {{$acceptedBookingCount}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-check-o text-primary fa-3x"></i>
@@ -273,7 +237,7 @@
                             <div class="d-flex">
                                 <div class="text-black">
                                     <h3 class="mb-2 number-font">{{lang('Booking cancelled')}}</h3>
-                                    <p class="text-black mb-0">{{lang('Total: 15')}}</p>
+                                    <p class="text-black mb-0">{{lang('Total: ')}}{{$cancelBookings}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
