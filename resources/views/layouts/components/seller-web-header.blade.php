@@ -106,6 +106,9 @@
                                                 <a class="dropdown-item" href="{{ url('/edit-profile') }}">
                                                     <i class="dropdown-icon fe fe-user"></i> {{lang('Manage Account')}}
                                                 </a>
+                                                <a class="dropdown-item" href="{{ url('payments') }}">
+                                                    <i class="dropdown-icon fe fe-user"></i> {{lang('Payment')}}
+                                                </a>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <button class="dropdown-item">
