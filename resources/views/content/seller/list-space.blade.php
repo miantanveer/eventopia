@@ -41,7 +41,7 @@
                                     <li class="list-group-item">
                                         <div class="">
                                             <h5><i class="fa fa-check-square text-primary"></i> &nbsp;
-                                                {{lang('2. Setu')}}p </h5>
+                                                {{lang('2. Setup')}} </h5>
                                             <p class="ms-5">{{lang('Add your space type, parking options, and
                                                 surveillance devices')}}</p>
                                         </div>

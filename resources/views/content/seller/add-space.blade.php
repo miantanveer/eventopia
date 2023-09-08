@@ -452,7 +452,7 @@
     <!-- global-helper -->
     @include('layouts.components.global-helper')
 
-    @include('layouts.components.dark-footer')
+    @include('layouts.components.d  ark-footer')
 
     @include('layouts.components.scripts')
 

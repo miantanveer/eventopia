@@ -3,8 +3,8 @@
     <div class="dropdown btn-group mt-2 mb-2">
         <div class="btn-group mt-2 mb-2">
             <button class="btn btn-pill btn-white border-info text-end dropdown-toggle" type="button"
-                data-bs-toggle="dropdown" id="global-helper-btn">Do
-                {{lang('you need Help?')}}</button>
+                data-bs-toggle="dropdown" id="global-helper-btn">
+                {{lang('Do you need Help?')}}</button>
             <div class="dropdown-menu w-260" style="">
                 <form class="card-body pt-3" id="contactForm">
                     <div class="form-group">

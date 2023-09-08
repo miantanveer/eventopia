@@ -45,7 +45,7 @@
                                         <label for="category">{{lang('Service Category')}}</label>
                                         <select name="category" required data-parsley-reqired-meassage="Please Select a value" class="select2">
                                             @foreach($service_category as $key=>$data)
-                                            <option value="{{$data->name}}" {{@$service->category == $data->name ? 'selected' : ''}}>{{$data->name}}</option>
+                                            <option value="{{$data->name}}" {{@$service->category == $data->name ? 'selected' : ''}}>{{lang($data->name)}}</option>
                                             @endforeach
                                         </select>
                                     </div>

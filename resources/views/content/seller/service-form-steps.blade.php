@@ -72,8 +72,8 @@
                                     <br>
                                     <div class="row">
                                         <div class="col-12">
-                                            <p><i class="fa fa-lock text-gray fs-3 me-3"></i> {{lang('Don't worry, we'll only share
-                                                this with customers after you have accepted their booking.')}}</p>
+                                            <p><i class="fa fa-lock text-gray fs-3 me-3"></i> {{lang("Don't worry, we'll only share
+                                                this with customers after you have accepted their booking.")}}</p>
                                         </div>
                                     </div>
                                     <hr class="border-3 bg-dark">

@@ -69,7 +69,7 @@
                             </li>
                             <li class="list-group-item">
                                 <div class="">
-                                    <h5><i class="fa fa-check-square text-primary"></i> &nbsp; 6. Team</h5>
+                                    <h5><i class="fa fa-check-square text-primary"></i> &nbsp;{{lang(' 6. Team')}}</h5>
                                     <p class="ms-5">{{lang('Pick the team to provide services')}}</p>
                                 </div>
                             </li>

@@ -54,7 +54,7 @@
                                     <div class="form-group mt-3">
                                         <h3 class="fw-bolder">{{lang('Description')}}</h3>
                                         <textarea name="decription" cols="30" rows="5" required data-parsley-required-message="{{lang('Description is required')}}" class="w-100 form-control" placeholder="{{lang('About Team')}}">
-                                            {{@$team->team_description}}
+                                            {{lang(@$team->team_description)}}
                                         </textarea>
                                         <p class="text-end mt-2">{{lang('Minimum 100 characters')}}</p>
                                     </div>

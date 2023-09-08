@@ -105,7 +105,7 @@
                         <div class="col-12">
                             <div class="text-center mb-2 mt-5">
                                 <div class="btn-list">
-                                    <a href="{{URL('/pending-bookings')}}" class="btn btn-primary">Manage</a>
+                                    <a href="{{URL('/pending-bookings')}}" class="btn btn-primary">{{lang('Manage')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -251,7 +251,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="text-black">
-                                    <h3 class="mb-2 number-font">Booking accepted</h3>
+                                    <h3 class="mb-2 number-font">{{lang('Booking accepted')}}</h3>
                                     <p class="text-black mb-0">{{lang('Average 72% completed')}}</p>
                                 </div>
                                 <div class="card-options">

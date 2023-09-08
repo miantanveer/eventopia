@@ -84,7 +84,7 @@
                                             <div class="card-body p-0">
                                                 <div class="row">
                                                     <div class="col-12 col-sm-4 col-lg-6">
-                                                        <h5 class="card-title mt-3">{{ $space_remaining->space_title }}</h5>
+                                                        <h5 class="card-title mt-3">{{ lang($space_remaining->space_title) }}</h5>
                                                     </div>
                                                     <div class="col-12 col-sm-4 col-lg-3">
                                                         <div class="progress progress-md mt-3">
@@ -142,7 +142,7 @@
                                             <div class="col-12 p-2">
                                                 <div class="row">
                                                     <div class="col-12 col-sm-4 col-lg-6 m-auto">
-                                                        <h5 class="card-title mt-3 d-inline">{{ $data->title }}</h5>
+                                                        <h5 class="card-title mt-3 d-inline">{{ lang($data->title) }}</h5>
                                                     </div>
                                                     <div class="col-12 col-sm-4 col-lg-3">
                                                         <div class="progress progress-md mt-3">
@@ -202,7 +202,7 @@
                                             <div class="col-12 p-2">
                                                 <div class="row">
                                                     <div class="col-12 col-sm-4 col-lg-6">
-                                                        <h5 class="card-title mt-3 d-inline">{{ $data->title }}</h5>
+                                                        <h5 class="card-title mt-3 d-inline">{{ lang($data->title) }}</h5>
                                                     </div>
                                                     <div class="col-12 col-sm-4 col-lg-3">
                                                         <div class="progress progress-md mt-3">
@@ -239,12 +239,12 @@
                                             <div class="card-body p-0 p-sm-5">
                                                 <div class="mx-0 row w-100 align-items-center">
                                                     <div class="col-12 pt-4 pb-5 fw-bolder">
-                                                        <h5 class="card-title">{{ @$space->space_title ?? 'No Title' }}
+                                                        <h5 class="card-title">{{ lang(@$space->space_title ?? 'No Title') }}
                                                         </h5>
                                                     </div>
                                                     <div class="col-sm-6 col-12 col-lg-8 pe-0">
                                                         <p class="card-text">
-                                                            {{ @$space->space_description ?? 'No Description' }}</p>
+                                                            {{ lang(@$space->space_description ?? 'No Description') }}</p>
                                                     </div>
                                                     <div class="col-sm-6 col-12 col-lg-4 my-auto ps-0 mt-3 mt-sm-0">
                                                         <div class="text-end">
@@ -407,10 +407,10 @@
                                         <div class="card-body p-0 p-sm-5">
                                             <div class="mx-0 row w-100 align-items-center">
                                                 <div class="col-12 pt-4 pb-5 fw-bolder">
-                                                    <h5 class="card-title">{{ $data->title }}</h5>
+                                                    <h5 class="card-title">{{ lang($data->title) }}</h5>
                                                 </div>
                                                 <div class="col-sm-6 col-12 col-lg-8 pe-0">
-                                                    <p class="card-text">{{ $data->house_rules }}</p>
+                                                    <p class="card-text">{{ lang($data->house_rules) }}</p>
                                                 </div>
                                                 <div class="col-sm-6 col-12 col-lg-4 my-auto ps-0 mt-3 mt-sm-0">
                                                     <div class="text-end">
@@ -474,10 +474,10 @@
                                                         </div>
                                                         <div class="col-12 col-sm-6 col-lg-8 mt-3 mt-sm-0 ps-5 ps-sm-0">
                                                             <h6 class="ps-3 ps-sm-2 ps-lg-0 d-none d-sm-block">
-                                                                {{ $value->title }}</h6>
+                                                                {{ lang($value->title) }}</h6>
                                                             <div class="row ps-0 ps-sm-2 ps-lg-0">
                                                                 <div class="col-12">
-                                                                    <span>{{ $value->description }}</span>
+                                                                    <span>{{ lang($value->description) }}</span>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -64,7 +64,7 @@
                                         aria-hidden="true" data-bs-placeholder="{{lang(" Select Service Title")}}">
                                         @foreach($title as $key => $data)
                                         <option value="{{$data->name}}" {{ @$service->title == $data->name ? 'selected'
-                                            : '' }}>{{$data->name}}</option>
+                                            : '' }}>{{lang($data->name)}}</option>
                                         @endforeach
                                     </select>
                                 </div>

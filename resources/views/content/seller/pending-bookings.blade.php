@@ -64,14 +64,14 @@
                                         @foreach (@$quotes as $quote)
                                                 <tr class="text-center">
                                                     <td class="dtr-control sorting_1" tabindex="0">{{lang('Service')}}</td>
-                                                    <td>{{ Str::limit(@$quote->service->address, 30, '...') }}
+                                                    <td>{{ lang(Str::limit(@$quote->service->address, 30, '...')) }}
                                                     </td>
-                                                    <td>{{ @$quote->user->first_name . ' ' . @$quote->user->last_name }}
+                                                    <td>{{ lang(@$quote->user->first_name . ' ' . @$quote->user->last_name) }}
                                                     </td>
-                                                    <td>{{ @$quote->date }}</td>
-                                                    <td>{{ @$quote->amount ?? 'N/A' }}</td>
-                                                    <td>{{ @$quote->guests }}</td>
-                                                    <td>{{ @$quote->service->category }}</td>
+                                                    <td>{{ lang(@$quote->date) }}</td>
+                                                    <td>{{ lang(@$quote->amount ?? 'N/A') }}</td>
+                                                    <td>{{ lang(@$quote->guests) }}</td>
+                                                    <td>{{ lang(@$quote->service->category) }}</td>
                                                     <td class="text-end">
                                                         @if (@$quote->status == 3)
                                                             <span disabled
@@ -91,15 +91,15 @@
                                         @foreach (@$pendingBookings as $pendingBooking)
                                             <tr class="text-center">
                                                 <td class="dtr-control sorting_1" tabindex="{{ $loop->iteration }}">
-                                                    {{ @$pendingBooking->type }}</td>
-                                                <td>{{ Str::limit(@$pendingBooking->type == 'space' ? @$pendingBooking->space->address : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->address : @$pendingBooking->service->address), 30, $end = '...') }}
+                                                    {{ lang(@$pendingBooking->type) }}</td>
+                                                <td>{{ lang(Str::limit(@$pendingBooking->type == 'space' ? @$pendingBooking->space->address : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->address : @$pendingBooking->service->address), 30, $end = '...')) }}
                                                 </td>
-                                                <td>{{ @$pendingBooking->user->first_name . ' ' . @$pendingBooking->user->last_name }}
+                                                <td>{{ lang(@$pendingBooking->user->first_name . ' ' . @$pendingBooking->user->last_name) }}
                                                 </td>
                                                 <td>{{ @$pendingBooking->date }}</td>
                                                 <td>{{ @$pendingBooking->amount }}</td>
                                                 <td>101 - 150</td>
-                                                <td>{{ @$pendingBooking->type == 'space' ? @$pendingBooking->space->spaceType->type : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->title : @$pendingBooking->service->category) }}
+                                                <td>{{ lang(@$pendingBooking->type == 'space' ? @$pendingBooking->space->spaceType->type : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->title : @$pendingBooking->service->category)) }}
                                                 </td>
                                                 <td class="text-end">
                                                     @if (@$pendingBooking->status == 3)
@@ -112,7 +112,7 @@
                                                         <a href="{{ route('decline-bookings', @$pendingBooking->id) }}"
                                                             class="btn text-danger border-0">{{lang('Decline')}}</a>
                                                         <a href="{{ @$pendingBooking->type == 'space' || @$pendingBooking->type == 'entertainment' || @$pendingBooking->type == 'service' ? route('accept-bookings', @$pendingBooking->id) : URL('/create-quote') }}"
-                                                            class="btn btn-primary ms-3">{{ @$pendingBooking->type == 'space' || @$pendingBooking->type == 'entertainment' || @$pendingBooking->type == 'service' ? 'Accept' : 'Send Quote' }}</a>
+                                                            class="btn btn-primary ms-3">{{ lang(@$pendingBooking->type == 'space' || @$pendingBooking->type == 'entertainment' || @$pendingBooking->type == 'service' ? 'Accept' : 'Send Quote') }}</a>
                                                     @endif
                                                 </td>
                                             </tr>

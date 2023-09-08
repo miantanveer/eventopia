@@ -226,7 +226,7 @@
                                         <textarea name="" id="" cols="30" rows="5" class="w-100 form-control p-5"
                                             placeholder="{{lang('Add description')}}"
                                             required>{{lang("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.")}}</textarea>
-                                        <p class="text-end" {{lang('>Minimum 100 characters')}}</p>
+                                        <p class="text-end"> {{lang('Minimum 100 characters')}}</p>
                                         <p><i class="fa fa-lock"></i>&nbsp; {{lang('Don't worry, we'll only share this
                                             with
                                             guests

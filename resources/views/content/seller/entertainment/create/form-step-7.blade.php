@@ -78,7 +78,7 @@
                                                                     <div class="card-body p-0">
                                                                         <div class="px-5 py-3 m-0 text-center bg-white">
                                                                             <h5 class="text-dark m-0">
-                                                                                {{ $data->title }}</h5>
+                                                                                {{ lang($data->title) }}</h5>
                                                                             <hr class="bg-dark mb-0">
                                                                         </div>
                                                                         <div class="ms-5 my-4">
@@ -226,7 +226,7 @@
                                                                                 <div class="checkbox">
                                                                                     <label><input type="checkbox"
                                                                                             name="activities[{{ $data->id }}][activity_have_amenity][]"
-                                                                                            value="{{ @$activityHavingAmenity->id }}">{{ @$activityHavingAmenity->name }}
+                                                                                            value="{{ @$activityHavingAmenity->id }}">{{ lang(@$activityHavingAmenity->name) }}
                                                                                     </label>
                                                                                 </div>
                                                                             @endforeach
