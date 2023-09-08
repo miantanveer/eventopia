@@ -452,7 +452,7 @@
     <!-- global-helper -->
     @include('layouts.components.global-helper')
 
-    @include('layouts.components.d  ark-footer')
+    @include('layouts.components.dark-footer')
 
     @include('layouts.components.scripts')
 
@@ -507,7 +507,7 @@
         });
     </script>
     <script src="{{ asset('assets/js/email-validate.js') }}"></script>
-    
+
     <!-- Custom JavaScript code -->
     <script>
         $(document).ready(function() {
