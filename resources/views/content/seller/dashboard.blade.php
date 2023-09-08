@@ -70,8 +70,8 @@
                         alt="">
                     <div class="position-absolute text-white">
                         <div class="welcome_card">
-                            <h1 class="headingOne">{{lang('Hello, John Doe')}} </h1>
-                            <h5 class="headingTwo d-block d-sm-none">{{lang('Hello, John Doe')}}</h5>
+                            <h1 class="headingOne">{{lang('Hello, '.user_name())}} </h1>
+                            <h5 class="headingTwo d-block d-sm-none">{{lang('Hello, '.user_name())}}</h5>
                             <p class="fs-sm-5 fs-6">{{lang('Welcome Back!')}}</p>
                         </div>
                     </div>
