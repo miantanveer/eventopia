@@ -23,8 +23,8 @@
                                     <div class="d-flex order-lg-2">
                                         <div class="d-flex seller-btn me-2">
                                             <a href="{{ URL('/dashboard') }}"><button
-                                                    class="btn-pill p-2 text-info bg-white border-info">Become a
-                                                    Customer</button></a>
+                                                    class="btn-pill p-2 text-info bg-white border-info">{{lang('Become a')}}
+                                                    {{lang('Customer')}}</button></a>
                                             {{-- <a class="btn-pill p-2 text-info bg-white border-info" href="{{URL('/customer-dashboard')}}">Become a Customer</a> --}}
                                         </div>
                                         <!-- COUNTRY -->
@@ -50,7 +50,7 @@
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <div class="drop-heading border-bottom">
                                                     <div class="d-flex">
-                                                        <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark">Notifications
+                                                        <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark">{{lang('Notifications')}}
                                                         </h6>
                                                     </div>
                                                 </div>
@@ -89,8 +89,8 @@
                                                 </div>
                                                 <div class="dropdown-divider m-0"></div>
                                                 <a href="{{ route('notifications') }}"
-                                                    class="dropdown-item text-center p-3 text-muted">View all
-                                                    Notification</a>
+                                                    class="dropdown-item text-center p-3 text-muted">{{lang('View all
+                                                    Notification')}}</a>
                                             </div>
                                         </div>
                                         <div class="dropdown d-flex profile-1">
@@ -101,15 +101,15 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <a class="dropdown-item" href="{{ url('/customer-dashboard') }}">
-                                                    <i class="dropdown-icon fe fe-home"></i> Dashboard
+                                                    <i class="dropdown-icon fe fe-home"></i> {{lang('Dashboard')}}
                                                 </a>
                                                 <a class="dropdown-item" href="{{ url('/edit-profile') }}">
-                                                    <i class="dropdown-icon fe fe-user"></i> Manage Account
+                                                    <i class="dropdown-icon fe fe-user"></i> {{lang('Manage Account')}}
                                                 </a>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <button class="dropdown-item">
-                                                        <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
+                                                        <i class="dropdown-icon fe fe-alert-circle"></i> {{lang('Sign out')}}
                                                     </button>
                                                 </form>
                                             </div>

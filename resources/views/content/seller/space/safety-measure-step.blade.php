@@ -84,26 +84,26 @@
                                 <form class="validation" method="POST" action="{{ route('add-safety-measure', $space->id) }}">
                                     @csrf
                                     <div style="text-align:center;">
-                                        <h2>Step 6 of 9</h2>
-                                        <h1><strong>Enhanced Health and Safety Measures</strong></h1>
-                                        <p>Fill out the form to add your cleaning protocol and additional health and safety
-                                            measures to your listing page.</p>
+                                        <h2>{{lang('Step 6 of 9')}}</h2>
+                                        <h1><strong>{{lang('Enhanced Health and Safety Measures')}}</strong></h1>
+                                        <p>{{lang('Fill out the form to add your cleaning protocol and additional health and safety
+                                            measures to your listing page.')}}</p>
                                     </div>
                                     <h4><img src="{{ asset('assets/images/users/spaces/Group 8022.png') }}" alt="img">
-                                        <b>Enhanced Health and Safety Measures</b>
+                                        <b>{{lang('Enhanced Health and Safety Measures')}}</b>
                                     </h4>
-                                    <p>Select at least 1 from each category below to earn the Enhanced Health and Safety
+                                    <p>{{lang('Select at least 1 from each category below to earn the Enhanced Health and Safety
                                         Measures badge. This badge will be displayed
-                                        on your listings.</p>
+                                        on your listings.')}}</p>
                                     <br>
                                     <hr class="style1"><br>
 
-                                    <h3>What additional measures are you taking to keep your space clean?</h3>
-                                    <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                    <h3>{{lang('What additional measures are you taking to keep your space clean?')}}</h3>
+                                    <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
 
                                     @php
                                         $selectedSafetyMeasureIds = []; // Initialize an array to store selected safety measure IDs
-                                        
+
                                         // Assuming $selectedSafetyMeasures contains the list of selected safety measures for the space
                                         foreach ($space->spaceHaveMeasures as $selectedSafetyMeasure) {
                                             $selectedSafetyMeasureIds[] = $selectedSafetyMeasure->safety_measure_id;
@@ -135,35 +135,35 @@
                                         </div>
 
                                         @if ($section == 1)
-                                            <h3 class=" mt-4">What additional protective gear do you provide to your
-                                                guests?
+                                            <h3 class=" mt-4">{{lang('What additional protective gear do you provide to your
+                                                guests?')}}
                                             </h3>
-                                            <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                            <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                                         @elseif ($section == 2)
-                                            <h3 class=" mt-4">What have you done to help guests maintain physical distance
+                                            <h3 class=" mt-4">{{lang('What have you done to help guests maintain physical distance
                                                 in
                                                 your
-                                                space?</h3>
-                                            <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                                space?')}}</h3>
+                                            <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                                         @elseif ($section == 3)
-                                            <h3 class=" mt-4">What signage have you added to keep your guests informed?
+                                            <h3 class=" mt-4">{{lang('What signage have you added to keep your guests informed?')}}
                                             </h3>
-                                            <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                            <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                                         @endif
                                     @endfor
                                     <div id="sf_error"></div>
 
 
-                                    <h4 class="mt-5">Tell your guests more about your cleaning process</h4>
+                                    <h4 class="mt-5">{{lang('Tell your guests more about your cleaning process')}}</h4>
                                     <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                     <textarea style="height:150px;" required data-parsley-minlength="50" name="cleaning_process" class="form-control rounded-0" id="" rows="3">{{ @$space->cleaning_process ?? '' }}</textarea>
-                                    <p class="text-end">Minimum 50 characters</p>
+                                    <p class="text-end">{{lang('Minimum 50 characters')}}</p>
                                     <input type="hidden" name="last_step" value="6">
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
                                         <a class="btn btn-light"
-                                            href="{{ route('operating-hour-step', $space->id) }}">Previous</a>
-                                        <button class="btn btn-primary">Next</button>
+                                            href="{{ route('operating-hour-step', $space->id) }}">{{lang('Previous')}}</a>
+                                        <button class="btn btn-primary">{{lang('Next')}}</button>
                                     </div>
                                 </form>
                             </div>

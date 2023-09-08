@@ -1,4 +1,5 @@
 <?php
+
 use App\Models\Cart;
 use App\Models\Notification;
 use Stichoza\GoogleTranslate\GoogleTranslate;
@@ -32,13 +33,13 @@ if (!function_exists('lang')) {
             $final_data = json_encode($array_data, JSON_UNESCAPED_UNICODE);
 
             file_put_contents(resource_path('lang/' . $code . '.json'), $final_data);
-            
+
             return $tr->translate($string);
         }
     }
 }
 if (!function_exists('notification')) {
-    function notification($name, $description, $user_id,$type = null,$quote_id = null)
+    function notification($name, $description, $user_id, $type = null, $quote_id = null)
     {
         $notification = new Notification();
         $notification->name = $name;
@@ -56,26 +57,13 @@ if (!function_exists('user_id')) {
         return auth()->user()->id;
     }
 }
-// if (!function_exists('local')) {
-//     function local($str)
-//     {
-//         // Check if the language file exists for the given locale
-//         $langPath = resource_path('lang/');
-//         if (!file_exists($langPath) || !file_exists($langPath . '/' . $str . '.json')) {
-//             // Create a new empty code.json file
-//             file_put_contents($langPath . '/' . $str . '.json', '{}');
-//         }
 
-//         // Get the current locale from the session
-//         $currentLocale = Session::get('locale');
-
-//         // Store the selected locale in the session if it's empty or different
-//         if (empty($currentLocale) || $currentLocale !== $str) {
-//             Session::put('locale', $str);
-//         }
-//     }
-// }
-
+if (!function_exists('user_name')) {
+    function user_name()
+    {
+        return auth()->user()->first_name . ' ' . auth()->user()->last_name;
+    }
+}
 
 if (!function_exists('cartStore')) {
     function cartStore($id, $col, $date, $start_time, $end_time)

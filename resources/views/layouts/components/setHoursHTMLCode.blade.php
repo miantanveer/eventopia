@@ -21,8 +21,7 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="monday_radio" value="0"
                                     id="time-radio-1"   {{@$time->monday_radio == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">6:00 AM - 12:00
-                                    AM</span>
+                                <span class="custom-control-label">6:00 AM - 12:00 AM</span>
                             </label>
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="monday_radio" value="1"
@@ -186,8 +185,7 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="wednesday_radio"
                                     value="0" id="time-radio-3" {{@$time->wednesday == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">6:00 AM - 12:00
-                                    AM</span>
+                                <span class="custom-control-label">6:00 AM - 12:00 AM</span>
                             </label>
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="wednesday_radio"
@@ -269,8 +267,7 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="thursday_radio"
                                     value="0" id="time-radio-4"  {{@$time->thursday_radio == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">6:00 AM - 12:00
-                                    AM</span>
+                                <span class="custom-control-label">6:00 AM - 12:00 AM</span>
                             </label>
                             <label class="custom-control custom-radio" id="btn1">
                                 <input type="radio" class="custom-control-input" name="thursday_radio"
@@ -352,8 +349,7 @@
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="friday_radio"
                                     value="0" id="time-radio-5"  {{@$time->friday_radio == 0 ? 'checked' : ''}}>
-                                <span class="custom-control-label">6:00 AM - 12:00
-                                    AM</span>
+                                <span class="custom-control-label">6:00 AM - 12:00 AM</span>
                             </label>
                             <label class="custom-control custom-radio">
                                 <input type="radio" class="custom-control-input" name="friday_radio"

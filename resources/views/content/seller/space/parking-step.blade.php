@@ -84,14 +84,12 @@
                                 <form class="validation" action="{{ route('add-parking', $space->id) }}" method="POST">
                                     @csrf
                                     <div style="text-align:center;">
-                                        <h2>Step 2 of 9</h2>
-                                        <h1><strong>What type of space are you listing?</strong></h1>
-                                        <p><b>Enter the type of space that most closely represents the physical space being
-                                                listed.
-                                                Learn more</b></p>
+                                        <h2>{{lang("Step 2 of 9")}}</h2>
+                                        <h1><strong>{{lang("What type of space are you listing?")}}</strong></h1>
+                                        <p><b>{{lang("Enter the type of space that most closely represents the physical space being listed. Learn more")}}</b></p>
                                     </div>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
-                                            alt="img"><b>Examples: 'Apartment' 'Photo Studio' 'Restaurant'</b></p>
+                                            alt="img"><b>{{lang("Examples: 'Apartment' 'Photo Studio' 'Restaurant'")}}</b></p>
                                     <select name="space_type_id" required class="form-control text-white form-select select2"
                                         id="space_types">
                                         @foreach ($space_types as $space_type)
@@ -103,16 +101,16 @@
                                     <br>
                                     <hr class="style1"><br>
                                     <div class="inner-steps2 mt-2 mb-3">
-                                        <h1><strong>Describe the parking options</strong></h1>
+                                        <h1><strong>{{lang("Describe the parking options")}}</strong></h1>
                                         <div class="form-check form-switch">
-                                            <p><b>Are there parking options at or near your space?</b>
+                                            <p><b>{{lang("Are there parking options at or near your space?")}}</b>
                                                 <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                                 <input style="margin-left:32rem;" required  class="form-check-input" type="checkbox"
                                                     role="switch" id="flexSwitchCheckChecked3" checked
                                                     onchange="toggleOptions()">
                                             </p>
                                         </div>
-                                        <h1><strong>Select all</strong></h1>
+                                        <h1><strong>{{lang("Select all")}}</strong></h1>
                                     </div>
                                     <div id="options">
                                         <div class="row">
@@ -123,31 +121,31 @@
                                                             type="checkbox" value="{{ $parking_option->id }}"
                                                             @if ($space->spaceHaveParkingOptions->contains('id', $parking_option->id)) checked @endif>
                                                         <span
-                                                            style="color:#434343"><b>{{ $parking_option->option }}</b></span>
+                                                            style="color:#434343"><b>{{ lang($parking_option->option) }}</b></span>
                                                     </label>
                                                 </div>
                                             @endforeach
                                         </div>
                                     </div>
 
-                                    <h1 class="mt-4"><strong>Write a description of the parking options</strong></h1>
-                                    <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}" alt="img">Don’t
-                                        include private information. This will be shown publicly.</p>
+                                    <h1 class="mt-4"><strong>{{lang("Write a description of the parking options")}}</strong></h1>
+                                    <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}" alt="img">{{lang("Don’t
+                                        include private information. This will be shown publicly.")}}</p>
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1"></label>
                                         <textarea style="height:150px;" required data-parsley-minlength="35" class="form-control rounded-0" name="parking_description"
                                             id="exampleFormControlTextarea1" rows="2">{{ @$space->parking_description ?? '' }}</textarea>
-                                        <p class="text-end">Minimum 35 characters</p>
+                                        <p class="text-end">{{lang("Minimum 35 characters")}}</p>
                                         <br>
                                         <hr class="style1"><br>
 
                                         <div class="form-check form-switch">
 
                                             <div class="mt-6">
-                                                <h3 class="mb-2 mt-md-7"><b>Security cameras and recording devices</b></h3>
+                                                <h3 class="mb-2 mt-md-7"><b>{{lang("Security cameras and recording devices")}}</b></h3>
                                                 <div class="w-50 float-start">
-                                                    <p class="mb-3">Does the event have security cameras or recording
-                                                        devices?</p>
+                                                    <p class="mb-3">{{lang("Does the event have security cameras or recording
+                                                        devices?")}}</p>
                                                 </div>
                                                 <div class="w-50 float-end">
                                                     <div class="form-check form-switch float-end">
@@ -158,15 +156,15 @@
                                                 </div><br>
 
                                                 <div id="textAreaDiv" class="mt-5">
-                                                    <p class="mb-1">Describe any device that records video, audio, or
+                                                    <p class="mb-1">{{lang("Describe any device that records video, audio, or
                                                         still
                                                         images.
                                                         Specify where each device is in your event and if they’ll be on or
-                                                        off.
+                                                        off.")}}
                                                     </p>
                                                     <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5"
-                                                        class="form-control w-100 p-5" placeholder="Add description">{{ @$space->security_devices_description ?? '' }}</textarea>
-                                                    <p class="text-end">Minimum 50 characters</p>
+                                                        class="form-control w-100 p-5" placeholder="{{lang('Add description')}}">{{ @$space->security_devices_description ?? '' }}</textarea>
+                                                    <p class="text-end">{{lang("Minimum 50 characters")}}</p>
                                                 </div>
                                             </div>
                                             </p>
@@ -178,8 +176,8 @@
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
                                         <a class="btn btn-light"
-                                            href="{{ route('edit-space-address', $space->id) }}">Previous</a>
-                                        <button class="btn btn-primary">Next</button>
+                                            href="{{ route('edit-space-address', $space->id) }}">{{lang("Previous")}}</a>
+                                        <button class="btn btn-primary">{{lang("Next")}}</button>
                                     </div>
                                 </form>
                             </div>

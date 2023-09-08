@@ -70,8 +70,8 @@
                         alt="">
                     <div class="position-absolute text-white">
                         <div class="welcome_card">
-                            <h1 class="headingOne">{{lang('Hello, John Doe')}} </h1>
-                            <h5 class="headingTwo d-block d-sm-none">{{lang('Hello, John Doe')}}</h5>
+                            <h1 class="headingOne">{{lang('Hello, '.user_name())}} </h1>
+                            <h5 class="headingTwo d-block d-sm-none">{{lang('Hello, '.user_name())}}</h5>
                             <p class="fs-sm-5 fs-6">{{lang('Welcome Back!')}}</p>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                         <div class="col-12">
                             <div class="text-center mb-2 mt-5">
                                 <div class="btn-list">
-                                    <a href="{{route('pending-bookings')}}" class="btn btn-primary">Manage</a>
+                                    <a href="{{route('pending-bookings')}}" class="btn btn-primary">{{lang('Manage')}}</a>
                                 </div>
                             </div>
                         </div>
@@ -126,48 +126,34 @@
         <div class="col-xl-4 col-md-12">
             <div class="card">
                 <div class="card-header pb-0 border-bottom-0">
-                    <h3 class="number-font">Bookings</h3>
-                    {{-- <div class="card-options">
-                        <div class="btn-group mt-2 mb-2">
-                            <button type="button" class="btn btn-outline-primary btn-pill dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false" fdprocessedid="vh7rp"> Select <span
-                                    class="fa fa-angle-down"></span> </button>
-                            <ul class="dropdown-menu" role="menu" style="">
-                                <li><a href="javascript:void(0)">Spaces</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:void(0)">Entertainment & Talent</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:void(0)">Services</a></li>
-                            </ul>
-                        </div>
-                    </div> --}}
+                    <h3 class="number-font">{{lang('Bookings')}}</h3>
                 </div>
                 <div class="card-body pt-0">
                     <div class="mt-2 row">
                         <div class="col-10 mt-4">
                             <h3 class="d-inline-block mb-2">{{$upComingBookings}}</h3>
-                            <p>Upcoming Bookings</p>
+                            <p>{{lang('Upcoming Bookings')}}</p>
                             <div class="progress h-2 mt-2">
                                 <div class="progress-bar bg-primary" style="width: {{$UpcomingProgress}}%;" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-10 mt-4">
                             <h3 class="d-inline-block mb-2">{{$cancelBookings}}</h3>
-                            <p>Cancelled Booking</p>
+                            <p>{{lang('Cancelled Booking')}}</p>
                             <div class="progress h-2 mt-2">
                                 <div class="progress-bar bg-danger" style="width: {{$CancelProgress}}%;" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-10 mt-4">
                             <h3 class="d-inline-block mb-2">{{$previousBookings}}</h3>
-                            <p>Previous Booking</p>
+                            <p>{{lang('Previous Booking')}}</p>
                             <div class="progress h-2 mt-2">
                                 <div class="progress-bar bg-primary" style="width: {{$PreviousProgress}}%;" role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-12 text-end">
                             <div style="margin-top: 40px;">
-                                <a href="{{route('bookings')}}" class="btn btn-primary text-white">Manage</a>
+                                <a href="{{route('bookings')}}" class="btn btn-primary text-white">{{lang('Manage')}}</a>
                             </div>
                         </div>
                     </div>
@@ -177,21 +163,9 @@
         <div class="col-xl-4 col-lg-6 col-md-12">
             <div class="card overflow-hidden">
                 <div class="card-header pb-0 border-bottom-0">
-                    <h3 class="number-font">{{ lang('Total Bookings') }}</h3>
+                    <h3 class="number-font">{{lang('Total Bookings')}}</h3>
                     <div class="card-options">
                         <h6>{{ lang('Total: ') . $totalBookingsCount }}</h6>
-                        {{-- <div class="btn-group mt-2 mb-2">
-                            <button type="button" class="btn btn-outline-primary btn-pill dropdown-toggle"
-                                data-bs-toggle="dropdown" aria-expanded="false"> {{lang('Select')}} <span
-                                    class="fa fa-angle-down"></span> </button>
-                            <ul class="dropdown-menu" role="menu" style="">
-                                <li><a href="javascript:void(0)">{{lang('Upcoming Booking')}}</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:void(0)">{{lang('Previous Booking')}}</a></li>
-                                <li class="divider"></li>
-                                <li><a href="javascript:void(0)">{{lang('Cancelled Booking')}}</a></li>
-                            </ul>
-                        </div> --}}
                     </div>
                 </div>
                 <div class="card-body p-0 mt-5">
@@ -241,8 +215,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="text-black">
-                                    <h3 class="mb-2 number-font">Booking accepted</h3>
-                                    <p class="text-black mb-0">Total : {{$acceptedBookingCount}}</p>
+                                    <h3 class="mb-2 number-font">{{lang('Booking accepted')}}</h3>
+                                    <p class="text-black mb-0">{{lang('Total :')}} {{$acceptedBookingCount}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-check-o text-primary fa-3x"></i>
@@ -251,7 +225,7 @@
                         </div>
                         <div class="col-12 mt-5 text-center">
                             <div class="mb-3">
-                                <a href="#" class="btn btn-primary text-white">View Details</a>
+                                <a href="#" class="btn btn-primary text-white">{{lang('View Details')}}</a>
                             </div>
                         </div>
                     </div>
@@ -262,8 +236,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="text-black">
-                                    <h3 class="mb-2 number-font">Booking cancelled</h3>
-                                    <p class="text-black mb-0">Total: {{$cancelBookings}}</p>
+                                    <h3 class="mb-2 number-font">{{lang('Booking cancelled')}}</h3>
+                                    <p class="text-black mb-0">{{lang('Total: ')}}{{$cancelBookings}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
@@ -272,7 +246,7 @@
                         </div>
                         <div class="col-12 mt-5 text-center">
                             <div class="mb-3">
-                                <a href="#" class="btn btn-primary text-white">View Details</a>
+                                <a href="#" class="btn btn-primary text-white">{{lang('View Details')}}</a>
                             </div>
                         </div>
                     </div>

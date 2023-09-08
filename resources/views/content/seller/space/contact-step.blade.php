@@ -76,30 +76,30 @@
                                 </div>
                             @endif
                             <div id="step-9" class="mb-5">
-                                <h1 style="text-align:center;">Step 9 of 9</h1>
+                                <h1 style="text-align:center;">{{lang('Step 9 of 9')}}</h1>
                                 <form class="validation" method="POST" action="{{ route('add-contact-info', $space->id) }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-8">
                                             <div class="mb-lg-5 mb-3">
-                                                <h2 class="mb-1"><b class="h-3">Who will guests be contacting?</b>
+                                                <h2 class="mb-1"><b class="h-3">{{lang('Who will guests be contacting?')}}</b>
                                                 </h2>
-                                                <b>Please do not use a business name, so it’s more personal for your
-                                                    guests.</b>
+                                                <b>{{lang('Please do not use a business name, so it’s more personal for your
+                                                    guests.')}}</b>
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-12">
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" name="c_u_fname"
-                                                            placeholder="john" required
+                                                            placeholder="{{lang('john')}}" required
                                                             value="{{ @$space->c_u_fname ?? '' }}">
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-12">
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" name="c_u_lname"
-                                                            placeholder="Smith" required
+                                                            placeholder="{{lang('Smith')}}" required
                                                             value="{{ @$space->c_u_lname ?? '' }}">
                                                     </div>
                                                 </div>
@@ -110,12 +110,12 @@
                                                     value="{{ @$space->c_u_phone ?? '' }}">
                                             </div>
                                             <div class="bg-light-gray p-3 mb-3">
-                                                <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>Your number
+                                                <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>{{lang('Your number
                                                     needs
-                                                    to be verified</p>
+                                                    to be verified')}}</p>
                                             </div>
-                                            <p class="mb-5">We won’t share your number publicly. Guests will only see it
-                                                after they book to coordinate with you.</p>
+                                            <p class="mb-5">{{lang('We won’t share your number publicly. Guests will only see it
+                                                after they book to coordinate with you.')}}</p>
                                             <hr class="bg-dark my-6">
                                         </div>
                                         <div class="col-4">
@@ -132,30 +132,30 @@
                                                 <div class="text-center">
                                                     <button type="button"
                                                         class="bg-primary text-white p-3 border-0 text-center"
-                                                        id="uploadBtn">Upload
-                                                        photo</button>
+                                                        id="uploadBtn">{{lang('Upload
+                                                        photo')}}</button>
                                                 </div>
                                                 <!-- Hidden input for image upload -->
                                                 <input type="file" id="imageUploadInput" name="c_u_img"
                                                     style="display: none">
                                             </div>
                                             <div class="text-center px-8">
-                                                <p class="text-muted">Choose a friendly, accurate photo to help instill a
-                                                    sense of trust and verification in your listing</p>
+                                                <p class="text-muted">{{lang('Choose a friendly, accurate photo to help instill a
+                                                    sense of trust and verification in your listing')}}</p>
                                             </div>
                                             <div class="px-8">
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <ul>
                                                             <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                                    class="w-4" alt=""> No photos of the
-                                                                space
+                                                                    class="w-4" alt=""> {{lang('No photos of the
+                                                                space')}}
                                                             </li>
                                                             <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                                    class="w-4" alt=""> No business logos
+                                                                    class="w-4" alt=""> {{lang('No business logos')}}
                                                             </li>
                                                             <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                                    class="w-4" alt=""> No group photos</li>
+                                                                    class="w-4" alt="">{{lang(' No group photos')}}</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -164,88 +164,88 @@
                                         <input type="hidden" name="last_step" value="9">
                                         <div class="row">
                                             <div class="col-9">
-                                                <h3><b class="h-3">How did you hear about entertainment / talent with
-                                                        Eventopia?</b></h3>
-                                                <p>Select all that apply to help us find more hosts like you.</p>
+                                                <h3><b class="h-3">{{lang('How did you hear about entertainment / talent with
+                                                        Eventopia?')}}</b></h3>
+                                                <p>{{lang('Select all that apply to help us find more hosts like you.')}}</p>
                                                 <div class="row">
                                                     <div class="col-4">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value=""
                                                                 id="invalidCheck-1">
-                                                            <label class="form-check-label" for="invalidCheck-1">Friend,
-                                                                family, or colleague</label>
+                                                            <label class="form-check-label" for="invalidCheck-1">{{lang('Friend,
+                                                                family, or colleague')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value=""
                                                                 id="invalidCheck-2">
-                                                            <label class="form-check-label" for="invalidCheck-2">News or
+                                                            <label class="form-check-label" for="invalidCheck-2">{{lang('News or
                                                                 blog
-                                                                article</label>
+                                                                article')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-3">
-                                                            <label class="form-check-label" for="invalidCheck-3">Contacted
+                                                            <label class="form-check-label" for="invalidCheck-3">{{lang('Contacted
                                                                 by
-                                                                Peerspace</label>
+                                                                Peerspace')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-4">
                                                             <label class="form-check-label"
-                                                                for="invalidCheck-4">TV</label>
+                                                                for="invalidCheck-4">{{lang('TV')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-5">
                                                             <label class="form-check-label"
-                                                                for="invalidCheck-5">Billboard</label>
+                                                                for="invalidCheck-5">{{lang('Billboard')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-6">
                                                             <label class="form-check-label"
-                                                                for="invalidCheck-6">Billboard</label>
+                                                                for="invalidCheck-6">{{lang('Billboard')}}</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-5">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-7">
-                                                            <label class="form-check-label" for="invalidCheck-7">Online
-                                                                ad</label>
+                                                            <label class="form-check-label" for="invalidCheck-7">{{lang('Online
+                                                                ad')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-8">
-                                                            <label class="form-check-label" for="invalidCheck-8">Social
-                                                                media</label>
+                                                            <label class="form-check-label" for="invalidCheck-8">{{lang('Social
+                                                                media')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-9">
-                                                            <label class="form-check-label" for="invalidCheck-9">Referral
+                                                            <label class="form-check-label" for="invalidCheck-9">{{lang('Referral
                                                                 from
-                                                                a Eventopia host</label>
+                                                                a Eventopia host')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-10">
-                                                            <label class="form-check-label" for="invalidCheck-10">Online
-                                                                search</label>
+                                                            <label class="form-check-label" for="invalidCheck-10">{{lang('Online
+                                                                search')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-11">
-                                                            <label class="form-check-label" for="invalidCheck-11">Attended
+                                                            <label class="form-check-label" for="invalidCheck-11">{{lang('Attended
                                                                 an
-                                                                event in a Peerspace</label>
+                                                                event in a Peerspace')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-12">
                                                             <label class="form-check-label"
-                                                                for="invalidCheck-12">Other</label>
+                                                                for="invalidCheck-12">{{lang('Other')}}</label>
                                                         </div>
                                                     </div>
                                                     <hr class="bg-dark my-6">
@@ -256,8 +256,8 @@
                                     <hr class="border-3 bg-dark">
                                     <div class="float-end">
                                         <a class="btn btn-light"
-                                            href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 0]) }}">Previous</a>
-                                        <button class="btn btn-primary">Next</button>
+                                            href="{{ route('activities-step', ['space_id' => $space->id, 'key' => 0]) }}">{{lang('Previous')}}</a>
+                                        <button class="btn btn-primary">{{lang('Next')}}</button>
                                     </div>
                                 </form>
                             </div>

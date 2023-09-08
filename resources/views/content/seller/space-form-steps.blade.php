@@ -53,16 +53,16 @@
                 <div class="card-body">
                     <div id="smartwizard-3">
                         <ul>
-                            <li><a href="#step-1">Space Address</a></li>
-                            <li><a href="#step-2">Setup</a></li>
-                            <li><a href="#step-3">About your space</a></li>
-                            <li><a href="#step-4">Photos</a></li>
-                            <li><a href="#step-5">Hours</a></li>
-                            <li><a href="#step-6">Cleaning Policy</a></li>
-                            <li><a href="#step-7">Cancellation</a></li>
-                            <li><a href="#step-8">Listing</a></li>
-                            <li><a href="#step-9">Profile</a></li>
-                            <li><a href="#step-10">Review Policies</a></li>
+                            <li><a href="#step-1">{{lang('Space Address')}}</a></li>
+                            <li><a href="#step-2">{{lang('Setup')}}</a></li>
+                            <li><a href="#step-3">{{lang('About your space')}}</a></li>
+                            <li><a href="#step-4">{{lang('Photos')}}</a></li>
+                            <li><a href="#step-5">{{lang('Hours')}}</a></li>
+                            <li><a href="#step-6">{{lang('Cleaning Policy')}}</a></li>
+                            <li><a href="#step-7">{{lang('Cancellation')}}</a></li>
+                            <li><a href="#step-8">{{lang('Listing')}}</a></li>
+                            <li><a href="#step-9">{{lang('Profile')}}</a></li>
+                            <li><a href="#step-10">{{lang('Review Policies')}}</a></li>
 
                         </ul>
                         <div>
@@ -70,34 +70,34 @@
                                 <form style="height:450px;width:1350px;margin-left:90px;" id="form-step-1"
                                     action="{{ route('add-address') }}" method="POST" class="border mt-5">
                                     @csrf
-                                    <h2 style="text-align:center;">Step 1 of 9</h2>
+                                    <h2 style="text-align:center;">{{lang('Step 1 of 9')}}</h2>
                                     <div class="row">
                                         <div class="card-header  mb-3">
-                                            <h1 style="text-align:center;" class="card-title">Space Address</h1>
+                                            <h1 style="text-align:center;" class="card-title">{{lang('Space Address')}}</h1>
                                         </div>
                                         <div class="col-md-5 col-lg-12">
-                                            <label class="form-control-label">Street Address</label> <span
+                                            <label class="form-control-label">{{lang('Street Address')}}</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
                                                 id="address" name="address" placeholder="Add Address" required=""
                                                 type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
-                                            <label class="form-control-label">Country</label> <span
+                                            <label class="form-control-label">{{lang('Country')}}</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
                                                 id="country" name="country" placeholder="" required="" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
-                                            <label class="form-control-label">State<span class="tx-danger">*</span></label>
+                                            <label class="form-control-label">{{lang('State')}}<span class="tx-danger">*</span></label>
                                             <input class="form-control rounded-0" id="state" name="state"
                                                 placeholder="" required="" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
-                                            <label class="form-control-label">City</label> <span
+                                            <label class="form-control-label">{{lang('City')}}</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
                                                 id="city" name="city" placeholder="" required="" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
-                                            <label class="form-control-label">Postal Code<span
+                                            <label class="form-control-label">{{lang('Postal Code')}}<span
                                                     class="tx-danger">*</span></label> <input class="form-control rounded-0"
                                                 id="postal_code" name="postal_code" placeholder="" required=""
                                                 type="text">
@@ -108,8 +108,8 @@
                                 </form>
                                 <div class="card custom-card">
                                     <div class="card-body map_height overflow-auto" id="mapContainer">
-                                        <h4 style="margin-left:70px;" class="fw-bolder">Use the map pin position to add an
-                                            address.</h4>
+                                        <h4 style="margin-left:70px;" class="fw-bolder">{{lang('Use the map pin position to add an
+                                            address.')}}</h4>
                                         <iframe style="height:380px;width:475px;margin-left:70px;" class="gmap_iframe"
                                             frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0" marginwidth="0"
                                             src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
@@ -121,29 +121,29 @@
                                 <form action="{{ route('add-parking') }}">
                                     @csrf
                                     <div style="text-align:center;">
-                                        <h2>Step 2 of 9</h2>
-                                        <h1><strong>What type of space are you listing?</strong></h1>
-                                        <p><b>Enter the type of space that most closely represents the physical space being
+                                        <h2>{{lang('Step 2 of 9')}}</h2>
+                                        <h1><strong>{{lang('What type of space are you listing?')}}</strong></h1>
+                                        <p><b>{{lang('Enter the type of space that most closely represents the physical space being
                                                 listed.
-                                                Learn more</b></p>
+                                                Learn more')}}</b></p>
                                     </div>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
-                                            alt="img"><b>Examples: 'Apartment' 'Photo Studio' 'Restaurant'</b></p>
+                                            alt="img"><b>{{lang('Examples: 'Apartment' 'Photo Studio' 'Restaurant'')}}</b></p>
                                     <input type="text" class="form-control rounded-0" readonly name="space_type"
                                         placeholder="Gallery for art">{{session('space').@$space->spaceType->type}}
                                     <br>
                                     <hr class="style1"><br>
                                     <div class="inner-steps2 mt-2 mb-3">
-                                        <h1><strong>Describe the parking options</strong></h1>
+                                        <h1><strong>{{lang('Describe the parking options')}}</strong></h1>
                                         <div class="form-check form-switch">
-                                            <p><b>Are there parking options at or near your space?</b>
+                                            <p><b>{{lang('Are there parking options at or near your space?')}}</b>
                                                 <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                                 <input style="margin-left:32rem;" class="form-check-input"
                                                     type="checkbox" role="switch" id="flexSwitchCheckChecked3" checked
                                                     onchange="toggleOptions()">
                                             </p>
                                         </div>
-                                        <h1><strong>Select all</strong></h1>
+                                        <h1><strong>{{lang('Select all')}}</strong></h1>
                                     </div>
 
                                     <div id="options">
@@ -159,23 +159,23 @@
                                         </div>
                                     </div>
 
-                                    <h1 class="mt-4"><strong>Write a description of the parking options</strong></h1>
-                                    <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}" alt="img">Don’t
-                                        include private information. This will be shown publicly.</p>
+                                    <h1 class="mt-4"><strong>{{lang('Write a description of the parking options')}}</strong></h1>
+                                    <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}" alt="img">{{lang('Don’t
+                                        include private information. This will be shown publicly.')}}</p>
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1"></label>
                                         <textarea style="height:150px;" class="form-control rounded-0" name="parking_description" id="exampleFormControlTextarea1" rows="2"></textarea>
-                                        <p class="text-end">Minimum 35 characters</p>
+                                        <p class="text-end">{{lang('Minimum 35 characters')}}</p>
                                         <br>
                                         <hr class="style1"><br>
 
                                         <div class="form-check form-switch">
 
                                             <div class="mt-6">
-                                                <h3 class="mb-2 mt-md-7"><b>Security cameras and recording devices</b></h3>
+                                                <h3 class="mb-2 mt-md-7"><b>{{lang('Security cameras and recording devices')}}</b></h3>
                                                 <div class="w-50 float-start">
-                                                    <p class="mb-3">Does the event have security cameras or recording
-                                                        devices?</p>
+                                                    <p class="mb-3">{{lang('Does the event have security cameras or recording
+                                                        devices?')}}</p>
                                                 </div>
                                                 <div class="w-50 float-end">
                                                     <div class="form-check form-switch float-end">
@@ -186,15 +186,15 @@
                                                 </div><br>
 
                                                 <div id="textAreaDiv" class="mt-5">
-                                                    <p class="mb-1">Describe any device that records video, audio, or
+                                                    <p class="mb-1">{{lang('Describe any device that records video, audio, or
                                                         still
                                                         images.
                                                         Specify where each device is in your event and if they’ll be on or
-                                                        off.
+                                                        off.')}}
                                                     </p>
                                                     <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5" class="form-control w-100 p-5"
                                                         placeholder="Add description"></textarea>
-                                                    <p class="text-end">Minimum 50 characters</p>
+                                                    <p class="text-end">{{lang('Minimum 50 characters')}}</p>
                                                 </div>
                                             </div>
                                             </p>
@@ -207,150 +207,150 @@
 
                             <div id="step-3" class="">
                                 <div style="text-align:center;" class="">
-                                    <h2>Step 3 of 9</h2>
-                                    <h1><strong>Give your space a title</strong></h1>
-                                    <p>Create a title that will grab a guest’s interest and describes your space. Do not
-                                        include your business’s name.</p>
+                                    <h2>{{lang('Step 3 of 9')}}</h2>
+                                    <h1><strong>{{lang('Give your space a title')}}</strong></h1>
+                                    <p>{{lang('Create a title that will grab a guest’s interest and describes your space. Do not
+                                        include your business’s name.')}}</p>
                                 </div>
                                 <div class="innersteps 3 mt-3 mb-3">
-                                    <h4>Try to include the following:</h4>
+                                    <h4>{{lang('Try to include the following:')}}</h4>
                                     <ul style="list-style-type:disc;color:#434343">
-                                        <li><b><span style="color:black;">Location</span></b> - urban, downtown, marina
+                                        <li><b><span style="color:black;">{{lang('Location')}}</span></b> {{lang('- urban, downtown, marina')}}
                                         </li>
-                                        <li><b><span style="color:black;">The type of space</span></b> - loft, studio,
-                                            dance hall, penthouse</li>
-                                        <li><b><span style="color:black;">Unique adjective</span></b> - industrial, rustic,
-                                            roomy</li>
+                                        <li><b><span style="color:black;">{{lang('The type of space')}}</span></b> {{lang('- loft, studio,')}}
+                                            {{lang('dance hall, penthouse')}}</li>
+                                        <li><b><span style="color:black;">{{lang('Unique adjective')}}</span></b> {{lang('- industrial, rustic,
+                                            roomy')}}</li>
                                     </ul>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
-                                            alt="img"><b>Example: “Downtown Loft with Skyline View”</b></p>
+                                            alt="img"><b>{{lang('Example: “Downtown Loft with Skyline View”')}}</b></p>
                                     <input type="text" class="form-control rounded-0" id="inputtext"
                                         placeholder="Enter your space title">
                                     <br>
                                     <hr class="style1"><br>
-                                    <h1><strong>Describe the parking options</strong></h1>
-                                    <p style="color:black;"><b>Include details about your space so that guests will know
-                                            everything it offers.</b></p>
-                                    <h1 style="font-size:20px;color:black;" class="mt-3">Try to answer questions like:
+                                    <h1><strong>{{lang('Describe the parking options')}}</strong></h1>
+                                    <p style="color:black;"><b>{{lang('Include details about your space so that guests will know
+                                            everything it offers.')}}</b></p>
+                                    <h1 style="font-size:20px;color:black;" class="mt-3">{{lang('Try to answer questions like:')}}
                                     </h1>
                                     <ul style="list-style-type:disc;color:#434343">
-                                        <li>What activities work well in your space?</li>
-                                        <li>What is the layout of the space and how can different areas be used?</li>
-                                        <li>What unique features or amenities does your space have?</li>
+                                        <li>{{lang('What activities work well in your space?')}}</li>
+                                        <li>{{lang('What is the layout of the space and how can different areas be used?')}}</li>
+                                        <li>{{lang('What unique features or amenities does your space have?')}}</li>
                                     </ul><br>
-                                    <h3>Do not include:</h3>
-                                    <p><b>Contact information</b> - Do not include your phone number, venue name, address,
-                                        email, or links to your website.</p>
+                                    <h3>{{lang('Do not include:')}}</h3>
+                                    <p><b>{{lang('Contact information')}}</b> {{lang('- Do not include your phone number, venue name, address,
+                                        email, or links to your website.')}}</p>
                                     <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                    <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3">Add description</textarea>
-                                    <p class="text-end">Minimum 280 characters</p>
+                                    <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3">{{lang('Add description')}}</textarea>
+                                    <p class="text-end">{{lang('Minimum 280 characters')}}</p>
                                     <br>
                                     <hr class="style1"><br>
-                                    <h1>How big is the space guests can book?</h1>
-                                    <p>Please only include the size of the space that guests can use during their booking.
+                                    <h1>{{lang('How big is the space guests can book?')}}</h1>
+                                    <p>{{lang('Please only include the size of the space that guests can use during their booking.')}}
                                     </p>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
-                                            alt="img"><b>Example: If your space is 2,000 m ft, but guests are booking
-                                            a 500 m ft conference room, you would enter “500”.</b></p>
+                                            alt="img"><b>{{lang('Example: If your space is 2,000 m ft, but guests are booking
+                                            a 500 m ft conference room, you would enter “500”.')}}</b></p>
 
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <input type="number" class="btn btn-outline-default rounded-0" value="500">
-                                        <button type="button" class="btn btn-outline-default rounded-0">sq m</button>
+                                        <button type="button" class="btn btn-outline-default rounded-0">{{lang('sq m')}}</button>
 
                                     </div>
 
                                     <br>
                                     <hr class="style1"><br>
-                                    <h1>What are your house rules?</h1>
-                                    <p>Include any rules about what your guests can and cannot do in the space.</p>
-                                    <h3>Example rules:</h3>
+                                    <h1>{{lang("What are your house rules?")}}</h1>
+                                    <p>{{lang("Include any rules about what your guests can and cannot do in the space.")}}</p>
+                                    <h3>{{lang("Example rules:")}}</h3>
                                     <ul style="list-style-type:disc">
-                                        <li>No smoking in the building</li>
-                                        <li>Outside catering is allowed</li>
-                                        <li>No alcohol allowed</li>
+                                        <li>{{lang("No smoking in the building")}}</li>
+                                        <li>{{lang("Outside catering is allowed")}}</li>
+                                        <li>{{lang("No alcohol allowed")}}</li>
                                     </ul><br>
-                                    <h2>Do not include:</h2>
+                                    <h2>{{lang("Do not include:")}}</h2>
                                     <ul style="list-style-type:disc">
-                                        <li><b><span style="color:black;">Cleaning Fee</span></b> - Basic cleaning is the
+                                        <li><b><span style="color:black;">{{lang("Cleaning Fee")}}</span></b> {{lang("- Basic cleaning is the
                                             responsibility of the host. If you charge a cleaning fee, you can add it in a
-                                            later section.</li>
-                                        <li><b><span style="color:black;">Contracts </span></b> - Peerspace bookings are
+                                            later section.")}}</li>
+                                        <li><b><span style="color:black;">{{lang("Contracts ")}}</span></b>{{lang(" - Peerspace bookings are
                                             covered by our Service Agreement. Do not paste your contract, cancellation
                                             policy, or
-                                            liability policy.</li>
+                                            liability policy.")}}</li>
                                     </ul>
                                     <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                    <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3">Enter your house rules</textarea>
-                                    <p class="text-end">Minimum 100 characters</h4>
+                                    <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3">{{lang("Enter your house rules")}}</textarea>
+                                    <p class="text-end">{{lang("Minimum 100 characters")}}</h4>
                                         <br>
                                         <hr class="style1"><br>
-                                    <h1>Who's allowed in your space?</h1>
+                                    <h1>{{lang("Who's allowed in your space?")}}</h1>
                                     <form>
                                         <div class="form-group">
                                             <label for="sel1"></label>
                                             <select class="form-control" id="sel1">
-                                                <option>All ages</option>
-                                                <option>Age 20+</option>
-                                                <option>Age 50+</option>
+                                                <option>{{lang("All ages")}}</option>
+                                                <option>{{lang("Age 20+")}}</option>
+                                                <option>{{lang("Age 50+")}}</option>
 
                                             </select>
                                         </div>
                                     </form>
                                     <br>
                                     <hr class="style1">
-                                    <h1>What’s your wifi name and password?</h1>
-                                    <p>Make it easy for your guests to get online by sharing your Wi-Fi information.</p>
+                                    <h1>{{lang("What’s your wifi name and password?")}}</h1>
+                                    <p>{{lang("Make it easy for your guests to get online by sharing your Wi-Fi information.")}}</p>
                                     <input type="text" class="form-control rounded-0" id="inputtext"
                                         placeholder="Optional - example: Name  Eventopia Password: 12345678"><br>
                                     <p> <img src="{{ asset('assets/images/users/spaces/lock.png') }}" alt="img"><b>
-                                            Don't worry, we'll only share this with guests after you have accepted their
-                                            booking.</b></p>
+                                            {{lang("Don't worry, we'll only share this with guests after you have accepted their
+                                            booking.")}}</b></p>
                                     <br>
                                     <hr class="style1"><br>
-                                    <h1>Provide arrival instructions</h1>
-                                    <p>Help your guests and their attendees find and enter your space.</p><br>
-                                    <h1>Try to include:</h1>
-                                    <p>Directions to your space, building access, door buzzers, floors, stairs/elevator
-                                        access etc.</p><br>
+                                    <h1>{{lang("Provide arrival instructions")}}</h1>
+                                    <p>{{lang("Help your guests and their attendees find and enter your space.")}}</p><br>
+                                    <h1>{{lang("Try to include:")}}</h1>
+                                    <p>{{lang("Directions to your space, building access, door buzzers, floors, stairs/elevator
+                                        access etc.")}}</p><br>
                                     <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                    <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3">Add description</textarea>
-                                    <p class="text-end">Minimum 100 characters</p>
+                                    <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3">{{lang("Add description")}}</textarea>
+                                    <p class="text-end">{{lang("Minimum 100 characters")}}</p>
                                     <p> <img src="{{ asset('assets/images/users/spaces/lock.png') }}" alt="img"><b>
-                                            Don't worry, we'll only share this with guests after you have accepted their
-                                            booking.</b></p>
+                                            {{lang("Don't worry, we'll only share this with guests after you have accepted their
+                                            booking.")}}</b></p>
                                     <br>
                                     <hr class="style1"><br>
                                 </div>
                             </div>
 
                             <div id="step-4" class="mb-5">
-                                <h2 style="text-align:center;">Step 4 of 9</h2>
+                                <h2 style="text-align:center;">{{lang("Step 4 of 9")}}</h2>
                                 <div class="text-center">
                                     <h2 class="fw-bolder">
-                                        Upload photos of your services
+                                       {{lang(" Upload photos of your services")}}
                                     </h2>
-                                    <p>Photos are the first thing that guests will see. We recommend adding 10 or more high
-                                        quality photos.</p>
+                                    <p>{{lang("Photos are the first thing that guests will see. We recommend adding 10 or more high
+                                        quality photos.")}}</p>
                                 </div>
                                 <div class="row">
-                                    <h5>Photo requirements:</h5>
+                                    <h5>{{lang("Photo requirements:")}}</h5>
                                     <div class="col-6">
                                         <ul>
                                             <li class="m-3" style="list-style: circle">
-                                                High resolution - At least 1,000 pixels wide
+                                                {{lang("High resolution - At least 1,000 pixels wide")}}
                                             </li>
                                             <li class="m-3" style="list-style: circle">
-                                                Color photos - No black & white
+                                                {{lang("Color photos - No black & white")}}
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-6">
                                         <ul>
                                             <li class="m-3" style="list-style: circle">
-                                                Horizontal orientation - No vertical photos
+                                                {{lang("Horizontal orientation - No vertical photos")}}
                                             </li>
                                             <li class="m-3" style="list-style: circle">
-                                                Misc. - No collages, screenshots, or watermarks
+                                                {{lang("Misc. - No collages, screenshots, or watermarks")}}
                                             </li>
                                         </ul>
                                     </div>
@@ -358,7 +358,7 @@
                                 <form class="mt-4 mb-5">
                                     <div class="control-group form-group row">
                                         <div class="col-12">
-                                            <label class="form-label">Please add at least 4 space photos</label>
+                                            <label class="form-label">{{lang("Please add at least 4 space photos")}}</label>
                                             <input id="demo" type="file" name="files"
                                                 accept=".jpg, .png, image/jpeg, image/png" multiple>
                                         </div>
@@ -366,33 +366,33 @@
                                     <br>
                                     <div class="row">
                                         <div class="col-12">
-                                            <p><i class="ion-lightbulb text-warning fs-3 me-3"></i> Drag and drop your
+                                            <p><i class="ion-lightbulb text-warning fs-3 me-3"></i> {{lang("Drag and drop your
                                                 photos to change the order. Your first photo is what your guests will see
                                                 when browsing so make sure it
-                                                represents your space.</p>
+                                                represents your space.")}}</p>
                                         </div>
                                     </div>
                                 </form>
                             </div>
 
                             <div id="step-5" class="">
-                                <h2 style="text-align:center;">Step 5 of 9</h2>
+                                <h2 style="text-align:center;">{{lang('Step 5 of 9')}}</h2>
                                 <div class="card-body border p-4 pb-5">
                                     <div class="text-center mb-4">
-                                        <h2 class="mx-4 fw-bolder">What are your operating hours?</h2>
-                                        <p class="mx-4">Operating hours are the days and hours of the week that your
+                                        <h2 class="mx-4 fw-bolder">{{lang('What are your operating hours?')}}</h2>
+                                        <p class="mx-4">{{lang('Operating hours are the days and hours of the week that your
                                             space is open to host
                                             bookings (i.e. your general availability). Guests
-                                            will not be able to book times outside of your operating hours. Learn More.</p>
+                                            will not be able to book times outside of your operating hours. Learn More.')}}</p>
                                     </div>
                                     <div class="text-start mb-4">
-                                        <p> Birthday event - 23408 Bernier Cliff Suite 526 </p>
+                                        <p> {{lang('Birthday event - 23408 Bernier Cliff Suite 526')}} </p>
                                     </div>
                                     <div class="text-start bg-gray-light">
-                                        <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; Operating
+                                        <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; {{lang('Operating
                                             hours end times are
                                             restricted to 12 AM for this space type. Read our Social Events Policy for more
-                                            information.</p>
+                                            information.')}}</p>
                                     </div>
                                     @include('layouts.components.setHoursHTMLCode')
                                     <hr style="border-top: 1px solid black">
@@ -403,246 +403,246 @@
 
                             <div id="step-6" class="">
                                 <div style="text-align:center;">
-                                    <h2>Step 6 of 9</h2>
-                                    <h1><strong>Enhanced Health and Safety Measures</strong></h1>
-                                    <p>Fill out the form to add your cleaning protocol and additional health and safety
-                                        measures to your listing page.</p>
+                                    <h2>{{lang("Step 6 of 9")}}</h2>
+                                    <h1><strong>{{lang("Enhanced Health and Safety Measures")}}</strong></h1>
+                                    <p>{{lang("Fill out the form to add your cleaning protocol and additional health and safety
+                                        measures to your listing page")}}.</p>
                                 </div>
                                 <h4><img src="{{ asset('assets/images/users/spaces/Group 8022.png') }}" alt="img">
-                                    <b>Enhanced Health and Safety Measures</b>
+                                    <b>{{lang("Enhanced Health and Safety Measures")}}</b>
                                 </h4>
-                                <p>Select at least 1 from each category below to earn the Enhanced Health and Safety
+                                <p>{{lang("Select at least 1 from each category below to earn the Enhanced Health and Safety
                                     Measures badge. This badge will be displayed
-                                    on your listings.</p>
+                                    on your listings.")}}</p>
                                 <br>
                                 <hr class="style1"><br>
-                                <h3>What additional measures are you taking to keep your space clean?</h3>
-                                <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                <h3>{{lang("What additional measures are you taking to keep your space clean?")}}</h3>
+                                <p style="color:#858585;"><strong>{{lang("Select all that apply")}}</strong></p>
                                 <div class="row">
                                     <div style="color:#434343;" class="span12 pagination-centered">
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>The space is cleaned and
+                                            <label><input type="checkbox" value=""><b>{{lang("The space is cleaned and
                                                     disinfected in accordance with guidelines from local health
-                                                    authorities</b>
+                                                    authorities")}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>High touch surfaces and shared
-                                                    amenities have been disinfected</b>
+                                            <label><input type="checkbox" value=""><b>{{lang("High touch surfaces and shared
+                                                    amenities have been disinfected")}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Soft, porous materials have
-                                                    been properly cleaned or removed</b>
+                                            <label><input type="checkbox" value=""><b>{{lang("Soft, porous materials have
+                                                    been properly cleaned or removed")}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>A licensed professional
-                                                    cleaner is hired between bookings</b>
+                                            <label><input type="checkbox" value=""><b>{{lang("A licensed professional
+                                                    cleaner is hired between bookings")}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Bookings are spaced apart to
-                                                    allow for enhanced cleaning</b></label>
+                                            <label><input type="checkbox" value=""><b>{{lang("Bookings are spaced apart to
+                                                    allow for enhanced cleaning")}}</b></label>
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class=" mt-4">What additional protective gear do you provide to your guests?</h3>
-                                <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                <h3 class=" mt-4">{{lang("What additional protective gear do you provide to your guests?")}}</h3>
+                                <p style="color:#858585;"><strong>{{lang("Select all that apply")}}</strong></p>
                                 <div class="row">
                                     <div style="color:#434343;" class="span12 pagination-centered">
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Disinfecting wipes or spray
-                                                    and paper towels</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Disinfecting wipes or spray
+                                                    and paper towels')}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Disposable gloves</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Disposable gloves')}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Disposable masks / face
-                                                    coverings</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Disposable masks / face
+                                                    coverings')}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Hand Sanitizer</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Hand Sanitizer')}}</b>
                                             </label>
                                         </div>
 
                                     </div>
                                 </div>
-                                <h3 class=" mt-4">What have you done to help guests maintain physical distance in your
-                                    space?</h3>
-                                <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                <h3 class=" mt-4">{{lang('What have you done to help guests maintain physical distance in your
+                                    space?')}}</h3>
+                                <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                                 <div class="row">
                                     <div style="color:#434343;" class="span12 pagination-centered">
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Capacity is limited based on
-                                                    governmental guidelines</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Capacity is limited based on
+                                                    governmental guidelines')}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Space has access to outdoor
-                                                    air ventilation</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Space has access to outdoor
+                                                    air ventilation')}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Space has HEPA-certified air
-                                                    filters</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Space has HEPA-certified air
+                                                    filters')}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Space has additional space
-                                                    outdoors</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Space has additional space
+                                                    outdoors')}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Space has been reconfigured to
-                                                    allow for physical distance</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Space has been reconfigured to
+                                                    allow for physical distance')}}</b>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-                                <h3 class=" mt-4">What signage have you added to keep your guests informed?</h3>
-                                <p style="color:#858585;"><strong>Select all that apply</strong></p>
+                                <h3 class=" mt-4">{{lang('What signage have you added to keep your guests informed?')}}</h3>
+                                <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                                 <div class="row">
                                     <div style="color:#434343;" class="span12 pagination-centered">
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Detailed checklist of updated
-                                                    cleaning procedure. Download checklist</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Detailed checklist of updated
+                                                    cleaning procedure. Download checklist')}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>COVID-19 guest guidelines
-                                                    print outs. Download guidelines</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('COVID-19 guest guidelines
+                                                    print outs. Download guidelines')}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Common areas have 6-foot
-                                                    (2-metre) markers on floors</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Common areas have 6-foot
+                                                    (2-metre) markers on floors')}}</b>
                                             </label>
                                         </div>
                                         <div class="checkbox">
-                                            <label><input type="checkbox" value=""><b>Narrow passages have arrows
-                                                    for bi-directional traffic</b>
+                                            <label><input type="checkbox" value=""><b>{{lang('Narrow passages have arrows
+                                                    for bi-directional traffic')}}</b>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-                                <h4 class="mt-5">Tell your guests more about your cleaning process</h4>
+                                <h4 class="mt-5">{{lang('Tell your guests more about your cleaning process')}}</h4>
                                 <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                <textarea style="height:150px;" class="form-control rounded-0" id="" rows="3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</textarea>
-                                <p class="text-end">Minimum 50 characters</p>
+                                <textarea style="height:150px;" class="form-control rounded-0" id="" rows="3">{{lang("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.")}}</textarea>
+                                <p class="text-end">{{lang('Minimum 50 characters')}}</p>
 
                                 <div style="color:#505050" class="end-box border border-#ACACAC mt-4">
                                     <h4><img src="{{ asset('assets/images/users/spaces/Group 8022.png') }}"
                                             alt="img">
-                                        <b>Enhanced Health and Safety Measures</b>
+                                        <b>{{lang('Enhanced Health and Safety Measures')}}</b>
                                     </h4>
-                                    <p>Choose at least 1 item from each category</p>
+                                    <p>{{lang('Choose at least 1 item from each category')}}</p>
                                 </div>
                             </div>
                             <div id="step-7" class="">
-                                <h2 style="text-align:center;">Step 7 of 9</h2>
+                                <h2 style="text-align:center;">{{lang('Step 7 of 9')}}</h2>
                                 <div id="step-5" class="mb-5">
                                     <div class="container">
                                         <div class="text-center mb-6">
-                                            <h3 class="mt-3 mt-1"><b>Choose your Cancellation Policy</b>
+                                            <h3 class="mt-3 mt-1"><b>{{lang('Choose your Cancellation Policy')}}</b>
                                             </h3>
                                             <p class=""><img
                                                     src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                    class="w-5" alt=""> Hosts with more flexible cancellation
+                                                    class="w-5" alt=""> {{lang('Hosts with more flexible cancellation
                                                 policies attract more
-                                                bookings.</p>
+                                                bookings.')}}</p>
                                             <hr class="bg-dark border-2">
                                         </div>
-                                        <p class="mb-7">Cancellation period: All Bookings are subject to Eventopia Period
+                                        <p class="mb-7">{{lang('Cancellation period: All Bookings are subject to Eventopia Period
                                             policy
                                             which provides a full refund for Bookings cancelled within 24 hours from receipt
                                             of
-                                            a Booking Confirmation but no later than 48 hours prior to the Event start time.
+                                            a Booking Confirmation but no later than 48 hours prior to the Event start time.')}}
                                         </p>
                                         <div class="row">
                                             <div class="col-3">
                                                 <label class=" flex-basis-20-sm flex-basis-100" for="very-flexible">
                                                     <input type="radio" class="" id="very-flexible"
                                                         name="btn" value="">
-                                                    <span class="">Very Flexible</span>
+                                                    <span class="">{{lang('Very Flexible')}}</span>
                                                 </label>
                                             </div>
                                             <div class="col-9">
-                                                <p>Guests may cancel their Booking until 24 hours before the event start
+                                                <p>{{lang('Guests may cancel their Booking until 24 hours before the event start
                                                     time
                                                     and will receive a full refund (including all Fees) of their Booking
-                                                    Price.
+                                                    Price.')}}
                                                 </p>
-                                                <p>Bookings cancellations submitted less than 24 hours before the Event
+                                                <p>{{lang('Bookings cancellations submitted less than 24 hours before the Event
                                                     start
-                                                    time are not refundable.</p>
+                                                    time are not refundable.')}}</p>
                                             </div>
                                             <hr class="bg-dark border-2">
                                             <div class="col-3">
                                                 <label class=" flex-basis-20-sm flex-basis-100 " for="flexible">
                                                     <input type="radio" class="" name="btn" id="flexible"
                                                         value="" cheaked>
-                                                    <span class="">Flexible</span>
+                                                    <span class="">{{lang('Flexible')}}</span>
                                                 </label>
                                             </div>
                                             <div class="col-9">
-                                                <p>Guests may cancel their Booking until 7 days before the event start time
+                                                <p>{{lang('Guests may cancel their Booking until 7 days before the event start time
                                                     and
-                                                    will receive a full refund (including all Fees) of their Booking Price.
+                                                    will receive a full refund (including all Fees) of their Booking Price.')}}
                                                 </p>
-                                                <p>Guests may cancel their Booking between 7 days and 24 hours before the
+                                                <p>{{lang('Guests may cancel their Booking between 7 days and 24 hours before the
                                                     event
                                                     start time and receive a 50% refund (excluding Fees) of their Booking
-                                                    Price.
+                                                    Price.')}}
                                                 </p>
-                                                <p>Booking cancellations submitted less than 24 hours before the Event start
-                                                    time are not refundable.</p>
+                                                <p>{{lang('Booking cancellations submitted less than 24 hours before the Event start
+                                                    time are not refundable.')}}</p>
                                             </div>
                                             <hr class="bg-dark border-2">
                                             <div class="col-3">
                                                 <label class="flex-basis-20-sm flex-basis-1">
                                                     <input type="radio" class="" name="btn" value="">
-                                                    <span class="">Standard 30 day</span>
+                                                    <span class="">{{lang('Standard 30 day')}}</span>
                                                 </label>
                                             </div>
                                             <div class="col-9">
-                                                <p>Guests may cancel their Booking until 30 days before the event start time
+                                                <p>{{lang('Guests may cancel their Booking until 30 days before the event start time
                                                     and
-                                                    will receive a full refund (including all Fees) of their Booking Price.
+                                                    will receive a full refund (including all Fees) of their Booking Price.')}}
                                                 </p>
-                                                <p>Guests may cancel their Booking until 30 hours before the event start
+                                                <p>{{lang('Guests may cancel their Booking until 30 hours before the event start
                                                     time
                                                     and will receive a full refund (including all Fees) of their Booking
-                                                    Price.
+                                                    Price.')}}
                                                 </p>
-                                                <p>Bookings cancellations submitted less than 7 hours before the Event start
-                                                    time are not refundable.</p>
+                                                <p>{{lang('Bookings cancellations submitted less than 7 hours before the Event start
+                                                    time are not refundable.')}}</p>
                                             </div>
                                             <hr class="bg-dark border-2">
                                             <div class="col-3">
                                                 <label class="flex-basis-20-sm flex-basis-1">
                                                     <input type="radio" class="" name="btn" value="">
-                                                    <span class="">Standard 90 day</span>
+                                                    <span class="">{{lang('Standard 90 day')}}</span>
                                                 </label>
                                             </div>
                                             <div class="col-9">
-                                                <p>Guests may cancel their Booking until 90 hours before the event start
+                                                <p>{{lang('Guests may cancel their Booking until 90 hours before the event start
                                                     time
                                                     and will receive a full refund (including all Fees) of their Booking
-                                                    Price.
+                                                    Price.')}}
                                                 </p>
-                                                <p>Guests may cancel their Booking until 90 hours before the event start
+                                                <p>{{lang('Guests may cancel their Booking until 90 hours before the event start
                                                     time
                                                     and will receive a full refund (including all Fees) of their Booking
-                                                    Price.
+                                                    Price.')}}
                                                 </p>
-                                                <p>Bookings cancellations submitted less than 14 hours before the Event
+                                                <p>{{lang('Bookings cancellations submitted less than 14 hours before the Event
                                                     start
-                                                    time are not refundable.</p>
+                                                    time are not refundable.')}}</p>
                                             </div>
                                             <hr class="bg-dark border-2">
                                         </div>
@@ -652,16 +652,16 @@
 
                             <div id="step-8" class="mb-5">
                                 <div style="text-align:center">
-                                    <h2>Step 8 of 9</h2>
+                                    <h2>{{lang('Step 8 of 9')}}</h2>
                                     <h1><strong>
-                                            Which activities would you like to host?
+                                            {{lang('Which activities would you like to host?')}}
                                         </strong></h1>
-                                    <p>Select the types of activities you would like to host. For each selection, we’ll
-                                        create a customized listing unique to that activity.</p>
+                                    <p>{{lang('Select the types of activities you would like to host. For each selection, we’ll
+                                        create a customized listing unique to that activity.')}}</p>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
-                                            alt="img"><b>Tip: To be approved for Meetings your photos must display a
+                                            alt="img"><b>{{lang('Tip: To be approved for Meetings your photos must display a
                                             meeting or workshop setup including tables and chairs. We also
-                                            recommend adding photos of your AV setup.</b></p>
+                                            recommend adding photos of your AV setup.')}}</b></p>
                                 </div>
 
                                 <div class="m-lg-6">
@@ -675,14 +675,14 @@
                                                         <div class="card border-end shadow-none back-g-color m-0">
                                                             <div class="card-body p-0">
                                                                 <div class="px-5 py-3 m-0 text-center bg-white">
-                                                                    <h5 class="text-dark m-0">Meetings</h5>
+                                                                    <h5 class="text-dark m-0">{{lang('Meetings')}}</h5>
                                                                     <hr class="bg-dark mb-0">
                                                                 </div>
                                                                 <div class="ms-5 my-4">
-                                                                    <li class="text-dark mb-2">Workshops</li>
-                                                                    <li class="text-dark mb-2">Presentations</li>
-                                                                    <li class="text-dark mb-2">Retreats</li>
-                                                                    <li class="text-dark">More</li>
+                                                                    <li class="text-dark mb-2">{{lang('Workshops')}}</li>
+                                                                    <li class="text-dark mb-2">{{lang('Presentations')}}</li>
+                                                                    <li class="text-dark mb-2">{{lang('Retreats')}}</li>
+                                                                    <li class="text-dark">{{lang('More')}}</li>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -691,30 +691,30 @@
                                                             <a role="button" data-bs-toggle="collapse"
                                                                 data-bs-parent="#accordion" href="#collapse1"
                                                                 class="text-white" aria-expanded="true"
-                                                                aria-controls="collapse1"> Enable </a>
+                                                                aria-controls="collapse1"> {{lang('Enable')}} </a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapse1" class="panel-collapse collapse" role="tabpanel"
                                                         aria-labelledby="headingOne1">
                                                         <div class="panel-body">
-                                                            <label class="form-label">Pricing</label>
+                                                            <label class="form-label">{{lang('Pricing')}}</label>
                                                             <hr class="bg-dark mt-0">
-                                                            <label class="mb-5">Hourly rate</label>
-                                                            <p>Please choose a base hourly rate. You
+                                                            <label class="mb-5">{{lang('Hourly rate')}}</label>
+                                                            <p>{{lang('Please choose a base hourly rate. You
                                                                 can customize your pricing with atten-
                                                                 dee pricing, calendar pricing, add add-
-                                                                ons once your listing are created.</p>
+                                                                ons once your listing are created.')}}</p>
                                                             <div class="form-group mb-6">
                                                                 <div class="input-group w-100">
                                                                     <input type="text" class="form-control"
                                                                         placeholder="80" aria-label="Recipient's username"
                                                                         aria-describedby="basic-addon2">
                                                                     <span class="input-group-text"
-                                                                        id="basic-addon2">SAR</span>
+                                                                        id="basic-addon2">{{lang('SAR')}}</span>
                                                                 </div>
                                                             </div>
-                                                            <p>Minimum number of hours</p>
-                                                            <p>Must be between 1-12 hours</p>
+                                                            <p>{{lang('Minimum number of hours')}}</p>
+                                                            <p>{{lang('Must be between 1-12 hours')}}</p>
                                                             <div class="form-group mb-4">
                                                                 <div class="input-group w-100">
                                                                     <input type="text" class="form-control"
@@ -725,46 +725,46 @@
                                                                 </div>
                                                             </div>
 
-                                                            <label class="my-5">8+ hour discount</label>
-                                                            <p>Encourage guests to book longer by giving a discount for
-                                                                bookings that are 8 hours or more.</p>
+                                                            <label class="my-5">{{lang('8+ hour discount')}}</label>
+                                                            <p{{lang('>Encourage guests to book longer by giving a discount for
+                                                                bookings that are 8 hours or more.')}}</p>
                                                             <div class="form-group mb-3">
                                                                 <div class="input-group w-100">
                                                                     <input type="text" class="form-control"
                                                                         placeholder="Optional"
                                                                         aria-label="Recipient's username"
                                                                         aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2">%
-                                                                        off</span>
+                                                                    <span class="input-group-text" id="basic-addon2">{{lang('%
+                                                                        off')}}</span>
                                                                 </div>
                                                             </div>
-                                                            <a href="#" class="mb-6">How is this calculated?</a>
-                                                            <label class="form-label">Who can book instantly?</label>
+                                                            <a href="#" class="mb-6">{{lang('How is this calculated?')}}</a>
+                                                            <label class="form-label">{{lang('Who can book instantly?')}}</label>
                                                             <hr class="bg-dark mt-0">
                                                             <div class="mb-5">
                                                                 <label>
                                                                     <input type="radio" name="example-checkbox1"
                                                                         value="option1">
-                                                                    <span>Everyone</span>
+                                                                    <span>{{lang('Everyone')}}</span>
                                                                 </label>
-                                                                <p>Guests who acknowledge and accept your host rules can
-                                                                    book instantly.</p>
+                                                                <p>{{lang('Guests who acknowledge and accept your host rules can
+                                                                    book instantly.')}}</p>
                                                                 <label>
                                                                     <input type="radio" name="example-checkbox1"
                                                                         value="option2">
-                                                                    <span>No one</span>
+                                                                    <span>{{lang('No one')}}</span>
                                                                 </label>
-                                                                <p>Booking requests will need to be manually accepted or
-                                                                    declined.</p>
+                                                                <p>{{lang('Booking requests will need to be manually accepted or
+                                                                    declined.')}}</p>
                                                             </div>
-                                                            <a href="#">Learn more?</a>
+                                                            <a href="#">{{lang('Learn more?')}}</a>
                                                             <div class="my-5">
-                                                                <p class="back-g-color p-3">Meeting listings get up to 2x
-                                                                    more bookings when guests can book instantly</p>
+                                                                <p class="back-g-color p-3">{{lang('Meeting listings get up to 2x
+                                                                    more bookings when guests can book instantly')}}</p>
                                                             </div>
-                                                            <label class="form-label">Capacity</label>
+                                                            <label class="form-label">{{lang('Capacity')}}</label>
                                                             <hr class="bg-dark mb-3">
-                                                            <p>Maximum number of guests</p>
+                                                            <p>{{lang('Maximum number of guests')}}</p>
                                                             <div class="form-group mb-3">
                                                                 <div class="input-group w-100">
                                                                     <input type="text" class="form-control"
@@ -775,114 +775,114 @@
                                                                             class="fa fa-group w-5 text-white"></i></span>
                                                                 </div>
                                                             </div>
-                                                            <label class="form-label">Who can book instantly?</label>
+                                                            <label class="form-label">{{lang('Who can book instantly?')}}</label>
                                                             <hr class="bg-dark mb-3">
-                                                            <p>All amenities you select should be inclu-
+                                                            <p>{{lang('All amenities you select should be inclu-
                                                                 ded in your hourly rate. If you have
                                                                 amenities that you charge for, do not
                                                                 include them here. You can add those in
-                                                                a later section.
+                                                                a later section.')}}
                                                             </p><br>
-                                                            You must include WiFi, tables, and chairs
-                                                            to offer meetings
+                                                            {{lang('You must include WiFi, tables, and chairs
+                                                            to offer meetings')}}
                                                             <div class="row">
                                                                 <div class="span12 pagination-centered">
                                                                     <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">WiFi
+                                                                        <label><input type="checkbox" value="">{{lang('WiFi')}}
                                                                         </label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Tables</label>
+                                                                                value="">{{lang('Tables')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Chairs</label>
+                                                                                value="">{{lang('Chairs')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Whiteboard</label>
+                                                                                value="">{{lang('Whiteboard')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Chalkboard</label>
+                                                                                value="">{{lang('Chalkboard')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Projector</label>
+                                                                                value="">{{lang('Projector')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Screen</label>
+                                                                                value="">{{lang('Screen')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">Flip
-                                                                            Charts</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Monitor</label>
+                                                                        <label><input type="checkbox" value="">{{lang('Flip
+                                                                            Charts')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Conference Phone</label>
+                                                                                value="">{{lang('Monitor')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Parking Space(s)</label>
+                                                                                value="">{{lang('Conference Phone')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Public
-                                                                            Transportation</label>
+                                                                                value="">{{lang('Parking Space(s)')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Restrooms</label>
+                                                                                value="">{{lang('Public
+                                                                            Transportation')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Wheelchair
-                                                                            Accessible</label>
+                                                                                value="">{{lang('Restrooms')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Breakout Space</label>
+                                                                                value="">{{lang('Wheelchair
+                                                                            Accessible')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Kitchen</label>
+                                                                                value="">{{lang('Breakout Space')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Coffee</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">Apple
-                                                                            TV</label>
+                                                                                value="">{{lang('Kitchen')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Printer</label>
+                                                                                value="">{{lang('Coffee')}}</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" value="">{{lang('Apple
+                                                                            TV')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Rooftop</label>
+                                                                                value="">{{lang('Printer')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Outdoor Area</label>
+                                                                                value="">{{lang('Rooftop')}}</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"
+                                                                                value="">{{lang('Outdoor Area')}}</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="mt-4">
-                                                                <h4>Add your own amenities</h4>
+                                                                <h4>{{lang('Add your own amenities')}}</h4>
                                                                 <input style="width:195px;height:42px;" type="text"
                                                                     class="btn btn-default rounded-0">
                                                                 <button
                                                                     style="margin-left:20px;width:80px;height:42px;background-color:#00224F;color:white;"
                                                                     type="button"
-                                                                    class="btn btn-default rounded-0">Add</button>
+                                                                    class="btn btn-default rounded-0">{{lang('Add')}}</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -898,14 +898,14 @@
                                                         <div class="card border-end shadow-none back-g-color m-0">
                                                             <div class="card-body p-0">
                                                                 <div class="px-5 py-3 m-0 text-center bg-white">
-                                                                    <h5 class="text-dark m-0">Events</h5>
+                                                                    <h5 class="text-dark m-0">{{lang('Events')}}</h5>
                                                                     <hr class="bg-dark mb-0">
                                                                 </div>
                                                                 <div class="ms-5 my-4">
-                                                                    <li class="text-dark mb-2">Birthdays</li>
-                                                                    <li class="text-dark mb-2">Networking Event</li>
-                                                                    <li class="text-dark mb-2">Corporate Party</li>
-                                                                    <li class="text-dark">Corporate Party</li>
+                                                                    <li class="text-dark mb-2">{{lang('Birthdays')}}</li>
+                                                                    <li class="text-dark mb-2">{{lang('Networking Event')}}</li>
+                                                                    <li class="text-dark mb-2">{{lang('Corporate Party')}}</li>
+                                                                    <li class="text-dark">{{lang('Corporate Party')}}</li>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -914,30 +914,30 @@
                                                             <a role="button" data-bs-toggle="collapse"
                                                                 data-bs-parent="#accordion" href="#collapse2"
                                                                 class="text-white" aria-expanded="true"
-                                                                aria-controls="collapse1"> Enable </a>
+                                                                aria-controls="collapse1"> {{lang('Enable')}} </a>
                                                         </h4>
                                                     </div>
                                                     <div id="collapse2" class="panel-collapse collapse" role="tabpanel"
                                                         aria-labelledby="headingOne1">
                                                         <div class="panel-body">
-                                                            <label class="form-label">Pricing</label>
+                                                            <label class="form-label">{{lang('Pricing')}}</label>
                                                             <hr class="bg-dark mt-0">
-                                                            <label class="mb-5">Hourly rate</label>
-                                                            <p>Please choose a base hourly rate. You
+                                                            <label class="mb-5">{{lang('Hourly rate')}}</label>
+                                                            <p>{{lang('Please choose a base hourly rate. You
                                                                 can customize your pricing with atten-
                                                                 dee pricing, calendar pricing, add add-
-                                                                ons once your listing are created.</p>
+                                                                ons once your listing are created.')}}</p>
                                                             <div class="form-group mb-6">
                                                                 <div class="input-group w-100">
                                                                     <input type="text" class="form-control"
                                                                         placeholder="80" aria-label="Recipient's username"
                                                                         aria-describedby="basic-addon2">
                                                                     <span class="input-group-text"
-                                                                        id="basic-addon2">SAR</span>
+                                                                        id="basic-addon2">{{lang('SAR')}}</span>
                                                                 </div>
                                                             </div>
-                                                            <p>Minimum number of hours</p>
-                                                            <p>Must be between 1-12 hours</p>
+                                                            <p>{{lang('Minimum number of hours')}}</p>
+                                                            <p>{{lang('Must be between 1-12 hours')}}</p>
                                                             <div class="form-group mb-4">
                                                                 <div class="input-group w-100">
                                                                     <input type="text" class="form-control"
@@ -948,46 +948,46 @@
                                                                 </div>
                                                             </div>
 
-                                                            <label class="my-5">8+ hour discount</label>
-                                                            <p>Encourage guests to book longer by giving a discount for
-                                                                bookings that are 8 hours or more.</p>
+                                                            <label class="my-5">{{lang('8+ hour discount')}}</label>
+                                                            <p>{{lang('Encourage guests to book longer by giving a discount for
+                                                                bookings that are 8 hours or more.')}}</p>
                                                             <div class="form-group mb-3">
                                                                 <div class="input-group w-100">
                                                                     <input type="text" class="form-control"
                                                                         placeholder="Optional"
                                                                         aria-label="Recipient's username"
                                                                         aria-describedby="basic-addon2">
-                                                                    <span class="input-group-text" id="basic-addon2">%
-                                                                        off</span>
+                                                                    <span class="input-group-text" id="basic-addon2">{{lang('%
+                                                                        off')}}</span>
                                                                 </div>
                                                             </div>
-                                                            <a href="#" class="mb-6">How is this calculated?</a>
-                                                            <label class="form-label">Who can book instantly?</label>
+                                                            <a href="#" class="mb-6">{{lang('How is this calculated?')}}</a>
+                                                            <label class="form-label">{{lang('Who can book instantly?')}}</label>
                                                             <hr class="bg-dark mt-0">
                                                             <div class="mb-5">
                                                                 <label>
                                                                     <input type="radio" name="example-checkbox1"
                                                                         value="option1">
-                                                                    <span>Everyone</span>
+                                                                    <span>{{lang('Everyone')}}</span>
                                                                 </label>
-                                                                <p>Guests who acknowledge and accept your host rules can
-                                                                    book instantly.</p>
+                                                                <p>{{lang('Guests who acknowledge and accept your host rules can
+                                                                    book instantly.')}}</p>
                                                                 <label>
                                                                     <input type="radio" name="example-checkbox1"
                                                                         value="option2">
-                                                                    <span>No one</span>
+                                                                    <span>{{lang('No one')}}</span>
                                                                 </label>
-                                                                <p>Booking requests will need to be manually accepted or
-                                                                    declined.</p>
+                                                                <p>{{lang('Booking requests will need to be manually accepted or
+                                                                    declined.')}}</p>
                                                             </div>
-                                                            <a href="#">Learn more?</a>
+                                                            <a href="#">{{lang('Learn more?')}}</a>
                                                             <div class="my-5">
-                                                                <p class="back-g-color p-3">Meeting listings get up to 2x
-                                                                    more bookings when guests can book instantly</p>
+                                                                <p class="back-g-color p-3">{{lang('Meeting listings get up to 2x
+                                                                    more bookings when guests can book instantly')}}</p>
                                                             </div>
-                                                            <label class="form-label">Capacity</label>
+                                                            <label class="form-label">{{lang('Capacity')}}</label>
                                                             <hr class="bg-dark mb-3">
-                                                            <p>Maximum number of guests</p>
+                                                            <p>{{lang('Maximum number of guests')}}</p>
                                                             <div class="form-group mb-3">
                                                                 <div class="input-group w-100">
                                                                     <input type="text" class="form-control"
@@ -998,103 +998,103 @@
                                                                             class="fa fa-group w-5 text-white"></i></span>
                                                                 </div>
                                                             </div>
-                                                            <label class="form-label">Who can book instantly?</label>
+                                                            <label class="form-label">{{lang('Who can book instantly?')}}</label>
                                                             <hr class="bg-dark mb-3">
-                                                            <p>All amenities you select should be inclu-
+                                                            <p>{{lang('All amenities you select should be inclu-
                                                                 ded in your hourly rate. If you have
                                                                 amenities that you charge for, do not
                                                                 include them here. You can add those in
-                                                                a later section.
+                                                                a later section.')}}
                                                             </p><br>
-                                                            You must include WiFi, tables, and chairs
-                                                            to offer meetings
+                                                            {{lang('You must include WiFi, tables, and chairs
+                                                            to offer meetings')}}
                                                             <div class="row">
                                                                 <div class="span12 pagination-centered">
                                                                     <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">WiFi
+                                                                        <label><input type="checkbox" value="">{{lang('WiFi')}}
                                                                         </label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Tables</label>
+                                                                                value="">{{lang('Tables')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Chairs</label>
+                                                                                value="">{{lang('Chairs')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Whiteboard</label>
+                                                                                value="">{{lang('Whiteboard')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Chalkboard</label>
+                                                                                value="">{{lang('Chalkboard')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Projector</label>
+                                                                                value="">{{lang('Projector')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Screen</label>
+                                                                                value="">{{lang('Screen')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">Flip
-                                                                            Charts</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox"
-                                                                                value="">Monitor</label>
+                                                                        <label><input type="checkbox" value="">{{lang('Flip
+                                                                            Charts')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Conference Phone</label>
+                                                                                value="">{{lang('Monitor')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Parking Space(s)</label>
+                                                                                value="">{{lang('Conference Phone')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Public
-                                                                            Transportation</label>
+                                                                                value="">{{lang('Parking Space(s)')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Restrooms</label>
+                                                                                value="">{{lang('Public
+                                                                            Transportation')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Wheelchair
-                                                                            Accessible</label>
+                                                                                value="">{{lang('Restrooms')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Breakout Space</label>
+                                                                                value="">{{lang('Wheelchair
+                                                                            Accessible')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Kitchen</label>
+                                                                                value="">{{lang('Breakout Space')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Coffee</label>
-                                                                    </div>
-                                                                    <div class="checkbox">
-                                                                        <label><input type="checkbox" value="">Apple
-                                                                            TV</label>
+                                                                                value="">{{lang('Kitchen')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Printer</label>
+                                                                                value="">{{lang('Coffee')}}</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox" value="">{{lang('Apple
+                                                                            TV')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Rooftop</label>
+                                                                                value="">{{lang('Printer')}}</label>
                                                                     </div>
                                                                     <div class="checkbox">
                                                                         <label><input type="checkbox"
-                                                                                value="">Outdoor Area</label>
+                                                                                value="">{{lang('Rooftop')}}</label>
+                                                                    </div>
+                                                                    <div class="checkbox">
+                                                                        <label><input type="checkbox"
+                                                                                value="">{{lang('Outdoor Area')}}</label>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1354,14 +1354,14 @@
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" id="exampleInputname"
                                                             placeholder="john" required
-                                                            data-parsley-required-message="Password is required*" readonly>
+                                                            data-parsley-required-message="{{lang('Password is required*')}}" readonly>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-12">
                                                     <div class="form-group">
                                                         <input type="text" class="form-control" id="exampleInputname1"
                                                             placeholder="Smith" required
-                                                            data-parsley-required-message="Confirm Password is required*"
+                                                            data-parsley-required-message="{{lang('Confirm Password is required')}}*"
                                                             readonly>
                                                     </div>
                                                 </div>
@@ -1369,7 +1369,7 @@
                                             <div class="form-group">
                                                 <input type="tel" class="form-control" id="exampleInputEmail1"
                                                     placeholder="(123) 345 -4567" required
-                                                    data-parsley-required-message="Email is required*" readonly>
+                                                    data-parsley-required-message="{{lang('Email is required*')}}" readonly>
                                             </div>
                                             <div class="bg-light-gray p-3 mb-3">
                                                 <p class="ms-3 m-0"><i class="fa fa-info-circle me-4"></i>Your number

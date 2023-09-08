@@ -34,56 +34,56 @@
                                         <tr role="row" class="text-center">
                                             <th class="sorting sorting_asc text-white p-4" tabindex="0"
                                                 aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending"
-                                                aria-label="Name: activate to sort column descending">Category</th>
+                                                aria-label="Name: activate to sort column descending">{{lang('Category')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Position: activate to sort column ascending">Location
+                                                aria-label="Position: activate to sort column ascending">{{lang('Location')}}
                                             </th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Office: activate to sort column ascending">Customer name</th>
+                                                aria-label="Office: activate to sort column ascending">{{lang('Customer name')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Age: activate to sort column ascending">Time</th>
+                                                aria-label="Age: activate to sort column ascending">{{lang('Time')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Age: activate to sort column ascending">Price</th>
+                                                aria-label="Age: activate to sort column ascending">{{lang('Price')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Start date: activate to sort column ascending">Attendees
-                                                Number</th>
+                                                aria-label="Start date: activate to sort column ascending">{{lang('Attendees
+                                                Number')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Salary: activate to sort column ascending">Type</th>
+                                                aria-label="Salary: activate to sort column ascending">{{lang('Type')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Salary: activate to sort column ascending">Action</th>
+                                                aria-label="Salary: activate to sort column ascending">{{lang('Action')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach (@$quotes as $quote)
                                                 <tr class="text-center">
-                                                    <td class="dtr-control sorting_1" tabindex="0">Service</td>
-                                                    <td>{{ Str::limit(@$quote->service->address, 30, '...') }}
+                                                    <td class="dtr-control sorting_1" tabindex="0">{{lang('Service')}}</td>
+                                                    <td>{{ lang(Str::limit(@$quote->service->address, 30, '...')) }}
                                                     </td>
-                                                    <td>{{ @$quote->user->first_name . ' ' . @$quote->user->last_name }}
+                                                    <td>{{ lang(@$quote->user->first_name . ' ' . @$quote->user->last_name) }}
                                                     </td>
-                                                    <td>{{ @$quote->date }}</td>
-                                                    <td>{{ @$quote->amount ?? 'N/A' }}</td>
-                                                    <td>{{ @$quote->guests }}</td>
-                                                    <td>{{ @$quote->service->category }}</td>
+                                                    <td>{{ lang(@$quote->date) }}</td>
+                                                    <td>{{ lang(@$quote->amount ?? 'N/A') }}</td>
+                                                    <td>{{ lang(@$quote->guests) }}</td>
+                                                    <td>{{ lang(@$quote->service->category) }}</td>
                                                     <td class="text-end">
                                                         @if (@$quote->status == 3)
                                                             <span disabled
-                                                                class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">Declined</span>
+                                                                class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">{{lang('Declined')}}</span>
                                                         @elseif (@$quote->status == 1)
                                                             <span disabled
-                                                                class="badge bg-info-gradient badge-sm me-1 mb-1 mt-1">Quote Responded</span>
+                                                                class="badge bg-info-gradient badge-sm me-1 mb-1 mt-1">{{lang('Quote Responded')}}</span>
                                                         @else
                                                             <a href="{{ route('seller_decline_quote', @$quote->id) }}"
-                                                                class="btn text-danger border-0">Decline</a>
+                                                                class="btn text-danger border-0">{{lang('Decline')}}</a>
                                                             <a href="{{ route('recieve_quote', @$quote->id) }}"
-                                                                class="btn btn-primary ms-3">Send Quote</a>
+                                                                class="btn btn-primary ms-3">{{lang('Send Quote')}}</a>
                                                         @endif
                                                     </td>
                                                 </tr>
@@ -91,28 +91,28 @@
                                         @foreach (@$pendingBookings as $pendingBooking)
                                             <tr class="text-center">
                                                 <td class="dtr-control sorting_1" tabindex="{{ $loop->iteration }}">
-                                                    {{ @$pendingBooking->type }}</td>
-                                                <td>{{ Str::limit(@$pendingBooking->type == 'space' ? @$pendingBooking->space->address : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->address : @$pendingBooking->service->address), 30, $end = '...') }}
+                                                    {{ lang(@$pendingBooking->type) }}</td>
+                                                <td>{{ lang(Str::limit(@$pendingBooking->type == 'space' ? @$pendingBooking->space->address : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->address : @$pendingBooking->service->address), 30, $end = '...')) }}
                                                 </td>
-                                                <td>{{ @$pendingBooking->user->first_name . ' ' . @$pendingBooking->user->last_name }}
+                                                <td>{{ lang(@$pendingBooking->user->first_name . ' ' . @$pendingBooking->user->last_name) }}
                                                 </td>
                                                 <td>{{ @$pendingBooking->date }}</td>
                                                 <td>{{ @$pendingBooking->amount }}</td>
                                                 <td>101 - 150</td>
-                                                <td>{{ @$pendingBooking->type == 'space' ? @$pendingBooking->space->spaceType->type : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->title : @$pendingBooking->service->category) }}
+                                                <td>{{ lang(@$pendingBooking->type == 'space' ? @$pendingBooking->space->spaceType->type : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->title : @$pendingBooking->service->category)) }}
                                                 </td>
                                                 <td class="text-end">
                                                     @if (@$pendingBooking->status == 3)
                                                         <span disabled
-                                                            class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">Declined</span>
+                                                            class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">{{lang('Declined')}}</span>
                                                     @elseif (@$pendingBooking->status == 2)
                                                         <span disabled
-                                                            class="badge bg-success-gradient badge-sm me-1 mb-1 mt-1">Accepted</span>
+                                                            class="badge bg-success-gradient badge-sm me-1 mb-1 mt-1">{{lang('Accepted')}}</span>
                                                     @else
                                                         <a href="{{ route('decline-bookings', @$pendingBooking->id) }}"
-                                                            class="btn text-danger border-0">Decline</a>
+                                                            class="btn text-danger border-0">{{lang('Decline')}}</a>
                                                         <a href="{{ @$pendingBooking->type == 'space' || @$pendingBooking->type == 'entertainment' || @$pendingBooking->type == 'service' ? route('accept-bookings', @$pendingBooking->id) : URL('/create-quote') }}"
-                                                            class="btn btn-primary ms-3">{{ @$pendingBooking->type == 'space' || @$pendingBooking->type == 'entertainment' || @$pendingBooking->type == 'service' ? 'Accept' : 'Send Quote' }}</a>
+                                                            class="btn btn-primary ms-3">{{ lang(@$pendingBooking->type == 'space' || @$pendingBooking->type == 'entertainment' || @$pendingBooking->type == 'service' ? 'Accept' : 'Send Quote') }}</a>
                                                     @endif
                                                 </td>
                                             </tr>

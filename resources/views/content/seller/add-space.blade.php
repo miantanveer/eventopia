@@ -200,18 +200,18 @@
 
                                 <div class="box">
 
-                                    <h1 style="margin-left:20px;">Be paid to host events on Eventopia.</h1>
+                                    <h1 style="margin-left:20px;">{{lang('Be paid to host events on Eventopia.')}}</h1>
                                     <br>
-                                    <p>Join the hundreds of hosts who are already renting out
+                                    <p>{{lang('Join the hundreds of hosts who are already renting out
                                         their facilities for parties, meetings, and photo and film
-                                        shoots.</p>
+                                        shoots.')}}</p>
                                     <br>
-                                    <p>What type of space do you have?</p>
+                                    <p>{{lang('What type of space do you have?')}}</p>
                                     <div class="btns">
-                                        <input style="padding-left:140px;padding-right:160px;" type="text" class="btn btn-light rounded-0" placeholder="Party hall">
+                                        <input style="padding-left:140px;padding-right:160px;" type="text" class="btn btn-light rounded-0" placeholder="{{lang('Party hall')}}">
                                     </div>
                                     <div>
-                                        <a style="padding-left:190px;padding-right:195px;" class="modal-effect btn btn-info rounded-0" data-bs-target="#my-modal" data-bs-toggle="modal">Get Started</a>
+                                        <a style="padding-left:190px;padding-right:195px;" class="modal-effect btn btn-info rounded-0" data-bs-target="#my-modal" data-bs-toggle="modal">{{lang('Get Started')}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -220,7 +220,7 @@
                     <br>
                     <br class="mb-5">
                     <div class="host mt-5">
-                        <h1><strong>How hosting operates</strong></h1>
+                        <h1><strong>{{lang('How hosting operates')}}</strong></h1>
                     </div>
 
                     <br>
@@ -239,12 +239,12 @@
                                             </div>
 
                                             <div class="timeline-heading">
-                                                <h3 class="timeline-title">List your space for free</h3>
+                                                <h3 class="timeline-title">{{lang('List your space for free')}}</h3>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Millions of individuals looking for space will be able to view
+                                                <p>{{lang("Millions of individuals looking for space will be able to view
                                                     your listing once you've set your pricing and included any
-                                                    necessary data, pictures, and descriptions.
+                                                    necessary data, pictures, and descriptions.")}}
                                                 </p>
                                             </div>
                                             <div class="timeline-footer d-flex align-items-center flex-wrap">
@@ -259,12 +259,12 @@
                                             </div>
 
                                             <div class="timeline-heading">
-                                                <h3 class="timeline-title">Welcome guests to your space</h3>
+                                                <h3 class="timeline-title">{{lang('Welcome guests to your space')}}</h3>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Once you agree, your guests will receive directions, as well as
+                                                <p>{{lang('Once you agree, your guests will receive directions, as well as
                                                     information like your wifi code, and you may communicate with
-                                                    them and take reservations through the Eventopia platform.</p>
+                                                    them and take reservations through the Eventopia platform.')}}</p>
                                             </div>
                                             <div class="timeline-footer d-flex align-items-center flex-wrap">
 
@@ -279,12 +279,12 @@
                                                 <span class="timeline-icon">3</span>
                                             </div>
                                             <div class="timeline-heading">
-                                                <h3 class="timeline-title">Get paid every time</h3>
+                                                <h3 class="timeline-title">{{lang('Get paid every time')}}</h3>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>The upfront fee is collected from visitors using Eventopia's safe
+                                                <p>{{lang("The upfront fee is collected from visitors using Eventopia's safe
                                                     payment platform. Following each booking, your compensation is
-                                                    instantly transferred, less our service charge.</p>
+                                                    instantly transferred, less our service charge.")}}</p>
                                             </div>
                                             <div class="timeline-footer d-flex align-items-center flex-wrap">
 
@@ -302,30 +302,30 @@
                     <div class="container-fluid height-of-content">
                         <div class="container-fluid-div"></div>
                         <div class="container position-content">
-                            <h1 class="text-center text-white"><strong>Every space belongs on Eventopia</strong></h1>
+                            <h1 class="text-center text-white"><strong>{{lang('Every space belongs on Eventopia')}}</strong></h1>
                             <div class="row mt-5 mb-2">
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
                                         <a href="#"><img src="{{ asset('assets/images/users/spaces/001.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">Homes</button>
+                                        <button type="button" class="btn btn-basic image-button">{{lang('Homes')}}</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
                                         <a href="#"><img src="{{ asset('assets/images/users/spaces/002.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">Loft</button>
+                                        <button type="button" class="btn btn-basic image-button">{{lang('Loft')}}</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
                                         <a href="#"><img src="{{ asset('assets/images/users/spaces/003.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">Studios</button>
+                                        <button type="button" class="btn btn-basic image-button">{{lang('Studios')}}</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
                                         <a href="#"><img src="{{ asset('assets/images/users/spaces/004.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">Warehouses</button>
+                                        <button type="button" class="btn btn-basic image-button">{{lang('Warehouses')}}</button>
                                     </div>
                                 </div>
                             </div>
@@ -333,27 +333,27 @@
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
                                         <a href="#"><img src="{{ asset('assets/images/users/spaces/005.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic  image-button">Galleries</button>
+                                        <button type="button" class="btn btn-basic  image-button">{{lang('Galleries')}}</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
                                         <a href="#"><img src="{{ asset('assets/images/users/spaces/006.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">Bars</button>
+                                        <button type="button" class="btn btn-basic image-button">{{lang('Bars')}}</button>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
                                         <a href="#"><img src="{{ asset('assets/images/users/spaces/007.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">Coworking</button>
+                                        <button type="button" class="btn btn-basic image-button">{{lang('Coworking')}}</button>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 col-xl-3 mt-5">
                                     <div class="bg-primary-transparent">
                                         <a href="#"><img src="{{ asset('assets/images/users/spaces/008.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">Event
-                                            venues</button>
+                                        <button type="button" class="btn btn-basic image-button">{{lang('Event venues')}}
+                                            </button>
                                     </div>
                                 </div>
                             </div>
@@ -369,13 +369,13 @@
                         <h2 class="accordion-header" id="headingOne">
 
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                <p style="color:#003B95;" class="d-block">Who can be a eventopia host?</p>
+                                <p style="color:#003B95;" class="d-block">{{lang('Who can be a eventopia host?')}}</p>
                             </button>
                         </h2>
                         <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                <p>Eventopia attracts a wide range of places, including residences, galleries, photo
-                                    studios, and warehouses.</p>
+                                <p>{{lang('Eventopia attracts a wide range of places, including residences, galleries, photo
+                                    studios, and warehouses.')}}</p>
                             </div>
                         </div>
                     </div>
@@ -385,14 +385,14 @@
                     <div style="border-color:#d9dbdd;" class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                How do I get paid?
+                                {{lang('How do I get paid?')}}
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque molestias deleniti quis
+                                {{lang('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque molestias deleniti quis
                                 at quam, neque ducimus nam ipsam nisi dolores non hic numquam ratione odio in ea nulla,
-                                sint recusandae praesentium possimus dolor. Harum, dolore?
+                                sint recusandae praesentium possimus dolor. Harum, dolore?')}}
                             </div>
                         </div>
                     </div>
@@ -402,14 +402,14 @@
                     <div style="border-color:#d9dbdd;" class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Does Eventopia provide insurance?
+                               {{lang(' Does Eventopia provide insurance?')}}
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem
+                                {{lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem
                                 pariatur a laboriosam fugit ex ullam, et minus eum! Facere amet, animi beatae sequi,
-                                perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?
+                                perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?')}}
                             </div>
                         </div>
                     </div>
@@ -419,15 +419,15 @@
                     <div style="border-color:#d9dbdd;" class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                How can i contact?
+                                {{lang('How can i contact?')}}
                             </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
+                                {{lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
                                 accusantium eveniet dignissimos sunt magnam ad repellendus ab aperiam nobis
                                 necessitatibus quo a adipisci. Tenetur officiis necessitatibus minus sapiente nisi iste
-                                perspiciatis totam autem!
+                                perspiciatis totam autem!')}}
                             </div>
                         </div>
                     </div>
@@ -452,7 +452,7 @@
     <!-- global-helper -->
     @include('layouts.components.global-helper')
 
-    @include('layouts.components.dark-footer')
+    @include('layouts.components.d  ark-footer')
 
     @include('layouts.components.scripts')
 

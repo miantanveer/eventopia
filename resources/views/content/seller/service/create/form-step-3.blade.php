@@ -28,10 +28,10 @@
                         <div id="step-3">
                             <div class="text-center">
                                 <h2 class="fw-bolder">
-                                    Detail
+                                    {{lang('Detail')}}
                                 </h2>
-                                <p>Create a title that will grab a guest’s interest and describes your entertainment &
-                                    talent. Do not include your business’s name.</p>
+                                <p>{{lang('Create a title that will grab a guest’s interest and describes your entertainment &
+                                    talent. Do not include your business’s name.')}}</p>
                             </div>
                             <br>
                             @if ($errors->any())
@@ -46,27 +46,27 @@
                             <form action='{{ route('service_form_3',$id) }}' method="post"  class="mt-4 mb-5 validate">
                                 @csrf
                                 <div class="form-group mt-3">
-                                    <h3 class="fw-bolder">Destination Weddings</h3>
-                                    <input type="text" name="destination" value="{{@$service->destination}}" required data-parsley-required-message="Destination weddings is required" placeholder="Destination Wedding Planning"
+                                    <h3 class="fw-bolder">{{lang('Destination Weddings')}}</h3>
+                                    <input type="text" name="destination" value="{{@$service->destination}}" required data-parsley-required-message="{{lang('Destination weddings is required')}}" placeholder="{{lang('Destination Wedding Planning')}}"
                                         class="form-control">
                                 </div>
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
-                                    <h3 class="fw-bolder">Planning</h3>
-                                    <textarea name="planning" cols="30" required data-parsley-required-message="Planning is required" rows="5" class="w-100 form-control"
-                                        placeholder="e.g. Budgeting, Destination, Wedding Design">{{@$service->planing}}</textarea>
+                                    <h3 class="fw-bolder">{{lang('Planning')}}</h3>
+                                    <textarea name="planning" cols="30" required data-parsley-required-message="{{lang('Planning is required')}}" rows="5" class="w-100 form-control"
+                                        placeholder="{{lang('e.g. Budgeting, Destination, Wedding Design')}}">{{@$service->planing}}</textarea>
                                 </div>
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
-                                    <h3 class="fw-bolder">Wedding Activities</h3>
-                                    <textarea name="activities" required data-parsley-required-message="Wedding Activities is required" cols="30" rows="5" class="w-100 form-control"
-                                        placeholder="e.g. Engagement Party, Honeymoon, Rehearsals & Parties">{{@$service->activities}}</textarea>
+                                    <h3 class="fw-bolder">{{lang('Wedding Activities')}}</h3>
+                                    <textarea name="activities" required data-parsley-required-message="{{lang('Wedding Activities is required')}}" cols="30" rows="5" class="w-100 form-control"
+                                        placeholder="{{lang('e.g. Engagement Party, Honeymoon, Rehearsals & Parties')}}">{{@$service->activities}}</textarea>
                                 </div>
                                 <br>
                                 <hr class="border-3 bg-dark">
                                 <div class="float-end mt-8">
-                                    <a class="btn btn-light" href="{{route('service-form-2',$id)}}">Previous</a>
-                                    <button class="btn btn-primary">Next</button>
+                                    <a class="btn btn-light" href="{{route('service-form-2',$id)}}">{{lang('Previou')}}s</a>
+                                    <button class="btn btn-primary">{{lang('Next')}}</button>
                                 </div>
                             </form>
                         </div>

@@ -14,7 +14,7 @@ class LanguageController extends UserBaseController
             // Create a new empty code.json file
             file_put_contents($langPath . '/' . $str . '.json', '{}');
         }
-    	\Session::put('locale',$str);
+        \Session::put('locale', $str);
         return back();
     }
 }

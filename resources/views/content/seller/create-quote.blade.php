@@ -8,7 +8,7 @@
         $dateString = '13-Sep-2007';
         $dateTime = DateTime::createFromFormat('d-M-Y', $dateString);
         $formattedDate = $dateTime->format('Y-m-d');
-        
+
     @endphp
     <div class="container">
         <div class="row justify-content-center">
@@ -17,8 +17,8 @@
                     <div class="col-md-12 col-xl-12">
                         <div class="card border">
                             <div class="text-center mt-2">
-                                <h3><b>Service Quote for customer</b></h3>
-                                <p>This quote is made for the service Wedding Planner</p>
+                                <h3><b>{{lang('Service Quote for customer')}}</b></h3>
+                                <p>{{lang('This quote is made for the service Wedding Planner')}}</p>
                             </div>
                             <hr class="m-0 bg-dark">
                             @if ($errors->any())
@@ -36,43 +36,43 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label for="title">Title</label>
+                                                <label for="title">{{lang('Title')}}</label>
                                                 <input type="text" class="form-control" id="title"
-                                                    placeholder="Service type" required value="{{ @$quote->service->title }}"
+                                                    placeholder="{{lang('Service type')}}" required value="{{ @$quote->service->title }}"
                                                     readonly>
                                             </div>
                                             <div class="form-group">
-                                                <label for="address">Address</label>
+                                                <label for="address">{{lang('Address')}}</label>
                                                 <input type="text" class="form-control" id="address"
-                                                    placeholder="Location" required value="{{ @$quote->service->address }}" readonly>
+                                                    placeholder="{{lang('Location')}}" required value="{{ @$quote->service->address }}" readonly>
                                             </div>
                                             <div class="form-group">
-                                                <label for="date">Date</label>
+                                                <label for="date">{{lang('Date')}}</label>
                                                 <input type="date" name="date" class="form-control"
-                                                    id="date" required placeholder="Wedding date"
+                                                    id="date" required placeholder="{{lang('Wedding date')}}"
                                                     value="{{ @$formattedDate }}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="guests">Guests</label>
+                                                <label for="guests">{{lang('Guests')}}</label>
                                                 <input type="number" name="guests" class="form-control"
-                                                    id="guests" required placeholder="Number of guests"
+                                                    id="guests" required placeholder="{{lang('Number of guests')}}"
                                                     value="{{ @$quote->guests }}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="amount">Amount</label>
+                                                <label for="amount">{{lang('Amount')}}</label>
                                                 <input type="number" name="amount" required class="form-control"
-                                                    id="amount" placeholder="Amount">
+                                                    id="amount" placeholder="{{lang('Amount')}}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="description">Description</label>
+                                                <label for="description">{{lang('Description')}}</label>
                                                 <textarea class="form-control" required name="description" id="description" {{ @$quote->description }}
-                                                    placeholder="Description" style="height: 100px">{{ @$quote->description }}</textarea>
+                                                    placeholder="{{lang('Description')}}" style="height: 100px">{{ @$quote->description }}</textarea>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="float-end">
-                                        <a href="{{ route('pending-bookings') }}" class="btn btn-light">Back</a>
-                                        <button class="btn btn-primary">Send</button>
+                                        <a href="{{ route('pending-bookings') }}" class="btn btn-light">{{lang('Back')}}</a>
+                                        <button class="btn btn-primary">{{lang('Send')}}</button>
                                     </div>
                                 </div>
                             </form>

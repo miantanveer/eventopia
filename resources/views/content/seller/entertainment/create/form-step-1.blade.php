@@ -86,9 +86,9 @@
                                             </p>
                                             <input type="text" required name="comedian"
                                                 value="{{ @$entertainment->comedian }}"
-                                                data-parsley-required-message='Please Enter Comedian for event'
+                                                data-parsley-required-message='{{lang('Please Enter Comedian for event')}}'
                                                 class="w-100 p-4 bg-light-gray form-control"
-                                                placeholder="Comedian for event">
+                                                placeholder="{{lang('Comedian for event')}}">
                                             <hr class="bg-dark">
                                             <h1>{{lang('what are your Entertainment and Talent rules')}}</h1>
                                             <p>{{lang('Include any rules about what your guests can and cannot do in the space.')}}</p>
@@ -116,8 +116,8 @@
                                             </ul>
                                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                             <textarea style="height:150px;" class="form-control rounded-0" required name="house_rules"
-                                                data-parsley-required-message="Please Enter house rules" data-parsley-minlength="100" id="exampleFormControlTextarea1" rows="3"
-                                                placeholder="Enter your house rules">{{ @$entertainment->house_rules }}</textarea>
+                                                data-parsley-required-message="{{lang('Please Enter house rules')}}" data-parsley-minlength="100" id="exampleFormControlTextarea1" rows="3"
+                                                placeholder="{{lang('Enter your house rules')}}">{{ @$entertainment->house_rules }}</textarea>
                                             <p class="text-end">{{lang('Minimum 100 characters')}}</h4>
                                                 <br>
                                                 <hr class="bg-dark"><br>
@@ -138,7 +138,7 @@
                                                     images.
                                                     Specify where each device is in your event and if they’ll be on or off.')}}
                                                 </p>
-                                                <textarea cols="30" name="recordings" rows="5" class="w-100 p-5 form-control" placeholder="Add description">{{ @$entertainment->recordings }}</textarea>
+                                                <textarea cols="30" name="recordings" rows="5" class="w-100 p-5 form-control" placeholder="{{lang('Add description')}}">{{ @$entertainment->recordings }}</textarea>
                                                 <p class="text-end">{{lang('Minimum 50 characters')}}</p>
                                             </div>
                                         </div>

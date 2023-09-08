@@ -18,56 +18,42 @@ class CartController extends UserBaseController
         $this->ents = Entertainment::get();
         $this->service = Service::get();
         $this->user = User::whereId(auth()->user()->id)->with('cart')->first();
-        return view('layouts.components.checkout-page',$this->data);
+        return view('layouts.components.checkout-page', $this->data);
     }
-    public function store(Request $req,$id,$type)
+    public function store(Request $req, $id, $type)
     {
         if(Auth::check()){
             if($type == 'entertainment'){
                 $exists = Cart::whereEntertainmentId($id)->whereUserId(auth()->user()->id)->exists();
-                if($exists){
+                if ($exists) {
+                    return redirect()->route('checkout');
+                } else {
+                    cartStore($id, $type, $req->date, $req->start_time, $req->end_time);
                     return redirect()->route('checkout');
                 }
-                else{
-                    cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
-                    return redirect()->route('checkout');
-                }
-            }
-            elseif($type == 'space'){
+            } elseif ($type == 'space') {
                 $exists = Cart::whereSpaceId($id)->whereUserId(auth()->user()->id)->exists();
-                if($exists){
+                if ($exists) {
                     return redirect()->route('checkout');
-                }
-                else{
-                    cartStore($id,$type,$req->date,$req->start_time,$req->end_time);
+                } else {
+                    cartStore($id, $type, $req->date, $req->start_time, $req->end_time);
                     return redirect()->route('checkout');
                 }
             }
         }
     }
-    public function stores($id,$type)
+    public function stores($id, $type)
     {
-        if($type == 'entertainment'){
+        if ($type == 'entertainment') {
             $exists = Cart::whereEntertainmentId($id)->whereUserId(auth()->user()->id)->exists();
-            if($exists){
-                return redirect()->back()->with('error','Item Already Exists in your Cart');
-            }
-            else{
-                cartStore($id,$type);
-                return redirect()->back()->with('success','Item Added to Cart successfully');
+            if ($exists) {
+                return redirect()->back()->with('error', 'Item Already Exists in your Cart');
+            } else {
+                cartStore($id, $type);
+                return redirect()->back()->with('success', 'Item Added to Cart successfully');
             }
         }
-        // elseif($type == 'service'){
-        //     $exists = Cart::whereServiceId($id)->whereUserId(auth()->user()->id)->exists();
-        //     if($exists){
-        //         return redirect()->back()->with('error','Item Already Exists in your Cart');
-        //     }
-        //     else{
-        //         cartStore($id,$type);
-        //         return redirect()->back()->with('success','Item Added to Cart successfully');
-        //     }
-        // }
-        elseif($type == 'space'){
+        elseif ($type == 'space') {
             $exists = Cart::whereSpaceId($id)->whereUserId(auth()->user()->id)->exists();
             if($exists){
                 return redirect()->back()->with('error','Item Already Exists in your Cart');
@@ -78,13 +64,11 @@ class CartController extends UserBaseController
             }
         }
     }
-    
-    public function destroy($id,$type)
+
+    public function destroy($id, $type)
     {
         $cart = Cart::whereUserId(auth()->user()->id)->whereType($type)->find($id);
         $cart->delete();
-        return redirect()->back()->with('success','Item Deleted Successfully');
+        return redirect()->back()->with('success', 'Item Deleted Successfully');
     }
-
-
 }
