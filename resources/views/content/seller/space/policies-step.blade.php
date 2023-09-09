@@ -57,7 +57,7 @@
                                 <div class="alert alert-danger">
                                     <ul>
                                         @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
+                                            <li>{{ lang($error) }}</li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -82,8 +82,8 @@
                                                                 <input class="form-check-input" name="company_policy[]" type="checkbox" value="{{$company_policy->id}}"
                                                                     id="invalidCheck{{$company_policy->id}}" required data-parsley-required-message="{{lang('These values are required')}}" data-parsley-errors-container="#p_error">
                                                                 <label class="form-check-label" for="invalidCheck{{$company_policy->id}}">
-                                                                    <p>{{$company_policy->title}}</p>
-                                                                    <p>{{$company_policy->description}}</p>
+                                                                    <p>{{lang($company_policy->title)}}</p>
+                                                                    <p>{{lang($company_policy->description)}}</p>
                                                                 </label>
                                                             </div>
                                                             <hr class="bg-dark">

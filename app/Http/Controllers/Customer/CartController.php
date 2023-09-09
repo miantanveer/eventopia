@@ -22,8 +22,8 @@ class CartController extends UserBaseController
     }
     public function store(Request $req, $id, $type)
     {
-        if(Auth::check()){
-            if($type == 'entertainment'){
+        if (Auth::check()) {
+            if ($type == 'entertainment') {
                 $exists = Cart::whereEntertainmentId($id)->whereUserId(auth()->user()->id)->exists();
                 if ($exists) {
                     return redirect()->route('checkout');
@@ -52,15 +52,13 @@ class CartController extends UserBaseController
                 cartStore($id,$type);
                 return redirect()->back()->with('success', 'Item Added to Cart successfully');
             }
-        }
-        elseif ($type == 'space') {
+        } elseif ($type == 'space') {
             $exists = Cart::whereSpaceId($id)->whereUserId(auth()->user()->id)->exists();
-            if($exists){
-                return redirect()->back()->with('error','Item Already Exists in your Cart');
-            }
-            else{
-                cartStore($id,$type);
-                return redirect()->back()->with('success','Item Added to Cart successfully');
+            if ($exists) {
+                return redirect()->back()->with('error', 'Item Already Exists in your Cart');
+            } else {
+                cartStore($id, $type);
+                return redirect()->back()->with('success', 'Item Added to Cart successfully');
             }
         }
     }

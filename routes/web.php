@@ -39,6 +39,7 @@ Route::get('list-entertainment', [EntertainmentController::class, 'listEntertain
 Route::get('list-service', [ServiceController::class, 'listService'])->name('list-service');
 
 // Space Search
+Route::get('/search_ajax/{type}', [LandingController::class, 'search'])->name('search_ajax');
 Route::get('/space_landing', [LandingController::class, 'space_index'])->name('space_landing_index');
 Route::get('/space_results', [LandingController::class, 'space_search'])->name('space_search_results');
 // Entertainments Search
@@ -61,6 +62,9 @@ Route::get('reset-password', [AuthenticationController::class, 'resetPasswordInd
 Route::post('reset-password', [AuthenticationController::class, 'resetPassword']);
 Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
 
+  // Language Function
+  Route::get('language/{code}',[LanguageController::class, 'local'])->name('local');
+
 //Logout
 Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
 
@@ -72,9 +76,9 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('notifications', [NotificationController::class, 'index'])->name('notifications');
     Route::get('mark-as-read', [NotificationController::class, 'read'])->name('mark_as_read');
-    Route::get('/search-results', function () {
-        return view('content.customer.search-results');
-    });
+    // Route::get('/search-results', function () {
+    //     return view('content.customer.search-results');
+    // });
 
     Route::get('/manage-bookings', function () {
         return view('content.customer.manage-bookings');
@@ -103,9 +107,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('payments', [PaymentController::class, 'paymentMethod'])->name('payments');
     Route::post('add-account', [PaymentController::class, 'addBankAccount'])->name('add-bank-account');
     Route::post('delete-account/{id}', [PaymentController::class, 'deleteBankAccount'])->name('delete-bank-account');
-
-    // Language Function
-    Route::get('language/{code}', [LanguageController::class, 'local'])->name('local');
 
     // Qutoe functions
     Route::post('send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
@@ -156,6 +157,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.seller.add-services');
     });
     Route::get('pending-bookings', [BookingController::class, 'pendingBookings'])->name('pending-bookings');
+    Route::get('booking-detail/{id}/{type}', [BookingController::class, 'details'])->name('bookings-details');
     Route::get('accept-bookings/{id}', [BookingController::class, 'acceptBookings'])->name('accept-bookings');
     Route::get('decline-bookings/{id}', [BookingController::class, 'declineBookings'])->name('decline-bookings');
 

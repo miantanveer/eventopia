@@ -75,7 +75,7 @@
                                     <div class="alert alert-danger">
                                         <ul>
                                             @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
+                                                <li>{{ lang($error) }}</li>
                                             @endforeach
                                         </ul>
                                     </div>
@@ -107,7 +107,7 @@
                                                     alt="img"><b>{{lang('Example: “Downtown Loft with Skyline View”')}}</b></p>
                                             <input type="text" class="form-control rounded-0" id="inputtext"
                                                 placeholder="{{lang('Enter your space title')}}" required name="space_title"
-                                                value="{{ @$space->space_title ?? '' }}">
+                                                value="{{ lang(@$space->space_title ?? '') }}">
                                             <br>
                                             <hr class="style1"><br>
                                             <h1><strong>{{lang("Describe the parking options")}}</strong></h1>
@@ -129,7 +129,7 @@
                                                 email, or links to your website.")}}</p>
                                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                             <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3"
-                                                placeholder="{{lang('Add description')}}" required data-parsley-minlength="100" name="space_description">{{ @$space->space_description ?? '' }}</textarea>
+                                                placeholder="{{lang('Add description')}}" required data-parsley-minlength="100" name="space_description">{{ lang(@$space->space_description ?? '') }}</textarea>
                                             <p class="text-end">{{lang("Minimum 100 characters")}}</p>
                                             <br>
                                             <hr class="style1"><br>
@@ -177,7 +177,7 @@
                                             </ul>
                                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                             <textarea style="height:150px;" required data-parsley-minlength="100" name="space_rules" class="form-control rounded-0" id="exampleFormControlTextarea1"
-                                                rows="3">{{ @$space->space_rules ?? '' }}</textarea>
+                                                rows="3">{{ lang(@$space->space_rules ?? '') }}</textarea>
                                             <p class="text-end">{{lang("Minimum 100 characters")}}</h4>
                                                 <br>
                                                 <hr class="style1"><br>
@@ -187,22 +187,22 @@
                                                 <label for="sel1"></label>
                                                 <select class="form-control" required name="allowed_age" id="sel1">
                                                     <option value="all"
-                                                        {{ @$space->allowed_age == 'all' ? 'selected' : '' }}>{{lang("All ages")}}
+                                                        {{ lang(@$space->allowed_age == 'all' ? 'selected' : '') }}>{{lang("All ages")}}
                                                     </option>
                                                     <option value="10"
-                                                        {{ @$space->allowed_age == '10' ? 'selected' : '' }}>{{lang("Age 10+")}}
+                                                        {{ lang(@$space->allowed_age == '10' ? 'selected' : '') }}>{{lang("Age ")}} 10+
                                                     </option>
                                                     <option value="20"
-                                                        {{ @$space->allowed_age == '20' ? 'selected' : '' }}>{{lang("Age 20+")}}
+                                                        {{ lang(@$space->allowed_age == '20' ? 'selected' : '') }}>{{lang("Age")}} 20+
                                                     </option>
                                                     <option value="30"
-                                                        {{ @$space->allowed_age == '30' ? 'selected' : '' }}>{{lang("Age 30+")}}
+                                                        {{lang( @$space->allowed_age == '30' ? 'selected' : '' )}}>{{lang("Age")}} 30+
                                                     </option>
                                                     <option value="40"
-                                                        {{ @$space->allowed_age == '40' ? 'selected' : '' }}>{{lang("Age 40+")}}
+                                                        {{ lang(@$space->allowed_age == '40' ? 'selected' : '') }}>{{lang("Age")}} 40+
                                                     </option>
                                                     <option value="50"
-                                                        {{ @$space->allowed_age == '50' ? 'selected' : '' }}>{{lang("Age 50+")}}
+                                                        {{ lang(@$space->allowed_age == '50' ? 'selected' : '') }}>{{lang("Age")}} 50+
                                                     </option>
                                                 </select>
                                             </div>

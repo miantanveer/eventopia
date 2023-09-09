@@ -16,6 +16,71 @@ use Illuminate\Http\Request;
 
 class LandingController extends UserBaseController
 {
+    public function search(Request $req, $type)
+    {
+        if ($type == 'space') {
+            $space = Space::with('spaceType', 'spaceHaveActivities', 'spaceImages')
+                ->where('space_description', 'like', '%' . $req->keyword . '%')
+                ->whereStatus('1')
+                ->whereLastStep('10')
+                ->where(function ($query) use ($req) {
+                    // Use a where function to group your orWhere conditions correctly
+                    $query->orWhereHas('spaceType', function ($query) use ($req) {
+                        $query->where('type', $req->planCatagories);
+                    })
+                        ->orWhereHas('spaceHaveActivities.activities', function ($query) use ($req) {
+                            $query->where('title', $req->planCatagories);
+                        })
+                        ->orWhere(function ($query) use ($req) {
+                            // Use a nested orWhere for the spaceHaveActivities conditions
+                            $query->whereHas('spaceHaveActivities', function ($query) use ($req) {
+                                $query->where('rate_per_hour', $req->price)
+                                    ->orWhere('max_guests', $req->guests);
+                            });
+                        });
+                })
+                ->get();
+
+            $this->type = 'space';
+            $this->data = $space;
+            $this->count = $space->count();
+
+            return view('content.components.__space', $this->data);
+
+        } elseif ($type == 'entertainment') {
+            $ent = Entertainment::with('entertainmentActivities', 'entertainmentActivities.entertainment', 'entertainmentActivities.sub_act', 'entertainmentActivities.sub_act.act')
+                ->where(function ($query) use ($req) {
+                    $query->whereHas('entertainmentActivities.entertainment', function ($subQuery) use ($req) {
+                        $subQuery->orWhere('title', $req->planCatagories)
+                            ->orWhere('description', 'Like', '%' . $req->keyword . '%');
+                    });
+                    $query->whereHas('entertainmentActivities.sub_act', function ($subQuery) use ($req) {
+                        $subQuery->orWhere('title', $req->planCatagories);
+                    });
+                    $query->whereHas('entertainmentActivities', function ($subQuery) use ($req) {
+                        $subQuery->orWhere('hourly_rate', $req->price)
+                            ->orWhere('guest_capacity', $req->guests);
+                    });
+                })
+                ->whereLastSteps('step-9')
+                ->get();
+            $this->type = 'entertainment';
+            $this->data = $ent;
+            return view('content.components.__entertainment', $this->data);
+
+        } elseif ($type == 'service') {
+            $service = Service::with('serviceImages')->where('title', $req->planCatagories)
+                ->orWhere('category', $req->planCatagories)
+                ->orWhere('description', $req->keyword)
+                ->orWhere('price', 'LIKE', $req->price)
+                ->whereLastSteps('step-7')
+                ->get();
+            $this->type = 'service';
+            $this->data = $service;
+            return view('content.components.__service', $this->data);
+        }
+    }
+
     public function space_index()
     {
         $space_type = SpaceType::pluck('type')->toArray();
@@ -53,6 +118,7 @@ class LandingController extends UserBaseController
         $this->data = $space;
         return view('content.customer.search-results', $this->data);
     }
+
     public function entertainment_index()
     {
         $ent_act = EntActivity::pluck('title')->toArray();
@@ -66,11 +132,11 @@ class LandingController extends UserBaseController
     }
     public function entertainment_search(Request $req)
     {
-        $ent = Entertainment::with('entertainmentActivities', 'entertainmentActivities.entertainment','entertainmentActivities.sub_act', 'entertainmentActivities.sub_act.act')
+        $ent = Entertainment::with('entertainmentActivities', 'entertainmentActivities.entertainment', 'entertainmentActivities.sub_act', 'entertainmentActivities.sub_act.act')
             ->where(function ($query) use ($req) {
                 $query->whereHas('entertainmentActivities.entertainment', function ($subQuery) use ($req) {
-                    $subQuery->orWhere('title',$req->planCatagories_1)
-                    ->orWhere('description','Like','%'.$req->planCatagories_1.'%');
+                    $subQuery->orWhere('title', $req->planCatagories_1)
+                        ->orWhere('description', 'Like', '%' . $req->planCatagories_1 . '%');
                 })
                     ->orWhere(function ($locationQuery) use ($req) {
                         if ($req->location_1) {

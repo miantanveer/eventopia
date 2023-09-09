@@ -95,7 +95,7 @@
                                         @foreach ($space_types as $space_type)
                                             <option value="{{ $space_type->id }}"
                                                 {{ @$space->spaceType->id == $space_type->id ? 'selected' : '' }}>
-                                                {{ $space_type->type }}</option>
+                                                {{ lang($space_type->type) }}</option>
                                         @endforeach
                                     </select>
                                     <br>
@@ -134,7 +134,7 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1"></label>
                                         <textarea style="height:150px;" required data-parsley-minlength="35" class="form-control rounded-0" name="parking_description"
-                                            id="exampleFormControlTextarea1" rows="2">{{ @$space->parking_description ?? '' }}</textarea>
+                                            id="exampleFormControlTextarea1" rows="2">{{ lang(@$space->parking_description ?? '') }}</textarea>
                                         <p class="text-end">{{lang("Minimum 35 characters")}}</p>
                                         <br>
                                         <hr class="style1"><br>
@@ -163,7 +163,7 @@
                                                         off.")}}
                                                     </p>
                                                     <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5"
-                                                        class="form-control w-100 p-5" placeholder="{{lang('Add description')}}">{{ @$space->security_devices_description ?? '' }}</textarea>
+                                                        class="form-control w-100 p-5" placeholder="{{lang('Add description')}}">{{ lang(@$space->security_devices_description ?? '') }}</textarea>
                                                     <p class="text-end">{{lang("Minimum 50 characters")}}</p>
                                                 </div>
                                             </div>

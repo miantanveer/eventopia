@@ -57,6 +57,9 @@
                                                 aria-label="Salary: activate to sort column ascending">{{lang('Type')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
+                                                aria-label="Salary: activate to sort column ascending">{{lang('View')}}</th>
+                                            <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
+                                                rowspan="1" colspan="1"
                                                 aria-label="Salary: activate to sort column ascending">{{lang('Action')}}</th>
                                         </tr>
                                     </thead>
@@ -68,10 +71,13 @@
                                                     </td>
                                                     <td>{{ lang(@$quote->user->first_name . ' ' . @$quote->user->last_name) }}
                                                     </td>
-                                                    <td>{{ lang(@$quote->date) }}</td>
-                                                    <td>{{ lang(@$quote->amount ?? 'N/A') }}</td>
+                                                    <td>{{ @$quote->date }}</td>
+                                                    <td>{{ @$quote->amount ?? lang('N/A') }}</td>
                                                     <td>{{ lang(@$quote->guests) }}</td>
                                                     <td>{{ lang(@$quote->service->category) }}</td>
+                                                    <td><a class="modal-effect btn d-grid" data-bs-effect="effect-rotate-left"
+                                                        data-bs-toggle="modal" href="#bookingDetailModal"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a>
+                                                    </td>
                                                     <td class="text-end">
                                                         @if (@$quote->status == 3)
                                                             <span disabled
@@ -101,6 +107,8 @@
                                                 <td>101 - 150</td>
                                                 <td>{{ lang(@$pendingBooking->type == 'space' ? @$pendingBooking->space->spaceType->type : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->title : @$pendingBooking->service->category)) }}
                                                 </td>
+                                                <td><a class="btn" href="{{route('bookings-details',['id'=>@$pendingBooking->id,'type'=>@$pendingBooking->type])}}"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a>
+                                                </td>
                                                 <td class="text-end">
                                                     @if (@$pendingBooking->status == 3)
                                                         <span disabled
@@ -127,6 +135,8 @@
         </div>
     </div>
     {{-- </div> --}}
+
+    
 @endsection
 
 @section('scripts')

@@ -84,7 +84,7 @@
                                                                         <div class="ms-5 my-4">
                                                                             @foreach ($data->subActivities as $subActivity)
                                                                                 <li class="text-dark mb-2">
-                                                                                    {{ $subActivity->title }}</li>
+                                                                                    {{ lang($subActivity->title) }}</li>
                                                                             @endforeach
                                                                         </div>
                                                                     </div>

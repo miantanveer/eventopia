@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Seller;
 
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserBaseController;
 use App\Models\CancellationPolicy;
 use App\Models\CompanyPolicy;
@@ -17,18 +16,18 @@ use App\Models\SpaceActivityAmenity;
 use App\Models\SpaceHaveCompanyPolicy;
 use App\Models\SpaceHavingActivity;
 use App\Models\SpaceHavingMeasure;
-use App\Models\SpaceHavingParkingOption;
 use App\Models\SpaceImage;
 use App\Models\SpaceType;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ListingSpaceController extends UserBaseController
 {
     public function listSpace()
     {
-        if (Auth::check()) return view('content.seller.list-space');
+        if (Auth::check()) {
+            return view('content.seller.list-space');
+        }
 
         return view('content.seller.add-space');
     }
@@ -38,15 +37,14 @@ class ListingSpaceController extends UserBaseController
         return view('content.seller.space.address-step');
     }
 
-
     public function addAddress(Request $req)
     {
         $req->validate([
-            'address'=>'required',
-            'country'=>'required',
-            'state'=>'required',
-            'city'=>'required',
-            'postal_code'=>'required',
+            'address' => 'required',
+            'country' => 'required',
+            'state' => 'required',
+            'city' => 'required',
+            'postal_code' => 'required',
         ]);
         try {
             $data = $req->except('_token');
@@ -99,9 +97,9 @@ class ListingSpaceController extends UserBaseController
     public function addParking(Request $req, $space_id)
     {
         $req->validate([
-            'space_type_id'=>'required',
-            'parking_option'=>'required',
-            'parking_description'=>'required|min:35',
+            'space_type_id' => 'required',
+            'parking_option' => 'required',
+            'parking_description' => 'required|min:35',
         ]);
         try {
             $data = $req->except('_token');
@@ -147,12 +145,12 @@ class ListingSpaceController extends UserBaseController
     public function addAbout(Request $req, $space_id)
     {
         $req->validate([
-            'space_title'=>'required',
-            'space_description'=>'required',
-            'space_size'=>'required',
-            'space_rules'=>'required',
-            'allowed_age'=>'required',
-            'arrival_instruction'=>'required',
+            'space_title' => 'required',
+            'space_description' => 'required',
+            'space_size' => 'required',
+            'space_rules' => 'required',
+            'allowed_age' => 'required',
+            'arrival_instruction' => 'required',
         ]);
         try {
             $data = $req->except('_token');
@@ -197,7 +195,7 @@ class ListingSpaceController extends UserBaseController
             Space::find($space_id)->update(["last_step" => '4']);
             SpaceImage::create([
                 'space_id' => $space_id,
-                'image' =>  $foldername . $filename,
+                'image' => $foldername . $filename,
             ]);
 
             return response()->json($image);
@@ -221,27 +219,41 @@ class ListingSpaceController extends UserBaseController
             }
             $weekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
             $counts = [0, 1, 2, 3, 4];
+
             foreach ($weekDay as $weekDay) {
                 if ($req->$weekDay == $weekDay) {
                     $day = new OperatingDay();
                     $day->space_id = $space_id;
                     $day->week_day = $weekDay;
                     $day->save();
+
                     $week_day = $weekDay . '_radio';
-                }
-                foreach ($counts as $count) {
-                    $start_time = $weekDay . '_start_time_' . $count;
-                    $end_time = $weekDay . '_end_time_' . $count;
-                    if ($req->$start_time && $req->$end_time !== null) {
+
+                    if ($req->$week_day == 0) {
                         $hour = new OperatingHour();
                         $hour->operating_day_id = $day->id;
                         $hour->radio = $req->$week_day;
-                        $hour->start_time = $req->$start_time;
-                        $hour->end_time = $req->$end_time;
+                        $hour->start_time = '6 AM';
+                        $hour->end_time = '12 AM';
                         $hour->save();
+                    } else {
+                        foreach ($counts as $count) {
+                            $start_time = $weekDay . '_start_time_' . $count;
+                            $end_time = $weekDay . '_end_time_' . $count;
+
+                            if ($req->$start_time && $req->$end_time !== null) {
+                                $hour = new OperatingHour();
+                                $hour->operating_day_id = $day->id;
+                                $hour->radio = $req->$week_day;
+                                $hour->start_time = $req->$start_time;
+                                $hour->end_time = $req->$end_time;
+                                $hour->save();
+                            }
+                        }
                     }
                 }
             }
+
             $space->update(["last_step" => '5']);
             return redirect()->route('safety-measure-step', ['space_id' => $space_id]);
         } catch (\Throwable $th) {
@@ -273,8 +285,8 @@ class ListingSpaceController extends UserBaseController
     public function addSafetyMeasure(Request $req, $space_id)
     {
         $req->validate([
-            'safety_measure'=>'required',
-            'cleaning_process'=>'required',
+            'safety_measure' => 'required',
+            'cleaning_process' => 'required',
         ]);
         try {
             $data = $req->except('_token');
@@ -302,7 +314,7 @@ class ListingSpaceController extends UserBaseController
                         if (!$existingSafetyMeasure->contains('safety_measure_id', $safety_measure)) {
                             SpaceHavingMeasure::create([
                                 'safety_measure_id' => $safety_measure,
-                                'space_id' => $space->id
+                                'space_id' => $space->id,
                             ]);
                         }
                     }
@@ -311,7 +323,7 @@ class ListingSpaceController extends UserBaseController
                     foreach ($data['safety_measure'] as $safety_measure) {
                         SpaceHavingMeasure::create([
                             'safety_measure_id' => $safety_measure,
-                            'space_id' => $space->id
+                            'space_id' => $space->id,
                         ]);
                     }
                 }
@@ -340,7 +352,7 @@ class ListingSpaceController extends UserBaseController
     public function addCancelPolicy(Request $req, $space_id)
     {
         $req->validate([
-            'cancellation_policy_id'=>'required'
+            'cancellation_policy_id' => 'required',
         ]);
 
         try {
@@ -351,7 +363,7 @@ class ListingSpaceController extends UserBaseController
             }
             $space->update($data);
 
-            return redirect()->route('activities-step', ['space_id' => $space_id , 'key' => 0]);
+            return redirect()->route('activities-step', ['space_id' => $space_id, 'key' => 0]);
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
@@ -437,9 +449,9 @@ class ListingSpaceController extends UserBaseController
     public function addContactInfo(Request $req, $space_id)
     {
         $req->validate([
-            'c_u_fname'=>'required',
-            'c_u_lname'=>'required',
-            'c_u_phone'=>'required',
+            'c_u_fname' => 'required',
+            'c_u_lname' => 'required',
+            'c_u_phone' => 'required',
         ]);
         try {
             $data = $req->except('_token', 'c_u_img');
@@ -463,7 +475,7 @@ class ListingSpaceController extends UserBaseController
             if (isset($req->c_u_img)) {
                 $image = $req->c_u_img;
                 $foldername = '/uploads/seller/spaces/contact_user/';
-                $filename = time() . '-' . rand(00000, 99999) . '.' . $image->getClientOriginalExtension();;
+                $filename = time() . '-' . rand(00000, 99999) . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path() . $foldername, $filename);
                 $space->update(['c_u_img' => $foldername . $filename]);
             }
@@ -494,7 +506,7 @@ class ListingSpaceController extends UserBaseController
     public function addPolicies(Request $req, $space_id)
     {
         $req->validate([
-            'company_policy'=>'required'
+            'company_policy' => 'required',
         ]);
         try {
             $data = $req->except('_token');
@@ -523,7 +535,7 @@ class ListingSpaceController extends UserBaseController
                         if (!$existingPolicies->contains('company_policy_id', $company_policy)) {
                             SpaceHaveCompanyPolicy::create([
                                 'company_policy_id' => $company_policy,
-                                'space_id' => $space->id
+                                'space_id' => $space->id,
                             ]);
                         }
                     }
@@ -532,7 +544,7 @@ class ListingSpaceController extends UserBaseController
                     foreach ($data['company_policy'] as $company_policy) {
                         SpaceHaveCompanyPolicy::create([
                             'company_policy_id' => $company_policy,
-                            'space_id' => $space->id
+                            'space_id' => $space->id,
                         ]);
                     }
                 }

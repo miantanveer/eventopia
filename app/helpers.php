@@ -2,42 +2,45 @@
 
 use App\Models\Cart;
 use App\Models\Notification;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 use Stichoza\GoogleTranslate\GoogleTranslate;
-use Google\Cloud\Translate\V2\TranslateClient;
 
 if (!function_exists('lang')) {
+
     function lang($string)
     {
-        $code = \Session::get('locale');
+        $code = Session::get('locale', 'en');
 
-        if ($code == null) {
-            $code = 'en';
-        }
+        $cacheKey = 'translation:' . $code . ':' . md5($string);
 
-        $langPath = resource_path('lang/');
+        return Cache::remember($cacheKey, now()->addMinutes(60), function () use ($string, $code) {
+            $langPath = resource_path('lang/' . $code . '.json');
 
-        if (!file_exists($langPath) || !file_exists($langPath . '/' . $code . '.json')) {
-            file_put_contents($langPath . '/' . $code . '.json', '{}');
-        }
+            if (!File::exists($langPath)) {
+                File::put($langPath, '{}');
+            }
 
-        $lang_file = file_get_contents(resource_path('lang/' . $code . '.json'));
-        $langs = json_decode($lang_file, true);
+            $langs = json_decode(File::get($langPath), true);
 
-        if (!is_null($langs) && array_key_exists($string, $langs)) {
+            if (!is_null($langs) && !array_key_exists($string, $langs)) {
+                $tr = new GoogleTranslate($code);
+                $translatedString = $tr->translate($string);
+                $langs[$string] = $translatedString;
+
+                $final_data = json_encode($langs, JSON_UNESCAPED_UNICODE);
+                file_put_contents($langPath, $final_data);
+
+                return $translatedString;
+            }
+
             return $langs[$string];
-        } else {
-            $current_data = file_get_contents(resource_path('lang/' . $code . '.json'));
-            $array_data = json_decode($current_data, true);
-            $tr = new GoogleTranslate($code);
-            $array_data[$string] = $tr->translate($string);
-            $final_data = json_encode($array_data, JSON_UNESCAPED_UNICODE);
-
-            file_put_contents(resource_path('lang/' . $code . '.json'), $final_data);
-
-            return $tr->translate($string);
-        }
+        });
     }
+
 }
+
 if (!function_exists('notification')) {
     function notification($name, $description, $user_id, $type = null, $quote_id = null)
     {
@@ -51,6 +54,7 @@ if (!function_exists('notification')) {
         return $notification;
     }
 }
+
 if (!function_exists('user_id')) {
     function user_id()
     {
