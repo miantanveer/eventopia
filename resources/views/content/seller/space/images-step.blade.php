@@ -67,33 +67,33 @@
                         </ul> --}}
                         <div>
                             <div id="step-4" class="mb-5">
-                                <h2 style="text-align:center;">Step 4 of 9</h2>
+                                <h2 style="text-align:center;">{{lang('Step 4 of 9')}}</h2>
                                 <div class="text-center">
                                     <h2 class="fw-bolder">
-                                        Upload photos of your Space
+                                        {{lang('Upload photos of your Space')}}
                                     </h2>
-                                    <p>Photos are the first thing that guests will see. We recommend adding 10 or more high
-                                        quality photos.</p>
+                                    <p>{{lang('Photos are the first thing that guests will see. We recommend adding 10 or more high
+                                        quality photos.')}}</p>
                                 </div>
                                 <div class="row">
-                                    <h5>Photo requirements:</h5>
+                                    <h5>{{lang('Photo requirements:')}}</h5>
                                     <div class="col-6">
                                         <ul>
                                             <li class="m-3" style="list-style: circle">
-                                                High resolution - At least 1,000 pixels wide
+                                                {{lang('High resolution - At least 1,000 pixels wide')}}
                                             </li>
                                             <li class="m-3" style="list-style: circle">
-                                                Color photos - No black & white
+                                               {{lang(' Color photos - No black & white')}}
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-6">
                                         <ul>
                                             <li class="m-3" style="list-style: circle">
-                                                Horizontal orientation - No vertical photos
+                                                {{lang('Horizontal orientation - No vertical photos')}}
                                             </li>
                                             <li class="m-3" style="list-style: circle">
-                                                Misc. - No collages, screenshots, or watermarks
+                                                {{lang('Misc. - No collages, screenshots, or watermarks')}}
                                             </li>
                                         </ul>
                                     </div>
@@ -113,7 +113,7 @@
                                     <div class="fallback">
                                         <input name="file" id="file" type="file" required
                                             enctype="multipart/form-data" multiple="multiple"
-                                            required data-parsley-required-message="Photos are required*"
+                                            required data-parsley-required-message="{{lang('Photos are required*')}}"
                                             data-parsley-errors-container="#file">
                                     </div>
                                     <div class="dz-message needsclick">
@@ -121,13 +121,13 @@
                                             <i class="display-4 text-muted uil uil-cloud-upload"></i>
                                         </div>
 
-                                        <h4>Drop files here or click to upload.</h4>
+                                        <h4>{{lang('Drop files here or click to upload.')}}</h4>
                                     </div>
                                     <input type="hidden" name="last_step" value="4">
                                 </form>
                                 <div class="float-end mt-8">
-                                    <a class="btn btn-light" href="{{route('about-step',$space->id)}}">Previous</a>
-                                    <button class="btn btn-primary" onclick="upload()">Next</button>
+                                    <a class="btn btn-light" href="{{route('about-step',$space->id)}}">{{lang('Previous')}}</a>
+                                    <button class="btn btn-primary" onclick="upload()">{{lang('Next')}}</button>
                                 </div>
                             </div>
                         </div>

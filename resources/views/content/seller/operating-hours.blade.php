@@ -28,19 +28,19 @@
                     <form action="{{ route('new-operating-hours', ['id' => $id, 'type' => $type]) }}" method="POST">
                         @csrf
                         <div class="text-center mb-4">
-                            <h2 class="mx-4 fw-bolder">What are your operating hours?</h2>
-                            <p class="mx-4">Operating hours are the days and hours of the week that your space is open to
+                            <h2 class="mx-4 fw-bolder">{{lang('What are your operating hours?')}}</h2>
+                            <p class="mx-4">{{lang('Operating hours are the days and hours of the week that your space is open to
                                 host
                                 bookings (i.e. your general availability). Guests
-                                will not be able to book times outside of your operating hours. Learn More.</p>
+                                will not be able to book times outside of your operating hours. Learn More.')}}</p>
                         </div>
                         <div class="text-start mb-4">
-                            <p> Birthday event - 23408 Bernier Cliff Suite 526 </p>
+                            <p> {{lang('Birthday event - 23408 Bernier Cliff Suite 526')}} </p>
                         </div>
                         <div class="text-start bg-gray-light">
-                            <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; Operating hours end times
+                            <p class="p-5"><i class="mdi mdi-alert-circle"></i> &nbsp; &nbsp; {{lang('Operating hours end times
                                 are
-                                restricted to 12 AM for this space type. Read our Social Events Policy for more information.
+                                restricted to 12 AM for this space type. Read our Social Events Policy for more information.')}}
                             </p>
                         </div>
                         <input type="hidden" name="id" value="{{ $id }}">
@@ -49,7 +49,7 @@
                         <hr style="border-top: 1px solid black">
                         <div class="text-end mb-2 mt-5">
                             <div class="btn-list">
-                                <button class="btn btn-primary float-sm-end">Done</button>
+                                <button class="btn btn-primary float-sm-end">{{lang('Done')}}</button>
                             </div>
                         </div>
                     </form>

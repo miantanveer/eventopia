@@ -68,11 +68,11 @@
                                         @csrf
                                         <div class="container">
                                             <div class="text-center mb-6">
-                                                <h3 class="mt-3 mt-1"><b>Please review the following Eventopia policies</b>
+                                                <h3 class="mt-3 mt-1"><b>{{lang('Please review the following Eventopia policies')}}</b>
                                                 </h3>
                                                 <p class=""><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                        class="w-5" alt=""> I agree and
-                                                    understand that as a Peerspace host I am required to:</p>
+                                                        class="w-5" alt=""> {{lang('I agree and
+                                                    understand that as a Peerspace host I am required to:')}}</p>
                                             </div>
                                             <div class="container">
                                                 <div class="row">
@@ -80,7 +80,7 @@
                                                         @foreach ($company_policies as $company_policy)
                                                             <div class="form-check">
                                                                 <input class="form-check-input" name="company_policy[]" type="checkbox" value="{{$company_policy->id}}"
-                                                                    id="invalidCheck{{$company_policy->id}}" required data-parsley-required-message="These values are required" data-parsley-errors-container="#p_error">
+                                                                    id="invalidCheck{{$company_policy->id}}" required data-parsley-required-message="{{lang('These values are required')}}" data-parsley-errors-container="#p_error">
                                                                 <label class="form-check-label" for="invalidCheck{{$company_policy->id}}">
                                                                     <p>{{$company_policy->title}}</p>
                                                                     <p>{{$company_policy->description}}</p>
@@ -97,8 +97,8 @@
                                         </div>
                                         <hr class="border-3 bg-dark">
                                         <div class="float-end">
-                                            <a class="btn btn-light" href="{{route('contact-step',$space->id)}}">Previous</a>
-                                            <button class="btn btn-primary">Next</button>
+                                            <a class="btn btn-light" href="{{route('contact-step',$space->id)}}">{{lang('Previous')}}</a>
+                                            <button class="btn btn-primary">{{lang('Next')}}</button>
                                         </div>
                                     </form>
                                 </div>

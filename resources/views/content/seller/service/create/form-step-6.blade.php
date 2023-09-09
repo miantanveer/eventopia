@@ -20,7 +20,7 @@
                     <div id="step-4" class="">
                         <div class="text-center">
                             <h2 class="fw-bolder">
-                                Pricing for services
+                                {{lang('Pricing for services')}}
                             </h2>
                         </div>
                         <br>
@@ -42,7 +42,7 @@
                                         <input type="radio" class="custom-control-input"
                                             {{ @$service->price == '0-500' ? 'checked' : '' }} name="price"
                                             data-parsley-errors-container="#radio_errors" required
-                                            data-parsley-required-message='Please select atleast one option' value="0-500">
+                                            data-parsley-required-message='{{lang('Please select atleast one option')}}' value="0-500">
                                         <span class="custom-control-label">0 - 500</span>
                                     </label>
                                     <label class="custom-control custom-radio">
@@ -74,8 +74,8 @@
                             </div>
                             <hr class="border-3 bg-dark">
                             <div class="float-end mt-8">
-                                <a class="btn btn-light" href="{{ route('service-form-5', $id) }}">Previous</a>
-                                <button class="btn btn-primary">Next</button>
+                                <a class="btn btn-light" href="{{ route('service-form-5', $id) }}">{{lang('Previous')}}</a>
+                                <button class="btn btn-primary">{{lang('Next')}}</button>
                             </div>
                         </form>
                     </div>

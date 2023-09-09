@@ -10,11 +10,11 @@
                 <div class="card-header pb-0 border-bottom-0">
                     <div class="row w-100">
                         <div class="col-6">
-                            <h3 class="number-font">Bookings</h3>
+                            <h3 class="number-font">{{lang('Bookings')}}</h3>
                         </div>
                         <div class="col-6">
                             <div class="text-end">
-                                <a href="{{ route('spaces') }}" type="button" class="btn btn-primary">Book a space</a>
+                                <a href="{{ route('spaces') }}" type="button" class="btn btn-primary">{{lang('Book a space')}}</a>
                             </div>
                         </div>
                     </div>
@@ -33,14 +33,14 @@
                                             <div class="row w-100">
                                                 <div class="col-8">
                                                     <h5 class="card-title">
-                                                        {{ @$order->type == 'space' ? @$order->space->spaceType->type : (@$order->type == 'entertainment' ? @$order->entertainment->title : @$order->service->category) }}
+                                                        {{ lang(@$order->type == 'space' ? @$order->space->spaceType->type : (@$order->type == 'entertainment' ? @$order->entertainment->title : @$order->service->category)) }}
                                                     </h5>
                                                     <p class="card-text">
-                                                        {{ @$order->start_time . ' - ' . @$order->end_time }}</p>
-                                                    <p class="card-text">From SAR {{ @$order->amount }}/hour</p>
+                                                        {{ lang(@$order->start_time . ' - ' . @$order->end_time) }}</p>
+                                                    <p class="card-text">{{lang('From SAR')}} {{ @$order->amount }}{{lang('/hour')}}</p>
                                                     <p
                                                         class="card-text text-{{ @$order->status == 0 ? 'info' : (@$order->status == 1 ? 'primary' : (@$order->status == 2 ? 'success' : 'danger')) }}">
-                                                        {{ @$order->status == 0 ? 'Pending' : (@$order->status == 1 ? 'Review' : (@$order->status == 2 ? 'Active' : 'Cancelled')) }}
+                                                        {{ lang(@$order->status == 0 ? 'Pending' : (@$order->status == 1 ? 'Review' : (@$order->status == 2 ? 'Active' : 'Cancelled'))) }}
                                                     </p>
                                                 </div>
                                                 <div class="col-4 my-auto">
@@ -55,8 +55,8 @@
                                                             data-amount="{{ @$order->amount }}"
                                                             data-address="{{ @$order->type == 'space' ? @$order->space->address : (@$order->type == 'entertainment' ? @$order->entertainment->address : @$order->service->address) }}"
                                                             data-title="{{ @$order->type == 'space' ? @$order->space->space_title : (@$order->type == 'entertainment' ? @$order->entertainment->title : @$order->service->title) }}"
-                                                            data-status="{{ @$order->status }}" href="#modaldemo8">View
-                                                            Details</a>
+                                                            data-status="{{ @$order->status }}" href="#modaldemo8">
+                                                            {{lang('View Details')}}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,75 +77,75 @@
         <div class="modal-dialog modal-dialog-centered text-center" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">Booking Details</h6><button aria-label="Close" class="btn-close"
+                    <h6 class="modal-title">{{lang('Booking Details')}}</h6><button aria-label="Close" class="btn-close"
                         data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">Seller Name</label>
+                                <label class="form-label text-start">{{lang('Seller Name')}}</label>
                                 <input type="text" class="form-control" id="seller" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">Type Name</label>
+                                <label class="form-label text-start">{{lang('Type Name')}}</label>
                                 <input type="text" class="form-control" style="text-transform: capitalize;" id="type" value="" readonly>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label class="form-label text-start">Title</label>
+                                <label class="form-label text-start">{{lang('Title<')}}/label>
                                 <input type="text" class="form-control" style="text-transform: capitalize;" id="title" value="" readonly>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label class="form-label text-start">Address</label>
+                                <label class="form-label text-start">{{lang('Address')}}</label>
                                 <textarea class="form-control" name="" id="address" rows="2"id="address" readonly></textarea>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">Date</label>
+                                <label class="form-label text-start">{{lang('Date')}}</label>
                                 <input type="text" class="form-control" id="date" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">Start Time</label>
+                                <label class="form-label text-start">{{lang('Start Time')}}</label>
                                 <input type="text" class="form-control" id="start_time" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">End Time</label>
+                                <label class="form-label text-start">{{lang('End Time')}}</label>
                                 <input type="text" class="form-control" id="end_time" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">Discount</label>
+                                <label class="form-label text-start">{{lang('Discount')}}</label>
                                 <input type="text" class="form-control" id="discount" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">Amount</label>
+                                <label class="form-label text-start">{{lang('Amount')}}</label>
                                 <input type="text" class="form-control" id="amount" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">Status</label>
+                                <label class="form-label text-start">{{lang('Status')}}</label>
                                 <input type="text" class="form-control" id="status" value="" readonly>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-light" data-bs-dismiss="modal">{{lang('Close')}}</button>
                 </div>
             </div>
         </div>

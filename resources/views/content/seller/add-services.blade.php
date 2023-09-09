@@ -115,32 +115,32 @@
                     <div class="bg-talent">
                         <div class="box">
                             <div class="container box1">
-                                <h3 class="text-center mt-6">Get more gigs on Eventopia!</h1>
+                                <h3 class="text-center mt-6">{{lang('Get more gigs on Eventopia!')}}</h1>
                                     <br>
-                                    <p class="text-center">Connect with party planners and get booked for everything
+                                    <p class="text-center">{{lang('Connect with party planners and get booked for everything
                                         from
-                                        weddings to birthday parties to corporate events.</p>
+                                        weddings to birthday parties to corporate events.')}}</p>
                                     <br>
                                     <form action="#">
                                         <div class="form-group">
-                                            <label for="exampleInputPhone1">What's your services?</label>
+                                            <label for="exampleInputPhone1">{{lang("What's your services?")}}</label>
                                             <input type="text" class="form-control" id="exampleInputPhone1"
-                                                placeholder="Guitarists, Caterer, Santa" required
-                                                data-parsley-required-message="Your Name is required*">
+                                                placeholder="{{lang('Guitarists, Caterer, Santa')}}" required
+                                                data-parsley-required-message="{{lang('Your Name is required*')}}">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputPhone2">Where do you Services?</label>
+                                            <label for="exampleInputPhone2">{{lang('Where do you Services?')}}</label>
                                             <input type="text" class="form-control" id="exampleInputPhone2"
-                                                placeholder="Los Angles, LAr" required
-                                                data-parsley-required-message="Phone Number is required*">
+                                                placeholder="{{lang('Los Angles, LAr')}}" required
+                                                data-parsley-required-message="{{lang('Phone Number is required*')}}">
                                         </div>
                                         <h4>8,500+</h4>
-                                        <p>Leads sent each day</p>
+                                        <p>{{lang('Leads sent each day')}}</p>
                                         <div>
                                             <a style="padding-left:180px;padding-right:170px;"
                                                 class="modal-effect m-0 mt-3 mb-6 btn btn-info rounded-0"
-                                                data-bs-target="#my-modal" data-bs-toggle="modal">Get
-                                                Started</a>
+                                                data-bs-target="#my-modal" data-bs-toggle="modal">{{lang('Get
+                                                Started')}}</a>
                                         </div>
                                     </form>
                             </div>
@@ -149,7 +149,7 @@
                     <br>
                     <br class="mb-5">
                     <div class="host mt-5">
-                        <h1><strong>Get paid to do what you love</strong></h1>
+                        <h1><strong>{{lang('Get paid to do what you love')}}</strong></h1>
                     </div>
 
                     <br>
@@ -169,11 +169,11 @@
                                             </div>
 
                                             <div class="timeline-heading">
-                                                <h3 class="timeline-title">Create a profile</h3>
+                                                <h3 class="timeline-title">{{lang('Create a profile')}}</h3>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Collect reviews, upload photos, and add videos to your profile to
-                                                    show off your talent or service and attract new clients.
+                                                <p>{{lang('Collect reviews, upload photos, and add videos to your profile to
+                                                    show off your talent or service and attract new clients.')}}
                                                 </p>
                                             </div>
                                             <div class="timeline-footer d-flex align-items-center flex-wrap">
@@ -189,11 +189,11 @@
                                             </div>
 
                                             <div class="timeline-heading">
-                                                <h3 class="timeline-title">Get customized leads</h3>
+                                                <h3 class="timeline-title">{{lang('Get customized leads')}}</h3>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Use lead preference settings and calendar tools to get the leads
-                                                    you want whether you’re a freelancer or full-time gig worker.</p>
+                                                <p>{{lang('Use lead preference settings and calendar tools to get the leads
+                                                    you want whether you’re a freelancer or full-time gig worker.')}}</p>
                                             </div>
                                             <div class="timeline-footer d-flex align-items-center flex-wrap">
 
@@ -209,11 +209,11 @@
                                                 <span class="timeline-icon">3</span>
                                             </div>
                                             <div class="timeline-heading">
-                                                <h3 class="timeline-title">Send quotes</h3>
+                                                <h3 class="timeline-title">{{lang('Send quotes')}}</h3>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Our intuitive message system allows you to create templates
-                                                    and send custom quotes for every potential job.</p>
+                                                <p>{{lang('Our intuitive message system allows you to create templates
+                                                    and send custom quotes for every potential job.')}}</p>
                                             </div>
                                             <div class="timeline-footer d-flex align-items-center flex-wrap">
 
@@ -229,11 +229,11 @@
                                             </div>
 
                                             <div class="timeline-heading">
-                                                <h3 class="timeline-title">Get booked</h3>
+                                                <h3 class="timeline-title">{{lang('Get booked')}}</h3>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>Book local jobs and get paid quickly. Clients pay through
-                                                    Eventopia which means your payment is guaranteed every time!</p>
+                                                <p>{{lang('Book local jobs and get paid quickly. Clients pay through
+                                                    Eventopia which means your payment is guaranteed every time!')}}</p>
                                             </div>
                                             <div class="timeline-footer d-flex align-items-center flex-wrap">
                                             </div>
@@ -246,7 +246,7 @@
                 </div>
             </div>
             <!-- End Row -->
-            <h3 class="text-center my-3">Decorations</h3>
+            <h3 class="text-center my-3">{{lang('Decorations')}}</h3>
             <div class="row">
                 <div class="col-12 bg-white">
                     <div class="container">
@@ -266,24 +266,24 @@
                                                             </div>
                                                             <div class="main-chat-msg-name mx-3">
                                                                 <a href="{{ url('profile') }}">
-                                                                    <h5 class="mb-1 text-dark fw-semibold">Daniel Joe
+                                                                    <h5 class="mb-1 text-dark fw-semibold">{{lang('Daniel Joe')}}
                                                                     </h5>
                                                                 </a>
                                                                 <p class="text-muted mt-0 mb-0 pt-0 fs-13">
-                                                                    Singing/Songwriter
+                                                                    {{lang('Singing/Songwriter')}}
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <p>My life changed by Eventopia.</p>
+                                                            <p>{{lang("My life changed by Eventopia.</p>
                                                             <p>Lorem Ipsum is simply dummy text of the printing
                                                                 and typesetting industry. Lorem Ipsum has been
                                                                 the industry's standard dummy text ever since the
                                                                 1500s, when an unknown printer took a galley of
                                                                 type and scrambled it to make a type specimen
-                                                                book.</p>
+                                                                book.")}}</p>
                                                         </div>
-                                                        <a href="#">Learn more</a>
+                                                        <a href="#">{{lang('Learn more')}}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -302,23 +302,23 @@
                                                             </div>
                                                             <div class="main-chat-msg-name mx-3">
                                                                 <a href="{{ url('profile') }}">
-                                                                    <h5 class="mb-1 text-dark fw-semibold">John Smith
+                                                                    <h5 class="mb-1 text-dark fw-semibold">{{lang('John Smith')}}
                                                                     </h5>
                                                                 </a>
-                                                                <p class="text-muted mt-0 mb-0 pt-0 fs-13">Comedian
+                                                                <p class="text-muted mt-0 mb-0 pt-0 fs-13">{{lang('Comedian')}}
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <p>My life changed by Eventopia.</p>
-                                                            <p>Lorem Ipsum is simply dummy text of the printing
+                                                            <p>{{lang('My life changed by Eventopia.')}}</p>
+                                                            <p>{{lang("Lorem Ipsum is simply dummy text of the printing
                                                                 and typesetting industry. Lorem Ipsum has been
                                                                 the industry's standard dummy text ever since the
                                                                 1500s, when an unknown printer took a galley of
                                                                 type and scrambled it to make a type specimen
-                                                                book.</p>
+                                                                book.")}}</p>
                                                         </div>
-                                                        <a href="#">Learn more</a>
+                                                        <a href="#">{{lang('Learn more')}}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -337,23 +337,23 @@
                                                             </div>
                                                             <div class="main-chat-msg-name mx-3">
                                                                 <a href="{{ url('profile') }}">
-                                                                    <h5 class="mb-1 text-dark fw-semibold">Ryah Wick
+                                                                    <h5 class="mb-1 text-dark fw-semibold">{{lang('Ryah Wick')}}
                                                                     </h5>
                                                                 </a>
-                                                                <p class="text-muted mt-0 mb-0 pt-0 fs-13">Musician
+                                                                <p class="text-muted mt-0 mb-0 pt-0 fs-13">{{lang('Musician')}}
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <p>My life changed by Eventopia.</p>
-                                                            <p>Lorem Ipsum is simply dummy text of the printing
+                                                            <p>{{lang('My life changed by Eventopia.')}}</p>
+                                                            <p>{{lang("Lorem Ipsum is simply dummy text of the printing
                                                                 and typesetting industry. Lorem Ipsum has been
                                                                 the industry's standard dummy text ever since the
                                                                 1500s, when an unknown printer took a galley of
                                                                 type and scrambled it to make a type specimen
-                                                                book.</p>
+                                                                book.")}}</p>
                                                         </div>
-                                                        <a href="#">Learn more</a>
+                                                        <a href="#">{{lang('Learn more')}}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -372,22 +372,22 @@
                                                             </div>
                                                             <div class="main-chat-msg-name mx-3">
                                                                 <a href="{{ url('profile') }}">
-                                                                    <h5 class="mb-1 text-dark fw-semibold">john Doe</h5>
+                                                                    <h5 class="mb-1 text-dark fw-semibold">{{lang('john Doe')}}</h5>
                                                                 </a>
-                                                                <p class="text-muted mt-0 mb-0 pt-0 fs-13">Space owner
+                                                                <p class="text-muted mt-0 mb-0 pt-0 fs-13">{{lang('Space owner')}}
                                                                 </p>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <p>My life changed by Eventopia.</p>
-                                                            <p>Lorem Ipsum is simply dummy text of the printing
+                                                            <p>{{lang('My life changed by Eventopia.')}}</p>
+                                                            <p>{{lang("Lorem Ipsum is simply dummy text of the printing
                                                                 and typesetting industry. Lorem Ipsum has been
                                                                 the industry's standard dummy text ever since the
                                                                 1500s, when an unknown printer took a galley of
                                                                 type and scrambled it to make a type specimen
-                                                                book.</p>
+                                                                book.")}}</p>
                                                         </div>
-                                                        <a href="#">Learn more</a>
+                                                        <a href="#">{{lang('Learn more')}}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -402,14 +402,14 @@
             <div class="container">
                 <div class="card-body">
                     <div class="accordion" id="accordionExample">
-                        <h1 style="text-align:center;"><strong>FAQs</strong></h1>
+                        <h1 style="text-align:center;"><strong>{{lang('FAQs')}}</strong></h1>
                         <div style="border-color:transparent;" class="accordion-item"></div>
                         <h2 class="accordion-header" id="headingOne">
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                                 data-bs-parent="#accordionExample" style="">
                                 <div class="accordion-body">
-                                    <p>Eventopia attracts a wide range of places, including residences, galleries, photo
-                                        studios, and warehouses.</p>
+                                    <p>{{lang('Eventopia attracts a wide range of places, including residences, galleries, photo
+                                        studios, and warehouses.')}}</p>
                                 </div>
                             </div>
                     </div>
@@ -420,13 +420,13 @@
                         <h2 class="accordion-header" id="headingTwo">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                How do event planners find me on Eventopia?
+                                {{lang('How do event planners find me on Eventopia?')}}
                             </button>
                         </h2>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                             data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                The majority of GigSalad traffic comes from search engines where we rank high (top 1-3
+                                {{lang('The majority of GigSalad traffic comes from search engines where we rank high (top 1-3
                                 spots) organically across almost all categories and locations for
                                 queries like “musicians for hire near me” or “face painters in Los Angeles.”
 
@@ -435,7 +435,7 @@
                                 who’s best for their event. They can then contact you directly
                                 or submit a general request. General requests are sent to up to 10 appropriate vendors
                                 that
-                                match the client’s needs.
+                                match the client’s needs.')}}
                             </div>
                         </div>
                     </div>
@@ -446,15 +446,15 @@
                         <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                How many leads and bookings can I expect to get?
+                                {{lang('How many leads and bookings can I expect to get?')}}
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem
+                                {{lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem
                                 pariatur a laboriosam fugit ex ullam, et minus eum! Facere amet, animi beatae sequi,
-                                perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?
+                                perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?')}}
                             </div>
                         </div>
                     </div>
@@ -465,16 +465,16 @@
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                Do I have to pay to receive or respond to leads?
+                               {{lang(' Do I have to pay to receive or respond to leads?')}}
                             </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
+                                {{lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
                                 accusantium eveniet dignissimos sunt magnam ad repellendus ab aperiam nobis
                                 necessitatibus quo a adipisci. Tenetur officiis necessitatibus minus sapiente nisi iste
-                                perspiciatis totam autem!
+                                perspiciatis totam autem!')}}
                             </div>
                         </div>
                     </div>
@@ -485,16 +485,16 @@
                         <h2 class="accordion-header" id="headingfive">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                How do I get paid for my gigs?
+                                {{lang('How do I get paid for my gigs?')}}
                             </button>
                         </h2>
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
+                                {{lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
                                 accusantium eveniet dignissimos sunt magnam ad repellendus ab aperiam nobis
                                 necessitatibus quo a adipisci. Tenetur officiis necessitatibus minus sapiente nisi iste
-                                perspiciatis totam autem!
+                                perspiciatis totam autem!')}}
                             </div>
                         </div>
                     </div>
