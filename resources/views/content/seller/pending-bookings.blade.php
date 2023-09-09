@@ -57,6 +57,9 @@
                                                 aria-label="Salary: activate to sort column ascending">{{lang('Type')}}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
+                                                aria-label="Salary: activate to sort column ascending">{{lang('View')}}</th>
+                                            <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
+                                                rowspan="1" colspan="1"
                                                 aria-label="Salary: activate to sort column ascending">{{lang('Action')}}</th>
                                         </tr>
                                     </thead>
@@ -72,6 +75,9 @@
                                                     <td>{{ @$quote->amount ?? lang('N/A') }}</td>
                                                     <td>{{ lang(@$quote->guests) }}</td>
                                                     <td>{{ lang(@$quote->service->category) }}</td>
+                                                    <td><a class="modal-effect btn d-grid" data-bs-effect="effect-rotate-left"
+                                                        data-bs-toggle="modal" href="#bookingDetailModal"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a>
+                                                    </td>
                                                     <td class="text-end">
                                                         @if (@$quote->status == 3)
                                                             <span disabled
@@ -101,6 +107,9 @@
                                                 <td>101 - 150</td>
                                                 <td>{{ lang(@$pendingBooking->type == 'space' ? @$pendingBooking->space->spaceType->type : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->title : @$pendingBooking->service->category)) }}
                                                 </td>
+                                                <td><a class="modal-effect btn d-grid" data-bs-effect="effect-rotate-left"
+                                                    data-bs-toggle="modal" href="#bookingDetailModal"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a>
+                                                </td>
                                                 <td class="text-end">
                                                     @if (@$pendingBooking->status == 3)
                                                         <span disabled
@@ -127,6 +136,90 @@
         </div>
     </div>
     {{-- </div> --}}
+
+    <div class="modal fade" id="bookingDetailModal">
+        <div class="modal-dialog modal-xl modal-dialog-centered text-center" role="document">
+            <div class="modal-content modal-content-demo">
+                <div class="modal-header">
+                    <h6 class="modal-title">{{lang('Booking Details')}}</h6><button aria-label="Close" class="btn-close"
+                        data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('Category')}}</label>
+                                <input type="text" class="form-control" id="seller" value="" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('Type Name')}}</label>
+                                <input type="text" class="form-control" style="text-transform: capitalize;" id="type" value="" readonly>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('Title')}}</label>
+                                <input type="text" class="form-control" style="text-transform: capitalize;" id="title" value="" readonly>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('Description')}}</label>
+                                <input type="text" class="form-control" style="text-transform: capitalize;" id="description" value="" readonly>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('Address')}}</label>
+                                <textarea class="form-control" name="" id="address" rows="2"id="address" readonly></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('Date')}}</label>
+                                <input type="text" class="form-control" id="date" value="" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('Start Time')}}</label>
+                                <input type="text" class="form-control" id="start_time" value="" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('End Time')}}</label>
+                                <input type="text" class="form-control" id="end_time" value="" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('Discount')}}</label>
+                                <input type="text" class="form-control" id="discount" value="" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('Amount')}}</label>
+                                <input type="text" class="form-control" id="amount" value="" readonly>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <label class="form-label text-start">{{lang('Status')}}</label>
+                                <input type="text" class="form-control" id="status" value="" readonly>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-light" data-bs-dismiss="modal">{{lang('Close')}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
@@ -135,4 +228,45 @@
     <script src="{{ asset('assets/plugins/datatable/js/dataTables.buttons.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/datatable/dataTables.responsive.min.js') }}"></script>
     <script src="{{ asset('assets/js/table-data.js') }}"></script>
+
+    <script>
+        // Wait for the document to be ready
+        // $(document).ready(function() {
+        //     // Handle click event of "View Details" button
+        //     $('.btn-primary-light').click(function() {
+        //         // Get the data attributes
+        //         var seller = $(this).data('seller');
+        //         var type = $(this).data('type');
+        //         var date = $(this).data('date');
+        //         var startTime = $(this).data('start-time');
+        //         var endTime = $(this).data('end-time');
+        //         var discount = $(this).data('discount');
+        //         var amount = $(this).data('amount');
+        //         var address = $(this).data('address');
+        //         var title = $(this).data('title');
+        //         var status = $(this).data('status');
+        //         if (status == 0) {
+        //             status = 'Pending'
+        //         } else if (status == 1) {
+        //             status = 'Under Review'
+        //         } else if (status == 2) {
+        //             status = 'Accepted'
+        //         } else {
+        //             status = 'Cancelled'
+        //         }
+
+        //         // Populate modal fields with data
+        //         $('#seller').val(seller);
+        //         $('#type').val(type);
+        //         $('#date').val(date);
+        //         $('#start_time').val(startTime);
+        //         $('#end_time').val(endTime);
+        //         $('#discount').val(discount);
+        //         $('#amount').val(amount);
+        //         $('#address').text(address);
+        //         $('#title').val(title);
+        //         $('#status').val(status);
+        //     });
+        // });
+    </script>
 @endsection
