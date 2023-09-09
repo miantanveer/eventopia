@@ -1,18 +1,17 @@
 <div class="card-header border-bottom-0 ms-3">
-    {{lang('4,333'.' party hall spaces near USA')}}
+    {{@$count ?? "0"}} {{lang('party hall spaces near USA')}}
 </div>
 @foreach (@$data as $value)
     @php
-        @$lat = $value->lat;
-        @$lng = $value->lng;
-        @$title = $value->space_title;
+        $lat = $value->lat;
+        $lng = $value->lng;
+        $title = $value->space_title;
     @endphp
     <div class="col-xl-4 col-md-6 col-sm-12">
         <div class="card overflow-hidden">
             <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
                 <div class="ms-1 card-border float-start">
-                    <p class="text-dark p-2 bg-primary">{{lang('From
-                        SAR')}}{{ @$value->spaceHaveActivities[0]->rate_per_hour }}{{lang('/hour')}}
+                    <p class="text-dark p-2 bg-primary">{{lang('From SAR')}}{{ @$value->spaceHaveActivities[0]->rate_per_hour }}{{lang('/hour')}}
                     </p>
                 </div>
                 <div class="me-2 card-background float-end">

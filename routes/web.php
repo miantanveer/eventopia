@@ -39,6 +39,7 @@ Route::get('list-entertainment', [EntertainmentController::class, 'listEntertain
 Route::get('list-service', [ServiceController::class, 'listService'])->name('list-service');
 
 // Space Search
+Route::get('/search_ajax/{type}', [LandingController::class, 'search'])->name('search_ajax');
 Route::get('/space_landing', [LandingController::class, 'space_index'])->name('space_landing_index');
 Route::get('/space_results', [LandingController::class, 'space_search'])->name('space_search_results');
 // Entertainments Search
@@ -60,6 +61,9 @@ Route::post('forget-password', [AuthenticationController::class, 'forgetPassword
 Route::get('reset-password', [AuthenticationController::class, 'resetPasswordIndex'])->name('reset-password');
 Route::post('reset-password', [AuthenticationController::class, 'resetPassword']);
 Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
+
+  // Language Function
+  Route::get('language/{code}',[LanguageController::class, 'local'])->name('local');
 
 //Logout
 Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
@@ -104,8 +108,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('add-account', [PaymentController::class, 'addBankAccount'])->name('add-bank-account');
     Route::post('delete-account/{id}', [PaymentController::class, 'deleteBankAccount'])->name('delete-bank-account');
 
-    // Language Function
-    Route::get('language/{code}',[LanguageController::class, 'local'])->name('local');
+  
 
     // Qutoe functions
     Route::post('send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
