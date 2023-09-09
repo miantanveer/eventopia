@@ -247,7 +247,7 @@
                                                                             @foreach (@$space_activity->spaceAmenities as $activityHavingAmenity)
                                                                                 <div class="checkbox">
                                                                                     <label><input type="checkbox"
-                                                                                            name="activities[{{ $space_activity->id }}][activity_have_amenity][]"
+                                                                                            name="activities[{{ @$space_activity->id }}][activity_have_amenity][]"
                                                                                             value="{{ @$activityHavingAmenity->id }}">{{ lang(@$activityHavingAmenity->name) }}
                                                                                     </label>
                                                                                 </div>

@@ -52,19 +52,6 @@
                 </div>
                 <div class="card-body">
                     <div id="smartwizard-3">
-                        {{-- <ul>
-                            <li><a href="#step-1">Space Address</a></li>
-                            <li><a href="#step-2">Setup</a></li>
-                            <li><a href="#step-3">About your space</a></li>
-                            <li><a href="#step-4">Photos</a></li>
-                            <li><a href="#step-5">Hours</a></li>
-                            <li><a href="#step-6">Cleaning Policy</a></li>
-                            <li><a href="#step-7">Cancellation</a></li>
-                            <li><a href="#step-8">Listing</a></li>
-                            <li><a href="#step-9">Profile</a></li>
-                            <li><a href="#step-10">Review Policies</a></li>
-
-                        </ul> --}}
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -80,36 +67,38 @@
                             @csrf
                             <div id="step-1">
                                 <div style="height:450px;width:1350px;margin-left:90px;" class="border mt-5">
-                                    <h2 style="text-align:center;">{{lang('Step 1 of 9')}}</h2>
+                                    <h2 style="text-align:center;">{{ lang('Step 1 of 9') }}</h2>
                                     <div class="row">
                                         <div class="card-header  mb-3">
-                                            <h1 style="text-align:center;" class="card-title">{{lang('Space Address')}}</h1>
+                                            <h1 style="text-align:center;" class="card-title">{{ lang('Space Address') }}
+                                            </h1>
                                         </div>
                                         <div class="col-md-5 col-lg-12">
-                                            <label class="form-control-label">{{lang('Street Address')}}</label> <span
+                                            <label class="form-control-label">{{ lang('Street Address') }}</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                id="address" name="address" placeholder="{{lang('Add Address')}}" required
-                                                value="{{ @$space->address }}" type="text">
+                                                id="address" name="address" placeholder="{{ lang('Add Address') }}"
+                                                required value="{{ @$space->address }}" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
-                                            <label class="form-control-label">{{lang('Country')}}</label> <span
+                                            <label class="form-control-label">{{ lang('Country') }}</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
                                                 id="country" name="country" placeholder="" required
                                                 value="{{ @$space->country }}" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
-                                            <label class="form-control-label">{{lang('State')}}<span class="tx-danger">*</span></label>
+                                            <label class="form-control-label">{{ lang('State') }}<span
+                                                    class="tx-danger">*</span></label>
                                             <input class="form-control rounded-0" id="state" name="state"
                                                 placeholder="" value="{{ @$space->state }}" required type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mt-3">
-                                            <label class="form-control-label">{{lang('City')}}</label> <span
+                                            <label class="form-control-label">{{ lang('City') }}</label> <span
                                                 class="tx-danger">*</span></label> <input class="form-control rounded-0"
                                                 id="city" name="city" placeholder="" required
                                                 value="{{ @$space->city }}" type="text">
                                         </div>
                                         <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
-                                            <label class="form-control-label">{{lang('Postal Code')}}<span
+                                            <label class="form-control-label">{{ lang('Postal Code') }}<span
                                                     class="tx-danger">*</span></label> <input class="form-control rounded-0"
                                                 id="postal_code" name="postal_code" required placeholder=""
                                                 value="{{ @$space->postal_code }}" type="text">
@@ -123,20 +112,16 @@
                                     <div class="card-body map_height overflow-auto" id="mapContainer">
                                         <h4 style="margin-left:70px;" class="fw-bolder">{{lang('Use the map pin position to add an
                                             address.')}}</h4>
-                                        <iframe style="height:380px;width:475px;margin-left:70px;" class="gmap_iframe"
-                                            frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0" marginwidth="0"
-                                            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                                        </iframe>
+                                            <div id="map" style="height: 400px;"></div>
                                     </div>
                                 </div>
                             </div>
                             <hr class="border-3 bg-dark">
                             <div class="float-end">
-                                <a class="btn btn-light" href="{{ route('list-space') }}">{{lang('Previous')}}</a>
-                                <button class="btn btn-primary">{{lang('Next')}}</button>
+                                <a class="btn btn-light" href="{{ route('list-space') }}">{{ lang('Previous') }}</a>
+                                <button class="btn btn-primary">{{ lang('Next') }}</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -168,26 +153,6 @@
     <script src="{{ asset('assets/js/select2.js') }}"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
-    </script>
-
-    <script nonce="">
-        function onEmbedLoad() {
-            initEmbed([null, null, null, null, null, null, null, ["en"],
-                [null, null, null, "/maps/api/js/ApplicationService.GetEntityDetails", "/maps/embed/upgrade204",
-                    null, "/maps/embed/record204"
-                ], null, null, null, null, null, null, null, null, null, null, null, null, [
-                    [
-                        [120000000, 0, 0], null, null, 13.10000038146973
-                    ]
-                ], null, null, null, 0, null, null, null, null, null, null, [1]
-            ]);
-        }
-
-        function onApiLoad() {
-            var embed = document.createElement('script');
-            embed.src = "https://maps.gstatic.com/maps-api-v3/embed/js/53/13/init_embed.js";
-            document.body.appendChild(embed);
-        }
     </script>
 
     <script>
@@ -226,6 +191,87 @@
                     } else {}
                 }
             });
+        });
+    </script>
+
+    <script>
+        var map;
+        var marker;
+
+        function initializeMap() {
+            var mapOptions = {
+                center: {
+                    lat: 0,
+                    lng: 0
+                },
+                zoom: 10,
+            };
+
+            map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            marker = new google.maps.Marker({
+                position: map.getCenter(),
+                map: map,
+                draggable: true,
+            });
+
+            // Listen for marker dragend event
+            google.maps.event.addListener(marker, 'dragend', function() {
+                var latlng = marker.getPosition();
+                getAddressFromLatLng(latlng);
+            });
+        }
+
+        // Initialize the map when the page loads
+        google.maps.event.addDomListener(window, 'load', initializeMap);
+    </script>
+
+    <script>
+
+        // Function to update the form fields with the address
+        function updateFormFieldsWithAddress(addressComponents) {
+            for (let i = 0; i < addressComponents.length; i++) {
+                var component = addressComponents[i];
+                if (component.types.includes('country')) {
+                    $('#country').val(component.long_name);
+                } else if (component.types.includes('administrative_area_level_1')) {
+                    $('#state').val(component.long_name);
+                } else if (component.types.includes('locality') || component.types.includes('postal_town') || component
+                    .types.includes('administrative_area_level_2')) {
+                    $('#city').val(component.long_name);
+                } else if (component.types.includes('postal_code')) {
+                    $('#postal_code').val(component.long_name);
+                }
+            }
+        }
+
+        // Function to get address from latlng
+        function getAddressFromLatLng(latlng) {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                'location': latlng
+            }, function(results, status) {
+                if (status === 'OK') {
+                    if (results[0]) {
+                        var addressComponents = results[0].address_components;
+                        updateFormFieldsWithAddress(addressComponents);
+                        var fullAddress = results[0].formatted_address;
+                        $('#address').val(fullAddress);
+                        $('#lat').val(latlng.lat());
+                        $('#lng').val(latlng.lng());
+                        console.log('Full Address: ' + fullAddress);
+                    } else {
+                        console.error('No results found');
+                    }
+                } else {
+                    console.error('Geocoder failed due to: ' + status);
+                }
+            });
+        }
+
+        // Wait for the page to load before initializing the map
+        $(document).ready(function() {
+            initializeMap(); // Initialize the map
         });
     </script>
 @endsection
