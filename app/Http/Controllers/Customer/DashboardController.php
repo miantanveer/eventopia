@@ -14,20 +14,68 @@ class DashboardController extends UserBaseController
 {
     public function index()
     {
-        $totalSpaceOrders = Order::whereType('space')->whereUserId(user_id())->count();
-        $this->upComingSpaceBookings = Order::whereType('space')->whereUserId(user_id())->whereStatus(1)->count();
-        $this->cancelSpaceBookings = Order::whereType('space')->whereUserId(user_id())->whereStatus(3)->count();
-        $this->previousSpaceBookings = Order::whereType('space')->whereUserId(user_id())->whereStatus(4)->count();
+        $totalSpaceOrders = Order::where(function($query){
+            $query->whereHas('space', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereUserId(user_id())->whereType('space')->count();
+        $this->upComingSpaceBookings = Order::where(function($query){
+            $query->whereHas('space', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('space')->whereUserId(user_id())->whereStatus(1)->count();
+        $this->cancelSpaceBookings = Order::where(function($query){
+            $query->whereHas('space', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('space')->whereUserId(user_id())->whereStatus(3)->count();
+        $this->previousSpaceBookings = Order::where(function($query){
+            $query->whereHas('space', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('space')->whereUserId(user_id())->whereStatus(4)->count();
 
-        $totalEnterOrders = Order::whereType('entertainment')->whereUserId(user_id())->count();
-        $this->upComingEnterBookings = Order::whereType('entertainment')->whereUserId(user_id())->whereStatus(1)->count();
-        $this->cancelEnterBookings = Order::whereType('entertainment')->whereUserId(user_id())->whereStatus(3)->count();
-        $this->previousEnterBookings = Order::whereType('entertainment')->whereUserId(user_id())->whereStatus(4)->count();
+        $totalEnterOrders = Order::where(function($query){
+            $query->whereHas('entertainment', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('entertainment')->whereUserId(user_id())->count();
+        $this->upComingEnterBookings = Order::where(function($query){
+            $query->whereHas('entertainment', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('entertainment')->whereUserId(user_id())->whereStatus(1)->count();
+        $this->cancelEnterBookings = Order::where(function($query){
+            $query->whereHas('entertainment', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('entertainment')->whereUserId(user_id())->whereStatus(3)->count();
+        $this->previousEnterBookings = Order::where(function($query){
+            $query->whereHas('entertainment', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('entertainment')->whereUserId(user_id())->whereStatus(4)->count();
 
-        $totalServiceOrders = Order::whereType('service')->whereUserId(user_id())->count();
-        $this->upComingServiceBookings = Order::whereType('service')->whereUserId(user_id())->whereStatus(1)->count();
-        $this->cancelServiceBookings = Order::whereType('service')->whereUserId(user_id())->whereStatus(3)->count();
-        $this->previousServiceBookings = Order::whereType('service')->whereUserId(user_id())->whereStatus(4)->count();
+        $totalServiceOrders = Order::where(function($query){
+            $query->whereHas('service', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('service')->whereUserId(user_id())->count();
+        $this->upComingServiceBookings = Order::where(function($query){
+            $query->whereHas('service', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('service')->whereUserId(user_id())->whereStatus(1)->count();
+        $this->cancelServiceBookings = Order::where(function($query){
+            $query->whereHas('service', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('service')->whereUserId(user_id())->whereStatus(3)->count();
+        $this->previousServiceBookings = Order::where(function($query){
+            $query->whereHas('service', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('service')->whereUserId(user_id())->whereStatus(4)->count();
 
         $this->spaceUpcomingProgress = $totalSpaceOrders ? ($this->upComingSpaceBookings / $totalSpaceOrders) * 100 : 0 ;
         $this->spaceCancelProgress = $totalSpaceOrders ? ($this->cancelSpaceBookings / $totalSpaceOrders) * 100 : 0 ;
@@ -42,7 +90,7 @@ class DashboardController extends UserBaseController
         $this->servicePreviousProgress = $totalServiceOrders ? ($this->previousServiceBookings / $totalServiceOrders) * 100 : 0 ;
 
         $this->totalBookingsCount = $totalSpaceOrders + $totalEnterOrders + $totalServiceOrders;
-        $this->totalBookings = Order::whereIn('status', [1, 2, 3])->take(5)->get();
+        $this->totalBookings = Order::whereUserId(user_id())->whereIn('status', [1, 2, 3])->take(5)->get();
 
         $this->cancelBookingCount = $this->cancelSpaceBookings + $this->cancelEnterBookings + $this->cancelServiceBookings;
         $this->activeBookingCount = Order::whereUserId(user_id())->whereStatus(2)->count();

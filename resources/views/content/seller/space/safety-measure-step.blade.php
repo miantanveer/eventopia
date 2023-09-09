@@ -104,11 +104,9 @@
                                 <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
 
                                 @php
-                                $selectedSafetyMeasureIds = []; // Initialize an array to store selected safety measure
-                                IDs
+                                $selectedSafetyMeasureIds = []; // Initialize an array to store selected safety measure IDs
 
-                                // Assuming $selectedSafetyMeasures contains the list of selected safety measures for
-                                the space
+                                // Assuming $selectedSafetyMeasures contains the list of selected safety measures for the space
                                 foreach ($space->spaceHaveMeasures as $selectedSafetyMeasure) {
                                 $selectedSafetyMeasureIds[] = $selectedSafetyMeasure->safety_measure_id;
                                 }

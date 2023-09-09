@@ -96,7 +96,7 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('Title<')}}/label>
+                                <label class="form-label text-start">{{lang('Title')}}</label>
                                 <input type="text" class="form-control" style="text-transform: capitalize;" id="title" value="" readonly>
                             </div>
                         </div>

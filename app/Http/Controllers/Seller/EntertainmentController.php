@@ -174,18 +174,30 @@ class EntertainmentController extends UserBaseController
                     $day->entertainment_id = $id;
                     $day->week_day = $weekDay;
                     $day->save();
+
                     $week_day = $weekDay . '_radio';
-                }
-                foreach ($counts as $count) {
-                    $start_time = $weekDay . '_start_time_' . $count;
-                    $end_time = $weekDay . '_end_time_' . $count;
-                    if ($req->$start_time && $req->$end_time !== null) {
+
+                    if ($req->$week_day == 0) {
                         $hour = new OperatingHour();
                         $hour->operating_day_id = $day->id;
                         $hour->radio = $req->$week_day;
-                        $hour->start_time = $req->$start_time;
-                        $hour->end_time = $req->$end_time;
+                        $hour->start_time = '6 AM';
+                        $hour->end_time = '12 AM';
                         $hour->save();
+                    } else {
+                        foreach ($counts as $count) {
+                            $start_time = $weekDay . '_start_time_' . $count;
+                            $end_time = $weekDay . '_end_time_' . $count;
+
+                            if ($req->$start_time && $req->$end_time !== null) {
+                                $hour = new OperatingHour();
+                                $hour->operating_day_id = $day->id;
+                                $hour->radio = $req->$week_day;
+                                $hour->start_time = $req->$start_time;
+                                $hour->end_time = $req->$end_time;
+                                $hour->save();
+                            }
+                        }
                     }
                 }
             }

@@ -84,7 +84,7 @@
                         <div class="card-body mt-3">
                             <div class="d-flex">
                                 <div class="text-black mt-2">
-                                    <h3 class="mb-2 number-font">{{lang($upComingBookings)}}</h3>
+                                    <h3 class="mb-2 number-font">{{$upComingBookings}}</h3>
                                 </div>
                                 <div class="card-options">
                                     <img src="{{ asset('assets/images/icons/pending-file.png') }}" alt="">
@@ -165,7 +165,7 @@
                 <div class="card-header pb-0 border-bottom-0">
                     <h3 class="number-font">{{lang('Total Bookings')}}</h3>
                     <div class="card-options">
-                        <h6>{{ lang('Total: ') . $totalBookingsCount }}</h6>
+                        <h6>{{ lang('Total: ')  }} {{$totalBookingsCount}}</h6>
                     </div>
                 </div>
                 <div class="card-body p-0 mt-5">
@@ -216,7 +216,7 @@
                             <div class="d-flex">
                                 <div class="text-black">
                                     <h3 class="mb-2 number-font">{{lang('Booking accepted')}}</h3>
-                                    <p class="text-black mb-0">{{lang('Total :')}} {{$acceptedBookingCount}}</p>
+                                    <p class="text-black mb-0">{{lang('Total :')}} {{$acceptedBookingCount ?? 0}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-check-o text-primary fa-3x"></i>
@@ -237,7 +237,7 @@
                             <div class="d-flex">
                                 <div class="text-black">
                                     <h3 class="mb-2 number-font">{{lang('Booking cancelled')}}</h3>
-                                    <p class="text-black mb-0">{{lang('Total: ')}}{{$cancelBookings}}</p>
+                                    <p class="text-black mb-0">{{lang('Total: ')}} {{$cancelBookings ?? 0}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
@@ -257,7 +257,7 @@
                             <div class="d-flex">
                                 <div class="text-black">
                                     <h3 class="mb-2 number-font">{{lang('Pending Booking Actions')}}</h3>
-                                    <p class="text-black mb-0">{{lang('Total: ')}}</p>
+                                    <p class="text-black mb-0">{{lang('Total: ')}} {{$upComingBookings ?? 0}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-times-o text-primary fa-3x"></i>

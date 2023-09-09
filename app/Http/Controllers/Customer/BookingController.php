@@ -128,4 +128,10 @@ class BookingController extends UserBaseController
 
         return view('layouts.components.booking');
     }
+    public function details($id,$type)
+    {
+        $this->booking = Order::whereType($type)->find($id);
+        $this->type = $type;
+        return view('content.seller.booking-details',$this->data);
+    }
 }
