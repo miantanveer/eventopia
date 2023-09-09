@@ -239,7 +239,8 @@
 
         <h3 class="p-3 mb-5 text-dark">
             {{ lang('When checking out your space, you may add these Talents or
-                                Services.') }}</h3>
+                                            Services.') }}
+        </h3>
         <h6 class="p-3 mb-5 text-dark">{{ lang('The spaces you might be looking for?') }}</h6>
         <div class="col-12 px-lg-0 px-6 bg-white">
             <div class="card custom-card">
