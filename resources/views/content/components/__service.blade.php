@@ -1,5 +1,5 @@
 <div class="card-header border-bottom-0 ms-3">
-    {{lang('4,333'.' party hall spaces near USA')}}
+    {{@$data->count()}}{{lang(' party hall spaces near USA')}}
 </div>
 @foreach (@$data as $value)
     @php

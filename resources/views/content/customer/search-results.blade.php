@@ -105,9 +105,10 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
             <div class="container-fluid">
                 <div class="row filters">
+                    @if(@$type !== 'service')
                     <div class="col-12 col-md-2 col-lg-2 col-xl-1 col-sm-4">
                         <div class="mt-2 mb-2">
-                            <button type="button"  class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
+                            <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
                                 data-bs-toggle="dropdown">
                                 {{ lang('Price') }} <span class="caret"></span>
                             </button>
@@ -115,34 +116,35 @@
                                 <div class="custom-controls-stacked">
                                     <form action="#" method="get" class="ms-2">
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" onclick="selected()" class="custom-control-input" name="price"
-                                                value="100">
+                                            <input type="radio" onclick="selected()" class="custom-control-input"
+                                                name="price" value="100">
                                             <span class="custom-control-label">{{ lang('Up to ') }}$100</span>
                                         </label>
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" onclick="selected()" class="custom-control-input" name="price"
-                                                value="250">
+                                            <input type="radio" onclick="selected()" class="custom-control-input"
+                                                name="price" value="250">
                                             <span class="custom-control-label">$100 {{ lang('to') }} & $250</span>
                                         </label>
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" onclick="selected()" class="custom-control-input" name="price"
-                                                value="450">
-                                            <span class="custom-control-label">$250 {{lang('to') }} & $450</span>
+                                            <input type="radio" onclick="selected()" class="custom-control-input"
+                                                name="price" value="450">
+                                            <span class="custom-control-label">$250 {{ lang('to') }} & $450</span>
                                         </label>
                                     </form>
                                 </div>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4 ps-0">
+                    @endif
+                    <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4 ps-0 " @if(@$type == 'service')style="margin-left: 10px"@endif>
                         <div class="mt-2 mb-2">
                             <input type="text" class="form-control btn_background text-dark typeCategories"
                                 placeholder="Type">
                             <div class="search-dropdown-results" id="searchResults"></div>
                         </div>
                     </div>
-                    {{-- @dd($data) --}}
-
+                    @if(@$type !== 'service')
+                        
                     <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4 ps-0">
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
@@ -153,23 +155,23 @@
                                 <div class="custom-controls-stacked">
                                     <form action="#" method="get" class="ms-2">
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="guests"
-                                                value="10"  onclick="selected()">
+                                            <input type="radio" class="custom-control-input" name="guests" value="10"
+                                                onclick="selected()">
                                             <span class="custom-control-label">{{ lang('0 to 10') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="guests"
-                                                value="25" onclick="selected()">
+                                            <input type="radio" class="custom-control-input" name="guests" value="25"
+                                                onclick="selected()">
                                             <span class="custom-control-label">{{ lang('11 to 25') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="guests"
-                                                value="100" onclick="selected()">
+                                            <input type="radio" class="custom-control-input" name="guests" value="100"
+                                                onclick="selected()">
                                             <span class="custom-control-label">{{ lang('51 to 100') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
-                                            <input type="radio" class="custom-control-input" name="guests"
-                                                value="200" onclick="selected()">
+                                            <input type="radio" class="custom-control-input" name="guests" value="200"
+                                                onclick="selected()">
                                             <span class="custom-control-label">{{ lang('Over 100') }}</span>
                                         </label>
                                     </form>
@@ -177,18 +179,22 @@
                             </ul>
                         </div>
                     </div>
+                    
                     <div class="col-lg-2 col-md-3 col-12 col-xl-2 ps-0">
                         <div class="mt-2">
                             <input type="date" name="date" id="date" class="form-control btn_background">
                         </div>
                     </div>
+                    @endif
                     <div class="col-lg-2 col-md-3 col-12 col-xl-2 mb-2 mb-md-0 ps-0">
                         <div class="mt-2">
-                            <input type="text" class="form-control btn_background" onblur="selected()" name="keyword" id="keyword" placeholder="Enter a Keyword">
+                            <input type="text" class="form-control btn_background" onblur="selected()" name="keyword"
+                                id="keyword" placeholder="Enter a Keyword">
                         </div>
                     </div>
                     <div class="col-lg-1 text-center mt-4 mx-6 form-check form-switch d-lg-block d-none">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                            checked>
                         <label class="form-check-label" for="flexSwitchCheckChecked">{{ lang('Map') }}</label>
                     </div>
                 </div>
@@ -244,14 +250,14 @@
                                         {{ lang('Try zooming out or expanding your filter criteria.') }}
                                     </div>
                                 @else
-                                    <div id="ajax_data">
+                                    <div id="ajax_data" class="row">
                                         @if (@$type == 'space')
-                                            @include('content.components.__space')
-                                            @elseif (@$type = 'entertainment')
-                                            @include('content.components.__entertainment')
-                                            @elseif (@$type = 'service')
+                                        @include('content.components.__space')
+                                        @elseif (@$type == 'entertainment')
+                                        @include('content.components.__entertainment')
+                                        @elseif (@$type == 'service')
                                             @include('content.components.__service')
-                                            @endif
+                                        @endif
                                     </div>
                                 @endif
                             </div>
@@ -449,6 +455,5 @@
                 }
             });
         }
-        
     </script>
 @endsection
