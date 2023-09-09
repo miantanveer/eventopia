@@ -10,7 +10,7 @@ class OrderController extends UserBaseController
     public function sellerDashboard()
     {
         $this->totalBookingsCount = Order::whereUserId(user_id())->count();
-        $this->totalBookings = Order::whereIn('status', [1, 2, 3])->take(5)->get();
+        $this->totalBookings = Order::where('status','!=' ,0)->take(5)->get();
 
         $this->upComingBookings = Order::whereUserId(user_id())->whereStatus(1)->count();
         $this->cancelBookings = Order::whereUserId(user_id())->whereStatus(3)->count();

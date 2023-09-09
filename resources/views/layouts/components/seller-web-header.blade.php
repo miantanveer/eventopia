@@ -6,35 +6,35 @@
                 href="javascript:void(0)"></a>
             <!-- sidebar-toggle-->
             <a class="logo-horizontal " href="{{ url('/') }}">
-                <img src="{{ asset('assets/images/brand/logo13.png') }}" class="header-brand-img desktop-logo"
-                    alt="logo">
-                <img src="{{ asset('assets/images/brand/logo13.png') }}" class="header-brand-img light-logo1"
-                    alt="logo">
+                <img src="{{ asset('assets/images/brand/logo13.png') }}"
+                    class="header-brand-img desktop-logo" alt="logo">
+                <img src="{{ asset('assets/images/brand/logo13.png') }}"
+                    class="header-brand-img light-logo1" alt="logo">
             </a>
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
                 <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button"
                     data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4"
-                    aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="navbarSupportedContent-4" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon fe fe-more-vertical"></span>
                 </button>
                 <div class="navbar navbar-collapse responsive-navbar p-0">
                     <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                         <div class="d-flex order-lg-2">
                             <div class="d-flex seller-btn me-2">
-                                <a href="{{ URL('/dashboard') }}">
-                                    <button class="btn-pill p-2 text-info bg-white border-info">{{lang('Become a
-                                        Customer')}}</button></a>
-                                {{-- <a class="btn-pill p-2 text-info bg-white border-info"
-                                    href="{{URL('/customer-dashboard')}}">Become a Customer</a> --}}
+                                <a href="{{ URL('/dashboard') }}"><button
+                                        class="btn-pill p-2 text-info bg-white border-info">{{lang('Become a Customer')}}</button></a>
+                                {{-- <a class="btn-pill p-2 text-info bg-white border-info" href="{{URL('/customer-dashboard')}}">Become a Customer</a> --}}
                             </div>
                             <!-- COUNTRY -->
                             <div class="d-flex country">
                                 <a class="nav-link icon text-center" data-bs-target="#country-selector"
                                     data-bs-toggle="modal">
-                                    <i class="fe fe-globe"></i><span class="fs-16 ms-2 d-none d-xl-block"></span>
+                                    <i class="fe fe-globe"></i><span
+                                        class="fs-16 ms-2 d-none d-xl-block"></span>
                                 </a>
                             </div>
-
+​
                             <!-- SEARCH -->
                             <div class="dropdown  d-flex">
                                 <a class="nav-link icon theme-layout nav-link-bg layout-setting">
@@ -43,8 +43,8 @@
                                 </a>
                             </div>
                             <div class="dropdown  d-flex notifications">
-                                <a class="nav-link icon" data-bs-toggle="dropdown"><i class="fe fe-bell"></i><span
-                                        class="pulse"></span>
+                                <a class="nav-link icon" data-bs-toggle="dropdown"><i
+                                        class="fe fe-bell"></i><span class="pulse"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                     <div class="drop-heading border-bottom">
@@ -55,38 +55,35 @@
                                     </div>
                                     <div class="notifications-menu">
                                         @php
-                                        $notifies = \App\Models\Notification::whereIsRead(0)->whereHas('quote', function
-                                        ($query) {
-                                        $query->where('status', 0);
-                                        })->get();
+                                            $notifies = \App\Models\Notification::whereIsRead(0)->whereHas('quote', function ($query) {
+                                                $query->where('status', 0);
+                                            })->get();
                                         @endphp
                                         <div id="notify_service"></div>
                                         @foreach (@$notifies as $notify)
-                                        @if (@$notify->type == 'service')
-                                        <a class="dropdown-item d-flex" href="{{route('pending-bookings')}}">
-                                            <div class="me-3 notifyimg bg-primary brround box-shadow-primary">
-                                                <i class="fe fe-dollar-sign"></i>
-                                            </div>
-                                            <div class="mt-1">
-                                                <h5 class="notification-label mb-1">
-                                                    {{ @$notify->description }}</h5>
-                                                <span class="notification-subtext">{{
-                                                    @$notify->created_at->diffForHumans() }}</span>
-                                            </div>
-                                        </a>
-                                        @else
-                                        <a class="dropdown-item d-flex">
-                                            <div class="me-3 notifyimg bg-secondary brround box-shadow-primary">
-                                                <i class="fe fe-bell"></i>
-                                            </div>
-                                            <div class="mt-1">
-                                                <h5 class="notification-label mb-1">
-                                                    {{ @$notify->description }}</h5>
-                                                <span class="notification-subtext">{{
-                                                    @$notify->created_at->diffForHumans() }}</span>
-                                            </div>
-                                        </a>
-                                        @endif
+                                            @if (@$notify->type == 'service')
+                                                <a class="dropdown-item d-flex" href="{{route('pending-bookings')}}">
+                                                    <div class="me-3 notifyimg bg-primary brround box-shadow-primary">
+                                                        <i class="fe fe-dollar-sign"></i>
+                                                    </div>
+                                                    <div class="mt-1">
+                                                        <h5 class="notification-label mb-1">
+                                                            {{ lang(@$notify->description) }}</h5>
+                                                        <span class="notification-subtext">{{ lang(@$notify->created_at->diffForHumans()) }}</span>
+                                                    </div>
+                                                </a>
+                                            @else
+                                                <a class="dropdown-item d-flex">
+                                                    <div class="me-3 notifyimg bg-secondary brround box-shadow-primary">
+                                                        <i class="fe fe-bell"></i>
+                                                    </div>
+                                                    <div class="mt-1">
+                                                        <h5 class="notification-label mb-1">
+                                                            {{ lang(@$notify->description) }}</h5>
+                                                        <span class="notification-subtext">{{ lang(@$notify->created_at->diffForHumans()) }}</span>
+                                                    </div>
+                                                </a>
+                                            @endif
                                         @endforeach
                                     </div>
                                     <div class="dropdown-divider m-0"></div>
@@ -107,6 +104,9 @@
                                     </a>
                                     <a class="dropdown-item" href="{{ url('/edit-profile') }}">
                                         <i class="dropdown-icon fe fe-user"></i> {{lang('Manage Account')}}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('payments') }}">
+                                        <i class="dropdown-icon fe fe-user"></i> {{lang('Payments')}}
                                     </a>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf

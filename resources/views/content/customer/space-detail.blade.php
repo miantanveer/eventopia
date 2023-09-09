@@ -123,8 +123,8 @@
                                     <div class="accordion-body">
                                         <h4 class="text-dark">{{lang('Parking options')}}</h4>
                                         <p>
-                                            @foreach ($space->spaceHaveParkingOptions as $parkingOption)
-                                                {{ $parkingOption->option . ',' }}
+                                            @foreach (@$space->spaceHaveParkingOptions as $parkingOption)
+                                                {{ @$parkingOption->option . ',' }}
                                             @endforeach
                                         </p>
                                         <h4 class="text-dark">{{lang('Parking description')}}</h4>
@@ -186,8 +186,8 @@
                         <h3 class="text-dark">
                             {{lang('Cancellation Policy')}}
                         </h3>
-                        <h5 class="text-dark">{{ $space->cancellationPolicy->title }}</h5>
-                        <p>{{ $space->cancellationPolicy->description }}</p>
+                        <h5 class="text-dark">{{ @$space->cancellationPolicy->title }}</h5>
+                        <p>{{ @$space->cancellationPolicy->description }}</p>
                     </div>
                     <hr>
                     <div class="mt-5">
@@ -434,7 +434,7 @@
                     <hr style="border-top: 1px solid black">
                     @foreach (@$space->operatingDays as $operatingDay)
                         <h4 class="col-sm-10 mt-5 ps-3">{{ $operatingDay->week_day }} <span
-                                class="float-end">{{ $operatingDay->operatingHours[0]->radio === '1' ? $operatingDay->operatingHours[0]->start_time . ' - ' . $operatingDay->operatingHours[0]->end_time : '6 : 00 AM - 12 AM' }}</span>
+                                class="float-end">{{ @$operatingDay->operatingHours[0]->radio === '1' ? $operatingDay->operatingHours[0]->start_time . ' - ' . $operatingDay->operatingHours[0]->end_time : '6 : 00 AM - 12 AM' }}</span>
                         </h4>
                     @endforeach
                 </div>

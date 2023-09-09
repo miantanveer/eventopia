@@ -10,7 +10,6 @@ use App\Models\Space;
 use App\Models\Service;
 use App\Models\Entertainment;
 use Illuminate\Support\Facades\Auth;
-
 class CartController extends UserBaseController
 {
     public function checkout()
@@ -50,7 +49,7 @@ class CartController extends UserBaseController
             if ($exists) {
                 return redirect()->back()->with('error', 'Item Already Exists in your Cart');
             } else {
-                cartStore($id, $type);
+                cartStore($id,$type);
                 return redirect()->back()->with('success', 'Item Added to Cart successfully');
             }
         } elseif ($type == 'space') {

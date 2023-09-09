@@ -89,33 +89,35 @@ class LandingPageController extends UserBaseController
                 $data->operatingDays()->delete(); // Assuming you have a relationship method named operatingDays
             }
 
-            if ($req->has('monday')) $this->operatingDay($req->id, $req->type, $req->monday, $req->monday_radio, $req->monday_start_time, $req->monday_end_time);
-            if ($req->has('tuesday')) $this->operatingDay($req->id, $req->type, $req->tuesday, $req->tuesday_radio, $req->tuesday_start_time, $req->tuesday_end_time);
-            if ($req->has('wednesday')) $this->operatingDay($req->id, $req->type, $req->wednesday, $req->wednesday_radio, $req->wednesday_start_time, $req->wednesday_end_time);
-            if ($req->has('thursday')) $this->operatingDay($req->id, $req->type, $req->thursday, $req->thursday_radio, $req->thursday_start_time, $req->thursday_end_time);
-            if ($req->has('friday')) $this->operatingDay($req->id, $req->type, $req->friday, $req->friday_radio, $req->friday_start_time, $req->friday_end_time);
-            if ($req->has('saturday')) $this->operatingDay($req->id, $req->type, $req->saturday, $req->saturday_radio, $req->saturday_start_time, $req->saturday_end_time);
-            if ($req->has('sunday')) $this->operatingDay($req->id, $req->type, $req->sunday, $req->sunday_radio, $req->sunday_start_time, $req->sunday_end_time);
+            $weekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+            $counts = [0, 1, 2, 3, 4];
+            foreach ($weekDay as $weekDay) {
+                if ($req->$weekDay == $weekDay) {
+                    $day = new OperatingDay();
+                    $type = $req->type . '_id';
+                    $day->$type = $data->id;
+                    $day->week_day = $weekDay;
+                    $day->save();
+                    $week_day = $weekDay . '_radio';
+                }
+                foreach ($counts as $count) {
+                    $start_time = $weekDay . '_start_time_' . $count;
+                    $end_time = $weekDay . '_end_time_' . $count;
+                    if ($req->$start_time && $req->$end_time !== null) {
+                        $hour = new OperatingHour();
+                        $hour->operating_day_id = $day->id;
+                        $hour->radio = $req->$week_day;
+                        $hour->start_time = $req->$start_time;
+                        $hour->end_time = $req->$end_time;
+                        $hour->save();
+                    }
+                }
+            }
 
             return redirect()->route('calendar')->with('success', 'Operating hours updated');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
-    }
-
-    public function operatingDay($id, $type, $week_day, $radio, $start, $end)
-    {
-        $day = new OperatingDay();
-        $property = $type . '_id';
-        $day->$property = $id;
-        $day->week_day = $week_day;
-        $day->save();
-        $hour = new OperatingHour();
-        $hour->operating_day_id = $day->id;
-        $hour->radio = $radio;
-        $hour->start_time = $start;
-        $hour->end_time = $end;
-        $hour->save();
     }
 
     public function addBlockTime(Request $req)

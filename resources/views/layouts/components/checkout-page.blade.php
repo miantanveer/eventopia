@@ -69,10 +69,8 @@
                                     --}}
                                             </div>
                                         </div>
-                                        <p class="card-text mt-3 mt-md-0">Amount :
-                                            {{ @$data->service->quote[0]->amount }}</p>
-                                        <p class="card-text"><small
-                                                class="text-muted">{{ lang('Service (Available for ' . @$data->service->quote[0]->guests . ') guests') }}</small>
+                                        <p class="card-text mt-3 mt-md-0">{{lang('Amount :')}} {{ @$data->service->quote[0]->amount }}</p>
+                                        <p class="card-text"><small class="text-muted">{{lang('Service (Available for' . @$data->service->quote[0]->guests .') guests')}}</small>
                                         </p>
                                         <div class="row">
                                             <div class="text-end">
@@ -122,16 +120,11 @@
                                                         title=""
                                                         data-bs-original-title="{{ @$data->entertainment->title }}"></i>
                                                 </a>
-                                                {{-- <i class="fa fa-heart-o ms-2" style="color: blue" data-bs-toggle="tooltip"
-                                        title="" data-bs-original-title="fa fa-heart-o" aria-label="fa fa-heart-o"></i>
-                                    --}}
                                             </div>
                                         </div>
-                                        <p class="card-text mt-3 mt-md-0">
-                                            {{ lang('Amount :') }}{{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}{{ lang('/hour') }}
-                                        </p>
-                                        <p class="card-text"><small
-                                                class="text-muted">{{ lang('Entertainment (Available :' . @$data->entertainment->entertainmentActivities[0]->max_hours . ')') }}</small>
+                                        <p class="card-text mt-3 mt-md-0">{{lang('Amount :')}}
+                                            {{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}{{lang('/hour')}}</p>
+                                        <p class="card-text"><small class="text-muted">{{lang('Entertainment (Available : '.@$data->entertainment->entertainmentActivities[0]->max_hours .')')}}</small>
                                         </p>
                                         <div class="row">
                                             <div class="text-end">
