@@ -223,7 +223,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mt-5 text-center">
+                        <div class="col-12 text-center">
                             <div class="mb-3">
                                 <a href="#" class="btn btn-primary text-white">{{lang('View Details')}}</a>
                             </div>
@@ -244,7 +244,27 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mt-5 text-center">
+                        <div class="col-12 text-center">
+                            <div class="mb-3">
+                                <a href="#" class="btn btn-primary text-white">{{lang('View Details')}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card bg-white img-card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="text-black">
+                                    <h3 class="mb-2 number-font">{{lang('Pending Booking Actions')}}</h3>
+                                    <p class="text-black mb-0">{{lang('Total: ')}}</p>
+                                </div>
+                                <div class="card-options">
+                                    <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center">
                             <div class="mb-3">
                                 <a href="#" class="btn btn-primary text-white">{{lang('View Details')}}</a>
                             </div>
