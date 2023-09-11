@@ -62,8 +62,8 @@ Route::get('reset-password', [AuthenticationController::class, 'resetPasswordInd
 Route::post('reset-password', [AuthenticationController::class, 'resetPassword']);
 Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
 
-  // Language Function
-  Route::get('language/{code}',[LanguageController::class, 'local'])->name('local');
+// Language Function
+Route::get('language/{code}', [LanguageController::class, 'local'])->name('local');
 
 //Logout
 Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
@@ -122,7 +122,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana
-    Route::get('seller-dashboard',[OrderController::class,'sellerDashboard'])->name('seller-dashboard');
+    Route::get('seller-dashboard', [OrderController::class, 'sellerDashboard'])->name('seller-dashboard');
 
     Route::get('address-step', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
     Route::post('add-address', [ListingSpaceController::class, 'addAddress'])->name('add-address');
