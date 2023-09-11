@@ -38,9 +38,12 @@
             <!--app-content open-->
             <div class="main-content app-content mt-0">
                 <div class="side-app">
-
+                    @php
+                        $currenturl = url()->current();
+                        $lastWord = strrchr($currenturl, '/');
+                    @endphp
                     <!-- container -->
-                    <div class="main-container container-fluid">
+                    <div class="@if($lastWord != '/spaces') main-container container-fluid @endif">
 
                         @yield('content')
 
