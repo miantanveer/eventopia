@@ -24,7 +24,6 @@ class LandingController extends UserBaseController
                 ->whereStatus('1')
                 ->whereLastStep('10')
                 ->where(function ($query) use ($req) {
-                    // Use a where function to group your orWhere conditions correctly
                     $query->orWhereHas('spaceType', function ($query) use ($req) {
                         $query->where('type', $req->planCatagories);
                     })
@@ -32,7 +31,6 @@ class LandingController extends UserBaseController
                             $query->where('title', $req->planCatagories);
                         })
                         ->orWhere(function ($query) use ($req) {
-                            // Use a nested orWhere for the spaceHaveActivities conditions
                             $query->whereHas('spaceHaveActivities', function ($query) use ($req) {
                                 $query->where('rate_per_hour', $req->price)
                                     ->orWhere('max_guests', $req->guests);
