@@ -71,6 +71,10 @@
         overflow: auto !important;
     }
 
+    .mainContent{
+        height: 54vh;
+    }
+
     .span-design {
         border: black solid 5px;
         border-radius: 50%;
@@ -299,7 +303,7 @@
 <!-- ROW-1 END -->
 
 <!-- ROW-2 -->
-<div class="bg-white">
+<div class="bg-white mainContent">
     <div class="bg-white p-4">
         <div class="row">
             <div class="col-6">
