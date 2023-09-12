@@ -80,49 +80,24 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                <h4><img src="{{ asset('assets/images/users/spaces/Group 8022.png') }}" alt="img">
-                                    <b>{{lang('Enhanced Health and Safety Measures')}}</b>
-                                </h4>
-                                <p>{{lang('Select at least 1 from each category below to earn the Enhanced Health and
-                                    Safety Measures badge. This badge will be displayed on your listings.')}}</p>
-                                <br>
-                                <hr class="style1"><br>
-
-                                <h3>{{lang('What additional measures are you taking to keep your space clean?')}}</h3>
-                                <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
-
-                                @php
-                                $selectedSafetyMeasureIds = []; // Initialize an array to store selected safety measure IDs
-
-                                // Assuming $selectedSafetyMeasures contains the list of selected safety measures for the space
-                                foreach ($space->spaceHaveMeasures as $selectedSafetyMeasure) {
-                                $selectedSafetyMeasureIds[] = $selectedSafetyMeasure->safety_measure_id;
-                                }
-                                @endphp
-
-                                @php
-                                $counter = 0; // Initialize the counter
-                                @endphp
-
-                                @for ($section = 1; $section <= 4; $section++) <div class="row">
-                                    <div style="color:#434343;" class="span12 pagination-centered">
-                                        @for ($i = 0; $i < ($section==1 || $section==3 ? 5 : 4); $i++) <div
-                                            class="checkbox">
-                                            <label>
-                                                <input name="safety_measure[]" required
-                                                    data-parsley-errors-container="#sf_error" class="safety_measure"
-                                                    type="checkbox" value="{{ $safety_measures[$counter]->id }}" {{
-                                                    in_array($safety_measures[$counter]->id, $selectedSafetyMeasureIds)
-                                                ? 'checked' : '' }}>
-                                                <span style="color:#434343"><b>{{
-                                                        lang($safety_measures[$counter]->safety_measure_options)
-                                                        }}</b></span>
-                                            </label>
+                            @endif
+                            <div id="step-6" class="">
+                                <form class="validation" method="POST"
+                                    action="{{ route('add-safety-measure', $space->id) }}">
+                                    @csrf
+                                    <div style="text-align:center;">
+                                        <h2>{{ lang('Step 6 of 9') }}</h2>
+                                        <h1><strong>{{ lang('Enhanced Health and Safety Measures') }}</strong></h1>
+                                        <p>{{ lang('Fill out the form to add your cleaning protocol and additional health and
+                                                                                safety
+                                                                                measures to your listing page.') }}
+                                        </p>
                                     </div>
                                     <h4><img src="{{ asset('assets/images/users/spaces/Group 8022.png') }}" alt="img">
                                         <b>{{ lang('Enhanced Health and Safety Measures') }}</b>
                                     </h4>
-                                    <p>{{ lang('Select at least 1 from each category below to earn the Enhanced Health and Safety Measures badge. This badge will be displayed on your listings.') }}
+                                    <p>{{ lang('Select at least 1 from each category below to earn the Enhanced Health and
+                                                                        Safety Measures badge. This badge will be displayed on your listings.') }}
                                     </p>
                                     <br>
                                     <hr class="style1"><br>
@@ -168,16 +143,16 @@
                                         @if ($section == 1)
                                             <h3 class=" mt-4">
                                                 {{ lang('What additional protective gear do you provide to your
-                                                                                                                                                                                                                                                                                                                                                                        guests?') }}
+                                                                        guests?') }}
                                             </h3>
                                             <p style="color:#858585;"><strong>{{ lang('Select all that apply') }}</strong>
                                             </p>
                                         @elseif ($section == 2)
                                             <h3 class=" mt-4">
                                                 {{ lang('What have you done to help guests maintain physical distance
-                                                                                                                                                                                                                                                                                                                                                                        in
-                                                                                                                                                                                                                                                                                                                                                                        your
-                                                                                                                                                                                                                                                                                                                                                                        space?') }}
+                                                                        in
+                                                                        your
+                                                                        space?') }}
                                             </h3>
                                             <p style="color:#858585;"><strong>{{ lang('Select all that apply') }}</strong>
                                             </p>

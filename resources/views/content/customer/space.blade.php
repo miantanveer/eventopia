@@ -373,7 +373,7 @@
                         </div>
                         <div class="card-body pt-0">
                             <div class="row">
-                                {{-- @foreach($space as $value)
+                                @foreach($space as $value)
                                 <div class="col-xl-4 col-md-6 col-sm-12">
                                     <div class="card overflow-hidden">
                                         <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
@@ -402,8 +402,8 @@
                                         </a>
                                     </div>
                                 </div>
-                                @endforeach --}}
-                                <div class="col-xl-4 col-md-6 col-sm-12">
+                                @endforeach
+                                {{-- <div class="col-xl-4 col-md-6 col-sm-12">
                                     <div class="card overflow-hidden">
                                         <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
                                             <div class="me-2 card-background">
@@ -548,9 +548,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>--}}
         <div class="col-lg-4 col-12 mt-5 mt-lg-0 p-0" id="map">
-            <div class="container-fluid">
+            {{-- <div class="container-fluid">
                 <div class="card custom-card">
                     <div class="map_height overflow-auto" id="mapContainer">
                         <iframe class="gmap_iframe" frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0"
@@ -559,7 +559,7 @@
                         </iframe>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <div class="row">
@@ -590,7 +590,7 @@
                         </li>
                     </ul>
                 </nav>
-            </div>
+            </div> 
         </div>
         <div class="col-4">
             <p class="text-center">Showing 1-24 of 4338</p>
