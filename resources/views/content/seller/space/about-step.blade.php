@@ -129,8 +129,7 @@
                                                 email, or links to your website.")}}</p>
                                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                             <textarea style="height:150px;" class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3"
-                                                placeholder="{{lang('Add description')}}" required data-parsley-minlength="100" name="space_description">{{ lang(@$space->space_description ?? '') }}</textarea>
-                                            <p class="text-end">{{lang("Minimum 100 characters")}}</p>
+                                                placeholder="{{lang('Add description')}}" required name="space_description">{{ lang(@$space->space_description ?? '') }}</textarea>
                                             <br>
                                             <hr class="style1"><br>
                                             <h1>{{lang("How big is the space guests can book?")}}</h1>
@@ -143,7 +142,7 @@
                                                     a 500 m ft conference room, you would enter “500”.")}}</b></p>
 
                                             <div class="btn-group">
-                                                <input type="number" class="btn btn-outline-default rounded-0"
+                                                <input type="number" class="btn btn-outline-default rounded-0" min="1" step="1"
                                                     name="space_size" required data-parsley-errors-container="#sq_error" value="{{ @$space->space_size ?? '' }}">
                                                 <button type="button" class="btn btn-outline-default rounded-0">{{lang("sq
                                                     m")}}</button>
@@ -176,9 +175,8 @@
                                                     liability policy.")}}</li>
                                             </ul>
                                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                            <textarea style="height:150px;" required data-parsley-minlength="100" name="space_rules" class="form-control rounded-0" id="exampleFormControlTextarea1"
+                                            <textarea style="height:150px;" required name="space_rules" class="form-control rounded-0" id="exampleFormControlTextarea1"
                                                 rows="3">{{ lang(@$space->space_rules ?? '') }}</textarea>
-                                            <p class="text-end">{{lang("Minimum 100 characters")}}</h4>
                                                 <br>
                                                 <hr class="style1"><br>
                                             <h1>{{lang("Who's allowed in your space?")}}</h1>
@@ -188,6 +186,9 @@
                                                 <select class="form-control" required name="allowed_age" id="sel1">
                                                     <option value="all"
                                                         {{ lang(@$space->allowed_age == 'all' ? 'selected' : '') }}>{{lang("All ages")}}
+                                                    </option>
+                                                    <option value="10"
+                                                        {{ lang(@$space->allowed_age == '0-10' ? 'selected' : '') }}>{{lang("Age ")}} 0 - 10
                                                     </option>
                                                     <option value="10"
                                                         {{ lang(@$space->allowed_age == '10' ? 'selected' : '') }}>{{lang("Age ")}} 10+
@@ -229,9 +230,8 @@
                                                 stairs/elevator
                                                 access etc.")}}</p><br>
                                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                            <textarea name="arrival_instruction" required data-parsley-minlength="100" style="height:150px;" class="form-control rounded-0"
+                                            <textarea name="arrival_instruction" required style="height:150px;" class="form-control rounded-0 mb-3"
                                                 id="exampleFormControlTextarea1" rows="3">{{ @$space->arrival_instruction ?? '' }}</textarea>
-                                            <p class="text-end">{{lang("Minimum 100 characters")}}</p>
                                             <p> <img src="{{ asset('assets/images/users/spaces/lock.png') }}"
                                                     alt="img"><b>
                                                    {{lang(" Don't worry, we'll only share this with guests after you have accepted

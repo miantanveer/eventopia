@@ -6,6 +6,10 @@
         z-index: 9999;
     }
 
+    img{
+        width: 100% !important;
+    }
+
     .pagination {
         justify-content: end;
         margin-right: 13px;
@@ -33,10 +37,25 @@
                     <div class="col-6 ps-0">
                         <h3 class="number-font mb-0">{{lang('Listings')}}</h3>
                     </div>
-                    <div class="col-6 pe-0">
+                    <div class="col-2">
+
+                    </div>
+                    <div class="col-1 pe-0">
                         <div class="text-end">
                             <a type="button" class="btn btn-primary" href="{{ route('list-space') }}">{{lang('Add a
                                 space')}}</a>
+                        </div>
+                    </div>
+                    <div class="col-2 pe-0">
+                        <div class="text-end me-3">
+                            <a type="button" class="btn btn-primary" href="{{ route('list-entertainment') }}">{{lang('Add a
+                                Entertainment')}}</a>
+                        </div>
+                    </div>
+                    <div class="col-1 pe-0">
+                        <div class="text-start">
+                            <a type="button" class="btn btn-primary" href="{{ route('list-service') }}">{{lang('Add a
+                                Service')}}</a>
                         </div>
                     </div>
                 </div>

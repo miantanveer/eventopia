@@ -144,7 +144,7 @@
                                                                     <div class="form-group mb-6">
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
-                                                                                placeholder="80"
+                                                                                placeholder="80" min="1" step="1"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $space_activity->id }}][rate_per_hour][]">
@@ -157,7 +157,7 @@
                                                                     <div class="form-group mb-4">
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
-                                                                                placeholder="5"
+                                                                                placeholder="5" min="1" step="1"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $space_activity->id }}][minimum_hour][]">
@@ -175,7 +175,7 @@
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
                                                                                 placeholder="{{lang('Optional')}}"
-                                                                                aria-label="Recipient's username"
+                                                                                aria-label="Recipient's username" min="1" step="1"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $space_activity->id }}][discount][]">
                                                                             <span class="input-group-text"
@@ -224,7 +224,7 @@
                                                                     <div class="form-group mb-3">
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
-                                                                                placeholder="250"
+                                                                                placeholder="250" min="1" step="1"
                                                                                 aria-label="Recipient's username"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $space_activity->id }}][max_guests][]">

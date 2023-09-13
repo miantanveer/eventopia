@@ -115,10 +115,8 @@
                                                     liability policy.')}}</li>
                                             </ul>
                                             <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                            <textarea style="height:150px;" class="form-control rounded-0" required name="house_rules"
-                                                data-parsley-required-message="{{lang('Please Enter house rules')}}" data-parsley-minlength="100" id="exampleFormControlTextarea1" rows="3"
-                                                placeholder="{{lang('Enter your house rules')}}">{{ @$entertainment->house_rules }}</textarea>
-                                            <p class="text-end">{{lang('Minimum 100 characters')}}</h4>
+                                            <textarea style="height:150px;" class="form-control rounded-0" required name="house_rules" id="exampleFormControlTextarea1" rows="3"
+                                                placeholder="{{lang('Enter your entertainment rules')}}">{{ @$entertainment->house_rules }}</textarea>
                                                 <br>
                                                 <hr class="bg-dark"><br>
                                             <h3 class="mb-2"><b>{{lang('Security cameras and recording devices')}}</b></h3>
@@ -138,8 +136,7 @@
                                                     images.
                                                     Specify where each device is in your event and if they’ll be on or off.')}}
                                                 </p>
-                                                <textarea cols="30" name="recordings" rows="5" class="w-100 p-5 form-control" placeholder="{{lang('Add description')}}">{{ @$entertainment->recordings }}</textarea>
-                                                <p class="text-end">{{lang('Minimum 50 characters')}}</p>
+                                                <textarea cols="30" name="recordings" rows="5" class="w-100 p-5 form-control" required placeholder="{{lang('Add description')}}">{{ @$entertainment->recordings }}</textarea>
                                             </div>
                                         </div>
                                         <hr class="bg-dark border-3">
