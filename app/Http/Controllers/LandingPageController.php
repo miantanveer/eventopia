@@ -65,7 +65,7 @@ class LandingPageController extends UserBaseController
             }
             return response()->json($operatingHoursData);
         } else {
-            return response()->json([], 404); // Return empty data or custom response code for invalid type
+            return response()->json([], 404); 
         }
     }
 
@@ -86,7 +86,7 @@ class LandingPageController extends UserBaseController
             }
 
             if ($data) {
-                $data->operatingDays()->delete(); // Assuming you have a relationship method named operatingDays
+                $data->operatingDays()->delete(); 
             }
 
             $weekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];

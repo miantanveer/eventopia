@@ -53,13 +53,13 @@
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">{{lang('Planning')}}</h3>
-                                    <textarea name="planning" cols="30" required data-parsley-required-message="{{lang('Planning is required')}}" rows="5" class="w-100 form-control"
+                                    <textarea name="planning" cols="30" required rows="5" class="w-100 form-control"
                                         placeholder="{{lang('e.g. Budgeting, Destination, Wedding Design')}}">{{@$service->planing}}</textarea>
                                 </div>
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">{{lang('Wedding Activities')}}</h3>
-                                    <textarea name="activities" required data-parsley-required-message="{{lang('Wedding Activities is required')}}" cols="30" rows="5" class="w-100 form-control"
+                                    <textarea name="activities" required cols="30" rows="5" class="w-100 form-control"
                                         placeholder="{{lang('e.g. Engagement Party, Honeymoon, Rehearsals & Parties')}}">{{@$service->activities}}</textarea>
                                 </div>
                                 <br>

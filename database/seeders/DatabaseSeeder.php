@@ -35,6 +35,22 @@ class DatabaseSeeder extends Seeder
             EntSubActivitySeeder::class,
             EntHavingAmenitiesSeeder::class,
             LanguageSeeder::class,
+            SpaceSeeder::class,
+            SpaceImagesSeeder::class,
+            SpaceHavingActivitiesSeeder::class,
+            SpaceHaveCompanyPoliciesSeeder::class,
+            SpaceActivityAmenitySeeder::class,
+            SpaceHavingMeasuresSeeder::class,
+            SpaceHavingParkingOptionsSeeder::class,
+            EntertainmentSeeder::class,
+            EntertainmentActivitySeeder::class,
+            EntertainmentImagesSeeder::class,
+            EntActivityAmenitySeeder::class,
+            ServiceSeeder::class,
+            ServiceImagesSeeder::class,
+            ServiceTeamsSeeder::class,
+            OperatingDaysSeeder::class,
+            OperatingHoursSeeder::class,
         ]);
     }
 }

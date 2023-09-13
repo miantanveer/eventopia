@@ -38,7 +38,6 @@
 
     #step-1 {
         display: flex;
-
     }
 
     .parsley-minlength {
@@ -48,7 +47,6 @@
     }
 </style>
 @endsection
-
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -69,7 +67,6 @@
                         <li><a href="#step-8">Listing</a></li>
                         <li><a href="#step-9">Profile</a></li>
                         <li><a href="#step-10">Review Policies</a></li>
-
                     </ul> --}}
                     <div>
                         @if ($errors->any())
@@ -99,23 +96,18 @@
                                     Safety Measures badge. This badge will be displayed on your listings.')}}</p>
                                 <br>
                                 <hr class="style1"><br>
-
                                 <h3>{{lang('What additional measures are you taking to keep your space clean?')}}</h3>
                                 <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
-
                                 @php
-                                $selectedSafetyMeasureIds = []; // Initialize an array to store selected safety measure IDs
+                                $selectedSafetyMeasureIds = [];
 
-                                // Assuming $selectedSafetyMeasures contains the list of selected safety measures for the space
                                 foreach ($space->spaceHaveMeasures as $selectedSafetyMeasure) {
                                 $selectedSafetyMeasureIds[] = $selectedSafetyMeasure->safety_measure_id;
                                 }
                                 @endphp
-
                                 @php
                                 $counter = 0; // Initialize the counter
                                 @endphp
-
                                 @for ($section = 1; $section <= 4; $section++) <div class="row">
                                     <div style="color:#434343;" class="span12 pagination-centered">
                                         @for ($i = 0; $i < ($section==1 || $section==3 ? 5 : 4); $i++) <div
@@ -137,7 +129,6 @@
                                     @endfor
                         </div>
                     </div>
-
                     @if ($section == 1)
                     <h3 class=" mt-4">{{lang('What additional protective gear do you provide to your
                         guests?')}}
@@ -156,14 +147,11 @@
                     @endif
                     @endfor
                     <div id="sf_error"></div>
-
-
                     <h4 class="mt-5">{{lang('Tell your guests more about your cleaning process')}}</h4>
                     <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                    <textarea style="height:150px;" required data-parsley-minlength="50" name="cleaning_process"
+                    <textarea style="height:150px;" required name="cleaning_process"
                         class="form-control rounded-0" id=""
                         rows="3">{{ lang(@$space->cleaning_process) ?? '' }}</textarea>
-                    <p class="text-end">{{lang('Minimum 50 characters')}}</p>
                     <input type="hidden" name="last_step" value="6">
                     <hr class="border-3 bg-dark">
                     <div class="float-end">
@@ -177,11 +165,9 @@
         </div>
     </div>
 </div>
-
 </div>
 </div>
 @endsection
-
 @section('scripts')
 <!-- INTERNAL File-Uploads Js-->
 <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>

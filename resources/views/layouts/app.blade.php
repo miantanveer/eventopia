@@ -68,7 +68,7 @@
 
     @include('layouts.components.scripts')
     @include('layouts.components.notification-scripts')
-    
+
 </body>
 
 </html>

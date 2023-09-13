@@ -1,219 +1,239 @@
 @extends('layouts.landing-page-layout')
 @section('styles')
-    <style>
-        .calendarAndTimePicker {
-            border-bottom-left-radius: 13px !important;
-            border-bottom-right-radius: 13px !important;
-            margin: 0px !important;
-        }
+<style>
+    .calendarAndTimePicker {
+        border-bottom-left-radius: 13px !important;
+        border-bottom-right-radius: 13px !important;
+        margin: 0px !important;
+    }
 
-        .calendarAndTimePicker-1 {
-            border-bottom-left-radius: 13px !important;
-            border-bottom-right-radius: 13px !important;
-            margin: 0px !important;
-            position: relative;
-            z-index: 9999;
-        }
+    .calendarAndTimePicker-1 {
+        border-bottom-left-radius: 13px !important;
+        border-bottom-right-radius: 13px !important;
+        margin: 0px !important;
+        position: relative;
+        z-index: 9999;
+    }
 
-        .calendarAndTimePicker-2 {
-            border-bottom-left-radius: 13px !important;
-            border-bottom-right-radius: 13px !important;
-            margin: 0px !important;
-            position: relative;
-            z-index: 9999;
-        }
+    .calendarAndTimePicker-2 {
+        border-bottom-left-radius: 13px !important;
+        border-bottom-right-radius: 13px !important;
+        margin: 0px !important;
+        position: relative;
+        z-index: 9999;
+    }
 
-        .calendar-container-1 {
-            padding: 40px 50px 0 50px;
-            background-color: white !important;
-            font: 13px Helvetica, Arial, san-serif;
-            border-bottom-left-radius: 13px !important;
-        }
+    .calendar-container-1 {
+        padding: 40px 50px 0 50px;
+        background-color: white !important;
+        font: 13px Helvetica, Arial, san-serif;
+        border-bottom-left-radius: 13px !important;
+    }
 
-        .calendar {
-            display: inline;
-        }
+    .calendar {
+        display: inline;
+    }
 
-        .year-header {
-            background: #f5f6fa;
-            font-family: Helvetica;
-            height: 40px;
-            text-align: center;
-            position: relative;
-            color: black;
-            border-top-left-radius: 3px;
-        }
+    .year-header {
+        background: #f5f6fa;
+        font-family: Helvetica;
+        height: 40px;
+        text-align: center;
+        position: relative;
+        color: black;
+        border-top-left-radius: 3px;
+    }
 
-        .year-header span {
-            display: inline-block;
-            font-size: 20px;
-            line-height: 40px;
-        }
+    .year-header span {
+        display: inline-block;
+        font-size: 20px;
+        line-height: 40px;
+    }
 
-        .left-button,
-        .right-button {
-            cursor: pointer;
-            width: 28px;
-            text-align: center;
-            position: absolute;
-        }
+    .left-button,
+    .right-button {
+        cursor: pointer;
+        width: 28px;
+        text-align: center;
+        position: absolute;
+    }
 
-        .left-button {
-            left: 0;
-            -webkit-border-top-left-radius: 5px;
-            -moz-border-radius-topleft: 5px;
-            border-top-left-radius: 5px;
-        }
+    .left-button {
+        left: 0;
+        -webkit-border-top-left-radius: 5px;
+        -moz-border-radius-topleft: 5px;
+        border-top-left-radius: 5px;
+    }
 
-        .right-button {
-            right: 0;
-            top: 0;
-            -webkit-border-top-right-radius: 5px;
-            -moz-border-radius-topright: 5px;
-            border-top-right-radius: 5px;
-        }
+    .right-button {
+        right: 0;
+        top: 0;
+        -webkit-border-top-right-radius: 5px;
+        -moz-border-radius-topright: 5px;
+        border-top-right-radius: 5px;
+    }
 
-        .left-button {
-            background: black !important;
-            color: white !important;
-        }
+    .left-button {
+        background: black !important;
+        color: white !important;
+    }
 
-        .right-button {
-            background: black !important;
-            color: white !important;
-        }
+    .right-button {
+        background: black !important;
+        color: white !important;
+    }
 
-        .clear_button {
-            cursor: pointer;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            outline: none;
-            font-size: 1rem;
-            border-radius: 25px;
-            padding: 0.65rem 1.9rem;
-            transition: 0.2s ease all;
-            color: black !important;
-            border: none;
-            box-shadow: 0 5px 8px rgb(149, 149, 149);
-        }
+    .clear_button-1 {
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none;
+        font-size: 1rem;
+        border-radius: 25px;
+        padding: 0.65rem 1.9rem;
+        transition: 0.2s ease all;
+        color: black !important;
+        border: none;
+        box-shadow: 0 5px 8px rgb(149, 149, 149);
+    }
 
-        .clear_button:active {
-            transform: translateY(3px) scale(0.97);
-            box-shadow: 0 4px 8px rgb(191, 191, 191);
-        }
+    .clear_button-1:active {
+        transform: translateY(3px) scale(0.97);
+        box-shadow: 0 4px 8px rgb(191, 191, 191);
+    }
 
-        .days-table {
-            border-collapse: separate;
-            text-align: center;
-            width: 100%;
-        }
+    .clear_button-2 {
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        outline: none;
+        font-size: 1rem;
+        border-radius: 25px;
+        padding: 0.65rem 1.9rem;
+        transition: 0.2s ease all;
+        color: black !important;
+        border: none;
+        box-shadow: 0 5px 8px rgb(149, 149, 149);
+    }
 
-        .dates-table {
-            border-collapse: separate;
-            text-align: center;
-            width: 100% !important;
-        }
+    .clear_button-2:active {
+        transform: translateY(3px) scale(0.97);
+        box-shadow: 0 4px 8px rgb(191, 191, 191);
+    }
 
-        .months-table {
-            border-collapse: separate;
-            text-align: center;
-            width: 100%;
-        }
+    .days-table {
+        border-collapse: separate;
+        text-align: center;
+        width: 100%;
+    }
 
-        .day {
-            height: 26px;
-            width: 26px;
-            padding: 0 10px;
-            line-height: 26px;
-            border: 2px solid transparent;
-            text-transform: uppercase;
-            font-size: 100%;
-            color: black !important;
-            font-weight: 700;
-        }
+    .dates-table {
+        border-collapse: separate;
+        text-align: center;
+        width: 100% !important;
+    }
 
-        .month {
-            cursor: default;
-            height: 26px;
-            width: 26px;
-            padding: 0 2px;
-            padding-top: 10px;
-            line-height: 26px;
-            text-transform: uppercase;
-            font-size: 11px;
-            color: #9e9e9e;
-            transition: all 250ms;
-        }
+    .months-table {
+        border-collapse: separate;
+        text-align: center;
+        width: 100%;
+    }
 
-        .month-1 {
-            cursor: default;
-            height: 26px;
-            width: 26px;
-            padding: 0 2px;
-            padding-top: 10px;
-            line-height: 26px;
-            text-transform: uppercase;
-            font-size: 11px;
-            color: #9e9e9e;
-            transition: all 250ms;
-        }
+    .day {
+        height: 26px;
+        width: 26px;
+        padding: 0 10px;
+        line-height: 26px;
+        border: 2px solid transparent;
+        text-transform: uppercase;
+        font-size: 100%;
+        color: black !important;
+        font-weight: 700;
+    }
 
-        .active-month {
-            font-weight: bold;
-            font-size: 14px;
-            color: black;
-        }
+    .month {
+        cursor: default;
+        height: 26px;
+        width: 26px;
+        padding: 0 2px;
+        padding-top: 10px;
+        line-height: 26px;
+        text-transform: uppercase;
+        font-size: 11px;
+        color: #9e9e9e;
+        transition: all 250ms;
+    }
 
-        .month:hover {
-            color: bla;
-        }
+    .month-1 {
+        cursor: default;
+        height: 26px;
+        width: 26px;
+        padding: 0 2px;
+        padding-top: 10px;
+        line-height: 26px;
+        text-transform: uppercase;
+        font-size: 11px;
+        color: #9e9e9e;
+        transition: all 250ms;
+    }
 
-        .table-date {
-            cursor: default;
-            color: #2b2b2b;
-            height: 26px;
-            width: 26px;
-            font-size: 15px;
-            padding: 10px;
-            line-height: 35px;
-            text-align: center;
-            border-radius: 100%;
-            border: 2px solid transparent;
-            transition: all 250ms;
-        }
+    .active-month {
+        font-weight: bold;
+        font-size: 14px;
+        color: black;
+    }
 
-        .table-date:not(.nil):hover {
-            border-color: white;
-            box-shadow: 0 2px 6px rgb(158, 158, 158);
-        }
+    .month:hover {
+        color: bla;
+    }
 
-        .active-date {
-            background: black !important;
-            color: white !important;
-            box-shadow: 0 0px 5px rgb(158, 158, 158);
-        }
+    .table-date {
+        cursor: default;
+        color: #2b2b2b;
+        height: 26px;
+        width: 26px;
+        font-size: 15px;
+        padding: 10px;
+        line-height: 35px;
+        text-align: center;
+        border-radius: 100%;
+        border: 2px solid transparent;
+        transition: all 250ms;
+    }
 
-        .dialog {
-            background: #fff;
-            border-bottom-right-radius: 13px !important;
-        }
+    .table-date:not(.nil):hover {
+        border-color: white;
+        box-shadow: 0 2px 6px rgb(158, 158, 158);
+    }
 
-        .dialog-header {
-            margin: 20px;
-            color: #333;
-            text-align: center;
-        }
+    .active-date {
+        background: black !important;
+        color: white !important;
+        box-shadow: 0 0px 5px rgb(158, 158, 158);
+    }
 
-        .startTime_label {
-            color: #9fa7af;
-        }
+    .dialog {
+        background: #fff;
+        border-bottom-right-radius: 13px !important;
+    }
 
-        .endTime_label {
-            color: #9fa7af;
-        }
+    .dialog-header {
+        margin: 20px;
+        color: #333;
+        text-align: center;
+    }
 
-        /* @media only screen and (max-width: 780px) {
+    .startTime_label {
+        color: #9fa7af;
+    }
+
+    .endTime_label {
+        color: #9fa7af;
+    }
+
+    /* @media only screen and (max-width: 780px) {
             .dialog {
                 width: 370px;
                 height: 450px;
@@ -381,732 +401,518 @@
                 line-height: 20px;
             }
         } */
-    </style>
-    <style>
-        .search-container {
-            position: relative;
-        }
+</style>
+<style>
+    .search-container {
+        position: relative;
+    }
 
-        .search-content {
-            background-color: white !important;
-            color: black;
-        }
+    .search-content {
+        background-color: white !important;
+        color: black;
+    }
 
-        #form-border.FormBorder.data-appended {
-            border-bottom-left-radius: 0px !important;
-            border-bottom-right-radius: 0px !important;
-        }
+    #form-border.FormBorder.data-appended {
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
 
-        #form-border.FormBorder:not(.data-appended) {
-            border-bottom-left-radius: 13px;
-            border-bottom-right-radius: 13px;
-        }
+    #form-border.FormBorder:not(.data-appended) {
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 13px;
+    }
 
-        #form-border-1.FormBorder-1.data-appended {
-            border-bottom-left-radius: 0px !important;
-            border-bottom-right-radius: 0px !important;
-        }
+    #form-border-1.FormBorder-1.data-appended {
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
 
-        #form-border-1.FormBorder-1:not(.data-appended) {
-            border-bottom-left-radius: 13px;
-            border-bottom-right-radius: 13px;
-        }
+    #form-border-1.FormBorder-1:not(.data-appended) {
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 13px;
+    }
 
-        #form-border-2.FormBorder-2.data-appended {
-            border-bottom-left-radius: 0px !important;
-            border-bottom-right-radius: 0px !important;
-        }
+    #form-border-2.FormBorder-2.data-appended {
+        border-bottom-left-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+    }
 
-        #form-border-2.FormBorder-2:not(.data-appended) {
-            border-bottom-left-radius: 13px;
-            border-bottom-right-radius: 13px;
-        }
+    #form-border-2.FormBorder-2:not(.data-appended) {
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 13px;
+    }
 
-        .form-border {
-            background: white;
-            border-radius: 13px;
-        }
+    .form-border {
+        background: white;
+        border-radius: 13px;
+    }
 
-        .form-blur-border {
-            position: relative;
-            z-index: 9999;
-        }
+    .form-blur-border {
+        position: relative;
+        z-index: 9999;
+    }
 
-        .search-input {
-            border: none;
-            outline: none;
-            padding: 10px;
-            width: 100%;
-            font-size: 16px;
-        }
+    .search-input {
+        border: none;
+        outline: none;
+        padding: 10px;
+        width: 100%;
+        font-size: 16px;
+    }
 
-        .search-drop-content {
-            cursor: pointer;
-            padding: 8px;
-        }
+    .search-drop-content {
+        cursor: pointer;
+        padding: 8px;
+    }
 
-        .search-drop-popUp {
-            padding: 8px;
-        }
+    .search-drop-popUp {
+        padding: 8px;
+    }
 
-        .search-drop-popUp p {
-            margin: 0px !important;
-        }
+    .search-drop-popUp p {
+        margin: 0px !important;
+    }
 
-        .AdressDrop {
-            border-bottom-left-radius: 13px;
-            border-bottom-right-radius: 13px;
-        }
+    .AdressDrop {
+        border-bottom-left-radius: 13px;
+        border-bottom-right-radius: 13px;
+    }
 
-        .drop-address-result {
-            cursor: pointer;
-        }
+    .drop-address-result {
+        cursor: pointer;
+    }
 
-        element.style {
-            width: 50% !important;
-            float: right;
-            top: 40px !important;
-            left: 400px;
-            position: absolute;
-        }
+    element.style {
+        width: 50% !important;
+        float: right;
+        top: 40px !important;
+        left: 400px;
+        position: absolute;
+    }
 
-        .calendar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 503px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    .calendar-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 503px;
+        margin: 0 auto;
+        padding: 20px;
+    }
 
-        .calendar {
-            width: 50%;
-        }
+    .calendar {
+        width: 50%;
+    }
 
-        .time-selector {
-            width: 50%;
-        }
+    .time-selector {
+        width: 50%;
+    }
 
-        .time-selector label {
-            display: block;
-            margin-bottom: 5px;
-        }
+    .time-selector label {
+        display: block;
+        margin-bottom: 5px;
+    }
 
-        .time-selector input {
-            width: 100%;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
+    .time-selector input {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
 
-        .Select_Time {
-            background-color: transparent !important;
-        }
+    .Select_Time {
+        background-color: transparent !important;
+    }
 
-        .calendar-timer {
-            position: absolute;
-            z-index: 1;
-            width: 100%;
-            right: 100px;
-            top: 120px;
-        }
-    </style>
+    .calendar-timer {
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        right: 100px;
+        top: 120px;
+    }
+</style>
 @endsection
 
 @section('content')
-    <!-- page -->
-    <div class="page">
-        <div class="page-main">
-            <div class="content">
-                @include('layouts.components.landing-page-header')
-                <div class="inline-form container my-7 my-sm-3 ps-0 pe-5">
-                    <h1 class="h1 text-white font-size-h1 fw-bold ms-5">{{lang('Book a special space for your event')}}</h1>
-                    <div class="position-relative">
-                        <form action="{{ route('space_search_results') }}" method="get" class="ms-5 form-blur-border">
-                            <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing FormBorder"
-                                id="form-border">
-                                <input type="hidden" name="space_search_url" id="space_search_url" value="{{route('space_landing_index')}}">
-                                <div class="col-sm-4 px-0 border-end border-end0">
-                                    <label class="mb-0 label-none my-font-size"><b>{{lang('What have you got planned?')}}</b></label>
-                                    <div class="search-container">
-                                        <input type="text" name="planCatagories" id="planCatagories" class="form-control px-0"
-                                            placeholder="{{lang('Select your plan')}}">
-                                    </div>
+<!-- page -->
+<div class="page">
+    <div class="page-main">
+        <div class="content">
+            @include('layouts.components.landing-page-header')
+            <div class="inline-form container my-7 my-sm-3 ps-0 pe-5">
+                <h1 class="h1 text-white font-size-h1 fw-bold ms-5">{{lang('Book a special space for your event')}}</h1>
+                <div class="position-relative">
+                    <form action="{{ route('space_search_results') }}" method="get" class="ms-5 form-blur-border">
+                        <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing FormBorder"
+                            id="form-border">
+                            <input type="hidden" name="space_search_url" id="space_search_url"
+                                value="{{route('space_landing_index')}}">
+                            <div class="col-sm-4 px-0 border-end border-end0">
+                                <label class="mb-0 label-none my-font-size"><b>{{lang('What have you got
+                                        planned?')}}</b></label>
+                                <div class="search-container">
+                                    <input type="text" name="planCatagories" id="planCatagories"
+                                        class="form-control px-0" placeholder="{{lang('Select your plan')}}">
                                 </div>
+                            </div>
 
-                                <div class="col-sm-4 border-end border-end0 px-0 px-sm-3 my-3 my-sm-0">
-                                    <label class="mb-0 label-none font-size"><b>{{lang('Where?')}}</b></label>
-                                    <input type="text" class="form-control px-0" name="location" id="location"
-                                        placeholder="{{lang('Enter your Location')}}">
-                                </div>
-                                <div class="col-sm-3 border-end-0 pe-0 px-0 px-sm-3 mb-3 mb-sm-0">
-                                    <label class="mb-0 label-none font-size"><b>{{lang('When?')}}</b></label>
-                                    <input type="text" class="form-control input py-2 px-0" id="selectedDate"
-                                        placeholder="{{lang('Anytime')}}">
-                                </div>
-                                <div class="col-sm-1 text-end px-0 my-auto">
-                                    <button type="submit"
-                                        class="btn btn-color rounded text-end button ms-auto d-none d-sm-block"><i
-                                            class="fa fa-search text-white"></i></button>
-                                    <button type="submit"
-                                        class="btn btn-primary btn-search mx-0 px-0 text-center d-sm-none d-block">{{lang('Search')}}</button>
-                                </div>
+                            <div class="col-sm-4 border-end border-end0 px-0 px-sm-3 my-3 my-sm-0">
+                                <label class="mb-0 label-none font-size"><b>{{lang('Where?')}}</b></label>
+                                <input type="text" class="form-control px-0" name="location" id="location"
+                                    placeholder="{{lang('Enter your Location')}}">
                             </div>
-                            <input type="hidden" name="hidden" id="hiddenDate">
-                            <div id="searchResults" class="w-100 search-content"></div>
-                            <div id="addressDropdown" class="bg-white AdressDrop"></div>
-                            <div class="row w-100 bg-white calendarAndTimePicker" id="calendarAndTimePicker">
-                                <div class="col-6 calendar-container-1">
-                                    <div class="calendar">
-                                        <div class="year-header">
-                                            <span class="left-button" id="prev"> <i
-                                                    class="fa fa-angle-double-left"></i>
-                                            </span>
-                                            <span class="year" id="label"> </span>
-                                            <span class="right-button" id="next"> <i
-                                                    class="fa fa-angle-double-right"></i>
-                                            </span>
-                                        </div>
-                                        <table class="months-table">
-                                            <tbody>
-                                                <tr class="months-row">
-                                                    <td class="month">{{lang('Jan')}}</td>
-                                                    <td class="month">{{lang('Feb')}}</td>
-                                                    <td class="month">{{lang('Mar')}}</td>
-                                                    <td class="month">{{lang('Apr')}}</td>
-                                                    <td class="month">{{lang('May')}}</td>
-                                                    <td class="month">{{lang('June')}}</td>
-                                                    <td class="month">{{lang('July')}}</td>
-                                                    <td class="month">{{lang('Aug')}}</td>
-                                                    <td class="month">{{lang('Sep')}}</td>
-                                                    <td class="month">{{lang('Oct')}}</td>
-                                                    <td class="month">{{lang('Nov')}}</td>
-                                                    <td class="month">{{lang('Dec')}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <table class="days-table">
-                                            <td class="day">{{lang('Sun')}}</td>
-                                            <td class="day">{{lang('Mon')}}</td>
-                                            <td class="day">{{lang('Tue')}}</td>
-                                            <td class="day">{{lang('Wed')}}</td>
-                                            <td class="day">{{lang('Thu')}}</td>
-                                            <td class="day">{{lang('Fri')}}</td>
-                                            <td class="day">{{lang('Sat')}}</td>
-                                        </table>
-                                        <div class="frame">
-                                            <table class="dates-table">
-                                                <tbody class="tbody-tb"></tbody>
-                                            </table>
-                                        </div>
+                            <div class="col-sm-3 border-end-0 pe-0 px-0 px-sm-3 mb-3 mb-sm-0">
+                                <label class="mb-0 label-none font-size"><b>{{lang('When?')}}</b></label>
+                                <input type="text" class="form-control input py-2 px-0" id="selectedDate"
+                                    placeholder="{{lang('Anytime')}}">
+                            </div>
+                            <div class="col-sm-1 text-end px-0 my-auto">
+                                <button type="submit"
+                                    class="btn btn-color rounded text-end button ms-auto d-none d-sm-block"><i
+                                        class="fa fa-search text-white"></i></button>
+                                <button type="submit"
+                                    class="btn btn-primary btn-search mx-0 px-0 text-center d-sm-none d-block">{{lang('Search')}}</button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="hidden" id="hiddenDate">
+                        <div id="searchResults" class="w-100 search-content"></div>
+                        <div id="addressDropdown" class="bg-white AdressDrop"></div>
+                        <div class="row w-100 bg-white calendarAndTimePicker" id="calendarAndTimePicker">
+                            <div class="col-6 calendar-container-1">
+                                <div class="calendar">
+                                    <div class="year-header">
+                                        <span class="left-button" id="prev"> <i class="fa fa-angle-double-left"></i>
+                                        </span>
+                                        <span class="year" id="label"> </span>
+                                        <span class="right-button" id="next"> <i class="fa fa-angle-double-right"></i>
+                                        </span>
                                     </div>
-                                </div>
-                                <div class="col-6 dialog" id="dialog">
-                                    <h2 class="dialog-header mt-7">{{lang('Select Time')}}</h2>
-                                    <div class="form-container mt-7 me-6" align="center">
-                                        <label for="start_time" class="form-label mt-5 text-start startTime_label">{{lang('Start
-                                            Time')}}</label>
-                                        <select name="start_time" class="Select_Time form-select mb-5" id="start_time"
-                                            disabled>
-                                            <option value="">{{lang('Select Start Time')}}</option>
-                                            <option value="6:00 AM">6:00 {{lang('AM')}}</option>
-                                            <option value="6:30 AM">6:30 {{lang('AM')}}</option>
-                                            <option value="7:00 AM">7:00 {{lang('AM')}}</option>
-                                            <option value="7:30 AM">7:30 {{lang('AM')}}</option>
-                                            <option value="8:00 AM">8:00 {{lang('AM')}}</option>
-                                            <option value="8:30 AM">8:30 {{lang('AM')}}</option>
-                                            <option value="9:00 AM">9:00 {{lang('AM')}}</option>
-                                            <option value="9:30 AM">9:30 {{lang('AM')}}</option>
-                                            <option value="10:00 AM">10:00 {{lang('AM')}}</option>
-                                            <option value="10:30 AM">10:30 {{lang('AM')}}</option>
-                                            <option value="11:00 AM">11:00 {{lang('AM')}}</option>
-                                            <option value="11:30 AM">11:30 {{lang('AM')}}</option>
-                                            <option value="12:00 PM">12:00 {{lang('PM')}}</option>
-                                            <option value="12:30 PM">12:30 {{lang('PM')}}</option>
-                                            <option value="1:00 PM">1:00 {{lang('PM')}}</option>
-                                            <option value="1:30 PM">1:30 {{lang('PM')}}</option>
-                                            <option value="2:00 PM">2:00 {{lang('PM')}}</option>
-                                            <option value="2:30 PM">2:30 {{lang('PM')}}</option>
-                                            <option value="3:00 PM">3:00 {{lang('PM')}}</option>
-                                            <option value="3:30 PM">3:30 {{lang('PM')}}</option>
-                                            <option value="4:00 PM">4:00 {{lang('PM')}}</option>
-                                            <option value="4:30 PM">4:30 {{lang('PM')}}</option>
-                                            <option value="5:00 PM">5:00 {{lang('PM')}}</option>
-                                            <option value="5:30 PM">5:30 {{lang('PM')}}</option>
-                                            <option value="6:00 PM">6:00 {{lang('PM')}}</option>
-                                            <option value="6:30 PM">6:30 {{lang('PM')}}</option>
-                                            <option value="7:00 PM">7:00 {{lang('PM')}}</option>
-                                            <option value="7:30 PM">7:30 {{lang('PM')}}</option>
-                                            <option value="8:00 PM">8:00 {{lang('PM')}}</option>
-                                            <option value="8:30 PM">8:30 {{lang('PM')}}</option>
-                                            <option value="9:00 PM">9:00 {{lang('PM')}}</option>
-                                            <option value="9:30 PM">9:30 {{lang('PM')}}</option>
-                                            <option value="10:00 PM">10:00 {{lang('PM')}}</option>
-                                            <option value="10:30 PM">10:30 {{lang('PM')}}</option>
-                                            <option value="10:00 PM">11:00 {{lang('PM')}}</option>
-                                            <option value="10:30 PM">11:30 {{lang('PM')}}</option>
-                                        </select>
-                                        <label for="end_time" class="form-label text-start endTime_label">{{lang('End Time')}}</label>
-                                        <select name="end_time" class="Select_Time form-select mb-5" id="end_time"
-                                            disabled>
-                                            <option value="">{{lang('Select End Time')}}</option>
-                                            <option value="6:00 AM">6:00 {{lang('AM')}}</option>
-                                            <option value="6:30 AM">6:30 {{lang('AM')}}</option>
-                                            <option value="7:00 AM">7:00 {{lang('AM')}}</option>
-                                            <option value="7:30 AM">7:30 {{lang('AM')}}</option>
-                                            <option value="8:00 AM">8:00 {{lang('AM')}}</option>
-                                            <option value="8:30 AM">8:30 {{lang('AM')}}</option>
-                                            <option value="9:00 AM">9:00 {{lang('AM')}}</option>
-                                            <option value="9:30 AM">9:30 {{lang('AM')}}</option>
-                                            <option value="10:00 AM">10:00 {{lang('AM')}}</option>
-                                            <option value="10:30 AM">10:30 {{lang('AM')}}</option>
-                                            <option value="11:00 AM">11:00 {{lang('AM')}}</option>
-                                            <option value="11:30 AM">11:30 {{lang('AM')}}</option>
-                                            <option value="12:00 PM">12:00 {{lang('PM')}}</option>
-                                            <option value="12:30 PM">12:30 {{lang('PM')}}</option>
-                                            <option value="1:00 PM">1:00 {{lang('PM')}}</option>
-                                            <option value="1:30 PM">1:30 {{lang('PM')}}</option>
-                                            <option value="2:00 PM">2:00 {{lang('PM')}}</option>
-                                            <option value="2:30 PM">2:30 {{lang('PM')}}</option>
-                                            <option value="3:00 PM">3:00 {{lang('PM')}}</option>
-                                            <option value="3:30 PM">3:30 {{lang('PM')}}</option>
-                                            <option value="4:00 PM">4:00 {{lang('PM')}}</option>
-                                            <option value="4:30 PM">4:30 {{lang('PM')}}</option>
-                                            <option value="5:00 PM">5:00 {{lang('PM')}}</option>
-                                            <option value="5:30 PM">5:30 {{lang('PM')}}</option>
-                                            <option value="6:00 PM">6:00 {{lang('PM')}}</option>
-                                            <option value="6:30 PM">6:30 {{lang('PM')}}</option>
-                                            <option value="7:00 PM">7:00 {{lang('PM')}}</option>
-                                            <option value="7:30 PM">7:30 {{lang('PM')}}</option>
-                                            <option value="8:00 PM">8:00 {{lang('PM')}}</option>
-                                            <option value="8:30 PM">8:30 {{lang('PM')}}</option>
-                                            <option value="9:00 PM">9:00 {{lang('PM')}}</option>
-                                            <option value="9:30 PM">9:30 {{lang('PM')}}</option>
-                                            <option value="10:00 PM">10:00 {{lang('PM')}}</option>
-                                            <option value="10:30 PM">10:30 {{lang('PM')}}</option>
-                                            <option value="10:00 PM">11:00 {{lang('PM')}}</option>
-                                            <option value="10:30 PM">11:30 {{lang('PM')}}</option>
-                                        </select>
-                                        <button type="button" class="clear_button mt-5" id="clear-button">{{lang('Clear')}}</button>
+                                    <table class="months-table">
+                                        <tbody>
+                                            <tr class="months-row">
+                                                <td class="month">{{lang('Jan')}}</td>
+                                                <td class="month">{{lang('Feb')}}</td>
+                                                <td class="month">{{lang('Mar')}}</td>
+                                                <td class="month">{{lang('Apr')}}</td>
+                                                <td class="month">{{lang('May')}}</td>
+                                                <td class="month">{{lang('June')}}</td>
+                                                <td class="month">{{lang('July')}}</td>
+                                                <td class="month">{{lang('Aug')}}</td>
+                                                <td class="month">{{lang('Sep')}}</td>
+                                                <td class="month">{{lang('Oct')}}</td>
+                                                <td class="month">{{lang('Nov')}}</td>
+                                                <td class="month">{{lang('Dec')}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <table class="days-table">
+                                        <td class="day">{{lang('Sun')}}</td>
+                                        <td class="day">{{lang('Mon')}}</td>
+                                        <td class="day">{{lang('Tue')}}</td>
+                                        <td class="day">{{lang('Wed')}}</td>
+                                        <td class="day">{{lang('Thu')}}</td>
+                                        <td class="day">{{lang('Fri')}}</td>
+                                        <td class="day">{{lang('Sat')}}</td>
+                                    </table>
+                                    <div class="frame">
+                                        <table class="dates-table">
+                                            <tbody class="tbody-tb"></tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                            <div class="col-6 dialog" id="dialog">
+                                <h2 class="dialog-header mt-7">{{lang('Select Time')}}</h2>
+                                <div class="form-container mt-7 me-6" align="center">
+                                    <label for="start_time"
+                                        class="form-label mt-5 text-start startTime_label">{{lang('Start
+                                        Time')}}</label>
+                                    <select name="start_time" class="Select_Time form-select mb-5" id="start_time"
+                                        disabled>
+                                        <option value="">{{lang('Select Start Time')}}</option>
+                                        <option value="6:00 AM">6:00 {{lang('AM')}}</option>
+                                        <option value="6:30 AM">6:30 {{lang('AM')}}</option>
+                                        <option value="7:00 AM">7:00 {{lang('AM')}}</option>
+                                        <option value="7:30 AM">7:30 {{lang('AM')}}</option>
+                                        <option value="8:00 AM">8:00 {{lang('AM')}}</option>
+                                        <option value="8:30 AM">8:30 {{lang('AM')}}</option>
+                                        <option value="9:00 AM">9:00 {{lang('AM')}}</option>
+                                        <option value="9:30 AM">9:30 {{lang('AM')}}</option>
+                                        <option value="10:00 AM">10:00 {{lang('AM')}}</option>
+                                        <option value="10:30 AM">10:30 {{lang('AM')}}</option>
+                                        <option value="11:00 AM">11:00 {{lang('AM')}}</option>
+                                        <option value="11:30 AM">11:30 {{lang('AM')}}</option>
+                                        <option value="12:00 PM">12:00 {{lang('PM')}}</option>
+                                        <option value="12:30 PM">12:30 {{lang('PM')}}</option>
+                                        <option value="1:00 PM">1:00 {{lang('PM')}}</option>
+                                        <option value="1:30 PM">1:30 {{lang('PM')}}</option>
+                                        <option value="2:00 PM">2:00 {{lang('PM')}}</option>
+                                        <option value="2:30 PM">2:30 {{lang('PM')}}</option>
+                                        <option value="3:00 PM">3:00 {{lang('PM')}}</option>
+                                        <option value="3:30 PM">3:30 {{lang('PM')}}</option>
+                                        <option value="4:00 PM">4:00 {{lang('PM')}}</option>
+                                        <option value="4:30 PM">4:30 {{lang('PM')}}</option>
+                                        <option value="5:00 PM">5:00 {{lang('PM')}}</option>
+                                        <option value="5:30 PM">5:30 {{lang('PM')}}</option>
+                                        <option value="6:00 PM">6:00 {{lang('PM')}}</option>
+                                        <option value="6:30 PM">6:30 {{lang('PM')}}</option>
+                                        <option value="7:00 PM">7:00 {{lang('PM')}}</option>
+                                        <option value="7:30 PM">7:30 {{lang('PM')}}</option>
+                                        <option value="8:00 PM">8:00 {{lang('PM')}}</option>
+                                        <option value="8:30 PM">8:30 {{lang('PM')}}</option>
+                                        <option value="9:00 PM">9:00 {{lang('PM')}}</option>
+                                        <option value="9:30 PM">9:30 {{lang('PM')}}</option>
+                                        <option value="10:00 PM">10:00 {{lang('PM')}}</option>
+                                        <option value="10:30 PM">10:30 {{lang('PM')}}</option>
+                                        <option value="10:00 PM">11:00 {{lang('PM')}}</option>
+                                        <option value="10:30 PM">11:30 {{lang('PM')}}</option>
+                                    </select>
+                                    <label for="end_time" class="form-label text-start endTime_label">{{lang('End
+                                        Time')}}</label>
+                                    <select name="end_time" class="Select_Time form-select mb-5" id="end_time" disabled>
+                                        <option value="">{{lang('Select End Time')}}</option>
+                                        <option value="6:00 AM">6:00 {{lang('AM')}}</option>
+                                        <option value="6:30 AM">6:30 {{lang('AM')}}</option>
+                                        <option value="7:00 AM">7:00 {{lang('AM')}}</option>
+                                        <option value="7:30 AM">7:30 {{lang('AM')}}</option>
+                                        <option value="8:00 AM">8:00 {{lang('AM')}}</option>
+                                        <option value="8:30 AM">8:30 {{lang('AM')}}</option>
+                                        <option value="9:00 AM">9:00 {{lang('AM')}}</option>
+                                        <option value="9:30 AM">9:30 {{lang('AM')}}</option>
+                                        <option value="10:00 AM">10:00 {{lang('AM')}}</option>
+                                        <option value="10:30 AM">10:30 {{lang('AM')}}</option>
+                                        <option value="11:00 AM">11:00 {{lang('AM')}}</option>
+                                        <option value="11:30 AM">11:30 {{lang('AM')}}</option>
+                                        <option value="12:00 PM">12:00 {{lang('PM')}}</option>
+                                        <option value="12:30 PM">12:30 {{lang('PM')}}</option>
+                                        <option value="1:00 PM">1:00 {{lang('PM')}}</option>
+                                        <option value="1:30 PM">1:30 {{lang('PM')}}</option>
+                                        <option value="2:00 PM">2:00 {{lang('PM')}}</option>
+                                        <option value="2:30 PM">2:30 {{lang('PM')}}</option>
+                                        <option value="3:00 PM">3:00 {{lang('PM')}}</option>
+                                        <option value="3:30 PM">3:30 {{lang('PM')}}</option>
+                                        <option value="4:00 PM">4:00 {{lang('PM')}}</option>
+                                        <option value="4:30 PM">4:30 {{lang('PM')}}</option>
+                                        <option value="5:00 PM">5:00 {{lang('PM')}}</option>
+                                        <option value="5:30 PM">5:30 {{lang('PM')}}</option>
+                                        <option value="6:00 PM">6:00 {{lang('PM')}}</option>
+                                        <option value="6:30 PM">6:30 {{lang('PM')}}</option>
+                                        <option value="7:00 PM">7:00 {{lang('PM')}}</option>
+                                        <option value="7:30 PM">7:30 {{lang('PM')}}</option>
+                                        <option value="8:00 PM">8:00 {{lang('PM')}}</option>
+                                        <option value="8:30 PM">8:30 {{lang('PM')}}</option>
+                                        <option value="9:00 PM">9:00 {{lang('PM')}}</option>
+                                        <option value="9:30 PM">9:30 {{lang('PM')}}</option>
+                                        <option value="10:00 PM">10:00 {{lang('PM')}}</option>
+                                        <option value="10:30 PM">10:30 {{lang('PM')}}</option>
+                                        <option value="10:00 PM">11:00 {{lang('PM')}}</option>
+                                        <option value="10:30 PM">11:30 {{lang('PM')}}</option>
+                                    </select>
+                                    <button type="button" class="clear_button-1 float-start ms-9 mt-6"
+                                        id="clear-button">{{lang('Clear')}}</button>
+                                    <button type="button" class="clear_button-2 me-9 float-end mt-6"
+                                        id="save_button-1">{{lang("Save")}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container mb-lg-6 mb-md-5 mb-3 bg-white">
-        <h1 class="text-center my-6"><b> {{lang("A lot of spaces for every moment.")}}</b></h1>
-        <div class="">
-            <h3 class="text-center my-2">{{lang("Parties")}}</h3>
-            @include('layouts.components.landing_slider')
-        </div>
+</div>
+<div class="container mb-lg-6 mb-md-5 mb-3 bg-white">
+    <h1 class="text-center my-6"><b> {{lang("A lot of spaces for every moment.")}}</b></h1>
+    <div class="">
+        <h3 class="text-center my-2">{{lang("Parties")}}</h3>
+        @include('layouts.components.landing_slider')
     </div>
-    <div class="landing_background height-img">
-        <div class="container ps-0 pe-5">
-            <h1 class="text-center pt-7 text-white image-h1 heading_font ms-5">{{lang("List the perfect entertainment and talent")}}
-                <br>
-                {{lang("for your upcoming event")}}
-            </h1>
-            <p class="text-center text-white px-md-9 px-sm-5 ms-5">{{lang("For every event, from weddings to birthday
-                celebrations,
-                we'll help you book the best talent.")}}</p>
-            <form action="{{ route('entertainment_search_results') }}" class="ms-5 form-blur-border">
-                <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing form-border FormBorder-1"
-                    id="form-border-1">
-                    <input type="hidden" id="entertaimnet_search_url" value="{{route('entertainment_landing_index')}}">
-                    <div class="col-sm-4 px-0 border-end border-end0">
-                        <label class="mb-0 label-none my-font-size"><b>{{lang("What have you got planned?")}}</b></label>
-                        <input type="text" name="planCatagories_1" id="planCatagories-1" class="form-control px-0"
-                            placeholder="{{lang('Select your plan')}}">
-                    </div>
-                    <div class="col-sm-4 border-end border-end0 px-0 px-sm-3 my-3 my-sm-0">
-                        <label class="mb-0 label-none font-size"><b>{{lang("Where?")}}</b></label>
-                        <input type="text" class="form-control px-0" name="location_1" id="location-1"
-                            placeholder="{{lang('Enter your Location')}}">
-                    </div>
-                    <div class="col-sm-3 border-end0 pe-0 px-0 px-sm-3 mb-3 mb-sm-0">
-                        <label class="mb-0 label-none font-size"><b>{{lang("When?")}}</b></label>
-                        <input type="text" name="selectedDate-1" class="form-control input py-2 px-0" placeholder="{{lang('Anytime')}}"
-                            id="selectedDate-1">
-                    </div>
-                    <div class="col-sm-1 text-end px-0 my-auto">
-                        <button type="submit" class="btn btn-color rounded text-end button ms-auto d-none d-sm-block"><i
-                                class="fa fa-search text-white"></i></button>
-                        <button type="submit"
-                            class="btn btn-primary btn-search mx-0 px-0 text-center d-sm-none d-block">{{lang("Search")}}</button>
-                    </div>
+</div>
+<div class="landing_background height-img">
+    <div class="container ps-0 pe-5">
+        <h1 class="text-center pt-7 text-white image-h1 heading_font ms-5">{{lang("List the perfect entertainment and
+            talent")}}
+            <br>
+            {{lang("for your upcoming event")}}
+        </h1>
+        <p class="text-center text-white px-md-9 px-sm-5 ms-5">{{lang("For every event, from weddings to birthday
+            celebrations,
+            we'll help you book the best talent.")}}</p>
+        <form action="{{ route('entertainment_search_results') }}" class="ms-5 form-blur-border">
+            <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing form-border FormBorder-1"
+                id="form-border-1">
+                <input type="hidden" id="entertaimnet_search_url" value="{{route('entertainment_landing_index')}}">
+                <div class="col-sm-4 px-0 border-end border-end0">
+                    <label class="mb-0 label-none my-font-size"><b>{{lang("What have you got planned?")}}</b></label>
+                    <input type="text" name="planCatagories_1" id="planCatagories-1" class="form-control px-0"
+                        placeholder="{{lang('Select your plan')}}">
                 </div>
-                <input type="hidden" name="hidden" id="hiddenDate-1">
-                <div id="searchResults-1" class="w-100 search-content"></div>
-                <div id="addressDropdown-1" class="bg-white AdressDrop"></div>
-                <div class="row w-100 bg-white calendarAndTimePicker-1" id="calendarAndTimePicker-1">
-                    <div class="col-6 calendar-container-1">
-                        <div class="calendar">
-                            <div class="year-header">
-                                <span class="left-button" id="left-button"> <i class="fa fa-angle-double-left"></i>
-                                </span>
-                                <span class="year-1" id="label"> </span>
-                                <span class="right-button" id="right-button"> <i class="fa fa-angle-double-right"></i>
-                                </span>
-                            </div>
-                            <table class="months-table">
-                                <tbody>
-                                    <tr class="months-row-1">
-                                        <td class="month-1">{{lang("Jan")}}</td>
-                                        <td class="month-1">{{lang("Feb")}}</td>
-                                        <td class="month-1">{{lang("Mar")}}</td>
-                                        <td class="month-1">{{lang("Apr")}}</td>
-                                        <td class="month-1">{{lang("May")}}</td>
-                                        <td class="month-1">{{lang("June")}}</td>
-                                        <td class="month-1">{{lang("July")}}</td>
-                                        <td class="month-1">{{lang("Aug")}}</td>
-                                        <td class="month-1">{{lang("Sep")}}</td>
-                                        <td class="month-1">{{lang("Oct")}}</td>
-                                        <td class="month-1">{{lang("Nov")}}</td>
-                                        <td class="month-1">{{lang("Dec")}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table class="days-table">
-                                <td class="day">{{lang("Sun")}}</td>
-                                <td class="day">{{lang("Mon")}}</td>
-                                <td class="day">{{lang("Tue")}}</td>
-                                <td class="day">{{lang("Wed")}}</td>
-                                <td class="day">{{lang("Thu")}}</td>
-                                <td class="day">{{lang("Fri")}}</td>
-                                <td class="day">{{lang("Sat")}}</td>
-                            </table>
-                            <div class="frame">
-                                <table class="dates-table">
-                                    <tbody class="tbody-tb-1"></tbody>
-                                </table>
-                            </div>
+                <div class="col-sm-4 border-end border-end0 px-0 px-sm-3 my-3 my-sm-0">
+                    <label class="mb-0 label-none font-size"><b>{{lang("Where?")}}</b></label>
+                    <input type="text" class="form-control px-0" name="location_1" id="location-1"
+                        placeholder="{{lang('Enter your Location')}}">
+                </div>
+                <div class="col-sm-3 border-end0 pe-0 px-0 px-sm-3 mb-3 mb-sm-0">
+                    <label class="mb-0 label-none font-size"><b>{{lang("When?")}}</b></label>
+                    <input type="text" name="selectedDate-1" class="form-control input py-2 px-0"
+                        placeholder="{{lang('Anytime')}}" id="selectedDate-1">
+                </div>
+                <div class="col-sm-1 text-end px-0 my-auto">
+                    <button type="submit" class="btn btn-color rounded text-end button ms-auto d-none d-sm-block"><i
+                            class="fa fa-search text-white"></i></button>
+                    <button type="submit"
+                        class="btn btn-primary btn-search mx-0 px-0 text-center d-sm-none d-block">{{lang("Search")}}</button>
+                </div>
+            </div>
+            <input type="hidden" name="hidden" id="hiddenDate-1">
+            <div id="searchResults-1" class="w-100 search-content"></div>
+            <div id="addressDropdown-1" class="bg-white AdressDrop"></div>
+            <div class="row w-100 bg-white calendarAndTimePicker-1" id="calendarAndTimePicker-1">
+                <div class="col-6 calendar-container-1">
+                    <div class="calendar">
+                        <div class="year-header">
+                            <span class="left-button" id="left-button"> <i class="fa fa-angle-double-left"></i>
+                            </span>
+                            <span class="year-1" id="label"> </span>
+                            <span class="right-button" id="right-button"> <i class="fa fa-angle-double-right"></i>
+                            </span>
                         </div>
-                    </div>
-                    <div class="col-6 dialog" id="dialog">
-                        <h2 class="dialog-header mt-7">{{lang("Select Time")}}</h2>
-                        <div class="form-container mt-7 me-6" align="center">
-                            <label for="start_time" class="form-label mt-5 text-start startTime_label">{{lang("Start
-                                Time")}}</label>
-                            <select name="start_time" class="Select_Time form-select mb-5" id="start_time_1" disabled>
-                                <option value="">{{lang("Select Start Time")}}</option>
-                                <option value="6:00 AM">6:00 {{lang("AM")}}</option>
-                                <option value="6:30 AM">6:30 {{lang("AM")}}</option>
-                                <option value="7:00 AM">7:00 {{lang("AM")}}</option>
-                                <option value="7:30 AM">7:30 {{lang("AM")}}</option>
-                                <option value="8:00 AM">8:00 {{lang("AM")}}</option>
-                                <option value="8:30 AM">8:30 {{lang("AM")}}</option>
-                                <option value="9:00 AM">9:00 {{lang("AM")}}</option>
-                                <option value="9:30 AM">9:30 {{lang("AM")}}</option>
-                                <option value="10:00 AM">10:00 {{lang("AM")}}</option>
-                                <option value="10:30 AM">10:30 {{lang("AM")}}</option>
-                                <option value="11:00 AM">11:00 {{lang("AM")}}</option>
-                                <option value="11:30 AM">11:30 {{lang("AM")}}</option>
-                                <option value="12:00 PM">12:00 {{lang("PM")}}</option>
-                                <option value="12:30 PM">12:30 {{lang("PM")}}</option>
-                                <option value="1:00 PM">1:00 {{lang("PM")}}</option>
-                                <option value="1:30 PM">1:30 {{lang("PM")}}</option>
-                                <option value="2:00 PM">2:00 {{lang("PM")}}</option>
-                                <option value="2:30 PM">2:30 {{lang("PM")}}</option>
-                                <option value="3:00 PM">3:00 {{lang("PM")}}</option>
-                                <option value="3:30 PM">3:30 {{lang("PM")}}</option>
-                                <option value="4:00 PM">4:00 {{lang("PM")}}</option>
-                                <option value="4:30 PM">4:30 {{lang("PM")}}</option>
-                                <option value="5:00 PM">5:00 {{lang("PM")}}</option>
-                                <option value="5:30 PM">5:30 {{lang("PM")}}</option>
-                                <option value="6:00 PM">6:00 {{lang("PM")}}</option>
-                                <option value="6:30 PM">6:30 {{lang("PM")}}</option>
-                                <option value="7:00 PM">7:00 {{lang("PM")}}</option>
-                                <option value="7:30 PM">7:30 {{lang("PM")}}</option>
-                                <option value="8:00 PM">8:00 {{lang("PM")}}</option>
-                                <option value="8:30 PM">8:30 {{lang("PM")}}</option>
-                                <option value="9:00 PM">9:00 {{lang("PM")}}</option>
-                                <option value="9:30 PM">9:30 {{lang("PM")}}</option>
-                                <option value="10:00 PM">10:00 {{lang("PM")}}</option>
-                                <option value="10:30 PM">10:30 {{lang("PM")}}</option>
-                                <option value="10:00 PM">11:00 {{lang("PM")}}</option>
-                                <option value="10:30 PM">11:30 {{lang("PM")}}</option>
-                            </select>
-                            <label for="end_time" class="form-label text-start endTime_label">{{lang("End Time")}}</label>
-                            <select name="end_time" class="Select_Time form-select mb-5" id="end_time_1" disabled>
-                                <option value="">{{lang("Select End Time")}}</option>
-                                <option value="6:00 AM">6:00 {{lang("AM")}}</option>
-                                <option value="6:30 AM">6:30 {{lang("AM")}}</option>
-                                <option value="7:00 AM">7:00 {{lang("AM")}}</option>
-                                <option value="7:30 AM">7:30 {{lang("AM")}}</option>
-                                <option value="8:00 AM">8:00 {{lang("AM")}}</option>
-                                <option value="8:30 AM">8:30 {{lang("AM")}}</option>
-                                <option value="9:00 AM">9:00 {{lang("AM")}}</option>
-                                <option value="9:30 AM">9:30 {{lang("AM")}}</option>
-                                <option value="10:00 AM">10:00 {{lang("AM")}}</option>
-                                <option value="10:30 AM">10:30 {{lang("AM")}}</option>
-                                <option value="11:00 AM">11:00 {{lang("AM")}}</option>
-                                <option value="11:30 AM">11:30 {{lang("AM")}}</option>
-                                <option value="12:00 PM">12:00 {{lang("PM")}}</option>
-                                <option value="12:30 PM">12:30 {{lang("PM")}}</option>
-                                <option value="1:00 PM">1:00 {{lang("PM")}}</option>
-                                <option value="1:30 PM">1:30 {{lang("PM")}}</option>
-                                <option value="2:00 PM">2:00 {{lang("PM")}}</option>
-                                <option value="2:30 PM">2:30 {{lang("PM")}}</option>
-                                <option value="3:00 PM">3:00 {{lang("PM")}}</option>
-                                <option value="3:30 PM">3:30 {{lang("PM")}}</option>
-                                <option value="4:00 PM">4:00 {{lang("PM")}}</option>
-                                <option value="4:30 PM">4:30 {{lang("PM")}}</option>
-                                <option value="5:00 PM">5:00 {{lang("PM")}}</option>
-                                <option value="5:30 PM">5:30 {{lang("PM")}}</option>
-                                <option value="6:00 PM">6:00 {{lang("PM")}}</option>
-                                <option value="6:30 PM">6:30 {{lang("PM")}}</option>
-                                <option value="7:00 PM">7:00 {{lang("PM")}}</option>
-                                <option value="7:30 PM">7:30 {{lang("PM")}}</option>
-                                <option value="8:00 PM">8:00 {{lang("PM")}}</option>
-                                <option value="8:30 PM">8:30 {{lang("PM")}}</option>
-                                <option value="9:00 PM">9:00 {{lang("PM")}}</option>
-                                <option value="9:30 PM">9:30 {{lang("PM")}}</option>
-                                <option value="10:00 PM">10:00 {{lang("PM")}}</option>
-                                <option value="10:30 PM">10:30 {{lang("PM")}}</option>
-                                <option value="10:00 PM">11:00 {{lang("PM")}}</option>
-                                <option value="10:30 PM">11:30 {{lang("PM")}}</option>
-                            </select>
-                            <button type="button" class="clear_button mt-5" id="clear-button1">{{lang("Clear")}}</button>
+                        <table class="months-table">
+                            <tbody>
+                                <tr class="months-row-1">
+                                    <td class="month-1">{{lang("Jan")}}</td>
+                                    <td class="month-1">{{lang("Feb")}}</td>
+                                    <td class="month-1">{{lang("Mar")}}</td>
+                                    <td class="month-1">{{lang("Apr")}}</td>
+                                    <td class="month-1">{{lang("May")}}</td>
+                                    <td class="month-1">{{lang("June")}}</td>
+                                    <td class="month-1">{{lang("July")}}</td>
+                                    <td class="month-1">{{lang("Aug")}}</td>
+                                    <td class="month-1">{{lang("Sep")}}</td>
+                                    <td class="month-1">{{lang("Oct")}}</td>
+                                    <td class="month-1">{{lang("Nov")}}</td>
+                                    <td class="month-1">{{lang("Dec")}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="days-table">
+                            <td class="day">{{lang("Sun")}}</td>
+                            <td class="day">{{lang("Mon")}}</td>
+                            <td class="day">{{lang("Tue")}}</td>
+                            <td class="day">{{lang("Wed")}}</td>
+                            <td class="day">{{lang("Thu")}}</td>
+                            <td class="day">{{lang("Fri")}}</td>
+                            <td class="day">{{lang("Sat")}}</td>
+                        </table>
+                        <div class="frame">
+                            <table class="dates-table">
+                                <tbody class="tbody-tb-1"></tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+                <div class="col-6 dialog" id="dialog">
+                    <h2 class="dialog-header mt-7">{{lang("Select Time")}}</h2>
+                    <div class="form-container mt-7 me-6" align="center">
+                        <label for="start_time" class="form-label mt-5 text-start startTime_label">{{lang("Start
+                            Time")}}</label>
+                        <select name="start_time" class="Select_Time form-select mb-5" id="start_time_1" disabled>
+                            <option value="">{{lang("Select Start Time")}}</option>
+                            <option value="6:00 AM">6:00 {{lang("AM")}}</option>
+                            <option value="6:30 AM">6:30 {{lang("AM")}}</option>
+                            <option value="7:00 AM">7:00 {{lang("AM")}}</option>
+                            <option value="7:30 AM">7:30 {{lang("AM")}}</option>
+                            <option value="8:00 AM">8:00 {{lang("AM")}}</option>
+                            <option value="8:30 AM">8:30 {{lang("AM")}}</option>
+                            <option value="9:00 AM">9:00 {{lang("AM")}}</option>
+                            <option value="9:30 AM">9:30 {{lang("AM")}}</option>
+                            <option value="10:00 AM">10:00 {{lang("AM")}}</option>
+                            <option value="10:30 AM">10:30 {{lang("AM")}}</option>
+                            <option value="11:00 AM">11:00 {{lang("AM")}}</option>
+                            <option value="11:30 AM">11:30 {{lang("AM")}}</option>
+                            <option value="12:00 PM">12:00 {{lang("PM")}}</option>
+                            <option value="12:30 PM">12:30 {{lang("PM")}}</option>
+                            <option value="1:00 PM">1:00 {{lang("PM")}}</option>
+                            <option value="1:30 PM">1:30 {{lang("PM")}}</option>
+                            <option value="2:00 PM">2:00 {{lang("PM")}}</option>
+                            <option value="2:30 PM">2:30 {{lang("PM")}}</option>
+                            <option value="3:00 PM">3:00 {{lang("PM")}}</option>
+                            <option value="3:30 PM">3:30 {{lang("PM")}}</option>
+                            <option value="4:00 PM">4:00 {{lang("PM")}}</option>
+                            <option value="4:30 PM">4:30 {{lang("PM")}}</option>
+                            <option value="5:00 PM">5:00 {{lang("PM")}}</option>
+                            <option value="5:30 PM">5:30 {{lang("PM")}}</option>
+                            <option value="6:00 PM">6:00 {{lang("PM")}}</option>
+                            <option value="6:30 PM">6:30 {{lang("PM")}}</option>
+                            <option value="7:00 PM">7:00 {{lang("PM")}}</option>
+                            <option value="7:30 PM">7:30 {{lang("PM")}}</option>
+                            <option value="8:00 PM">8:00 {{lang("PM")}}</option>
+                            <option value="8:30 PM">8:30 {{lang("PM")}}</option>
+                            <option value="9:00 PM">9:00 {{lang("PM")}}</option>
+                            <option value="9:30 PM">9:30 {{lang("PM")}}</option>
+                            <option value="10:00 PM">10:00 {{lang("PM")}}</option>
+                            <option value="10:30 PM">10:30 {{lang("PM")}}</option>
+                            <option value="10:00 PM">11:00 {{lang("PM")}}</option>
+                            <option value="10:30 PM">11:30 {{lang("PM")}}</option>
+                        </select>
+                        <label for="end_time" class="form-label text-start endTime_label">{{lang("End Time")}}</label>
+                        <select name="end_time" class="Select_Time form-select mb-5" id="end_time_1" disabled>
+                            <option value="">{{lang("Select End Time")}}</option>
+                            <option value="6:00 AM">6:00 {{lang("AM")}}</option>
+                            <option value="6:30 AM">6:30 {{lang("AM")}}</option>
+                            <option value="7:00 AM">7:00 {{lang("AM")}}</option>
+                            <option value="7:30 AM">7:30 {{lang("AM")}}</option>
+                            <option value="8:00 AM">8:00 {{lang("AM")}}</option>
+                            <option value="8:30 AM">8:30 {{lang("AM")}}</option>
+                            <option value="9:00 AM">9:00 {{lang("AM")}}</option>
+                            <option value="9:30 AM">9:30 {{lang("AM")}}</option>
+                            <option value="10:00 AM">10:00 {{lang("AM")}}</option>
+                            <option value="10:30 AM">10:30 {{lang("AM")}}</option>
+                            <option value="11:00 AM">11:00 {{lang("AM")}}</option>
+                            <option value="11:30 AM">11:30 {{lang("AM")}}</option>
+                            <option value="12:00 PM">12:00 {{lang("PM")}}</option>
+                            <option value="12:30 PM">12:30 {{lang("PM")}}</option>
+                            <option value="1:00 PM">1:00 {{lang("PM")}}</option>
+                            <option value="1:30 PM">1:30 {{lang("PM")}}</option>
+                            <option value="2:00 PM">2:00 {{lang("PM")}}</option>
+                            <option value="2:30 PM">2:30 {{lang("PM")}}</option>
+                            <option value="3:00 PM">3:00 {{lang("PM")}}</option>
+                            <option value="3:30 PM">3:30 {{lang("PM")}}</option>
+                            <option value="4:00 PM">4:00 {{lang("PM")}}</option>
+                            <option value="4:30 PM">4:30 {{lang("PM")}}</option>
+                            <option value="5:00 PM">5:00 {{lang("PM")}}</option>
+                            <option value="5:30 PM">5:30 {{lang("PM")}}</option>
+                            <option value="6:00 PM">6:00 {{lang("PM")}}</option>
+                            <option value="6:30 PM">6:30 {{lang("PM")}}</option>
+                            <option value="7:00 PM">7:00 {{lang("PM")}}</option>
+                            <option value="7:30 PM">7:30 {{lang("PM")}}</option>
+                            <option value="8:00 PM">8:00 {{lang("PM")}}</option>
+                            <option value="8:30 PM">8:30 {{lang("PM")}}</option>
+                            <option value="9:00 PM">9:00 {{lang("PM")}}</option>
+                            <option value="9:30 PM">9:30 {{lang("PM")}}</option>
+                            <option value="10:00 PM">10:00 {{lang("PM")}}</option>
+                            <option value="10:30 PM">10:30 {{lang("PM")}}</option>
+                            <option value="10:00 PM">11:00 {{lang("PM")}}</option>
+                            <option value="10:30 PM">11:30 {{lang("PM")}}</option>
+                        </select>
+                        <button type="button" class="clear_button-1 ms-9 float-start mt-6"
+                            id="clear-button1">{{lang('Clear')}}</button>
+                        <button type="button" class="clear_button-2 me-9 float-end mt-6"
+                            id="save_button-2">{{lang("Save")}}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
 
-    <div>
-        <h1 class="text-center mt-lg-7 mt-md-4 mt-3 fs-1 heading_fon">{{lang("Make your plans exceptional")}} <br> {{lang("whatever they
-            may
-            be.")}}</h1>
-        <h3 class="text-center my-3">{{lang("Musical Acts")}}</h3>
-        <div class="row">
-            <div class="col-12 bg-white">
-                <div class="container">
-                    <div class="card custom-card">
-                        <div class="card-body pt-0 h-100">
-                            <div class="owl-carousel owl-carousel-icons2">
-                                <div class="item">
-                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                        <div class="card overflow-hidden my-0 card_height">
-                                            <a class="h-100" href="{{ URL('/space-details') }}">
-                                                <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
-                                                    class="card-img-top h-100" alt="img">
-                                                <div class="over_lay card_overlay">
-                                                    <h5>{{lang('Singers')}}</h5>
-                                                    <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                        <div class="card overflow-hidden my-0 card_height">
-                                            <a class="h-100" href="{{ URL('/space-details') }}">
-                                                <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
-                                                    class="card-img-top h-100" alt="img">
-                                                <div class="over_lay card_overlay">
-                                                    <h5>{{lang('Singers')}}</h5>
-                                                    <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                        <div class="card overflow-hidden my-0 card_height">
-                                            <a class="h-100" href="{{ URL('/space-details') }}">
-                                                <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
-                                                    class="card-img-top h-100" alt="img">
-                                                <div class="over_lay card_overlay">
-                                                    <h5>{{lang('Singers')}}</h5>
-                                                    <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                        <div class="card overflow-hidden my-0 card_height">
-                                            <a class="h-100" href="{{ URL('/space-details') }}">
-                                                <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
-                                                    class="card-img-top h-100" alt="img">
-                                                <div class="over_lay card_overlay">
-                                                    <h5>{{lang('Singers')}}</h5>
-                                                    <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                        <div class="card overflow-hidden my-0 card_height">
-                                            <a class="h-100" href="{{ URL('/space-details') }}">
-                                                <img src="{{ asset('assets/images/users/spaces/5.jpg') }}"
-                                                    class="card-img-top h-100" alt="img">
-                                                <div class="over_lay card_overlay">
-                                                    <h5>{{lang('Singers')}}</h5>
-                                                    <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                        <div class="card overflow-hidden my-0 card_height">
-                                            <a class="h-100" href="{{ URL('/space-details') }}">
-                                                <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
-                                                    class="card-img-top h-100" alt="img">
-                                                <div class="over_lay card_overlay">
-                                                    <h5>{{lang('Singers')}}</h5>
-                                                    <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                        <div class="card overflow-hidden my-0 card_height">
-                                            <a class="h-100" href="{{ URL('/space-details') }}">
-                                                <img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
-                                                    class="card-img-top h-100" alt="img">
-                                                <div class="over_lay card_overlay">
-                                                    <h5>{{lang('Singers')}}</h5>
-                                                    <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h3 class="text-center my-3">{{lang('Entertainers')}}</h3>
-    <div class="row">
-        <div class="col-12 bg-white">
-            <div class="container">
-                <div class="card custom-card">
-                    <div class="card-body pt-0 h-100">
-                        <div class="owl-carousel owl-carousel-icons2">
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <div class="card overflow-hidden my-0 card_height">
-                                        <a class="h-100" href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
-                                                class="card-img-top h-100" alt="img">
-                                            <div class="over_lay card_overlay">
-                                                <h5>{{lang('Singers')}}</h5>
-                                                <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <div class="card overflow-hidden my-0 card_height">
-                                        <a class="h-100" href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
-                                                class="card-img-top h-100" alt="img">
-                                            <div class="over_lay card_overlay">
-                                                <h5>{{lang('Ensembles')}}</h5>
-                                                <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <div class="card overflow-hidden my-0 card_height">
-                                        <a class="h-100" href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
-                                                class="card-img-top h-100" alt="img">
-                                            <div class="over_lay card_overlay">
-                                                <h5>{{lang('Bands & Groups')}}</h5>
-                                                <p>{{lang('Blues Bands, Mariachis, Wedding Bands...')}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <div class="card overflow-hidden my-0 card_height">
-                                        <a class="h-100" href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
-                                                class="card-img-top h-100" alt="img">
-                                            <div class="over_lay card_overlay">
-                                                <h5>{{lang('Ensembles')}}</h5>
-                                                <p>{{lang('Chamber Orchestras, Classical Ensembles, String Trios...')}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <div class="card overflow-hidden my-0 card_height">
-                                        <a class="h-100" href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/5.jpg') }}"
-                                                class="card-img-top h-100" alt="img">
-                                            <div class="over_lay card_overlay">
-                                                <h5>{{lang('Ensembles')}}</h5>
-                                                <p>{{lang('Chamber Orchestras, Classical Ensembles, String Trios...')}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <div class="card overflow-hidden my-0 card_height">
-                                        <a class="h-100" href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
-                                                class="card-img-top h-100" alt="img">
-                                            <div class="over_lay card_overlay">
-                                                <h5>{{lang('Ensembles')}}</h5>
-                                                <p>{{lang('Chamber Orchestras, Classical Ensembles, String Trios...')}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <div class="card overflow-hidden my-0 card_height">
-                                        <a class="h-100" href="{{ URL('/space-details') }}">
-                                            <img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
-                                                class="card-img-top h-100" alt="img">
-                                            <div class="over_lay card_overlay">
-                                                <h5>{{lang('Ensembles')}}</h5>
-                                                <p>{{lang('Chamber Orchestras, Classical Ensembles, String Trios...')}}</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <h3 class="text-center my-3">Event Services</h3>
+<div>
+    <h1 class="text-center mt-lg-7 mt-md-4 mt-3 fs-1 heading_fon">{{lang("Make your plans exceptional")}} <br>
+        {{lang("whatever they
+        may
+        be.")}}</h1>
+    <h3 class="text-center my-3">{{lang("Musical Acts")}}</h3>
     <div class="row">
         <div class="col-12 bg-white">
             <div class="container">
@@ -1217,181 +1023,408 @@
             </div>
         </div>
     </div>
-    <h3 class="text-center"><a class="bg-primary btn text-white px-7 modal-effect" data-bs-target="#signup-modal"
-            data-bs-toggle="modal"><b>{{lang("Get started")}}</b></a></h3>
-
-    {{-- --------------------------------------- Content 3333 ------------------------------------- --}}
-
-    <div style="margin-top: 65px!important;" class="landing_background1 height-img">
-        <div class="container ps-0 pe-5">
-            <h1 class="text-center pt-7 text-white image-h1 heading_font ms-5">{{lang("Book your services arrangement team")}}</h1>
-            <p class="text-center text-white px-md-9 px-sm-5 ms-5">{{lang("For every service, from wedding planner to
-                invitations,
-                we'll help you book the best service.")}}</p>
-            <form action="{{ route('service_search_results') }}" class="ms-5 form-blur-border">
-                <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing form-border FormBorder-2"
-                    id="form-border-2">
-                    <input type="hidden" id="service_search_url" value="{{route('service_landing_index')}}">
-                    <div class="col-sm-4 px-0 border-end border-end0">
-                        <label class="mb-0 label-none my-font-size"><b>{{lang("What have you got planned?")}}</b></label>
-                        <input type="text" name="planCatagories_2" id="planCatagories-2" class="form-control px-0"
-                            placeholder="{{lang('Select your plan')}}">
-                    </div>
-                    <div class="col-sm-4 border-end border-end0 px-0 px-sm-3 my-3 my-sm-0">
-                        <label class="mb-0 label-none font-size"><b>{{lang("Where?")}}</b></label>
-                        <input type="text" class="form-control px-0" name="location_2" id="location-2"
-                            placeholder="{{lang('Enter your Location')}}">
-                    </div>
-                    <div class="col-sm-3 border-end0 pe-0 px-0 px-sm-3 mb-3 mb-sm-0">
-                        <label class="mb-0 label-none font-size"><b>{{lang("When?")}}</b></label>
-                        <input type="text" name="selectedDate_2" class="form-control input py-2 px-0" placeholder="{{lang('Anytime')}}"
-                            id="selectedDate-2">
-                    </div>
-                    <div class="col-sm-1 text-end px-0 my-auto">
-                        <button type="submit" class="btn btn-color rounded text-end button ms-auto d-none d-sm-block"><i
-                                class="fa fa-search text-white"></i></button>
-                        <button type="submit"
-                            class="btn btn-primary btn-search mx-0 px-0 text-center d-sm-none d-block">{{lang("Search")}}</button>
-                    </div>
-                </div>
-                <input type="hidden" name="hidden" id="hiddenDate-2">
-                <div id="searchResults-2" class="w-100 search-content"></div>
-                <div id="addressDropdown-2" class="bg-white AdressDrop"></div>
-                <div class="row w-100 bg-white calendarAndTimePicker-2" id="calendarAndTimePicker-2">
-                    <div class="col-6 calendar-container-1">
-                        <div class="calendar">
-                            <div class="year-header">
-                                <span class="left-button" id="left-button-2"> <i class="fa fa-angle-double-left"></i>
-                                </span>
-                                <span class="year-2" id="label"> </span>
-                                <span class="right-button" id="right-button-2"> <i class="fa fa-angle-double-right"></i>
-                                </span>
+</div>
+<h3 class="text-center my-3">{{lang('Entertainers')}}</h3>
+<div class="row">
+    <div class="col-12 bg-white">
+        <div class="container">
+            <div class="card custom-card">
+                <div class="card-body pt-0 h-100">
+                    <div class="owl-carousel owl-carousel-icons2">
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Singers')}}</h5>
+                                            <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                            <table class="months-table">
-                                <tbody>
-                                    <tr class="months-row-2">
-                                        <td class="month-2">{{lang("Jan")}}</td>
-                                        <td class="month-2">{{lang("Feb")}}</td>
-                                        <td class="month-2">{{lang("Mar")}}</td>
-                                        <td class="month-2">{{lang("Apr")}}</td>
-                                        <td class="month-2">{{lang("May")}}</td>
-                                        <td class="month-2">{{lang("June")}}</td>
-                                        <td class="month-2">{{lang("July")}}</td>
-                                        <td class="month-2">{{lang("Aug")}}</td>
-                                        <td class="month-2">{{lang("Sep")}}</td>
-                                        <td class="month-2">{{lang("Oct")}}</td>
-                                        <td class="month-2">{{lang("Nov")}}</td>
-                                        <td class="month-2">{{lang("Dec")}}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table class="days-table">
-                                <td class="day">{{lang("Sun")}}</td>
-                                <td class="day">{{lang("Mon")}}</td>
-                                <td class="day">{{lang("Tue")}}</td>
-                                <td class="day">{{lang("Wed")}}</td>
-                                <td class="day">{{lang("Thu")}}</td>
-                                <td class="day">{{lang("Fri")}}</td>
-                                <td class="day">{{lang("Sat")}}</td>
-                            </table>
-                            <div class="frame">
-                                <table class="dates-table">
-                                    <tbody class="tbody-tb-2"></tbody>
-                                </table>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Ensembles')}}</h5>
+                                            <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Bands & Groups')}}</h5>
+                                            <p>{{lang('Blues Bands, Mariachis, Wedding Bands...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Ensembles')}}</h5>
+                                            <p>{{lang('Chamber Orchestras, Classical Ensembles, String Trios...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/5.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Ensembles')}}</h5>
+                                            <p>{{lang('Chamber Orchestras, Classical Ensembles, String Trios...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Ensembles')}}</h5>
+                                            <p>{{lang('Chamber Orchestras, Classical Ensembles, String Trios...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Ensembles')}}</h5>
+                                            <p>{{lang('Chamber Orchestras, Classical Ensembles, String Trios...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 dialog" id="dialog">
-                        <h2 class="dialog-header mt-7">{{lang("Select Time")}}</h2>
-                        <div class="form-container mt-7 me-6" align="center">
-                            <label for="start_time" class="form-label mt-5 text-start startTime_label">{{lang("Start
-                                Time")}}</label>
-                            <select name="start_time" class="Select_Time form-select mb-5" id="start_time_2" disabled>
-                                <option value="">{{lang("Select Start Time")}}</option>
-                                <option value="6:00 AM">6:00 {{lang("AM")}}</option>
-                                <option value="6:30 AM">6:30 {{lang("AM")}}</option>
-                                <option value="7:00 AM">7:00 {{lang("AM")}}</option>
-                                <option value="7:30 AM">7:30 {{lang("AM")}}</option>
-                                <option value="8:00 AM">8:00 {{lang("AM")}}</option>
-                                <option value="8:30 AM">8:30 {{lang("AM")}}</option>
-                                <option value="9:00 AM">9:00 {{lang("AM")}}</option>
-                                <option value="9:30 AM">9:30 {{lang("AM")}}</option>
-                                <option value="10:00 AM">10:00 {{lang("AM")}}</option>
-                                <option value="10:30 AM">10:30 {{lang("AM")}}</option>
-                                <option value="11:00 AM">11:00 {{lang("AM")}}</option>
-                                <option value="11:30 AM">11:30 {{lang("AM")}}</option>
-                                <option value="12:00 PM">12:00 {{lang("PM")}}</option>
-                                <option value="12:30 PM">12:30 {{lang("PM")}}</option>
-                                <option value="1:00 PM">1:00 {{lang("PM")}}</option>
-                                <option value="1:30 PM">1:30 {{lang("PM")}}</option>
-                                <option value="2:00 PM">2:00 {{lang("PM")}}</option>
-                                <option value="2:30 PM">2:30 {{lang("PM")}}</option>
-                                <option value="3:00 PM">3:00 {{lang("PM")}}</option>
-                                <option value="3:30 PM">3:30 {{lang("PM")}}</option>
-                                <option value="4:00 PM">4:00 {{lang("PM")}}</option>
-                                <option value="4:30 PM">4:30 {{lang("PM")}}</option>
-                                <option value="5:00 PM">5:00 {{lang("PM")}}</option>
-                                <option value="5:30 PM">5:30 {{lang("PM")}}</option>
-                                <option value="6:00 PM">6:00 {{lang("PM")}}</option>
-                                <option value="6:30 PM">6:30 {{lang("PM")}}</option>
-                                <option value="7:00 PM">7:00 {{lang("PM")}}</option>
-                                <option value="7:30 PM">7:30 {{lang("PM")}}</option>
-                                <option value="8:00 PM">8:00 {{lang("PM")}}</option>
-                                <option value="8:30 PM">8:30 {{lang("PM")}}</option>
-                                <option value="9:00 PM">9:00 {{lang("PM")}}</option>
-                                <option value="9:30 PM">9:30 {{lang("PM")}}</option>
-                                <option value="10:00 PM">10:00 {{lang("PM")}}</option>
-                                <option value="10:30 PM">10:30 {{lang("PM")}}</option>
-                                <option value="10:00 PM">11:00 {{lang("PM")}}</option>
-                                <option value="10:30 PM">11:30 {{lang("PM")}}</option>
-                            </select>
-                            <label for="end_time" class="form-label text-start endTime_label">{{lang("End Time")}}</label>
-                            <select name="end_time" class="Select_Time form-select mb-5" id="end_time_2" disabled>
-                                <option value="">{{lang("Select End Time")}}</option>
-                                <option value="6:00 AM">6:00 {{lang("AM")}}</option>
-                                <option value="6:30 AM">6:30 {{lang("AM")}}</option>
-                                <option value="7:00 AM">7:00 {{lang("AM")}}</option>
-                                <option value="7:30 AM">7:30 {{lang("AM")}}</option>
-                                <option value="8:00 AM">8:00 {{lang("AM")}}</option>
-                                <option value="8:30 AM">8:30 {{lang("AM")}}</option>
-                                <option value="9:00 AM">9:00 {{lang("AM")}}</option>
-                                <option value="9:30 AM">9:30 {{lang("AM")}}</option>
-                                <option value="10:00 AM">10:00 {{lang("AM")}}</option>
-                                <option value="10:30 AM">10:30 {{lang("AM")}}</option>
-                                <option value="11:00 AM">11:00 {{lang("AM")}}</option>
-                                <option value="11:30 AM">11:30 {{lang("AM")}}</option>
-                                <option value="12:00 PM">12:00 {{lang("PM")}}</option>
-                                <option value="12:30 PM">12:30 {{lang("PM")}}</option>
-                                <option value="1:00 PM">1:00 {{lang("PM")}}</option>
-                                <option value="1:30 PM">1:30 {{lang("PM")}}</option>
-                                <option value="2:00 PM">2:00 {{lang("PM")}}</option>
-                                <option value="2:30 PM">2:30 {{lang("PM")}}</option>
-                                <option value="3:00 PM">3:00 {{lang("PM")}}</option>
-                                <option value="3:30 PM">3:30 {{lang("PM")}}</option>
-                                <option value="4:00 PM">4:00 {{lang("PM")}}</option>
-                                <option value="4:30 PM">4:30 {{lang("PM")}}</option>
-                                <option value="5:00 PM">5:00 {{lang("PM")}}</option>
-                                <option value="5:30 PM">5:30 {{lang("PM")}}</option>
-                                <option value="6:00 PM">6:00 {{lang("PM")}}</option>
-                                <option value="6:30 PM">6:30 {{lang("PM")}}</option>
-                                <option value="7:00 PM">7:00 {{lang("PM")}}</option>
-                                <option value="7:30 PM">7:30 {{lang("PM")}}</option>
-                                <option value="8:00 PM">8:00 {{lang("PM")}}</option>
-                                <option value="8:30 PM">8:30 {{lang("PM")}}</option>
-                                <option value="9:00 PM">9:00 {{lang("PM")}}</option>
-                                <option value="9:30 PM">9:30 {{lang("PM")}}</option>
-                                <option value="10:00 PM">10:00 {{lang("PM")}}</option>
-                                <option value="10:30 PM">10:30 {{lang("PM")}}</option>
-                                <option value="10:00 PM">11:00 {{lang("PM")}}</option>
-                                <option value="10:30 PM">11:30 {{lang("PM")}}</option>
-                            </select>
-                            <button type="button" class="clear_button mt-5" id="clear-button2">{{lang("Clear")}}</button>
-                        </div>
-                    </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
+</div>
+<h3 class="text-center my-3">Event Services</h3>
+<div class="row">
+    <div class="col-12 bg-white">
+        <div class="container">
+            <div class="card custom-card">
+                <div class="card-body pt-0 h-100">
+                    <div class="owl-carousel owl-carousel-icons2">
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Singers')}}</h5>
+                                            <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Singers')}}</h5>
+                                            <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Singers')}}</h5>
+                                            <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Singers')}}</h5>
+                                            <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/5.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Singers')}}</h5>
+                                            <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Singers')}}</h5>
+                                            <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                <div class="card overflow-hidden my-0 card_height">
+                                    <a class="h-100" href="{{ URL('/space-details') }}">
+                                        <img src="{{ asset('assets/images/users/spaces/7.jpg') }}"
+                                            class="card-img-top h-100" alt="img">
+                                        <div class="over_lay card_overlay">
+                                            <h5>{{lang('Singers')}}</h5>
+                                            <p>{{lang('Country Singers, Singing Guitarists, Rappers...')}}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h3 class="text-center"><a class="bg-primary btn text-white px-7 modal-effect" data-bs-target="#signup-modal"
+        data-bs-toggle="modal"><b>{{lang("Get started")}}</b></a></h3>
+
+{{-- --------------------------------------- Content 3333 ------------------------------------- --}}
+
+<div style="margin-top: 65px!important;" class="landing_background1 height-img">
+    <div class="container ps-0 pe-5">
+        <h1 class="text-center pt-7 text-white image-h1 heading_font ms-5">{{lang("Book your services arrangement
+            team")}}</h1>
+        <p class="text-center text-white px-md-9 px-sm-5 ms-5">{{lang("For every service, from wedding planner to
+            invitations,
+            we'll help you book the best service.")}}</p>
+        <form action="{{ route('service_search_results') }}" class="ms-5 form-blur-border">
+            <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing form-border FormBorder-2"
+                id="form-border-2">
+                <input type="hidden" id="service_search_url" value="{{route('service_landing_index')}}">
+                <div class="col-sm-4 px-0 border-end border-end0">
+                    <label class="mb-0 label-none my-font-size"><b>{{lang("What have you got planned?")}}</b></label>
+                    <input type="text" name="planCatagories_2" id="planCatagories-2" class="form-control px-0"
+                        placeholder="{{lang('Select your plan')}}">
+                </div>
+                <div class="col-sm-4 border-end border-end0 px-0 px-sm-3 my-3 my-sm-0">
+                    <label class="mb-0 label-none font-size"><b>{{lang("Where?")}}</b></label>
+                    <input type="text" class="form-control px-0" name="location_2" id="location-2"
+                        placeholder="{{lang('Enter your Location')}}">
+                </div>
+                <div class="col-sm-3 border-end0 pe-0 px-0 px-sm-3 mb-3 mb-sm-0">
+                    <label class="mb-0 label-none font-size"><b>{{lang("When?")}}</b></label>
+                    <input type="text" name="selectedDate_2" class="form-control input py-2 px-0"
+                        placeholder="{{lang('Anytime')}}" id="selectedDate-2">
+                </div>
+                <div class="col-sm-1 text-end px-0 my-auto">
+                    <button type="submit" class="btn btn-color rounded text-end button ms-auto d-none d-sm-block"><i
+                            class="fa fa-search text-white"></i></button>
+                    <button type="submit"
+                        class="btn btn-primary btn-search mx-0 px-0 text-center d-sm-none d-block">{{lang("Search")}}</button>
+                </div>
+            </div>
+            <input type="hidden" name="hidden" id="hiddenDate-2">
+            <div id="searchResults-2" class="w-100 search-content"></div>
+            <div id="addressDropdown-2" class="bg-white AdressDrop"></div>
+            <div class="row w-100 bg-white calendarAndTimePicker-2" id="calendarAndTimePicker-2">
+                <div class="col-6 calendar-container-1">
+                    <div class="calendar">
+                        <div class="year-header">
+                            <span class="left-button" id="left-button-2"> <i class="fa fa-angle-double-left"></i>
+                            </span>
+                            <span class="year-2" id="label"> </span>
+                            <span class="right-button" id="right-button-2"> <i class="fa fa-angle-double-right"></i>
+                            </span>
+                        </div>
+                        <table class="months-table">
+                            <tbody>
+                                <tr class="months-row-2">
+                                    <td class="month-2">{{lang("Jan")}}</td>
+                                    <td class="month-2">{{lang("Feb")}}</td>
+                                    <td class="month-2">{{lang("Mar")}}</td>
+                                    <td class="month-2">{{lang("Apr")}}</td>
+                                    <td class="month-2">{{lang("May")}}</td>
+                                    <td class="month-2">{{lang("June")}}</td>
+                                    <td class="month-2">{{lang("July")}}</td>
+                                    <td class="month-2">{{lang("Aug")}}</td>
+                                    <td class="month-2">{{lang("Sep")}}</td>
+                                    <td class="month-2">{{lang("Oct")}}</td>
+                                    <td class="month-2">{{lang("Nov")}}</td>
+                                    <td class="month-2">{{lang("Dec")}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table class="days-table">
+                            <td class="day">{{lang("Sun")}}</td>
+                            <td class="day">{{lang("Mon")}}</td>
+                            <td class="day">{{lang("Tue")}}</td>
+                            <td class="day">{{lang("Wed")}}</td>
+                            <td class="day">{{lang("Thu")}}</td>
+                            <td class="day">{{lang("Fri")}}</td>
+                            <td class="day">{{lang("Sat")}}</td>
+                        </table>
+                        <div class="frame">
+                            <table class="dates-table">
+                                <tbody class="tbody-tb-2"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 dialog" id="dialog">
+                    <h2 class="dialog-header mt-7">{{lang("Select Time")}}</h2>
+                    <div class="form-container mt-7 me-6" align="center">
+                        <label for="start_time" class="form-label mt-5 text-start startTime_label">{{lang("Start
+                            Time")}}</label>
+                        <select name="start_time" class="Select_Time form-select mb-5" id="start_time_2" disabled>
+                            <option value="">{{lang("Select Start Time")}}</option>
+                            <option value="6:00 AM">6:00 {{lang("AM")}}</option>
+                            <option value="6:30 AM">6:30 {{lang("AM")}}</option>
+                            <option value="7:00 AM">7:00 {{lang("AM")}}</option>
+                            <option value="7:30 AM">7:30 {{lang("AM")}}</option>
+                            <option value="8:00 AM">8:00 {{lang("AM")}}</option>
+                            <option value="8:30 AM">8:30 {{lang("AM")}}</option>
+                            <option value="9:00 AM">9:00 {{lang("AM")}}</option>
+                            <option value="9:30 AM">9:30 {{lang("AM")}}</option>
+                            <option value="10:00 AM">10:00 {{lang("AM")}}</option>
+                            <option value="10:30 AM">10:30 {{lang("AM")}}</option>
+                            <option value="11:00 AM">11:00 {{lang("AM")}}</option>
+                            <option value="11:30 AM">11:30 {{lang("AM")}}</option>
+                            <option value="12:00 PM">12:00 {{lang("PM")}}</option>
+                            <option value="12:30 PM">12:30 {{lang("PM")}}</option>
+                            <option value="1:00 PM">1:00 {{lang("PM")}}</option>
+                            <option value="1:30 PM">1:30 {{lang("PM")}}</option>
+                            <option value="2:00 PM">2:00 {{lang("PM")}}</option>
+                            <option value="2:30 PM">2:30 {{lang("PM")}}</option>
+                            <option value="3:00 PM">3:00 {{lang("PM")}}</option>
+                            <option value="3:30 PM">3:30 {{lang("PM")}}</option>
+                            <option value="4:00 PM">4:00 {{lang("PM")}}</option>
+                            <option value="4:30 PM">4:30 {{lang("PM")}}</option>
+                            <option value="5:00 PM">5:00 {{lang("PM")}}</option>
+                            <option value="5:30 PM">5:30 {{lang("PM")}}</option>
+                            <option value="6:00 PM">6:00 {{lang("PM")}}</option>
+                            <option value="6:30 PM">6:30 {{lang("PM")}}</option>
+                            <option value="7:00 PM">7:00 {{lang("PM")}}</option>
+                            <option value="7:30 PM">7:30 {{lang("PM")}}</option>
+                            <option value="8:00 PM">8:00 {{lang("PM")}}</option>
+                            <option value="8:30 PM">8:30 {{lang("PM")}}</option>
+                            <option value="9:00 PM">9:00 {{lang("PM")}}</option>
+                            <option value="9:30 PM">9:30 {{lang("PM")}}</option>
+                            <option value="10:00 PM">10:00 {{lang("PM")}}</option>
+                            <option value="10:30 PM">10:30 {{lang("PM")}}</option>
+                            <option value="10:00 PM">11:00 {{lang("PM")}}</option>
+                            <option value="10:30 PM">11:30 {{lang("PM")}}</option>
+                        </select>
+                        <label for="end_time" class="form-label text-start endTime_label">{{lang("End Time")}}</label>
+                        <select name="end_time" class="Select_Time form-select mb-5" id="end_time_2" disabled>
+                            <option value="">{{lang("Select End Time")}}</option>
+                            <option value="6:00 AM">6:00 {{lang("AM")}}</option>
+                            <option value="6:30 AM">6:30 {{lang("AM")}}</option>
+                            <option value="7:00 AM">7:00 {{lang("AM")}}</option>
+                            <option value="7:30 AM">7:30 {{lang("AM")}}</option>
+                            <option value="8:00 AM">8:00 {{lang("AM")}}</option>
+                            <option value="8:30 AM">8:30 {{lang("AM")}}</option>
+                            <option value="9:00 AM">9:00 {{lang("AM")}}</option>
+                            <option value="9:30 AM">9:30 {{lang("AM")}}</option>
+                            <option value="10:00 AM">10:00 {{lang("AM")}}</option>
+                            <option value="10:30 AM">10:30 {{lang("AM")}}</option>
+                            <option value="11:00 AM">11:00 {{lang("AM")}}</option>
+                            <option value="11:30 AM">11:30 {{lang("AM")}}</option>
+                            <option value="12:00 PM">12:00 {{lang("PM")}}</option>
+                            <option value="12:30 PM">12:30 {{lang("PM")}}</option>
+                            <option value="1:00 PM">1:00 {{lang("PM")}}</option>
+                            <option value="1:30 PM">1:30 {{lang("PM")}}</option>
+                            <option value="2:00 PM">2:00 {{lang("PM")}}</option>
+                            <option value="2:30 PM">2:30 {{lang("PM")}}</option>
+                            <option value="3:00 PM">3:00 {{lang("PM")}}</option>
+                            <option value="3:30 PM">3:30 {{lang("PM")}}</option>
+                            <option value="4:00 PM">4:00 {{lang("PM")}}</option>
+                            <option value="4:30 PM">4:30 {{lang("PM")}}</option>
+                            <option value="5:00 PM">5:00 {{lang("PM")}}</option>
+                            <option value="5:30 PM">5:30 {{lang("PM")}}</option>
+                            <option value="6:00 PM">6:00 {{lang("PM")}}</option>
+                            <option value="6:30 PM">6:30 {{lang("PM")}}</option>
+                            <option value="7:00 PM">7:00 {{lang("PM")}}</option>
+                            <option value="7:30 PM">7:30 {{lang("PM")}}</option>
+                            <option value="8:00 PM">8:00 {{lang("PM")}}</option>
+                            <option value="8:30 PM">8:30 {{lang("PM")}}</option>
+                            <option value="9:00 PM">9:00 {{lang("PM")}}</option>
+                            <option value="9:30 PM">9:30 {{lang("PM")}}</option>
+                            <option value="10:00 PM">10:00 {{lang("PM")}}</option>
+                            <option value="10:30 PM">10:30 {{lang("PM")}}</option>
+                            <option value="10:00 PM">11:00 {{lang("PM")}}</option>
+                            <option value="10:30 PM">11:30 {{lang("PM")}}</option>
+                        </select>
+                        <button type="button" class="clear_button-1 ms-9 float-start mt-6"
+                            id="clear-button2">{{lang('Clear')}}</button>
+                        <button type="button" class="clear_button-2 me-9 float-end mt-6"
+                            id="save_button-3">{{lang("Save")}}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
     <h1 class="text-center mt-lg-7 mt-md-4 mt-3 fs-1 heading_fon">{{lang("Your event team and everything in between")}}</h1>
     <h3 class="text-center my-3">{{lang("Wedding Planner and Services")}}</h3>
@@ -1408,9 +1441,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang("Portland, ME")}}</span>
+                                                <div class="col-12"><span class="">{{lang("Portland, ME")}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2">
+                                                <div class="col-12 pe-5 my-2">
                                                     <i class="fa fa-users"></i> 25 &nbsp;
                                                     <i class="fa fa-star" style="color: #f1c40f"></i>
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -1430,8 +1463,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="item">
@@ -1441,9 +1474,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: #f1c40f"></i>
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -1463,8 +1496,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="item">
@@ -1474,9 +1507,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: #f1c40f"></i>
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -1496,8 +1529,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="item">
@@ -1507,9 +1540,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: #f1c40f"></i>
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -1529,8 +1562,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1553,9 +1586,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -1575,8 +1608,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="item">
@@ -1586,9 +1619,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -1608,8 +1641,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="item">
@@ -1619,9 +1652,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: #f1c40f"></i>
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -1641,8 +1674,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="item">
@@ -1652,9 +1685,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: #f1c40f"></i>
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -1674,8 +1707,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1698,9 +1731,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: #f1c40f"></i>
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -1720,8 +1753,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="item">
@@ -1731,9 +1764,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: #f1c40f"></i>
                                                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
@@ -1753,8 +1786,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="item">
@@ -1764,9 +1797,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i>
                                                     25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: #f1c40f"></i>
@@ -1787,8 +1820,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="item">
@@ -1798,9 +1831,9 @@
                                             <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
                                                 class="card-img-top" alt="img">
                                             <div class="row p-3">
-                                                <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                                <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i>
                                                     25
                                                     &nbsp;
                                                     <i class="fa fa-star" style="color: #f1c40f"></i>
@@ -1821,8 +1854,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -1831,18 +1864,19 @@
             </div>
         </div>
     </div>
-    <h3 class="text-center"><a class="bg-primary btn text-white px-7 modal-effect" data-bs-target="#signup-modal"
-            data-bs-toggle="modal"><b>{{lang('Get started')}}</b></a></h3>
+</div>
+<h3 class="text-center"><a class="bg-primary btn text-white px-7 modal-effect" data-bs-target="#signup-modal"
+        data-bs-toggle="modal"><b>{{lang('Get started')}}</b></a></h3>
 @endsection
 @section('scripts')
-    <script
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
-    </script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+</script>
 
 
-    {{-- Calender code 1 --}}
-    <script>
-        $(document).ready(function() {
+{{-- Calender code 1 --}}
+<script>
+    $(document).ready(function() {
             // Calender show or hidden
             $('#calendarAndTimePicker').hide();
             $('#selectedDate').click(function() {
@@ -2110,12 +2144,12 @@
             $('.startTime_label').css('color', '#9fa7af');
             $('.endTime_label').css('color', '#9fa7af');
         });
-    </script>
+</script>
 
 
-    {{-- Calender code 2 --}}
-    <script>
-        $(document).ready(function() {
+{{-- Calender code 2 --}}
+<script>
+    $(document).ready(function() {
             // Calender show or hidden
             $('#calendarAndTimePicker-1').hide();
             $('#selectedDate-1').click(function() {
@@ -2383,12 +2417,12 @@
             $('.startTime_label').css('color', '#9fa7af');
             $('.endTime_label').css('color', '#9fa7af');
         });
-    </script>
+</script>
 
 
-    {{-- Calender code 3 --}}
-    <script>
-        $(document).ready(function() {
+{{-- Calender code 3 --}}
+<script>
+    $(document).ready(function() {
             // Calender show or hidden
             $('#calendarAndTimePicker-2').hide();
             $('#selectedDate-2').click(function() {
@@ -2656,12 +2690,12 @@
             $('.startTime_label').css('color', '#9fa7af');
             $('.endTime_label').css('color', '#9fa7af');
         });
-    </script>
+</script>
 
 
-    {{-- Google addresses code --}}
-    <script>
-        $(document).ready(function() {
+{{-- Google addresses code --}}
+<script>
+    $(document).ready(function() {
             var autocompleteService = new google.maps.places.AutocompleteService();
 
             function hideDropdown(resultsDiv, inputDiv) {
@@ -2723,12 +2757,12 @@
             setupLocationAutocomplete("#location-1", "#addressDropdown-1");
             setupLocationAutocomplete("#location-2", "#addressDropdown-2");
         });
-    </script>
+</script>
 
 
-    {{-- Carousel code --}}
-    <script>
-        $(document).ready(function() {
+{{-- Carousel code --}}
+<script>
+    $(document).ready(function() {
             $(".my-carousel").owlCarousel({
                 loop: true,
                 rewind: false,
@@ -2750,18 +2784,18 @@
                         items: 2
                     },
                     1300: {
-                        items: 3
+                        items: 4
                     }
 
                 }
             });
         });
-    </script>
+</script>
 
 
-    {{-- Space categories Select field code --}}
-    <script>
-        let categories;
+{{-- Space categories Select field code --}}
+<script>
+    let categories;
         $(document).ready(function() {
             var url = $('#space_search_url').val();
             $.ajax({
@@ -2849,10 +2883,10 @@
 
             setupSpaceSearch("#planCatagories", "#searchResults");
         });
-    </script>
-    {{-- Entertainment categories Select field code --}}
-    <script>
-        let entCategories;
+</script>
+{{-- Entertainment categories Select field code --}}
+<script>
+    let entCategories;
         $(document).ready(function() {
             var url = $('#entertaimnet_search_url').val();
             $.ajax({
@@ -2939,10 +2973,10 @@
             }
             setupEntSearch("#planCatagories-1", "#searchResults-1");
         });
-    </script>
-    {{-- Service categories Select field code --}}
-    <script>
-        let serviceCategories;
+</script>
+{{-- Service categories Select field code --}}
+<script>
+    let serviceCategories;
         $(document).ready(function() {
             var url = $('#service_search_url').val();
             $.ajax({
@@ -3029,12 +3063,38 @@
             }
             setupServiceSearch("#planCatagories-2", "#searchResults-2");
         });
-    </script>
 
 
-    <!-- OWL CAROUSEL JS-->
-    <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
-    <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
-    <!-- OWL Carousel js -->
-    <script src="{{ asset('assets/js/carousel.js') }}"></script>
+        document.addEventListener('DOMContentLoaded', function() {
+    var saveButton = document.querySelector('#save_button-1');
+    var calendarContainer = document.querySelector('#calendarAndTimePicker');
+    saveButton.addEventListener('click', function() {
+        calendarContainer.style.display = 'none';
+    });
+
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var saveButton = document.querySelector('#save_button-2');
+    var calendarContainer = document.querySelector('#calendarAndTimePicker-1');
+    saveButton.addEventListener('click', function() {
+        calendarContainer.style.display = 'none';
+    });
+});
+    document.addEventListener('DOMContentLoaded', function() {
+    var saveButton = document.querySelector('#save_button-3');
+    var calendarContainer = document.querySelector('#calendarAndTimePicker-2');
+    saveButton.addEventListener('click', function() {
+        calendarContainer.style.display = 'none';
+    });
+});
+
+</script>
+
+
+<!-- OWL CAROUSEL JS-->
+<script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
+<script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
+<!-- OWL Carousel js -->
+<script src="{{ asset('assets/js/carousel.js') }}"></script>
 @endsection

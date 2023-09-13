@@ -71,13 +71,10 @@
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">{{lang('Describe your company')}}</h3>
-                                    <textarea name="description" required
-                                        data-parsley-required-message="{{lang('Description is required')}}"
-                                        data-parsley-minlength="100" cols="30" rows="5" class="w-100 form-control"
+                                    <textarea name="description" required cols="30" rows="5" class="w-100 form-control"
                                         placeholder="About Seller">
                                             {{@$service->description}}
                                         </textarea>
-                                    <p class="text-end mt-2">{{lang('Minimum 100 character')}}s</p>
                                 </div>
                                 <br>
                                 <div class="row">
