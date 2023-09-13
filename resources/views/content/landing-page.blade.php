@@ -1426,284 +1426,140 @@
     </div>
 </div>
 
-<h1 class="text-center mt-lg-7 mt-md-4 mt-3 fs-1 heading_fon">{{lang("Your event team and everything in between")}}</h1>
-<h3 class="text-center my-3">{{lang("Wedding Planner and Services")}}</h3>
-<div class="row">
-    <div class="col-12 bg-white">
-        <div class="container">
-            <div class="card custom-card">
-                <div class="card-body pt-0 h-100">
-                    <div class="owl-carousel my-carousel">
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0 content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang("Portland, ME")}}</span>
-                                            </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2">
-                                                <i class="fa fa-users"></i> 25 &nbsp;
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang("Events & Rentals")}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang("SAR - Affordable")}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang("Request
-                                                        Quote")}}</button>
+    <h1 class="text-center mt-lg-7 mt-md-4 mt-3 fs-1 heading_fon">{{lang("Your event team and everything in between")}}</h1>
+    <h3 class="text-center my-3">{{lang("Wedding Planner and Services")}}</h3>
+    <div class="row">
+        <div class="col-12 bg-white">
+            <div class="container">
+                <div class="card custom-card">
+                    <div class="card-body pt-0 h-100">
+                        <div class="owl-carousel my-carousel">
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0 content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang("Portland, ME")}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2">
+                                                    <i class="fa fa-users"></i> 25 &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang("Events & Rentals")}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang("SAR - Affordable")}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang("Request
+                                                            Quote")}}</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0 content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
-                                            </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0 content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0 content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/3.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
-                                            </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0 content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0 content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/4.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
-                                            </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0 content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<h3 class="text-center my-3">{{lang('Beauty Services')}}</h3>
-<div class="row">
-    <div class="col-12 bg-white">
-        <div class="container">
-            <div class="card custom-card">
-                <div class="card-body pt-0 h-100">
-                    <div class="owl-carousel my-carousel">
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0  content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
-                                            </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0  content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
-                                            </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0  content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/3.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
-                                            </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0  content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/4.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
-                                            </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1716,40 +1572,139 @@
             </div>
         </div>
     </div>
-</div>
-<h3 class="text-center my-3">{{lang('Decorations')}}</h3>
-<div class="row">
-    <div class="col-12 bg-white">
-        <div class="container">
-            <div class="card custom-card">
-                <div class="card-body pt-0 h-100">
-                    <div class="owl-carousel my-carousel">
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0  content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/1.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+    <h3 class="text-center my-3">{{lang('Beauty Services')}}</h3>
+    <div class="row">
+        <div class="col-12 bg-white">
+            <div class="container">
+                <div class="card custom-card">
+                    <div class="card-body pt-0 h-100">
+                        <div class="owl-carousel my-carousel">
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0  content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0  content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0  content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0  content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1757,100 +1712,146 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0 content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/2.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
-                                            </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i> 25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 class="text-center my-3">{{lang('Decorations')}}</h3>
+    <div class="row">
+        <div class="col-12 bg-white">
+            <div class="container">
+                <div class="card custom-card">
+                    <div class="card-body pt-0 h-100">
+                        <div class="owl-carousel my-carousel">
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0  content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/1.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0 content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/3.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
-                                            </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i>
-                                                25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0 content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/2.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i> 25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <div class="card overflow-hidden my-0 content-width">
-                                    <a href="{{ URL('/space-details') }}">
-                                        <img src="{{ asset('assets/images/users/spaces/4.jpg') }}" class="card-img-top"
-                                            alt="img">
-                                        <div class="row p-3">
-                                            <div class="col-lg-5"><span class="">{{lang('Portland, ME')}}</span>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0 content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/3.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i>
+                                                    25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-lg-7 text-lg-end pe-5 my-2"><i class="fa fa-users"></i>
-                                                25
-                                                &nbsp;
-                                                <i class="fa fa-star" style="color: #f1c40f"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
-                                            </div>
-                                            <div class="col-12">
-                                                <h5>{{lang('Events & Rentals')}}</h3>
-                                            </div>
-                                            <div class="col-12">
-                                                <p>{{lang('SAR - Affordable')}}</p>
-                                            </div>
-                                            <div class="col-12">
-                                                <div class="text-center">
-                                                    <button class="btn btn-outline-primary rounded-btn">{{lang('Request
-                                                        Quote')}}</button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
+                                    <div class="card overflow-hidden my-0 content-width">
+                                        <a href="{{ URL('/space-details') }}">
+                                            <img src="{{ asset('assets/images/users/spaces/4.jpg') }}"
+                                                class="card-img-top" alt="img">
+                                            <div class="row p-3">
+                                                <div class="col-12"><span class="">{{lang('Portland, ME')}}</span>
+                                                </div>
+                                                <div class="col-12 pe-5 my-2"><i class="fa fa-users"></i>
+                                                    25
+                                                    &nbsp;
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                                                    <i class="fa fa-star" style="color: #f1c40f"></i> &nbsp; 14
+                                                </div>
+                                                <div class="col-12">
+                                                    <h5>{{lang('Events & Rentals')}}</h3>
+                                                </div>
+                                                <div class="col-12">
+                                                    <p>{{lang('SAR - Affordable')}}</p>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button class="btn btn-outline-primary rounded-btn">{{lang('Request
+                                                            Quote')}}</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -2783,7 +2784,7 @@
                         items: 2
                     },
                     1300: {
-                        items: 3
+                        items: 4
                     }
 
                 }

@@ -24,6 +24,11 @@ class DashboardController extends UserBaseController
                 $subQuery->where('user_id','!=',user_id());
             });
         })->whereType('space')->whereUserId(user_id())->whereStatus(1)->count();
+        $this->completedSpaceBookings = Order::where(function($query){
+            $query->whereHas('space', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('space')->whereUserId(user_id())->whereStatus(4)->count();
         $this->cancelSpaceBookings = Order::where(function($query){
             $query->whereHas('space', function($subQuery){
                 $subQuery->where('user_id','!=',user_id());
@@ -45,6 +50,11 @@ class DashboardController extends UserBaseController
                 $subQuery->where('user_id','!=',user_id());
             });
         })->whereType('entertainment')->whereUserId(user_id())->whereStatus(1)->count();
+        $this->completedEnterBookings = Order::where(function($query){
+            $query->whereHas('entertainment', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('entertainment')->whereUserId(user_id())->whereStatus(4)->count();
         $this->cancelEnterBookings = Order::where(function($query){
             $query->whereHas('entertainment', function($subQuery){
                 $subQuery->where('user_id','!=',user_id());
@@ -66,6 +76,11 @@ class DashboardController extends UserBaseController
                 $subQuery->where('user_id','!=',user_id());
             });
         })->whereType('service')->whereUserId(user_id())->whereStatus(1)->count();
+        $this->completedServiceBookings = Order::where(function($query){
+            $query->whereHas('service', function($subQuery){
+                $subQuery->where('user_id','!=',user_id());
+            });
+        })->whereType('service')->whereUserId(user_id())->whereStatus(4)->count();
         $this->cancelServiceBookings = Order::where(function($query){
             $query->whereHas('service', function($subQuery){
                 $subQuery->where('user_id','!=',user_id());
@@ -77,17 +92,20 @@ class DashboardController extends UserBaseController
             });
         })->whereType('service')->whereUserId(user_id())->whereStatus(4)->count();
 
-        $this->spaceUpcomingProgress = $totalSpaceOrders ? ($this->upComingSpaceBookings / $totalSpaceOrders) * 100 : 0;
-        $this->spaceCancelProgress = $totalSpaceOrders ? ($this->cancelSpaceBookings / $totalSpaceOrders) * 100 : 0;
-        $this->spacePreviousProgress = $totalSpaceOrders ? ($this->previousSpaceBookings / $totalSpaceOrders) * 100 : 0;
+        $this->spaceCompletedProgress = $totalSpaceOrders ? ($this->completedSpaceBookings / $totalSpaceOrders) * 100 : 0 ;
+        $this->spaceUpcomingProgress = $totalSpaceOrders ? ($this->upComingSpaceBookings / $totalSpaceOrders) * 100 : 0 ;
+        $this->spaceCancelProgress = $totalSpaceOrders ? ($this->cancelSpaceBookings / $totalSpaceOrders) * 100 : 0 ;
+        $this->spacePreviousProgress = $totalSpaceOrders ? ($this->previousSpaceBookings / $totalSpaceOrders) * 100 : 0 ;
 
-        $this->enterUpcomingProgress = $totalEnterOrders ? ($this->upComingEnterBookings / $totalEnterOrders) * 100 : 0;
-        $this->enterCancelProgress = $totalEnterOrders ? ($this->cancelEnterBookings / $totalEnterOrders) * 100 : 0;
-        $this->enterPreviousProgress = $totalEnterOrders ? ($this->previousEnterBookings / $totalEnterOrders) * 100 : 0;
+        $this->enterCompletedProgress = $totalEnterOrders ? ($this->completedEnterBookings / $totalEnterOrders) * 100 : 0 ;
+        $this->enterUpcomingProgress = $totalEnterOrders ? ($this->upComingEnterBookings / $totalEnterOrders) * 100 : 0 ;
+        $this->enterCancelProgress = $totalEnterOrders ? ($this->cancelEnterBookings / $totalEnterOrders) * 100 : 0 ;
+        $this->enterPreviousProgress = $totalEnterOrders ? ($this->previousEnterBookings / $totalEnterOrders) * 100 : 0 ;
 
-        $this->serviceUpcomingProgress = $totalServiceOrders ? ($this->upComingServiceBookings / $totalServiceOrders) * 100 : 0;
-        $this->serviceCancelProgress = $totalServiceOrders ? ($this->cancelServiceBookings / $totalServiceOrders) * 100 : 0;
-        $this->servicePreviousProgress = $totalServiceOrders ? ($this->previousServiceBookings / $totalServiceOrders) * 100 : 0;
+        $this->serviceCompletedProgress = $totalServiceOrders ? ($this->completedServiceBookings / $totalServiceOrders) * 100 : 0 ;
+        $this->serviceUpcomingProgress = $totalServiceOrders ? ($this->upComingServiceBookings / $totalServiceOrders) * 100 : 0 ;
+        $this->serviceCancelProgress = $totalServiceOrders ? ($this->cancelServiceBookings / $totalServiceOrders) * 100 : 0 ;
+        $this->servicePreviousProgress = $totalServiceOrders ? ($this->previousServiceBookings / $totalServiceOrders) * 100 : 0 ;
 
         $this->totalBookingsCount = $totalSpaceOrders + $totalEnterOrders + $totalServiceOrders;
         $this->totalBookings = Order::whereUserId(user_id())->whereIn('status', [1, 2, 3])->take(5)->get();

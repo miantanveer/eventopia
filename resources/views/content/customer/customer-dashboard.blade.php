@@ -94,7 +94,7 @@
                             </div>
                             <div class="col-6 ml-3 text-end">
                                 <div style="margin-top: 40px;">
-                                    <a href="{{ route('bookings', ['type' => 'space']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'space','for' => 'null']) }}"
                                         class="btn btn-primary text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                             </div>
                             <div class="col-6 ml-3 text-end">
                                 <div style="margin-top: 40px;">
-                                    <a href="{{ route('bookings', ['type' => 'service']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'service','for' => 'null']) }}"
                                         class="btn btn-primary text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
@@ -192,7 +192,7 @@
                     </div>
                     <div class="col-12 text-end">
                         <div style="margin-top: 40px;">
-                            <a href="{{ route('bookings', ['type' => 'entertainment']) }}"
+                            <a href="{{ route('bookings', ['type' => 'entertainment','for' => 'null']) }}"
                                 class="btn btn-primary text-white">{{ lang('Manage') }}</a>
                         </div>
                     </div>
@@ -255,7 +255,7 @@
                 <hr>
                 <div class="col-12 text-center">
                     <div class="mb-3">
-                        <a href="{{route('bookings')}}" class="btn btn-primary text-white">{{ lang('Manage') }}</a>
+                        <a href="{{route('bookings',['type' => 'null','for' => 'null'])}}" class="btn btn-primary text-white">{{ lang('Manage') }}</a>
                     </div>
                 </div>
             </div>
@@ -279,7 +279,7 @@
                         </div>
                         <div class="col-12 mt-5 text-center">
                             <div class="mb-3">
-                                <a href="{{ route('bookings', ['type' => 'active']) }}"
+                                <a href="{{ route('bookings', ['type' => 'active','for' => 'null']) }}"
                                     class="btn btn-primary text-white">{{ lang('View Details') }}</a>
                             </div>
                         </div>
@@ -302,7 +302,7 @@
                     </div>
                     <div class="col-12 mt-5 text-center">
                         <div class="mb-3">
-                            <a href="{{ route('bookings', ['type' => 'cancel']) }}"
+                            <a href="{{ route('bookings', ['type' => 'cancel','for' => 'null']) }}"
                                 class="btn btn-primary text-white">{{ lang('View Details') }}</a>
                         </div>
                     </div>

@@ -4,7 +4,7 @@
         .seller-web-sidebar {
             z-index: 9999;
         }
-
+        
         .get_started_btn {
             position: relative;
             top: -84px;
@@ -158,8 +158,7 @@
                         </div>
                         <div class="col-12 text-end">
                             <div style="margin-top: 40px;">
-                                <a href="{{ route('bookings') }}"
-                                    class="btn btn-primary text-white">{{ lang('Manage') }}</a>
+                                <a href="{{route('bookings',['type' => 'null','for' => 'seller'])}}" class="btn btn-primary text-white">{{lang('Manage')}}</a>
                             </div>
                         </div>
                     </div>
@@ -208,7 +207,7 @@
                     <hr>
                     <div class="col-12 text-center">
                         <div class="mb-3">
-                            <a href="{{ route('bookings') }}" class="btn btn-primary text-white">{{ lang('Manage') }}</a>
+                            <a href="{{route('bookings',['type' => 'null','for' => 'seller'])}}" class="btn btn-primary text-white">{{ lang('Manage') }}</a>
                         </div>
                     </div>
                 </div>

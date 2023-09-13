@@ -31,7 +31,11 @@
     <div class="page">
         <div class="page-main">
 
-            @include('layouts.components.app-header')
+            @if ($sellerHeader)
+                @include('layouts.components.seller-header')
+            @else
+                @include('layouts.components.app-header')
+            @endif
 
             @include('layouts.components.app-sidebar')
 
