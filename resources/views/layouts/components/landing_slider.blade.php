@@ -1,3 +1,10 @@
+<style>
+.custom-card
+{
+    background-color:#f5f5f5cb;
+    /* box-shadow: 1px 1px 1px gray, -1px -1px 1px gray; */
+}
+</style>
 <div class="row">
     <div class="col-12 bg-white">
         <div class="container">
