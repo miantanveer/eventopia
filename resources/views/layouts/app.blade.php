@@ -31,23 +31,16 @@
     <div class="page">
         <div class="page-main">
 
-            @if ($sellerHeader)
-                @include('layouts.components.seller-header')
-            @else
-                @include('layouts.components.app-header')
-            @endif
+            @include('layouts.components.app-header')
 
             @include('layouts.components.app-sidebar')
 
             <!--app-content open-->
             <div class="main-content app-content mt-0">
                 <div class="side-app">
-                    @php
-                        $currenturl = url()->current();
-                        $lastWord = strrchr($currenturl, '/');
-                    @endphp
+
                     <!-- container -->
-                    <div class="@if($lastWord != '/spaces') main-container container-fluid @endif">
+                    <div class="main-container container-fluid">
 
                         @yield('content')
 
@@ -71,7 +64,7 @@
     <!-- global-helper -->
     @include('layouts.components.global-helper')
 
-    {{-- @include('layouts.components.footer') --}}
+    @include('layouts.components.footer')
 
     @include('layouts.components.scripts')
     @include('layouts.components.notification-scripts')
