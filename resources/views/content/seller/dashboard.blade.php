@@ -4,7 +4,7 @@
         .seller-web-sidebar {
             z-index: 9999;
         }
-
+        
         .get_started_btn {
             position: relative;
             top: -84px;
@@ -60,7 +60,6 @@
 @endsection
 
 @section('content')
-
     <!-- ROW-1 -->
     <div class="row mt-5">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
@@ -70,13 +69,13 @@
                         alt="">
                     <div class="position-absolute text-white">
                         <div class="welcome_card">
-                            <h1 class="headingOne">{{lang('Hello, '.user_name())}} </h1>
-                            <h5 class="headingTwo d-block d-sm-none">{{lang('Hello, '.user_name())}}</h5>
-                            <p class="fs-sm-5 fs-6">{{lang('Welcome Back!')}}</p>
+                            <h1 class="headingOne">{{ lang('Hello, ' . user_name()) }} </h1>
+                            <h5 class="headingTwo d-block d-sm-none">{{ lang('Hello, ' . user_name()) }}</h5>
+                            <p class="fs-sm-5 fs-6">{{ lang('Welcome Back!') }}</p>
                         </div>
                     </div>
                     <div class="position-absolute">
-                        <a href="#" class="btn btn-white get_started_btn">{{lang('Get Started')}}</a>
+                        <a href="#" class="btn btn-white get_started_btn">{{ lang('Get Started') }}</a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
@@ -91,21 +90,24 @@
                                 </div>
                             </div>
                             <div class="mb-5 mt-3">
-                                <p class="text-black mb-5">{{lang('Pending Booking Acceptance')}}</p>
+                                <p class="text-black mb-5">{{ lang('Pending Booking Acceptance') }}</p>
                             </div>
                             <div class="row mt-5">
                                 <div class="col-6">
-                                    <img src="{{ asset('assets/images/icons/icon1.png') }}" alt=""> <small>{{lang('Recent Spaces')}}</small>
+                                    <img src="{{ asset('assets/images/icons/icon1.png') }}" alt="">
+                                    <small>{{ lang('Recent Spaces') }}</small>
                                 </div>
                                 <div class="col-6">
-                                    <img src="{{ asset('assets/images/icons/icon2.png') }}" alt=""><small>{{lang('Other Spaces')}}</small>
+                                    <img src="{{ asset('assets/images/icons/icon2.png') }}"
+                                        alt=""><small>{{ lang('Other Spaces') }}</small>
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="text-center mb-2 mt-5">
                                 <div class="btn-list">
-                                    <a href="{{route('pending-bookings')}}" class="btn btn-primary">{{lang('Manage')}}</a>
+                                    <a href="{{ route('pending-bookings') }}"
+                                        class="btn btn-primary">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -126,34 +128,37 @@
         <div class="col-xl-4 col-md-12">
             <div class="card">
                 <div class="card-header pb-0 border-bottom-0">
-                    <h3 class="number-font">{{lang('Bookings')}}</h3>
+                    <h3 class="number-font">{{ lang('Bookings') }}</h3>
                 </div>
                 <div class="card-body pt-0">
                     <div class="mt-2 row">
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">{{$upComingBookings}}</h3>
-                            <p>{{lang('Upcoming Bookings')}}</p>
+                            <h3 class="d-inline-block mb-2">{{ $upComingBookings }}</h3>
+                            <p>{{ lang('Upcoming Bookings') }}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: {{$UpcomingProgress}}%;" role="progressbar"></div>
+                                <div class="progress-bar bg-primary" style="width: {{ $UpcomingProgress }}%;"
+                                    role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">{{$cancelBookings}}</h3>
-                            <p>{{lang('Cancelled Booking')}}</p>
+                            <h3 class="d-inline-block mb-2">{{ $cancelBookings }}</h3>
+                            <p>{{ lang('Cancelled Booking') }}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-danger" style="width: {{$CancelProgress}}%;" role="progressbar"></div>
+                                <div class="progress-bar bg-danger" style="width: {{ $CancelProgress }}%;"
+                                    role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">{{$previousBookings}}</h3>
-                            <p>{{lang('Previous Booking')}}</p>
+                            <h3 class="d-inline-block mb-2">{{ $previousBookings }}</h3>
+                            <p>{{ lang('Previous Booking') }}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: {{$PreviousProgress}}%;" role="progressbar"></div>
+                                <div class="progress-bar bg-primary" style="width: {{ $PreviousProgress }}%;"
+                                    role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-12 text-end">
                             <div style="margin-top: 40px;">
-                                <a href="{{route('bookings')}}" class="btn btn-primary text-white">{{lang('Manage')}}</a>
+                                <a href="{{route('bookings',['type' => 'null','for' => 'seller'])}}" class="btn btn-primary text-white">{{lang('Manage')}}</a>
                             </div>
                         </div>
                     </div>
@@ -163,7 +168,7 @@
         <div class="col-xl-4 col-lg-6 col-md-12">
             <div class="card overflow-hidden">
                 <div class="card-header pb-0 border-bottom-0">
-                    <h3 class="number-font">{{lang('Total Bookings')}}</h3>
+                    <h3 class="number-font">{{ lang('Total Bookings') }}</h3>
                     <div class="card-options">
                         <h6>{{ lang('Total: ')  }} {{$totalBookingsCount}}</h6>
                     </div>
@@ -202,7 +207,7 @@
                     <hr>
                     <div class="col-12 text-center">
                         <div class="mb-3">
-                            <a href="{{route('bookings')}}" class="btn btn-primary text-white">{{ lang('Manage') }}</a>
+                            <a href="{{route('bookings',['type' => 'null','for' => 'seller'])}}" class="btn btn-primary text-white">{{ lang('Manage') }}</a>
                         </div>
                     </div>
                 </div>
@@ -225,7 +230,7 @@
                         </div>
                         <div class="col-12 text-center">
                             <div class="mb-3">
-                                <a href="#" class="btn btn-primary text-white">{{lang('View Details')}}</a>
+                                <a href="#" class="btn btn-primary text-white">{{ lang('View Details') }}</a>
                             </div>
                         </div>
                     </div>
@@ -266,7 +271,7 @@
                         </div>
                         <div class="col-12 text-center">
                             <div class="mb-3">
-                                <a href="#" class="btn btn-primary text-white">{{lang('View Details')}}</a>
+                                <a href="#" class="btn btn-primary text-white">{{ lang('View Details') }}</a>
                             </div>
                         </div>
                     </div>

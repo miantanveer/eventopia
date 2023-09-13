@@ -1,22 +1,22 @@
 <?php
 
-use App\Models\ServiceTitle;
 use App\Http\Controllers\AuthenticationController;
-use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\LandingController;
-use App\Http\Controllers\QuoteController;
-use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Customer\BookingController;
-use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Customer\CartController;
+use App\Http\Controllers\Customer\DashboardController;
 use App\Http\Controllers\Customer\PaymentController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\Seller\ListingSpaceController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Seller\ServiceController;
+use App\Http\Controllers\QuoteController;
 use App\Http\Controllers\Seller\EntertainmentController;
 use App\Http\Controllers\Seller\ListingController;
+use App\Http\Controllers\Seller\ListingSpaceController;
+use App\Http\Controllers\Seller\ServiceController;
+use App\Models\ServiceTitle;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +27,7 @@ use App\Http\Controllers\Seller\ListingController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('content.landing-page');
@@ -62,12 +62,11 @@ Route::get('reset-password', [AuthenticationController::class, 'resetPasswordInd
 Route::post('reset-password', [AuthenticationController::class, 'resetPassword']);
 Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
 
-  // Language Function
-  Route::get('language/{code}',[LanguageController::class, 'local'])->name('local');
+// Language Function
+Route::get('language/{code}', [LanguageController::class, 'local'])->name('local');
 
 //Logout
 Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
-
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -76,9 +75,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('notifications', [NotificationController::class, 'index'])->name('notifications');
     Route::get('mark-as-read', [NotificationController::class, 'read'])->name('mark_as_read');
-    // Route::get('/search-results', function () {
-    //     return view('content.customer.search-results');
-    // });
 
     Route::get('/manage-bookings', function () {
         return view('content.customer.manage-bookings');
@@ -117,12 +113,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('seller_decline_quote/{id}', [QuoteController::class, 'seller_decline_quote'])->name('seller_decline_quote');
     Route::post('send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
 
-    Route::get('bookings', [BookingController::class, 'bookings'])->name('bookings');
-
+    Route::get('bookings/{type}/{for}', [BookingController::class, 'bookings'])->name('bookings');
 
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana
-    Route::get('seller-dashboard',[OrderController::class,'sellerDashboard'])->name('seller-dashboard');
+    Route::get('seller-dashboard', [OrderController::class, 'sellerDashboard'])->name('seller-dashboard');
 
     Route::get('address-step', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
     Route::post('add-address', [ListingSpaceController::class, 'addAddress'])->name('add-address');
@@ -248,11 +243,3 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/entertainment/update/form/step/7/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep7'])->name('load_entertainment_form_step_7');
     Route::post('/entertainment/update/form/step/7/{id}', [EntertainmentController::class, 'UpdateFormStep7'])->name('update_entertainment_form_7');
 });
-
-
-// Route::get('/seller-profile', function () {
-//     return view('layouts.seller.seller-profile');
-// });
-// Route::get('/seller-profile-verified', function () {
-//     return view('layouts.seller.seller-profile-verified');
-// });

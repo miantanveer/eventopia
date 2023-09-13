@@ -31,7 +31,11 @@
     <div class="page">
         <div class="page-main">
 
-            @include('content.customer.customer-header')
+            @if ($sellerHeader)
+                @include('layouts.components.seller-header')
+            @else
+                @include('content.customer.customer-header')
+            @endif
 
             <!--app-content open-->
             <div class="main-content app-content pt-5" style="background-color: #ffffff">
@@ -44,9 +48,9 @@
                                 <div class="card" id="modal3">
                                     <div class="card-body text-center border p-4 pb-5">
                                         <i class="fa fa-calendar fs-30 text-primary lh-1 my-4 d-inline-block"></i>
-                                        <p class="mb-4 mx-4">{{lang('You have no bookings.')}}</p>
-                                        <form action="{{route('spaces')}}" method="GET">
-                                            <button class="btn btn-primary mt-2 mb-0 ">{{lang('Book Now')}}</button>
+                                        <p class="mb-4 mx-4">{{ lang('You have no bookings.') }}</p>
+                                        <form action="{{ route('spaces') }}" method="GET">
+                                            <button class="btn btn-primary mt-2 mb-0 ">{{ lang('Book Now') }}</button>
                                         </form>
                                     </div>
                                 </div>
@@ -71,8 +75,9 @@
             <div class="dropdown btn-group mt-2 mb-2">
                 <div class="btn-group mt-2 mb-2">
                     <button class="btn btn-pill btn-white border-info text-end dropdown-toggle" type="button"
-                        data-bs-toggle="dropdown" id="global-helper-btn">{{lang('Do
-                        you need Help?')}}</button>
+                        data-bs-toggle="dropdown"
+                        id="global-helper-btn">{{ lang('Do
+                                                you need Help?') }}</button>
                     <div class="dropdown-menu w-260" style="">
                         <form class="card-body pt-3" id="contactForm">
                             <div class="form-group">
@@ -85,7 +90,7 @@
                                 <input class="form-control" placeholder="Enter Phone Number" type="text">
                             </div>
                             <div class="submit">
-                                <button class="btn btn-primary btn-block">{{lang('Submit')}}</button>
+                                <button class="btn btn-primary btn-block">{{ lang('Submit') }}</button>
                             </div>
                         </form>
                     </div>

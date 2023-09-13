@@ -121,7 +121,7 @@
                             <hr>
                             <div class="col-12 text-center">
                                 <div class="mb-3">
-                                    <a href="{{ route('bookings') }}"
+                                    <a href="{{ route('bookings',['type' => 'null','for' => 'null']) }}"
                                         class="btn test-bar text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@
                 </div>
 
                 <!--
-                    
+
                 -->
             </div>
         </div>
@@ -138,7 +138,7 @@
 
         <!-- ROW-3 -->
         <div class="row">
-           
+
 
 
 
@@ -192,7 +192,7 @@
                         <div class="row">
                             <div class="col-12 ml-3 text-center">
                                 <div>
-                                    <a href="{{ route('bookings', ['type' => 'space']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'space','for' => 'null']) }}"
                                         class="btn test-bar text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
@@ -253,7 +253,7 @@
                         <div class="row">
                             <div class="col-12 ml-3 text-center">
                                 <div>
-                                    <a href="{{ route('bookings', ['type' => 'space']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'entertainment','for' => 'null']) }}"
                                         class="btn test-bar text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
@@ -312,7 +312,7 @@
                         <div class="row">
                             <div class="col-12 ml-3 text-center">
                                 <div>
-                                    <a href="{{ route('bookings', ['type' => 'service']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'service','for' => 'null']) }}"
                                         class="btn test-bar text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
@@ -321,7 +321,7 @@
                 </div>
             </div>
 
-            
+
             <div class="col-xl-3 col-lg-6 col-md-12">
                 <div class="row mt-3">
                     <div class="col-12">
@@ -340,7 +340,7 @@
                             </div>
                             <div class="col-12  text-center">
                                 <div class="mb-3">
-                                    <a href="{{ route('bookings', ['type' => 'active']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'active','for' => 'null']) }}"
                                         class="btn test-bar text-white">{{ lang('View Details') }}</a>
                                 </div>
                             </div>
@@ -363,7 +363,7 @@
                             </div>
                             <div class="col-12  text-center">
                                 <div class="mb-3">
-                                    <a href="{{ route('bookings', ['type' => 'cancel']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'cancel','for' => 'null']) }}"
                                         class="btn test-bar text-white">{{ lang('View Details') }}</a>
                                 </div>
                             </div>
