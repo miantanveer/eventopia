@@ -195,7 +195,7 @@ class AuthenticationController extends UserBaseController
     {
         try {
             if ($req->phone_number) {
-                $user = User::wherePhoneNumber($req->phone_number)->first();
+                $user = User::wherePhoneNumber($req->phone_number)->first(); 
             } else {
                 $user = User::whereEmail($req->email)->first();
             }

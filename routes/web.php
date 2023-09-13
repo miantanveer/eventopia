@@ -117,8 +117,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('seller_decline_quote/{id}', [QuoteController::class, 'seller_decline_quote'])->name('seller_decline_quote');
     Route::post('send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
 
-    Route::get('bookings', [BookingController::class, 'bookings'])->name('bookings');
-
+    Route::get('bookings/{type}/{for}', [BookingController::class, 'bookings'])->name('bookings');
 
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana
