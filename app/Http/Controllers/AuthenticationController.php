@@ -156,13 +156,25 @@ class AuthenticationController extends UserBaseController
                 return redirect()->back()->withErrors($validator)->withInput();
             }
             if ($req->phone_number) {
+                $user = User::wherePhoneNumber($req->phone_number)->first();
+                if (!$user) {
+                    return redirect()->back()->with('error', 'Phone Number does not exist. ');
+                }
                 $match = Auth::attempt(['phone_number' => $req->phone_number, 'password' => $req->password, 'status' => 1]);
             } else {
+                $user = User::whereEmail($req->email)->first();
+                if (!$user) {
+                    return redirect()->back()->with('error', 'Email does not exist. ');
+                }
                 $match = Auth::attempt(['email' => $req->email, 'password' => $req->password, 'status' => 1]);
             }
 
+            if ($user->status != 1) {
+                return redirect()->back()->with('error', 'Your account is not active. ');
+            }
+
             if (!$match) {
-                return redirect()->back()->with('error', 'Your credentials are not correct or your account is not active');
+                return redirect()->back()->with('error', 'Your Password is Incorrect.');
             }
             if($match){
                 $des = 'Logged in successfully';
@@ -183,7 +195,7 @@ class AuthenticationController extends UserBaseController
     {
         try {
             if ($req->phone_number) {
-                $user = User::wherePhoneNumber($req->phone_number)->first();
+                $user = User::wherePhoneNumber($req->phone_number)->first(); 
             } else {
                 $user = User::whereEmail($req->email)->first();
             }

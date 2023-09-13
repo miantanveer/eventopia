@@ -105,7 +105,7 @@ class BookingController extends UserBaseController
         if (Order::find($id)->update(['status' => 3])) return redirect()->back()->with('success', 'Booking request declined successfully.');
     }
 
-    public function bookings($type = null)
+    public function bookings($type,$for)
     {
         if ($type == 'space') {
             $this->orders = Order::whereType('space')->whereUserId(auth()->user()->id)->paginate(2);
@@ -120,13 +120,14 @@ class BookingController extends UserBaseController
         }else {
             $this->orders = Order::whereUserId(auth()->user()->id)->paginate(2);
         }
+        $for == 'seller' ? $this->sellerHeader = 'required' : $this->sellerHeader = 'not-required';
 
         if(!$this->orders->isEmpty())
         {
             return view('layouts.components.bookings',$this->data);
         }
 
-        return view('layouts.components.booking');
+        return view('layouts.components.booking',['sellerHeader' => $this->sellerHeader]);
     }
     public function details($id,$type)
     {

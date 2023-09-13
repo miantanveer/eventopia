@@ -123,7 +123,7 @@
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
                                                                                 placeholder="80"
-                                                                                aria-label="Recipient's username"
+                                                                                aria-label="Recipient's username" min="1" step="1"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $data->id }}][rate_per_hour][]">
                                                                             <span class="input-group-text"
@@ -136,7 +136,7 @@
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
                                                                                 placeholder="5"
-                                                                                aria-label="Recipient's username"
+                                                                                aria-label="Recipient's username" min="1" step="1"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $data->id }}][minimum_hour][]">
                                                                             <span class="input-group-text"
@@ -153,7 +153,7 @@
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
                                                                                 placeholder="{{lang('Optional')}}"
-                                                                                aria-label="Recipient's username"
+                                                                                aria-label="Recipient's username" min="1" step="1"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $data->id }}][discount][]">
                                                                             <span class="input-group-text"
@@ -203,7 +203,7 @@
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
                                                                                 placeholder="250"
-                                                                                aria-label="Recipient's username"
+                                                                                aria-label="Recipient's username" min="1" step="1"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $data->id }}][max_guests][]">
                                                                             <span class="input-group-text"

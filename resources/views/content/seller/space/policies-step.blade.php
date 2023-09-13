@@ -79,7 +79,7 @@
                                                     <div class="col-10">
                                                         @foreach ($company_policies as $company_policy)
                                                             <div class="form-check">
-                                                                <input class="form-check-input" name="company_policy[]" type="checkbox" value="{{$company_policy->id}}"
+                                                                <input class="form-check-input" required name="company_policy[]" type="checkbox" value="{{$company_policy->id}}"
                                                                     id="invalidCheck{{$company_policy->id}}" required data-parsley-required-message="{{lang('These values are required')}}" data-parsley-errors-container="#p_error">
                                                                 <label class="form-check-label" for="invalidCheck{{$company_policy->id}}">
                                                                     <p>{{lang($company_policy->title)}}</p>
