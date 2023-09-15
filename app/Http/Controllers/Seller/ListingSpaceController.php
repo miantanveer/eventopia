@@ -99,7 +99,7 @@ class ListingSpaceController extends UserBaseController
         $req->validate([
             'space_type_id' => 'required',
             'parking_option' => 'required',
-            'parking_description' => 'required|min:35',
+            'parking_description' => 'required',
         ]);
         try {
             $data = $req->except('_token');

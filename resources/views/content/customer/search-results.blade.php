@@ -217,7 +217,7 @@
                                 </div>
                                 <div class="card-body pt-0 h-100">
                                     <div class="owl-carousel owl-carousel-icons2">
-                                        @foreach (@$data as $value)
+                                        @foreach (@$listing as $value)
                                             @php
                                                 $images = $type . 'Images';
                                             @endphp
@@ -237,7 +237,7 @@
 
                         <div class="card-body pt-0">
                             <div class="row">
-                                @if (@$data == null)
+                                @if (@$listing == null)
                                     @php
                                         $lat = 0;
                                         $lng = 0;
@@ -267,7 +267,7 @@
             </div>
         </div>
         <div class="col-lg-4 col-12 mt-5 mt-lg-0" id="map">
-            @if (!$data)
+            @if (!@$listing)
                 <div class="container-fluid">
                     <div class="card custom-card">
                         <div class="card-body map_height overflow-auto" id="mapContainer">
@@ -295,7 +295,7 @@
         $(document).ready(function() {
             // Create an array to hold marker data
             var markers = [
-                @foreach (@$data as $value)
+                @foreach (@$listing as $value)
                     {
                         lat: {{ @$value->lat }},
                         lng: {{ @$value->lng }},
@@ -437,15 +437,15 @@
         function selected(input) {
             var url = $('#search').val();
             var selectedPrice = $('input[name="price"]:checked').val();
-            var guests = $('input[name="guests"]').val();
+            var guests = $('input[name="guests"]:checked').val();
             var date = $('input[name="date"]').val();
             var keyword = $('input[name="keyword"]').val();
             $.ajax({
                 url: url,
                 data: {
-                    'planCatagories': input,
+                    'type': input,
                     'price': selectedPrice,
-                    'guests': guests,
+                    'attendees': guests,
                     'date': date,
                     'keyword': keyword
                 },

@@ -72,6 +72,7 @@
                             <h1 class="headingOne">{{ lang('Hello, ' . user_name()) }} </h1>
                             <h5 class="headingTwo d-block d-sm-none">{{ lang('Hello, ' . user_name()) }}</h5>
                             <p class="fs-sm-5 fs-6">{{ lang('Welcome Back!') }}</p>
+                            <p class="fs-sm-5 fs-6">{{ lang('Seller Dashboard') }}</p>
                         </div>
                     </div>
                     <div class="position-absolute">
