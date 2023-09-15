@@ -64,26 +64,40 @@
                             @endif
                             <div id="step-10" class="mb-5">
                                 <div class="form">
-                                    <form class="validation" action="{{route('add-policies',$space->id)}}" method="post">
+                                    <form class="validation" action="{{ route('add-policies', $space->id) }}" id="policies_form" method="post">
                                         @csrf
                                         <div class="container">
                                             <div class="text-center mb-6">
-                                                <h3 class="mt-3 mt-1"><b>{{lang('Please review the following Eventopia policies')}}</b>
+                                                <h3 class="mt-3 mt-1">
+                                                    <b>{{ lang('Please review the following Eventopia policies') }}</b>
                                                 </h3>
-                                                <p class=""><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
-                                                        class="w-5" alt=""> {{lang('I agree and
-                                                    understand that as a Peerspace host I am required to:')}}</p>
+                                                <p class=""><img
+                                                        src="{{ asset('assets/images/brand/light-bulb.png') }}"
+                                                        class="w-5" alt="">
+                                                    {{ lang('I agree and
+                                                                                                        understand that as a Peerspace host I am required to:') }}
+                                                </p>
                                             </div>
                                             <div class="container">
                                                 <div class="row">
                                                     <div class="col-10">
+                                                        <div class="form-check mb-4">
+                                                            <input class="form-check-input" type="checkbox" id="selectAll">
+                                                            <label class="form-check-label" for="selectAll">
+                                                                Select All
+                                                            </label>
+                                                        </div>
+
                                                         @foreach ($company_policies as $company_policy)
                                                             <div class="form-check">
-                                                                <input class="form-check-input" required name="company_policy[]" type="checkbox" value="{{$company_policy->id}}"
-                                                                    id="invalidCheck{{$company_policy->id}}" required data-parsley-required-message="{{lang('These values are required')}}" data-parsley-errors-container="#p_error">
-                                                                <label class="form-check-label" for="invalidCheck{{$company_policy->id}}">
-                                                                    <p>{{lang($company_policy->title)}}</p>
-                                                                    <p>{{lang($company_policy->description)}}</p>
+                                                                <input class="form-check-input policy-checkbox"
+                                                                    name="company_policy[]" type="checkbox"
+                                                                    value="{{ $company_policy->id }}"
+                                                                    id="invalidCheck{{ $company_policy->id }}">
+                                                                <label class="form-check-label"
+                                                                    for="invalidCheck{{ $company_policy->id }}">
+                                                                    <p>{{ lang($company_policy->title) }}</p>
+                                                                    <p>{{ lang($company_policy->description) }}</p>
                                                                 </label>
                                                             </div>
                                                             <hr class="bg-dark">
@@ -91,14 +105,16 @@
                                                     </div>
                                                     <div id="p_error"></div>
                                                 </div>
+
                                             </div>
                                             <input type="hidden" name="last_step" value="10">
                                             <input type="hidden" name="status" value="1">
                                         </div>
                                         <hr class="border-3 bg-dark">
                                         <div class="float-end">
-                                            <a class="btn btn-light" href="{{route('contact-step',$space->id)}}">{{lang('Previous')}}</a>
-                                            <button class="btn btn-primary">{{lang('Next')}}</button>
+                                            <a class="btn btn-light"
+                                                href="{{ route('contact-step', $space->id) }}">{{ lang('Previous') }}</a>
+                                            <button class="btn btn-primary">{{ lang('Next') }}</button>
                                         </div>
                                     </form>
                                 </div>
@@ -136,6 +152,23 @@
     <script>
         $(document).ready(function() {
             $('.validation').parsley();
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            // Select All checkbox
+            $('#selectAll').change(function() {
+                $('.policy-checkbox').prop('checked', $(this).prop('checked'));
+            });
+
+            // Form submission
+            $('#policies_form').submit(function(event) {
+                var checkedPolicies = $('.policy-checkbox:checked');
+                if (checkedPolicies.length < 4) {
+                    event.preventDefault(); // Prevent form submission
+                    alert('Please select all.');
+                }
+            });
         });
     </script>
 @endsection

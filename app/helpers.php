@@ -1,9 +1,12 @@
 <?php
 
+use App\Mail\EmailVerfication;
 use App\Models\Cart;
 use App\Models\Notification;
+use App\Models\User;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 
@@ -81,5 +84,35 @@ if (!function_exists('cartStore')) {
         $cart->start_time = $start_time;
         $cart->end_time = $end_time;
         $cart->save();
+    }
+}
+
+if (!function_exists('sendOtpApi')) {
+    function sendOtpApi($req)
+    {
+        try {
+            // $otp = rand( 111111, 999999 );
+            $otp = 111111;
+
+            if ($req->phoneNumber) {
+                $user = User::wherePhoneNumber($req->phoneNumber)->first();
+                $user->otp = $otp;
+                $user->save();
+                sendMessage($req->phoneNumber, $otp);
+            } else {
+                $user = User::where('email', $req->email)->first();
+                $user->otp = $otp;
+                $user->save();
+                Mail::to($req->email)->send(new EmailVerfication($otp));
+            }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', $th->getMessage());
+        }
+    }
+}
+if (!function_exists('sendMessage')) {
+    function sendMessage($phone_number = null, $otp = null)
+    {
+        // dispatch( new SendSms( $phone_number, $otp ) );
     }
 }
