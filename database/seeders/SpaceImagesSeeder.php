@@ -16,168 +16,168 @@ class SpaceImagesSeeder extends Seeder
     {
         SpaceImage::create( [
             'space_id'=>'1',
-            'image'=>'/uploads/seller/spaces/1694501473-72572.png',
+            'image'=>'/assets/images/users/spaces/1.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'1',
-            'image'=>'/uploads/seller/spaces/1694501473-68523.png',
+            'image'=>'/assets/images/users/spaces/2.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'1',
-            'image'=>'/uploads/seller/spaces/1694501473-74544.png',
+            'image'=>'/assets/images/users/spaces/3.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'1',
-            'image'=>'/uploads/seller/spaces/1694501473-62415.png',
+            'image'=>'/assets/images/users/spaces/4.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'2',
-            'image'=>'/uploads/seller/spaces/1694502042-61660.png',
+            'image'=>'/assets/images/users/spaces/5.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'2',
-            'image'=>'/uploads/seller/spaces/1694502042-58354.png',
+            'image'=>'/assets/images/users/spaces/6.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'2',
-            'image'=>'/uploads/seller/spaces/1694502042-82497.png',
+            'image'=>'/assets/images/users/spaces/7.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'2',
-            'image'=>'/uploads/seller/spaces/1694502042-94325.png',
+            'image'=>'/assets/images/users/spaces/8.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'3',
-            'image'=>'/uploads/seller/spaces/1694502240-80518.png',
+            'image'=>'/assets/images/users/spaces/9.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'3',
-            'image'=>'/uploads/seller/spaces/1694502240-76492.png',
+            'image'=>'/assets/images/users/spaces/10.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'3',
-            'image'=>'/uploads/seller/spaces/1694502240-9921.png',
+            'image'=>'/assets/images/users/spaces/11.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'3',
-            'image'=>'/uploads/seller/spaces/1694502240-3997.png',
+            'image'=>'/assets/images/users/spaces/12.jpg',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'4',
-            'image'=>'/uploads/seller/spaces/1694502376-52540.png',
+            'image'=>'/assets/images/users/spaces/001.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'4',
-            'image'=>'/uploads/seller/spaces/1694502376-54459.png',
+            'image'=>'/assets/images/users/spaces/002.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'4',
-            'image'=>'/uploads/seller/spaces/1694502376-55148.png',
+            'image'=>'/assets/images/users/spaces/003.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'4',
-            'image'=>'/uploads/seller/spaces/1694502376-19251.png',
+            'image'=>'/assets/images/users/spaces/004.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'5',
-            'image'=>'/uploads/seller/spaces/1694502526-40582.png',
+            'image'=>'/assets/images/users/spaces/005.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'5',
-            'image'=>'/uploads/seller/spaces/1694502526-48992.png',
+            'image'=>'/assets/images/users/spaces/006.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'5',
-            'image'=>'/uploads/seller/spaces/1694502526-60490.png',
+            'image'=>'/assets/images/users/spaces/007.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'5',
-            'image'=>'/uploads/seller/spaces/1694502526-61987.png',
+            'image'=>'/assets/images/users/spaces/008.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'6',
-            'image'=>'/uploads/seller/spaces/1694502642-58690.png',
+            'image'=>'/assets/images/users/spaces/001.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'6',
-            'image'=>'/uploads/seller/spaces/1694502642-39745.png',
+            'image'=>'/assets/images/users/spaces/002.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'6',
-            'image'=>'/uploads/seller/spaces/1694502642-35988.png',
+            'image'=>'/assets/images/users/spaces/003.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );
                         
             SpaceImage::create( [
             'space_id'=>'6',
-            'image'=>'/uploads/seller/spaces/1694502642-15760.png',
+            'image'=>'/assets/images/users/spaces/004.png',
             'created_at'=>now(),
             'updated_at'=>now()
             ] );

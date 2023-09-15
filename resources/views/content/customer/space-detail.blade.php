@@ -217,7 +217,7 @@
                                 </div>
                                 <p class="font-13 text-muted mt-2">
                                     {{ lang("In reality space is
-                                                                        bigger than it seems in photo's.") }}
+                                                                                                                                                                                                                                                                                                                                    bigger than it seems in photo's.") }}
                                 </p>
                             </div>
                             <div class="col-sm-2 col-12 my-auto content-button">
@@ -411,8 +411,7 @@
                                 </form>
                                 <div class="mt-3 text-center">
                                     <h6><i class="mdi mdi-alarm"></i>
-                                        {{ lang('John typically respond within
-                                                                                1 hr') }}
+                                        {{ lang('John typically respond within 1 hr') }}
                                     </h6>
                                     <p>{{ lang("You won't be charged yet.") }}</p>
                                 </div>
@@ -544,8 +543,8 @@
                             endTimeSelect.append(new Option("12 AM", "12 AM"));
                         } else if (operatingHours[selectedDay]) {
                             operatingHours[selectedDay].forEach(function(hours) {
-                                startTimeSelect.append(new Option(hours.start_time, hours
-                                    .start_time));
+                                startTimeSelect.append(new Option(hours.start_time, hours.start_time));
+                                endTimeSelect.append(new Option(hours.end_time, hours.end_time));
                             });
                         }
 
@@ -558,28 +557,39 @@
             // Add an event listener to the start time select to update the end time select
             $("select[name='start_time']").on('change', function() {
                 var selectedStartTime = $(this).val();
-                var selectedDay = new Date($("#datepick").datepicker('getDate')).toLocaleDateString(
-                'en-US', {
-                    weekday: 'long'
-                }).toLowerCase();
+                var selectedDay = new Date($("#datepick").datepicker('getDate'))
+                    .toLocaleDateString(
+                        'en-US', {
+                            weekday: 'long'
+                        }).toLowerCase();
 
                 var endTimeSelect = $("select[name='end_time']");
                 endTimeSelect.empty();
 
                 if (operatingHours[selectedDay]) {
-                    var matchingHours = operatingHours[selectedDay].find(function(hours) {
+                    var matchingHours = operatingHours[selectedDay].filter(function(hours) {
                         return hours.start_time === selectedStartTime;
                     });
 
-                    if (matchingHours) {
-                        endTimeSelect.append(new Option(matchingHours.end_time, matchingHours.end_time));
-                    }
-                    else{
+                    if (matchingHours.length === 1) {
+                        // Only one option for start time, so append its end time.
+                        endTimeSelect.append(new Option(matchingHours[0].end_time,
+                            matchingHours[0].end_time));
+                    } else if (matchingHours.length > 1) {
+                        // Multiple options for start time, append all end times.
+                        matchingHours.forEach(function(hours) {
+                            endTimeSelect.append(new Option(hours.end_time, hours
+                                .end_time));
+                        });
+                    } else {
+                        // No matching hours found, add a default option.
                         endTimeSelect.append(new Option('12 AM', '12 AM'));
                     }
                 }
+                if (endTimeSelect.find('option').length === 1) {
+                    endTimeSelect.prop('selectedIndex', 0);
+                }
             });
-
         });
     </script>
     <script>
