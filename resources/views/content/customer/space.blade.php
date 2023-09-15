@@ -828,9 +828,7 @@
                                                                 href="#">1</a></li>
                                                         <li class="page-item"><a class="page-link p-3"
                                                                 href="#">2</a></li>
-                                                        <li class="page-item"><a class="page-link p-3" href="#">. .
-                                                                . . . .
-                                                                .</a></li>
+                                                        <li class="page-item"><a class="page-link p-3" href="#">..</a></li>
                                                         <li class="page-item"><a class="page-link p-3"
                                                                 href="#">8</a></li>
                                                         <li class="page-item"><a class="page-link" href="#"><i
