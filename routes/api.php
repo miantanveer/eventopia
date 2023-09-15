@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\AuthenticationController;
 use App\Http\Controllers\Api\NotificationController;
 use App\Http\Controllers\Api\Customer\DashboardController;
 use App\Http\Controllers\Api\Customer\ListingController;
+use App\Http\Controllers\Api\Customer\CartController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -37,6 +38,12 @@ Route::prefix('customer')->middleware('auth:sanctum')->group(function(){
         Route::get('/', [ListingController::class, 'index']);
         Route::get('/{type}', [ListingController::class, 'listing']);
         Route::post('/filter/{type}', [ListingController::class, 'filter']);
+        Route::get('/details/{id}/{type}', [ListingController::class, 'listingDetail']);
+        
+    });
+    Route::prefix('cart')->group(function(){
+        Route::post('/{id}/{type}', [CartController::class, 'checkout']);
+
     });
 
 });
