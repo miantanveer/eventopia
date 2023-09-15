@@ -18,7 +18,7 @@
 
         .welcome_card {
             position: relative;
-            top: -280px;
+            top: -230px;
             left: 60px;
             transform: translate();
             z-index: 1;
@@ -143,7 +143,7 @@
 
 
             <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
-                <div class="card mt-3">
+                <div class="card mt-3" >
                     <div class="card-header pb-0 border-bottom-0">
                         <h3 class="number-font">{{ lang('Space') }}</h3>
                         <div class="card-options">
@@ -201,8 +201,8 @@
                 </div>
             </div>
 
-             <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
-                <div class="card mt-3">
+             <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3"  >
+                <div class="card mt-3" >
                     <div class="card-header pb-0 border-bottom-0">
                         <h3 class="number-font">{{ lang('Entertainment & Talents') }}</h3>
                         <div class="card-options">
