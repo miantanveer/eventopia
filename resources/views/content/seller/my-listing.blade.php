@@ -37,10 +37,7 @@
                     <div class="col-6 ps-0">
                         <h3 class="number-font mb-0">{{lang('Listings')}}</h3>
                     </div>
-                    <div class="col-2">
-
-                    </div>
-                    <div class="col-1 pe-0">
+                    <div class="col-1 me-3">
                         <div class="text-end">
                             <a type="button" class="btn btn-primary" href="{{ route('list-space') }}">{{lang('Add a
                                 space')}}</a>

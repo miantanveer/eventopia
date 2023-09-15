@@ -111,7 +111,7 @@
                                                     <span class="input-group-text" id="basic-addon2">{{lang('sq m')}}</span>
                                                 </div>
                                                 <div id="error"></div>
-                                            </div>                                            
+                                            </div>
                                             <hr class="bg-dark">
                                         </div>
                                     </div>
@@ -183,10 +183,7 @@
                                             buzzers,
                                             floors,
                                             stairs/elevator access etc.')}}</li>
-                                        <textarea name="arrival" id="" cols="30" rows="5" class="w-100 form-control p-5"
-                                            placeholder="Add description" placeholder="Enter Arrival Instructions">
-                                            {{ @$entertainment->arrival }}
-                                            </textarea>
+                                        <textarea name="arrival" id="" cols="30" rows="5" class="w-100 form-control p-5" placeholder="Add description" placeholder="Enter Arrival Instructions">{{ @$entertainment->arrival }}</textarea>
                                         <p><i class="fa fa-lock"></i>&nbsp; {{lang("Don't worry, we'll only share this
                                             with
                                             guests

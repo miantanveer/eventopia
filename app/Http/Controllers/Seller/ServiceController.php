@@ -9,7 +9,6 @@ use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\ServiceImages;
 use App\Models\ServiceTeam;
-use App\Models\ServiceTimeSetting;
 use App\Models\ServiceTitle;
 use App\Models\TeamMembers;
 use Illuminate\Http\Request;
@@ -149,7 +148,7 @@ class ServiceController extends UserBaseController
     }
     public function loadServiceForm5($id)
     {
-        $time = ServiceTimeSetting::whereServiceId($id)->first();
+        $time = Service::find($id);
         return view('content.seller.service.create.form-step-5', ['id' => $id, 'time' => $time]);
     }
     public function serviceForm5(Request $req, $id)
