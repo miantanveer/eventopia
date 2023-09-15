@@ -109,7 +109,7 @@
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
                                 data-bs-toggle="dropdown">
-                                {{lang('Price')}} <span class="caret"></span>
+                                {{ lang('Price') }} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <div class="custom-controls-stacked">
@@ -117,17 +117,17 @@
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option1" checked="">
-                                            <span class="custom-control-label">{{lang('Up to $100')}}</span>
+                                            <span class="custom-control-label">{{ lang('Up to $100') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option2">
-                                            <span class="custom-control-label">{{lang('$100 to & $250')}}</span>
+                                            <span class="custom-control-label">{{ lang('$100 to & $250') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">{{lang('$250 to & $450')}}</span>
+                                            <span class="custom-control-label">{{ lang('$250 to & $450') }}</span>
                                         </label>
                                     </form>
                                 </div>
@@ -147,7 +147,7 @@
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
                                 data-bs-toggle="dropdown">
-                               {{lang('Attendees')}} <span class="caret"></span>
+                                {{ lang('Attendees') }} <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
                                 <div class="custom-controls-stacked">
@@ -155,22 +155,22 @@
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option1" checked="">
-                                            <span class="custom-control-label">{{lang('0 to 10')}}</span>
+                                            <span class="custom-control-label">{{ lang('0 to 10') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option2">
-                                            <span class="custom-control-label">{{lang('11 to 25')}}</span>
+                                            <span class="custom-control-label">{{ lang('11 to 25') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">{{lang('51 to 100')}}</span>
+                                            <span class="custom-control-label">{{ lang('51 to 100') }}</span>
                                         </label>
                                         <label class="custom-control custom-radio">
                                             <input type="radio" class="custom-control-input" name="example-radios"
                                                 value="option3">
-                                            <span class="custom-control-label">{{lang('Over 100')}}</span>
+                                            <span class="custom-control-label">{{ lang('Over 100') }}</span>
                                         </label>
                                     </form>
                                 </div>
@@ -189,7 +189,7 @@
                     </div>
                     <div class="col-lg-1 text-center mt-4 mx-6 form-check form-switch d-lg-block d-none">
                         <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
-                        <label class="form-check-label" for="flexSwitchCheckChecked">{{lang('Map')}}</label>
+                        <label class="form-check-label" for="flexSwitchCheckChecked">{{ lang('Map') }}</label>
                     </div>
                 </div>
             </div>
@@ -207,16 +207,18 @@
                         <div class="container-fluid">
                             <div class="card custom-card">
                                 <div class="card-header border-bottom-0">
-                                    {{lang('The talent & entertainments you might be looking for?')}}
+                                    {{ lang('The talent & entertainments you might be looking for?') }}
                                 </div>
                                 <div class="card-body pt-0 h-100">
                                     <div class="owl-carousel owl-carousel-icons2">
                                         @foreach (@$ent as $value)
-                                        <div class="item card_height">
-                                            <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
-                                                <a href="{{route('entertainment-details',@$value->id)}}" class="h-100"><img class="h-100"
-                                                        src="{{ asset(@$value->entertainmentImages[0]->image) }}"
-                                                        alt="img"></a>
+                                            <div class="item card_height">
+                                                <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
+                                                    <a href="{{route('entertainment-details',@$value->id)}}"
+                                                        class="h-100"><img class="h-100"
+                                                            src="{{ asset(@$value->entertainmentImages[0]->image) }}"
+                                                            alt="img"></a>
+                                                </div>
                                             </div>
                                         @endforeach
                                     </div>
@@ -233,11 +235,14 @@
                                         $title = 0;
                                     @endphp
                                     <div class="text-center">
-                                        <h2><strong>{{lang("We couldn't find any Emntertainment Listing.")}}</strong></h2>
+                                        <h2><strong>{{ lang("We couldn't find any spaces.") }}</strong></h2>
+                                    </div>
+                                    <div class="card-header border-bottom-0 ms-1 justify-content-center">
+                                        {{ lang('Try zooming out or expanding your filter criteria.') }}
                                     </div>
                                 @else
                                     <div class="card-header border-bottom-0 ms-3">
-                                        {{ $count }} {{lang('entertainment found')}}
+                                        {{ $count }} {{ lang('entertainments found') }}
                                     </div>
                                     @foreach (@$ent as $value)
                                         @php
@@ -249,8 +254,11 @@
                                             <div class="card overflow-hidden">
                                                 <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
                                                     <div class="ms-1 card-border float-start">
-                                                        <p class="text-dark p-2 bg-primary">{{lang('From SAR ')}}{{ @$value->entertainmentActivities[0]->hourly_rate }}{{lang('/hour')}}</p>
+                                                        <p class="text-dark p-2 bg-primary">
+                                                            {{ lang('From SAR') }}{{ @$value->entertainmentActivities[0]->hourly_rate }}
+                                                        </p>
                                                     </div>
+
                                                 </div>
                                                 <a href="{{route('entertainment-details',@$value->id)}}">
                                                     <img src="{{ asset(@$value->entertainmentImages[0]->image) }}"
@@ -262,7 +270,7 @@
                                                         <i class="fa fa-star" style="color:#f1c40f"></i>
                                                         <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
                                                         <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                        <p>{{lang('Responds within 1 hour')}}</p>
+                                                        <p>{{ lang('Responds within 1 hour') }}</p>
                                                     </div>
                                                 </a>
                                             </div>
@@ -276,17 +284,19 @@
             </div>
         </div>
         <div class="col-lg-4 col-12 mt-5 mt-lg-0" id="map">
-            {{-- <div class="container-fluid">
+            @if(@$ent == null)                
+            <div class="container-fluid">
                 <div class="card custom-card">
                     <div class="card-body map_height overflow-auto" id="mapContainer">
                         <iframe class="gmap_iframe" frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0"
-                            marginwidth="0"
-                            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                        </iframe>
-                    </div>
+                        marginwidth="0"
+                        src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                    </iframe>
                 </div>
-            </div> --}}
+            </div>
+            @endif
         </div>
+    </div>
     </div>
 
 
@@ -298,15 +308,15 @@
         src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
     </script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Create an array to hold marker data
             var markers = [
                 @foreach (@$ent as $value)
-                {
-                    lat: {{ @$value->lat }},
-                    lng: {{ @$value->lng }},
-                    title: "{{ @$value->title }}"
-                },
+                    {
+                        lat: {{ @$value->lat }},
+                        lng: {{ @$value->lng }},
+                        title: "{{ @$value->title }}"
+                    },
                 @endforeach
             ];
 
@@ -320,7 +330,7 @@
             });
 
             // Loop through the markers array and create markers for each data point
-            markers.forEach(function (markerData) {
+            markers.forEach(function(markerData) {
                 var marker = new google.maps.Marker({
                     position: {
                         lat: markerData.lat,
@@ -331,30 +341,32 @@
                 });
             });
         });
-        // $(document).ready(function() {
-        //     // Get latitude, longitude, and title from PHP variable
-        //     var lat = {{ @$lat }};
-        //     var lng = {{ @$lng }};
-        //     var title = "{{ @$title }}";
-        //     // Create a map centered at the specified location
-        //     var map = new google.maps.Map(document.getElementById('map'), {
-        //         center: {
-        //             lat: lat,
-        //             lng: lng
-        //         },
-        //         zoom: 14
-        //     });
-        //     // Create a marker at the specified location
-        //     var marker = new google.maps.Marker({
-        //         position: {
-        //             lat: lat,
-        //             lng: lng
-        //         },
-        //         map: map,
-        //         title: title
-        //     });
-        // });
     </script>
+    {{-- <script>
+        $(document).ready(function() {
+            // Get latitude, longitude, and title from PHP variable
+            var lat = {{ @$lat }};
+            var lng = {{ @$lng }};
+            var title = "{{ @$title }}";
+            // Create a map centered at the specified location
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: lat,
+                    lng: lng
+                },
+                zoom: 14
+            });
+            // Create a marker at the specified location
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: lat,
+                    lng: lng
+                },
+                map: map,
+                title: title
+            });
+        });
+    </script> --}}
     <!-- OWL CAROUSEL JS-->
     <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>

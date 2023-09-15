@@ -38,12 +38,9 @@
             <!--app-content open-->
             <div class="main-content app-content mt-0">
                 <div class="side-app">
-                    @php
-                        $currenturl = url()->current();
-                        $lastWord = strrchr($currenturl, '/');
-                    @endphp
+
                     <!-- container -->
-                    <div class="@if($lastWord != '/spaces') main-container container-fluid @endif">
+                    <div class="main-container container-fluid">
 
                         @yield('content')
 
@@ -67,7 +64,7 @@
     <!-- global-helper -->
     @include('layouts.components.global-helper')
 
-    {{-- @include('layouts.components.footer') --}}
+    @include('layouts.components.footer')
 
     @include('layouts.components.scripts')
     @include('layouts.components.notification-scripts')

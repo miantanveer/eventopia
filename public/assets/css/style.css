@@ -46661,11 +46661,11 @@ ul.timeline > li:before {
   }
   .horizontal .side-menu > li > a {
     display: flex;
-    margin: -3px -4px !important;
+    margin: -3px -4px !important; /* comint this line */
     text-decoration: none;
     position: relative;
     color: #7b8191;
-    padding: 16px 16px !important;
+    padding: 16px 16px !important; /* comint this line */
     font-weight: 400;
   }
   .horizontal .side-menu > li > a.active {

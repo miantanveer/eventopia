@@ -1020,7 +1020,7 @@
         });
 
         /* Space ka Values Ko Input Main Store Kerna Ka liya */
-        
+
         document.addEventListener('DOMContentLoaded', function() {
         var priceRadioButtons = document.querySelectorAll('#dropdownMenuPrice input[type="radio"]');
         var attendeesRadioButtons = document.querySelectorAll('#dropdownMenuAttendees input[type="radio"]');

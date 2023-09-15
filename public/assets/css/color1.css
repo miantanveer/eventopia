@@ -690,11 +690,17 @@ div.conv-form-wrapper div#messages div.message.from {
 
 /*-- Sidemenu --*/
 .side-menu__item.active {
-  color: var(--primary-bg-color);
+  /* color: #313131 !important; */
+  color: var(--primary-bg-color) !important;
+  /* background-color: #FFF !important; */
+  
+  /* border-radius: 86px !important; */
 }
 .side-menu__item.active .side-menu__icon {
   color: var(--primary-bg-color) !important;
+  /* color: #313131 !important; */
 }
+
 
 /*-- Horizontal-menu --*/
 .hor-menu .horizontalMenu > .horizontalMenu-list > li > a.active, .hor-menu .horizontalMenu > .horizontalMenu-list > li > a:hover {
