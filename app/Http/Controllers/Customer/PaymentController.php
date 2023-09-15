@@ -49,7 +49,7 @@ class PaymentController extends UserBaseController
                         $exists = Order::where($col, $id)->whereStatus(1)->whereUserId(user_id())->exists();
                         if ($exists) {
                         } else {
-                            $this->orderStore(
+                            orderStore(
                                 $id,
                                 $type,
                                 $cart->date,
@@ -124,20 +124,7 @@ class PaymentController extends UserBaseController
             return redirect()->back()->with('error', $th->getMessage());
         }
     }
-    public function orderStore($id, $col, $date, $start_time, $end_time = '', $amount, $discount)
-    {
-        $colum = $col . '_id';
-        $order = new Order();
-        $order->$colum = $id;
-        $order->user_id = user_id();
-        $order->type = $col;
-        $order->date = $date;
-        $order->start_time = $start_time;
-        $order->end_time = $end_time;
-        $order->amount = $amount;
-        $order->discount = $discount;
-        $order->save();
-    }
+  
 
     public function paymentMethod()
     {

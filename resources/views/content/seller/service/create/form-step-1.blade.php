@@ -72,9 +72,7 @@
                                 <div class="form-group mt-3">
                                     <h3 class="fw-bolder">{{lang('Describe your company')}}</h3>
                                     <textarea name="description" required cols="30" rows="5" class="w-100 form-control"
-                                        placeholder="About Seller">
-                                            {{@$service->description}}
-                                        </textarea>
+                                        placeholder="About Seller"> {{@$service->description}} </textarea>
                                 </div>
                                 <br>
                                 <div class="row">

@@ -16,7 +16,7 @@ class ServiceImagesSeeder extends Seeder
     {
         ServiceImages::create( [
             'service_id'=>1,
-            'image'=>'/uploads/seller/service/1694503736-camera.png',
+            'image'=>'/assets/images/users/spaces/1.jpg',
             'created_at'=>'2023-09-12 02:28:56',
             'updated_at'=>'2023-09-12 02:28:56'
             ] );
@@ -25,7 +25,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>1,
-            'image'=>'/uploads/seller/service/1694503736-close.png',
+            'image'=>'/assets/images/users/spaces/2.jpg',
             'created_at'=>'2023-09-12 02:28:56',
             'updated_at'=>'2023-09-12 02:28:56'
             ] );
@@ -34,7 +34,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>1,
-            'image'=>'/uploads/seller/service/1694503736-headphone.png',
+            'image'=>'/assets/images/users/spaces/3.jpg',
             'created_at'=>'2023-09-12 02:28:56',
             'updated_at'=>'2023-09-12 02:28:56'
             ] );
@@ -43,7 +43,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>1,
-            'image'=>'/uploads/seller/service/1694503736-images.png',
+            'image'=>'/assets/images/users/spaces/4.jpg',
             'created_at'=>'2023-09-12 02:28:56',
             'updated_at'=>'2023-09-12 02:28:56'
             ] );
@@ -52,7 +52,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>2,
-            'image'=>'/uploads/seller/service/1694503795-close.png',
+            'image'=>'/assets/images/users/spaces/5.jpg',
             'created_at'=>'2023-09-12 02:29:55',
             'updated_at'=>'2023-09-12 02:29:55'
             ] );
@@ -61,7 +61,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>2,
-            'image'=>'/uploads/seller/service/1694503795-headphone.png',
+            'image'=>'/assets/images/users/spaces/6.jpg',
             'created_at'=>'2023-09-12 02:29:55',
             'updated_at'=>'2023-09-12 02:29:55'
             ] );
@@ -70,7 +70,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>2,
-            'image'=>'/uploads/seller/service/1694503795-images.png',
+            'image'=>'/assets/images/users/spaces/7.jpg',
             'created_at'=>'2023-09-12 02:29:55',
             'updated_at'=>'2023-09-12 02:29:55'
             ] );
@@ -79,7 +79,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>2,
-            'image'=>'/uploads/seller/service/1694503795-camera.png',
+            'image'=>'/assets/images/users/spaces/8.jpg',
             'created_at'=>'2023-09-12 02:29:55',
             'updated_at'=>'2023-09-12 02:29:55'
             ] );
@@ -88,7 +88,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>3,
-            'image'=>'/uploads/seller/service/1694504475-camera.png',
+            'image'=>'/assets/images/users/spaces/9.jpg',
             'created_at'=>'2023-09-12 02:41:15',
             'updated_at'=>'2023-09-12 02:41:15'
             ] );
@@ -97,7 +97,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>3,
-            'image'=>'/uploads/seller/service/1694504475-images.png',
+            'image'=>'/assets/images/users/spaces/11.jpg',
             'created_at'=>'2023-09-12 02:41:15',
             'updated_at'=>'2023-09-12 02:41:15'
             ] );
@@ -106,7 +106,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>3,
-            'image'=>'/uploads/seller/service/1694504475-close.png',
+            'image'=>'/assets/images/users/spaces/12.jpg',
             'created_at'=>'2023-09-12 02:41:15',
             'updated_at'=>'2023-09-12 02:41:15'
             ] );
@@ -115,7 +115,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>3,
-            'image'=>'/uploads/seller/service/1694504475-headphone.png',
+            'image'=>'/assets/images/users/spaces/001.png',
             'created_at'=>'2023-09-12 02:41:15',
             'updated_at'=>'2023-09-12 02:41:15'
             ] );
@@ -124,7 +124,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>4,
-            'image'=>'/uploads/seller/service/1694504525-images.png',
+            'image'=>'/assets/images/users/spaces/002.png',
             'created_at'=>'2023-09-12 02:42:05',
             'updated_at'=>'2023-09-12 02:42:05'
             ] );
@@ -133,7 +133,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>4,
-            'image'=>'/uploads/seller/service/1694504525-headphone.png',
+            'image'=>'/assets/images/users/spaces/003.png',
             'created_at'=>'2023-09-12 02:42:05',
             'updated_at'=>'2023-09-12 02:42:05'
             ] );
@@ -142,7 +142,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>4,
-            'image'=>'/uploads/seller/service/1694504525-close.png',
+            'image'=>'/assets/images/users/spaces/004.png',
             'created_at'=>'2023-09-12 02:42:05',
             'updated_at'=>'2023-09-12 02:42:05'
             ] );
@@ -151,7 +151,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>4,
-            'image'=>'/uploads/seller/service/1694504525-camera.png',
+            'image'=>'/assets/images/users/spaces/005.png',
             'created_at'=>'2023-09-12 02:42:05',
             'updated_at'=>'2023-09-12 02:42:05'
             ] );
@@ -160,7 +160,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>5,
-            'image'=>'/uploads/seller/service/1694504591-camera.png',
+            'image'=>'/assets/images/users/spaces/006.png',
             'created_at'=>'2023-09-12 02:43:11',
             'updated_at'=>'2023-09-12 02:43:11'
             ] );
@@ -169,7 +169,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>5,
-            'image'=>'/uploads/seller/service/1694504591-headphone.png',
+            'image'=>'/assets/images/users/spaces/007.png',
             'created_at'=>'2023-09-12 02:43:11',
             'updated_at'=>'2023-09-12 02:43:11'
             ] );
@@ -178,7 +178,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>5,
-            'image'=>'/uploads/seller/service/1694504592-close.png',
+            'image'=>'/assets/images/users/spaces/008.png',
             'created_at'=>'2023-09-12 02:43:12',
             'updated_at'=>'2023-09-12 02:43:12'
             ] );
@@ -187,7 +187,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>5,
-            'image'=>'/uploads/seller/service/1694504592-images.png',
+            'image'=>'/assets/images/users/spaces/001.png',
             'created_at'=>'2023-09-12 02:43:12',
             'updated_at'=>'2023-09-12 02:43:12'
             ] );
@@ -196,7 +196,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>6,
-            'image'=>'/uploads/seller/service/1694504649-headphone.png',
+            'image'=>'/assets/images/users/spaces/002.png',
             'created_at'=>'2023-09-12 02:44:09',
             'updated_at'=>'2023-09-12 02:44:09'
             ] );
@@ -205,7 +205,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>6,
-            'image'=>'/uploads/seller/service/1694504649-camera.png',
+            'image'=>'/assets/images/users/spaces/003.png',
             'created_at'=>'2023-09-12 02:44:09',
             'updated_at'=>'2023-09-12 02:44:09'
             ] );
@@ -214,7 +214,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>6,
-            'image'=>'/uploads/seller/service/1694504649-images.png',
+            'image'=>'/assets/images/users/spaces/004.png',
             'created_at'=>'2023-09-12 02:44:09',
             'updated_at'=>'2023-09-12 02:44:09'
             ] );
@@ -223,7 +223,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>6,
-            'image'=>'/uploads/seller/service/1694504649-close.png',
+            'image'=>'/assets/images/users/spaces/005.png',
             'created_at'=>'2023-09-12 02:44:09',
             'updated_at'=>'2023-09-12 02:44:09'
             ] );
@@ -232,7 +232,7 @@ class ServiceImagesSeeder extends Seeder
                         
             ServiceImages::create( [
             'service_id'=>6,
-            'image'=>'/uploads/seller/service/1694504649-location-2955-removebg-preview.png',
+            'image'=>'/assets/images/users/spaces/006.png',
             'created_at'=>'2023-09-12 02:44:09',
             'updated_at'=>'2023-09-12 02:44:09'
             ] );

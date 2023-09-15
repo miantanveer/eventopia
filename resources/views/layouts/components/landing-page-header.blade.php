@@ -19,7 +19,7 @@
                     <a class="dropdown-item" href="{{ route('my-listing') }}">
                         <i class="dropdown-icon icon icon-layers"></i> {{lang('Listing')}}
                     </a>
-                    <a class="dropdown-item" href="{{ route('bookings') }}">
+                    <a class="dropdown-item" href="{{ route('bookings',['type' => 'null','for' => 'null']) }}">
                         <i class="dropdown-icon icon icon-layers"></i> {{lang('Bookings')}}
                     </a>
                     <a class="dropdown-item" href="{{ route('calendar') }}">
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="d-flex booking-btn">
                                     <a class="nav-link py-3 px-5 m-2 active text-white" role="tab"
-                                        aria-selected="true" href="{{ route('bookings') }}">
+                                        aria-selected="true" href="{{ route('bookings',['type' => 'null','for' => 'null']) }}">
                                         {{lang('Bookings')}}
                                     </a>
                                 </div>

@@ -41,8 +41,7 @@
                         <a class="text-white" href="{{ route('list-space') }}">{{lang('Add a space')}}</a>
                     </button>
                     <button type="button" class="btn btn-primary">
-                        <a class="text-white" href="{{ route('list-entertainment') }}">{{lang('Add an
-                            Entertainment')}}</a>
+                        <a class="text-white" href="{{ route('list-entertainment') }}">{{lang('Add an Entertainment')}}</a>
                     </button>
                     <button type="button" class="btn btn-primary">
                         <a class="text-white" href="{{ route('list-service') }}">{{lang('Add a Service')}}</a>
