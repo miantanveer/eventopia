@@ -437,7 +437,7 @@
         function selected(input) {
             var url = $('#search').val();
             var selectedPrice = $('input[name="price"]:checked').val();
-            var guests = $('input[name="guests"]').val();
+            var guests = $('input[name="guests"]:checked').val();
             var date = $('input[name="date"]').val();
             var keyword = $('input[name="keyword"]').val();
             $.ajax({
@@ -445,7 +445,7 @@
                 data: {
                     'type': input,
                     'price': selectedPrice,
-                    // 'attendees': guests,
+                    'attendees': guests,
                     'date': date,
                     'keyword': keyword
                 },
