@@ -372,9 +372,9 @@
                 <h3 class="mt-4 ps-3">{{lang('Operating Hours')}}</h3>
                 <hr style="border-top: 1px solid black">
                 @foreach (@$ent->ent->operatingDays as $operatingDay)
-                <h4 class="col-sm-10 mt-5 ps-3">{{ $operatingDay->week_day }} <span class="float-end">{{
-                        $operatingDay->operatingHours[0]->radio === '1' ? $operatingDay->operatingHours[0]->start_time .
-                        ' - ' . $operatingDay->operatingHours[0]->end_time : '6 : 00 AM - 12 AM' }}</span>
+                <h4 class="col-sm-10 mt-5 ps-3">{{ @$operatingDay->week_day }} <span class="float-end">{{
+                        @$operatingDay->operatingHours[0]->radio === '1' ? @$operatingDay->operatingHours[0]->start_time .
+                        ' - ' . @$operatingDay->operatingHours[0]->end_time : '6 : 00 AM - 12 AM' }}</span>
                 </h4>
                 @endforeach
             </div>

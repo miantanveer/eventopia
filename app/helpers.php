@@ -2,6 +2,7 @@
 
 use App\Mail\EmailVerfication;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Support\Facades\Cache;
@@ -114,5 +115,21 @@ if (!function_exists('sendMessage')) {
     function sendMessage($phone_number = null, $otp = null)
     {
         // dispatch( new SendSms( $phone_number, $otp ) );
+    }
+}
+if (!function_exists('orderStore')) {
+    function orderStore($id, $col, $date, $start_time, $end_time, $amount, $discount)
+    {
+        $colum = $col . '_id';
+        $order = new Order();
+        $order->$colum = $id;
+        $order->user_id = user_id();
+        $order->type = $col;
+        $order->date = $date;
+        $order->start_time = $start_time;
+        $order->end_time = $end_time ?? null;
+        $order->amount = $amount;
+        $order->discount = $discount;
+        $order->save();
     }
 }

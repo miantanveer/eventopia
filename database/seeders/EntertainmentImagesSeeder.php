@@ -16,7 +16,7 @@ class EntertainmentImagesSeeder extends Seeder
     {
         EntertainmentImages::create( [
             'entertainment_id'=>1,
-            'image'=>'/uploads/seller/entertainment/1694502810-camera.png',
+            'image'=>'/assets/images/users/spaces/1.jpg',
             'created_at'=>'2023-09-12 02:13:30',
             'updated_at'=>'2023-09-12 02:13:30'
             ] );
@@ -25,7 +25,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>1,
-            'image'=>'/uploads/seller/entertainment/1694502810-headphone.png',
+            'image'=>'/assets/images/users/spaces/2.jpg',
             'created_at'=>'2023-09-12 02:13:30',
             'updated_at'=>'2023-09-12 02:13:30'
             ] );
@@ -34,7 +34,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>1,
-            'image'=>'/uploads/seller/entertainment/1694502810-close.png',
+            'image'=>'/assets/images/users/spaces/3.jpg',
             'created_at'=>'2023-09-12 02:13:30',
             'updated_at'=>'2023-09-12 02:13:30'
             ] );
@@ -43,7 +43,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>1,
-            'image'=>'/uploads/seller/entertainment/1694502810-images.png',
+            'image'=>'/assets/images/users/spaces/3.jpg',
             'created_at'=>'2023-09-12 02:13:30',
             'updated_at'=>'2023-09-12 02:13:30'
             ] );
@@ -52,7 +52,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>2,
-            'image'=>'/uploads/seller/entertainment/1694502913-headphone.png',
+            'image'=>'/assets/images/users/spaces/4.jpg',
             'created_at'=>'2023-09-12 02:15:13',
             'updated_at'=>'2023-09-12 02:15:13'
             ] );
@@ -61,7 +61,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>2,
-            'image'=>'/uploads/seller/entertainment/1694502913-camera.png',
+            'image'=>'/assets/images/users/spaces/5.jpg',
             'created_at'=>'2023-09-12 02:15:13',
             'updated_at'=>'2023-09-12 02:15:13'
             ] );
@@ -70,7 +70,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>2,
-            'image'=>'/uploads/seller/entertainment/1694502913-close.png',
+            'image'=>'/assets/images/users/spaces/6.jpg',
             'created_at'=>'2023-09-12 02:15:13',
             'updated_at'=>'2023-09-12 02:15:13'
             ] );
@@ -79,7 +79,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>2,
-            'image'=>'/uploads/seller/entertainment/1694502913-images.png',
+            'image'=>'/assets/images/users/spaces/7.jpg',
             'created_at'=>'2023-09-12 02:15:13',
             'updated_at'=>'2023-09-12 02:15:13'
             ] );
@@ -88,7 +88,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>3,
-            'image'=>'/uploads/seller/entertainment/1694503068-headphone.png',
+            'image'=>'/assets/images/users/spaces/8.jpg',
             'created_at'=>'2023-09-12 02:17:48',
             'updated_at'=>'2023-09-12 02:17:48'
             ] );
@@ -97,7 +97,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>3,
-            'image'=>'/uploads/seller/entertainment/1694503068-close.png',
+            'image'=>'/assets/images/users/spaces/9.jpg',
             'created_at'=>'2023-09-12 02:17:48',
             'updated_at'=>'2023-09-12 02:17:48'
             ] );
@@ -106,7 +106,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>3,
-            'image'=>'/uploads/seller/entertainment/1694503068-camera.png',
+            'image'=>'/assets/images/users/spaces/10.jpg',
             'created_at'=>'2023-09-12 02:17:48',
             'updated_at'=>'2023-09-12 02:17:48'
             ] );
@@ -115,7 +115,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>3,
-            'image'=>'/uploads/seller/entertainment/1694503068-images.png',
+            'image'=>'/assets/images/users/spaces/11.jpg',
             'created_at'=>'2023-09-12 02:17:48',
             'updated_at'=>'2023-09-12 02:17:48'
             ] );
@@ -124,7 +124,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>3,
-            'image'=>'/uploads/seller/entertainment/1694503068-location-2955-removebg-preview.png',
+            'image'=>'/assets/images/users/spaces/12.jpg',
             'created_at'=>'2023-09-12 02:17:48',
             'updated_at'=>'2023-09-12 02:17:48'
             ] );
@@ -133,7 +133,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>4,
-            'image'=>'/uploads/seller/entertainment/1694503167-images.png',
+            'image'=>'/assets/images/users/spaces/001.png',
             'created_at'=>'2023-09-12 02:19:27',
             'updated_at'=>'2023-09-12 02:19:27'
             ] );
@@ -142,7 +142,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>4,
-            'image'=>'/uploads/seller/entertainment/1694503167-close.png',
+            'image'=>'/assets/images/users/spaces/002.png',
             'created_at'=>'2023-09-12 02:19:27',
             'updated_at'=>'2023-09-12 02:19:27'
             ] );
@@ -151,7 +151,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>4,
-            'image'=>'/uploads/seller/entertainment/1694503167-headphone.png',
+            'image'=>'/assets/images/users/spaces/003.png',
             'created_at'=>'2023-09-12 02:19:27',
             'updated_at'=>'2023-09-12 02:19:27'
             ] );
@@ -160,7 +160,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>4,
-            'image'=>'/uploads/seller/entertainment/1694503167-close.png',
+            'image'=>'/assets/images/users/spaces/004.png',
             'created_at'=>'2023-09-12 02:19:27',
             'updated_at'=>'2023-09-12 02:19:27'
             ] );
@@ -169,7 +169,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>4,
-            'image'=>'/uploads/seller/entertainment/1694503167-camera.png',
+            'image'=>'/assets/images/users/spaces/005.png',
             'created_at'=>'2023-09-12 02:19:27',
             'updated_at'=>'2023-09-12 02:19:27'
             ] );
@@ -178,7 +178,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>5,
-            'image'=>'/uploads/seller/entertainment/1694503299-close.png',
+            'image'=>'/assets/images/users/spaces/006.png',
             'created_at'=>'2023-09-12 02:21:39',
             'updated_at'=>'2023-09-12 02:21:39'
             ] );
@@ -187,7 +187,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>5,
-            'image'=>'/uploads/seller/entertainment/1694503299-headphone.png',
+            'image'=>'/assets/images/users/spaces/007.png',
             'created_at'=>'2023-09-12 02:21:39',
             'updated_at'=>'2023-09-12 02:21:39'
             ] );
@@ -196,7 +196,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>5,
-            'image'=>'/uploads/seller/entertainment/1694503299-camera.png',
+            'image'=>'/assets/images/users/spaces/008.png',
             'created_at'=>'2023-09-12 02:21:39',
             'updated_at'=>'2023-09-12 02:21:39'
             ] );
@@ -205,7 +205,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>5,
-            'image'=>'/uploads/seller/entertainment/1694503299-images.png',
+            'image'=>'/assets/images/users/spaces/001.png',
             'created_at'=>'2023-09-12 02:21:39',
             'updated_at'=>'2023-09-12 02:21:39'
             ] );
@@ -214,7 +214,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>6,
-            'image'=>'/uploads/seller/entertainment/1694503369-headphone.png',
+            'image'=>'/assets/images/users/spaces/002.png',
             'created_at'=>'2023-09-12 02:22:49',
             'updated_at'=>'2023-09-12 02:22:49'
             ] );
@@ -223,7 +223,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>6,
-            'image'=>'/uploads/seller/entertainment/1694503369-camera.png',
+            'image'=>'/assets/images/users/spaces/003.png',
             'created_at'=>'2023-09-12 02:22:49',
             'updated_at'=>'2023-09-12 02:22:49'
             ] );
@@ -232,7 +232,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>6,
-            'image'=>'/uploads/seller/entertainment/1694503369-close.png',
+            'image'=>'/assets/images/users/spaces/004.png',
             'created_at'=>'2023-09-12 02:22:49',
             'updated_at'=>'2023-09-12 02:22:49'
             ] );
@@ -241,7 +241,7 @@ class EntertainmentImagesSeeder extends Seeder
                         
             EntertainmentImages::create( [
             'entertainment_id'=>6,
-            'image'=>'/uploads/seller/entertainment/1694503369-images.png',
+            'image'=>'/assets/images/users/spaces/005.png',
             'created_at'=>'2023-09-12 02:22:49',
             'updated_at'=>'2023-09-12 02:22:49'
             ] );
