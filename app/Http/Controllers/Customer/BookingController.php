@@ -71,6 +71,7 @@ class BookingController extends UserBaseController
             });
         })->where('status','!=',0)->get();
         $this->quotes = Quote::where('status','!=',1)->get();
+
         return view('content.seller.pending-bookings', $this->data);
     }
 
