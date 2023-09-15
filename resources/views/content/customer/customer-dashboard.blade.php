@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 
 @section('styles')
@@ -54,6 +53,7 @@
                             <h1 class="headingOne">{{ lang('Hello, ' . user_name()) }} </h1>
                             <h5 class="headingTwo d-block d-sm-none">{{ lang('Hello, ' . user_name()) }}</h5>
                             <p class="fs-sm-5 fs-6">{{ lang('Welcome Back!') }}</p>
+                            <p class="fs-sm-5 fs-6">{{ lang('Customer Dashboard') }}</p>
                         </div>
                     </div>
                     <div class="position-absolute">
@@ -136,241 +136,243 @@
         <!-- ROW-1 END -->
 
         <!-- ROW-3 -->
-     
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
-                    <div class="card mt-3">
-                        <div class="card-header pb-0 border-bottom-0">
-                            <h3 class="number-font  text-truncate">{{ lang('Space') }}</h3>
-                            <div class="card-options">
-                                <img src="{{ asset('assets/images/icons/service_icon2.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="mt-2 row">
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ lang($upComingSpaceBookings) }}</h3>
-                                    <p>{{ lang('Pending Bookings') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-primary" style="width: {{ $spaceUpcomingProgress }}%;"
-                                            role="progressbar"></div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ lang($cancelSpaceBookings) }}</h3>
-                                    <p>{{ lang('Cancelled Booking') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-danger" style="width: {{ $spaceCancelProgress }}%;"
-                                            role="progressbar"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="mt-2 row">
-                                <div class="col-6">
-                                    <h5 class="d-inline-block mb-2">{{ lang($previousSpaceBookings) }}</h5>
-                                    <p>{{ lang('Previous Booking') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-primary" style="width: {{ $spacePreviousProgress }}%;"
-                                            role="progressbar"></div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ lang(@$completedSpaceBookings) }}</h3>
-                                    <p>{{ lang('Completed Booking') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-primary"
-                                            style="width: {{ @$spaceCompletedProgress }}%;" role="progressbar"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-12 ml-3 text-center">
-                                    <div>
-                                        <a href="{{ route('bookings', ['type' => 'space', 'for' => 'null']) }}"
-                                            class="btn test-bar text-white">{{ lang('Manage') }}</a>
-                                    </div>
-                                </div>
-                            </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                <div class="card mt-3">
+                    <div class="card-header pb-0 border-bottom-0">
+                        <h3 class="number-font  text-truncate">{{ lang('Space') }}</h3>
+                        <div class="card-options">
+                            <img src="{{ asset('assets/images/icons/service_icon2.png') }}" alt="">
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
-                    <div class="card mt-3">
-                        <div class="card-header pb-0 border-bottom-0">
-                            <h3 class="number-font  text-truncate">{{ lang('Entertainment & Talents') }}</h3>
-
-                            <div class="card-options">
-                                <img src="{{ asset('assets/images/icons/talent_icon.png') }}" alt="">
+                    <div class="card-body pt-0">
+                        <div class="mt-2 row">
+                            <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ lang($upComingSpaceBookings) }}</h3>
+                                <p>{{ lang('Pending Bookings') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-primary" style="width: {{ $spaceUpcomingProgress }}%;"
+                                        role="progressbar"></div>
+                                </div>
                             </div>
+                             <div class="col-6">
+                                <h5 class="d-inline-block mb-2">{{ lang($previousSpaceBookings) }}</h5>
+                                <p>{{ lang('Active Booking') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-primary" style="width: {{ $spacePreviousProgress }}%;"
+                                        role="progressbar"></div>
+                                </div>
+                            </div>
+                          
                         </div>
-                        <div class="card-body pt-0">
-                            <div class="mt-2 row">
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ lang($upComingEnterBookings) }}</h3>
-                                    <p>{{ lang('Upcoming Bookings') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-primary" style="width: {{ $enterUpcomingProgress }}%;"
-                                            role="progressbar"></div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ lang($cancelEnterBookings) }}</h3>
-                                    <p>{{ lang('Cancelled Booking') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-primary" style="width: {{ $enterCancelProgress }}%;"
-                                            role="progressbar"></div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <br>
-                            <div class="mt-2 row">
-
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ lang($previousEnterBookings) }}</h3>
-                                    <p>{{ lang('Previous Booking') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-danger" style="width: {{ $enterPreviousProgress }}%;"
-                                            role="progressbar"></div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ lang(@$completedEnterBookings) }}</h3>
-                                    <p>{{ lang('Completed Booking') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-primary"
-                                            style="width: {{ @$enterCompletedProgress }}%;" role="progressbar"></div>
-                                    </div>
+                        <br>
+                        <div class="mt-2 row">
+                              <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ lang($cancelSpaceBookings) }}</h3>
+                                <p>{{ lang('Cancelled Booking') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-danger" style="width: {{ $spaceCancelProgress }}%;"
+                                        role="progressbar"></div>
                                 </div>
                             </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-12 ml-3 text-center">
-                                    <div>
-                                        <a href="{{ route('bookings', ['type' => 'entertainment', 'for' => 'null']) }}"
-                                            class="btn test-bar text-white">{{ lang('Manage') }}</a>
-                                    </div>
+
+                           
+                            <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ lang(@$completedSpaceBookings) }}</h3>
+                                <p>{{ lang('Completed Booking') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-primary" style="width: {{ @$spaceCompletedProgress }}%;"
+                                        role="progressbar"></div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
-                    <div class="card mt-3">
-                        <div class="card-header pb-0 border-bottom-0">
-                            <h3 class="number-font  text-truncate">{{ lang('Services') }}</h3>
-                            <div class="card-options">
-                                <img src="{{ asset('assets/images/icons/service_icon.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="card-body pt-0">
-                            <div class="mt-2 row">
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ lang($upComingServiceBookings) }}</h3>
-                                    <p>{{ lang('Pending Bookings') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-primary"
-                                            style="width: {{ $enterUpcomingProgress }}%;" role="progressbar"></div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ $cancelServiceBookings }}</h3>
-                                    <p>{{ lang('Cancelled Booking') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-danger" style="width: {{ $enterCancelProgress }}%;"
-                                            role="progressbar"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="mt-2 row">
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ lang($previousServiceBookings) }}</h3>
-                                    <p>{{ lang('Previous Booking') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-primary"
-                                            style="width: {{ $enterPreviousProgress }}%;" role="progressbar"></div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <h3 class="d-inline-block mb-2">{{ lang(@$completedServiceBookings) }}</h3>
-                                    <p>{{ lang('Completed Booking') }}</p>
-                                    <div class="progress h-2 mt-2">
-                                        <div class="progress-bar bg-primary"
-                                            style="width: {{ @$serviceCompletedProgress }}%;" role="progressbar"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-12 ml-3 text-center">
-                                    <div>
-                                        <a href="{{ route('bookings', ['type' => 'service', 'for' => 'null']) }}"
-                                            class="btn test-bar text-white">{{ lang('Manage') }}</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-xl-3 col-lg-6 col-md-12">
-                    <div class="row mt-3">
-                        <div class="col-12">
-                            {{-- <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"> --}}
-                            <div class="card bg-white img-card">
-                                <div class="card-body">
-                                    <div class="d-flex">
-                                        <div class="text-black">
-                                            <h4 class="mb-2 number-font">{{ lang('Active Bookings') }}</h4>
-                                            <p class="text-black mb-0">{{ lang('Total:') . $activeBookingCount }}</p>
-                                        </div>
-                                        <div class="card-options">
-                                            <i class="fa fa-calendar-check-o text-primary fa-3x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12  text-center">
-                                    <div class="mb-3">
-                                        <a href="{{ route('bookings', ['type' => 'active', 'for' => 'null']) }}"
-                                            class="btn test-bar text-white">{{ lang('View Details') }}</a>
-                                    </div>
-                                </div>
-                            </div>
-                            {{--
-                </div> --}}
-                        </div>
-                        <div class="col-12">
-                            <div class="card bg-white img-card">
-                                <div class="card-body">
-                                    <div class="d-flex">
-                                        <div class="text-black">
-                                            <h4 class="mb-2 number-font">{{ lang('Cancelled Bookings') }}</h4>
-                                            <p class="text-black mb-0">{{ lang('Total:') . $cancelBookingCount }}</p>
-                                        </div>
-                                        <div class="card-options">
-                                            <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12  text-center">
-                                    <div class="mb-3">
-                                        <a href="{{ route('bookings', ['type' => 'cancel', 'for' => 'null']) }}"
-                                            class="btn test-bar text-white">{{ lang('View Details') }}</a>
-                                    </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-12 ml-3 text-center">
+                                <div>
+                                    <a href="{{ route('bookings', ['type' => 'space', 'for' => 'null']) }}"
+                                        class="btn test-bar text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-     
 
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                <div class="card mt-3">
+                    <div class="card-header pb-0 border-bottom-0">
+                        <h3 class="number-font  text-truncate">{{ lang('Entertainment & Talents') }}</h3>
+
+                        <div class="card-options">
+                            <img src="{{ asset('assets/images/icons/talent_icon.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="mt-2 row">
+                            <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ lang($upComingEnterBookings) }}</h3>
+                                <p>{{ lang('Pending Bookings') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-primary" style="width: {{ $enterUpcomingProgress }}%;"
+                                        role="progressbar"></div>
+                                </div>
+                            </div>
+                           <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ lang($previousEnterBookings) }}</h3>
+                                <p>{{ lang('Active Booking') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-danger" style="width: {{ $enterPreviousProgress }}%;"
+                                        role="progressbar"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="mt-2 row">
+                             <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ lang($cancelEnterBookings) }}</h3>
+                                <p>{{ lang('Cancelled Booking') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-primary" style="width: {{ $enterCancelProgress }}%;"
+                                        role="progressbar"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ lang(@$completedEnterBookings) }}</h3>
+                                <p>{{ lang('Completed Booking') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-primary" style="width: {{ @$enterCompletedProgress }}%;"
+                                        role="progressbar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-12 ml-3 text-center">
+                                <div>
+                                    <a href="{{ route('bookings', ['type' => 'entertainment', 'for' => 'null']) }}"
+                                        class="btn test-bar text-white">{{ lang('Manage') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                <div class="card mt-3">
+                    <div class="card-header pb-0 border-bottom-0">
+                        <h3 class="number-font text-truncate">{{ lang('Services') }}</h3>
+                        <div class="card-options">
+                            <img src="{{ asset('assets/images/icons/service_icon.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="mt-2 row">
+                            <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ lang($upComingServiceBookings) }}</h3>
+                                <p>{{ lang('Pending Bookings') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-primary" style="width: {{ $enterUpcomingProgress }}%;"
+                                        role="progressbar"></div>
+                                </div>
+                            </div>
+                             <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ lang($previousServiceBookings) }}</h3>
+                                <p>{{ lang('Active Booking') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-primary" style="width: {{ $enterPreviousProgress }}%;"
+                                        role="progressbar"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <br>
+                        <div class="mt-2 row">
+                           <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ $cancelServiceBookings }}</h3>
+                                <p>{{ lang('Cancelled Booking') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-danger" style="width: {{ $enterCancelProgress }}%;"
+                                        role="progressbar"></div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <h3 class="d-inline-block mb-2">{{ lang(@$completedServiceBookings) }}</h3>
+                                <p>{{ lang('Completed Booking') }}</p>
+                                <div class="progress h-2 mt-2">
+                                    <div class="progress-bar bg-primary"
+                                        style="width: {{ @$serviceCompletedProgress }}%;" role="progressbar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-12 ml-3 text-center">
+                                <div>
+                                    <a href="{{ route('bookings', ['type' => 'service', 'for' => 'null']) }}"
+                                        class="btn test-bar text-white">{{ lang('Manage') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xl-3 col-lg-6 col-md-12">
+                <div class="row mt-3">
+                    <div class="col-12">
+                        {{-- <div class="col-sm-12 col-md-6 col-lg-6 col-xl-3"> --}}
+                        <div class="card bg-white img-card">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="text-black">
+                                        <h4 class="mb-2 number-font">{{ lang('Active Bookings') }}</h4>
+                                        <p class="text-black mb-0">{{ lang('Total:') . $activeBookingCount }}</p>
+                                    </div>
+                                    <div class="card-options">
+                                        <i class="fa fa-calendar-check-o text-primary fa-3x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12  text-center">
+                                <div class="mb-3">
+                                    <a href="{{ route('bookings', ['type' => 'active', 'for' => 'null']) }}"
+                                        class="btn test-bar text-white">{{ lang('View Details') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                        {{--
+                </div> --}}
+                    </div>
+                    <div class="col-12">
+                        <div class="card bg-white img-card">
+                            <div class="card-body">
+                                <div class="d-flex">
+                                    <div class="text-black">
+                                        <h4 class="mb-2 number-font">{{ lang('Cancelled Bookings') }}</h4>
+                                        <p class="text-black mb-0">{{ lang('Total:') . $cancelBookingCount }}</p>
+                                    </div>
+                                    <div class="card-options">
+                                        <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12  text-center">
+                                <div class="mb-3">
+                                    <a href="{{ route('bookings', ['type' => 'cancel', 'for' => 'null']) }}"
+                                        class="btn test-bar text-white">{{ lang('View Details') }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </div>
