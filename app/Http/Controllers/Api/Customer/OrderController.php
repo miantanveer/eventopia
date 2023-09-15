@@ -6,11 +6,24 @@ use App\Http\Controllers\UserBaseController;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Cart;
+use Validator;
 
 class OrderController extends UserBaseController
 {
     public function review(Request $req)
     {
+        $validator = Validator::make($req->all(), [
+            'subtotal' => 'required',
+            'discount' => 'required',
+            'listing_id_service' => 'required',
+            'listing_id_space' => 'required',
+            'discount' => 'required',
+            'listing_id_entertainment' => 'required'
+        ]);
+        
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }  
         if ($req->subtotal == '0') {
             return response()->json('error',400);
         }

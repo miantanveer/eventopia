@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Models\Quote;
 use App\Models\Service;
+use App\Models\Cart;
 use App\Events\NotificationEvent;
 
 class QuoteController extends UserBaseController
@@ -54,5 +55,24 @@ class QuoteController extends UserBaseController
     {
         $quote = Quote::with('service','service.serviceImages')->find($id);
         return response()->json($quote,200);
+    }
+
+    public function accept_quote($id)
+    {
+        $quote = Quote::find($id);
+        $exists = Cart::whereServiceId($quote->service_id)->whereUserId(user_id())->exists();
+        if($exists){
+            $quot = Quote::find($id);
+            $quot->status == 2;
+            $quot->save();
+            return response()->json('success');
+        }
+        else{
+            cartStore(@$quote->service_id,'service',@$quote->date,'null','null');
+            $quot = Quote::find($id);
+            $quot->status == 2;
+            $quot->save();
+            return response()->json('success');
+        }
     }
 }

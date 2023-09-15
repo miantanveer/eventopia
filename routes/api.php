@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\Customer\ListingController;
 use App\Http\Controllers\Api\Customer\CartController;
 use App\Http\Controllers\Api\Customer\OrderController;
 use App\Http\Controllers\Api\Customer\PaymentController;
+use App\Http\Controllers\Api\Customer\BookingController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -63,12 +64,18 @@ Route::prefix('customer')->middleware('auth:sanctum')->group(function(){
         Route::post('/', [PaymentController::class, 'store']);
 
     });
-
+    
     Route::prefix('quote')->group(function(){
         Route::post('/send/{id}', [QuoteController::class, 'send_quote']);
         Route::post('/receive/{id}', [QuoteController::class, 'receive_quote']);
         Route::post('/load/{id}', [QuoteController::class, 'load_quote']);
+        Route::post('/accept/{id}', [QuoteController::class, 'accept_quote']);
+        
+    });
+    
+    Route::prefix('booking')->group(function(){
+        Route::post('/pending', [BookingController::class, 'pending']);
+        Route::post('/accept/{id}', [BookingController::class, 'accept']);
 
     });
-
 });
