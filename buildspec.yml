@@ -7,7 +7,7 @@ phases:
       - composer install
   post_build:
     commands:
-      - php artisan migrate:fresh --seed
+      # - php artisan migrate:fresh --seed
 artifacts:
   files:
     # List of files to be included in the build artifact
