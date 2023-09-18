@@ -21,7 +21,8 @@ class CreateQuotesTable extends Migration
             $table->string('flexible_date')->nullable();
             $table->string('guests');
             $table->string('amount')->nullable();
-            $table->longText('description');
+            $table->longText('description')->nullable();
+            $table->longText('seller_quote_description')->nullable();
             $table->string('status')->default(0)->comment('0=>pending, 1=>active, 2=>completed, 3=>cancelled');
             $table->timestamps();
         });
