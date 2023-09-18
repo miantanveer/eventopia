@@ -47,6 +47,11 @@
                                                     placeholder="{{lang('Location')}}" required value="{{ @$quote->service->address }}" readonly>
                                             </div>
                                             <div class="form-group">
+                                                <label for="description">{{lang('Description')}}</label>
+                                                <textarea class="form-control" required name="description" id="description" {{ @$quote->description }}
+                                                    placeholder="{{lang('Description')}}" style="height: 100px">{{ @$quote->description }}</textarea>
+                                            </div>
+                                            <div class="form-group">
                                                 <label for="date">{{lang('Date')}}</label>
                                                 <input type="date" name="date" class="form-control"
                                                     id="date" required placeholder="{{lang('Wedding date')}}"
@@ -59,14 +64,14 @@
                                                     value="{{ @$quote->guests }}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="amount">{{lang('Amount')}}</label>
-                                                <input type="number" name="amount" required class="form-control"
-                                                    id="amount" placeholder="{{lang('Amount')}}">
+                                                <label for="description">{{lang('Seller Quote Description')}}</label>
+                                                <textarea class="form-control" required name="seller_quote_description" id="seller_quote_description"
+                                                    placeholder="{{lang('Seller Quote Description')}}" style="height: 100px"></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="description">{{lang('Description')}}</label>
-                                                <textarea class="form-control" required name="description" id="description" {{ @$quote->description }}
-                                                    placeholder="{{lang('Description')}}" style="height: 100px">{{ @$quote->description }}</textarea>
+                                                <label for="amount">{{lang('Price')}}</label>
+                                                <input type="number" name="amount" required class="form-control"
+                                                    id="amount" placeholder="{{lang('Price')}}">
                                             </div>
                                         </div>
                                     </div>

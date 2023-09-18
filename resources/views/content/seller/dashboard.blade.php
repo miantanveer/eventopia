@@ -4,7 +4,7 @@
         .seller-web-sidebar {
             z-index: 9999;
         }
-        
+
         .get_started_btn {
             position: relative;
             top: -84px;
@@ -84,14 +84,14 @@
                         <div class="card-body mt-3">
                             <div class="d-flex">
                                 <div class="text-black mt-2">
-                                    <h3 class="mb-2 number-font">{{$upComingBookings}}</h3>
+                                    <h5 class="mb-2 number-font">{{ lang('Pending Booking Acceptance')}}</h5>
                                 </div>
                                 <div class="card-options">
                                     <img src="{{ asset('assets/images/icons/pending-file.png') }}" alt="">
                                 </div>
                             </div>
                             <div class="mb-5 mt-3">
-                                <p class="text-black mb-5">{{ lang('Pending Booking Acceptance') }}</p>
+                                <p class="text-black mb-5">{{ @$upComingBookings }}</p>
                             </div>
                             <div class="row mt-5">
                                 <div class="col-6">
@@ -135,7 +135,15 @@
                     <div class="mt-2 row">
                         <div class="col-10 mt-4">
                             <h3 class="d-inline-block mb-2">{{ $upComingBookings }}</h3>
-                            <p>{{ lang('Upcoming Bookings') }}</p>
+                            <p>{{ lang('Active Bookings') }}</p>
+                            <div class="progress h-2 mt-2">
+                                <div class="progress-bar bg-primary" style="width: {{ $UpcomingProgress }}%;"
+                                    role="progressbar"></div>
+                            </div>
+                        </div>
+                        <div class="col-10 mt-4">
+                            <h3 class="d-inline-block mb-2">{{ $upComingBookings }}</h3>
+                            <p>{{ lang('Pending Bookings') }}</p>
                             <div class="progress h-2 mt-2">
                                 <div class="progress-bar bg-primary" style="width: {{ $UpcomingProgress }}%;"
                                     role="progressbar"></div>
@@ -151,7 +159,7 @@
                         </div>
                         <div class="col-10 mt-4">
                             <h3 class="d-inline-block mb-2">{{ $previousBookings }}</h3>
-                            <p>{{ lang('Previous Booking') }}</p>
+                            <p>{{ lang('Completed Booking') }}</p>
                             <div class="progress h-2 mt-2">
                                 <div class="progress-bar bg-primary" style="width: {{ $PreviousProgress }}%;"
                                     role="progressbar"></div>
@@ -180,7 +188,7 @@
                             <thead class="bg-primary">
                                 <tr>
                                     <th class="text-white ml-2">{{ lang('Category') }}</th>
-                                    <th class="text-white">{{ lang('Discount') }}</th>
+                                    <th class="text-white">{{ lang('Date') }}</th>
                                     <th class="text-white">{{ lang('Price') }}</th>
                                     <th class="text-white">{{ lang('Status') }}</th>
                                 </tr>
@@ -189,7 +197,7 @@
                                 <tbody>
                                     <tr>
                                         <td>{{ lang($totalBooking->type) }}</td>
-                                        <td>{{ lang($totalBooking->discount) }}</td>
+                                        <td>{{ lang($totalBooking->date) }}</td>
                                         <td>{{ lang($totalBooking->amount) }}</td>
                                         <td>{{ lang($totalBooking->status == 1 ? 'Upcoming' : ($totalBooking->status == 3 ? 'Cancel' : 'Previous')) }}
                                         </td>

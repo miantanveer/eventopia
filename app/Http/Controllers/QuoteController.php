@@ -78,12 +78,14 @@ class QuoteController extends UserBaseController
             'date'=>'required',
             'amount'=>'required',
             'description'=>'required',
+            'seller_quote_description'=>'required',
         ]);
         $quote = Quote::find($id);
         $quote->guests = $req->guests;
         $quote->date = $req->date;
         $quote->amount = $req->amount;
         $quote->description = $req->description;
+        $quote->seller_quote_description = $req->seller_quote_description;
         $quote->status = 1;
         $quote->save();
 
