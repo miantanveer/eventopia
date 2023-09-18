@@ -23,6 +23,10 @@
         z-index: 9999;
     }
 
+    .app-sidebar__toggle, .navbar-toggler-icon{
+        color: white !important;
+    }
+
     .calendar-container-1 {
         padding: 40px 50px 0 50px;
         background-color: white !important;

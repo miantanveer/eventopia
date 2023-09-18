@@ -94,6 +94,7 @@ License        :   Licensed under ThemeForest License
 /*Transparent variables*/
 /* ###### Bootstrap ###### */
 :root {
+  --custom-black-bg-color: #313131;
   --primary-bg-color: #003B95;
   --primary-bg-hover: #233ac5;
   --primary-bg-border: #5161c1;
@@ -119,6 +120,7 @@ License        :   Licensed under ThemeForest License
   --cyan: #17a2b8;
   --white:#ffffff;
   --gray: #6c757d;
+  --custom-black: #313131;
   --gray-dark: #343a40;
   --primary: #003B95;
   --secondary: #6c757d;
@@ -46661,11 +46663,11 @@ ul.timeline > li:before {
   }
   .horizontal .side-menu > li > a {
     display: flex;
-    margin: -3px -4px !important; /* comint this line */
+    margin: -3px -4px !important;
     text-decoration: none;
     position: relative;
     color: #7b8191;
-    padding: 16px 16px !important; /* comint this line */
+    padding: 16px 16px !important;
     font-weight: 400;
   }
   .horizontal .side-menu > li > a.active {

@@ -27,8 +27,8 @@
                                 <li class="list-group-item">
                                     <div class="row">
                                         <div class="col-6">
-                                            <h5><i class="fa fa-check-square text-primary"></i>&nbsp; {{lang('1. Photos')}}</h5>
-                                            <p class="ms-5">{{lang('Upload photos & videos and select a cover image')}}</p>
+                                            <h5><i class="fa fa-check-square text-primary"></i>&nbsp; {{lang('1. Rules')}}</h5>
+                                            <p class="ms-5">{{lang('Entertainment and Talent rules')}}</p>
                                         </div>
                                         <div class="col-6 text-end">
                                             <a href="{{url('/entertainment-form-steps')}}" class="btn btn-primary mt-3 text-white" >{{lang('Start')}}</a>
@@ -43,31 +43,37 @@
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('3. Photos / videos')}}</h5>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('3. Address')}}</h5>
+                                        <p class="ms-5" >{{lang('Add address')}}</p>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="">
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('4. Photos / videos')}}</h5>
                                         <p class="ms-5" >{{lang('Upload photos & videos and select a cover image')}}</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('4. Availability')}}</h5>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('5. Availability')}}</h5>
                                         <p class="ms-5" >{{lang('Set your operating hours')}}</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('5. Cancellations')}}</h5>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('6. Cancellations')}}</h5>
                                         <p class="ms-5" >{{lang('Select your cancellation policy')}}</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp;{{lang(' 6. Activities')}}</h5>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp;{{lang(' 7. Activities')}}</h5>
                                         <p class="ms-5" >{{lang('Pick the activities you’d like to entertain and set your price')}}</p>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="">
-                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('7. Profile')}}</h5>
+                                        <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('8. Profile')}}</h5>
                                         <p class="ms-5" >{{lang('Add a photo and contact information')}}</p>
                                     </div>
                                 </li>

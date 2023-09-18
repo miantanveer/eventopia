@@ -92,6 +92,21 @@
             margin-left: 0px !important;
         }
     }
+
+    @media(min-width:0px) and (max-width:540px) {
+        .box{
+            width: 90% !important;
+        }
+        .enter-h3-sz{
+            font-size: 130% !important;
+        }
+        .enter-p-sz{
+            font-size: 100% !important;
+        }
+        .enter-h1-sz{
+            font-size: 80% !important;
+        }
+    }
 </style>
 
 <body class="app sidebar-mini ltr">
@@ -105,19 +120,17 @@
     <!-- page -->
     <div class="page bg-white">
         <div class="page-main">
-
             @include('layouts.components.seller-header')
             <!--app-content open-->
             <div class="main-content app-content mt-0">
                 <div class="side-app">
-
                     <!-- container -->
                     <div class="bg-talent">
                         <div class="box">
                             <div class="container box1">
-                                <h3 class="text-center mt-6">{{lang('Get more gigs on Eventopia!')}}</h1>
+                                <h3 class="text-center enter-h3-sz mt-6">{{lang('Get more gigs on Eventopia!')}}</h1>
                                     <br>
-                                    <p class="text-center">{{lang('Connect with party planners and get booked for everything
+                                    <p class="text-center enter-p-sz">{{lang('Connect with party planners and get booked for everything
                                         from
                                         weddings to birthday parties to corporate events.')}}</p>
                                     <br>
@@ -137,10 +150,10 @@
                                         <h4>8,500+</h4>
                                         <p>{{lang('Leads sent each day')}}</p>
                                         <div>
-                                            <a style="padding-left:180px;padding-right:170px;"
-                                                class="modal-effect m-0 mt-3 mb-6 btn btn-info rounded-0"
+                                            <button
+                                                class="modal-effect m-0 mt-3 mb-6 w-100 btn btn-info rounded-0"
                                                 data-bs-target="#my-modal" data-bs-toggle="modal">
-                                                {{lang('Get Started')}}</a>
+                                                {{lang('Get Started')}}</button>
                                         </div>
                                     </form>
                             </div>
@@ -149,7 +162,7 @@
                     <br>
                     <br class="mb-5">
                     <div class="host mt-5">
-                        <h1><strong>{{lang('Get paid to do what you love')}}</strong></h1>
+                        <h1><strong class="enter-h1-sz">{{lang('Get paid to do what you love')}}</strong></h1>
                     </div>
 
                     <br>
@@ -181,7 +194,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="timeline-wrapper timeline-inverted timeline-wrapper-primary">
+                                    <div class="timeline-wrapper mt-8 timeline-inverted timeline-wrapper-primary">
                                         <div class="timeline-panel">
                                             <div class="avatar avatar-md timeline-badge"
                                                 style="position: absolute; top: -60px; left:calc(4% - 26px);">
@@ -201,7 +214,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="timeline-wrapper timeline-wrapper-primary">
+                                    <div class="timeline-wrapper mt-8 timeline-wrapper-primary">
 
                                         <div class="timeline-panel">
                                             <div class="avatar avatar-md timeline-badge"
@@ -221,7 +234,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="timeline-wrapper timeline-inverted timeline-wrapper-primary">
+                                    <div class="timeline-wrapper mt-8 timeline-inverted timeline-wrapper-primary">
                                         <div class="timeline-panel">
                                             <div class="avatar avatar-md timeline-badge"
                                                 style="position: absolute; top: -60px; left:calc(4% - 26px);">
