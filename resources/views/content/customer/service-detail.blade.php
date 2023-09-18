@@ -301,7 +301,7 @@
                                     </div>
                                     <div class="custom-checkbox my-3 display-inline">
                                         <input type="checkbox" class="form-input" name="flexible_date" value="1">
-                                        <span>{{lang('My wedding date is flexible')}}</span>
+                                        <span>{{lang('My date is flexible')}}</span>
                                     </div>
                                     <input type="number" class="form-control mb-3" required name="guests" placeholder="Number of Guests">
                                     <textarea name="description" id="description" required class="form-control" rows="3" class="mb-3"

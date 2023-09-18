@@ -79,12 +79,15 @@
                     $('#date').html(res.date);
                     $('#location').text(res.service.address);
                     $('#guests').html(res.guests);
+                    $('#seller_quote_description').html(res.seller_quote_description);
                     $('#total').html(res.amount);
                     $('#decline_btn').html('<a href="' + decline_name +
                         '" class="text-white"><button class="btn btn-white text-danger border-0">Decline</button></a>'
                         );
                     $('#accept_btn').html('<a href="' + route_name +
                         '" class="text-white"><button class="btn btn-primary">Accept</button></a>');
+                    $('#revise_btn').html('<a href="' + route_name +
+                        '" class="text-white"><button class="btn btn-indigo">Revise and Resubmit</button></a>');
                 }
             });
         }

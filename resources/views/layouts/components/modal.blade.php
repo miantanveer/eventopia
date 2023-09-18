@@ -61,7 +61,7 @@
                         <h6 class="fw-bolder">{{ lang('Service type & description') }} </h6>
                     </div>
                     <div class="col-md-3 col-6 text-end">
-                        <h6 class="fw-bolder">{{ lang('Amount') }}</h6>
+                        <h6 class="fw-bolder">{{ lang('Price') }}</h6>
                     </div>
                 </div>
                 <div class="row p-4  border-bottom align-items-center">
@@ -81,7 +81,7 @@
                 </div>
                 <div class="row p-4 border-bottom align-items-center">
                     <div class="col-6">
-                        <h6 class="fw-bolder">{{ lang('Wedding Date') }}</h6>
+                        <h6 class="fw-bolder">{{ lang('Date') }}</h6>
                     </div>
                     <div class="col-6  text-end" id="date"></div>
                 </div>
@@ -91,9 +91,15 @@
                     </div>
                     <div class="col-6  text-end" id="guests"></div>
                 </div>
+                <div class="row p-4 border-bottom align-items-center">
+                    <div class="col-6">
+                        <h6 class="fw-bolder">{{ lang('Seller Quote Description') }}</h6>
+                    </div>
+                    <div class="col-6  text-end" id="seller_quote_description"></div>
+                </div>
                 <div class="row p-4 border-bottom align-items-center bg-light-gray">
                     <div class="col-6">
-                        <h6 class="fw-bolder">{{ lang('Total :') }} </h6>
+                        <h6 class="fw-bolder">{{ lang('Total Price:') }} </h6>
                     </div>
                     <div class="col-6  text-end" id="total"></div>
                 </div>
@@ -101,6 +107,7 @@
             <div class="modal-footer mx-auto">
                 <div id="decline_btn"></div>
                 <div id="accept_btn"></div>
+                <div id="revise_btn"></div>
             </div>
         </div>
     </div>

@@ -60,7 +60,7 @@
                                     <h3 class="fw-bolder">{{lang('Add title to your service')}}</h3>
                                     <select name="service_title" required
                                         data-parsley-required-message="{{lang('This feild is required')}}"
-                                        class="form-control form-select select2 select2-hidden-accessible" tabindex="-1"
+                                        class="form-control form-select select2-show-search" tabindex="-1"
                                         aria-hidden="true" data-bs-placeholder="{{lang(" Select Service Title")}}">
                                         @foreach($title as $key => $data)
                                         <option value="{{$data->name}}" {{ @$service->title == $data->name ? 'selected'

@@ -6,10 +6,6 @@
             z-index: 9999;
         }
 
-        .test-bar {
-            background-color: #313131;
-        }
-
         .get_started_btn {
             position: relative;
             top: -84px;
@@ -68,24 +64,12 @@
                             <h3 class="number-font">{{ lang('Latest Bookings') }}</h3>
                             <div class="card-options">
                                 <h6>{{ lang('Total: ') }}{{ $totalBookingsCount }}</h6>
-                                {{-- <div class="btn-group mt-2 mb-2">
-                        <button type="button" class="btn btn-outline-primary btn-pill dropdown-toggle"
-                            data-bs-toggle="dropdown" aria-expanded="false"> {{lang('Select')}} <span
-                                class="fa fa-angle-down"></span> </button>
-                        <ul class="dropdown-menu" role="menu" style="">
-                            <li><a href="javascript:void(0)">{{lang('Upcoming Booking')}}</a></li>
-                            <li class="divider"></li>
-                            <li><a href="javascript:void(0)">{{lang('Previous Booking')}}</a></li>
-                            <li class="divider"></li>
-                            <li><a href="javascript:void(0)">{{lang('Cancelled Booking')}}</a></li>
-                        </ul>
-                    </div> --}}
                             </div>
                         </div>
                         <div class="card-body p-0 ">
                             <div class="table-responsive">
                                 <table class="table border text-nowrap text-md-nowrap mb-0">
-                                    <thead class="test-bar">
+                                    <thead class="bg-custom-black">
                                         <tr>
                                             <th class="text-white ml-2">{{ lang('Category') }}</th>
                                             <th class="text-white">{{ lang('Date') }}</th>
@@ -123,7 +107,7 @@
                             <div class="col-12 text-center">
                                 <div class="mb-3">
                                     <a href="{{ route('bookings', ['type' => 'null', 'for' => 'null']) }}"
-                                        class="btn test-bar text-white">{{ lang('Manage') }}</a>
+                                        class="btn bg-custom-black text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +148,7 @@
                                         role="progressbar"></div>
                                 </div>
                             </div>
-                          
+
                         </div>
                         <br>
                         <div class="mt-2 row">
@@ -177,7 +161,7 @@
                                 </div>
                             </div>
 
-                           
+
                             <div class="col-6">
                                 <h3 class="d-inline-block mb-2">{{ lang(@$completedSpaceBookings) }}</h3>
                                 <p>{{ lang('Completed Booking') }}</p>
@@ -192,7 +176,7 @@
                             <div class="col-12 ml-3 text-center">
                                 <div>
                                     <a href="{{ route('bookings', ['type' => 'space', 'for' => 'null']) }}"
-                                        class="btn test-bar text-white">{{ lang('Manage') }}</a>
+                                        class="btn bg-custom-black text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -239,7 +223,7 @@
                                         role="progressbar"></div>
                                 </div>
                             </div>
-                            
+
                             <div class="col-6">
                                 <h3 class="d-inline-block mb-2">{{ lang(@$completedEnterBookings) }}</h3>
                                 <p>{{ lang('Completed Booking') }}</p>
@@ -254,7 +238,7 @@
                             <div class="col-12 ml-3 text-center">
                                 <div>
                                     <a href="{{ route('bookings', ['type' => 'entertainment', 'for' => 'null']) }}"
-                                        class="btn test-bar text-white">{{ lang('Manage') }}</a>
+                                        class="btn bg-custom-black text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -288,7 +272,7 @@
                                         role="progressbar"></div>
                                 </div>
                             </div>
-                            
+
                         </div>
                         <br>
                         <div class="mt-2 row">
@@ -314,7 +298,7 @@
                             <div class="col-12 ml-3 text-center">
                                 <div>
                                     <a href="{{ route('bookings', ['type' => 'service', 'for' => 'null']) }}"
-                                        class="btn test-bar text-white">{{ lang('Manage') }}</a>
+                                        class="btn bg-custom-black text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -342,7 +326,7 @@
                             <div class="col-12  text-center">
                                 <div class="mb-3">
                                     <a href="{{ route('bookings', ['type' => 'active', 'for' => 'null']) }}"
-                                        class="btn test-bar text-white">{{ lang('View Details') }}</a>
+                                        class="btn bg-custom-black text-white">{{ lang('View Details') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -365,7 +349,7 @@
                             <div class="col-12  text-center">
                                 <div class="mb-3">
                                     <a href="{{ route('bookings', ['type' => 'cancel', 'for' => 'null']) }}"
-                                        class="btn test-bar text-white">{{ lang('View Details') }}</a>
+                                        class="btn bg-custom-black text-white">{{ lang('View Details') }}</a>
                                 </div>
                             </div>
                         </div>
