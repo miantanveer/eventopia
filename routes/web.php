@@ -29,6 +29,8 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+require_once __DIR__.'/admin.php';
+
 Route::get('/', function () {
     return view('content.landing-page');
 });
@@ -114,6 +116,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
 
     Route::get('bookings/{type}/{for}', [BookingController::class, 'bookings'])->name('bookings');
+    Route::post('refund-percentage/{id}/{type}', [BookingController::class, 'refundPercentage'])->name('refund-percentage');
+    Route::post('cancel-booking/{id}', [BookingController::class, 'cancelBooking'])->name('cancel-booking');
 
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana

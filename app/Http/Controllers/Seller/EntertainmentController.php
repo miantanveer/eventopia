@@ -85,7 +85,7 @@ class EntertainmentController extends UserBaseController
         $entertainment = Entertainment::find($id);
         $entertainment->title = $req->title;
         $entertainment->space = $req->space;
-        $entertainment->age = $req->age;
+        $entertainment->age = json_encode($req->age);
         $entertainment->arrival = $req->arrival;
         $entertainment->last_steps = 'step-2';
         $entertainment->save();
@@ -218,7 +218,7 @@ class EntertainmentController extends UserBaseController
             'cancellation_policy' => 'required',
         ]);
         $entertainment = Entertainment::find($id);
-        $entertainment->cancellation_policy = $req->cancellation_policy;
+        $entertainment->cancellation_policy_id = $req->cancellation_policy;
         $entertainment->last_steps = 'step-6';
         $entertainment->save();
         return redirect()->route('load_entertainment_form_7', $id);
