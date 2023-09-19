@@ -144,7 +144,7 @@
                         </div>
                     </div>
                     @if(@$type !== 'service')
-                        
+
                     <div class="col-lg-2 col-md-2 col-12 col-xl-2 col-sm-4 ps-0">
                         <div class="mt-2 mb-2">
                             <button type="button" class="btn btn-outline dropdown-toggle text-dark btn_background w-100"
@@ -179,7 +179,7 @@
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div class="col-lg-2 col-md-3 col-12 col-xl-2 ps-0">
                         <div class="mt-2">
                             <input type="date" name="date" id="date" class="form-control btn_background">
@@ -299,7 +299,7 @@
                     {
                         lat: {{ @$value->lat }},
                         lng: {{ @$value->lng }},
-                        title: "{{ @$value->space_title }}"
+                        price: "SAR {{ @$value->spaceHaveActivities[0]->rate_per_hour }}"
                     },
                 @endforeach
             ];
@@ -310,7 +310,7 @@
                     lat: {{ @$value->lat }},
                     lng: {{ @$value->lng }}
                 },
-                zoom: 10
+                zoom: 2
             });
 
             // Loop through the markers array and create markers for each data point
@@ -321,7 +321,7 @@
                         lng: markerData.lng
                     },
                     map: map,
-                    title: markerData.title
+                    title: markerData.price
                 });
             });
         });
