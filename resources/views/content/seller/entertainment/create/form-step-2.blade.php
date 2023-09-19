@@ -146,8 +146,7 @@
                                             </option>
                                             @endforeach
                                         </select> --}}
-                                        <select class="form-control" required name="age" required
-                                            data-parsley-required-message="{{lang('Please Select a value')}}">
+                                        <select class="form-control select2" required name="age[]" data-placeholder="Choose Age" multiple>
                                             <option value="all" {{ lang(@$entertainment->age == 'all' ? 'selected' : '')
                                                 }}>{{lang("All ages")}}
                                             </option>
