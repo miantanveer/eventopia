@@ -40,8 +40,11 @@
         display: flex;
 
     }
-    @media(min-width:0px) and (max-width:991px) {
 
+    @media(min-width:0px) and (max-width:991px) {
+        .space-address-box{
+            height: 95% !important;
+        }
     }
 </style>
 @endsection
@@ -71,44 +74,46 @@
                         <div id="step-1">
                             <div class="row">
                                 <div class="col-lg-6 col-12">
-                                    <div style="height: 90% !important;" class="border mt-5">
+                                    <div style="height: 75%;" class="border mt-5 space-address-box">
                                         <h2 style="text-align:center;">{{ lang('Step 1 of 9') }}</h2>
                                         <div class="row">
                                             <div class="card-header  mb-3">
-                                                <h1 style="text-align:center;" class="card-title">{{ lang('Space Address')
+                                                <h1 style="text-align:center;" class="card-title">{{ lang('Space
+                                                    Address')
                                                     }}
                                                 </h1>
                                             </div>
-    
-                                            <div class="col-md-5 col-lg-12">
-                                                <label class="form-control-label">{{ lang('Street Address') }}</label> <span
-                                                    class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                    id="address" name="address" placeholder="{{ lang('Add Address') }}"
-                                                    required value="{{ @$space->address }}" type="text">
+                                            <div class="col-12">
+                                                <label class="form-control-label">{{ lang('Street Address') }}</label>
+                                                <span class="tx-danger">*</span></label> <input
+                                                    class="form-control rounded-0" id="address" name="address"
+                                                    placeholder="{{ lang('Add Address') }}" required
+                                                    value="{{ @$space->address }}" type="text">
                                             </div>
-                                            <div class="col-md-5 col-lg-6 mt-3">
+                                            <div class="col-6 mt-3">
                                                 <label class="form-control-label">{{ lang('Country') }}</label> <span
-                                                    class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                    id="country" name="country" placeholder="" required
-                                                    value="{{ @$space->country }}" type="text">
+                                                    class="tx-danger">*</span></label> <input
+                                                    class="form-control rounded-0" id="country" name="country"
+                                                    placeholder="" required value="{{ @$space->country }}" type="text">
                                             </div>
-                                            <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
+                                            <div class="col-6 mt-3">
                                                 <label class="form-control-label">{{ lang('State') }}<span
                                                         class="tx-danger">*</span></label>
-                                                <input class="form-control rounded-0" id="state" name="state" placeholder=""
-                                                    value="{{ @$space->state }}" required type="text">
+                                                <input class="form-control rounded-0" id="state" name="state"
+                                                    placeholder="" value="{{ @$space->state }}" required type="text">
                                             </div>
-                                            <div class="col-md-5 col-lg-6 mt-3">
+                                            <div class="col-6 mt-3">
                                                 <label class="form-control-label">{{ lang('City') }}</label> <span
-                                                    class="tx-danger">*</span></label> <input class="form-control rounded-0"
-                                                    id="city" name="city" placeholder="" required
-                                                    value="{{ @$space->city }}" type="text">
+                                                    class="tx-danger">*</span></label> <input
+                                                    class="form-control rounded-0" id="city" name="city" placeholder=""
+                                                    required value="{{ @$space->city }}" type="text">
                                             </div>
-                                            <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
+                                            <div class="col-6 mt-3">
                                                 <label class="form-control-label">{{ lang('Postal Code') }}<span
                                                         class="tx-danger">*</span></label> <input
                                                     class="form-control rounded-0" id="postal_code" name="postal_code"
-                                                    required placeholder="" value="{{ @$space->postal_code }}" type="text">
+                                                    required placeholder="" value="{{ @$space->postal_code }}"
+                                                    type="text">
                                             </div>
                                             <input type="hidden" name="lat" id="lat">
                                             <input type="hidden" name="lng" id="lng">
@@ -116,11 +121,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <div class="col-lg-6 col-12">
+
+                                <div class="col-lg-6 col-12 mt-5">
                                     <div class="card custom-card">
                                         <div class="card-body map_height overflow-auto" id="mapContainer">
-                                            <h4 style="margin-left:70px;" class="fw-bolder">{{lang('Use the map pin position
+                                            <h4 class="fw-bolder">{{lang('Use the map pin
+                                                position
                                                 to add an
                                                 address.')}}</h4>
                                             <div id="map" style="height: 400px;"></div>
