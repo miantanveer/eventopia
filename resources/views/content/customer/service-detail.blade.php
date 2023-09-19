@@ -313,8 +313,8 @@
                                     </div>
                                     <div class="row mt-4">
                                         <div class="col-12 pe-0">
-                                            <button class="btn btn-primary text-white w-100" {{@$quote->status == null ? '' : (@$quote->status == 0 ? 'disabled' : (@$quote->status == 3 ? 'disabled' : ''))}}>
-                                                {{@$quote->status == null ? 'Request a Quote' : (@$quote->status == 0 ? 'Requested' : (@$quote->status == 3 ? 'Request Cancelled' : 'Request a Quote'))}}
+                                            <button class="btn btn-primary text-white w-100" {{@$quote->status == null ? '' : (@$quote->status == 0 ? 'disabled' : (@$quote->status == 3 ? 'disabled' : 'disabled'))}}>
+                                                {{@$quote->status == null ? 'Request a Quote' : (@$quote->status == 0 ? 'Requested' : (@$quote->status == 3 ? 'Request Cancelled' : 'Requested'))}}
                                             </button>
                                             {{-- <input type='button' class="btn btn-primary text-white w-100" id='quote-btn'
                                                 value="Request a Quote"> --}}

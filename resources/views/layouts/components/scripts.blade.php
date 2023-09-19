@@ -72,6 +72,7 @@
                         res.id);
                     $('#img').html('<img src="' + res.service.service_images[0].image + '" alt="">');
                     $('#img1').html('<img src="' + res.service.service_images[0].image + '" alt="">');
+                    $('#revise_id').val(res.id);
                     $('#title').html(res.service.title);
                     $('#header').html(res.service.title);
                     $('p#description').text(res.service.description);
@@ -86,11 +87,39 @@
                         );
                     $('#accept_btn').html('<a href="' + route_name +
                         '" class="text-white"><button class="btn btn-primary">Accept</button></a>');
-                    $('#revise_btn').html('<a href="' + route_name +
-                        '" class="text-white"><button class="btn btn-indigo">Revise and Resubmit</button></a>');
+                    $('#revise_btn').html('<button class="btn btn-indigo" id="revisebtn">Revise and Resubmit</button>');
                 }
             });
         }
+        $(document).on('click','#revisebtn',function(e){
+            e.preventDefault();
+            id = $('#revise_id').val();
+            url = "{{ route('load_accept_quote', ['id' => 'route_id']) }}".replace('route_id', id);
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                type: 'POST',
+                url: url,
+                success: function(res) {
+                    route = "{{ route('send_quote', ['id' => 'route_id']) }}".replace('route_id', $('#revise_id').val());
+                    $('#reviseQuoteForm').attr('action', route);
+                    $('#revise_date').val(res.date);
+                    $('#revise_guests').val(res.guests);
+                    if(res.flexible_date == 1) $('#revise_flexible_date').attr('checked',true);
+                    $('textarea#revise_description').val(res.service.description);
+                    $('#revise_back_btn').html('<a id="revise_back" class="btn btn-white text-primary border-0">Back</a>');                   
+                    $("#quote-modal").modal('hide');
+                }
+            });
+            $('#reviseQuoteModal').modal('show');
+        });
+
+        $(document).on('click','#revise_back',function(){
+            var route_name = "{{ route('load_accept_quote', ['id' => 'route_id']) }}".replace('route_id', $('#revise_id').val());
+            $('#reviseQuoteModal').modal('hide');
+            quoteModal(route_name);
+        });
     </script>
     <!-- Custom JavaScript code -->
     <script>
@@ -137,22 +166,10 @@
                         msg: 'Your quote got reply',
                         autohide: true
                     });
-                    var route_name = "{{ route('load_accept_quote', ['id' => 'route_id']) }}".replace('route_id', data
-                        .message.data_id);
+                    var route_name = "{{ route('load_accept_quote', ['id' => 'route_id']) }}".replace('route_id', data.message.data_id);
                     quoteModal(route_name);
                 }
             });
         </script>
     @endif
-
-    {{-- <script>
-        // Wait for the document to be ready
-        $(document).ready(function() {
-            // Handle click event of "View Details" button
-            $('.cart_icon').click(function() {
-                // Get the data attributes
-                var action = $(this).data('url');
-                $("#cart_form").attr('action', action);
-            });
-        });
-    </script> --}}
+   
