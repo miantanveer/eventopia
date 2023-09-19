@@ -92,8 +92,6 @@
                             <div class="row g-0 ">
                                 <div class="col-1 pe-0 my-auto">
                                     <label class="custom-control custom-checkbox">
-                                        {{-- <input type="checkbox" class="custom-control-input cards" name="checkbox1"
-                                value="option1" id="first_card"> --}}
                                         <input type="checkbox" class="custom-control-input cards" name="checkbox1"
                                             value="option1" id="first_card" data-type="entertainment"
                                             data-amount="{{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}"

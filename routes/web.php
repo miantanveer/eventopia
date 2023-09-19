@@ -106,6 +106,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Qutoe functions
     Route::post('send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
+    Route::post('revise_quote/{id}', [QuoteController::class, 'revise_quote'])->name('revise_quote');
     Route::get('quote/{id}', [QuoteController::class, 'receive_quote'])->name('recieve_quote');
     Route::post('load-accept-quote/{id}', [QuoteController::class, 'load_accept_quote'])->name('load_accept_quote');
     Route::get('accept-quote/{id}', [QuoteController::class, 'accept_quote'])->name('accept_quote');

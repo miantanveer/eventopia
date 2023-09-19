@@ -142,10 +142,10 @@
                             </div>
                         </div>
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">{{ $upComingBookings }}</h3>
+                            <h3 class="d-inline-block mb-2">{{ $pendingBookings }}</h3>
                             <p>{{ lang('Pending Bookings') }}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: {{ $UpcomingProgress }}%;"
+                                <div class="progress-bar bg-primary" style="width: {{ $pendingProgress }}%;"
                                     role="progressbar"></div>
                             </div>
                         </div>
@@ -271,7 +271,7 @@
                             <div class="d-flex">
                                 <div class="text-black">
                                     <h3 class="mb-2 number-font">{{lang('Pending Booking Actions')}}</h3>
-                                    <p class="text-black mb-0">{{lang('Total: ')}} {{$upComingBookings ?? 0}}</p>
+                                    <p class="text-black mb-0">{{lang('Total: ')}} {{@$pendingBookings ?? 0}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
