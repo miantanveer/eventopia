@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="row">
                                     <h5>{{lang('Photo requirements:')}}</h5>
-                                    <div class="col-6">
+                                    <div class="col-md-6 col-12">
                                         <ul>
                                             <li class="m-3" style="list-style: circle">
                                                 {{lang('High resolution - At least 1,000 pixels wide')}}
@@ -87,9 +87,9 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-md-6 col-12">
                                         <ul>
-                                            <li class="m-3" style="list-style: circle">
+                                            <li class="mb-3 mx-3 mt-md-3 mt-0" style="list-style: circle">
                                                 {{lang('Horizontal orientation - No vertical photos')}}
                                             </li>
                                             <li class="m-3" style="list-style: circle">

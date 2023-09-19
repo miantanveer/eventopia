@@ -46,6 +46,10 @@
             height: 95% !important;
         }
     }
+
+    @media(min-width:0px) and (max-width:701px) {
+        
+    }
 </style>
 @endsection
 

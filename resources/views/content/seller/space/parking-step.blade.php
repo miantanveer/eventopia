@@ -46,6 +46,31 @@
             color: #ff5c77;
             margin-top: 3px;
         }
+        @media(min-width:0px) and (max-width:991px) {
+            .h1-se-sz{
+                font-size: 80% !important;
+            }
+            .p-ser-sz, .img-sz-p{
+                font-size: 90% !important; 
+            }
+            
+            .se-sz{
+                font-size: 70% !important;
+            }
+        }
+
+        /* @media(min-width:0px) and (max-width:701px) {
+            .h1-se-sz{
+                font-size: 80% !important;
+            }
+            .p-ser-sz, .img-sz-p{
+                font-size: 90% !important; 
+            }
+            
+            .se-sz{
+                font-size: 70% !important;
+            }
+        } */
     </style>
 @endsection
 
@@ -71,13 +96,13 @@
                             <div id="step-2">
                                 <form class="validation" action="{{ route('add-parking', $space->id) }}" method="POST">
                                     @csrf
-                                    <div style="text-align:center;">
+                                    <div class="text-center">
                                         <h2>{{ lang('Step 2 of 9') }}</h2>
-                                        <h1><strong>{{ lang('What type of space are you listing?') }}</strong></h1>
-                                        <p><b>{{ lang('Enter the type of space that most closely represents the physical space being listed. Learn more') }}</b>
+                                        <h1><strong class="h1-se-sz">{{ lang('What type of space are you listing?') }}</strong></h1>
+                                        <p><b class="p-ser-sz">{{ lang('Enter the type of space that most closely represents the physical space being listed. Learn more') }}</b>
                                         </p>
                                     </div>
-                                    <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
+                                    <p class="img-sz-p"> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
                                             alt="img"><b>{{ lang("Examples: 'Apartment' 'Photo Studio' 'Restaurant'") }}</b>
                                     </p>
                                     <select name="space_type_id" id="space_types" required
@@ -92,8 +117,8 @@
                                     <br>
                                     <hr class="style1"><br>
                                     <div class="inner-steps2 mt-2 mb-3">
-                                        <h1><strong>{{ lang('Describe the parking options') }}</strong></h1>
-                                        <div class="form-check form-switch">
+                                        <h1><strong class="h1-se-sz">{{ lang('Describe the parking options') }}</strong></h1>
+                                        <div class="form-check pb-3 p-0 form-switch">
                                             <p><b>{{ lang('Are there parking options at or near your space?') }}</b>
                                                 <label class="form-check-label" for="flexSwitchCheckChecked"></label>
                                                 <input style="margin-left:32rem;" required class="form-check-input"
@@ -101,7 +126,7 @@
                                                     onchange="toggleOptions()">
                                             </p>
                                         </div>
-                                        <h1><strong>{{ lang('Select all') }}</strong></h1>
+                                        <h3><strong>{{ lang('Select all') }}</strong></h3>
                                     </div>
                                     <div id="options">
                                         <div class="row">
@@ -122,8 +147,7 @@
                                     <h1 class="mt-4">
                                         <strong>{{ lang('Write a description of the parking options') }}</strong></h1>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
-                                            alt="img">{{ lang("Don’t
-                                                                                    include private information. This will be shown publicly.") }}
+                                            alt="img">{{ lang("Don’t include private information. This will be shown publicly.") }}
                                     </p>
                                     <div class="form-group">
                                         <label for="exampleFormControlTextarea1"></label>
@@ -136,32 +160,29 @@
 
                                             <div class="mt-6">
                                                 <h3 class="mb-2 mt-md-7">
-                                                    <b>{{ lang('Security cameras and recording devices') }}</b></h3>
-                                                <div class="w-50 float-start">
-                                                    <p class="mb-3">
-                                                        {{ lang("Does the event have security cameras or recording
-                                                                                                                devices?") }}
-                                                    </p>
-                                                </div>
-                                                <div class="w-50 float-end">
-                                                    <div class="form-check form-switch float-end">
-                                                        <input class="form-check-input" type="checkbox" role="switch"
-                                                            id="flexSwitchCheckChecked2" checked
-                                                            onchange="toggleTextArea()">
+                                                    <b class="h1-se-sz">{{ lang('Security cameras and recording devices') }}</b></h3>
+                                                <div class="row">
+                                                    <div class="col-8 float-start">
+                                                        <p class="mb-3 h1-se-sz">
+                                                            {{ lang("Does the event have security cameras or recording devices?") }}
+                                                        </p>
                                                     </div>
-                                                </div><br>
-
-                                                <div id="textAreaDiv" class="mt-5">
-                                                    <p class="mb-1">
-                                                        {{ lang("Describe any device that records video, audio, or
-                                                                                                                still
-                                                                                                                images.
-                                                                                                                Specify where each device is in your event and if they’ll be on or
-                                                                                                                off.") }}
-                                                    </p>
-                                                    <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5"
-                                                        class="form-control w-100 p-5" placeholder="{{ lang('Add description') }}">{{ lang(@$space->security_devices_description ?? '') }}</textarea>
+                                                    <div class="col-4 float-end">
+                                                        <div class="form-check form-switch float-end">
+                                                            <input class="form-check-input" type="checkbox" role="switch"
+                                                                id="flexSwitchCheckChecked2" checked
+                                                                onchange="toggleTextArea()">
+                                                        </div>
+                                                    </div><br>
                                                 </div>
+                                                    <div id="textAreaDiv" class="mt-5">
+                                                        <p class="mb-1 sh1-se-sz">
+                                                            {{ lang("Describe any device that records video, audio, or mages. Specify where each device is in your event and if they’ll be on or off.") }}
+                                                        </p>
+                                                        <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5"
+                                                            class="form-control w-100 p-5" placeholder="{{ lang('Add description') }}">{{ lang(@$space->security_devices_description ?? '') }}</textarea>
+                                                    </div>
+                                                
                                             </div>
                                             </p>
                                             <br>
