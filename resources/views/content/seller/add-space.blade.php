@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Sash –  Laravel Bootstrap 5 Admin & Dashboard Template">
     <meta name="author" content="SPRUKO™">
-    <meta name="keywords" content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
+    <meta name="keywords"
+        content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
 
 
 
@@ -27,8 +28,6 @@
         height: 751px;
         background-size: cover;
         background-repeat: no-repeat;
-
-
     }
 
     .box {
@@ -59,6 +58,16 @@
 
     .box a {
         margin: 20px;
+    }
+    .box btnparty {
+       padding-left:140px;
+       padding-right:160px;
+       width:100%;
+    }
+    .box btnstart {
+      padding-left:190px;
+      padding-right:195px;
+      width:100%;
     }
 
     .host {
@@ -97,13 +106,54 @@
         height: 840px !important;
     }
 
-    @media(min-width:0px) and (max-width:767px) {
+      @media(min-width:0px) and (max-width:375px) {
         .vtimeline .timeline-wrapper .timeline-panel {
             margin-left: 0px !important;
         }
+
+        .container .image-button {
+            left: -41px;
+        }
+
+        .height-of-content {
+            height: 2550px !important;
+        }
+
+        .mar {
+            margin-bottom: 20px !important;
+        }
+
+          .main-container .hero-container .bg .box {
+            border: 1px solid #8e8e8e40;
+            width: 250px;
+            position: absolute;
+            top: 150px;
+
+        }
     }
 
-    @media only screen and (max-width:700px) {
+    @media(min-width:375px) and (max-width:767px) {
+        .vtimeline .timeline-wrapper .timeline-panel {
+            margin-left: 0px !important;
+        }
+
+        .container .image-button {
+            left: 1px;
+        }
+
+        .height-of-content {
+            height: 2750px !important;
+        }
+
+        .mar {
+            margin-bottom: 20px !important;
+        }
+        
+    }
+
+  
+
+    @media(min-width:376px) and (max-width:700px) {
         .main-container .hero-container .bg {
             margin-left: 0px;
             background: url("{{ asset('assets/images/users/spaces/12.jpg') }}");
@@ -165,12 +215,55 @@
         }
 
         .image-button {
-            position:fixed;
-            margin-left:120px;
+            position: fixed;
+            margin-left: 120px;
 
         }
 
+
     }
+
+
+    @media screen and (max-width: 1023px) and (min-width: 768px) {
+        .container .image-button {
+            left: -43px;
+        }
+    }
+
+    @media screen and (max-width: 1440px) and (min-width: 1280px) {
+        .container .image-button {
+            left: 43px;
+        }
+    }
+
+    @media screen and (max-width: 1280px) and (min-width: 767px) {
+        .height-of-content {
+            height: 1400px !important;
+
+        }
+
+        .mar {
+            margin-bottom: 20px !important;
+        }
+
+        @media only screen and (max-width:1440px) {
+            .main-container .hero-container .bg {
+                margin-left: 0px;
+                background: url("{{ asset('assets/images/users/spaces/12.jpg') }}");
+                position: relative;
+                bottom: 40px;
+                background-position: bottom;
+                height: 751px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-self: center;
+                background-attachment: fixed;
+
+            }
+        }
 </style>
 
 <body class="app sidebar-mini ltr">
@@ -200,18 +293,21 @@
 
                                 <div class="box">
 
-                                    <h1 style="margin-left:20px;">{{lang('Be paid to host events on Eventopia.')}}</h1>
+                                    <h1 class="mx-4">{{ lang('Be paid to host events on Eventopia.') }}
+                                    </h1>
                                     <br>
-                                    <p>{{lang('Join the hundreds of hosts who are already renting out
-                                        their facilities for parties, meetings, and photo and film
-                                        shoots.')}}</p>
+                                    <p>{{ lang('Join the hundreds of hosts who are already renting out
+                                                                                                                                                                                                                                                                their facilities for parties, meetings, and photo and film
+                                                                                                                                                                                                                                                                shoots.') }}
+                                    </p>
                                     <br>
-                                    <p>{{lang('What type of space do you have?')}}</p>
-                                    <div class="btns">
-                                        <input style="padding-left:140px;padding-right:160px;" type="text" class="btn btn-light rounded-0" placeholder="{{lang('Party hall')}}">
+                                    <p>{{ lang('What type of space do you have?') }}</p>
+                                    <div class="btns" style='width:100%'>
+                                        <input  type="text" class="btn btn-light rounded-0 btnparty" placeholder="{{ lang('Party hall') }}">
                                     </div>
-                                    <div>
-                                        <a style="padding-left:190px;padding-right:195px;" class="modal-effect btn btn-info rounded-0" data-bs-target="#my-modal" data-bs-toggle="modal">{{lang('Get Started')}}</a>
+                                    <div style='width:100%'>
+                                        <a class="modal-effect btn btn-info rounded-0 btnstart" data-bs-target="#my-modal"
+                                            data-bs-toggle="modal">{{ lang('Get Started') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -220,7 +316,7 @@
                     <br>
                     <br class="mb-5">
                     <div class="host mt-5">
-                        <h1><strong>{{lang('How hosting operates')}}</strong></h1>
+                        <h1><strong>{{ lang('How hosting operates') }}</strong></h1>
                     </div>
 
                     <br>
@@ -234,17 +330,18 @@
                                 <div class="vtimeline">
                                     <div class="timeline-wrapper timeline-wrapper-primary">
                                         <div class="timeline-panel">
-                                            <div class="avatar avatar-md timeline-badge" style="position: absolute; top: -60px; left:calc(4% - 26px);">
+                                            <div class="avatar avatar-md timeline-badge"
+                                                style="position: absolute; top: -60px; left:calc(4% - 26px);">
                                                 <span class="timeline-icon">1</span>
                                             </div>
 
                                             <div class="timeline-heading">
-                                                <h3 class="timeline-title">{{lang('List your space for free')}}</h3>
+                                                <h3 class="timeline-title">{{ lang('List your space for free') }}</h3>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>{{lang("Millions of individuals looking for space will be able to view
-                                                    your listing once you've set your pricing and included any
-                                                    necessary data, pictures, and descriptions.")}}
+                                                <p>{{ lang("Millions of individuals looking for space will be able to view
+                                                                                                                                                                                                                                                                                                                                                    your listing once you've set your pricing and included any
+                                                                                                                                                                                                                                                                                                                                                    necessary data, pictures, and descriptions.") }}
                                                 </p>
                                             </div>
                                             <div class="timeline-footer d-flex align-items-center flex-wrap">
@@ -254,17 +351,20 @@
                                     </div>
                                     <div class="timeline-wrapper timeline-inverted timeline-wrapper-primary">
                                         <div class="timeline-panel">
-                                            <div class="avatar avatar-md timeline-badge" style="position: absolute; top: -60px; left:calc(4% - 26px);">
+                                            <div class="avatar avatar-md timeline-badge"
+                                                style="position: absolute; top: -60px; left:calc(4% - 26px);">
                                                 <span class="timeline-icon">2</span>
                                             </div>
 
                                             <div class="timeline-heading">
-                                                <h3 class="timeline-title">{{lang('Welcome guests to your space')}}</h3>
+                                                <h3 class="timeline-title">{{ lang('Welcome guests to your space') }}
+                                                </h3>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>{{lang('Once you agree, your guests will receive directions, as well as
-                                                    information like your wifi code, and you may communicate with
-                                                    them and take reservations through the Eventopia platform.')}}</p>
+                                                <p>{{ lang('Once you agree, your guests will receive directions, as well as
+                                                                                                                                                                                                                                                                                                                                                    information like your wifi code, and you may communicate with
+                                                                                                                                                                                                                                                                                                                                                    them and take reservations through the Eventopia platform.') }}
+                                                </p>
                                             </div>
                                             <div class="timeline-footer d-flex align-items-center flex-wrap">
 
@@ -275,16 +375,18 @@
                                     <div class="timeline-wrapper timeline-wrapper-primary">
 
                                         <div class="timeline-panel">
-                                            <div class="avatar avatar-md timeline-badge" style="position: absolute; top: -60px; left:calc(4% - 26px);">
+                                            <div class="avatar avatar-md timeline-badge"
+                                                style="position: absolute; top: -60px; left:calc(4% - 26px);">
                                                 <span class="timeline-icon">3</span>
                                             </div>
                                             <div class="timeline-heading">
-                                                <h3 class="timeline-title">{{lang('Get paid every time')}}</h3>
+                                                <h3 class="timeline-title">{{ lang('Get paid every time') }}</h3>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>{{lang("The upfront fee is collected from visitors using Eventopia's safe
-                                                    payment platform. Following each booking, your compensation is
-                                                    instantly transferred, less our service charge.")}}</p>
+                                                <p>{{ lang("The upfront fee is collected from visitors using Eventopia's safe
+                                                                                                                                                                                                                                                                                                                                                    payment platform. Following each booking, your compensation is
+                                                                                                                                                                                                                                                                                                                                                    instantly transferred, less our service charge.") }}
+                                                </p>
                                             </div>
                                             <div class="timeline-footer d-flex align-items-center flex-wrap">
 
@@ -302,61 +404,85 @@
                     <div class="container-fluid height-of-content">
                         <div class="container-fluid-div"></div>
                         <div class="container position-content">
-                            <h1 class="text-center text-white"><strong>{{lang('Every space belongs on Eventopia')}}</strong></h1>
+                            <h1 class="text-center text-white">
+                                <strong>{{ lang('Every space belongs on Eventopia') }}</strong>
+                            </h1>
+
                             <div class="row mt-5 mb-2">
-                                <div class="col-md-6 col-xl-3 mt-5">
+                                <div class="col-md-6 col-xl-3 mt-5 mar">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/001.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">{{lang('Homes')}}</button>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/001.png') }}"
+                                                alt="img"></a>
+                                        <button type="button"
+                                            class="btn btn-basic image-button">{{ lang('Homes') }}</button>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-xl-3 mt-5">
+                                <div class="col-md-6 col-xl-3 mt-5 mar">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/002.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">{{lang('Loft')}}</button>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/002.png') }}"
+                                                alt="img"></a>
+                                        <button type="button"
+                                            class="btn btn-basic image-button">{{ lang('Loft') }}</button>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-xl-3 mt-5">
+                                <div class="col-md-6 col-xl-3 mt-5 mar">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/003.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">{{lang('Studios')}}</button>
+                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/003.png') }}"
+                                                alt="img"></a>
+                                        <button type="button"
+                                            class="btn btn-basic image-button">{{ lang('Studios') }}</button>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-xl-3 mt-5">
+                                <div class="col-md-6 col-xl-3 mt-5 mar">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/004.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">{{lang('Warehouses')}}</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-5">
-                                <div class="col-md-6 col-xl-3 mt-5">
-                                    <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/005.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic  image-button">{{lang('Galleries')}}</button>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-xl-3 mt-5">
-                                    <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/006.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">{{lang('Bars')}}</button>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-xl-3 mt-5">
-                                    <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/007.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">{{lang('Coworking')}}</button>
+                                        <a href="#"><img
+                                                src="{{ asset('assets/images/users/spaces/004.png') }}"
+                                                alt="img"></a>
+                                        <button type="button"
+                                            class="btn btn-basic image-button">{{ lang('Warehouses') }}</button>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 col-xl-3 mt-5">
+                                <div class="col-md-6 col-xl-3 mt-5 mar">
                                     <div class="bg-primary-transparent">
-                                        <a href="#"><img src="{{ asset('assets/images/users/spaces/008.png') }}" alt="img"></a>
-                                        <button type="button" class="btn btn-basic image-button">{{lang('Event venues')}}
-                                            </button>
+                                        <a href="#"><img
+                                                src="{{ asset('assets/images/users/spaces/005.png') }}"
+                                                alt="img"></a>
+                                        <button type="button"
+                                            class="btn btn-basic  image-button">{{ lang('Galleries') }}</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-3 mt-5 mar">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img
+                                                src="{{ asset('assets/images/users/spaces/006.png') }}"
+                                                alt="img"></a>
+                                        <button type="button"
+                                            class="btn btn-basic image-button">{{ lang('Bars') }}</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xl-3 mt-5 mar">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img
+                                                src="{{ asset('assets/images/users/spaces/007.png') }}"
+                                                alt="img"></a>
+                                        <button type="button"
+                                            class="btn btn-basic image-button">{{ lang('Coworking') }}</button>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xl-3 mt-5 mar">
+                                    <div class="bg-primary-transparent">
+                                        <a href="#"><img
+                                                src="{{ asset('assets/images/users/spaces/008.png') }}"
+                                                alt="img"></a>
+                                        <button type="button"
+                                            class="btn btn-basic image-button">{{ lang('Event venues') }}
+                                        </button>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -368,14 +494,18 @@
                     <div style="border-color:transparent;" class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
 
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                <p style="color:#003B95;" class="d-block">{{lang('Who can be a eventopia host?')}}</p>
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <p style="color:#003B95;" class="d-block">{{ lang('Who can be a eventopia host?') }}
+                                </p>
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample" style="">
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                <p>{{lang('Eventopia attracts a wide range of places, including residences, galleries, photo
-                                    studios, and warehouses.')}}</p>
+                                <p>{{ lang('Eventopia attracts a wide range of places, including residences, galleries, photo
+                                                                                                                                                                                                                                    studios, and warehouses.') }}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -384,15 +514,17 @@
                 <div class="accordion" id="accordionExample">
                     <div style="border-color:#d9dbdd;" class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                {{lang('How do I get paid?')}}
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                {{ lang('How do I get paid?') }}
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample" style="">
                             <div class="accordion-body">
-                                {{lang('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque molestias deleniti quis
-                                at quam, neque ducimus nam ipsam nisi dolores non hic numquam ratione odio in ea nulla,
-                                sint recusandae praesentium possimus dolor. Harum, dolore?')}}
+                                {{ lang('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque molestias deleniti quis
+                                                                                                                                                                                                                                at quam, neque ducimus nam ipsam nisi dolores non hic numquam ratione odio in ea nulla,
+                                                                                                                                                                                                                                sint recusandae praesentium possimus dolor. Harum, dolore?') }}
                             </div>
                         </div>
                     </div>
@@ -401,15 +533,17 @@
                 <div class="accordion" id="accordionExample">
                     <div style="border-color:#d9dbdd;" class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                               {{lang(' Does Eventopia provide insurance?')}}
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                {{ lang(' Does Eventopia provide insurance?') }}
                             </button>
                         </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                {{lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem
-                                pariatur a laboriosam fugit ex ullam, et minus eum! Facere amet, animi beatae sequi,
-                                perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?')}}
+                                {{ lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem
+                                                                                                                                                                                                                                pariatur a laboriosam fugit ex ullam, et minus eum! Facere amet, animi beatae sequi,
+                                                                                                                                                                                                                                perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?') }}
                             </div>
                         </div>
                     </div>
@@ -418,16 +552,18 @@
                 <div class="accordion mb-5" id="accordionExample">
                     <div style="border-color:#d9dbdd;" class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                {{lang('How can i contact?')}}
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                {{ lang('How can i contact?') }}
                             </button>
                         </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                {{lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
-                                accusantium eveniet dignissimos sunt magnam ad repellendus ab aperiam nobis
-                                necessitatibus quo a adipisci. Tenetur officiis necessitatibus minus sapiente nisi iste
-                                perspiciatis totam autem!')}}
+                                {{ lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
+                                                                                                                                                                                                                                accusantium eveniet dignissimos sunt magnam ad repellendus ab aperiam nobis
+                                                                                                                                                                                                                                necessitatibus quo a adipisci. Tenetur officiis necessitatibus minus sapiente nisi iste
+                                                                                                                                                                                                                                perspiciatis totam autem!') }}
                             </div>
                         </div>
                     </div>
@@ -525,6 +661,6 @@
     </script>
     @section('scripts')
 
-</body>
+    </body>
 
-</html>
+    </html>
