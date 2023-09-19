@@ -155,6 +155,7 @@ class ListingSpaceController extends UserBaseController
         try {
             $data = $req->except('_token');
             $space = Space::find($space_id);
+            $data['allowed_age'] = json_encode($req->allowed_age);
             if (!$space) {
                 return redirect()->back()->with('error', 'Space not found.');
             }

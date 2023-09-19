@@ -3,9 +3,9 @@
 </div>
 @foreach (@$listing as $value)
     @php
-        $lat = $value->lat;
-        $lng = $value->lng;
-        $title = $value->space_title;
+        @$lat = @$value->lat;
+        @$lng = @$value->lng;
+        @$title = @$value->space_title;
     @endphp
     <div class="col-xl-4 col-md-6 col-sm-12">
         <div class="card overflow-hidden">
@@ -20,10 +20,10 @@
                 </div>
             </div>
             <a href="{{ route('space-details', @$value->id) }}">
-                <img src="{{ asset($value->spaceImages[0]->image) }}" class="card-img-top"
+                <img src="{{ asset(@$value->spaceImages[0]->image) }}" class="card-img-top"
                     style="width: 200px;padding-top: 10px" alt="img">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $value->space_title }}</h5>
+                    <h5 class="card-title">{{ @$value->space_title }}</h5>
                     <i class="fa fa-group"></i> 25 &nbsp;
                     <i class="fa fa-star" style="color:#f1c40f"></i>
                     <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
