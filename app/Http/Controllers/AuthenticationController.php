@@ -127,7 +127,6 @@ class AuthenticationController extends UserBaseController
     }
 
     // Login Index
-
     public function loginIndex(Request $req)
     {
         if (Auth::check()) return redirect(route('dashboard'));
@@ -136,7 +135,6 @@ class AuthenticationController extends UserBaseController
     }
 
     // Login
-
     public function login(Request $req)
     {
         try {
@@ -195,7 +193,7 @@ class AuthenticationController extends UserBaseController
     {
         try {
             if ($req->phone_number) {
-                $user = User::wherePhoneNumber($req->phone_number)->first(); 
+                $user = User::wherePhoneNumber($req->phone_number)->first();
             } else {
                 $user = User::whereEmail($req->email)->first();
             }

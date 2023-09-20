@@ -9,7 +9,8 @@ use App\Models\Order;
 use App\Models\Service;
 use App\Models\Space;
 use App\Models\Quote;
-use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Stripe\Exception\ApiErrorException;
 
 class BookingController extends UserBaseController
 {
@@ -152,11 +153,6 @@ class BookingController extends UserBaseController
         return view('content.seller.booking-details', $this->data);
     }
 
-    public function cancelBooking($id)
-    {
-        dd($id);
-    }
-
     public function refundPercentage($id, $type)
     {
         if ($type == 'service') {
@@ -203,19 +199,19 @@ class BookingController extends UserBaseController
                     return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
                 } elseif ($cancellation == 2) {
                     if ($hoursDifference > 24 && $hoursDifference < 168) {
-                        return response()->json(['amount_perc' => 50, 'deduct_amount' => $order->amount / 2, 'id' => $id]);
+                        return response()->json(['amount_perc' => 50, 'deduct_amount' => round($order->amount / 2), 'id' => $id]);
                     } else {
                         return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
                     }
                 } elseif ($cancellation == 3) {
                     if ($hoursDifference > 168 && $hoursDifference < 720) {
-                        return response()->json(['amount_perc' => 50, 'deduct_amount' => $order->amount / 2, 'id' => $id]);
+                        return response()->json(['amount_perc' => 50, 'deduct_amount' => round($order->amount / 2), 'id' => $id]);
                     } else {
                         return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
                     }
                 } elseif ($cancellation == 4) {
                     if ($hoursDifference > 720 && $hoursDifference < 2160) {
-                        return response()->json(['amount_perc' => 50, 'deduct_amount' => $order->amount / 2, 'id' => $id]);
+                        return response()->json(['amount_perc' => 50, 'deduct_amount' => round($order->amount / 2), 'id' => $id]);
                     } else {
                         return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
                     }
@@ -225,4 +221,25 @@ class BookingController extends UserBaseController
             }
         }
     }
+
+    public function cancelBooking(Request $req, $id)
+    {
+        $order = Order::find($id);
+        $get_charge = json_decode($order->stripe_txn_resp);
+        $amount = $get_charge->amount - ($req->deduct_amount * 100);
+        try {
+            $refund = $this->stripe->refunds->create([
+                'charge' => $get_charge->id,
+                'amount' => $amount,
+            ]);
+
+            $order->update(['status' => 3,'is_refunded' => 1, 'refund_resp' => json_encode($refund)]);
+            return redirect()->back()->with('success', 'order cancelled successfully.');
+
+        } catch (ApiErrorException $e) {
+            $errorMessage = $e->getMessage();
+            return redirect()->back()->with('error','Refund failed' . $errorMessage);
+        }
+    }
 }
+ 
