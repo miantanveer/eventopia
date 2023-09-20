@@ -263,159 +263,7 @@
 <!-- ROW-1 -->
 <div class="bg-white">
     @section('content')
-
-
-    <div class="row mx-2 mb-1">
-        <div class="col-xl-1 col-md-2 col-sm-6 d-md-block d-none mt-2 px-0">
-            <button type="button" id="priceButton"
-                class="btn btn-outline button-radias w-style dropdown-toggle text-dark btn_background px-0 w-100"
-                data-bs-toggle="dropdown">
-                {{ lang('Price') }} <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu price-nav" id="dropdownMenuPrice" role="menu">
-                <div class="custom-controls-stacked">
-                    <form action="#" method="get" class="ms-2">
-                        <div class="px-5 pt-5 pb-2">
-                            <label class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="example-radios" value="option1"
-                                    checked="">
-                                <span class="custom-control-label">{{ lang('Up to $100') }}</span>
-                            </label>
-                            <label class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="example-radios" value="option2">
-                                <span class="custom-control-label">{{ lang('$100 to $250') }}</span>
-                            </label>
-                            <label class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="example-radios" value="option3">
-                                <span class="custom-control-label">{{ lang('$250 to $450') }}</span>
-                            </label>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="w-45 pe-0">
-                                <div class="btn-group w-90">
-                                    <button type="button"
-                                        class="btn btn-outline-default rounded-0 disabled"><b>$</b></button>
-                                    <input type="text" class="btn btn-outline-default rounded-0" name="space_size"
-                                        required data-parsley-errors-container="#sq_error" value="" id="priceFrom">
-                                </div>
-                            </div>
-                            <div class="w-10 mt-2 p-0">
-                                <b>to</b>
-                            </div>
-                            <div class="w-45 ps-0">
-                                <div class="btn-group w-90">
-                                    <button type="button"
-                                        class="btn btn-outline-default rounded-0 disabled"><b>$</b></button>
-                                    <input type="text" class="btn btn-outline-default rounded-0" name="space_size"
-                                        required data-parsley-errors-container="#sq_error" value="" id="priceTo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-5 mb-1">
-                            <div class="w-50">
-                                <a href="#" class="float-start text-dark p-3" id="clearButton1">Clear</a>
-                            </div>
-                            <div class="w-50">
-                                <a href="#" class="float-end bg-primary py-2 px-5 me-3 text-white"
-                                    id="doneButton"><b>Done</b></a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </ul>
-        </div>
-
-        <div class="col-xl-1 col-lg-2 col-md-2 col-sm-6 d-md-block d-none mt-2 pe-0">
-            <button type="button" id="attendeesButton"
-                class="btn btn-outline dropdown-toggle w-style button-radias text-dark btn_background"
-                data-bs-toggle="dropdown">
-                <span class="attendees- span_attendees">{{ lang('Attendees') }}</span> <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu price-nav" id="dropdownMenuAttendees" role="menu">
-                <div class="custom-controls-stacked">
-                    <form action="#" method="get" class="ms-2">
-                        <div class="px-5 pt-5 pb-2">
-                            <label class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="example-radios" value="option1"
-                                    checked="">
-                                <span class="custom-control-label">{{ lang('1 to 10') }}</span>
-                            </label>
-                            <label class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="example-radios" value="option2">
-                                <span class="custom-control-label">{{ lang('11 to 25') }}</span>
-                            </label>
-                            <label class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="example-radios" value="option3">
-                                <span class="custom-control-label">{{ lang('26 to 50') }}</span>
-                            </label>
-                            <label class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="example-radios" value="option4">
-                                <span class="custom-control-label">{{ lang('51 to 100') }}</span>
-                            </label>
-                            <label class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="example-radios" value="option5">
-                                <span class="custom-control-label">{{ lang('Over 100') }}</span>
-                            </label>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="w-100 ms-5 pe-0">
-                                <div class="w-100">
-                                    <input type="text" class="btn btn-outline-default rounded-0" id="attendeesInput">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-5 mb-1">
-                            <div class="w-50">
-                                <a href="#" id="clearButton2" class="float-start text-dark p-3">Clear</a>
-                            </div>
-                            <div class="w-50">
-                                <a href="#" class="float-end bg-primary py-2 px-5 me-3 text-white"
-                                    id="doneButton"><b>Done</b></a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </ul>
-        </div>
-
-        <div class="col-xl-1 col-md-2 col-sm-6 col-6 pe-0">
-            <form action="#" class="mt-2">
-                <input id="dateInput" type="text" class="form-control w-style button-radias btn_background"
-                    placeholder="When?" onfocus="(this.type='date')">
-            </form>
-        </div>
-
-        <div class="col-xl-1 col-lg-2 col-md-2 col-sm-6 col-6 pe-0">
-            <form action="#" class="mt-2">
-                <button id="typeCategories" class="form-control btn_background w-style span_attendees"> <img
-                        src="{{ asset('assets/images/brand/equalizer.png') }}" class="w-5 span_attendees" alt=""> {{
-                    lang('More filters') }}</button>
-            </form>
-        </div>
-
-        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 d-md-block d-none">
-            <form action="#" class="mt-2">
-                <input type="text" class="form-control w-style button-radias btn_background"
-                    placeholder="{{ lang('Enter a Keyword') }}">
-            </form>
-        </div>
-        <div class="col-xl-4 d-xl-block d-none">
-
-        </div>
-        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12 p-0">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="text-end pe-7 pt-1 mt-1 form-check form-switch d-lg-block d-none">
-                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
-                            style="width: 53px; height: 33px;" checked>
-                        <label class="form-check-label ms-5 my-3" for="flexSwitchCheckChecked">{{ lang('Map')
-                            }}</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    @include('content.components.__filter_bar')
     <hr class="my-0 bg-dark">
     <!-- ROW-1 END -->
 
@@ -427,7 +275,7 @@
                     <div class="card custom-card card-raduas">
                         <div class="container-fluid">
                             <div class="border-bottom-0 p-0 ps-6 font_size pt-4">
-                                <h4><b style="color:black;">What kind of space are you looking for?</b></h4>
+                                <h4><b style="color:black;">What kind of {{@$type}} are you looking for?</b></h4>
                             </div>
                             <div class="overflow-auto" style="overflow: auto !important;">
                                 <div class="card-body pt-2">
@@ -436,84 +284,84 @@
                                                     src="{{ asset('assets/images/users/spaces/space.1.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Storefront</b>
+                                                <h5 class="item_title">Storefront</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.2.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Banquet Hall</b>
+                                                <h5 class="item_title">Banquet Hall</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.3.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Flex Space</b>
+                                                <h5 class="item_title">Flex Space</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.7.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Conference Room</b>
+                                                <h5 class="item_title">Conference Room</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.8.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Performance Hall</b>
+                                                <h5 class="item_title">Performance Hall</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.9.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Meeting Hall</b>
+                                                <h5 class="item_title">Meeting Hall</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.10.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Lounge</b>
+                                                <h5 class="item_title">Lounge</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.1.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Storefront</b>
+                                                <h5 class="item_title">Storefront</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.2.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Banquet Hall</b>
+                                                <h5 class="item_title">Banquet Hall</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.8.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Performance Hall</b>
+                                                <h5 class="item_title">Performance Hall</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.7.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Conference Room</b>
+                                                <h5 class="item_title">Conference Room</h5>
                                             </div>
                                         </div>
                                         <div class="item"><a href="#"><img
                                                     src="{{ asset('assets/images/users/spaces/space.3.jpeg') }}"
                                                     alt="img"></a>
                                             <div class="overlay">
-                                                <b class="item_title">Flex Space</b>
+                                                <h5 class="item_title">Flex Space</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -528,257 +376,32 @@
                                         at a later time.</p>
                                 </div> --}}
                             </div>
-
-
-
-
-
-
-
                             <div class="card-body pt-0">
                                 <div class="row">
-                                    {{-- @foreach($space as $value)
-                                    <div class="col-xl-4 col-md-6 col-sm-12">
-                                        <div class="card overflow-hidden">
-                                            <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                                <div class="me-2 card-background">
-                                                    <button type="button" class="btn mt-1 mb-1 me-3">
-                                                        <span
-                                                            class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span
-                                                                class="bg-white p-1 span-design">{{lang('SR')}}</span>&nbsp;
-                                                            {{lang('From SAR')}}
-                                                            {{ @$value->spaceHaveActivities[0]->rate_per_hour
-                                                            }}{{lang('/Hour')}}</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <a href="{{ route('space-details', @$value->id) }}">
-                                                <img src="{{ asset(@$value->spaceImages[0]->image) }}"
-                                                    class="card-img-top" alt="img">
-                                                <div class="row p-3">
-                                                    <div class="row p-3">
-                                                        <div class="col-12">{{ lang(@$value->space_title) }}
-                                                        </div>
-                                                        <div class="col-12 my-3"><i class="fa fa-users"></i> 25
-                                                        </div>
-                                                        <div class="col-12"><b>{{lang('Responds within 1hr')}}</b>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
+                                    @if (@$listing == null)
+                                    @php
+                                    $lat = 0;
+                                    $lng = 0;
+                                    $title = 0;
+                                    @endphp
+                                    <div class="text-center">
+                                        <h2><strong>{{ lang("We couldn't find any spaces.") }}</strong></h2>
                                     </div>
-                                    @endforeach --}}
-                                    <div class="col-xl-4 col-md-6 col-sm-12">
-                                        <div class="card overflow-hidden">
-                                            <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                                <div class="me-2 card-background">
-                                                    <button type="button" class="btn mt-1 mb-1 me-3">
-                                                        <span
-                                                            class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span
-                                                                class="bg-white p-1 span-design">SR</span>&nbsp; From
-                                                            SAR30/Hour</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <a href="{{ URL('/service-details') }}">
-                                                <img src="{{ asset('assets/images/users/services/1 (6).png') }}"
-                                                    class="card-img-top h-card-image" alt="img">
-                                                <div class="row p-3">
-                                                    <div class="row p-3">
-                                                        <div class="col-12">dreamy studio for creative meetings
-                                                        </div>
-                                                        <div class="col-12 my-3"><i class="fa fa-users"></i> 35
-                                                            &nbsp;
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
-                                                            14
-                                                        </div>
-                                                        <div class="col-12"><b>Responds within 1hr</b>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
+                                    <div class="card-header border-bottom-0 ms-1 justify-content-center">
+                                        {{ lang('Try zooming out or expanding your filter criteria.') }}
                                     </div>
-                                    <div class="col-xl-4 col-md-6 col-sm-12">
-                                        <div class="card overflow-hidden">
-                                            <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                                <div class="me-2 card-background">
-                                                    <button type="button" class="btn mt-1 mb-1 me-3">
-                                                        <span
-                                                            class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span
-                                                                class="bg-white p-1 span-design">SR</span>&nbsp; From
-                                                            SAR50/Hour</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <a href="{{ URL('/service-details') }}">
-                                                <img src="{{ asset('assets/images/users/services/1 (5).png') }}"
-                                                    class="card-img-top h-card-image" alt="img">
-                                                <div class="row p-3">
-                                                    <div class="row p-3">
-                                                        <div class="col-12">Quiet Cozy Andersonville Library
-                                                        </div>
-                                                        <div class="col-12 my-3"><i class="fa fa-users"></i> 15
-                                                            &nbsp;
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
-                                                            19
-                                                        </div>
-                                                        <div class="col-12"><b>Responds within 3hr</b>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
+                                    @else
+                                    <div id="ajax_data" class="row">
+                                        @if (@$type == 'space')
+                                        @include('content.components.__space')
+                                        @elseif (@$type == 'entertainment')
+                                        @include('content.components.__entertainment')
+                                        @elseif (@$type == 'service')
+                                        @include('content.components.__service')
+                                        @endif
                                     </div>
-                                    <div class="col-xl-4 col-md-6 col-sm-12">
-                                        <div class="card overflow-hidden">
-                                            <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                                <div class="me-2 card-background">
-                                                    <button type="button" class="btn mt-1 mb-1 me-3">
-                                                        <span
-                                                            class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span
-                                                                class="bg-white p-1 span-design">SR</span>&nbsp; From
-                                                            SAR40/Hour</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <a href="{{ URL('/service-details') }}">
-                                                <img src="{{ asset('assets/images/users/services/1 (4).png') }}"
-                                                    class="card-img-top h-card-image" alt="img">
-                                                <div class="row p-3">
-                                                    <div class="row p-3">
-                                                        <div class="col-12">Creative Storefront in Chinatown
-                                                        </div>
-                                                        <div class="col-12 my-3"><i class="fa fa-users"></i> 10
-                                                            &nbsp;
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
-                                                            20
-                                                        </div>
-                                                        <div class="col-12"><b>Responds within 1hr</b>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6 col-sm-12">
-                                        <div class="card overflow-hidden">
-                                            <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                                <div class="me-2 card-background">
-                                                    <button type="button" class="btn mt-1 mb-1 me-3">
-                                                        <span
-                                                            class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span
-                                                                class="bg-white p-1 span-design">SR</span>&nbsp; From
-                                                            SAR70/Hour</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <a href="{{ URL('/service-details') }}">
-                                                <img src="{{ asset('assets/images/users/services/1 (3).png') }}"
-                                                    class="card-img-top h-card-image" alt="img">
-                                                <div class="row p-3">
-                                                    <div class="row p-3">
-                                                        <div class="col-12">Cozy Brick Coffee Shop and Bookstore
-                                                        </div>
-                                                        <div class="col-12 my-3"><i class="fa fa-users"></i> 23
-                                                            &nbsp;
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
-                                                            25
-                                                        </div>
-                                                        <div class="col-12"><b>Responds within 4hr</b>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6 col-sm-12">
-                                        <div class="card overflow-hidden">
-                                            <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                                <div class="me-2 card-background">
-                                                    <button type="button" class="btn mt-1 mb-1 me-3">
-                                                        <span
-                                                            class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span
-                                                                class="bg-white p-1 span-design">SR</span>&nbsp; From
-                                                            SAR65/Hour</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <a href="{{ URL('/service-details') }}">
-                                                <img src="{{ asset('assets/images/users/services/1 (2).png') }}"
-                                                    class="card-img-top h-card-image" alt="img">
-                                                <div class="row p-3">
-                                                    <div class="row p-3">
-                                                        <div class="col-12">Vibrant, Well-Equipped Art Studio
-                                                        </div>
-                                                        <div class="col-12 my-3"><i class="fa fa-users"></i> 25
-                                                            &nbsp;
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
-                                                            35
-                                                        </div>
-                                                        <div class="col-12"><b>Responds within 5hr</b>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-md-6 col-sm-12">
-                                        <div class="card overflow-hidden">
-                                            <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
-                                                <div class="me-2 card-background">
-                                                    <button type="button" class="btn mt-1 mb-1 me-3">
-                                                        <span
-                                                            class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span
-                                                                class="bg-white p-1 span-design">SR</span>&nbsp; From
-                                                            SAR60/Hour</span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <a href="{{ URL('/service-details') }}">
-                                                <img src="{{ asset('assets/images/users/services/1 (1).png') }}"
-                                                    class="card-img-top h-card-image" alt="img">
-                                                <div class="row p-3">
-                                                    <div class="row p-3">
-                                                        <div class="col-12">Beautiful WaterFront Beach Party Hall
-                                                        </div>
-                                                        <div class="col-12 my-3"><i class="fa fa-users"></i> 35
-                                                            &nbsp;
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i>
-                                                            <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
-                                                            32
-                                                        </div>
-                                                        <div class="col-12"><b>Responds within 7hr</b>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    @endif
+
                                 </div>
                                 <div class="row">
                                     <div class="col-12 col-md-4 text-md-start text-center">
@@ -832,7 +455,8 @@
         </div>
     </div>
 </div>
-
+<input type="hidden" id="{{ $type }}_search_url" value="{{ route($type . '_landing_index') }}">
+<input type="hidden" id="search" value="{{ route('search_ajax', $type) }}">
 <!-- ROW-2 END -->
 @endsection
 
@@ -841,78 +465,75 @@
     src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
 </script>
 <script>
-    $(document).ready(function() {
-            // Create an array to hold marker data
-            var markers = [
-                @foreach (@$space as $value)
-                    {
-                        lat: {
-                            {
-                                @$value - > lat
-                            }
-                        },
-                        lng: {
-                            {
-                                @$value - > lng
-                            }
-                        },
-                        title: "{{ @$value->title }}"
-                    },
-                @endforeach
-            ];
+    // $(document).ready(function() {
+    //         var markers = [
+    //             @foreach (@$listing as $value)
+    //                 {
+    //                     lat: {
+    //                         {
+    //                             @$value->lat
+    //                         }
+    //                     },
+    //                     lng: {
+    //                         {
+    //                             @$value->lng
+    //                         }
+    //                     },
+    //                     title: "{{ @$value->title }}"
+    //                 },
+    //             @endforeach
+    //         ];
 
+    //         var map = new google.maps.Map(document.getElementById('map'), {
+    //             center: {
+    //                 lat: {
+    //                     {
+    //                         @$lat
+    //                     }
+    //                 },
+    //                 lng: {
+    //                     {
+    //                         @$lng
+    //                     }
+    //                 }
+    //             },
+    //             zoom: 10
+    //         });
+
+    //         markers.forEach(function(markerData) {
+    //             var marker = new google.maps.Marker({
+    //                 position: {
+    //                     lat: markerData.lat,
+    //                     lng: markerData.lng
+    //                 },
+    //                 map: map,
+    //                 title: markerData.title
+    //             });
+    //         });
+    // });
+        $(document).ready(function() {
+            // Get latitude, longitude, and title from PHP variable
+            var lat = {{ @$lat }};
+            var lng = {{ @$lng }};
+            var title = "{{ @$title }}";
             // Create a map centered at the specified location
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
-                    lat: {
-                        {
-                            @$lat
-                        }
-                    },
-                    lng: {
-                        {
-                            @$lng
-                        }
-                    }
+                    lat: lat,
+                    lng: lng
                 },
-                zoom: 10
+                zoom: 14
             });
-
-            // Loop through the markers array and create markers for each data point
-            markers.forEach(function(markerData) {
-                var marker = new google.maps.Marker({
-                    position: {
-                        lat: markerData.lat,
-                        lng: markerData.lng
-                    },
-                    map: map,
-                    title: markerData.title
-                });
+            // Create a marker at the specified location
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: lat,
+                    lng: lng
+                },
+                map: map,
+                title: title
             });
         });
-        // $(document).ready(function() {
-        //     // Get latitude, longitude, and title from PHP variable
-        //     var lat = {{ @$lat }};
-        //     var lng = {{ @$lng }};
-        //     var title = "{{ @$title }}";
-        //     // Create a map centered at the specified location
-        //     var map = new google.maps.Map(document.getElementById('map'), {
-        //         center: {
-        //             lat: lat,
-        //             lng: lng
-        //         },
-        //         zoom: 14
-        //     });
-        //     // Create a marker at the specified location
-        //     var marker = new google.maps.Marker({
-        //         position: {
-        //             lat: lat,
-        //             lng: lng
-        //         },
-        //         map: map,
-        //         title: title
-        //     });
-        // });
 </script>
 <!-- OWL CAROUSEL JS-->
 <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
@@ -930,6 +551,15 @@
 </script>
 <script>
     $(document).ready(function() {
+        var id = '{{ @$type }}' + '_search_url';
+            var url = $('#' + id).val();
+            $.ajax({
+                url: url,
+                type: "GET",
+                success: function(res) {
+                    categories = res.data;
+                }
+            });
             function hideDropdown(resultsDiv, inputDiv) {
                 resultsDiv.empty();
             }
@@ -975,6 +605,7 @@
                 searchResults.on("click", ".search-drop-content", function() {
                     const selectedCategory = $(this).text();
                     searchInput.val(selectedCategory);
+                    selected(selectedCategory);
                     searchResults.hide();
                 });
                 $(document).click(function(event) {
@@ -986,6 +617,28 @@
             }
             setupSearch("#typeCategories", "#searchResults");
         });
+        
+        function selected(input) {
+            var url = $('#search').val();
+            var selectedPrice = $('input[name="price"]:checked').val();
+            var guests = $('input[name="guests"]:checked').val();
+            var date = $('input[name="date"]').val();
+            var keyword = $('input[name="keyword"]').val();
+            $.ajax({
+                url: url,
+                data: {
+                    'type': input,
+                    'price': selectedPrice,
+                    'attendees': guests,
+                    'date': date,
+                    'keyword': keyword
+                },
+                type: "GET",
+                success: function(res) {
+                    $('#ajax_data').html(res);
+                }
+            });
+        }
 
         /* Space ka Values Ko Input Main Store Kerna Ka liya */
 

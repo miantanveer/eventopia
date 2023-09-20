@@ -15,23 +15,26 @@ class BookingController extends UserBaseController
 {
     public function space_index()
     {
-        $this->space = Space::whereLastStep('10')->where('user_id', '!=', auth()->user()->id)->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->get();
+        $this->listing = Space::whereLastStep('10')->where('user_id', '!=', auth()->user()->id)->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->get();
         $this->count = Space::whereStatus('1')->where('user_id', '!=', auth()->user()->id)->whereLastStep('10')->count();
+        $this->type = 'space';
         return view('content.customer.space', $this->data);
     }
 
     public function entertainment_index()
     {
-        $this->ent = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id)->get();
+        $this->listing = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id)->get();
         $this->count = Entertainment::where('last_steps', 'step-9')->where('user_id', '!=', auth()->user()->id)->count();
-        return view('content.customer.entertainments', $this->data);
+        $this->type = 'entertainment';
+        return view('content.customer.space', $this->data);
     }
 
     public function service_index()
     {
-        $this->service = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->with('serviceImages')->get();
+        $this->listing = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->with('serviceImages')->get();
         $this->count = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->count();
-        return view('content.customer.services', $this->data);
+        $this->type = 'service';
+        return view('content.customer.space', $this->data);
     }
 
     public function spaceDetail($id)
