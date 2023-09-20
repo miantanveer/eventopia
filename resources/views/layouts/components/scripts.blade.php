@@ -102,12 +102,12 @@
                 type: 'POST',
                 url: url,
                 success: function(res) {
-                    route = "{{ route('send_quote', ['id' => 'route_id']) }}".replace('route_id', $('#revise_id').val());
+                    route = "{{ route('revise_quote', ['id' => 'route_id']) }}".replace('route_id', $('#revise_id').val());
                     $('#reviseQuoteForm').attr('action', route);
                     $('#revise_date').val(res.date);
                     $('#revise_guests').val(res.guests);
                     if(res.flexible_date == 1) $('#revise_flexible_date').attr('checked',true);
-                    $('textarea#revise_description').val(res.service.description);
+                    $('textarea#revise_description').val(res.description);
                     $('#revise_back_btn').html('<a id="revise_back" class="btn btn-white text-primary border-0">Back</a>');                   
                     $("#quote-modal").modal('hide');
                 }
