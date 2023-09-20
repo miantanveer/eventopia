@@ -74,7 +74,19 @@ class BookingController extends UserBaseController
                 $subquery->whereUserId(auth()->user()->id);
             });
         })->where('status',1)->get();
-        $this->quotes = Quote::where('status',0)->get();
+        $this->quotes = null ;
+
+        return view('content.seller.pending-bookings', $this->data);
+    }
+
+    public function pendingQuoteRequest()
+    {
+        $this->quotes = Quote::where(function ($query) {
+            $query->whereHas('service', function ($serviceQuery) {
+                $serviceQuery->whereUserId(user_id());
+            });
+        })->whereIn('status', [0, 1])->get();
+        $this->pendingBookings = null;
 
         return view('content.seller.pending-bookings', $this->data);
     }

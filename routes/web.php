@@ -157,6 +157,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.seller.add-services');
     });
     Route::get('pending-bookings', [BookingController::class, 'pendingBookings'])->name('pending-bookings');
+    Route::get('pending-quote-requests', [BookingController::class, 'pendingQuoteRequest'])->name('pending-quote-requests');
     Route::get('booking-detail/{id}/{type}', [BookingController::class, 'details'])->name('bookings-details');
     Route::get('accept-bookings/{id}', [BookingController::class, 'acceptBookings'])->name('accept-bookings');
     Route::get('decline-bookings/{id}', [BookingController::class, 'declineBookings'])->name('decline-bookings');

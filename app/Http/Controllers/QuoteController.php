@@ -39,7 +39,7 @@ class QuoteController extends UserBaseController
         }
         return redirect()->back()->with('success','Quote requested Successfully');
     }
-    
+
     public function revise_quote(Request $req,$id)
     {
         $req->validate([
@@ -123,7 +123,7 @@ class QuoteController extends UserBaseController
             $event->broadcastOn("user.$quote->user_id");
             event($event);
         }
-        return redirect()->route('pending-bookings')->with('success','Quote Send Successfully.');
+        return redirect()->route('pending-quote-requests')->with('success','Quote Send Successfully.');
     }
 
     public function seller_decline_quote($id)
