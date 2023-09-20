@@ -147,7 +147,7 @@
                         space?')}}</h3>
                     <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                     @elseif ($section == 3)
-                    <h3 class=" mt-4">{{lang('What signage have you added to keep your guests informed?')}}
+                    <h3 class="mt-4 h3-ser-sz">{{lang('What signage have you added to keep your guests informed?')}}
                     </h3>
                     <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                     @endif

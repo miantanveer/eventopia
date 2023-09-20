@@ -26,11 +26,11 @@
                             <ul class="list-group">
                                 <li class="list-group-item">
                                     <div class="row">
-                                        <div class="col-6">
+                                        <div class="col-8">
                                             <h5><i class="fa fa-check-square text-primary"></i>&nbsp; {{lang('1. Rules')}}</h5>
                                             <p class="ms-5">{{lang('Entertainment and Talent rules')}}</p>
                                         </div>
-                                        <div class="col-6 text-end">
+                                        <div class="col-4 text-end">
                                             <a href="{{url('/entertainment-form-steps')}}" class="btn btn-primary mt-3 text-white" >{{lang('Start')}}</a>
                                         </div>
                                     </div>

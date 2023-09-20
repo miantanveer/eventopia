@@ -40,6 +40,11 @@
             display: flex;
 
         }
+        @media(min-width:0px) and (max-width:500px) {
+        .font-sz-h1{
+            font-size: 1.1rem !important;
+        }
+    }
     </style>
 @endsection
 
@@ -73,9 +78,9 @@
                             <form id="acitivityForm" action="{{ route('add-activities', ['space_id' => $space->id, 'key' => 0]) }}" method="post">
                                 @csrf
                                 <div id="step-8" class="mb-5">
-                                    <div style="text-align:center">
+                                    <div class="text-center">
                                         <h2>{{lang('Step 8 of 9')}}</h2>
-                                        <h1><strong>
+                                        <h1 class="font-sz-h1"><strong>
                                                 {{lang('Which activities would you like to host?')}}
                                             </strong></h1>
                                         <p>{{lang('Select the types of activities you would like to host. For each selection, we’ll
@@ -90,7 +95,7 @@
                                     <div class="m-lg-6">
                                         <div class="row">
                                             @foreach ($space_activities as $space_activity)
-                                                <div class="col-lg-4">
+                                                <div class="col-lg-4 mt-lg-0 mt-5">
                                                     <div class="panel-group" id="accordion" role="tablist"
                                                         aria-multiselectable="true">
                                                         <div class="panel panel-default active">

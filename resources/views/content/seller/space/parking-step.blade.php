@@ -82,7 +82,7 @@
                     <h3 class="card-title"></h3>
                 </div>
                 <div class="card-body">
-                    <div id="smartwizard-3">
+                    <div class="row" id="smartwizard-3">
                         <div>
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -117,15 +117,19 @@
                                     <br>
                                     <hr class="style1"><br>
                                     <div class="inner-steps2 mt-2 mb-3">
-                                        <h1><strong class="h1-se-sz">{{ lang('Describe the parking options') }}</strong></h1>
-                                        <div class="form-check pb-3 p-0 form-switch">
-                                            <p><b>{{ lang('Are there parking options at or near your space?') }}</b>
-                                                <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                                <input style="margin-left:32rem;" required class="form-check-input"
+                                        <h1><strong class="h1-se-sz">{{ lang('Describe the parking options') }}</strong></h1>                                        
+                                            <div class="col-12">
+                                                <p><b>{{ lang('Are there parking options at or near your space?') }}</b></p>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="form-check float-end     pb-3 p-0 form-switch">
+                                                    <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+                                                <input required class="form-check-input"
                                                     type="checkbox" role="switch" id="flexSwitchCheckChecked3" checked
                                                     onchange="toggleOptions()">
-                                            </p>
-                                        </div>
+                                                </div>
+                                            
+                                            </div>
                                         <h3><strong>{{ lang('Select all') }}</strong></h3>
                                     </div>
                                     <div id="options">

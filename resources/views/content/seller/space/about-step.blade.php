@@ -58,7 +58,7 @@
             font-size: 90% !important;
         }
         .h1-font-sz{
-            font-size: 90% !important;
+            font-size: 1.3rem !important;
         }
     }
 </style>

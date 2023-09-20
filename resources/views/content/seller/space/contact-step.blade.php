@@ -40,6 +40,11 @@
             display: flex;
 
         }
+        @media(min-width:0px) and (max-width:701px) {
+        .font_size{
+            font-size: 1.3rem !important;
+        }
+    }
     </style>
 @endsection
 
@@ -76,14 +81,57 @@
                                 </div>
                             @endif
                             <div id="step-9" class="mb-5">
-                                <h1 style="text-align:center;">{{lang('Step 9 of 9')}}</h1>
+                                <h1 class="text-center">{{lang('Step 9 of 9')}}</h1>
                                 <form class="validation" method="POST" action="{{ route('add-contact-info', $space->id) }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
-                                        <div class="col-8">
+                                        <div class="col-xl-4 col-12 d-xl-none d-block">
+                                            <div class="text-center chat-image mb-5">
+                                                <div class="avatar avatar-xxl chat-profile mb-3 brround"
+                                                    id="uploadContainer">
+                                                    <a class="" href="#">
+                                                        <img alt="avatar"
+                                                            src="{{ @$space->c_u_img ?? asset('assets/images/users/23.jpeg') }}"
+                                                            class="avatar avatar-xxl chat-profile mb-3 brround"
+                                                            id="avatarImage">
+                                                    </a>
+                                                </div>
+                                                <div class="text-center">
+                                                    <button type="button"
+                                                        class="bg-primary text-white p-3 border-0 text-center"
+                                                        id="uploadBtn">{{lang('Upload
+                                                        photo')}}</button>
+                                                </div>
+                                                <!-- Hidden input for image upload -->
+                                                <input type="file" id="imageUploadInput" name="c_u_img"
+                                                    style="display: none">
+                                            </div>
+                                            <div class="text-center">
+                                                <p class="text-muted">{{lang('Choose a friendly, accurate photo to help instill a
+                                                    sense of trust and verification in your listing')}}</p>
+                                            </div>
+                                            <div class="px-lg-8">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <ul>
+                                                            <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
+                                                                    class="w-4" alt=""> {{lang('No photos of the
+                                                                space')}}
+                                                            </li>
+                                                            <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
+                                                                    class="w-4" alt=""> {{lang('No business logos')}}
+                                                            </li>
+                                                            <li><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
+                                                                    class="w-4" alt="">{{lang(' No group photos')}}</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8 col-12">
                                             <div class="mb-lg-5 mb-3">
-                                                <h2 class="mb-1"><b class="h-3">{{lang('Who will guests be contacting?')}}</b>
+                                                <h2 class="mb-1 font_size"><b class="h-3">{{lang('Who will guests be contacting?')}}</b>
                                                 </h2>
                                                 <b>{{lang('Please do not use a business name, so it’s more personal for your
                                                     guests.')}}</b>
@@ -118,7 +166,7 @@
                                                 after they book to coordinate with you.')}}</p>
                                             <hr class="bg-dark my-6">
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-xl-4 d-none d-xl-block col-12">
                                             <div class="text-center chat-image mb-5">
                                                 <div class="avatar avatar-xxl chat-profile mb-3 brround"
                                                     id="uploadContainer">
@@ -163,12 +211,12 @@
                                         </div>
                                         <input type="hidden" name="last_step" value="9">
                                         <div class="row">
-                                            <div class="col-9">
-                                                <h3><b class="h-3">{{lang('How did you hear about entertainment / talent with
+                                            <div class="col-xl-9 col-12">
+                                                <h3><b class="h-3 font_size">{{lang('How did you hear about entertainment / talent with
                                                         Eventopia?')}}</b></h3>
                                                 <p>{{lang('Select all that apply to help us find more hosts like you.')}}</p>
                                                 <div class="row">
-                                                    <div class="col-4">
+                                                    <div class="col-xl-4 col-6">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox" value=""
                                                                 id="invalidCheck-1">
@@ -208,7 +256,7 @@
                                                                 for="invalidCheck-6">{{lang('Billboard')}}</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-5">
+                                                    <div class="col-xl-4 col-6">
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
                                                                 value="" id="invalidCheck-7">
