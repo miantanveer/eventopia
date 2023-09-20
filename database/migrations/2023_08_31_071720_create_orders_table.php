@@ -26,8 +26,10 @@ class CreateOrdersTable extends Migration
             $table->string('amount');
             $table->string('discount')->nullable();
             $table->string('status')->default(0)->comment('0 => pending, 1 => review, 2 => active, 3 => cancelled , 4 => completed');
+            $table->string('is_refunded')->default(0)->comment('0 => NO, 1 => Yes');
             $table->string('stripe_card_id')->nullable();
             $table->json('stripe_txn_resp')->nullable()->comment('stripe transasction response.');
+            $table->json('refund_resp')->nullable()->comment('stripe transasction response.');
             $table->timestamps();
         });
     }

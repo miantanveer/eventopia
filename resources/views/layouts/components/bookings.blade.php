@@ -182,7 +182,7 @@
                         <h4 class="text-danger">{{ lang('Are you sure you want to Cancel this booking?') }}</h4>
                         <p class="mg-b-20 mg-x-20" id="amount_perc"></p>
                         <input type="hidden" name="deduct_amount" id="deduct_amount">
-                        <button class="btn btn-danger pd-x-25">{{ lang('Continue') }}</button>
+                        <button class="btn btn-danger pd-x-25" type="submit">{{ lang('Continue') }}</button>
                     </form>
                 </div>
             </div>
@@ -236,7 +236,6 @@
 
     <script>
         function cancelBooking(url) {
-            // $('#cancel-form').attr('action', url);
             $('#cancel-booking-modal').modal('show');
             $.ajax({
                 headers: {
@@ -248,6 +247,7 @@
                     var route_name = "{{ route('cancel-booking', ['id' => 'route_id']) }}".replace('route_id', res.id);
                     $('#amount_perc').html(res.amount_perc + '% will be deducted from your total booking price.');
                     $('#deduct_amount').val(res.deduct_amount);
+                    $('#cancel-form').attr('action', route_name);
                 }
             });
         }

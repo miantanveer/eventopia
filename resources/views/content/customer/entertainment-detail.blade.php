@@ -265,7 +265,7 @@
                         foreach (@$ent->ent->operatingDays as $operatingDay) {
                             $dayOfWeek = strtolower($operatingDay->week_day);
                             $operatingHours[$dayOfWeek] = []; // Initialize the array for the day
-                        
+
                             // Populate the operating hours for the day
                             foreach (@$operatingDay->operatingHours as $operatingHour) {
                                 $operatingHours[$dayOfWeek][] = [
@@ -274,7 +274,7 @@
                                     'radio' => $operatingHour->radio,
                                 ];
                             }
-                        
+
                             $numericDay = array_search($dayOfWeek, $weekDays);
                             if ($numericDay !== false) {
                                 $enabledDays[] = $numericDay;
@@ -381,9 +381,7 @@
                     <hr style="border-top: 1px solid black">
                     @foreach (@$ent->ent->operatingDays as $operatingDay)
                         <h4 class="col-sm-10 mt-5 ps-3">{{ @$operatingDay->week_day }} <span
-                                class="float-end">{{ @$operatingDay->operatingHours[0]->radio === '1'
-                                    ? @$operatingDay->operatingHours[0]->start_time . ' - ' . @$operatingDay->operatingHours[0]->end_time
-                                    : '6 : 00 AM - 12 AM' }}</span>
+                                class="float-end">{{ @$operatingDay->operatingHours[0]->radio === '1' ? @$operatingDay->operatingHours[0]->start_time . ' - ' . @$operatingDay->operatingHours[0]->end_time : '6 : 00 AM - 12 AM' }}</span>
                         </h4>
                     @endforeach
                 </div>
@@ -477,16 +475,15 @@
                     endTimeSelect.empty();
 
                     if (operatingHours[selectedDay]) {
+                        console.log(operatingHours);
                         var radioValue = operatingHours[selectedDay][0].radio;
                         if (radioValue == 0) {
                             startTimeSelect.append(new Option("6 AM", "6 AM"));
                             endTimeSelect.append(new Option("12 AM", "12 AM"));
                         } else if (operatingHours[selectedDay]) {
                             operatingHours[selectedDay].forEach(function(hours) {
-                                startTimeSelect.append(new Option(hours.start_time, hours
-                                    .start_time));
-                                endTimeSelect.append(new Option(hours.end_time, hours
-                                .end_time));
+                                startTimeSelect.append(new Option(hours.start_time, hours.start_time));
+                                endTimeSelect.append(new Option(hours.end_time, hours.end_time));
                             });
                         }
 
