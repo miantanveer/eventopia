@@ -431,7 +431,7 @@
                                 </div>
                                 <hr class="bg-dark">
                                 <div class="">
-                                    <p><a href="#">See all off-site spaces in Chicago</a></p>
+                                    <p><a href="#">See all off-site {{@$type}} in Chicago</a></p>
                                     <p class="text-gray font_size">Peerspace is also live in <a href="#"> San Francisco,
                                             Silicon Valley, Los Angeles, </a>and <a href="#">40 more cites</a></p>
                                 </div>
@@ -441,16 +441,18 @@
                 </div>
             </div>
             <div class="col-lg-5 col-12 mt-5 mt-lg-0 p-0" id="map">
+                @if($listing)
                 <div class="container-fluid ps-2">
                     <div class="card custom-card">
                         <div class="map_height overflow-auto" id="mapContainer">
                             <iframe class="gmap_iframe" frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0"
-                                marginwidth="0"
-                                src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
-                            </iframe>
-                        </div>
+                            marginwidth="0"
+                            src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                        </iframe>
                     </div>
                 </div>
+                @endif
+            </div>
             </div>
         </div>
     </div>
@@ -462,79 +464,43 @@
 
 @section('scripts')
 <script
-    src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
-</script>
-<script>
-    // $(document).ready(function() {
-    //         var markers = [
-    //             @foreach (@$listing as $value)
-    //                 {
-    //                     lat: {
-    //                         {
-    //                             @$value->lat
-    //                         }
-    //                     },
-    //                     lng: {
-    //                         {
-    //                             @$value->lng
-    //                         }
-    //                     },
-    //                     title: "{{ @$value->title }}"
-    //                 },
-    //             @endforeach
-    //         ];
-
-    //         var map = new google.maps.Map(document.getElementById('map'), {
-    //             center: {
-    //                 lat: {
-    //                     {
-    //                         @$lat
-    //                     }
-    //                 },
-    //                 lng: {
-    //                     {
-    //                         @$lng
-    //                     }
-    //                 }
-    //             },
-    //             zoom: 10
-    //         });
-
-    //         markers.forEach(function(markerData) {
-    //             var marker = new google.maps.Marker({
-    //                 position: {
-    //                     lat: markerData.lat,
-    //                     lng: markerData.lng
-    //                 },
-    //                 map: map,
-    //                 title: markerData.title
-    //             });
-    //         });
-    // });
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+    </script>
+    <script>
         $(document).ready(function() {
-            // Get latitude, longitude, and title from PHP variable
-            var lat = {{ @$lat }};
-            var lng = {{ @$lng }};
-            var title = "{{ @$title }}";
+            // Create an array to hold marker data
+            var markers = [
+                @foreach (@$listing as $value)
+                    {
+                        lat: {{ @$value->lat }},
+                        lng: {{ @$value->lng }},
+                        price: "SAR {{ @$type == 'space' ? @$value->spaceHaveActivities[0]->rate_per_hour : (@$type == 'service' ? @$value->price : @$value->entertainmentActivities[0]->hourly_rate)  }}"
+                    },
+                @endforeach
+            ];
+
             // Create a map centered at the specified location
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
-                    lat: lat,
-                    lng: lng
+                    lat: {{ @$value->lat }},
+                    lng: {{ @$value->lng }}
                 },
-                zoom: 14
+                zoom: 2
             });
-            // Create a marker at the specified location
-            var marker = new google.maps.Marker({
-                position: {
-                    lat: lat,
-                    lng: lng
-                },
-                map: map,
-                title: title
+
+            // Loop through the markers array and create markers for each data point
+            markers.forEach(function(markerData) {
+                var marker = new google.maps.Marker({
+                    position: {
+                        lat: markerData.lat,
+                        lng: markerData.lng
+                    },
+                    map: map,
+                    title: markerData.price
+                });
             });
         });
-</script>
+    </script>
 <!-- OWL CAROUSEL JS-->
 <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
 <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
