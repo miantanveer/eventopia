@@ -47,12 +47,12 @@ class QuoteController extends UserBaseController
             'guests'=>'required',
             'description'=>'required'
         ]);
-        $exists = Quote::whereServiceId($id)->whereUserId(user_id())->whereStatus(0)->exists();
-        $service = Service::find($id);
+        $exists = Quote::whereStatus(0)->find($id);
         if($exists){
             return redirect()->back()->with('error','Already Requested');
         }
-        $quote = Quote::whereServiceId($id)->whereUserId(user_id())->first();
+        $quote = Quote::find($id)->first();
+        $service = Service::find($quote->service_id);
         $quote->date = $req->date;
         $quote->flexible_date = $req->flexible_date;
         $quote->guests = $req->guests;
@@ -86,7 +86,7 @@ class QuoteController extends UserBaseController
         $quote->save();
         $exists = Cart::whereServiceId($quote->service_id)->whereUserId(user_id())->exists();
         if($exists){
-            
+
             return redirect()->route('checkout');
         }
         else{
