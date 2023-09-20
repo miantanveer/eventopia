@@ -299,7 +299,7 @@
                     {
                         lat: {{ @$value->lat }},
                         lng: {{ @$value->lng }},
-                        price: "SAR {{ @$value->spaceHaveActivities[0]->rate_per_hour }}"
+                        price: "SAR {{ @$type == 'space' ? @$value->spaceHaveActivities[0]->rate_per_hour : (@$type == 'service' ? @$value->price : @$value->entertainmentActivities[0]->hourly_rate)  }}"
                     },
                 @endforeach
             ];

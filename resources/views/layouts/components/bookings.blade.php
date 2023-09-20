@@ -10,11 +10,12 @@
                 <div class="card-header pb-0 border-bottom-0">
                     <div class="row w-100">
                         <div class="col-6">
-                            <h3 class="number-font">{{lang('Bookings')}}</h3>
+                            <h3 class="number-font">{{ lang('Bookings') }}</h3>
                         </div>
                         <div class="col-6">
                             <div class="text-end">
-                                <a href="{{ route('spaces') }}" type="button" class="btn btn-primary">{{lang('Book a space')}}</a>
+                                <a href="{{ route('spaces') }}" type="button"
+                                    class="btn btn-primary">{{ lang('Book a space') }}</a>
                             </div>
                         </div>
                     </div>
@@ -37,7 +38,8 @@
                                                     </h5>
                                                     <p class="card-text">
                                                         {{ lang(@$order->start_time . ' - ' . @$order->end_time) }}</p>
-                                                    <p class="card-text">{{lang('From SAR')}} {{ @$order->amount }}{{lang('/hour')}}</p>
+                                                    <p class="card-text">{{ lang('From SAR') }}
+                                                        {{ @$order->amount }}{{ lang('/hour') }}</p>
                                                     <p
                                                         class="card-text text-{{ @$order->status == 0 ? 'info' : (@$order->status == 1 ? 'primary' : (@$order->status == 2 ? 'success' : 'danger')) }}">
                                                         {{ lang(@$order->status == 0 ? 'Pending' : (@$order->status == 1 ? 'Review' : (@$order->status == 2 ? 'Active' : 'Cancelled'))) }}
@@ -45,10 +47,11 @@
                                                 </div>
                                                 <div class="col-4 my-auto">
                                                     <div class="text-end">
-                                                        <a class="modal-effect btn btn-primary-light d-grid mb-3"
+                                                        <a class="modal-effect btn btn-primary-light"
                                                             data-bs-effect="effect-slide-in-right" data-bs-toggle="modal"
                                                             data-seller="{{ @$order->type == 'space' ? @$order->space->user->first_name . ' ' . @$order->space->user->last_name : (@$order->type == 'entertainment' ? @$order->entertainment->user->first_name . ' ' . @$order->entertainment->user->last_name : @$order->service->user->first_name . ' ' . @$order->service->user->last_name) }}"
-                                                            data-type="{{ @$order->type }}" data-date="{{ @$order->date }}"
+                                                            data-type="{{ @$order->type }}"
+                                                            data-date="{{ @$order->date }}"
                                                             data-start-time="{{ @$order->start_time }}"
                                                             data-end-time="{{ @$order->end_time }}"
                                                             data-discount="{{ @$order->discount }}"
@@ -56,7 +59,20 @@
                                                             data-address="{{ @$order->type == 'space' ? @$order->space->address : (@$order->type == 'entertainment' ? @$order->entertainment->address : @$order->service->address) }}"
                                                             data-title="{{ @$order->type == 'space' ? @$order->space->space_title : (@$order->type == 'entertainment' ? @$order->entertainment->title : @$order->service->title) }}"
                                                             data-status="{{ @$order->status }}" href="#modaldemo8">
-                                                            {{lang('View Details')}}</a>
+                                                            {{ lang('View Details') }}</a>
+                                                        @if (@$order->status == 1 || @$order->status == 2)
+                                                            <div class="btn-group mt-2 mb-2">
+                                                                <button type="button" class="btn border rounded-1 p-2"
+                                                                    data-bs-toggle="dropdown">
+                                                                    <i class="icon icon-options"></i>
+                                                                </button>
+                                                                <ul class="dropdown-menu" role="menu" style="">
+                                                                    <li><a onclick="cancelBooking('{{ route('refund-percentage', ['id' => @$order->id , 'type' => @$order->type]) }}')"
+                                                                            class="text-danger">{{ lang('Cancel Booking') }}</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,75 +93,97 @@
         <div class="modal-dialog modal-dialog-centered text-center" role="document">
             <div class="modal-content modal-content-demo">
                 <div class="modal-header">
-                    <h6 class="modal-title">{{lang('Booking Details')}}</h6><button aria-label="Close" class="btn-close"
+                    <h6 class="modal-title">{{ lang('Booking Details') }}</h6><button aria-label="Close" class="btn-close"
                         data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('Seller Name')}}</label>
+                                <label class="form-label text-start">{{ lang('Seller Name') }}</label>
                                 <input type="text" class="form-control" id="seller" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('Type Name')}}</label>
-                                <input type="text" class="form-control" style="text-transform: capitalize;" id="type" value="" readonly>
+                                <label class="form-label text-start">{{ lang('Type Name') }}</label>
+                                <input type="text" class="form-control" style="text-transform: capitalize;"
+                                    id="type" value="" readonly>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('Title')}}</label>
-                                <input type="text" class="form-control" style="text-transform: capitalize;" id="title" value="" readonly>
+                                <label class="form-label text-start">{{ lang('Title') }}</label>
+                                <input type="text" class="form-control" style="text-transform: capitalize;"
+                                    id="title" value="" readonly>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('Address')}}</label>
+                                <label class="form-label text-start">{{ lang('Address') }}</label>
                                 <textarea class="form-control" name="" id="address" rows="2"id="address" readonly></textarea>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('Date')}}</label>
+                                <label class="form-label text-start">{{ lang('Date') }}</label>
                                 <input type="text" class="form-control" id="date" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('Start Time')}}</label>
+                                <label class="form-label text-start">{{ lang('Start Time') }}</label>
                                 <input type="text" class="form-control" id="start_time" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('End Time')}}</label>
+                                <label class="form-label text-start">{{ lang('End Time') }}</label>
                                 <input type="text" class="form-control" id="end_time" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('Discount')}}</label>
+                                <label class="form-label text-start">{{ lang('Discount') }}</label>
                                 <input type="text" class="form-control" id="discount" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('Amount')}}</label>
+                                <label class="form-label text-start">{{ lang('Amount') }}</label>
                                 <input type="text" class="form-control" id="amount" value="" readonly>
                             </div>
                         </div>
                         <div class="col-sm-6 col-md-6">
                             <div class="form-group">
-                                <label class="form-label text-start">{{lang('Status')}}</label>
+                                <label class="form-label text-start">{{ lang('Status') }}</label>
                                 <input type="text" class="form-control" id="status" value="" readonly>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-light" data-bs-dismiss="modal">{{lang('Close')}}</button>
+                    <button class="btn btn-light" data-bs-dismiss="modal">{{ lang('Close') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cancel-booking-modal">
+        <div class="modal-dialog modal-dialog-centered text-center" role="document">
+            <div class="modal-content tx-size-sm">
+                <div class="modal-body text-center p-4 pb-5">
+                    <button aria-label="Close" class="btn-close position-absolute" data-bs-dismiss="modal"><span
+                            aria-hidden="true">&times;</span></button>
+                    <i class="icon icon-close fs-70 text-danger lh-1 my-5 d-inline-block"></i>
+                    <form action="" id="cancel-form" method="POST">
+                        @csrf
+                        <h2 class="text-danger">{{ lang('Warning!') }}</h2>
+                        <h4 class="text-danger">{{ lang('Are you sure you want to Cancel this booking?') }}</h4>
+                        <p class="mg-b-20 mg-x-20" id="amount_perc"></p>
+                        <input type="hidden" name="deduct_amount" id="deduct_amount">
+                        <button class="btn btn-danger pd-x-25">{{ lang('Continue') }}</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -191,6 +229,27 @@
                 $('#title').val(title);
                 $('#status').val(status);
             });
+
+
         });
+    </script>
+
+    <script>
+        function cancelBooking(url) {
+            // $('#cancel-form').attr('action', url);
+            $('#cancel-booking-modal').modal('show');
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                },
+                type: 'POST',
+                url: url,
+                success: function(res) {
+                    var route_name = "{{ route('cancel-booking', ['id' => 'route_id']) }}".replace('route_id', res.id);
+                    $('#amount_perc').html(res.amount_perc + '% will be deducted from your total booking price.');
+                    $('#deduct_amount').val(res.deduct_amount);
+                }
+            });
+        }
     </script>
 @endsection

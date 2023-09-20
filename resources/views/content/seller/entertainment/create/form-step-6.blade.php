@@ -88,8 +88,8 @@
                                                 <input type="radio" name="cancellation_policy"
                                                     data-parsley-errors-container="#radio_errors" required
                                                     data-parsley-required-message='{{lang(' Please select atleast one
-                                                    option')}}' value="{{@$data->title}}"
-                                                    {{@$entertainment->cancellation_policy == @$data->title ? 'checked' : ''}}>
+                                                    option')}}' value="{{@$data->id}}"
+                                                    {{@$entertainment->cancellation_policy_id == @$data->id ? 'checked' : ''}}>
                                                 <span>{{lang($data->title)}}</span>
                                             </label>
                                         </div>

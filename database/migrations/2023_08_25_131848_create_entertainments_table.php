@@ -17,6 +17,7 @@ class CreateEntertainmentsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('ent_activity_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('cancellation_policy_id')->nullable()->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('comedian')->nullable();
             $table->longText('house_rules')->nullable();
             $table->longText('recordings')->nullable();
@@ -24,7 +25,6 @@ class CreateEntertainmentsTable extends Migration
             $table->string('space')->nullable();
             $table->string('age')->nullable();
             $table->longText('arrival')->nullable();
-            $table->longText('cancellation_policy')->nullable();
             $table->longText('contact_first_name')->nullable();
             $table->longText('contact_last_name')->nullable();
             $table->longText('contact_num')->nullable();

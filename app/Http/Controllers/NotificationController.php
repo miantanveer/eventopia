@@ -19,9 +19,12 @@ class NotificationController extends UserBaseController
     }
     public function read()
     {
-        $notifies = Notification::whereHas('quote', function ($query) {
-            $query->where('status', 1)->whereUserId(user_id());
-        })->whereIsRead(0)->get();
+        $notifies = Notification::where(function ($query) {
+                $query->whereUserId(user_id());
+                $query->orWhereHas('quote', function ($query) {
+                    $query->where('status', 2)->whereUserId(user_id());
+                });
+            })->whereIsRead(0)->get();
         $results = '';
         foreach ($notifies as $notify) {
             $notify->is_read = 1;

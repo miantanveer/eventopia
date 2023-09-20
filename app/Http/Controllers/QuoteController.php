@@ -39,6 +39,35 @@ class QuoteController extends UserBaseController
         }
         return redirect()->back()->with('success','Quote requested Successfully');
     }
+    
+    public function revise_quote(Request $req,$id)
+    {
+        $req->validate([
+            'date'=>'required',
+            'guests'=>'required',
+            'description'=>'required'
+        ]);
+        $exists = Quote::whereServiceId($id)->whereUserId(user_id())->whereStatus(0)->exists();
+        $service = Service::find($id);
+        if($exists){
+            return redirect()->back()->with('error','Already Requested');
+        }
+        $quote = Quote::whereServiceId($id)->whereUserId(user_id())->first();
+        $quote->service_id = $id;
+        $quote->user_id = user_id();
+        $quote->date = $req->date;
+        $quote->flexible_date = $req->flexible_date;
+        $quote->guests = $req->guests;
+        $quote->description = $req->description;
+        $quote->status = 0;
+        $quote->save();
+        if (is_int($service->user_id)) {
+            $event = new NotificationEvent(['id'=>$service->user_id,'message'=>false]);
+            $event->broadcastOn("user.$service->user_id");
+            event($event);
+        }
+        return redirect()->back()->with('success','Quote requested Successfully');
+    }
 
     public function receive_quote($id)
     {
@@ -48,7 +77,7 @@ class QuoteController extends UserBaseController
 
     public function load_accept_quote($id)
     {
-        $quote = Quote::with('service','service.serviceImages')->find($id);
+        $quote = Quote::with('service','service.serviceImages')->whereServiceId($id)->first();
         return response()->json($quote,200);
     }
 
@@ -63,7 +92,7 @@ class QuoteController extends UserBaseController
             return redirect()->route('checkout');
         }
         else{
-            cartStore(@$quote->service_id,'service',@$quote->date,'null','null');
+            cartStore($quote->service_id,'service',$quote->date,'null','null');
             $quot = Quote::find($id);
             $quot->status == 2;
             $quot->save();
@@ -90,7 +119,7 @@ class QuoteController extends UserBaseController
         $quote->save();
 
         if (is_int($quote->user_id)) {
-            $event = new NotificationEvent(['id'=>$quote->user_id,'message'=>true,'data_id'=>$quote->id]);
+            $event = new NotificationEvent(['id'=>$quote->user_id,'message'=>true,'data_id'=>$quote->service_id]);
             $event->broadcastOn("user.$quote->user_id");
             event($event);
         }
