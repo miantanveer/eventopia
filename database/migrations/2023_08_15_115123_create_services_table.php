@@ -21,6 +21,9 @@ class CreateServicesTable extends Migration
             $table->string('destination')->nullable();
             $table->string('planing')->nullable();
             $table->string('activities')->nullable();
+            $table->string('development')->nullable();
+            $table->string('concept_building')->nullable();
+            $table->string('planning_developement')->nullable();
             $table->string('category')->nullable();
             $table->string('price')->nullable();
             $table->string('address')->nullable();

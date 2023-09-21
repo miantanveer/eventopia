@@ -46,21 +46,39 @@
                             <form action='{{ route('service_form_3',$id) }}' method="post"  class="mt-4 mb-5 validate">
                                 @csrf
                                 <div class="form-group mt-3">
-                                    <h3 class="fw-bolder">{{lang('Destination Weddings')}}</h3>
-                                    <input type="text" name="destination" value="{{@$service->destination}}" required data-parsley-required-message="{{lang('Destination weddings is required')}}" placeholder="{{lang('Destination Wedding Planning')}}"
-                                        class="form-control">
+                                    <h3 class="fw-bolder">{{lang('Events Production')}}</h3>
+                                    <input type="text" name="destination" value="{{@$service->destination}}" required 
+                                    placeholder="{{lang('Events Production')}}" class="form-control">
                                 </div>
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
-                                    <h3 class="fw-bolder">{{lang('Planning')}}</h3>
+                                    <h3 class="fw-bolder">{{lang('Artists and Music Management')}}</h3>
                                     <textarea name="planning" cols="30" required rows="5" class="w-100 form-control"
-                                        placeholder="{{lang('e.g. Budgeting, Destination, Wedding Design')}}">{{@$service->planing}}</textarea>
+                                        placeholder="{{lang('Artists and Music Management')}}">{{@$service->planing}}</textarea>
                                 </div>
                                 <hr class="border-3 bg-dark">
                                 <div class="form-group mt-3">
-                                    <h3 class="fw-bolder">{{lang('Wedding Activities')}}</h3>
+                                    <h3 class="fw-bolder">{{lang('Talents Management and Entertainment')}}</h3>
                                     <textarea name="activities" required cols="30" rows="5" class="w-100 form-control"
-                                        placeholder="{{lang('e.g. Engagement Party, Honeymoon, Rehearsals & Parties')}}">{{@$service->activities}}</textarea>
+                                        placeholder="{{lang('Talents Management and Entertainment')}}">{{@$service->activities}}</textarea>
+                                </div>
+                                <hr class="border-3 bg-dark">
+                                <div class="form-group mt-3">
+                                    <h3 class="fw-bolder">{{lang('Site Development')}}</h3>
+                                    <textarea name="development" required cols="30" rows="5" class="w-100 form-control"
+                                        placeholder="{{lang('Site Development')}}">{{@$service->activities}}</textarea>
+                                </div>
+                                <hr class="border-3 bg-dark">
+                                <div class="form-group mt-3">
+                                    <h3 class="fw-bolder">{{lang('Brand Building and Concept Creaion')}}</h3>
+                                    <textarea name="concept_building" required cols="30" rows="5" class="w-100 form-control"
+                                        placeholder="{{lang('Brand Building and Concept Creaion')}}">{{@$service->activities}}</textarea>
+                                </div>
+                                <hr class="border-3 bg-dark">
+                                <div class="form-group mt-3">
+                                    <h3 class="fw-bolder">{{lang('Planning and Business Development')}}</h3>
+                                    <textarea name="planning_developement" required cols="30" rows="5" class="w-100 form-control"
+                                        placeholder="{{lang('Planning and Business Development')}}">{{@$service->activities}}</textarea>
                                 </div>
                                 <br>
                                 <hr class="border-3 bg-dark">

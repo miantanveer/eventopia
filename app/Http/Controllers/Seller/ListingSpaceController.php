@@ -18,6 +18,7 @@ use App\Models\SpaceHavingActivity;
 use App\Models\SpaceHavingMeasure;
 use App\Models\SpaceImage;
 use App\Models\SpaceType;
+use App\Models\Age;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -98,7 +99,6 @@ class ListingSpaceController extends UserBaseController
     {
         $req->validate([
             'space_type_id' => 'required',
-            'parking_option' => 'required',
             'parking_description' => 'required',
         ]);
         try {
@@ -139,7 +139,8 @@ class ListingSpaceController extends UserBaseController
     public function aboutStep($space_id)
     {
         $space = Space::find($space_id);
-        return view('content.seller.space.about-step', ['space' => $space]);
+        $ages = Age::get();
+        return view('content.seller.space.about-step', ['space' => $space,'ages'=>$ages]);
     }
 
     public function addAbout(Request $req, $space_id)

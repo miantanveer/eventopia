@@ -40,7 +40,7 @@
                                     id="monday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('monday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -51,6 +51,16 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -61,7 +71,7 @@
                                     id="monday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -72,6 +82,16 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -124,7 +144,7 @@
                                     id="tuesday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('tuesday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -135,6 +155,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -145,7 +170,7 @@
                                     id="tuesday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -156,6 +181,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -208,7 +238,7 @@
                                     id="wednesday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('wednesday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -219,6 +249,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -229,7 +264,7 @@
                                     id="wednesday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -240,6 +275,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -292,7 +332,7 @@
                                     id="thursday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('thursday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -303,6 +343,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -313,7 +358,7 @@
                                     id="thursday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -324,6 +369,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -376,7 +426,7 @@
                                     id="friday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('friday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -387,6 +437,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -397,7 +452,7 @@
                                     id="friday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -408,6 +463,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -461,7 +521,7 @@
                                     id="saturday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('saturday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -472,6 +532,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -482,7 +547,7 @@
                                     id="saturday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -493,6 +558,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -545,7 +615,7 @@
                                     id="sunday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('sunday')" tabindex="-1" aria-hidden="true">
                                     <option value="" selected disabled>{{lang('Start Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -556,6 +626,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>
@@ -566,7 +641,7 @@
                                     id="sunday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
                                     <option value="" selected disabled>{{lang('End Time')}}</option>
-                                    <option value="9 AM" class="option">9 AM</option>
+                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -577,6 +652,11 @@
                                     <option value="5 PM" class="option">5 PM</option>
                                     <option value="6 PM" class="option">6 PM</option>
                                     <option value="7 PM" class="option">7 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
                                 </select>
                             </div>
                         </div>

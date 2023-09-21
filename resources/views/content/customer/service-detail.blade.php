@@ -284,9 +284,18 @@
         <div class="col-xl-4 col-lg-12 col-md-12">
             <div class="card custom-card">
                 <div class="card-body">
+                    @php
+                        $value = @$service->price;
+                        $parts = explode(';', $value);
+                        
+                        if (count($parts) === 2) {
+                            $min = $parts[0];
+                            $max = $parts[1];
+                        }
+                    @endphp
                     <div class="mt-3 text-center">
                         <h2>{{lang('Message Seller')}}</h2>
-                        <p>{{lang('Starting Cost: $$$ - Moderate')}}</p>
+                        <p>{{lang('Starting Cost: ')}} {{@$min}} {{lang('from')}} {{@$max}} </p>
                     </div>
                     <hr class="border-3">
                     <div class="">

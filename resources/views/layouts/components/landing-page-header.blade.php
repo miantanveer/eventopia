@@ -123,7 +123,7 @@
                                         </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('login') }}">
-                                        <i class="dropdown-icon fe fe-alert-circle"></i> {{lang('Sign in')}}
+                                        <i class="dropdown-icon fe fe-alert-circle"></i> @if(Auth::check()) {{lang('Dashboard')}} @else {{lang('Sign in')}} @endif
                                     </a>
                                 </div>
                             </div>
