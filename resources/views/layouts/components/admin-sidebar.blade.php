@@ -3,15 +3,8 @@
                 <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
                 <div class="app-sidebar">
                     <div class="side-header">
-                        <a class="header-brand1" href="">
-                            <img src="../assets/images/brand/logo.png" class="header-brand-img desktop-logo"
-                                alt="logo">
-                            <img src="../assets/images/brand/logo-1.png" class="header-brand-img toggle-logo"
-                                alt="logo">
-                            <img src="../assets/images/brand/logo-2.png" class="header-brand-img light-logo"
-                                alt="logo">
-                            <img src="../assets/images/brand/logo-3.png" class="header-brand-img light-logo1"
-                                alt="logo">
+                        <a class="m-auto" href="{{ url('/admin') }}">
+                            <img src="{{ asset('assets/images/brand/logo13.png') }}" class="header-brand-img" alt="">
                         </a>
                         <!-- LOGO -->
                     </div>
@@ -29,7 +22,7 @@
                                         class="side-menu__icon fe fe-home"></i><span
                                         class="side-menu__label">Dashboard</span></a>
                             </li>
-                            <li class="sub-category">
+                            {{-- <li class="sub-category">
                                 <h3>UI Kit</h3>
                             </li>
                             <li class="slide">
@@ -354,7 +347,7 @@
                                     <li><a  class="slide-item">Weather Icons</a></li>
                                     <li><a  class="slide-item">Bootstrap Icons</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
                         <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg"
                                 fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">

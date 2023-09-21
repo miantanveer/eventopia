@@ -6,10 +6,7 @@
                             href="javascript:void(0)"></a>
                         <!-- sidebar-toggle-->
                         <a class="logo-horizontal " href="">
-                            <img src="{{ asset('assets/images/brand/logo.png') }}" class="header-brand-img desktop-logo"
-                                alt="logo">
-                            <img src="{{ asset('assets/images/brand/logo-3.png') }}"
-                                class="header-brand-img light-logo1" alt="logo">
+                            <img src="{{ asset('assets/images/brand/logo13.png') }}" class="header-brand-img" alt="">
                         </a>
                         <!-- LOGO -->
                         <div class="main-header-center ms-3 d-none d-lg-block">
