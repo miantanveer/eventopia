@@ -26,14 +26,10 @@ class LandingController extends UserBaseController
         }
         if ($type == 'service') {
             $this->listing = Service::where(function ($query) use ($req) {
-                $query->whereAddress($req->address)
-                    ->wherePrice($req->price)
-                    ->orWhere('country', $req->address)
-                    ->orWhere('city', $req->address)
-                    ->orWhere('state', $req->address)
-                    ->orWhere('title', $req->type)
-                    ->orWhere('category', $req->type)
-                    ->orWhere('activities', $req->type)
+                $query->where('price','!==',$req->price)
+                    ->orWhere('title', $req->keyword)
+                    ->orWhere('category', $req->keyword)
+                    ->orWhere('activities', $req->keyword)
                     ->whereHas('quotes', function ($subquery) use ($req) {
                         $subquery->whereGuests($req->guests);
                     });
@@ -57,12 +53,12 @@ class LandingController extends UserBaseController
                         }
                     });
                 })->inRandomOrder()->get();
-                $this->type = 'service';
-                $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
-                $this->count = $this->listing->count();
-                $this->data = view('content.components.__service', ['listing' => $this->listing,'count'=>$this->count])->render();
-    
-                return response()->json($this->data);
+            $this->type = 'service';
+            $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
+            $this->count = $this->listing->count();
+            $this->data = view('content.components.__service', ['listing' => $this->listing, 'count' => $this->count])->render();
+
+            return response()->json($this->data);
 
         } elseif ($type == 'entertainment') {
             $this->listing = Entertainment::where(function ($query) use ($req, $formattedDate) {
@@ -100,28 +96,24 @@ class LandingController extends UserBaseController
                 });
             })
                 ->orWhere(function ($query) use ($req, $type, $formattedDate) {
-                    $query->whereAddress($req->address)
-                        ->orWhere('country', $req->address)
-                        ->orWhere('city', $req->address)
-                        ->orWhere('state', $req->address)
-                        ->orWhere('title', $req->type)
+                    $query->where('title', $req->keyword)
                         ->orWhereHas('entertainmentActivities', function ($subquery) use ($req) {
                             $subquery->whereHourlyRate($req->price)->whereGuestCapacity($req->attendees);
                         })
                         ->orWhereHas('entertainmentActivities.entertainment', function ($subquery) use ($req) {
-                            $subquery->whereTitle($req->type);
+                            $subquery->whereTitle($req->keyword);
                         })
                         ->orWhereHas('entertainmentActivities.sub_act', function ($subquery) use ($req) {
-                            $subquery->whereTitle($req->type);
+                            $subquery->whereTitle($req->keyword);
                         })
                         ->orWhereHas('entertainmentActivities.entActivityAmenity.activity', function ($subquery) use ($req) {
-                            $subquery->whereName($req->type);
-                        });
-                    $query->whereHas('operatingDays', function ($subquery) use ($req, $formattedDate) {
-                        $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
-                            $subquery->whereStartTime($req->startTime)->whereEndTime($req->endTime);
-                        });
-                    })
+                            $subquery->whereName($req->keyword);
+                        })
+                        ->orWhereHas('operatingDays', function ($subquery) use ($req, $formattedDate) {
+                            $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
+                                $subquery->whereStartTime($req->startTime)->whereEndTime($req->endTime);
+                            });
+                        })
                         ->whereHas('blockTime', function ($subquery) use ($formattedDate) {
                             $subquery->whereNotNull('entertainment_id')->where(function ($query) use ($formattedDate) {
                                 $query->whereAllDay('on')->where('start_time', '!==', $formattedDate);
@@ -138,7 +130,7 @@ class LandingController extends UserBaseController
             $this->type = 'entertainment';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
-            $this->data = view('content.components.__entertainment', ['listing' => $this->listing,'count'=>$this->count])->render();
+            $this->data = view('content.components.__entertainment', ['listing' => $this->listing, 'count' => $this->count])->render();
 
             return response()->json($this->data);
 
@@ -183,30 +175,22 @@ class LandingController extends UserBaseController
                 });
             })
                 ->orWhere(function ($query) use ($req, $type, $formattedDate) {
-                    if ($req->address !== null) {
-                        $query->whereAddress($req->address)
-                            ->orWhere('country', $req->address)
-                            ->orWhere('city', $req->address)
-                            ->orWhere('state', $req->address);
-                    }
-                    if ($req->type !== null) {
-                        $query->where('space_title', $req->type)
-                            ->orWhere('space_description', $req->type)
-                            ->orWhereHas('spaceHaveActivities.activities', function ($subquery) use ($req) {
-                                $subquery->whereTitle($req->type);
-                            })
-                            ->orWhereHas('spaceType', function ($subquery) use ($req) {
-                                $subquery->whereType($req->type);
-                            })
-                            ->orWhereHas('spaceHaveActivities.spaceAmenities', function ($subquery) use ($req) {
-                                $subquery->whereName($req->type);
+                    $query->where('space_title', $req->keyword)
+                        ->orWhere('space_description', $req->keyword)
+                        ->orWhereHas('spaceHaveActivities.activities', function ($subquery) use ($req) {
+                            $subquery->whereTitle($req->keyword);
+                        })
+                        ->orWhereHas('spaceType', function ($subquery) use ($req) {
+                            $subquery->whereType($req->keyword);
+                        })
+                        ->orWhereHas('spaceHaveActivities.spaceAmenities', function ($subquery) use ($req) {
+                            $subquery->whereName($req->keyword);
+                        })
+                        ->orWhereHas('operatingDays', function ($subquery) use ($req, $formattedDate) {
+                            $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
+                                $subquery->whereStartTime($req->startTime)->whereEndTime($req->endTime);
                             });
-                    }
-                    $query->whereHas('operatingDays', function ($subquery) use ($req, $formattedDate) {
-                        $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
-                            $subquery->whereStartTime($req->startTime)->whereEndTime($req->endTime);
-                        });
-                    })
+                        })
                         ->whereHas('blockTime', function ($subquery) use ($formattedDate) {
                             $subquery->whereNotNull('space_id')->where(function ($query) use ($formattedDate) {
                                 $query->whereAllDay('on')->where('start_time', '!==', $formattedDate);
@@ -220,12 +204,12 @@ class LandingController extends UserBaseController
                             });
                         });
                 })->inRandomOrder()->get();
-                $this->type = 'space';
-                $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
-                $this->count = $this->listing->count();
-                $this->data = view('content.components.__space', ['listing' => $this->listing,'count'=>$this->count])->render();
-    
-                return response()->json($this->data);
+            $this->type = 'space';
+            $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
+            $this->count = $this->listing->count();
+            $this->data = view('content.components.__space', ['listing' => $this->listing, 'count' => $this->count])->render();
+
+            return response()->json($this->data);
         }
     }
 

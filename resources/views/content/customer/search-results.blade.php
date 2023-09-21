@@ -443,11 +443,10 @@
             $.ajax({
                 url: url,
                 data: {
-                    'type': input,
+                    'keyword': input,
                     'price': selectedPrice,
                     'attendees': guests,
                     'date': date,
-                    'keyword': keyword
                 },
                 type: "GET",
                 success: function(res) {
