@@ -42,14 +42,13 @@ Route::get('list-service', [ServiceController::class, 'listService'])->name('lis
 
 // Space Search
 Route::get('search_ajax/{type}', [LandingController::class, 'search'])->name('search_ajax');
-Route::get('space_landing', [LandingController::class, 'space_index'])->name('space_landing_index');
 Route::get('search_results', [LandingController::class, 'landing_search'])->name('search_results');
+
+Route::get('space_landing', [LandingController::class, 'space_index'])->name('space_landing_index');
 // Entertainments Search
 Route::get('entertainment_landing', [LandingController::class, 'entertainment_index'])->name('entertainment_landing_index');
-// Route::get('entertainment_results', [LandingController::class, 'entertainment_search'])->name('entertainment_search_results');
 // Space Search
 Route::get('service_landing', [LandingController::class, 'service_index'])->name('service_landing_index');
-// Route::get('service_results', [LandingController::class, 'service_search'])->name('service_search_results');
 
 // Authentications
 Route::get('signup', [AuthenticationController::class, 'signupIndex'])->name('signup');

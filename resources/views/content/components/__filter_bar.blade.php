@@ -97,7 +97,7 @@
     <div class="col-xl-1 col-md-2 col-sm-6 col-6 pe-0">
         <form action="#" class="mt-2">
             <input type="text" data-bs-target="#dateTimeModal" data-bs-toggle="modal"
-                class="form-control w-style button-radias btn_background" placeholder="When?" id="selectedDate"
+                class="form-control w-style button-radias btn_background" placeholder="{{lang('When?')}}" id="selectedDate"
                 data-listener-added_33a7deb0="true">
         </form>
     </div>
@@ -114,7 +114,7 @@
     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 d-md-block d-none">
         <form class="mt-2">
             <input type="text" name="keyword" class="form-control w-style button-radias btn_background"
-                id="planCatagories" placeholder="Enter a Keyword">
+                id="planCatagories" placeholder="{{lang('Enter a Keyword')}}">
             <ul class="dropdown-menu w-100" id="categoryDropdown"></ul>
         </form>
     </div>

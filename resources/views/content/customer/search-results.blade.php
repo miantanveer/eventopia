@@ -797,7 +797,7 @@
                     <div class="card custom-card card-raduas">
                         <div class="container-fluid">
                             <div class="border-bottom-0 p-0 ps-6 font_size pt-4">
-                                <h4><b style="color:black;">What kind of {{@$type}} are you looking for?</b></h4>
+                                <h4><b style="color:black;">{{lang('What kind of ')}}{{lang(@$type)}}{{lang(' are you looking for?')}}</b></h4>
                             </div>
                             <div class="overflow-auto" style="overflow: auto !important;">
                                 <div class="card-body pt-2">
