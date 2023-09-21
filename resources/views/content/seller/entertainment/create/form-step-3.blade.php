@@ -1,155 +1,149 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
-    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
 @endsection
 @section('styles')
-    <style>
-        .tab-content {
-            min-height: auto !important;
-        }
+<style>
+    .tab-content {
+        min-height: auto !important;
+    }
 
-        .sw-container {
-            min-height: auto !important;
-        }
+    .sw-container {
+        min-height: auto !important;
+    }
 
-        .back-g-color {
-            background-color: #F2F8FF !important;
-        }
+    .back-g-color {
+        background-color: #F2F8FF !important;
+    }
 
-        .sw-btn-group-extra {
-            display: none;
-        }
+    .sw-btn-group-extra {
+        display: none;
+    }
 
-        .remove {
-            width: 25px;
-            height: 25px;
-            border: 1px solid transparent;
-            border-radius: 50% !important;
-            background: black;
-            color: white;
-            padding: auto;
-            padding-left: 8px;
-            position: absolute;
-            right: 0;
-            top: -10px;
-            cursor: pointer;
-        }
+    .remove {
+        width: 25px;
+        height: 25px;
+        border: 1px solid transparent;
+        border-radius: 50% !important;
+        background: black;
+        color: white;
+        padding: auto;
+        padding-left: 8px;
+        position: absolute;
+        right: 0;
+        top: -10px;
+        cursor: pointer;
+    }
 
-        .dz-remove {
-            color: red !important;
-            /* Change to your desired color */
-        }
-    </style>
+    .dz-remove {
+        color: red !important;
+        /* Change to your desired color */
+    }
+</style>
 @endsection
 @section('content')
-    <!--Row open-->
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                        <div class="row">
-                            <div id="step-4" class="col-md-8">
-                                @if ($errors->any())
-                                    <div class="alert alert-danger">
-                                        <ul>
-                                            @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                @endif
-                                <form action="{{ route('entertainment_form_3', $id) }}" method="POST"
-                                    class="border validate">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="card-header mb-3">
-                                            <h1 style="text-align:center;" class="card-title">
-                                                {{ lang('Entertainment Address') }}</h1>
-                                        </div>
-                                        <div class="card-body col-md-5 col-lg-12">
-                                            <label class="form-control-label">{{ lang('Street Address') }}</label>
-                                            <span class="tx-danger">*</span></label>
-                                            <input class="form-control rounded-0" value="{{ @$entertainment->address }}"
-                                                id="address" name="address" placeholder="{{ lang('Add Address') }}"
-                                                required
-                                                data-parsley-required-message="{{ lang('Please enter your address') }}"
-                                                type="text">
-                                        </div>
-                                        <div class="col-md-5 col-lg-6 mt-3">
-                                            <label class="form-control-label">{{ lang('Country') }}</label>
-                                            <span class="tx-danger">*</span></label>
-                                            <input class="form-control rounded-0" value="{{ @$entertainment->country }}"
-                                                id="country" name="country" placeholder="" required type="text">
-                                        </div>
-                                        <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
-                                            <label class="form-control-label">{{ lang('State') }}<span
-                                                    class="tx-danger">*</span></label>
-                                            <input class="form-control rounded-0" value="{{ @$entertainment->state }}"
-                                                id="state" name="state" placeholder="" required type="text">
-                                        </div>
-                                        <div class="col-md-5 col-lg-6 mt-3">
-                                            <label class="form-control-label">{{ lang('City') }}</label> <span
-                                                class="tx-danger">*</span></label>
-                                            <input class="form-control rounded-0" id="city"
-                                                value="{{ @$entertainment->city }}" name="city" placeholder="" required
-                                                type="text">
-                                        </div>
-                                        <div class="col-md-5 col-lg-6 mg-t-20 mg-md-t-0 mt-3">
-                                            <label class="form-control-label">{{ lang('Postal Code') }}<span
-                                                    class="tx-danger">*</span></label>
-                                            <input class="form-control rounded-0"
-                                                value="{{ @$entertainment->postal_code }}" id="postal_code"
-                                                name="postal_code" placeholder="" required
-                                                data-parsley-required-message="{{ lang('Please enter a value') }}"
-                                                type="text">
-                                        </div>
-                                        <input type="hidden" name="lat" value="{{ @$entertainment->lat }}"
-                                            id="lat">
-                                        <input type="hidden" name="lng" value="{{ @$entertainment->lng }}"
-                                            id="lng">
-                                    </div>
-                                    <br>
-                                    <hr class="border-3 bg-dark">
-                                    <div class="float-end mt-8">
-                                        <a class="btn btn-light"
-                                            href="{{ route('load_entertainment_form_2', $id) }}">{{ lang('Previous') }}</a>
-                                        <button class="btn btn-primary">{{ lang('Next') }}</button>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="map_height overflow-auto" id="mapContainer">
-                                    <h4 class="fw-bolder">
-                                        {{ lang('Use the map pin position to add an address.') }}
-                                    </h4>
-                                    <div id="map" style="height: 400px;"></div>
-                                </div>
-                            </div>
+<!--Row open-->
+<div class="row">
+    <div class="col-12 mt-lg-9">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div id="step-4" class="col-lg-7 col-12">
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
+                        @endif
+                        <form action="{{ route('entertainment_form_3', $id) }}" method="POST"
+                            class="border mt-lg-6 validation">
+                            @csrf
+                            <div class="row">
+                                <div class="card-header mb-3">
+                                    <h1 style="text-align:center;" class="card-title">
+                                        {{ lang('Entertainment Address') }}</h1>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-control-label">{{ lang('Street Address') }}</label>
+                                    <span class="tx-danger">*</span></label>
+                                    <input class="form-control rounded-0" value="{{ @$entertainment->address }}"
+                                        id="address" name="address" placeholder="{{ lang('Add Address') }}" required
+                                        data-parsley-required-message="{{ lang('Please enter your address') }}"
+                                        type="text">
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <label class="form-control-label">{{ lang('Country') }}</label>
+                                    <span class="tx-danger">*</span></label>
+                                    <input class="form-control rounded-0" value="{{ @$entertainment->country }}"
+                                        id="country" name="country" placeholder="" required type="text">
+                                </div>
+                                <div class="col-6 mg-t-20 mg-md-t-0 mt-3">
+                                    <label class="form-control-label">{{ lang('State') }}<span
+                                            class="tx-danger">*</span></label>
+                                    <input class="form-control rounded-0" value="{{ @$entertainment->state }}"
+                                        id="state" name="state" placeholder="" required type="text">
+                                </div>
+                                <div class="col-6 mt-3">
+                                    <label class="form-control-label">{{ lang('City') }}</label> <span
+                                        class="tx-danger">*</span></label>
+                                    <input class="form-control rounded-0" id="city" value="{{ @$entertainment->city }}"
+                                        name="city" placeholder="" required type="text">
+                                </div>
+                                <div class="col-6 mg-t-20 mg-md-t-0 mt-3">
+                                    <label class="form-control-label">{{ lang('Postal Code') }}<span
+                                            class="tx-danger">*</span></label>
+                                    <input class="form-control rounded-0" value="{{ @$entertainment->postal_code }}"
+                                        id="postal_code" name="postal_code" placeholder="" required
+                                        data-parsley-required-message="{{ lang('Please enter a value') }}" type="text">
+                                </div>
+                                <input type="hidden" name="lat" value="{{ @$entertainment->lat }}" id="lat">
+                                <input type="hidden" name="lng" value="{{ @$entertainment->lng }}" id="lng">
+                            </div>
+                            <br>
+                            <hr class="border-3 bg-dark">
+                        </form>
+                    </div>
+                    <div class="col-lg-5 col-12 mt-5 mt-lg-0">
+                        <div class="map_height overflow-auto" id="mapContainer">
+                            <h4 class="fw-bolder">
+                                {{ lang('Use the map pin position to add an address.') }}
+                            </h4>
+                            <div id="map" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="float-end mt-8">
+                    <a class="btn btn-light" href="{{ route('load_entertainment_form_2', $id) }}">{{
+                        lang('Previous')}}</a>
+                    <button class="btn btn-primary">{{ lang('Next') }}</button>
                 </div>
             </div>
         </div>
-        <!--row closed-->
+    </div>
+    <!--row closed-->
     @endsection
     @section('scripts')
-        <!-- Jquery/min JS-->
-        <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
-        <!-- INTERNAL File-Uploads Js-->
-        <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
-        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
-        <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
-        <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
-        <script src="{{ asset('assets/plugins/parsleyjs/parsley.min.js') }}"></script>
-        <!-- Jquery/buttons JS-->
-        <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
-        <script src="{{ asset('assets/js/select2.js') }}"></script>
+    <!-- Jquery/min JS-->
+    <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+    <!-- INTERNAL File-Uploads Js-->
+    <script src="{{ asset('assets/plugins/fancyuploder/jquery.ui.widget.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fileupload.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fancyuploder/jquery.iframe-transport.js') }}"></script>
+    <script src="{{ asset('assets/plugins/fancyuploder/jquery.fancy-fileupload.js') }}"></script>
+    <script src="{{ asset('assets/plugins/parsleyjs/parsley.min.js') }}"></script>
+    <!-- Jquery/buttons JS-->
+    <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
+    <script src="{{ asset('assets/js/select2.js') }}"></script>
 
-        <script
-            src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
-        </script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+    </script>
 
-        <script>
-            var searchInput = 'address';
+    <script>
+        var searchInput = 'address';
             $(document).ready(function() {
                 $('.validation').parsley();
                 var autocomplete;
@@ -185,10 +179,10 @@
                     }
                 });
             });
-        </script>
+    </script>
 
-        <script>
-            var map;
+    <script>
+        var map;
             var marker;
 
             function initializeMap() {
@@ -217,10 +211,10 @@
 
             // Initialize the map when the page loads
             google.maps.event.addDomListener(window, 'load', initializeMap);
-        </script>
+    </script>
 
-        <script>
-            // Function to update the form fields with the address
+    <script>
+        // Function to update the form fields with the address
             function updateFormFieldsWithAddress(addressComponents) {
                 for (let i = 0; i < addressComponents.length; i++) {
                     var component = addressComponents[i];
@@ -265,5 +259,5 @@
             $(document).ready(function() {
                 initializeMap(); // Initialize the map
             });
-        </script>
+    </script>
     @endsection
