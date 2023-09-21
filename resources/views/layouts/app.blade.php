@@ -43,8 +43,12 @@
                     $currenturl = url()->current();
                     $lastWord = strrchr($currenturl, '/');
                     @endphp
-                    <!-- container -->
-                    <div class="@if($lastWord != '/spaces') main-container container-fluid @endif">
+                    <!-- Conditional container -->
+                    @if($lastWord !== '/spaces' || $lastWord !== '/services' || $lastWord !== '/talent-&-entertainments')
+                    <div class="">
+                    @else
+                    <div class="main-container container-fluid">
+                    @endif
 
                         @yield('content')
 

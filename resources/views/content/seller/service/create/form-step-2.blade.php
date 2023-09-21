@@ -143,7 +143,7 @@
             parallelUploads: 10,
             maxFilesize: 2,
             addRemoveLinks: true,
-            acceptedFiles: ".png, .jpeg",
+            acceptedFiles: ".png, .jpeg, .jpg",
             init: function() {
                 var uploads = 0;
                 var dropzone = this; // Store a reference to the Dropzone instance

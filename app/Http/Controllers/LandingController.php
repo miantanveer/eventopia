@@ -34,16 +34,26 @@ class LandingController extends UserBaseController
             })
                 ->orWhere(function ($query) use ($req) {
                     $query->when($req->price !== null, function ($subquery) use ($req) {
-                        return $subquery->wherePrice($req->price);
-                    });
-                    $query->when($req->attendees !== null, function ($subquery) use ($req) {
-                        $subquery->whereHas('quotes', function ($quotequery) use ($req) {
-                            return $quotequery->whereGuests($req->attendees);
-                        });
+                        if ($req->has('price')) {
+                            $price = $req->price;
+                            $priceRanges = [0, 100, 250, 450, 999];
+
+                            foreach ($priceRanges as $index => $range) {
+                                if ($price == $range) {
+                                    return $subquery->whereBetween('price', [$priceRanges[$index - 1], $priceRanges[$index]]);
+                                    break;
+                                } elseif ($price == '1000') {
+                                    $subquery->where('price', '>=', 1000);
+                                    break;
+                                }
+                            }
+                        }
                     });
                 })
                 ->get();
-
+                if ($req->price == null ) {
+                    $this->listing = Service::inRandomOrder()->get();
+                }
             $this->type = 'service';
             $this->count = $this->listing->count();
             return view('content.components.__service', $this->data);
@@ -51,14 +61,36 @@ class LandingController extends UserBaseController
         } elseif ($type == 'entertainment') {
             $this->listing = Entertainment::where(function ($query) use ($req) {
                 $query->when($req->price !== null, function ($subquery) use ($req) {
-                    $subquery->whereHas('entertainmentActivities', function ($subquery1) use ($req) {
-                        return $subquery1->whereHourlyRate($req->price);
-                    });
+                    $subquery->whereHas('entertainmentActivities', function ($subquery) use ($req) {
+                        if ($req->has('price')) {
+                            $price = $req->price;
+                            $priceRanges = [0, 100, 250, 450, 999];
+
+                            foreach ($priceRanges as $index => $range) {
+                                if ($price == $range) {
+                                    return $subquery->whereBetween('hourly_rate', [$priceRanges[$index - 1], $priceRanges[$index]]);
+                                    break;
+                                } elseif ($price == '1000') {
+                                    $subquery->where('hourly_rate', '>=', 1000);
+                                    break;
+                                }
+                            }
+                        }});
                 });
                 $query->when($req->attendees !== null, function ($subquery) use ($req) {
-                    $subquery->whereHas('entertainmentActivities', function ($subquery1) use ($req) {
-                        return $subquery1->whereGuestCapacity($req->attendees);
-                    });
+                    $subquery->whereHas('entertainmentActivities', function ($subquery) use ($req) {
+                        $attendees = $req->attendees;
+                        $attendeesRanges = [0, 10, 25, 50, 100, 499];
+
+                        foreach ($attendeesRanges as $index => $range) {
+                            if ($attendees == $range) {
+                                $subquery->whereBetween('guest_capacity', [$attendeesRanges[$index - 1], $attendeesRanges[$index]]);
+                                break;
+                            } elseif ($attendees == '500') {
+                                $subquery->where('guest_capacity', '>=', 500);
+                                break;
+                            }
+                        }});
                 });
             })
                 ->orWhere(function ($query) use ($req, $type) {
@@ -66,7 +98,7 @@ class LandingController extends UserBaseController
                         ->orWhere('country', $req->address)
                         ->orWhere('city', $req->address)
                         ->orWhere('state', $req->address)
-                        ->orWhere('title', $req->keyword)
+                        ->orWhere('title', $req->type)
                         ->orWhereHas('entertainmentActivities', function ($subquery) use ($req) {
                             $subquery->whereHourlyRate($req->price)->whereGuestCapacity($req->attendees);
                         })
@@ -81,54 +113,90 @@ class LandingController extends UserBaseController
                         })
                         ->orWhereHas('operatingDays', function ($subquery) use ($req, $type) {
                             $subquery->where('entertainment_id', '!==', null)
-                                ->whereHas('operatingDays.operatingHours', function ($subquery1) use ($req) {
-                                    $subquery1->whereStartTime($req->startTime)->whereEndTime($req->endTime);
-                                });
-                        });
-                })
-                ->get();
-            $this->type = 'entertainment';
-            $this->count = $this->listing->count();
-            return view('content.components.__entertainment', $this->data);
-
-        } elseif ($type == 'space') {
-            $this->listing = Space::where(function ($query) use ($req) {
-                $query->when($req->price !== null, function ($subquery) use ($req) {
-                    $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
-                        return $subquery->whereRatePerHour($req->price);
-                    });
-                });
-                $query->when($req->attendees !== null, function ($subquery) use ($req) {
-                    $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
-                        return $subquery->whereMaxGuests($req->attendees);
-                    });
-                });
-            })
-                ->orWhere(function ($query) use ($req, $type) {
-                    $query
-                        ->whereAddress($req->address)
-                        ->orWhere('country', $req->address)
-                        ->orWhere('city', $req->address)
-                        ->orWhere('state', $req->address)
-                        ->orWhere('space_title', $req->keyword)
-                        ->orWhere('space_description', $req->keyword)
-                        ->orWhereHas('spaceHaveActivities.activities', function ($subquery) use ($req) {
-                            $subquery->whereTitle($req->type);
-                        })
-                        ->orWhereHas('spaceType', function ($subquery) use ($req) {
-                            $subquery->whereType($req->type);
-                        })
-                        ->orWhereHas('spaceHaveActivities.spaceAmenities', function ($subquery) use ($req) {
-                            $subquery->whereName($req->type);
-                        })
-                        ->orWhereHas('operatingDays', function ($subquery) use ($req, $type) {
-                            $subquery->where('entertainment_id', '!=', null)
                                 ->whereHas('operatingHours', function ($subquery1) use ($req) {
                                     $subquery1->whereStartTime($req->startTime)->whereEndTime($req->endTime);
                                 });
                         });
                 })
                 ->get();
+                if ($req->price == null || $req->attendees == null ) {
+                    $this->listing = Entertainment::inRandomOrder()->get();
+                }
+            $this->type = 'entertainment';
+            $this->count = $this->listing->count();
+            return view('content.components.__entertainment', $this->data);
+
+        } elseif ($type == 'space') {
+            $this->listing = Space::where(function ($query) use ($req) {
+                // Price Filter
+                $query->when($req->has('price'), function ($subquery) use ($req) {
+                    $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
+                        if ($req->has('price')) {
+                            $price = $req->price;
+                            $priceRanges = [0, 100, 250, 450, 999];
+
+                            foreach ($priceRanges as $index => $range) {
+                                if ($price == $range) {
+                                    $subquery->whereBetween('rate_per_hour', [$priceRanges[$index - 1], $priceRanges[$index]]);
+                                    break;
+                                } elseif ($price == '1000') {
+                                    $subquery->where('rate_per_hour', '>=', 1000);
+                                    break;
+                                }
+                            }
+                        }
+                    });
+                });
+
+                // Guests Filter
+                $query->when($req->has('attendees'), function ($subquery) use ($req) {
+                    $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
+                        $attendees = $req->attendees;
+                        $attendeesRanges = [0, 10, 25, 50, 100, 499];
+
+                        foreach ($attendeesRanges as $index => $range) {
+                            if ($attendees == $range) {
+                                $subquery->whereBetween('max_guests', [$attendeesRanges[$index - 1], $attendeesRanges[$index]]);
+                                break;
+                            } elseif ($attendees == '500') {
+                                $subquery->where('max_guests', '>=', 500);
+                                break;
+                            }
+                        }
+                    });
+                });
+            })
+                ->orWhere(function ($query) use ($req, $type) {
+                    if ($req->address !== null) {
+                        $query->whereAddress($req->address)
+                            ->orWhere('country', $req->address)
+                            ->orWhere('city', $req->address)
+                            ->orWhere('state', $req->address);
+                    }
+                    if ($req->type !== null) {
+                        $query->where('space_title', $req->type)
+                            ->orWhere('space_description', $req->type)
+                            ->orWhereHas('spaceHaveActivities.activities', function ($subquery) use ($req) {
+                                $subquery->whereTitle($req->type);
+                            })
+                            ->orWhereHas('spaceType', function ($subquery) use ($req) {
+                                $subquery->whereType($req->type);
+                            })
+                            ->orWhereHas('spaceHaveActivities.spaceAmenities', function ($subquery) use ($req) {
+                                $subquery->whereName($req->type);
+                            });
+                    }
+                    $query->whereHas('operatingDays', function ($subquery) use ($req, $type) {
+                        $subquery->where('entertainment_id', '!=', null)
+                            ->whereHas('operatingHours', function ($subquery1) use ($req) {
+                                $subquery1->whereStartTime($req->startTime)->whereEndTime($req->endTime);
+                            });
+                    });
+                })
+                ->get();
+                if ($req->price == null || $req->attendees == null ) {
+                    $this->listing = Space::inRandomOrder()->get();
+                }
             $this->type = 'space';
             $this->count = $this->listing->count();
             return view('content.components.__space', $this->data);
