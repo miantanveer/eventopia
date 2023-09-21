@@ -36,6 +36,7 @@ class LandingController extends UserBaseController
                     $query->when($req->price !== null, function ($subquery) use ($req) {
                         if ($req->has('price')) {
                             $price = $req->price;
+                            
                             $priceRanges = [0, 100, 250, 450, 999];
 
                             foreach ($priceRanges as $index => $range) {
