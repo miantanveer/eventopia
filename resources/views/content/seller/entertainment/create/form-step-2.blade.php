@@ -31,6 +31,12 @@
         top: -10px;
         cursor: pointer;
     }
+
+    @media screen and (min-width: 0px) and (max-width: 500px) {
+.p_display-sz{
+    font-size: 1rem !important;
+}
+    }
 </style>
 @endsection
 @section('content')
@@ -65,7 +71,7 @@
                                 @csrf
                                 <div class="container">
                                     <div class="text-center mb-6">
-                                        <h3 class="mt-3 mt-1"><b>{{lang('What type of entertainment & talent are you
+                                        <h3 class="mt-3 mt-1 p_display-sz"><b>{{lang('What type of entertainment & talent are you
                                                 listing?')}}</b>
                                         </h3>
                                         <p class="">{{lang('Create a title that will grab a guest’s interest and
@@ -74,7 +80,7 @@
                                             entertainment & talent. Do not include your business’s name.')}}</p>
                                     </div>
                                     <div class="mt-6">
-                                        <h4>{{lang('Try to include the following:')}}</h4>
+                                        <h4 class="p_display-sz">{{lang('Try to include the following:')}}</h4>
                                         <li class="">{{lang('Location - urban, downtown, marina')}}</li>
                                         <li class="">{{lang('The type of space - loft, studio, dance hall, penthouse')}}
                                         </li>
@@ -91,7 +97,7 @@
                                             <hr class="bg-dark">
                                         </div>
                                         <div class="mt-7">
-                                            <p class="display-8"><b>{{lang('How Big is the space needed?')}}</b></p>
+                                            <p class="display-8 p_display-sz"><b>{{lang('How Big is the space needed?')}}</b></p>
                                             <p class="my-4">{{lang('Please only include the size of the space that
                                                 guests can
                                                 use
@@ -102,7 +108,7 @@
                                                 booking a
                                                 500 m m conference room, you would enter “500”.')}}</p>
                                             <div class="form-group">
-                                                <div class="input-group w-30">
+                                                <div class="input-group col-xl-3 col-lg-5 col-12">
                                                     <input type="number" name="space"
                                                         value="{{ @$entertainment->space }}" class="form-control"
                                                         placeholder="1 to 500" required min="1" step="1"
@@ -116,7 +122,7 @@
                                         </div>
                                     </div>
                                     <div class="">
-                                        <p class="display-8"><b>{{lang('What are your entertainment / talent rules??
+                                        <p class="display-8 p_display-sz"><b>{{lang('What are your entertainment / talent rules??
                                                 ')}}</b>
                                             {{lang('(Optional)')}}
                                         </p>
@@ -131,7 +137,7 @@
                                         <hr class="bg-dark">
                                     </div>
                                     <div class="mt-7">
-                                        <p class="display-8"><b>{{lang('Who’s allowed to watch your entertainment /
+                                        <p class="display-8 p_display-sz"><b>{{lang('Who’s allowed to watch your entertainment /
                                                 talent?')}}</b>
                                         </p>
                                         <p class="mt-5">{{lang('Typically, only venues that serve alcohol have age
@@ -172,12 +178,12 @@
                                         <hr class="bg-dark">
                                     </div>
                                     <div class="mt-7">
-                                        <p class="display-8"><b>{{lang('Provide arrival instructions')}} </b>
+                                        <p class="display-8 p_display-sz"><b>{{lang('Provide arrival instructions')}} </b>
                                             {{lang('(Optional)')}}</p>
                                         <p class="my-5">{{lang('Help your guests and their attendees find and enter your
                                             event.')}}
                                         </p>
-                                        <h4><b>{{lang('Try to include:')}}</b></h4>
+                                        <h4 class="p_display-sz"><b>{{lang('Try to include:')}}</b></h4>
                                         <li class="mb-5">{{lang('Directions to your space, building access, door
                                             buzzers,
                                             floors,
