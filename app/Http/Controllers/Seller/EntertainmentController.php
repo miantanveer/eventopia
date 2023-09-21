@@ -116,7 +116,6 @@ class EntertainmentController extends UserBaseController
         $entertainment->last_steps = 'step-3';
         $entertainment->save();
         return redirect()->route('load_entertainment_form_4', ['id' => $id]);
-
     }
     public function loadFormStep4($id)
     {
@@ -407,7 +406,6 @@ class EntertainmentController extends UserBaseController
         $company_review->space_local_regulations = $req->local_regulatioins;
         $company_review->save();
         return view('content\seller\entertainment\create\form-step-10', ['id' => $id]);
-
     }
 
     public function resumeForm($id)

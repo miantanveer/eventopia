@@ -336,7 +336,9 @@
                                             </label>
                                         </div>
                                         <div class="col-9">
-                                            <p>{{lang('Guests may cancel their Booking until 24 hours before the event start time and will receive a full refund (including all Fees) of their Booking Price.')}}
+                                            <p>{{lang('Guests may cancel their Booking until 24 hours before the event
+                                                start time and will receive a full refund (including all Fees) of their
+                                                Booking Price.')}}
                                             </p>
                                             <p>{{lang('Bookings cancellations submitted less than 24 hours before the
                                                 Event
