@@ -29,6 +29,8 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+require_once __DIR__.'/admin.php';
+
 Route::get('/', function () {
     return view('content.landing-page');
 });
@@ -39,15 +41,14 @@ Route::get('list-entertainment', [EntertainmentController::class, 'listEntertain
 Route::get('list-service', [ServiceController::class, 'listService'])->name('list-service');
 
 // Space Search
-Route::get('/search_ajax/{type}', [LandingController::class, 'search'])->name('search_ajax');
-Route::get('/space_landing', [LandingController::class, 'space_index'])->name('space_landing_index');
-Route::get('/space_results', [LandingController::class, 'space_search'])->name('space_search_results');
+Route::get('search_ajax/{type}', [LandingController::class, 'search'])->name('search_ajax');
+Route::get('search_results', [LandingController::class, 'landing_search'])->name('search_results');
+
+Route::get('space_landing', [LandingController::class, 'space_index'])->name('space_landing_index');
 // Entertainments Search
-Route::get('/entertainment_landing', [LandingController::class, 'entertainment_index'])->name('entertainment_landing_index');
-Route::get('/entertainment_results', [LandingController::class, 'entertainment_search'])->name('entertainment_search_results');
+Route::get('entertainment_landing', [LandingController::class, 'entertainment_index'])->name('entertainment_landing_index');
 // Space Search
-Route::get('/service_landing', [LandingController::class, 'service_index'])->name('service_landing_index');
-Route::get('/service_results', [LandingController::class, 'service_search'])->name('service_search_results');
+Route::get('service_landing', [LandingController::class, 'service_index'])->name('service_landing_index');
 
 // Authentications
 Route::get('signup', [AuthenticationController::class, 'signupIndex'])->name('signup');
@@ -68,7 +69,7 @@ Route::get('language/{code}', [LanguageController::class, 'local'])->name('local
 //Logout
 Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['user.auth']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('edit-profile', [DashboardController::class, 'editProfileIndex'])->name('edit-profile-index');
     Route::post('edit-profile', [DashboardController::class, 'editProfile'])->name('edit-profile');
@@ -106,6 +107,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Qutoe functions
     Route::post('send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
+    Route::post('revise_quote/{id}', [QuoteController::class, 'revise_quote'])->name('revise_quote');
     Route::get('quote/{id}', [QuoteController::class, 'receive_quote'])->name('recieve_quote');
     Route::post('load-accept-quote/{id}', [QuoteController::class, 'load_accept_quote'])->name('load_accept_quote');
     Route::get('accept-quote/{id}', [QuoteController::class, 'accept_quote'])->name('accept_quote');
@@ -114,6 +116,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
 
     Route::get('bookings/{type}/{for}', [BookingController::class, 'bookings'])->name('bookings');
+    Route::post('refund-percentage/{id}/{type}', [BookingController::class, 'refundPercentage'])->name('refund-percentage');
+    Route::post('cancel-booking/{id}', [BookingController::class, 'cancelBooking'])->name('cancel-booking');
 
     // Seller side
     // backend k waqt sab ka prefix /seller/ lgana
@@ -152,6 +156,7 @@ Route::group(['middleware' => ['auth']], function () {
         return view('content.seller.add-services');
     });
     Route::get('pending-bookings', [BookingController::class, 'pendingBookings'])->name('pending-bookings');
+    Route::get('pending-quote-requests', [BookingController::class, 'pendingQuoteRequest'])->name('pending-quote-requests');
     Route::get('booking-detail/{id}/{type}', [BookingController::class, 'details'])->name('bookings-details');
     Route::get('accept-bookings/{id}', [BookingController::class, 'acceptBookings'])->name('accept-bookings');
     Route::get('decline-bookings/{id}', [BookingController::class, 'declineBookings'])->name('decline-bookings');

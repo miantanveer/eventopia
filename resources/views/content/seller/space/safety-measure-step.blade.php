@@ -45,6 +45,12 @@
         color: #ff5c77;
         margin-top: 3px;
     }
+
+    @media(min-width:0px) and (max-width:500px) {
+.h3-ser-sz{
+    font-size: 130% !important;
+}
+    }
 </style>
 @endsection
 @section('content')
@@ -84,7 +90,7 @@
                                 @csrf
                                 <div style="text-align:center;">
                                     <h2>{{lang('Step 6 of 9')}}</h2>
-                                    <h1><strong>{{lang('Enhanced Health and Safety Measures')}}</strong></h1>
+                                    <h2><strong>{{lang('Enhanced Health and Safety Measures')}}</strong></h2>
                                     <p>{{lang('Fill out the form to add your cleaning protocol and additional health and
                                         safety
                                         measures to your listing page.')}}</p>
@@ -96,7 +102,7 @@
                                     Safety Measures badge. This badge will be displayed on your listings.')}}</p>
                                 <br>
                                 <hr class="style1"><br>
-                                <h3>{{lang('What additional measures are you taking to keep your space clean?')}}</h3>
+                                <h3 class="h3-ser-sz">{{lang('What additional measures are you taking to keep your space clean?')}}</h3>
                                 <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                                 @php
                                 $selectedSafetyMeasureIds = [];
@@ -130,18 +136,18 @@
                         </div>
                     </div>
                     @if ($section == 1)
-                    <h3 class=" mt-4">{{lang('What additional protective gear do you provide to your
+                    <h3 class="mt-4 h3-ser-sz">{{lang('What additional protective gear do you provide to your
                         guests?')}}
                     </h3>
                     <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                     @elseif ($section == 2)
-                    <h3 class=" mt-4">{{lang('What have you done to help guests maintain physical distance
+                    <h3 class="mt-4 h3-ser-sz">{{lang('What have you done to help guests maintain physical distance
                         in
                         your
                         space?')}}</h3>
                     <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                     @elseif ($section == 3)
-                    <h3 class=" mt-4">{{lang('What signage have you added to keep your guests informed?')}}
+                    <h3 class="mt-4 h3-ser-sz">{{lang('What signage have you added to keep your guests informed?')}}
                     </h3>
                     <p style="color:#858585;"><strong>{{lang('Select all that apply')}}</strong></p>
                     @endif

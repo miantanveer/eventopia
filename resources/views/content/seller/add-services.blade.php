@@ -92,6 +92,21 @@
             margin-left: 0px !important;
         }
     }
+
+    @media(min-width:0px) and (max-width:540px) {
+        .box{
+            width: 90% !important;
+        }
+        .enter-h3-sz{
+            font-size: 130% !important;
+        }
+        .enter-p-sz{
+            font-size: 100% !important;
+        }
+        .enter-h1-sz{
+            font-size: 80% !important;
+        }
+    }
 </style>
 
 <body class="app sidebar-mini ltr">
@@ -105,25 +120,23 @@
     <!-- page -->
     <div class="page bg-white">
         <div class="page-main">
-
             @include('layouts.components.seller-header')
             <!--app-content open-->
             <div class="main-content app-content mt-0">
                 <div class="side-app">
-
                     <!-- container -->
                     <div class="bg-talent">
                         <div class="box">
                             <div class="container box1">
-                                <h3 class="text-center mt-6">{{lang('Get more gigs on Eventopia!')}}</h1>
+                                <h3 class="text-center enter-h3-sz mt-6">{{lang('Get more gigs on Eventopia!')}}</h1>
                                     <br>
-                                    <p class="text-center">{{lang('Connect with party planners and get booked for everything
+                                    <p class="text-center enter-p-sz">{{lang('Connect with party planners and get booked for everything
                                         from
                                         weddings to birthday parties to corporate events.')}}</p>
                                     <br>
                                     <form action="#">
                                         <div class="form-group">
-                                            <label for="exampleInputPhone1">{{lang("What's your services?")}}</label>
+                                            <label for="exampleInputPhone1">{{lang("What's your Services?")}}</label>
                                             <input type="text" class="form-control" id="exampleInputPhone1"
                                                 placeholder="{{lang('Guitarists, Caterer, Santa')}}" required
                                                 data-parsley-required-message="{{lang('Your Name is required*')}}">
@@ -137,10 +150,10 @@
                                         <h4>8,500+</h4>
                                         <p>{{lang('Leads sent each day')}}</p>
                                         <div>
-                                            <a style="padding-left:180px;padding-right:170px;"
-                                                class="modal-effect m-0 mt-3 mb-6 btn btn-info rounded-0"
-                                                data-bs-target="#my-modal" data-bs-toggle="modal">{{lang('Get
-                                                Started')}}</a>
+                                            <button
+                                                class="modal-effect m-0 mt-3 mb-6 w-100 btn btn-info rounded-0"
+                                                data-bs-target="#my-modal" data-bs-toggle="modal">
+                                                {{lang('Get Started')}}</button>
                                         </div>
                                     </form>
                             </div>
@@ -149,7 +162,7 @@
                     <br>
                     <br class="mb-5">
                     <div class="host mt-5">
-                        <h1><strong>{{lang('Get paid to do what you love')}}</strong></h1>
+                        <h1><strong class="enter-h1-sz">{{lang('Get paid to do what you love')}}</strong></h1>
                     </div>
 
                     <br>
@@ -181,7 +194,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="timeline-wrapper timeline-inverted timeline-wrapper-primary">
+                                    <div class="timeline-wrapper mt-8 timeline-inverted timeline-wrapper-primary">
                                         <div class="timeline-panel">
                                             <div class="avatar avatar-md timeline-badge"
                                                 style="position: absolute; top: -60px; left:calc(4% - 26px);">
@@ -201,7 +214,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="timeline-wrapper timeline-wrapper-primary">
+                                    <div class="timeline-wrapper mt-8 timeline-wrapper-primary">
 
                                         <div class="timeline-panel">
                                             <div class="avatar avatar-md timeline-badge"
@@ -221,7 +234,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="timeline-wrapper timeline-inverted timeline-wrapper-primary">
+                                    <div class="timeline-wrapper mt-8 timeline-inverted timeline-wrapper-primary">
                                         <div class="timeline-panel">
                                             <div class="avatar avatar-md timeline-badge"
                                                 style="position: absolute; top: -60px; left:calc(4% - 26px);">
@@ -275,8 +288,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <p>{{lang("My life changed by Eventopia.</p>
-                                                            <p>Lorem Ipsum is simply dummy text of the printing
+                                                            <p>{{lang('My life changed by Eventopia.')}}</p>
+                                                            <p>{{lang("Lorem Ipsum is simply dummy text of the printing
                                                                 and typesetting industry. Lorem Ipsum has been
                                                                 the industry's standard dummy text ever since the
                                                                 1500s, when an unknown printer took a galley of
@@ -446,15 +459,15 @@
                         <h2 class="accordion-header" id="headingThree">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                {{lang('How many leads and bookings can I expect to get?')}}
+                                {{lang("How many leads and bookings can I expect to get?")}}
                             </button>
                         </h2>
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                {{lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem
+                                {{lang("Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, quisquam impedit autem
                                 pariatur a laboriosam fugit ex ullam, et minus eum! Facere amet, animi beatae sequi,
-                                perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?')}}
+                                perspiciatis asperiores nihil consequuntur voluptatibus modi adipisci, voluptates ipsam?")}}
                             </div>
                         </div>
                     </div>
@@ -465,16 +478,16 @@
                         <h2 class="accordion-header" id="headingFour">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                               {{lang(' Do I have to pay to receive or respond to leads?')}}
+                               {{lang(" Do I have to pay to receive or respond to leads?")}}
                             </button>
                         </h2>
                         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                {{lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
+                                {{lang("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
                                 accusantium eveniet dignissimos sunt magnam ad repellendus ab aperiam nobis
                                 necessitatibus quo a adipisci. Tenetur officiis necessitatibus minus sapiente nisi iste
-                                perspiciatis totam autem!')}}
+                                perspiciatis totam autem!")}}
                             </div>
                         </div>
                     </div>
@@ -485,16 +498,16 @@
                         <h2 class="accordion-header" id="headingfive">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                {{lang('How do I get paid for my gigs?')}}
+                                {{lang("How do I get paid for my gigs?")}}
                             </button>
                         </h2>
                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                {{lang('Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
+                                {{lang("Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, debitis minima
                                 accusantium eveniet dignissimos sunt magnam ad repellendus ab aperiam nobis
                                 necessitatibus quo a adipisci. Tenetur officiis necessitatibus minus sapiente nisi iste
-                                perspiciatis totam autem!')}}
+                                perspiciatis totam autem!")}}
                             </div>
                         </div>
                     </div>
@@ -529,6 +542,9 @@
     <script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
     <script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
 
+    <!-- OWL Carousel js -->
+    <script src="{{ asset('assets/js/carousel.js') }}"></script>
+
     <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
     <script>
         $(document).ready(function() {
@@ -536,9 +552,6 @@
         });
     </script>
     <script src="{{ asset('assets/js/email-validate.js') }}"></script>
-
-    <!-- OWL Carousel js -->
-    <script src="{{ asset('assets/js/carousel.js') }}"></script>
 
     <!-- Custom JavaScript code -->
     <script>

@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                             <div class="mb-5 mt-3">
-                                <p class="text-black mb-5">{{ @$upComingBookings }}</p>
+                                <p class="text-black mb-5">{{ @$pendingBookings }}</p>
                             </div>
                             <div class="row mt-5">
                                 <div class="col-6">
@@ -115,8 +115,38 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
-                    <div class="card mt-3">
-                        <div class="cal1"></div>
+                    <div class="card mt-3 pending-booking-card">
+                        <div class="card-body mt-3">
+                            <div class="d-flex">
+                                <div class="text-black mt-2">
+                                    <h5 class="mb-2 number-font">{{ lang('Pending Quote Requests')}}</h5>
+                                </div>
+                                <div class="card-options">
+                                    <img src="{{ asset('assets/images/icons/pending-file.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="mb-5 mt-3">
+                                <p class="text-black mb-5">{{ @$pendingQuoteRequests }}</p>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-6">
+                                    <img src="{{ asset('assets/images/icons/icon1.png') }}" alt="">
+                                    <small>{{ lang('Recent Quotes') }}</small>
+                                </div>
+                                <div class="col-6">
+                                    <img src="{{ asset('assets/images/icons/icon2.png') }}"
+                                        alt=""><small>{{ lang('Other Quotes') }}</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="text-center mb-2 mt-5">
+                                <div class="btn-list">
+                                    <a href="{{ route('pending-quote-requests') }}"
+                                        class="btn btn-primary">{{ lang('Manage') }}</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -134,18 +164,18 @@
                 <div class="card-body pt-0">
                     <div class="mt-2 row">
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">{{ $upComingBookings }}</h3>
+                            <h3 class="d-inline-block mb-2">{{ $activeBookings }}</h3>
                             <p>{{ lang('Active Bookings') }}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: {{ $UpcomingProgress }}%;"
+                                <div class="progress-bar bg-primary" style="width: {{ $activeBookingProgress }}%;"
                                     role="progressbar"></div>
                             </div>
                         </div>
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">{{ $upComingBookings }}</h3>
+                            <h3 class="d-inline-block mb-2">{{ $pendingBookings }}</h3>
                             <p>{{ lang('Pending Bookings') }}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: {{ $UpcomingProgress }}%;"
+                                <div class="progress-bar bg-primary" style="width: {{ $pendingProgress }}%;"
                                     role="progressbar"></div>
                             </div>
                         </div>
@@ -193,13 +223,13 @@
                                     <th class="text-white">{{ lang('Status') }}</th>
                                 </tr>
                             </thead>
-                            @forelse ($totalBookings as $totalBooking)
+                            @forelse ($totalBookings as $booking)
                                 <tbody>
                                     <tr>
-                                        <td>{{ lang($totalBooking->type) }}</td>
-                                        <td>{{ lang($totalBooking->date) }}</td>
-                                        <td>{{ lang($totalBooking->amount) }}</td>
-                                        <td>{{ lang($totalBooking->status == 1 ? 'Upcoming' : ($totalBooking->status == 3 ? 'Cancel' : 'Previous')) }}
+                                        <td>{{ lang($booking->type) }}</td>
+                                        <td>{{ lang($booking->date) }}</td>
+                                        <td>{{ lang($booking->amount) }}</td>
+                                        <td>{{ lang($booking->status == 0 ? 'Pending' : ($booking->status == 1 ? 'Review' : ($booking->status == 2 ? 'Active' : ($booking->status == 3 ? 'Cancel' : 'Completed')))) }}
                                         </td>
                                     </tr>
 
@@ -271,7 +301,7 @@
                             <div class="d-flex">
                                 <div class="text-black">
                                     <h3 class="mb-2 number-font">{{lang('Pending Booking Actions')}}</h3>
-                                    <p class="text-black mb-0">{{lang('Total: ')}} {{$upComingBookings ?? 0}}</p>
+                                    <p class="text-black mb-0">{{lang('Total: ')}} {{@$pendingBookings ?? 0}}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-times-o text-primary fa-3x"></i>

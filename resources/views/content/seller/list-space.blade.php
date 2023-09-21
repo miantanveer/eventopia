@@ -25,13 +25,13 @@
                                 <ul class="list-group">
                                     <li class="list-group-item">
                                         <div class="row">
-                                            <div class="col-6">
+                                            <div class="col-8">
                                                 <h5><i
                                                         class="fa fa-check-square text-primary"></i>&nbsp;
                                                     {{lang('1.Location')}}</h5>
                                                 <p class="ms-5">{{lang('Enter your address')}}</p>
                                             </div>
-                                            <div class="col-6 text-end">
+                                            <div class="col-4 text-end">
                                                 <button class="btn btn-primary mt-3"><a
                                                         href="{{ route('add-space') }}"
                                                         class="text-white">{{lang('Start')}}</a></button>

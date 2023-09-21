@@ -11,7 +11,9 @@ class Order extends Model
 
     protected $fillable = [
         'status',
-        'stripe_txn_resp'
+        'stripe_txn_resp',
+        'is_refunded',
+        'refund_resp',
     ];
 
     public function entertainment()
@@ -23,12 +25,12 @@ class Order extends Model
     {
         return $this->belongsTo(Service::class);
     }
-    
+
     public function space()
     {
         return $this->belongsTo(Space::class);
     }
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);

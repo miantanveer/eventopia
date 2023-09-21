@@ -17,7 +17,7 @@ class Entertainment extends Model
         'space',
         'age',
         'arrival',
-        'cancellation_policy',
+        'cancellation_policy_id',
         'contact_first_name',
         'contact_last_name',
         'contact_num',
@@ -27,7 +27,7 @@ class Entertainment extends Model
         'status',
     ];
     use HasFactory;
-    
+
     public function entertainmentImages()
     {
         return $this->hasMany(EntertainmentImages::class);
@@ -47,7 +47,15 @@ class Entertainment extends Model
         return $this->hasMany(BlockTime::class);
     }
 
+    public function entertainmentHaveOrders(){
+        return $this->hasMany(Order::class);
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
+    }
+
+    public function cancellationPolicy(){
+        return $this->belongsTo(CancellationPolicy::class, 'cancellation_policy_id');
     }
 }

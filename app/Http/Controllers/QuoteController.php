@@ -24,7 +24,7 @@ class QuoteController extends UserBaseController
             return redirect()->back()->with('error','Already Requested');
         }
         $quote = new Quote();
-        $quote->service_id = $id;
+        $quote->service_id = $service->id;
         $quote->user_id = user_id();
         $quote->date = $req->date;
         $quote->flexible_date = $req->flexible_date;
@@ -32,6 +32,33 @@ class QuoteController extends UserBaseController
         $quote->description = $req->description;
         $quote->save();
         notification('Service','New Quote Received',$service->user_id,'service',$quote->id);
+        if (is_int($service->user_id)) {
+            $event = new NotificationEvent(['id'=>$service->user_id,'message'=>false]);
+            $event->broadcastOn("user.$service->user_id");
+            event($event);
+        }
+        return redirect()->back()->with('success','Quote requested Successfully');
+    }
+
+    public function revise_quote(Request $req,$id)
+    {
+        $req->validate([
+            'date'=>'required',
+            'guests'=>'required',
+            'description'=>'required'
+        ]);
+        $exists = Quote::whereStatus(0)->find($id);
+        if($exists){
+            return redirect()->back()->with('error','Already Requested');
+        }
+        $quote = Quote::find($id)->first();
+        $service = Service::find($quote->service_id);
+        $quote->date = $req->date;
+        $quote->flexible_date = $req->flexible_date;
+        $quote->guests = $req->guests;
+        $quote->description = $req->description;
+        $quote->status = 0;
+        $quote->save();
         if (is_int($service->user_id)) {
             $event = new NotificationEvent(['id'=>$service->user_id,'message'=>false]);
             $event->broadcastOn("user.$service->user_id");
@@ -48,25 +75,22 @@ class QuoteController extends UserBaseController
 
     public function load_accept_quote($id)
     {
-        $quote = Quote::with('service','service.serviceImages')->find($id);
+        $quote = Quote::with('service','service.serviceImages')->whereId($id)->first();
         return response()->json($quote,200);
     }
 
     public function accept_quote($id)
     {
         $quote = Quote::find($id);
+        $quote->status = 2;
+        $quote->save();
         $exists = Cart::whereServiceId($quote->service_id)->whereUserId(user_id())->exists();
         if($exists){
-            $quot = Quote::find($id);
-            $quot->status == 2;
-            $quot->save();
+
             return redirect()->route('checkout');
         }
         else{
-            cartStore(@$quote->service_id,'service',@$quote->date,'null','null');
-            $quot = Quote::find($id);
-            $quot->status == 2;
-            $quot->save();
+            cartStore($quote->service_id,'service',$quote->date,'null','null');
             return redirect()->route('checkout');
         }
     }
@@ -94,7 +118,7 @@ class QuoteController extends UserBaseController
             $event->broadcastOn("user.$quote->user_id");
             event($event);
         }
-        return redirect()->route('pending-bookings')->with('success','Quote Send Successfully.');
+        return redirect()->route('pending-quote-requests')->with('success','Quote Send Successfully.');
     }
 
     public function seller_decline_quote($id)

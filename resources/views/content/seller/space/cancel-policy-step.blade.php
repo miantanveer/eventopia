@@ -91,14 +91,14 @@
                                             <div class="row">
                                                 {{-- @dd($space->cancellationPolicy); --}}
                                                 @foreach ($cancel_policies as $cancel_policy)
-                                                    <div class="col-3">
+                                                    <div class="col-md-3 col-12">
                                                         <label class=" flex-basis-20-sm flex-basis-100" for="{{$cancel_policy->title}}">
                                                             <input type="radio" required data-parsley-required-message="{{lang('Please select a value')}}" data-parsley-errors-container="#c_error" id="{{$cancel_policy->title}}"
                                                                 name="cancellation_policy_id" value="{{$cancel_policy->id}}" {{@$space->cancellationPolicy->id == $cancel_policy->id ? 'checked' : ''}}>
                                                             <span>{{lang($cancel_policy->title)}}</span>
                                                         </label>
                                                     </div>
-                                                    <div class="col-9">
+                                                    <div class="col-md-9 col-12">
                                                         <p>{{lang($cancel_policy->description)}}
                                                         </p>
                                                     </div>

@@ -9,28 +9,33 @@ use App\Models\Order;
 use App\Models\Service;
 use App\Models\Space;
 use App\Models\Quote;
+use Illuminate\Http\Request;
+use Stripe\Exception\ApiErrorException;
 
 class BookingController extends UserBaseController
 {
     public function space_index()
     {
-        $this->space = Space::whereLastStep('10')->where('user_id', '!=', auth()->user()->id)->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->get();
+        $this->listing = Space::whereLastStep('10')->where('user_id', '!=', auth()->user()->id)->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->get();
         $this->count = Space::whereStatus('1')->where('user_id', '!=', auth()->user()->id)->whereLastStep('10')->count();
+        $this->type = 'space';
         return view('content.customer.space', $this->data);
     }
 
     public function entertainment_index()
     {
-        $this->ent = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id)->get();
+        $this->listing = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id)->get();
         $this->count = Entertainment::where('last_steps', 'step-9')->where('user_id', '!=', auth()->user()->id)->count();
-        return view('content.customer.entertainments', $this->data);
+        $this->type = 'entertainment';
+        return view('content.customer.space', $this->data);
     }
 
     public function service_index()
     {
-        $this->service = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->with('serviceImages')->get();
+        $this->listing = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->with('serviceImages')->get();
         $this->count = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->count();
-        return view('content.customer.services', $this->data);
+        $this->type = 'service';
+        return view('content.customer.space', $this->data);
     }
 
     public function spaceDetail($id)
@@ -69,8 +74,20 @@ class BookingController extends UserBaseController
             ->orWhereHas('service', function ($subquery) {
                 $subquery->whereUserId(auth()->user()->id);
             });
-        })->where('status','!=',0)->get();
-        $this->quotes = Quote::where('status','!=',1)->get();
+        })->where('status',1)->get();
+        $this->quotes = null ;
+
+        return view('content.seller.pending-bookings', $this->data);
+    }
+
+    public function pendingQuoteRequest()
+    {
+        $this->quotes = Quote::where(function ($query) {
+            $query->whereHas('service', function ($serviceQuery) {
+                $serviceQuery->whereUserId(user_id());
+            });
+        })->whereIn('status', [0, 1])->get();
+        $this->pendingBookings = null;
 
         return view('content.seller.pending-bookings', $this->data);
     }
@@ -106,34 +123,123 @@ class BookingController extends UserBaseController
         if (Order::find($id)->update(['status' => 3])) return redirect()->back()->with('success', 'Booking request declined successfully.');
     }
 
-    public function bookings($type,$for)
+    public function bookings($type, $for)
     {
         if ($type == 'space') {
             $this->orders = Order::whereType('space')->whereUserId(auth()->user()->id)->paginate(2);
-        }elseif ($type == 'entertainment') {
+        } elseif ($type == 'entertainment') {
             $this->orders = Order::whereType('entertainment')->whereUserId(auth()->user()->id)->paginate(2);
-        }elseif ($type == 'service') {
+        } elseif ($type == 'service') {
             $this->orders = Order::whereType('service')->whereUserId(auth()->user()->id)->paginate(2);
-        }elseif ($type == 'active') {
+        } elseif ($type == 'active') {
             $this->orders = Order::whereUserId(auth()->user()->id)->whereStatus(2)->paginate(2);
-        }elseif ($type == 'cancel') {
+        } elseif ($type == 'cancel') {
             $this->orders = Order::whereUserId(auth()->user()->id)->whereStatus(3)->paginate(2);
-        }else {
+        } else {
             $this->orders = Order::whereUserId(auth()->user()->id)->paginate(2);
         }
         $for == 'seller' ? $this->sellerHeader = 'required' : $this->sellerHeader = 'not-required';
 
-        if(!$this->orders->isEmpty())
-        {
-            return view('layouts.components.bookings',$this->data);
+        if (!$this->orders->isEmpty()) {
+            return view('layouts.components.bookings', $this->data);
         }
 
-        return view('layouts.components.booking',['sellerHeader' => $this->sellerHeader]);
+        return view('layouts.components.booking', ['sellerHeader' => $this->sellerHeader]);
     }
-    public function details($id,$type)
+    public function details($id, $type)
     {
         $this->booking = Order::whereType($type)->find($id);
         $this->type = $type;
-        return view('content.seller.booking-details',$this->data);
+        return view('content.seller.booking-details', $this->data);
+    }
+
+    public function refundPercentage($id, $type)
+    {
+        if ($type == 'service') {
+            return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+        } elseif ($type == 'space') {
+            $order = Order::find($id);
+            $cancellation = $order->space->cancellation_policy_id;
+            $currentDateTime = $order->date;
+            $updatedAt = $order->updated_at;
+            $hoursDifference = $updatedAt->diffInHours($currentDateTime);
+            if ($order->status == 2) {
+                if ($cancellation == 1) {
+                    return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+                } elseif ($cancellation == 2) {
+                    if ($hoursDifference > 24 && $hoursDifference < 168) {
+                        return response()->json(['amount_perc' => 50, 'deduct_amount' => $order->amount / 2, 'id' => $id]);
+                    } else {
+                        return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+                    }
+                } elseif ($cancellation == 3) {
+                    if ($hoursDifference > 168 && $hoursDifference < 720) {
+                        return response()->json(['amount_perc' => 50, 'deduct_amount' => $order->amount / 2, 'id' => $id]);
+                    } else {
+                        return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+                    }
+                } elseif ($cancellation == 4) {
+                    if ($hoursDifference > 720 && $hoursDifference < 2160) {
+                        return response()->json(['amount_perc' => 50, 'deduct_amount' => $order->amount / 2, 'id' => $id]);
+                    } else {
+                        return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+                    }
+                }
+            } elseif ($order->status == 1) {
+                return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+            }
+        } elseif ($type == 'entertainment') {
+            $order = Order::find($id);
+            $cancellation = $order->entertainment->cancellation_policy_id;
+            $currentDateTime = $order->date;
+            $updatedAt = $order->updated_at;
+            $hoursDifference = $updatedAt->diffInHours($currentDateTime);
+            if ($order->status == 2) {
+                if ($cancellation == 1) {
+                    return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+                } elseif ($cancellation == 2) {
+                    if ($hoursDifference > 24 && $hoursDifference < 168) {
+                        return response()->json(['amount_perc' => 50, 'deduct_amount' => round($order->amount / 2), 'id' => $id]);
+                    } else {
+                        return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+                    }
+                } elseif ($cancellation == 3) {
+                    if ($hoursDifference > 168 && $hoursDifference < 720) {
+                        return response()->json(['amount_perc' => 50, 'deduct_amount' => round($order->amount / 2), 'id' => $id]);
+                    } else {
+                        return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+                    }
+                } elseif ($cancellation == 4) {
+                    if ($hoursDifference > 720 && $hoursDifference < 2160) {
+                        return response()->json(['amount_perc' => 50, 'deduct_amount' => round($order->amount / 2), 'id' => $id]);
+                    } else {
+                        return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+                    }
+                }
+            } elseif ($order->status == 1) {
+                return response()->json(['amount_perc' => 0, 'deduct_amount' => 0, 'id' => $id]);
+            }
+        }
+    }
+
+    public function cancelBooking(Request $req, $id)
+    {
+        $order = Order::find($id);
+        $get_charge = json_decode($order->stripe_txn_resp);
+        $amount = $get_charge->amount - ($req->deduct_amount * 100);
+        try {
+            $refund = $this->stripe->refunds->create([
+                'charge' => $get_charge->id,
+                'amount' => $amount,
+            ]);
+
+            $order->update(['status' => 3,'is_refunded' => 1, 'refund_resp' => json_encode($refund)]);
+            return redirect()->back()->with('success', 'order cancelled successfully.');
+
+        } catch (ApiErrorException $e) {
+            $errorMessage = $e->getMessage();
+            return redirect()->back()->with('error','Refund failed' . $errorMessage);
+        }
     }
 }
+ 

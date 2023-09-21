@@ -12,4 +12,7 @@ class CancellationPolicy extends Model
     public function spaces(){
         return $this->hasMany(Space::class);
     }
+    public function entertainments(){
+        return $this->hasMany(Entertainment::class);
+    }
 }

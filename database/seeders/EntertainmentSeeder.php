@@ -24,7 +24,7 @@ class EntertainmentSeeder extends Seeder
             'space'=>'588',
             'age'=>'21+',
             'arrival'=>NULL,
-            'cancellation_policy'=>'Very Flexible',
+            'cancellation_policy_id'=>'1',
             'contact_first_name'=>'Yvette',
             'contact_last_name'=>'Sullivan',
             'contact_num'=>'+1 (451) 997-3457',
@@ -39,12 +39,12 @@ class EntertainmentSeeder extends Seeder
             'lat'=>'40.6472186',
             'last_steps'=>'step-9',
             'status'=>'0',
-            'created_at'=>'2023-09-12 02:12:50',
-            'updated_at'=>'2023-09-12 02:13:53'
+            'created_at'=>now(),
+            'updated_at'=>now()
             ] );
-            
-            
-                        
+
+
+
             Entertainment::create( [
             'user_id'=>1,
             'ent_activity_id'=>NULL,
@@ -55,7 +55,7 @@ class EntertainmentSeeder extends Seeder
             'space'=>'500',
             'age'=>'18+',
             'arrival'=>NULL,
-            'cancellation_policy'=>'Flexible',
+            'cancellation_policy_id'=>'2',
             'contact_first_name'=>'Elaine',
             'contact_last_name'=>'Melton',
             'contact_num'=>'+1 (668) 558-5459',
@@ -70,12 +70,12 @@ class EntertainmentSeeder extends Seeder
             'lat'=>'39.4682954',
             'last_steps'=>'step-9',
             'status'=>'0',
-            'created_at'=>'2023-09-12 02:14:15',
-            'updated_at'=>'2023-09-12 02:15:42'
+            'created_at'=>now(),
+            'updated_at'=>now()
             ] );
-            
-            
-                        
+
+
+
             Entertainment::create( [
             'user_id'=>1,
             'ent_activity_id'=>NULL,
@@ -86,7 +86,7 @@ class EntertainmentSeeder extends Seeder
             'space'=>'600',
             'age'=>'18+',
             'arrival'=>NULL,
-            'cancellation_policy'=>'Standard 30 day',
+            'cancellation_policy_id'=>'4',
             'contact_first_name'=>'Winter',
             'contact_last_name'=>'Quinn',
             'contact_num'=>'+1 (717) 819-3195',
@@ -101,12 +101,12 @@ class EntertainmentSeeder extends Seeder
             'lat'=>'42.2010165',
             'last_steps'=>'step-9',
             'status'=>'0',
-            'created_at'=>'2023-09-12 02:15:58',
-            'updated_at'=>'2023-09-12 02:18:17'
+            'created_at'=>now(),
+            'updated_at'=>now()
             ] );
-            
-            
-                        
+
+
+
             Entertainment::create( [
             'user_id'=>1,
             'ent_activity_id'=>NULL,
@@ -117,7 +117,7 @@ class EntertainmentSeeder extends Seeder
             'space'=>'70',
             'age'=>'18+',
             'arrival'=>'Contracts - Peerspace bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
-            'cancellation_policy'=>'Standard 30 day',
+            'cancellation_policy_id'=>'3',
             'contact_first_name'=>'Wynne',
             'contact_last_name'=>'Whitley',
             'contact_num'=>'+1 (997) 742-1811',
@@ -132,12 +132,12 @@ class EntertainmentSeeder extends Seeder
             'lat'=>'50.44012850000001',
             'last_steps'=>'step-9',
             'status'=>'0',
-            'created_at'=>'2023-09-12 02:18:57',
-            'updated_at'=>'2023-09-12 02:19:50'
+            'created_at'=>now(),
+            'updated_at'=>now()
             ] );
-            
-            
-                        
+
+
+
             Entertainment::create( [
             'user_id'=>1,
             'ent_activity_id'=>NULL,
@@ -148,7 +148,7 @@ class EntertainmentSeeder extends Seeder
             'space'=>'39',
             'age'=>'18+',
             'arrival'=>'Id qui ipsam volupta',
-            'cancellation_policy'=>'Standard 90 day',
+            'cancellation_policy_id'=>'1',
             'contact_first_name'=>'Ramona',
             'contact_last_name'=>'Boone',
             'contact_num'=>'+1 (603) 622-6545',
@@ -163,12 +163,12 @@ class EntertainmentSeeder extends Seeder
             'lat'=>'35.0854304',
             'last_steps'=>'step-9',
             'status'=>'0',
-            'created_at'=>'2023-09-12 02:20:04',
-            'updated_at'=>'2023-09-12 02:22:03'
+            'created_at'=>now(),
+            'updated_at'=>now()
             ] );
-            
-            
-                        
+
+
+
             Entertainment::create( [
             'user_id'=>1,
             'ent_activity_id'=>NULL,
@@ -179,7 +179,7 @@ class EntertainmentSeeder extends Seeder
             'space'=>'41',
             'age'=>'21+',
             'arrival'=>'In voluptatum alias',
-            'cancellation_policy'=>'Standard 90 day',
+            'cancellation_policy_id'=>'4',
             'contact_first_name'=>'Ezekiel',
             'contact_last_name'=>'Mcgee',
             'contact_num'=>'+1 (331) 745-9235',
@@ -194,8 +194,8 @@ class EntertainmentSeeder extends Seeder
             'lat'=>'40.9888063',
             'last_steps'=>'step-9',
             'status'=>'0',
-            'created_at'=>'2023-09-12 02:22:26',
-            'updated_at'=>'2023-09-12 02:23:16'
+            'created_at'=>now(),
+            'updated_at'=>now()
             ] );
     }
 }

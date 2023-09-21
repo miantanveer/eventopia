@@ -17,7 +17,7 @@ class CartController extends UserBaseController
         $this->spaces = Space::get();
         $this->ents = Entertainment::get();
         $this->service = Service::get();
-        $this->user = User::whereId(auth()->user()->id)->with('cart')->first();
+        $this->user = User::whereId(user_id())->with('cart')->first();
         return view('layouts.components.checkout-page', $this->data);
     }
     public function store(Request $req, $id, $type)
