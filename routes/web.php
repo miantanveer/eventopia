@@ -70,7 +70,7 @@ Route::get('language/{code}', [LanguageController::class, 'local'])->name('local
 //Logout
 Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['user.auth']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('edit-profile', [DashboardController::class, 'editProfileIndex'])->name('edit-profile-index');
     Route::post('edit-profile', [DashboardController::class, 'editProfile'])->name('edit-profile');
