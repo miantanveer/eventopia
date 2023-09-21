@@ -44,38 +44,38 @@
                     $lastWord = strrchr($currenturl, '/');
                     @endphp
                     <!-- Conditional container -->
-                    @if($lastWord !== '/spaces' || $lastWord !== '/services' || $lastWord !== '/talent-&-entertainments')
+                    @if($lastWord == '/spaces' || $lastWord == '/services' || $lastWord == '/talent-&-entertainments')
                     <div class="">
-                    @else
-                    <div class="main-container container-fluid">
-                    @endif
+                        @else
+                        <div class="main-container container-fluid">
+                            @endif
 
-                        @yield('content')
+                            @yield('content')
 
+                        </div>
+                        <!-- container-closed -->
                     </div>
-                    <!-- container-closed -->
                 </div>
+                <!--app-content closed-->
             </div>
-            <!--app-content closed-->
+            <!-- page-main closed -->
+
+            @include('layouts.components.sidebar-right')
+
+            @include('layouts.components.modal')
+
+            @yield('modal')
+
         </div>
-        <!-- page-main closed -->
+        <!-- page -->
 
-        @include('layouts.components.sidebar-right')
+        <!-- global-helper -->
+        @include('layouts.components.global-helper')
 
-        @include('layouts.components.modal')
+        @include('layouts.components.footer')
 
-        @yield('modal')
-
-    </div>
-    <!-- page -->
-
-    <!-- global-helper -->
-    @include('layouts.components.global-helper')
-
-    @include('layouts.components.footer')
-
-    @include('layouts.components.scripts')
-    @include('layouts.components.notification-scripts')
+        @include('layouts.components.scripts')
+        @include('layouts.components.notification-scripts')
 
 </body>
 
