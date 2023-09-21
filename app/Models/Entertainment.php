@@ -47,6 +47,10 @@ class Entertainment extends Model
         return $this->hasMany(BlockTime::class);
     }
 
+    public function entertainmentHaveOrders(){
+        return $this->hasMany(Order::class);
+    }
+
     public function user(){
         return $this->belongsTo(User::class);
     }

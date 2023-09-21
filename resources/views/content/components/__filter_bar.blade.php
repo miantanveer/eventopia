@@ -125,9 +125,7 @@
 
     <div class="col-xl-1 col-md-2 col-sm-6 col-6 pe-0">
         <form action="#" class="mt-2">
-            <input id="dateInput" onchange="selected()" type="text"
-                class="form-control w-style button-radias btn_background" placeholder="When?"
-                onclick="(this.type='date')">
+            <input type="text" data-bs-target="#dateTimeModal" data-bs-toggle="modal" class="form-control w-style button-radias btn_background" placeholder="When?" id="selectedDate" data-listener-added_33a7deb0="true">
         </form>
     </div>
     @endif

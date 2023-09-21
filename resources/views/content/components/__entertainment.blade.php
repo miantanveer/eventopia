@@ -1,7 +1,7 @@
 <div class="card-header border-bottom-0 ms-3">
     {{ @$count ?? '0' }} {{ lang('party hall spaces near USA') }}
 </div>
-@foreach(@$listing as $value)
+@foreach(@$listing as $key=>$value)
 @php
 $lat = $value->lat;
 $lng = $value->lng;

@@ -27,7 +27,7 @@
             <div class="wrap-login100 p-6">
                 <form id="login_form" method="POST" data-parsley-validate>
                     <span class="login100-form-title pb-5">
-                        Login
+                       Admin Login
                     </span>
                     @csrf
                     <div class="panel panel-primary">
@@ -60,7 +60,7 @@
                                     @error('password') <div class="text-danger">{{$message}}</div> @enderror
                                     <span class="text-danger" id="password_err"></span>
                                     <div class="text-end pt-4">
-                                        <p class="mb-0"><a href="{{route('admin.forget.password')}} }}"
+                                        <p class="mb-0"><a href="{{route('admin.forget.password')}}"
                                                 class="text-primary ms-1">Forgot Password?</a></p>
                                     </div>
                                     <div class="container-login100-form-btn">
