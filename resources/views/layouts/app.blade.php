@@ -44,7 +44,7 @@
                     $lastWord = strrchr($currenturl, '/');
                     @endphp
                     <!-- Conditional container -->
-                    @if($lastWord == '/spaces' || $lastWord == '/services' || $lastWord == '/talent-&-entertainments')
+                    @if($lastWord == '/spaces' || $lastWord == '/services' || $lastWord == '/talent-&-entertainments'|| $lastWord == '/search_results')
                     <div class="">
                         @else
                         <div class="main-container container-fluid">

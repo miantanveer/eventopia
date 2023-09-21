@@ -547,7 +547,8 @@
             <div class="inline-form container my-7 my-sm-3 ps-0 pe-5">
                 <h1 class="h1 text-white font-size-h1 fw-bold ms-5">{{lang('Book a special space for your event')}}</h1>
                 <div class="position-relative">
-                    <form action="{{ route('space_search_results') }}" method="get" class="ms-5 form-blur-border">
+                    <form action="{{ route('search_results') }}" method="get" class="ms-5 form-blur-border">
+                        <input type="hidden" name="type" value="space">
                         <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing FormBorder"
                             id="form-border">
                             <input type="hidden" name="space_search_url" id="space_search_url"
@@ -743,7 +744,8 @@
         <p class="text-center text-white px-md-9 px-sm-5 ms-5">{{lang("For every event, from weddings to birthday
             celebrations,
             we'll help you book the best talent.")}}</p>
-        <form action="{{ route('entertainment_search_results') }}" class="ms-5 form-blur-border">
+        <form action="{{ route('search_results') }}" class="ms-5 form-blur-border">
+            <input type="hidden" name="type" value="entertainment">
             <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing form-border FormBorder-1"
                 id="form-border-1">
                 <input type="hidden" id="entertaimnet_search_url" value="{{route('entertainment_landing_index')}}">
@@ -913,9 +915,7 @@
 
 <div>
     <h1 class="text-center mt-lg-7 mt-md-4 mt-3 fs-1 heading_fon">{{lang("Make your plans exceptional")}} <br>
-        {{lang("whatever they
-        may
-        be.")}}</h1>
+        {{lang("whatever they may be.")}}</h1>
     <h3 class="text-center my-3">{{lang("Musical Acts")}}</h3>
     <div class="row">
         <div class="col-12 bg-white">
@@ -1139,7 +1139,7 @@
         </div>
     </div>
 </div>
-<h3 class="text-center my-3">Event Services</h3>
+<h3 class="text-center my-3">{{lang('Event Services')}}</h3>
 <div class="row">
     <div class="col-12 bg-white">
         <div class="container">
@@ -1262,7 +1262,8 @@
         <p class="text-center text-white px-md-9 px-sm-5 ms-5">{{lang("For every service, from wedding planner to
             invitations,
             we'll help you book the best service.")}}</p>
-        <form action="{{ route('service_search_results') }}" class="ms-5 form-blur-border">
+        <form action="{{ route('search_results') }}" class="ms-5 form-blur-border">
+            <input type="hidden" name="type" value="service">
             <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing form-border FormBorder-2"
                 id="form-border-2">
                 <input type="hidden" id="service_search_url" value="{{route('service_landing_index')}}">

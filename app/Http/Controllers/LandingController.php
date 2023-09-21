@@ -26,7 +26,7 @@ class LandingController extends UserBaseController
         }
         if ($type == 'service') {
             $this->listing = Service::where(function ($query) use ($req) {
-                $query->where('price','!==',$req->price)
+                $query->where('price', '!==', $req->price)
                     ->orWhere('title', $req->keyword)
                     ->orWhere('category', $req->keyword)
                     ->orWhere('activities', $req->keyword)
@@ -225,34 +225,77 @@ class LandingController extends UserBaseController
 
         return response()->json($res, 200);
     }
-    public function space_search(Request $req)
+    public function landing_search(Request $req)
     {
-        $space = Space::with('spaceType', 'spaceHaveActivities', 'spaceImages')
-            ->whereHas('spaceType', function ($query) use ($req) {
-                $query->where('type', $req->planCatagories);
-            })
-            ->orWhereHas('spaceHaveActivities.activities', function ($query) use ($req) {
-                $query->where('title', $req->planCatagories);
-            })
-            ->orWhere(function ($query) use ($req) {
-                $query->where('address', $req->location)
-                    ->orWhere('country', $req->location)
-                    ->orWhere('city', $req->location)
-                    ->orWhere('state', $req->location)
-                    ->where(function ($query) use ($req) {
-                        $query->doesntHave('spaceType');
-                    });
-            })
-            ->inRandomOrder()
-            ->whereStatus('1')
-            ->whereLastStep('10')
-            ->get();
-        if (isset($space)) {
-            $space = Space::inRandomOrder(5)->get();
+        if ($req->type == 'space') {
+            $space = Space::with('spaceType', 'spaceHaveActivities', 'spaceImages')
+                ->whereHas('spaceType', function ($query) use ($req) {
+                    $query->where('type', $req->planCatagories);
+                })
+                ->orWhereHas('spaceHaveActivities.activities', function ($query) use ($req) {
+                    $query->where('title', $req->planCatagories);
+                })
+                ->orWhere(function ($query) use ($req) {
+                    $query->where('address', $req->location)
+                        ->orWhere('country', $req->location)
+                        ->orWhere('city', $req->location)
+                        ->orWhere('state', $req->location)
+                        ->where(function ($query) use ($req) {
+                            $query->doesntHave('spaceType');
+                        });
+                })
+                ->inRandomOrder()
+                ->whereStatus('1')
+                ->whereLastStep('10')
+                ->get();
+            if (isset($space)) {
+                $space = Space::inRandomOrder(5)->get();
+            }
+            $this->type = 'space';
+            $this->listing = $space;
+            return view('content.customer.search-results', $this->data);
+        } elseif ($req->type == 'entertainment') {
+            $ent = Entertainment::with('entertainmentActivities', 'entertainmentActivities.entertainment', 'entertainmentActivities.sub_act', 'entertainmentActivities.sub_act.act')
+                ->where(function ($query) use ($req) {
+                    $query->whereHas('entertainmentActivities.entertainment', function ($subQuery) use ($req) {
+                        $subQuery->orWhere('title', $req->planCatagories_1)
+                            ->orWhere('description', 'Like', '%' . $req->planCatagories_1 . '%');
+                    })
+                        ->orWhere(function ($locationQuery) use ($req) {
+                            if ($req->location_1) {
+                                $locationQuery->where('address', $req->location_1)
+                                    ->orWhere('country', $req->location_1)
+                                    ->orWhere('city', $req->location_1)
+                                    ->orWhere('state', $req->location_1);
+                            }
+                        });
+                })
+                ->whereLastSteps('step-9')
+                ->get();
+            if (isset($ent)) {
+                $ent = Entertainment::inRandomOrder(5)->get();
+            }
+            $this->type = 'entertainment';
+            $this->listing = $ent;
+            return view('content.customer.search-results', $this->data);
+        } elseif ($req->type == 'service') {
+            $service = Service::with('serviceImages')->where('title', $req->planCatagories_2)
+                ->orWhere('category', $req->planCatagories_2)
+                ->orWhere(function ($query) use ($req) {
+                    $query->where('address', 'like', '%' . $req->location_2 . '%')
+                        ->orWhere('country', $req->location_2)
+                        ->orWhere('city', $req->location_2)
+                        ->orWhere('state', $req->location_2);
+                })
+                ->whereLastSteps('step-7')
+                ->get();
+            if (isset($service)) {
+                $service = Service::inRandomOrder(5)->get();
+            }
+            $this->type = 'service';
+            $this->listing = $service;
+            return view('content.customer.search-results', $this->data);
         }
-        $this->type = 'space';
-        $this->listing = $space;
-        return view('content.customer.search-results', $this->data);
     }
 
     public function entertainment_index()
@@ -266,32 +309,7 @@ class LandingController extends UserBaseController
 
         return response()->json($res, 200);
     }
-    public function entertainment_search(Request $req)
-    {
-        $ent = Entertainment::with('entertainmentActivities', 'entertainmentActivities.entertainment', 'entertainmentActivities.sub_act', 'entertainmentActivities.sub_act.act')
-            ->where(function ($query) use ($req) {
-                $query->whereHas('entertainmentActivities.entertainment', function ($subQuery) use ($req) {
-                    $subQuery->orWhere('title', $req->planCatagories_1)
-                        ->orWhere('description', 'Like', '%' . $req->planCatagories_1 . '%');
-                })
-                    ->orWhere(function ($locationQuery) use ($req) {
-                        if ($req->location_1) {
-                            $locationQuery->where('address', $req->location_1)
-                                ->orWhere('country', $req->location_1)
-                                ->orWhere('city', $req->location_1)
-                                ->orWhere('state', $req->location_1);
-                        }
-                    });
-            })
-            ->whereLastSteps('step-9')
-            ->get();
-        if (isset($ent)) {
-            $ent = Entertainment::inRandomOrder(5)->get();
-        }
-        $this->type = 'entertainment';
-        $this->listing = $ent;
-        return view('content.customer.search-results', $this->data);
-    }
+
     public function service_index()
     {
         $service_cat = ServiceCategory::pluck('name')->toArray();
@@ -303,23 +321,5 @@ class LandingController extends UserBaseController
 
         return response()->json($res, 200);
     }
-    public function service_search(Request $req)
-    {
-        $service = Service::with('serviceImages')->where('title', $req->planCatagories_2)
-            ->orWhere('category', $req->planCatagories_2)
-            ->orWhere(function ($query) use ($req) {
-                $query->where('address', 'like', '%' . $req->location_2 . '%')
-                    ->orWhere('country', $req->location_2)
-                    ->orWhere('city', $req->location_2)
-                    ->orWhere('state', $req->location_2);
-            })
-            ->whereLastSteps('step-7')
-            ->get();
-        if (isset($service)) {
-            $service = Service::inRandomOrder(5)->get();
-        }
-        $this->type = 'service';
-        $this->listing = $service;
-        return view('content.customer.search-results', $this->data);
-    }
+
 }
