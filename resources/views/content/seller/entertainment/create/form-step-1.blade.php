@@ -36,6 +36,11 @@
             color: #ff5c77;
             margin-top: 3px;
         }
+        @media screen and (min-width: 0px) and (max-width: 500px) {
+            .h1_font-sz{
+                font-size: 80% !important;
+            }
+        }
     </style>
 @endsection
 @section('content')
@@ -90,7 +95,7 @@
                                                 class="w-100 p-4 bg-light-gray form-control"
                                                 placeholder="{{lang('Comedian for event')}}">
                                             <hr class="bg-dark">
-                                            <h1>{{lang('what are your Entertainment and Talent rules')}}</h1>
+                                            <h1 class="h1_font-sz"><b>{{lang('what are your Entertainment and Talent rules')}}</b></h1>
                                             <p>{{lang('Include any rules about what your guests can and cannot do in the space.')}}</p>
                                             <h3>{{lang('Example rules:')}}</h3>
                                             <ul style="list-style-type:disc">
