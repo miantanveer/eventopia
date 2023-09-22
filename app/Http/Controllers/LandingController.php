@@ -52,7 +52,7 @@ class LandingController extends UserBaseController
                             }
                         }
                     });
-                })->whereLastSteps('step-7')->inRandomOrder()->get();
+                })->whereLastSteps('step-7')->inRandomOrder()->paginate(6);
             $this->type = 'service';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
@@ -127,7 +127,7 @@ class LandingController extends UserBaseController
                             });
                         });
                 })->whereLastSteps('step-9')
-                ->inRandomOrder()->get();
+                ->inRandomOrder()->paginate(6);
             $this->type = 'entertainment';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
@@ -206,7 +206,7 @@ class LandingController extends UserBaseController
                         });
                 })->whereStatus('1')
                 ->whereLastStep('10')
-                ->inRandomOrder()->get();
+                ->inRandomOrder()->paginate(6);
             $this->type = 'space';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();

@@ -16,6 +16,7 @@ use App\Http\Controllers\Seller\ListingController;
 use App\Http\Controllers\Seller\ListingSpaceController;
 use App\Http\Controllers\Seller\ServiceController;
 use App\Models\ServiceTitle;
+use App\Models\EntertainmentType;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -210,7 +211,8 @@ Route::group(['middleware' => ['user.auth']], function () {
 
     // Entertainment Routes
     Route::get('/entertainment-form-steps', function () {
-        return view('content.seller.entertainment.create.form-step-1');
+        $ent_types = EntertainmentType::get();
+        return view('content.seller.entertainment.create.form-step-1',compact('ent_types'));
     });
     // Form Step 1
     Route::post('/entertainment/form/step/1', [EntertainmentController::class, 'formStep1'])->name('entertainment_form_1');

@@ -15,21 +15,16 @@ class ServiceTitleSeeder extends Seeder
     public function run()
     {
         ServiceTitle::insert([
-            ['name'=>'Video Graphers','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Beauty Services','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Soloists & Ensembles','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Dance Lessons','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Decor','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Invitations','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Reception Venues','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Wedding Photographers','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Wedding Planners','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Wedding Bands','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Wedding Rentals','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Transportation','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Travel Specialists','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Bar Services','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'Florists','created_at'=>now(),'updated_at'=>now()]
+            ['name'=>'Event Planning Companies','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'Catering Services','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'Audio-Visual and Lighting Companies','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'Florists and Decorators','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'Photography and Videography','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'Entertainment','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'Event Furniture and Rentals','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'Event Technology and App Providers','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'Event Security Services','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'Transportation Services: For transportation and logistics','created_at'=>now(),'updated_at'=>now()],
         ]);
     }
 }

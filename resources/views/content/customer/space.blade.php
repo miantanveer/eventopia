@@ -797,7 +797,8 @@
                     <div class="card custom-card card-raduas">
                         <div class="container-fluid">
                             <div class="border-bottom-0 p-0 ps-6 font_size pt-4">
-                                <h4><b style="color:black;">{{lang('What kind of ')}}{{lang(@$type)}}{{lang(' are you looking for?')}}</b></h4>
+                                <h4><b style="color:black;">{{lang('What kind of ')}}{{lang(@$type)}}{{lang(' are you
+                                        looking for?')}}</b></h4>
                             </div>
                             <div class="overflow-auto" style="overflow: auto !important;">
                                 <div class="card-body pt-2">
@@ -915,8 +916,10 @@
                                     </div>
                                     @endif
                                 </div>
-                                <div class="row">
-                                    <div class="col-12 col-md-4 text-md-start text-center">
+                                <div id="paginator">
+                                    {{@$listing->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}} 
+                                </div>
+                                    {{-- <div class="col-12 col-md-4 text-md-start text-center">
                                         <p class="text-start ms-3 mt-5">Showing 1-24 of 12647</p>
                                     </div>
                                     <div class="col-12 col-md-5 text-md-start text-center">
@@ -940,7 +943,7 @@
                                             </ul>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <hr class="bg-dark">
                                 <div class="">
                                     <p><a href="#">See all off-site spaces in Chicago</a></p>
