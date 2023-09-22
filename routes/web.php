@@ -35,6 +35,8 @@ Route::get('/', function () {
     return view('content.landing-page');
 });
 
+Route::get('test', [OrderController::class, 'test'])->name('test');
+
 // Header become seller
 Route::get('list-space', [ListingSpaceController::class, 'listSpace'])->name('list-space');
 Route::get('list-entertainment', [EntertainmentController::class, 'listEntertainment'])->name('list-entertainment');
@@ -248,3 +250,6 @@ Route::group(['middleware' => ['user.auth']], function () {
     Route::get('/entertainment/update/form/step/7/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep7'])->name('load_entertainment_form_step_7');
     Route::post('/entertainment/update/form/step/7/{id}', [EntertainmentController::class, 'UpdateFormStep7'])->name('update_entertainment_form_7');
 });
+
+// Log Viewer
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
