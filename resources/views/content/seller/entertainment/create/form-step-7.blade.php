@@ -240,6 +240,8 @@
                                             @endforeach
                                         </div>
                                     </div>
+                                    <hr class="bg-dark">
+
                                     @if (@$key !== null)
                                         <div class="float-end">
                                             <button class="btn btn-primary">{{lang('Update')}}</button>

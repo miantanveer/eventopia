@@ -83,7 +83,7 @@
                                     </p>
                                     <div class="row">
                                         @foreach($cancellation as $key=>$data)
-                                        <div class="col-3">
+                                        <div class="col-md-3 col-12">
                                             <label class="custom-control">
                                                 <input type="radio" name="cancellation_policy"
                                                     data-parsley-errors-container="#radio_errors" required
@@ -93,7 +93,7 @@
                                                 <span>{{lang($data->title)}}</span>
                                             </label>
                                         </div>
-                                        <div class="col-9">
+                                        <div class="col-md-9 col-12">
                                             <p>{{lang($data->description)}}
                                             </p>
                                         </div>

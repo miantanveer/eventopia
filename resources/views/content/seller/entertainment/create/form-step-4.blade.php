@@ -39,6 +39,12 @@
             color: red !important;
             /* Change to your desired color */
         }
+
+        @media screen and (min-width: 0px) and (max-width: 500px) {
+            .h3_sz{
+                font-size: 1.3rem;
+            }
+        }
     </style>
 @endsection
 @section('content')
@@ -63,7 +69,7 @@
                             <div id="step-3" class="mb-5">
                                 <div class="container">
                                     <div class="text-center mb-6">
-                                        <h3 class="mt-3 mt-1"><b>{{lang('Upload photos / videos of your entertainment &
+                                        <h3 class="mt-3 mt-1 h3_sz"><b>{{lang('Upload photos / videos of your entertainment &
                                                 talent')}}</b>
                                         </h3>
                                         <p class="">{{lang('Photos / videos are the first thing that guests will see. We

@@ -47,6 +47,8 @@
     <div class="col-12 mt-lg-9">
         <div class="card">
             <div class="card-body">
+            <form action="{{ route('entertainment_form_3', $id) }}" method="POST"
+                            class="border mt-lg-6 validation">
                 <div class="row">
                     <div id="step-4" class="col-lg-7 col-12">
                         @if ($errors->any())
@@ -58,8 +60,7 @@
                             </ul>
                         </div>
                         @endif
-                        <form action="{{ route('entertainment_form_3', $id) }}" method="POST"
-                            class="border mt-lg-6 validation">
+                        
                             @csrf
                             <div class="row">
                                 <div class="card-header mb-3">
@@ -104,7 +105,7 @@
                             </div>
                             <br>
                             <hr class="border-3 bg-dark">
-                        </form>
+                        
                     </div>
                     <div class="col-lg-5 col-12 mt-5 mt-lg-0">
                         <div class="map_height overflow-auto" id="mapContainer">
@@ -120,6 +121,7 @@
                         lang('Previous')}}</a>
                     <button class="btn btn-primary">{{ lang('Next') }}</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>

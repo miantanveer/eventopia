@@ -357,7 +357,6 @@ class EntertainmentController extends UserBaseController
             'contact_first_name' => 'required',
             'contact_last_name' => 'required',
             'contact_num' => 'required',
-            'image' => 'required',
             'eventopia_hear' => 'required',
         ]);
         $filename = '';
