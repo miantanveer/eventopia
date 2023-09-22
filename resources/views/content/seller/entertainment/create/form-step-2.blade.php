@@ -104,7 +104,8 @@
                                                         placeholder="1 to 500" required min="1" step="1"
                                                         data-parsley-errors-container="#error"
                                                         data-parsley-required-message="{{lang('Please Enter Space')}}">
-                                                    <span class="input-group-text" id="basic-addon2">{{lang('sq m')}}</span>
+                                                    <span class="input-group-text" id="basic-addon2">{{lang('sq
+                                                        m')}}</span>
                                                 </div>
                                                 <div id="error"></div>
                                             </div>
@@ -133,37 +134,27 @@
                                         <p class="mt-5">{{lang('Typically, only venues that serve alcohol have age
                                             requirements.')}}
                                         </p>
-                                        {{-- <select name="age" class="form-control form-select select2"
-                                            data-bs-placeholder="{{lang('All Ages')}}" required
-                                            data-parsley-required-message="{{lang('Please Select a value')}}">
-                                            @foreach ($age as $key => $data)
-                                            <option value="{{ $data->name }}" {{ @$entertainment->age == $data->name ?
-                                                'selected' : '' }}>{{ $data->name }}
-                                            </option>
-                                            @endforeach
-                                        </select> --}}
                                         <select class="form-control select2" required name="age[]" data-placeholder="Choose Age" multiple>
-                                            <option value="all" {{ lang(@$entertainment->age == 'all' ? 'selected' : '')
-                                                }}>{{lang("All ages")}}
-                                            </option>
-                                            <option value="10" {{ lang(@$entertainment->age == '0-10' ? 'selected' : '')
-                                                }}>{{lang("Age ")}} 0 - 10
-                                            </option>
-                                            <option value="10" {{ lang(@$entertainment->age == '10' ? 'selected' : '')
-                                                }}>{{lang("Age ")}} 10+
-                                            </option>
-                                            <option value="20" {{ lang(@$entertainment->age == '20' ? 'selected' : '')
-                                                }}>{{lang("Age")}} 20+
-                                            </option>
-                                            <option value="30" {{lang( @$entertainment->age == '30' ? 'selected' : ''
-                                                )}}>{{lang("Age")}} 30+
-                                            </option>
-                                            <option value="40" {{ lang(@$entertainment->age == '40' ? 'selected' : '')
-                                                }}>{{lang("Age")}} 40+
-                                            </option>
-                                            <option value="50" {{ lang(@$entertainment->age == '50' ? 'selected' : '')
-                                                }}>{{lang("Age")}} 50+
-                                            </option>
+                                            @foreach ($ages as $age)
+                                            @if(@$entertainment->age)
+                                                @php
+                                                $selected = false;
+                                                foreach (json_decode($entertainment->age) as $value) {
+                                                    if (str_contains($value, $age->name)) {
+                                                        $selected = true;
+                                                        break;
+                                                    }
+                                                }
+                                                @endphp
+                                                <option value="{{ $age->name }}" {{ $selected ? 'selected="selected"' : ''}}>
+                                                    {{ lang("Age ") }} {{ $age->name }}
+                                                </option>
+                                                @else
+                                                <option value="{{ $age->name }}">
+                                                    {{ lang("Age ") }} {{ $age->name }}
+                                                </option>
+                                                @endif
+                                            @endforeach
                                         </select>
                                         <hr class="bg-dark">
                                     </div>
@@ -178,7 +169,9 @@
                                             buzzers,
                                             floors,
                                             stairs/elevator access etc.')}}</li>
-                                        <textarea name="arrival" id="" cols="30" rows="5" class="w-100 form-control p-5" placeholder="Add description" placeholder="Enter Arrival Instructions">{{ @$entertainment->arrival }}</textarea>
+                                        <textarea name="arrival" id="" cols="30" rows="5" class="w-100 form-control p-5"
+                                            placeholder="Add description"
+                                            placeholder="Enter Arrival Instructions">{{ @$entertainment->arrival }}</textarea>
                                         <p><i class="fa fa-lock"></i>&nbsp; {{lang("Don't worry, we'll only share this
                                             with
                                             guests

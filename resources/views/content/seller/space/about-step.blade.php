@@ -223,36 +223,27 @@
                                     <h2>{{ lang("Who's allowed in your space?") }}</h2>
 
                                     <div class="form-group">
-                                        <select class="form-control select2" required name="allowed_age[]"
-                                            data-placeholder="Choose Age" multiple>
-                                            <option value="all" {{ lang(@$space->allowed_age == 'all' ? 'selected' : '')
-                                                }}>
-                                                {{ lang('All ages') }}
-                                            </option>
-                                            <option value="0-10 " {{ lang(@$space->allowed_age == '0-10' ? 'selected' :
-                                                '') }}>
-                                                {{ lang('Age ') }} 0 - 10
-                                            </option>
-                                            <option value="10-20 " {{ lang(@$space->allowed_age == '10-20' ? 'selected'
-                                                : '') }}>
-                                                {{ lang('Age ') }} 10 - 20
-                                            </option>
-                                            <option value="20-30 " {{ lang(@$space->allowed_age == '20-30' ? 'selected'
-                                                : '') }}>
-                                                {{ lang('Age') }} 20 - 30
-                                            </option>
-                                            <option value="30-40 " {{ lang(@$space->allowed_age == '30-40' ? 'selected'
-                                                : '') }}>
-                                                {{ lang('Age') }} 30 - 40
-                                            </option>
-                                            <option value="40-50 " {{ lang(@$space->allowed_age == '40-50' ? 'selected'
-                                                : '') }}>
-                                                {{ lang('Age') }} 40 - 50
-                                            </option>
-                                            <option value="50+ " {{ lang(@$space->allowed_age == '50+' ? 'selected' :
-                                                '') }}>
-                                                {{ lang('Age') }} 50+
-                                            </option>
+                                        <select class="form-control select2" required name="allowed_age[]" data-placeholder="Choose Age" multiple>
+                                            @foreach ($ages as $age)
+                                            @if(@$space->allowed_age)
+                                                @php
+                                                $selected = false;
+                                                foreach (json_decode($space->allowed_age) as $value) {
+                                                    if (str_contains($value, $age->name)) {
+                                                        $selected = true;
+                                                        break;
+                                                    }
+                                                }
+                                                @endphp
+                                                <option value="{{ $age->name }}" {{ $selected ? 'selected="selected"' : ''}}>
+                                                    {{ lang("Age ") }} {{ $age->name }}
+                                                </option>
+                                                @else
+                                                <option value="{{ $age->name }}">
+                                                    {{ lang("Age ") }} {{ $age->name }}
+                                                </option>
+                                                @endif
+                                            @endforeach
                                         </select>
                                     </div>
 

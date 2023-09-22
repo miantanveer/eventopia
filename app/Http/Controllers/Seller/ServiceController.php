@@ -108,11 +108,17 @@ class ServiceController extends UserBaseController
             'destination' => 'required',
             'planning' => 'required',
             'activities' => 'required',
+            'development' => 'required',
+            'concept_building' => 'required',
+            'planning_developement' => 'required',
         ]);
         $service = Service::find($id);
         $service->destination = $request->destination;
         $service->planing = $request->planning;
         $service->activities = $request->activities;
+        $service->development = $request->development;
+        $service->concept_building = $request->concept_building;
+        $service->planning_developement = $request->planning_developement;
         $service->last_steps = 'step-3';
         $service->save();
         return redirect()->route('service-form-4', ['id' => $id]);

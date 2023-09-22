@@ -72,8 +72,8 @@ class EntertainmentController extends UserBaseController
     public function loadFormStep2($id)
     {
         $entertainment = Entertainment::find($id);
-        $age = Age::get();
-        return view('content\seller\entertainment\create\form-step-2', ['id' => $id, 'entertainment' => $entertainment, 'age' => $age]);
+        $ages = Age::get();
+        return view('content\seller\entertainment\create\form-step-2', ['id' => $id, 'entertainment' => $entertainment, 'ages' => $ages]);
     }
     public function FormStep2(Request $req, $id)
     {

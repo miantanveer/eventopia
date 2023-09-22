@@ -20,3 +20,4 @@
 
     <!-- COLOR SKIN CSS -->
     <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{asset('assets/css/color1.css')}}" />
+    @yield('css-styles')

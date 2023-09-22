@@ -132,6 +132,11 @@
                                             <option value="5 PM" class="option">5 PM</option>
                                             <option value="6 PM" class="option">6 PM</option>
                                             <option value="7 PM" class="option">7 PM</option>
+                                            <option value="8 PM" class="option">8 PM</option>
+                                            <option value="9 PM" class="option">9 PM</option>
+                                            <option value="10 PM" class="option">10 PM</option>
+                                            <option value="11 PM" class="option">11 PM</option>
+                                            <option value="12 PM" class="option">12 PM</option>
                                         </select>
                                     </div>
                                 </div>
