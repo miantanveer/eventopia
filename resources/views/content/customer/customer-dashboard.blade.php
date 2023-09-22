@@ -129,18 +129,18 @@
                     <div class="card-body pt-0">
                         <div class="mt-2 row">
                             <div class="col-6">
-                                <h3 class="d-inline-block mb-2">{{ lang($upComingSpaceBookings) }}</h3>
+                                <h3 class="d-inline-block mb-2">{{ lang($pendingSpaceBookings) }}</h3>
                                 <p>{{ lang('Pending Bookings') }}</p>
                                 <div class="progress h-2 mt-2">
-                                    <div class="progress-bar bg-primary" style="width: {{ $spaceUpcomingProgress }}%;"
+                                    <div class="progress-bar bg-primary" style="width: {{ $spacePendingProgress }}%;"
                                         role="progressbar"></div>
                                 </div>
                             </div>
                              <div class="col-6">
-                                <h5 class="d-inline-block mb-2">{{ lang($previousSpaceBookings) }}</h5>
-                                <p>{{ lang('Active Booking') }}</p>
+                                <h5 class="d-inline-block mb-2">{{ lang($activeSpaceBookings) }}</h5>
+                                <p>{{ lang('Accepted Booking') }}</p>
                                 <div class="progress h-2 mt-2">
-                                    <div class="progress-bar bg-primary" style="width: {{ $spacePreviousProgress }}%;"
+                                    <div class="progress-bar bg-primary" style="width: {{ $spaceActiveProgress }}%;"
                                         role="progressbar"></div>
                                 </div>
                             </div>
@@ -192,18 +192,18 @@
                     <div class="card-body pt-0">
                         <div class="mt-2 row">
                             <div class="col-6">
-                                <h3 class="d-inline-block mb-2">{{ lang($upComingEnterBookings) }}</h3>
+                                <h3 class="d-inline-block mb-2">{{ lang($pendingEnterBookings) }}</h3>
                                 <p>{{ lang('Pending Bookings') }}</p>
                                 <div class="progress h-2 mt-2">
-                                    <div class="progress-bar bg-primary" style="width: {{ $enterUpcomingProgress }}%;"
+                                    <div class="progress-bar bg-primary" style="width: {{ $enterPendingProgress }}%;"
                                         role="progressbar"></div>
                                 </div>
                             </div>
                            <div class="col-6">
-                                <h3 class="d-inline-block mb-2">{{ lang($previousEnterBookings) }}</h3>
-                                <p>{{ lang('Active Booking') }}</p>
+                                <h3 class="d-inline-block mb-2">{{ lang($activeEnterBookings) }}</h3>
+                                <p>{{ lang('Accepted Booking') }}</p>
                                 <div class="progress h-2 mt-2">
-                                    <div class="progress-bar bg-danger" style="width: {{ $enterPreviousProgress }}%;"
+                                    <div class="progress-bar bg-danger" style="width: {{ $enterActiveProgress }}%;"
                                         role="progressbar"></div>
                                 </div>
                             </div>
@@ -253,18 +253,18 @@
                     <div class="card-body pt-0">
                         <div class="mt-2 row">
                             <div class="col-6">
-                                <h3 class="d-inline-block mb-2">{{ lang($upComingServiceBookings) }}</h3>
+                                <h3 class="d-inline-block mb-2">{{ lang($pendingServiceBookings) }}</h3>
                                 <p>{{ lang('Pending Bookings') }}</p>
                                 <div class="progress h-2 mt-2">
-                                    <div class="progress-bar bg-primary" style="width: {{ $enterUpcomingProgress }}%;"
+                                    <div class="progress-bar bg-primary" style="width: {{ $servicePendingProgress }}%;"
                                         role="progressbar"></div>
                                 </div>
                             </div>
                              <div class="col-6">
-                                <h3 class="d-inline-block mb-2">{{ lang($previousServiceBookings) }}</h3>
-                                <p>{{ lang('Active Booking') }}</p>
+                                <h3 class="d-inline-block mb-2">{{ lang($activeServiceBookings) }}</h3>
+                                <p>{{ lang('Accepted Booking') }}</p>
                                 <div class="progress h-2 mt-2">
-                                    <div class="progress-bar bg-primary" style="width: {{ $enterPreviousProgress }}%;"
+                                    <div class="progress-bar bg-primary" style="width: {{ $serviceActiveProgress }}%;"
                                         role="progressbar"></div>
                                 </div>
                             </div>
@@ -276,7 +276,7 @@
                                 <h3 class="d-inline-block mb-2">{{ $cancelServiceBookings }}</h3>
                                 <p>{{ lang('Cancelled Booking') }}</p>
                                 <div class="progress h-2 mt-2">
-                                    <div class="progress-bar bg-danger" style="width: {{ $enterCancelProgress }}%;"
+                                    <div class="progress-bar bg-danger" style="width: {{ $serviceCancelProgress }}%;"
                                         role="progressbar"></div>
                                 </div>
                             </div>

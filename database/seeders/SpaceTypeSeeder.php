@@ -13,18 +13,14 @@ class SpaceTypeSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\SpaceType::create(['type' => 'Restaurant']);
-        \App\Models\SpaceType::create(['type' => 'Hotel']);
-        \App\Models\SpaceType::create(['type' => 'Conference center']);
-        \App\Models\SpaceType::create(['type' => 'Business Center']);
-        \App\Models\SpaceType::create(['type' => 'Community Center']);
-        \App\Models\SpaceType::create(['type' => 'Sport Club']);
-        \App\Models\SpaceType::create(['type' => 'Art Gallery']);
-        \App\Models\SpaceType::create(['type' => 'Academic Venue']);
-        \App\Models\SpaceType::create(['type' => 'Stately home']);
-        \App\Models\SpaceType::create(['type' => 'Stadium / Arena']);
-        \App\Models\SpaceType::create(['type' => 'Parks / field']);
-        \App\Models\SpaceType::create(['type' => 'Club']);
-        \App\Models\SpaceType::create(['type' => 'hall']);
+        \App\Models\SpaceType::create(['type' => 'Hotels']);
+        \App\Models\SpaceType::create(['type' => 'Event Halls and Convention Centers']);
+        \App\Models\SpaceType::create(['type' => 'Event Venues']);
+        \App\Models\SpaceType::create(['type' => 'Conference Centers']);
+        \App\Models\SpaceType::create(['type' => 'Event Management Companies']);
+        \App\Models\SpaceType::create(['type' => 'Government Facilities']);
+        \App\Models\SpaceType::create(['type' => 'Universities and Educational Institutions']);
+        \App\Models\SpaceType::create(['type' => 'Private Event Spaces']);
+        \App\Models\SpaceType::create(['type' => 'Community Centers']);
     }
 }

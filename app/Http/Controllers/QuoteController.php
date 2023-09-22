@@ -8,6 +8,9 @@ use App\Events\NotificationEvent;
 use App\Models\Quote;
 use App\Models\Cart;
 use App\Models\Service;
+use App\Mail\EmailVerfication;
+use Illuminate\Support\Facades\Mail;
+
 
 class QuoteController extends UserBaseController
 {
@@ -84,9 +87,14 @@ class QuoteController extends UserBaseController
         $quote = Quote::find($id);
         $quote->status = 2;
         $quote->save();
+        if($quote->status == 2){
+            // Customer
+            $this->sendAcceptMail($quote->user->email);
+            // Seller
+            $this->sendAcceptMail($quote->service->user->email);
+        }
         $exists = Cart::whereServiceId($quote->service_id)->whereUserId(user_id())->exists();
         if($exists){
-
             return redirect()->route('checkout');
         }
         else{
@@ -144,5 +152,9 @@ class QuoteController extends UserBaseController
             event($event);
         }
         return redirect()->back()->with('success','Quote Declined Successfully.');
+    }
+    public function sendAcceptMail($email)
+    {
+        Mail::to($email)->send(new EmailVerfication('Quote request accepted.'));
     }
 }

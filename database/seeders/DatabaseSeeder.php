@@ -51,6 +51,8 @@ class DatabaseSeeder extends Seeder
             ServiceTeamsSeeder::class,
             OperatingDaysSeeder::class,
             OperatingHoursSeeder::class,
+            EntertainmentTypeSeeder::class,
+            EntertainmentCategorySeeder::class,
         ]);
     }
 }

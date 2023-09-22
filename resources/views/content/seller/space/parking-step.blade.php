@@ -124,7 +124,7 @@
                                             <div class="col-12">
                                                 <div class="form-check float-end     pb-3 p-0 form-switch">
                                                     <label class="form-check-label" for="flexSwitchCheckChecked"></label>
-                                                <input required class="form-check-input"
+                                                <input  class="form-check-input"
                                                     type="checkbox" role="switch" id="flexSwitchCheckChecked3" checked
                                                     onchange="toggleOptions()">
                                                 </div>

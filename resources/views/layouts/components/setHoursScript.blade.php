@@ -35,9 +35,9 @@
             var day = $(this).data('day');
             startTime(day);
         });
-       
+
         // Function to handle start time selection
-        
+
         // Function to handle switch toggle
         function handleSwitchToggle(inputId, descriptionClass, contentClass, selectClass, HoursMore, day) {
             const switchInput = $('#' + inputId);
@@ -120,7 +120,6 @@
                                 <div class="col-6">
                                     <div class="form-group">
                                         <select name="`+weekDay+`_start_time_`+iteration+`" class="form-control form-select select2" id="`+weekDay+`-start-time-toggle-`+iteration+`" onchange="startTimeToggle(`+iteration+`,'`+weekDay+`')">
-                                            <option value="" selected="" disabled>Start Time</option>
                                             <option value="9 AM" class="option">9 AM</option>
                                             <option value="10 AM" class="option">10 AM</option>
                                             <option value="11 AM" class="option">11 AM</option>
@@ -132,13 +131,18 @@
                                             <option value="5 PM" class="option">5 PM</option>
                                             <option value="6 PM" class="option">6 PM</option>
                                             <option value="7 PM" class="option">7 PM</option>
+                                            <option value="8 PM" class="option">8 PM</option>
+                                            <option value="9 PM" class="option">9 PM</option>
+                                            <option value="10 PM" class="option">10 PM</option>
+                                            <option value="11 PM" class="option">11 PM</option>
+                                            <option value="12 PM" class="option">12 PM</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group">
                                         <select name="` + weekDay + `_end_time_` + iteration +`" class="form-control form-select select2 " id="` + weekDay +`-end-time-toggle-` + iteration + `" data-bs-placeholder="Select Country" tabindex="-1" aria-hidden="true">
-                                            <option value="" selected="" disabled>Start Time</option>
+                                            <option value="12 PM" selected="">12 PM</option>
                                         </select>
                                     </div>
                                 </div>

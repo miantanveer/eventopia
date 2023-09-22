@@ -24,18 +24,6 @@ class UserSeeder extends Seeder
         ]);
         User::insert([
             [
-                'first_name'=>'Super',
-                'last_name'=>'Admin',
-                'customer_id' => null,
-                'email'=>'admin@admin.com',
-                'phone_number'=>'+9231014782103',
-                'date_of_birth'=>'2000-02-01',
-                'password'=>Hash::make('123456'),
-                'status'=>'1',
-                'created_at'=>now(),
-                'updated_at'=>now(),
-            ],
-            [
                 'first_name'=>'Seller',
                 'last_name'=>'Harrison',
                 'customer_id' => $customer->id ?? null,
@@ -53,6 +41,18 @@ class UserSeeder extends Seeder
                 'customer_id' => $customer->id ?? null,
                 'email'=>'customer@example.com',
                 'phone_number'=>'+92310182100',
+                'date_of_birth'=>'2000-02-01',
+                'password'=>Hash::make('123456'),
+                'status'=>'1',
+                'created_at'=>now(),
+                'updated_at'=>now(),
+            ],
+            [
+                'first_name'=>'Super',
+                'last_name'=>'Admin',
+                'customer_id' => null,
+                'email'=>'admin@admin.com',
+                'phone_number'=>'+9231014782103',
                 'date_of_birth'=>'2000-02-01',
                 'password'=>Hash::make('123456'),
                 'status'=>'1',

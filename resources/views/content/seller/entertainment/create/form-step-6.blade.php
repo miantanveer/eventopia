@@ -40,16 +40,6 @@
         <div class="card">
             <div class="card-body">
                 <div id="smartwizard-3">
-                    {{-- <ul class="justify-content-around">
-                        <li><a href="#step-1">Step 1</a></li>
-                        <li><a href="#step-2">Step 2</a></li>
-                        <li><a href="#step-3">Step 3</a></li>
-                        <li><a href="#step-4">Step 4</a></li>
-                        <li><a href="#step-5">Step 5</a></li>
-                        <li><a href="#step-6">Step 6</a></li>
-                        <li><a href="#step-7">Step 7</a></li>
-                        <li><a href="#step-8">Step 8</a></li>
-                    </ul> --}}
                     <div>
                         @if ($errors->any())
                         <div class="alert alert-danger">
@@ -83,7 +73,7 @@
                                     </p>
                                     <div class="row">
                                         @foreach($cancellation as $key=>$data)
-                                        <div class="col-3">
+                                        <div class="col-md-3 col-12">
                                             <label class="custom-control">
                                                 <input type="radio" name="cancellation_policy"
                                                     data-parsley-errors-container="#radio_errors" required
@@ -93,7 +83,7 @@
                                                 <span>{{lang($data->title)}}</span>
                                             </label>
                                         </div>
-                                        <div class="col-9">
+                                        <div class="col-md-9 col-12">
                                             <p>{{lang($data->description)}}
                                             </p>
                                         </div>
