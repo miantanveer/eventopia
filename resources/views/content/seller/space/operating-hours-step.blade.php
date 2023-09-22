@@ -50,21 +50,8 @@
                 <div class="card-header border-bottom-0">
                     <h3 class="card-title"></h3>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-md-5 p-0">
                     <div id="smartwizard-3">
-                        {{-- <ul>
-                            <li><a href="#step-1">Space Address</a></li>
-                            <li><a href="#step-2">Setup</a></li>
-                            <li><a href="#step-3">About your space</a></li>
-                            <li><a href="#step-4">Photos</a></li>
-                            <li><a href="#step-5">Hours</a></li>
-                            <li><a href="#step-6">Cleaning Policy</a></li>
-                            <li><a href="#step-7">Cancellation</a></li>
-                            <li><a href="#step-8">Listing</a></li>
-                            <li><a href="#step-9">Profile</a></li>
-                            <li><a href="#step-10">Review Policies</a></li>
-
-                        </ul> --}}
                         <div>
                             <div id="step-5" class="">
                                 <h2 style="text-align:center;">{{lang('Step 5 of 9')}}</h2>

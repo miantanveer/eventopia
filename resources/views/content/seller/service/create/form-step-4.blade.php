@@ -31,7 +31,7 @@
                             <form action="{{ route('service_form_4', $id) }}" method="POST" class="border mt-5 validate">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-lg-8 mb-5   ">
                                         <div class="mb-3">
                                             <label class="form-control-label">{{ lang('Service Category') }}</label>
                                             <select name="category" required
@@ -95,7 +95,7 @@
                                         <input type="hidden" name="lat" value="{{ @$service->lat }}" id="lat">
                                         <input type="hidden" name="lng" value="{{ @$service->lng }}" id="lng">
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4">
                                         <div class="map_height overflow-auto" id="mapContainer">
                                             <h4 class="fw-bolder">
                                                 {{ lang('Use the map pin position to add an address.') }}

@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body p-md-5 p-0">
                     <div id="smartwizard-3">
                     <div>
                         @if ($errors->any())

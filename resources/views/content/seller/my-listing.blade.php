@@ -36,11 +36,11 @@
                 <div class="col-md-3 col-12 ps-4 mb-3 mb-md-0">
                     <h3 class="number-font mb-0">{{lang('Listings')}}</h3>
                 </div>
-                <div class="col-md-9 col-12 text-end">
+                <div class="col-md-9 col-12 text-md-end">
                     <button type="button" class="btn btn-primary">
                         <a class="text-white" href="{{ route('list-space') }}">{{lang('Add a space')}}</a>
                     </button>
-                    <button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary my-3 my-sm-0">
                         <a class="text-white" href="{{ route('list-entertainment') }}">{{lang('Add an Entertainment')}}</a>
                     </button>
                     <button type="button" class="btn btn-primary">

@@ -103,13 +103,13 @@
     </div>
     @endif
 
-    {{-- <div class="col-xl-1 col-lg-2 col-md-2 col-sm-6 col-6 pe-0">
+    <div class="col-xl-1 col-lg-2 col-md-2 col-sm-6 col-6 pe-0 d-block d-md-none">
         <form action="#" class="mt-2">
             <button id="typeCategories" class="form-control btn_background w-style span_attendees"> <img
                     src="{{ asset('assets/images/brand/equalizer.png') }}" class="w-5 span_attendees" alt=""> {{
                 lang('More filters') }}</button>
         </form>
-    </div> --}}
+    </div>
 
     <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 d-md-block d-none">
         <form class="mt-2">

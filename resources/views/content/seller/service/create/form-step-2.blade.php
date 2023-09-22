@@ -17,6 +17,11 @@
             color: red !important;
             /* Change to your desired color */
         }
+        @media screen and (min-width: 0px) and (max-width: 500px) {
+    .h2_font_sz {
+        font-size: 1.4rem !important;
+    }
+}
     </style>
 @endsection
 
@@ -27,16 +32,9 @@
                 <div class="card-body">
 
                     <div id="smartwizard-3">
-                        {{-- <ul class="justify-content-around">
-                            <li><a href="#step-1">About Service</a></li>
-                            <li><a href="#step-2">Photos</a></li>
-                            <li><a href="#step-3">Detail</a></li>
-                            <li><a href="#step-4">Pricing</a></li>
-                            <li><a href="#step-5">Team</a></li>
-                        </ul> --}}
                         <div id="step-2" class="mb-5">
                             <div class="text-center">
-                                <h2 class="fw-bolder">
+                                <h2 class="fw-bolder h2_font_sz">
                                     {{lang('Upload photos of your services')}}
                                 </h2>
                                 <p>{{lang('Photos are the first thing that guests will see. We recommend adding 10 or more high
@@ -44,7 +42,7 @@
                             </div>
                             <div class="row">
                                 <h5>{{lang('Photo requirements:')}}</h5>
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <ul>
                                         <li class="m-3" style="list-style: circle">
                                             {{lang('High resolution - At least 1,000 pixels wide')}}
@@ -54,9 +52,9 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     <ul>
-                                        <li class="m-3" style="list-style: circle">
+                                        <li class="m-md-3 mt-0 mx-3" style="list-style: circle">
                                             {{lang('Horizontal orientation - No vertical photos')}}
                                         </li>
                                         <li class="m-3" style="list-style: circle">
