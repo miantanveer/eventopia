@@ -39,14 +39,14 @@ class LandingController extends UserBaseController
                         if ($req->has('price')) {
                             $price = $req->price;
 
-                            $priceRanges = [0, 100, 250, 450, 999];
+                            $priceRanges = [0, 1000, 2500, 4500, 9999];
 
                             foreach ($priceRanges as $index => $range) {
                                 if ($price == $range) {
                                     return $subquery->whereBetween('price', [$priceRanges[$index - 1], $priceRanges[$index]]);
                                     break;
-                                } elseif ($price == '1000') {
-                                    $subquery->where('price', '>=', 1000);
+                                } elseif ($price == '10000') {
+                                    $subquery->where('price', '>=', 5000);
                                     break;
                                 }
                             }

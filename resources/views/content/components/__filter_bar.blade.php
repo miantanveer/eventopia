@@ -11,23 +11,23 @@
                     <div class="px-5 pt-5 pb-2">
                         <label class="custom-control custom-radio">
                             <input type="radio" onclick="selected()" class="custom-control-input" name="price"
-                                value="100">
-                            <span class="custom-control-label">{{ lang('Up to $100') }}</span>
+                                value="{{@$type == 'service' ? '1000' : '100'}}">
+                            <span class="custom-control-label">{{ lang('Up to ') }}{{@$type == 'service' ? 'SAR 1000' : 'SAR 100'}}</span>
                         </label>
                         <label class="custom-control custom-radio">
                             <input type="radio" onclick="selected()" class="custom-control-input" name="price"
-                                value="250">
-                            <span class="custom-control-label">{{ lang('$100 to $250') }}</span>
+                                value="{{@$type == 'service' ? '2500' : '250'}}">
+                            <span class="custom-control-label">{{  @$type == 'service' ? 'SAR 1000 to SAR 2500' : 'SAR 100 to SAR 250' }}</span>
                         </label>
                         <label class="custom-control custom-radio">
                             <input type="radio" onclick="selected()" class="custom-control-input" name="price"
-                                value="450">
-                            <span class="custom-control-label">{{ lang('$250 to $450') }}</span>
+                                value="{{@$type == 'service' ? '4500' : '450'}}">
+                            <span class="custom-control-label">{{ @$type == 'service' ? 'SAR 2500 to SAR 4500' : 'SAR 250 to SAR 450'  }}</span>
                         </label>
                         <label class="custom-control custom-radio">
                             <input type="radio" onclick="selected()" class="custom-control-input" name="price"
-                                value="1000">
-                            <span class="custom-control-label">{{ lang('$450+') }}</span>
+                                value="{{@$type == 'service' ? '5000' : '1000'}}">
+                            <span class="custom-control-label">{{ @$type == 'service' ? 'SAR 4500+' : 'SAR 450+'  }}</span>
                         </label>
                     </div>
                     <div class="row mt-5 mb-1">
