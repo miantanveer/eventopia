@@ -31,12 +31,12 @@
 
                             <li class="list-group-item">
                                 <div class="row">
-                                    <div class="col-6">
+                                    <div class="col-8">
                                         <h5><i class="fa fa-check-square text-primary"></i> &nbsp; {{lang('1. About your
                                             service')}}</h5>
                                         <p class="ms-5">{{lang('Add a title, description, and rules')}}</p>
                                     </div>
-                                    <div class="col-6 text-end">
+                                    <div class="col-4 text-end">
                                         <a class="btn btn-primary mt-3 text-white"
                                             href="{{URL('/service-form-steps')}}">{{lang('Start')}}</a>
                                     </div>
