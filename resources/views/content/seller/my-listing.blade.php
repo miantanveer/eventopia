@@ -332,7 +332,7 @@
                                 @endforeach
                             </div>
                             @endforeach
-                            {{@$spaces->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}} 
+                            {{@$spaces->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}}
 
                             {{-- {!! @$spaces->links() !!} --}}
                         </div>
@@ -401,7 +401,7 @@
                         </div>
                     </div>
                     @endforeach
-                    {{@$service->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}} 
+                    {{@$service->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}}
 
                     {{-- {!! $service->links() !!} --}}
                     @foreach ($entertainment as $key => $data)
@@ -522,7 +522,7 @@
                         </div>
                     </div>
                     @endforeach
-                    {{@$entertainments->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}} 
+                    {{@$entertainment->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}}
                 </div>
             </div>
         </div>

@@ -39,7 +39,7 @@ class OrderController extends UserBaseController
             })->orWhereHas('entertainment', function ($entertainmentQuery) {
                 $entertainmentQuery->whereUserId(user_id());
             });
-        })->whereStatus(2)->count();
+        })->whereStatus(5)->count();
 
         $this->pendingBookings = Order::where(function ($query) {
             $query->whereHas('service', function ($serviceQuery) {

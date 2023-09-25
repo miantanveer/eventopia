@@ -226,20 +226,25 @@ class BookingController extends UserBaseController
     {
         $order = Order::find($id);
         $get_charge = json_decode($order->stripe_txn_resp);
-        $amount = $get_charge->amount - ($req->deduct_amount * 100);
-        try {
-            $refund = $this->stripe->refunds->create([
-                'charge' => $get_charge->id,
-                'amount' => $amount,
-            ]);
+        if (isset($get_charge)) {
+            $amount = $get_charge->amount - ($req->deduct_amount * 100);
+            try {
+                $refund = $this->stripe->refunds->create([
+                    'charge' => $get_charge->id,
+                    'amount' => $amount,
+                ]);
 
-            $order->update(['status' => 3,'is_refunded' => 1, 'refund_resp' => json_encode($refund)]);
+                $order->update(['status' => 3,'is_refunded' => 1, 'refund_resp' => json_encode($refund)]);
+                return redirect()->back()->with('success', 'order cancelled successfully.');
+
+            } catch (ApiErrorException $e) {
+                $errorMessage = $e->getMessage();
+                return redirect()->back()->with('error','Refund failed' . $errorMessage);
+            }
+        }else {
+            $order->update(['status' => 3,'is_refunded' => 1, 'refund_resp' => json_encode(['status' => 'Amount was not deduct previously so we just updated its status.'])]);
             return redirect()->back()->with('success', 'order cancelled successfully.');
-
-        } catch (ApiErrorException $e) {
-            $errorMessage = $e->getMessage();
-            return redirect()->back()->with('error','Refund failed' . $errorMessage);
         }
+
     }
 }
- 

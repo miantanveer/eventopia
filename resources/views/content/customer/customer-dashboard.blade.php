@@ -84,7 +84,7 @@
                                                 <td>{{ lang($totalBooking->type) }}</td>
                                                 <td>{{ $totalBooking->date }}</td>
                                                 <td>{{ $totalBooking->amount }}</td>
-                                                <td>{{ $totalBooking->status == 1 ? lang('Upcoming') : ($totalBooking->status == 2 ? lang('Active') : ($totalBooking->status == 3 ? lang('Cancelled') : lang('Previous'))) }}
+                                                <td>{{ $totalBooking->status == 1 ? lang('Upcoming') : ($totalBooking->status == 2 ? lang('Accepted') : ($totalBooking->status == 3 ? lang('Cancelled') : ($totalBooking->status == 4 ? lang('Completed') : lang('Active')))) }}
                                                 </td>
                                             </tr>
 
