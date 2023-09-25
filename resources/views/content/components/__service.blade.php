@@ -11,8 +11,7 @@ $lng = $value->lng;
         <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
             <div class="me-2 card-background">
                 <button type="button" class="btn mt-1 mb-1 me-3">
-                    <span class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span
-                            class="bg-white p-1 span-design">{{lang('SR')}}</span>&nbsp;
+                    <span class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span class="bg-white p-1 span-design">{{lang('SR')}}</span>&nbsp;
                         {{lang('From SAR')}}
                         {{ @$value->price }}/
                         {{lang('Hour')}}</span>
