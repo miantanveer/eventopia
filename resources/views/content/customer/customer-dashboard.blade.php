@@ -123,7 +123,7 @@
                     <div class="card-header pb-0 border-bottom-0">
                         <h3 class="number-font  text-truncate">{{ lang('Space') }}</h3>
                         <div class="card-options">
-                            <img src="{{ asset('assets/images/icons/service_icon2.png') }}" alt="">
+                            <img src="{{ asset('assets/images/icons/service_icon_dark.png') }}" alt="">
                         </div>
                     </div>
                     <div class="card-body pt-0">
@@ -186,7 +186,7 @@
                         <h3 class="number-font  text-truncate">{{ lang('Entertainment & Talents') }}</h3>
 
                         <div class="card-options">
-                            <img src="{{ asset('assets/images/icons/talent_icon.png') }}" alt="">
+                            <img src="{{ asset('assets/images/icons/talent_icon_dark.png') }}" alt="">
                         </div>
                     </div>
                     <div class="card-body pt-0">
@@ -247,7 +247,7 @@
                     <div class="card-header pb-0 border-bottom-0">
                         <h3 class="number-font text-truncate">{{ lang('Services') }}</h3>
                         <div class="card-options">
-                            <img src="{{ asset('assets/images/icons/service_icon.png') }}" alt="">
+                            <img src="{{ asset('assets/images/icons/services_icon-dark.png') }}" alt="">
                         </div>
                     </div>
                     <div class="card-body pt-0">
@@ -315,7 +315,7 @@
                                         <p class="text-black mb-0">{{ lang('Total:') . $activeBookingCount }}</p>
                                     </div>
                                     <div class="card-options">
-                                        <i class="fa fa-calendar-check-o text-primary fa-3x"></i>
+                                        <i class="fa fa-calendar-check-o text-dark fa-3x"></i>
                                     </div>
                                 </div>
                             </div>
@@ -338,7 +338,7 @@
                                         <p class="text-black mb-0">{{ lang('Total:') . $cancelBookingCount }}</p>
                                     </div>
                                     <div class="card-options">
-                                        <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
+                                        <i class="fa fa-calendar-times-o text-dark fa-3x"></i>
                                     </div>
                                 </div>
                             </div>

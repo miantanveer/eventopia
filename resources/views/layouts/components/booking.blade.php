@@ -47,10 +47,10 @@
                             <div class="col-12 mt-5 ">
                                 <div class="card" id="modal3">
                                     <div class="card-body text-center border p-4 pb-5">
-                                        <i class="fa fa-calendar fs-30 text-primary lh-1 my-4 d-inline-block"></i>
+                                        <i class="fa fa-calendar fs-30 text-dark lh-1 my-4 d-inline-block"></i>
                                         <p class="mb-4 mx-4">{{ lang('You have no bookings.') }}</p>
                                         <form action="{{ route('spaces') }}" method="GET">
-                                            <button class="btn btn-primary mt-2 mb-0 ">{{ lang('Book Now') }}</button>
+                                            <button class="btn btn-dark mt-2 mb-0 ">{{ lang('Book Now') }}</button>
                                         </form>
                                     </div>
                                 </div>
