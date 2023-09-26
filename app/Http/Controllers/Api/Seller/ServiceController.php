@@ -221,4 +221,100 @@ class ServiceController extends UserBaseController
             return response()->json(['error'=> $th->getMessage()],400);
         }
     }
+
+    public function loadserviceForm6($id)
+    {
+        $service = Service::find($id);
+        return response()->json(['id' => $id, 'service' => $service],200);
+    }
+
+    public function serviceForm6(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'price' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
+        $service = Service::find($id);
+        $service->price = $request->price;
+        $service->last_steps = 'step-6';
+        $service->save();
+        return response()->json(['id' => $id],200);
+    }
+
+    public function loadserviceForm7($id)
+    {
+        $team = ServiceTeam::find($id);
+        return response()->json(['id' => $id, 'team' => $team],200);
+    }
+
+    public function serviceForm7(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'destination' => 'required',
+            'decription' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
+        $filename = '';
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $foldername = '/uploads/seller/teams/';
+            $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
+            $image->move(public_path() . $foldername, $filename);
+        }
+        $service = Service::find($id);
+        $service->last_steps = 'step-7';
+        $service->save();
+        $serviceteam = new ServiceTeam();
+        $serviceteam->service_id = $id;
+        $serviceteam->team_name = $request->destination;
+        $serviceteam->team_description = $request->decription;
+        $serviceteam->image = $filename;
+        $serviceteam->save();
+        $this->teamMember($serviceteam->id, $request->destination);
+        if ($request->has('destination1')) {
+            $this->teamMember($serviceteam->id, $request->destination1);
+        }
+
+        if ($request->has('destination2')) {
+            $this->teamMember($serviceteam->id, $request->destination2);
+        }
+
+        if ($request->has('destination3')) {
+            $this->teamMember($serviceteam->id, $request->destination3);
+        }
+
+        return response()->json(['success'=>"Service Created Successfully"],200);
+    }
+
+    public function teamMember($id, $destination)
+    {
+        $teamname = new TeamMembers();
+        $teamname->service_teams_id = $id;
+        $teamname->name = $destination;
+        $teamname->save();
+    }
+
+    public function destroy($id)
+    {
+        $service = Service::whereUserId(user_id())->find($id);
+        $pre_image = ServiceImages::whereServiceId($id)->exists();
+        if ($pre_image) {
+            $delete_img = ServiceImages::whereServiceId($id)->get();
+            if (isset($delete_img)) {
+                foreach ($delete_img as $key => $data) {
+                    $file_path = public_path('/uploads/seller/service/') . $data->image;
+                    if (file_exists($file_path)) {
+                        unlink($file_path);
+                        $data->delete();
+                    }
+                }
+            }
+        }
+        $service->delete();
+        return response()->json(['success'=> 'Service Deleted Successfully'],200);
+    }
 }

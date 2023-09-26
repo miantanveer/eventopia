@@ -22,6 +22,7 @@ class User extends Authenticatable
         'customer_id',
         'first_name',
         'last_name',
+        'is_admin',
         'date_of_birth',
         'email',
         'phone_number',

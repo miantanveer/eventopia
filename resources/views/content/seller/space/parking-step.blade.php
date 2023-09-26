@@ -51,9 +51,9 @@
                 font-size: 80% !important;
             }
             .p-ser-sz, .img-sz-p{
-                font-size: 90% !important; 
+                font-size: 90% !important;
             }
-            
+
             .se-sz{
                 font-size: 70% !important;
             }
@@ -64,9 +64,9 @@
                 font-size: 80% !important;
             }
             .p-ser-sz, .img-sz-p{
-                font-size: 90% !important; 
+                font-size: 90% !important;
             }
-            
+
             .se-sz{
                 font-size: 70% !important;
             }
@@ -117,7 +117,7 @@
                                     <br>
                                     <hr class="style1"><br>
                                     <div class="inner-steps2 mt-2 mb-3">
-                                        <h1><strong class="h1-se-sz">{{ lang('Describe the parking options') }}</strong></h1>                                        
+                                        <h1><strong class="h1-se-sz">{{ lang('Describe the parking options') }}</strong></h1>
                                             <div class="col-12">
                                                 <p><b>{{ lang('Are there parking options at or near your space?') }}</b></p>
                                             </div>
@@ -128,7 +128,7 @@
                                                     type="checkbox" role="switch" id="flexSwitchCheckChecked3" checked
                                                     onchange="toggleOptions()">
                                                 </div>
-                                            
+
                                             </div>
                                         <h3><strong>{{ lang('Select all') }}</strong></h3>
                                     </div>
@@ -186,7 +186,7 @@
                                                         <textarea name="security_devices_description" id="security_devices_description" cols="30" rows="5"
                                                             class="form-control w-100 p-5" placeholder="{{ lang('Add description') }}">{{ lang(@$space->security_devices_description ?? '') }}</textarea>
                                                     </div>
-                                                
+
                                             </div>
                                             </p>
                                             <br>
@@ -234,7 +234,7 @@
     <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/select2.js') }}"></script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc">
     </script>
     <script>
         $(document).ready(function() {

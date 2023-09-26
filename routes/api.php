@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\Customer\CartController;
 use App\Http\Controllers\Api\Customer\OrderController;
 use App\Http\Controllers\Api\Customer\PaymentController;
 use App\Http\Controllers\Api\Customer\BookingController;
+use App\Http\Controllers\Api\Seller\BookingController as SellerBookingController;
 use App\Http\Controllers\Api\Seller\OrderController as SellerOrderController;
 use App\Http\Controllers\Api\Seller\SpaceController;
 use App\Http\Controllers\Api\Seller\EntertainmentController;
@@ -93,7 +94,8 @@ Route::prefix('customer')->middleware('auth:sanctum')->group(function(){
 
 Route::prefix('seller')->middleware('auth:sanctum')->group(function(){
     Route::prefix('booking')->group(function(){
-        Route::get('pending-quote', [BookingController::class, 'pendingQuoteRequest']);
+        Route::get('pending-quote', [SellerBookingController::class, 'pendingQuoteRequest']);
+        Route::get('pending/{type}', [SellerBookingController::class, 'pendingBookings']);
     
     });
 
@@ -166,10 +168,8 @@ Route::prefix('seller')->middleware('auth:sanctum')->group(function(){
         Route::post('/step-3/{id}', [ServiceController::class, 'serviceForm3']);
         Route::post('/step-4/{id}', [ServiceController::class, 'serviceForm4']);
         Route::post('/step-5/{id}', [ServiceController::class, 'serviceForm5']);
-        Route::post('/step-6/{id}', [ServiceController::class, 'FormStep6']);
-        Route::post('/step-7/{id}', [ServiceController::class, 'FormStep7']);
-        Route::post('/step-8/{id}', [ServiceController::class, 'FormStep8']);
-        Route::post('/step-9/{id}', [ServiceController::class, 'FormStep9']);
+        Route::post('/step-6/{id}', [ServiceController::class, 'serviceForm6']);
+        Route::post('/step-7/{id}', [ServiceController::class, 'serviceForm7']);
         
     });
     Route::delete('service/delete/{id}', [ServiceController::class, 'destroy']);
@@ -180,11 +180,9 @@ Route::prefix('seller')->middleware('auth:sanctum')->group(function(){
         Route::get('/step-3/{id}', [ServiceController::class, 'loadserviceForm3']);
         Route::get('/step-4/{id}', [ServiceController::class, 'loadServiceForm4']);
         Route::get('/step-5/{id}', [ServiceController::class, 'loadServiceForm5']);
-        Route::get('/step-6/{id}', [ServiceController::class, 'loadFormStep6']);
-        Route::get('/step-7/{id}', [ServiceController::class, 'loadFormStep7']);
-        Route::get('/step-8/{id}', [ServiceController::class, 'loadFormStep8']);
-        Route::get('/step-9/{id}', [ServiceController::class, 'loadFormStep9']);
-
+        Route::get('/step-6/{id}', [ServiceController::class, 'loadserviceForm6']);
+        Route::get('/step-7/{id}', [ServiceController::class, 'loadserviceForm7']);
+        
     });
 
 });
