@@ -69,9 +69,9 @@
                                                     placeholder="{{lang('Seller Quote Description')}}" style="height: 100px"></textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="amount">{{lang('Price')}}</label>
+                                                <label for="amount">{{lang('Price in SAR')}}</label>
                                                 <input type="number" name="amount" required class="form-control"
-                                                    id="amount" placeholder="{{lang('Price')}}">
+                                                    id="amount" placeholder="{{lang('Price in SAR')}}">
                                             </div>
                                         </div>
                                     </div>

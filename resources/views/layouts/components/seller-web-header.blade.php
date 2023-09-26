@@ -62,7 +62,7 @@
                                         <div id="notify_service"></div>
                                         @foreach (@$notifies as $notify)
                                             @if (@$notify->type == 'service')
-                                                <a class="dropdown-item d-flex" href="{{route('pending-quotes')}}">
+                                                <a class="dropdown-item d-flex" href="{{route('pending-quote-requests')}}">
                                                     <div class="me-3 notifyimg bg-primary brround box-shadow-primary">
                                                         <i class="fe fe-dollar-sign"></i>
                                                     </div>
