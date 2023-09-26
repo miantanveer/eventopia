@@ -287,7 +287,7 @@
                     @php
                         $value = @$service->price;
                         $parts = explode(';', $value);
-                        
+
                         if (count($parts) === 2) {
                             $min = $parts[0];
                             $max = $parts[1];
@@ -295,7 +295,7 @@
                     @endphp
                     <div class="mt-3 text-center">
                         <h2>{{lang('Message Seller')}}</h2>
-                        <p>{{lang('Starting Cost: ')}} {{@$min}} {{lang('from')}} {{@$max}} </p>
+                        <p>{{lang('Starting Cost: ')}} {{@$min}} {{lang(' - ')}} {{@$max}} {{lang(' SAR')}}</p>
                     </div>
                     <hr class="border-3">
                     <div class="">
@@ -314,7 +314,7 @@
                                     </div>
                                     <input type="number" class="form-control mb-3" required name="guests" placeholder="Number of Guests">
                                     <textarea name="description" id="description" required class="form-control" rows="3" class="mb-3"
-                                        placeholder="Interduce yourself and the share your event vision"></textarea>
+                                        placeholder="Interduce yourself and the share your event vision and requirements"></textarea>
                                     <div class="mt-3">
                                         <p>{{lang("By clicking 'Request Quote', you agree that your information
                                             will be shared with the vendor. Please see our Privacy Policy

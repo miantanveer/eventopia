@@ -916,7 +916,7 @@
                                     @endif
                                 </div>
                                 <div id="paginator">
-                                    {{@$listing->links('vendor\pagination\tailwind')}} 
+                                    {{@$listing->links('vendor\pagination\tailwind')}}
                                 </div>
                                 {{-- <div class="row">
                                     <div class="col-12 col-md-4 text-md-start text-center">
@@ -1115,7 +1115,7 @@
 
 @section('scripts')
 <script
-    src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+    src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc">
 </script>
 @include('content.components.__map')
 <!-- OWL CAROUSEL JS-->

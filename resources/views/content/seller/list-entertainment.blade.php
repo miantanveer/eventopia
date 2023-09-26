@@ -13,7 +13,7 @@
                 <div class="card-header pb-0 border-bottom-0">
                     <div class="row w-100 align-items-center">
                         <div class="col-12">
-                            <h3 class="number-font mb-2">{{lang('Hb, tell us about your entertainment & talent.')}}</h3>
+                            <h3 class="number-font mb-2">{{lang(user_name() . ', tell us about your entertainment & talent.')}}</h3>
                         </div>
                         <div class="col-12 pe-0">
                             <p>{{lang('The more you share, the faster you can get a booking.')}}</p>

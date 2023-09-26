@@ -18,9 +18,14 @@
                                 <h3>Main</h3>
                             </li>
                             <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href=""><i
+                                <a class="side-menu__item" data-bs-toggle="slide" href="{{route('admin.dashboard.index')}}"><i
                                         class="side-menu__icon fe fe-home"></i><span
                                         class="side-menu__label">Dashboard</span></a>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="{{route('admin.users.index')}}"><i
+                                        class="side-menu__icon fe fe-users"></i><span
+                                        class="side-menu__label">Users</span></a>
                             </li>
                             {{-- <li class="sub-category">
                                 <h3>UI Kit</h3>
