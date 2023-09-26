@@ -229,7 +229,7 @@
                                         <td>{{ lang($booking->type) }}</td>
                                         <td>{{ lang($booking->date) }}</td>
                                         <td>{{ lang($booking->amount) }}</td>
-                                        <td>{{ lang($booking->status == 0 ? 'Pending' : ($booking->status == 1 ? 'Review' : ($booking->status == 2 ? 'Active' : ($booking->status == 3 ? 'Cancel' : 'Completed')))) }}
+                                        <td>{{ lang($booking->status == 0 ? 'Pending' : ($booking->status == 1 ? 'Review' : ($booking->status == 2 ? 'Accepted' : ($booking->status == 3 ? lang('Cancelled') : ($booking->status == 4 ? lang('Completed') : lang('Active')))))) }}
                                         </td>
                                     </tr>
 

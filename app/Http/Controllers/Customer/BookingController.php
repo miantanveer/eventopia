@@ -16,7 +16,7 @@ class BookingController extends UserBaseController
 {
     public function space_index()
     {
-        $this->listing = Space::whereLastStep('10')->where('user_id', '!=', auth()->user()->id)->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->get();
+        $this->listing = Space::whereLastStep('10')->where('user_id', '!=', auth()->user()->id)->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->inRandomOrder()->paginate(6);
         $this->count = Space::whereStatus('1')->where('user_id', '!=', auth()->user()->id)->whereLastStep('10')->count();
         $this->type = 'space';
         return view('content.customer.space', $this->data);
@@ -24,7 +24,7 @@ class BookingController extends UserBaseController
 
     public function entertainment_index()
     {
-        $this->listing = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id)->get();
+        $this->listing = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id)->inRandomOrder()->paginate(6);
         $this->count = Entertainment::where('last_steps', 'step-9')->where('user_id', '!=', auth()->user()->id)->count();
         $this->type = 'entertainment';
         return view('content.customer.space', $this->data);
@@ -32,7 +32,7 @@ class BookingController extends UserBaseController
 
     public function service_index()
     {
-        $this->listing = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->with('serviceImages')->get();
+        $this->listing = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->with('serviceImages')->inRandomOrder()->paginate(6);
         $this->count = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->count();
         $this->type = 'service';
         return view('content.customer.space', $this->data);
@@ -226,20 +226,25 @@ class BookingController extends UserBaseController
     {
         $order = Order::find($id);
         $get_charge = json_decode($order->stripe_txn_resp);
-        $amount = $get_charge->amount - ($req->deduct_amount * 100);
-        try {
-            $refund = $this->stripe->refunds->create([
-                'charge' => $get_charge->id,
-                'amount' => $amount,
-            ]);
+        if (isset($get_charge)) {
+            $amount = $get_charge->amount - ($req->deduct_amount * 100);
+            try {
+                $refund = $this->stripe->refunds->create([
+                    'charge' => $get_charge->id,
+                    'amount' => $amount,
+                ]);
 
-            $order->update(['status' => 3,'is_refunded' => 1, 'refund_resp' => json_encode($refund)]);
+                $order->update(['status' => 3,'is_refunded' => 1, 'refund_resp' => json_encode($refund)]);
+                return redirect()->back()->with('success', 'order cancelled successfully.');
+
+            } catch (ApiErrorException $e) {
+                $errorMessage = $e->getMessage();
+                return redirect()->back()->with('error','Refund failed' . $errorMessage);
+            }
+        }else {
+            $order->update(['status' => 3,'is_refunded' => 1, 'refund_resp' => json_encode(['status' => 'Amount was not deduct previously so we just updated its status.'])]);
             return redirect()->back()->with('success', 'order cancelled successfully.');
-
-        } catch (ApiErrorException $e) {
-            $errorMessage = $e->getMessage();
-            return redirect()->back()->with('error','Refund failed' . $errorMessage);
         }
+
     }
 }
- 

@@ -16,6 +16,7 @@ use App\Http\Controllers\Seller\ListingController;
 use App\Http\Controllers\Seller\ListingSpaceController;
 use App\Http\Controllers\Seller\ServiceController;
 use App\Models\ServiceTitle;
+use App\Models\EntertainmentType;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,8 @@ require_once __DIR__.'/admin.php';
 Route::get('/', function () {
     return view('content.landing-page');
 });
+
+// Route::get('test', [OrderController::class, 'test'])->name('test');
 
 // Header become seller
 Route::get('list-space', [ListingSpaceController::class, 'listSpace'])->name('list-space');
@@ -210,7 +213,8 @@ Route::group(['middleware' => ['user.auth']], function () {
 
     // Entertainment Routes
     Route::get('/entertainment-form-steps', function () {
-        return view('content.seller.entertainment.create.form-step-1');
+        $ent_types = EntertainmentType::get();
+        return view('content.seller.entertainment.create.form-step-1',compact('ent_types'));
     });
     // Form Step 1
     Route::post('/entertainment/form/step/1', [EntertainmentController::class, 'formStep1'])->name('entertainment_form_1');
@@ -248,3 +252,6 @@ Route::group(['middleware' => ['user.auth']], function () {
     Route::get('/entertainment/update/form/step/7/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep7'])->name('load_entertainment_form_step_7');
     Route::post('/entertainment/update/form/step/7/{id}', [EntertainmentController::class, 'UpdateFormStep7'])->name('update_entertainment_form_7');
 });
+
+// Log Viewer
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);

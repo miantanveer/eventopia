@@ -11,6 +11,8 @@ use App\Models\EntActivityAmenity;
 use App\Models\Entertainment;
 use App\Models\EntertainmentActivity;
 use App\Models\EntertainmentImages;
+use App\Models\EntertainmentType;
+use App\Models\EntertainmentCategory;
 use App\Models\OperatingDay;
 use App\Models\OperatingHour;
 use App\Models\Space;
@@ -49,7 +51,8 @@ class EntertainmentController extends UserBaseController
     public function loadFormStep1($id)
     {
         $entertainment = Entertainment::find($id);
-        return view('content\seller\entertainment\create\form-step-1', ['entertainment' => $entertainment, 'id' => $id]);
+        $ent_types = EntertainmentType::get();
+        return view('content\seller\entertainment\create\form-step-1', ['entertainment' => $entertainment,'ent_types'=>$ent_types, 'id' => $id]);
     }
     public function updateFormStep1(Request $req, $id)
     {
@@ -73,7 +76,8 @@ class EntertainmentController extends UserBaseController
     {
         $entertainment = Entertainment::find($id);
         $ages = Age::get();
-        return view('content\seller\entertainment\create\form-step-2', ['id' => $id, 'entertainment' => $entertainment, 'ages' => $ages]);
+        $categories = EntertainmentCategory::get();
+        return view('content\seller\entertainment\create\form-step-2', ['id' => $id, 'entertainment' => $entertainment, 'ages' => $ages, 'categories' => $categories]);
     }
     public function FormStep2(Request $req, $id)
     {
@@ -445,7 +449,7 @@ class EntertainmentController extends UserBaseController
             $delete_img = EntertainmentImages::whereEntertainmentId($id)->get();
             if (isset($delete_img)) {
                 foreach ($delete_img as $key => $data) {
-                    $file_path = public_path('/uploads/seller/entertainment/') . $data->image;
+                    $file_path = $data->image;
                     if (file_exists($file_path)) {
                         unlink($file_path);
                         $data->delete();

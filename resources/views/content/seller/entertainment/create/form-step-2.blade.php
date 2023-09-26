@@ -33,9 +33,9 @@
     }
 
     @media screen and (min-width: 0px) and (max-width: 500px) {
-.p_display-sz{
-    font-size: 1rem !important;
-}
+        .p_display-sz {
+            font-size: 1rem !important;
+        }
     }
 </style>
 @endsection
@@ -61,7 +61,8 @@
                                 @csrf
                                 <div class="container">
                                     <div class="text-center mb-6">
-                                        <h3 class="mt-3 mt-1 p_display-sz"><b>{{lang('What type of entertainment & talent are you
+                                        <h3 class="mt-3 mt-1 p_display-sz"><b>{{lang('What type of entertainment &
+                                                talent are you
                                                 listing?')}}</b>
                                         </h3>
                                         <p class="">{{lang('Create a title that will grab a guest’s interest and
@@ -80,14 +81,21 @@
                                             <p><img src="{{ asset('assets/images/brand/light-bulb.png') }}" class="w-5"
                                                     alt=""> {{lang('Example: “Downtown Loft with Skyline
                                                 View”')}}</p>
-                                            <input type="text" class="w-100 p-4 bg-light-gray border-1 form-control"
-                                                placeholder="{{lang('Enter your entertainment & talent title')}}"
-                                                name="title" value="{{ @$entertainment->title }}" required
-                                                data-parsley-required-message="{{lang('Please Enter entertainment title')}}">
+                                            <select name="title" required
+                                                class="form-control text-white select2-show-search form-select"
+                                                data-placeholder="Choose one">
+                                                @foreach ($categories as $category)
+                                                <option value="{{ $category->name }}" {{ @$entertainment->title ==
+                                                    $category->name ? 'selected' : '' }}>
+                                                    {{ lang($category->name) }}</option>
+                                                @endforeach
+                                            </select>
+                                           
                                             <hr class="bg-dark">
                                         </div>
                                         <div class="mt-7">
-                                            <p class="display-8 p_display-sz"><b>{{lang('How Big is the space needed?')}}</b></p>
+                                            <p class="display-8 p_display-sz"><b>{{lang('How Big is the space
+                                                    needed?')}}</b></p>
                                             <p class="my-4">{{lang('Please only include the size of the space that
                                                 guests can
                                                 use
@@ -113,7 +121,8 @@
                                         </div>
                                     </div>
                                     <div class="">
-                                        <p class="display-8 p_display-sz"><b>{{lang('What are your entertainment / talent rules??
+                                        <p class="display-8 p_display-sz"><b>{{lang('What are your entertainment /
+                                                talent rules??
                                                 ')}}</b>
                                             {{lang('(Optional)')}}
                                         </p>
@@ -128,38 +137,42 @@
                                         <hr class="bg-dark">
                                     </div>
                                     <div class="mt-7">
-                                        <p class="display-8 p_display-sz"><b>{{lang('Who’s allowed to watch your entertainment /
+                                        <p class="display-8 p_display-sz"><b>{{lang('Who’s allowed to watch your
+                                                entertainment /
                                                 talent?')}}</b>
                                         </p>
                                         <p class="mt-5">{{lang('Typically, only venues that serve alcohol have age
                                             requirements.')}}
                                         </p>
-                                        <select class="form-control select2" required name="age[]" data-placeholder="Choose Age" multiple>
+                                        <select class="form-control select2" required name="age[]"
+                                            data-placeholder="Choose Age" multiple>
                                             @foreach ($ages as $age)
                                             @if(@$entertainment->age)
-                                                @php
-                                                $selected = false;
-                                                foreach (json_decode($entertainment->age) as $value) {
-                                                    if (str_contains($value, $age->name)) {
-                                                        $selected = true;
-                                                        break;
-                                                    }
-                                                }
-                                                @endphp
-                                                <option value="{{ $age->name }}" {{ $selected ? 'selected="selected"' : ''}}>
-                                                    {{ lang("Age ") }} {{ $age->name }}
-                                                </option>
-                                                @else
-                                                <option value="{{ $age->name }}">
-                                                    {{ lang("Age ") }} {{ $age->name }}
-                                                </option>
-                                                @endif
+                                            @php
+                                            $selected = false;
+                                            foreach (json_decode($entertainment->age) as $value) {
+                                            if (str_contains($value, $age->name)) {
+                                            $selected = true;
+                                            break;
+                                            }
+                                            }
+                                            @endphp
+                                            <option value="{{ $age->name }}" {{ $selected ? 'selected="selected"' : ''
+                                                }}>
+                                                {{ lang("Age ") }} {{ $age->name }}
+                                            </option>
+                                            @else
+                                            <option value="{{ $age->name }}">
+                                                {{ lang("Age ") }} {{ $age->name }}
+                                            </option>
+                                            @endif
                                             @endforeach
                                         </select>
                                         <hr class="bg-dark">
                                     </div>
                                     <div class="mt-7">
-                                        <p class="display-8 p_display-sz"><b>{{lang('Provide arrival instructions')}} </b>
+                                        <p class="display-8 p_display-sz"><b>{{lang('Provide arrival instructions')}}
+                                            </b>
                                             {{lang('(Optional)')}}</p>
                                         <p class="my-5">{{lang('Help your guests and their attendees find and enter your
                                             event.')}}

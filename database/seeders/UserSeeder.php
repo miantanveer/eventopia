@@ -51,6 +51,7 @@ class UserSeeder extends Seeder
                 'first_name'=>'Super',
                 'last_name'=>'Admin',
                 'customer_id' => null,
+                'is_admin' => '1',
                 'email'=>'admin@admin.com',
                 'phone_number'=>'+9231014782103',
                 'date_of_birth'=>'2000-02-01',

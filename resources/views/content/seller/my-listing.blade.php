@@ -118,7 +118,6 @@
                                 </div>
                             </div>
                             @endforeach
-                            {!! $spaces_remaining->links() !!}
                             @foreach ($service_remaining as $key => $data)
                             @php
                             $progress = 0;
@@ -332,7 +331,9 @@
                                 @endforeach
                             </div>
                             @endforeach
-                            {!! @$spaces->links() !!}
+                            {!! @$spaces->links('vendor\pagination\tailwind') !!}
+                            {{-- {!!@$spaces->links('vendor\pagination\tailwind')!!}  --}}
+
                         </div>
                     </div>
                     @foreach ($service as $key => $data)
@@ -399,7 +400,9 @@
                         </div>
                     </div>
                     @endforeach
-                    {!! $service->links() !!}
+                    {{-- {{@$service->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}} --}}
+
+                    {!! $service->links('vendor\pagination\tailwind') !!}
                     @foreach ($entertainment as $key => $data)
                     <div class="col-12">
                         <div class="card border">
@@ -518,7 +521,8 @@
                         </div>
                     </div>
                     @endforeach
-                    {!! $entertainment->links() !!}
+                    {{-- {{@$entertainments->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}}  --}}
+                    {!! @$entertainment->links('vendor\pagination\tailwind') !!}
                 </div>
             </div>
         </div>

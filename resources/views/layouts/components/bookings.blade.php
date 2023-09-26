@@ -42,7 +42,7 @@
                                                         {{ @$order->amount }}{{ lang('/hour') }}</p>
                                                     <p
                                                         class="card-text text-{{ @$order->status == 0 ? 'info' : (@$order->status == 1 ? 'primary' : (@$order->status == 2 ? 'success' : 'danger')) }}">
-                                                        {{ lang(@$order->status == 0 ? 'Pending' : (@$order->status == 1 ? 'Review' : (@$order->status == 2 ? 'Active' : 'Cancelled'))) }}
+                                                        {{ lang(@$order->status == 0 ? 'Pending' : (@$order->status == 1 ? 'Review' : (@$order->status == 2 ? 'Accepted' : 'Cancelled'))) }}
                                                     </p>
                                                 </div>
                                                 <div class="col-4 my-auto">

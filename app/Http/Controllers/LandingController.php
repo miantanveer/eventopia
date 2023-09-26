@@ -39,20 +39,20 @@ class LandingController extends UserBaseController
                         if ($req->has('price')) {
                             $price = $req->price;
 
-                            $priceRanges = [0, 100, 250, 450, 999];
+                            $priceRanges = [0, 1000, 2500, 4500, 9999];
 
                             foreach ($priceRanges as $index => $range) {
                                 if ($price == $range) {
                                     return $subquery->whereBetween('price', [$priceRanges[$index - 1], $priceRanges[$index]]);
                                     break;
-                                } elseif ($price == '1000') {
-                                    $subquery->where('price', '>=', 1000);
+                                } elseif ($price == '10000') {
+                                    $subquery->where('price', '>=', 5000);
                                     break;
                                 }
                             }
                         }
                     });
-                })->whereLastSteps('step-7')->inRandomOrder()->get();
+                })->whereLastSteps('step-7')->inRandomOrder()->paginate(6);
             $this->type = 'service';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
@@ -127,7 +127,7 @@ class LandingController extends UserBaseController
                             });
                         });
                 })->whereLastSteps('step-9')
-                ->inRandomOrder()->get();
+                ->inRandomOrder()->paginate(6);
             $this->type = 'entertainment';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
@@ -206,7 +206,7 @@ class LandingController extends UserBaseController
                         });
                 })->whereStatus('1')
                 ->whereLastStep('10')
-                ->inRandomOrder()->get();
+                ->inRandomOrder()->paginate(6);
             $this->type = 'space';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();

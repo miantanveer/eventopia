@@ -401,8 +401,7 @@
                     // Add details for the current item to the order summary
                     orderSummary += '<div class="row">';
                     orderSummary += '<div class="col-6"><h5 class="mb-3 fw-bold">' + type + '</h5>';
-                    orderSummary += '<div class=""><img class="avatar-xxl br-7" src="' + image +
-                        '" alt="img"></div>';
+                    orderSummary += '<div class=""><img class="avatar-xxl br-7" src="' + image + '" alt="img"></div>';
                     orderSummary += '</div>';
                     orderSummary += '<div class="col-6"><h5 class="mb-3 fw-bold">' + type + ' Details</h5>';
                     orderSummary += '<div class="align-middle"><p>' + title + '</p></div>';
@@ -427,8 +426,7 @@
                 for (var type in selectedListingIdsByType) {
                     $('#listing_id_' + type).val(selectedListingIdsByType[type].join(','));
                 }
-                var selectedTypesHtml = '<input type="hidden" id="type" name="type" value="' + selectedTypes.join(
-                    ', ') + '">';
+                var selectedTypesHtml = '<input type="hidden" id="type" name="type" value="' + selectedTypes.join(', ') + '">';
                 $('#selected-types').html(selectedTypesHtml);
 
                 $('#subtotal').val(totalAmount.toFixed(2));
@@ -452,8 +450,7 @@
                 orderSummary += '</div>';
                 orderSummary += '<div class="row mt-3 py-3 border-top" style="background-color: #E3E3E3">';
                 orderSummary += '<div class="col-6 float-left"><h6>Total:</h6></div>';
-                orderSummary += '<div class="col-6 text-end">' + (totalAmount - discountTotal).toFixed(2) +
-                    '</div>';
+                orderSummary += '<div class="col-6 text-end">' + (totalAmount).toFixed(2) + '</div>';
                 orderSummary += '</div>';
 
                 // Update the HTML in the #order-summary container

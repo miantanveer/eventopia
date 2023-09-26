@@ -84,7 +84,7 @@
                                                 <td>{{ lang($totalBooking->type) }}</td>
                                                 <td>{{ $totalBooking->date }}</td>
                                                 <td>{{ $totalBooking->amount }}</td>
-                                                <td>{{ $totalBooking->status == 1 ? lang('Upcoming') : ($totalBooking->status == 2 ? lang('Active') : ($totalBooking->status == 3 ? lang('Cancelled') : lang('Previous'))) }}
+                                                <td>{{ $totalBooking->status == 1 ? lang('Upcoming') : ($totalBooking->status == 2 ? lang('Accepted') : ($totalBooking->status == 3 ? lang('Cancelled') : ($totalBooking->status == 4 ? lang('Completed') : lang('Active')))) }}
                                                 </td>
                                             </tr>
 
@@ -138,7 +138,7 @@
                             </div>
                              <div class="col-6">
                                 <h5 class="d-inline-block mb-2">{{ lang($activeSpaceBookings) }}</h5>
-                                <p>{{ lang('Active Booking') }}</p>
+                                <p>{{ lang('Accepted Booking') }}</p>
                                 <div class="progress h-2 mt-2">
                                     <div class="progress-bar bg-primary" style="width: {{ $spaceActiveProgress }}%;"
                                         role="progressbar"></div>
@@ -201,7 +201,7 @@
                             </div>
                            <div class="col-6">
                                 <h3 class="d-inline-block mb-2">{{ lang($activeEnterBookings) }}</h3>
-                                <p>{{ lang('Active Booking') }}</p>
+                                <p>{{ lang('Accepted Booking') }}</p>
                                 <div class="progress h-2 mt-2">
                                     <div class="progress-bar bg-danger" style="width: {{ $enterActiveProgress }}%;"
                                         role="progressbar"></div>
@@ -262,7 +262,7 @@
                             </div>
                              <div class="col-6">
                                 <h3 class="d-inline-block mb-2">{{ lang($activeServiceBookings) }}</h3>
-                                <p>{{ lang('Active Booking') }}</p>
+                                <p>{{ lang('Accepted Booking') }}</p>
                                 <div class="progress h-2 mt-2">
                                     <div class="progress-bar bg-primary" style="width: {{ $serviceActiveProgress }}%;"
                                         role="progressbar"></div>
