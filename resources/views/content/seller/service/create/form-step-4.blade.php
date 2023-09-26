@@ -146,7 +146,7 @@
     <script src="{{ asset('assets/js/form-elements.js') }}"></script>
     {{-- <!-- Gogole Loaction API -->
     <script
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc">
     </script>
 
     <script>
@@ -168,7 +168,7 @@
                 var lat = place.geometry['location'].lat();
                 var lng = place.geometry['location'].lng();
                 var myarr = place.address_components;
-                var keyapi = 'AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E';
+                var keyapi = 'AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc';
                 $('#city').val('')
                 $('#state').val('')
                 $('#country').val('')
@@ -194,7 +194,7 @@
     </script> --}}
 
     <script
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc">
     </script>
 
     <script>
@@ -211,7 +211,7 @@
                 var lat = place.geometry['location'].lat();
                 var lng = place.geometry['location'].lng();
                 var myarr = place.address_components;
-                var keyapi = 'AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E';
+                var keyapi = 'AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc';
                 $('#city').val('')
                 $('#state').val('')
                 $('#country').val('')

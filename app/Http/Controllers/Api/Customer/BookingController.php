@@ -46,18 +46,7 @@ class BookingController extends UserBaseController
         }
         return response()->json($this->data, 200);
     }
-
-    public function pendingQuoteRequest()
-    {
-        $this->quotes = Quote::where(function ($query) {
-            $query->whereHas('service', function ($serviceQuery) {
-                $serviceQuery->whereUserId(user_id());
-            });
-        })->whereIn('status', [0, 1])->get();
-        $this->pendingBookings = null;
-
-        return response()->json($this->data);
-    }
+   
 
     public function pending()
     {

@@ -95,7 +95,7 @@
                         @endphp
                         <div class="col-lg-12 mt-4">
                             <input type="text" class="js-range-slider" name="price" value="" data-type="double"
-                                data-min="0" data-max="10000" data-from="{{@$min}}" data-to="{{@$max}}"
+                                data-min="0" data-max="1000000" data-from="{{@$min}}" data-to="{{@$max}}"
                                 data-grid="true" />
                         </div>
                         <hr class="border-3 bg-dark">
@@ -141,7 +141,7 @@
 <script>
     $(document).ready(function() {
         $('.validate').parsley();
-        
+
         $(".js-range-slider").ionRangeSlider({
             type: "double",
             skin: "round",
@@ -156,9 +156,9 @@
             prettify_separator: ",",
             decorate_both: true
         });
-    
+
     });
-        
+
 
 </script>
 @endsection

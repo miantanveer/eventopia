@@ -6,9 +6,9 @@ use App\Http\Controllers\UserBaseController;
 use App\Models\Entertainment;
 use App\Models\EntertainmentActivity;
 use App\Models\Order;
+use App\Models\Quote;
 use App\Models\Service;
 use App\Models\Space;
-use App\Models\Quote;
 use Illuminate\Http\Request;
 use Stripe\Exception\ApiErrorException;
 
@@ -68,14 +68,14 @@ class BookingController extends UserBaseController
             $query->whereHas('space', function ($subquery) {
                 $subquery->whereUserId(auth()->user()->id);
             })
-            ->orWhereHas('entertainment', function ($subquery) {
-                $subquery->whereUserId(auth()->user()->id);
-            })
-            ->orWhereHas('service', function ($subquery) {
-                $subquery->whereUserId(auth()->user()->id);
-            });
-        })->where('status',1)->get();
-        $this->quotes = null ;
+                ->orWhereHas('entertainment', function ($subquery) {
+                    $subquery->whereUserId(auth()->user()->id);
+                })
+                ->orWhereHas('service', function ($subquery) {
+                    $subquery->whereUserId(auth()->user()->id);
+                });
+        })->where('status', 1)->get();
+        $this->quotes = null;
 
         return view('content.seller.pending-bookings', $this->data);
     }
@@ -96,7 +96,9 @@ class BookingController extends UserBaseController
     {
         try {
             $order = Order::find($id);
-            if (!$order) return redirect()->back()->with('error', 'Order not found.');
+            if (!$order) {
+                return redirect()->back()->with('error', 'Order not found.');
+            }
 
             $charge = $this->stripe->charges->create([
                 'amount' => $order->amount * 100,
@@ -120,31 +122,91 @@ class BookingController extends UserBaseController
 
     public function declineBookings($id)
     {
-        if (Order::find($id)->update(['status' => 3])) return redirect()->back()->with('success', 'Booking request declined successfully.');
+        if (Order::find($id)->update(['status' => 3])) {
+            return redirect()->back()->with('success', 'Booking request declined successfully.');
+        }
+
     }
 
     public function bookings($type, $for)
     {
         if ($type == 'space') {
-            $this->orders = Order::whereType('space')->whereUserId(auth()->user()->id)->paginate(2);
+            $this->orders = Order::whereType('space')->where(function ($query) {
+                $query->whereHas('space', function ($serviceQuery) {
+                    $serviceQuery->whereUserId(user_id());
+                });
+            })->whereUserId(auth()->user()->id)->paginate(2);
         } elseif ($type == 'entertainment') {
-            $this->orders = Order::whereType('entertainment')->whereUserId(auth()->user()->id)->paginate(2);
+            $this->orders = Order::whereType('entertainment')->where(function ($query) {
+                $query->whereHas('entertainment', function ($serviceQuery) {
+                    $serviceQuery->whereUserId(user_id());
+                });
+            })->whereUserId(auth()->user()->id)->paginate(2);
         } elseif ($type == 'service') {
-            $this->orders = Order::whereType('service')->whereUserId(auth()->user()->id)->paginate(2);
+            $this->orders = Order::whereType('service')->where(function ($query) {
+                $query->whereHas('service', function ($serviceQuery) {
+                    $serviceQuery->whereUserId(user_id());
+                });
+            })->whereUserId(auth()->user()->id)->paginate(2);
         } elseif ($type == 'active') {
-            $this->orders = Order::whereUserId(auth()->user()->id)->whereStatus(2)->paginate(2);
+            $this->orders = Order::where(function ($query) {
+                $query->whereHas('space', function ($subquery) {
+                    $subquery->whereUserId(auth()->user()->id);
+                })
+                    ->orWhereHas('entertainment', function ($subquery) {
+                        $subquery->whereUserId(auth()->user()->id);
+                    })
+                    ->orWhereHas('service', function ($subquery) {
+                        $subquery->whereUserId(auth()->user()->id);
+                    });
+            })->whereStatus(2)->get();
         } elseif ($type == 'cancel') {
-            $this->orders = Order::whereUserId(auth()->user()->id)->whereStatus(3)->paginate(2);
+            $this->orders = Order::where(function ($query) {
+                $query->whereHas('space', function ($subquery) {
+                    $subquery->whereUserId(auth()->user()->id);
+                })
+                    ->orWhereHas('entertainment', function ($subquery) {
+                        $subquery->whereUserId(auth()->user()->id);
+                    })
+                    ->orWhereHas('service', function ($subquery) {
+                        $subquery->whereUserId(auth()->user()->id);
+                    });
+            })->whereStatus(3)->get();
+        } elseif ($type == 'pending') {
+            $this->orders = Order::where(function ($query) {
+                $query->whereHas('space', function ($subquery) {
+                    $subquery->whereUserId(auth()->user()->id);
+                })
+                    ->orWhereHas('entertainment', function ($subquery) {
+                        $subquery->whereUserId(auth()->user()->id);
+                    })
+                    ->orWhereHas('service', function ($subquery) {
+                        $subquery->whereUserId(auth()->user()->id);
+                    });
+            })->whereStatus(0)->get();
         } else {
-            $this->orders = Order::whereUserId(auth()->user()->id)->paginate(2);
-        }
-        $for == 'seller' ? $this->sellerHeader = 'required' : $this->sellerHeader = 'not-required';
+            $this->orders = Order::where(function ($query) {
+                $query->whereHas('space', function ($subquery) {
+                    $subquery->whereUserId(auth()->user()->id);
+                })
+                    ->orWhereHas('entertainment', function ($subquery) {
+                        $subquery->whereUserId(auth()->user()->id);
+                    })
+                    ->orWhereHas('service', function ($subquery) {
+                        $subquery->whereUserId(auth()->user()->id);
+                    });
+            })->get();
 
-        if (!$this->orders->isEmpty()) {
-            return view('layouts.components.bookings', $this->data);
+            $this->quotes = Quote::where(function ($query) {
+                $query->whereHas('service', function ($serviceQuery) {
+                    $serviceQuery->whereUserId(user_id());
+                });
+            })->get();
         }
+        // dd($this->orders);
 
-        return view('layouts.components.booking', ['sellerHeader' => $this->sellerHeader]);
+        return view('layouts.components.bookings', $this->data);
+
     }
     public function details($id, $type)
     {
@@ -234,15 +296,15 @@ class BookingController extends UserBaseController
                     'amount' => $amount,
                 ]);
 
-                $order->update(['status' => 3,'is_refunded' => 1, 'refund_resp' => json_encode($refund)]);
+                $order->update(['status' => 3, 'is_refunded' => 1, 'refund_resp' => json_encode($refund)]);
                 return redirect()->back()->with('success', 'order cancelled successfully.');
 
             } catch (ApiErrorException $e) {
                 $errorMessage = $e->getMessage();
-                return redirect()->back()->with('error','Refund failed' . $errorMessage);
+                return redirect()->back()->with('error', 'Refund failed' . $errorMessage);
             }
-        }else {
-            $order->update(['status' => 3,'is_refunded' => 1, 'refund_resp' => json_encode(['status' => 'Amount was not deduct previously so we just updated its status.'])]);
+        } else {
+            $order->update(['status' => 3, 'is_refunded' => 1, 'refund_resp' => json_encode(['status' => 'Amount was not deduct previously so we just updated its status.'])]);
             return redirect()->back()->with('success', 'order cancelled successfully.');
         }
 

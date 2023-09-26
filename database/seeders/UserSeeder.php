@@ -26,6 +26,7 @@ class UserSeeder extends Seeder
             [
                 'first_name'=>'Seller',
                 'last_name'=>'Harrison',
+                'is_admin' => '0',
                 'customer_id' => $customer->id ?? null,
                 'email'=>'seller@example.com',
                 'phone_number'=>'+9231014782101',
@@ -38,6 +39,7 @@ class UserSeeder extends Seeder
             [
                 'first_name'=>'John',
                 'last_name'=>'Wick',
+                'is_admin' => '0',
                 'customer_id' => $customer->id ?? null,
                 'email'=>'customer@example.com',
                 'phone_number'=>'+92310182100',
@@ -50,8 +52,8 @@ class UserSeeder extends Seeder
             [
                 'first_name'=>'Super',
                 'last_name'=>'Admin',
-                'customer_id' => null,
                 'is_admin' => '1',
+                'customer_id' => null,
                 'email'=>'admin@admin.com',
                 'phone_number'=>'+9231014782103',
                 'date_of_birth'=>'2000-02-01',

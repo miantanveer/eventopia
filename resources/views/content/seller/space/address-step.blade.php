@@ -48,7 +48,7 @@
     }
 
     @media(min-width:0px) and (max-width:701px) {
-        
+
     }
 </style>
 @endsection
@@ -175,7 +175,7 @@
 <script src="{{ asset('assets/plugins/select2/select2.full.min.js') }}"></script>
 <script src="{{ asset('assets/js/select2.js') }}"></script>
 <script
-    src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+    src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc">
 </script>
 
 <script>
@@ -192,7 +192,7 @@
                 var lat = place.geometry['location'].lat();
                 var lng = place.geometry['location'].lng();
                 var myarr = place.address_components;
-                var keyapi = 'AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E';
+                var keyapi = 'AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc';
                 $('#city').val('')
                 $('#state').val('')
                 $('#country').val('')

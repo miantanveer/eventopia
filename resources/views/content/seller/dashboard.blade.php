@@ -164,10 +164,10 @@
                 <div class="card-body pt-0">
                     <div class="mt-2 row">
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">{{ $activeBookings }}</h3>
-                            <p>{{ lang('Active Bookings') }}</p>
+                            <h3 class="d-inline-block mb-2">{{ $activeBookings !== null ? $activeBookings : ($acceptedBookingCount !== null ? $acceptedBookingCount : $activeBookings.','.$acceptedBookingCount) }}</h3>
+                            <p>{{ lang('Active Bookings / Upcomming Bookings')}}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: {{ $activeBookingProgress }}%;"
+                                <div class="progress-bar bg-primary" style="width: {{ $activeBookingProgress !== null ? $activeBookingProgress : ($totalBookingsCount !== null ? $acceptedBookingCount/$totalBookingsCount*100 : $activeBookingProgress+$acceptedBookingCount/$totalBookingsCount*100) }}%;"
                                     role="progressbar"></div>
                             </div>
                         </div>
@@ -269,7 +269,7 @@
                         </div>
                         <div class="col-12 text-center">
                             <div class="mb-3">
-                                <a href="#" class="btn btn-primary text-white">{{ lang('View Details') }}</a>
+                                <a href="{{route('bookings',['type' => 'active','for' => 'seller'])}}" class="btn btn-primary text-white">{{ lang('View Details') }}</a>
                             </div>
                         </div>
                     </div>
@@ -290,7 +290,7 @@
                         </div>
                         <div class="col-12 text-center">
                             <div class="mb-3">
-                                <a href="#" class="btn btn-primary text-white">{{lang('View Details')}}</a>
+                                <a href="{{route('bookings',['type' => 'cancel','for' => 'seller'])}}" class="btn btn-primary text-white">{{lang('View Details')}}</a>
                             </div>
                         </div>
                     </div>
@@ -310,7 +310,7 @@
                         </div>
                         <div class="col-12 text-center">
                             <div class="mb-3">
-                                <a href="#" class="btn btn-primary text-white">{{ lang('View Details') }}</a>
+                                <a href="{{route('bookings',['type' => 'pending','for' => 'seller'])}}" class="btn btn-primary text-white">{{ lang('View Details') }}</a>
                             </div>
                         </div>
                     </div>

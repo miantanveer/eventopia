@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AuthenticationController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UsersController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/admin', function () {
@@ -28,4 +29,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin.aut
 
     // Dashboard
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.index');
+
+    // Users
+    Route::get('users', [UsersController::class, 'usersIndex'])->name('users.index');
 });

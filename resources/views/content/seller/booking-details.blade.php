@@ -176,7 +176,7 @@
                                         'radio' => $operatingHour->radio,
                                     ];
                                 }
-                            
+
                                 $numericDay = array_search($dayOfWeek, $weekDays);
                                 if ($numericDay !== false) {
                                     $enabledDays[] = $numericDay;
@@ -458,7 +458,7 @@
                             foreach (@$booking->space->operatingDays as $operatingDay) {
                                 $dayOfWeek = strtolower($operatingDay->week_day);
                                 $operatingHours[$dayOfWeek] = []; // Initialize the array for the day
-                            
+
                                 // Populate the operating hours for the day
                                 foreach (@$operatingDay->operatingHours as $operatingHour) {
                                     $operatingHours[$dayOfWeek][] = [
@@ -467,7 +467,7 @@
                                         'radio' => $operatingHour->radio,
                                     ];
                                 }
-                            
+
                                 $numericDay = array_search($dayOfWeek, $weekDays);
                                 if ($numericDay !== false) {
                                     $enabledDays[] = $numericDay;
@@ -546,7 +546,7 @@
 @section('scripts')
     <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyC5qN37hurCFwbFsZt2nzzwzGcbSt08R5E">
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc">
     </script>
     <script>
         $(document).ready(function() {
