@@ -32,4 +32,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin.aut
 
     // Users
     Route::get('users', [UsersController::class, 'usersIndex'])->name('users.index');
+    Route::post('add-user', [UsersController::class, 'addUser'])->name('add.user');
 });

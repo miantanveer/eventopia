@@ -13,4 +13,10 @@ class UsersController extends AdminBaseController
         $this->users = User::whereIsAdmin('0')->get();
         return view('content.admin.users.index',$this->data);
     }
+
+    public function addUser(Request $req)
+    {
+        $this->users = User::whereIsAdmin('0')->get();
+        return view('content.admin.users.index',$this->data);
+    }
 }
