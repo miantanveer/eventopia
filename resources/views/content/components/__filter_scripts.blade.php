@@ -357,3 +357,67 @@
             }
         })
 </script>
+
+{{-- Google addresses code --}}
+<script>
+$(document).ready(function() {
+            var autocompleteService = new google.maps.places.AutocompleteService();
+
+            function hideDropdown(resultsDiv, inputDiv) {
+                resultsDiv.empty();
+                inputDiv.removeClass("data-appended");
+                inputDiv.css("border-bottom-left-radius", "13px !important").css("border-bottom-right-radius",
+                    "13px !important");
+            }
+
+            function setupLocationAutocomplete(inputId, dropdownId) {
+                const locationInput = $(inputId);
+                const addressDropdown = $(dropdownId);
+
+                locationInput.on('input', function() {
+                    var input = $(this).val();
+                    if (input === '') {
+                        hideDropdown(addressDropdown, locationInput.parent());
+                        return;
+                    }
+                    autocompleteService.getPlacePredictions({
+                        input: input
+                    }, function(predictions, status) {
+                        if (status === google.maps.places.PlacesServiceStatus.OK) {
+                            addressDropdown.empty();
+                            predictions.forEach(function(prediction) {
+                                var addressItem = $(
+                                        '<div class="text-start p-3 drop-address-result">')
+                                    .text(prediction.description);
+                                addressItem.on('click', function() {
+                                    locationInput.val(prediction.description);
+                                    addressDropdown.empty();
+                                    locationInput.parent().removeClass(
+                                        "data-appended");
+                                    locationInput.parent().css(
+                                        "border-bottom-left-radius",
+                                        "13px !important").css(
+                                        "border-bottom-right-radius",
+                                        "13px !important");
+                                });
+                                addressDropdown.append(addressItem);
+                                locationInput.parent().addClass("data-appended");
+                                locationInput.parent().css("border-bottom-left-radius",
+                                    "0px !important").css("border-bottom-right-radius",
+                                    "0px !important");
+                            });
+                        }
+                    });
+                });
+
+                $(document).click(function(event) {
+                    var target = $(event.target);
+                    if (!target.closest(dropdownId).length && !target.is(inputId)) {
+                        hideDropdown(addressDropdown, locationInput.parent());
+                    }
+                });
+            }
+
+            setupLocationAutocomplete("#location", "#addressDropdown");
+        });
+</script>
