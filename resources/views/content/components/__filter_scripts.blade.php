@@ -312,13 +312,19 @@
         $('#categoryDropdown').hide();
     });
 
-    function selected(input) {
+    function selected(input,address) {
         $('#dateTimeModal').modal('hide');
         url = $('#search').val();
         selectedPrice = $('input[name="price"]:checked').val();
         guests = $('input[name="guests"]:checked').val();
-        startTime = $('#start_time').val();
-        endTime = $('#end_time').val();
+        var startTime = '';
+        var endTime = '';
+        $('#start_time').on('change', function() {
+            startTime = $(this).val();
+        });
+        $('#end_time').on('change', function() {
+            endTime = $(this).val();
+        });
         date = $("#hiddenDate").val();
         $.ajax({
             url: url,
@@ -328,7 +334,8 @@
                 'date': date,
                 'keyword': input,
                 'startTime': startTime,
-                'endTime': endTime
+                'endTime': endTime,
+                'address': address
             },
             type: "GET",
             success: function(res) {
@@ -392,6 +399,7 @@ $(document).ready(function() {
                                 addressItem.on('click', function() {
                                     locationInput.val(prediction.description);
                                     addressDropdown.empty();
+                                    selected('',prediction.description);
                                     locationInput.parent().removeClass(
                                         "data-appended");
                                     locationInput.parent().css(
