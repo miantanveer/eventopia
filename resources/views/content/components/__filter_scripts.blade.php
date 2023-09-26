@@ -334,7 +334,6 @@
             success: function(res) {
                 $('#ajax_data').html(res.data);
                 $('#map').html(res.map);
-                $('#paginator').html(res.listing);
             }
         });
     }
