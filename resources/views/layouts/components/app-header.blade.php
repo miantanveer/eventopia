@@ -23,12 +23,12 @@
                                     <div class="d-flex order-lg-2">
                                         <div class="d-flex seller-btn">
                                             <a href="{{ URL('/seller-dashboard') }}"><button
-                                                    class="btn-pill p-2 text-info bg-white border-info">{{lang('Become a
+                                                    class="btn-pill p-2 text-white bg-custom-black">{{lang('Become a
                                                     Seller')}}</button></a>
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
-                                            <a class="nav-link icon text-center" data-bs-target="#country-selector"
+                                            <a class="nav-link icon text-center text-dark" data-bs-target="#country-selector"
                                                 data-bs-toggle="modal">
                                                 <i class="fe fe-globe"></i><span
                                                     class="fs-16 ms-2 d-none d-xl-block"></span>
@@ -36,14 +36,14 @@
                                         </div>
 
                                         <!-- SEARCH -->
-                                        <div class="dropdown  d-flex">
-                                            <a class="nav-link icon theme-layout nav-link-bg layout-setting">
+                                        <div class="dropdown d-flex">
+                                            <a class="nav-link icon theme-layout nav-link-bg text-dark layout-setting">
                                                 <span class="dark-layout"><i class="fe fe-moon"></i></span>
                                                 <span class="light-layout"><i class="fe fe-sun"></i></span>
                                             </a>
                                         </div>
                                         <div class="dropdown  d-flex notifications">
-                                            <a class="nav-link icon" data-bs-toggle="dropdown"><i
+                                            <a class="nav-link icon text-dark" data-bs-toggle="dropdown"><i
                                                     class="fe fe-bell"></i><span class="pulse"></span>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">

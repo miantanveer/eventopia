@@ -37,16 +37,16 @@
                         <form action="{{ route('service_form_7',$id) }}" enctype="multipart/form-data" class="mt-4 mb-5 validate" method="POST" id="last_form">
                             @csrf
                             <div class="row">
-                                <div class="col-9">
+                                <div class="col-lg-8">
                                     <div class="row fieldGroup align-items-center">
                                         <h3 class="fw-bolder">{{lang('Full Name')}}</h3>
-                                        <div class="col-11">
+                                        <div class="col-md-11 col-10">
                                             <div class="form-group mt-3">
                                                 <input type="text" name="destination" value="{{@$team->team_name}}" data-parsley-required-message="{{lang('Team name is required')}}" placeholder="{{lang('Enter Name')}}"
                                                     class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-1 ps-0">
+                                        <div class="col-md-1 col-2 ps-0">
                                             <a class="btn btn-success ms-1 addMore text-white mb-1">+</a>
                                         </div>
                                     </div>
@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-lg-4">
                                     <input type="file" name='image' value="{{@$team->image}}" class="dropify" required data-parsley-errors-container='#file_error' data-parsley-required-message="{{lang('Team Image is required')}}"  />
                                         <div id="file_error"></div>
                                 </div>

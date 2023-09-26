@@ -38,18 +38,8 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body p-md-5 p-0">
                     <div id="smartwizard-3">
-                        {{-- <ul class="justify-content-around">
-                        <li><a href="#step-1">Step 1</a></li>
-                        <li><a href="#step-2">Step 2</a></li>
-                        <li><a href="#step-3">Step 3</a></li>
-                        <li><a href="#step-4">Step 4</a></li>
-                        <li><a href="#step-5">Step 5</a></li>
-                        <li><a href="#step-6">Step 6</a></li>
-                        <li><a href="#step-7">Step 7</a></li>
-                        <li><a href="#step-8">Step 8</a></li>
-                    </ul> --}}
                     <div>
                         @if ($errors->any())
                         <div class="alert alert-danger">

@@ -78,7 +78,7 @@
                     data-parsley-validate>
                     <div class="row">
                         @csrf
-                        <div class="col-sm-6">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="first_name">{{lang('First Name')}}</label>
                                 <div class="">
@@ -134,7 +134,7 @@
                                 <span class="text-danger" id="dob_err"> </span>
                             </div>
                         </div>
-                        <div class="col-lg-6 mb-4 mb-lg-0">
+                        <div class="col-md-6 mb-4 mb-lg-0">
                             <div class="">
                                 <input type="file" class="dropify" name="image">
                             </div>
