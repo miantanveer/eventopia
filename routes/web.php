@@ -36,7 +36,7 @@ Route::get('/', function () {
     return view('content.landing-page');
 });
 
-Route::get('test', [OrderController::class, 'test'])->name('test');
+// Route::get('test', [OrderController::class, 'test'])->name('test');
 
 // Header become seller
 Route::get('list-space', [ListingSpaceController::class, 'listSpace'])->name('list-space');

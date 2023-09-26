@@ -400,7 +400,7 @@
                         </div>
                     </div>
                     @endforeach
-                    {{-- {{@$service->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}}  --}}
+                    {{-- {{@$service->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}} --}}
 
                     {!! $service->links('vendor\pagination\tailwind') !!}
                     @foreach ($entertainment as $key => $data)

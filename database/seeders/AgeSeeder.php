@@ -16,10 +16,10 @@ class AgeSeeder extends Seeder
         Age::insert([
             ['name'=>'All','created_at'=>now(),'updated_at'=>now()],
             ['name'=>'0 - 10+','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'10+','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'20+','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'30+','created_at'=>now(),'updated_at'=>now()],
-            ['name'=>'40+','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'10 - 20 ','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'20 - 30','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'30 - 40','created_at'=>now(),'updated_at'=>now()],
+            ['name'=>'40 - 50','created_at'=>now(),'updated_at'=>now()],
             ['name'=>'50+','created_at'=>now(),'updated_at'=>now()],
         ]);
     }
