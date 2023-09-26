@@ -96,7 +96,7 @@
                 <div class="card-body">
                     <div class="text-end">
                         <a class="modal-effect btn btn-primary mb-4" data-bs-effect="effect-slide-in-right"
-                            data-bs-toggle="modal" href="#my-modal">Add New User</a>
+                            data-bs-toggle="modal" href="#add-user-modal">Add New User</a>
                     </div>
                     <div class="table-responsive">
                         <table id="example2" class="table table-bordered text-nowrap border-bottom">
@@ -130,14 +130,23 @@
                                                     class="fe {{ $user->status == '2' ? 'fe-user-x' : 'fe-user-check' }}"></i>{{ $user->status == '1' ? 'Active' : 'Blocked' }}<a
                                                     class="tag-addon {{ $user->status == '2' ? 'tag-red' : 'tag-green' }}"></a></span>
                                         </td>
-                                        <td class="text-center align-middle">asdfasdf</td>
+                                        <td class="text-center align-middle">
+                                            <div class="btn-list">
+                                                <button id="bEdit" type="button" class="btn btn-sm btn-primary">
+                                                    <span class="fe fe-edit"> </span>
+                                                </button>
+                                                <button id="bDel" type="button" class="btn  btn-sm btn-danger">
+                                                    <span class="fe fe-trash-2"> </span>
+                                                </button>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @empty
-                                <div>
-                                    <tr>
-                                        <td class="text-center align-middle">{{ lang('No Record Found') }}</td>
-                                    </tr>
-                                </div>
+                                    <div>
+                                        <tr>
+                                            <td class="text-center align-middle">{{ lang('No Record Found') }}</td>
+                                        </tr>
+                                    </div>
                                 @endforelse
                             </tbody>
                         </table>
@@ -201,4 +210,12 @@
     <!-- INTERNAL INDEX JS -->
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="{{ asset('assets/js/index1.js') }}"></script>
+    <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#add_user_form').parsley();
+        });
+    </script>
+    <script src="{{ asset('assets/js/email-validate.js') }}"></script>
 @endsection

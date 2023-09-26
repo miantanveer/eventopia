@@ -29,6 +29,7 @@
 
     <!-- Sticky js -->
     <script src="{{asset('assets/js/sticky.js')}}"></script>
+    @include('layouts.components.notification-scripts')
 
     <!-- CUSTOM JS -->
     <script src="{{asset('assets/js/admin-custom.js')}}"></script>
