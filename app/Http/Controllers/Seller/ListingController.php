@@ -15,7 +15,7 @@ class ListingController extends UserBaseController
     {
         // Space Getting
         $this->spaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->whereStatus('1')->with('spaceHaveActivities.activities')->paginate(2);
-        $this->spaces_remaining = Space::where('last_step', '!=', '10')->whereStatus('1')->paginate(2);
+        $this->spaces_remaining = Space::where('last_step', '!=', '10')->whereStatus('0')->get();
         $this->space_acitivities = SpaceActivity::get();
         // Entertainment Getting
         $this->entertainment_remaining = Entertainment::whereUserId(auth()->user()->id)->where('last_steps', '!=', 'step-9')->get();
@@ -51,7 +51,7 @@ class ListingController extends UserBaseController
                 return redirect()->route('cancel-policy-step', ['space_id' => $space->id]);
                 break;
             case '7':
-                return redirect()->route('activities-step', ['space_id' => $space->id]);
+                return redirect()->route('activities-step', ['space_id' => $space->id,'key'=>0]);
                 break;
             case '8':
                 return redirect()->route('contact-step', ['space_id' => $space->id]);

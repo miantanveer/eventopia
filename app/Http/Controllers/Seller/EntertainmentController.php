@@ -449,7 +449,7 @@ class EntertainmentController extends UserBaseController
             $delete_img = EntertainmentImages::whereEntertainmentId($id)->get();
             if (isset($delete_img)) {
                 foreach ($delete_img as $key => $data) {
-                    $file_path = public_path('/uploads/seller/entertainment/') . $data->image;
+                    $file_path = $data->image;
                     if (file_exists($file_path)) {
                         unlink($file_path);
                         $data->delete();

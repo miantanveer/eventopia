@@ -19,7 +19,7 @@ class ListingController extends UserBaseController
     public function listing($type)
     {
         if ($type == 'service') {
-            $this->listing = Service::with('serviceImages', )->get();
+            $this->listing = Service::with('serviceImages')->get();
         } elseif ($type == 'entertainment') {
             $this->listing = Entertainment::with('entertainmentImages', 'entertainmentActivities')->get();
         } elseif ($type == 'space') {
