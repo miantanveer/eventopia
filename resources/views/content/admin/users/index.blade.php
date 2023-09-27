@@ -95,8 +95,7 @@
                 </div>
                 <div class="card-body">
                     <div class="text-end">
-                        <a class="modal-effect btn btn-primary mb-4" data-bs-effect="effect-slide-in-right"
-                            data-bs-toggle="modal" href="#add-user-modal">Add New User</a>
+                        <a class="modal-effect btn btn-primary mb-4" id="addUser">Add New User</a>
                     </div>
                     <div class="table-responsive">
                         <table id="example2" class="table table-bordered text-nowrap border-bottom">
@@ -132,10 +131,13 @@
                                         </td>
                                         <td class="text-center align-middle">
                                             <div class="btn-list">
-                                                <button id="bEdit" type="button" class="btn btn-sm btn-primary">
-                                                    <span class="fe fe-edit"> </span>
+                                                <button class="btn btn-sm btn-primary bEdit"
+                                                    data-user="{{ $user }}">
+                                                    <span class="fe fe-edit"></span>
                                                 </button>
-                                                <button id="bDel" type="button" class="btn  btn-sm btn-danger">
+                                                <button id="bDel" type="button"
+                                                    onclick="deleteModal('{{ route('admin.delete.user', $user->id) }}')"
+                                                    class="btn  btn-sm btn-danger">
                                                     <span class="fe fe-trash-2"> </span>
                                                 </button>
                                             </div>
@@ -211,11 +213,47 @@
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="{{ asset('assets/js/index1.js') }}"></script>
     <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
-    
+
     <script>
         $(document).ready(function() {
-            $('#add_user_form').parsley();
+            $('#user_form').parsley();
         });
     </script>
     <script src="{{ asset('assets/js/email-validate.js') }}"></script>
+    <script>
+        function deleteModal(url) {
+            $('#user-delete-form').attr('action', url);
+            $('#user-delete-modal').modal('show');
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            // Handle click event of "Edit" button
+            $('.bEdit').click(function() {
+                $('.user-modal-title').text('Update User');
+                // Get the user data from the data attribute
+                var userData = $(this).data('user');
+
+                // Populate modal fields with data dynamically
+                $('#first_name').val(userData.first_name);
+                $('#last_name').val(userData.last_name);
+                $('#date_of_birth').val(userData.date_of_birth);
+                $('#status').val(userData.status);
+
+                var editURL = "{{ route('admin.edit.user', ['id' => '__user_id']) }}";
+                editURL = editURL.replace('__user_id', userData.id);
+                $('#user_form').attr('action', editURL);
+
+                // Show the modal
+                $('#user-modal').modal('show');
+            });
+
+            $('#addUser').click(function() {
+                $('#user_form input, #status').val('').filter('#status').val('1');
+                $('#user_form').attr('action', "{{ route('admin.add.user') }}");
+                $('#user-modal').modal('show');
+            });
+        });
+    </script>
 @endsection
