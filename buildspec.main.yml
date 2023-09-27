@@ -2,9 +2,10 @@ version: 0.2
 phases:
   build:
     commands:
-      - cp .env.live .env
+      - cp .env.main .env
       - composer update
       - composer install
+      - npm install
   post_build:
     commands:
       - php artisan migrate:fresh --seed
