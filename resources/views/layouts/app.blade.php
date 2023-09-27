@@ -9,47 +9,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Sash –  Laravel Bootstrap 5 Admin & Dashboard Template">
     <meta name="author" content="SPRUKO™">
-    <meta name="keywords" content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
+    <meta name="keywords"
+        content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
 
     <!-- title -->
     <title>Eventopia</title>
 
     @include('layouts.components.styles')
-
+    @yield('styles')
 </head>
 
 <body class="app sidebar-mini ltr">
 
-        <!-- global-loader -->
-        <div id="global-loader">
-            <img src="{{asset('assets/images/loader.svg')}}" class="loader-img" alt="Loader">
-        </div>
-        <!-- global-loader closed -->
+    <!-- global-loader -->
+    <div id="global-loader">
+        <img src="{{ asset('assets/images/loader.svg') }}" class="loader-img" alt="Loader">
+    </div>
+    <!-- global-loader closed -->
 
-        <!-- page -->
-        <div class="page">
-            <div class="page-main">
+    <!-- page -->
+    <div class="page">
+        <div class="page-main">
 
-                @include('layouts.components.app-header')
+            @include('layouts.components.app-header')
 
-                @include('layouts.components.app-sidebar')
+            @include('layouts.components.app-sidebar')
 
-                    <!--app-content open-->
-                    <div class="main-content app-content mt-0">
-                        <div class="side-app">
+            <!--app-content open-->
+            <div class="main-content app-content mt-0">
+                <div class="side-app">
 
-                            <!-- container -->
-                            <div class="main-container container-fluid">
+                    @php
+                    $currenturl = url()->current();
+                    $lastWord = strrchr($currenturl, '/');
+                    @endphp
+                    <!-- Conditional container -->
+                    @if($lastWord == '/spaces' || $lastWord == '/services' || $lastWord == '/talent-&-entertainments'|| $lastWord == '/search_results')
+                    <div class="">
+                        @else
+                        <div class="main-container container-fluid">
+                            @endif
 
-                                @yield('content')
+                            @yield('content')
 
-                            </div>
-                            <!-- container-closed -->
                         </div>
+                        <!-- container-closed -->
                     </div>
-                    <!--app-content closed-->
                 </div>
-                <!-- page-main closed -->
+                <!--app-content closed-->
+            </div>
+            <!-- page-main closed -->
 
             @include('layouts.components.sidebar-right')
 
@@ -57,13 +66,17 @@
 
             @yield('modal')
 
-            @include('layouts.components.footer')
-
         </div>
         <!-- page -->
 
-        @include('layouts.components.scripts')
+        <!-- global-helper -->
+        @include('layouts.components.global-helper')
 
-    </body>
+        @include('layouts.components.footer')
+
+        @include('layouts.components.scripts')
+        @include('layouts.components.notification-scripts')
+
+</body>
 
 </html>

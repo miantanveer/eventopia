@@ -1,124 +1,22 @@
 <?php
 
-use App\Http\Livewire\About;
-use App\Http\Livewire\Accordion;
-use App\Http\Livewire\AddProduct;
-use App\Http\Livewire\Alerts;
-use App\Http\Livewire\AvatarRadius;
-use App\Http\Livewire\AvatarRound;
-use App\Http\Livewire\Avatarsquare;
-use App\Http\Livewire\Badge;
-use App\Http\Livewire\Blog;
-use App\Http\Livewire\BlogDetails;
-use App\Http\Livewire\BlogPost;
-use App\Http\Livewire\Breadcrumbs;
-use App\Http\Livewire\Buttons;
-use App\Http\Livewire\Calendar;
-use App\Http\Livewire\Calendar2;
-use App\Http\Livewire\Cards;
-use App\Http\Livewire\Carousel;
-use App\Http\Livewire\Cart;
-use App\Http\Livewire\Chart;
-use App\Http\Livewire\ChartChartist;
-use App\Http\Livewire\ChartDonut;
-use App\Http\Livewire\ChartEchart;
-use App\Http\Livewire\ChartFlot;
-use App\Http\Livewire\ChartLine;
-use App\Http\Livewire\ChartMorris;
-use App\Http\Livewire\ChartNvd3;
-use App\Http\Livewire\ChartPie;
-use App\Http\Livewire\Charts;
-use App\Http\Livewire\Chat;
-use App\Http\Livewire\Checkout;
-use App\Http\Livewire\Colors;
-use App\Http\Livewire\Construction;
-use App\Http\Livewire\Counters;
-use App\Http\Livewire\CryptoCurrencies;
-use App\Http\Livewire\Datatable;
-use App\Http\Livewire\Dropdown;
-use App\Http\Livewire\Editprofile;
-use App\Http\Livewire\EditTable;
-use App\Http\Livewire\EmailCompose;
-use App\Http\Livewire\EmailInbox;
-use App\Http\Livewire\EmailRead;
-use App\Http\Livewire\Emptypage;
-use App\Http\Livewire\Error400;
-use App\Http\Livewire\Error401;
-use App\Http\Livewire\Error403;
-use App\Http\Livewire\Error404;
-use App\Http\Livewire\Error500;
-use App\Http\Livewire\Error503;
-use App\Http\Livewire\Faq;
-use App\Http\Livewire\FileAttachments;
-use App\Http\Livewire\FileManager;
-use App\Http\Livewire\FilemanagerDetails;
-use App\Http\Livewire\FilemanagerList;
-use App\Http\Livewire\Footers;
-use App\Http\Livewire\ForgotPassword;
-use App\Http\Livewire\FormAdvanced;
-use App\Http\Livewire\FormEditor;
-use App\Http\Livewire\FormElements;
-use App\Http\Livewire\FormLayouts;
-use App\Http\Livewire\FormValidation;
-use App\Http\Livewire\FormWizard;
-use App\Http\Livewire\Gallery;
-use App\Http\Livewire\Icons;
-use App\Http\Livewire\Icons10;
-use App\Http\Livewire\Icons11;
-use App\Http\Livewire\Icons2;
-use App\Http\Livewire\Icons3;
-use App\Http\Livewire\Icons4;
-use App\Http\Livewire\Icons5;
-use App\Http\Livewire\Icons6;
-use App\Http\Livewire\Icons7;
-use App\Http\Livewire\Icons8;
-use App\Http\Livewire\Icons9;
-use App\Http\Livewire\Index;
-use App\Http\Livewire\Invoice;
-use App\Http\Livewire\Listgroup;
-use App\Http\Livewire\Loaders;
-use App\Http\Livewire\Lockscreen;
-use App\Http\Livewire\Login;
-use App\Http\Livewire\Maps;
-use App\Http\Livewire\Maps1;
-use App\Http\Livewire\Maps2;
-use App\Http\Livewire\Mediaobject;
-use App\Http\Livewire\Modal;
-use App\Http\Livewire\Navigation;
-use App\Http\Livewire\Notify;
-use App\Http\Livewire\NotifyList;
-use App\Http\Livewire\Offcanvas;
-use App\Http\Livewire\Pagination;
-use App\Http\Livewire\Panels;
-use App\Http\Livewire\Pricing;
-use App\Http\Livewire\Profile;
-use App\Http\Livewire\Progress;
-use App\Http\Livewire\Rangeslider;
-use App\Http\Livewire\Rating;
-use App\Http\Livewire\Register;
-use App\Http\Livewire\Scroll;
-use App\Http\Livewire\Scrollspy;
-use App\Http\Livewire\Search;
-use App\Http\Livewire\Services;
-use App\Http\Livewire\Settings;
-use App\Http\Livewire\Shop;
-use App\Http\Livewire\ShopDescription;
-use App\Http\Livewire\Sweetalert;
-use App\Http\Livewire\Switcher1;
-use App\Http\Livewire\Switcher2;
-use App\Http\Livewire\Tables;
-use App\Http\Livewire\Tabs;
-use App\Http\Livewire\Tags;
-use App\Http\Livewire\Terms;
-use App\Http\Livewire\Thumbnails;
-use App\Http\Livewire\Timeline;
-use App\Http\Livewire\Toast;
-use App\Http\Livewire\Tooltipandpopover;
-use App\Http\Livewire\Treeview;
-use App\Http\Livewire\Typography;
-use App\Http\Livewire\UsersList;
-use App\Http\Livewire\Widgets;
-use App\Http\Livewire\Wishlist;
+use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\Customer\BookingController;
+use App\Http\Controllers\Customer\CartController;
+use App\Http\Controllers\Customer\DashboardController;
+use App\Http\Controllers\Customer\PaymentController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\LandingPageController;
+use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\QuoteController;
+use App\Http\Controllers\Seller\EntertainmentController;
+use App\Http\Controllers\Seller\ListingController;
+use App\Http\Controllers\Seller\ListingSpaceController;
+use App\Http\Controllers\Seller\ServiceController;
+use App\Models\ServiceTitle;
+use App\Models\EntertainmentType;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -130,127 +28,230 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
+
+require_once __DIR__.'/admin.php';
 
 Route::get('/', function () {
-    return view('livewire.index');
+    return view('content.landing-page');
 });
-Route::get('index', Index::class);
-Route::get('about', About::class);
-Route::get('accordion', Accordion::class);
-Route::get('add-product', AddProduct::class);
-Route::get('alerts', Alerts::class);
-Route::get('avatar-radius', AvatarRadius::class);
-Route::get('avatar-round', AvatarRound::class);
-Route::get('avatarsquare', Avatarsquare::class);
-Route::get('badge', Badge::class);
-Route::get('blog-details', BlogDetails::class);
-Route::get('blog-post', BlogPost::class);
-Route::get('blog', Blog::class);
-Route::get('breadcrumbs', Breadcrumbs::class);
-Route::get('buttons', Buttons::class);
-Route::get('calendar', Calendar::class);
-Route::get('calendar2', Calendar2::class);
-Route::get('cards', Cards::class);
-Route::get('carousel', Carousel::class);
-Route::get('cart', Cart::class);
-Route::get('chart-chartist', ChartChartist::class);
-Route::get('chart-donut', ChartDonut::class);
-Route::get('chart-echart', ChartEchart::class);
-Route::get('chart-flot', ChartFlot::class);
-Route::get('chart-line', ChartLine::class);
-Route::get('chart-morris', ChartMorris::class);
-Route::get('chart-nvd3', ChartNvd3::class);
-Route::get('chart-pie', ChartPie::class);
-Route::get('chart', Chart::class);
-Route::get('charts', Charts::class);
-Route::get('chat', Chat::class);
-Route::get('checkout', Checkout::class);
-Route::get('colors', Colors::class);
-Route::get('construction', Construction::class);
-Route::get('counters', Counters::class);
-Route::get('crypto-currencies', CryptoCurrencies::class);
-Route::get('datatable', Datatable::class);
-Route::get('dropdown', Dropdown::class);
-Route::get('edit-table', EditTable::class);
-Route::get('editprofile', Editprofile::class);
-Route::get('email-compose', EmailCompose::class);
-Route::get('email-inbox', EmailInbox::class);
-Route::get('email-read', EmailRead::class);
-Route::get('emptypage', Emptypage::class);
-Route::get('error400', Error400::class);
-Route::get('error401', Error401::class);
-Route::get('error403', Error403::class);
-Route::get('error404', Error404::class);
-Route::get('error500', Error500::class);
-Route::get('error503', Error503::class);
-Route::get('faq', Faq::class);
-Route::get('file-attachments', FileAttachments::class);
-Route::get('file-manager', FileManager::class);
-Route::get('filemanager-details', FilemanagerDetails::class);
-Route::get('filemanager-list', FilemanagerList::class);
-Route::get('footers', Footers::class);
-Route::get('forgot-password', ForgotPassword::class);
-Route::get('form-advanced', FormAdvanced::class);
-Route::get('form-editor', FormEditor::class);
-Route::get('form-elements', FormElements::class);
-Route::get('form-layouts', FormLayouts::class);
-Route::get('form-validation', FormValidation::class);
-Route::get('form-wizard', FormWizard::class);
-Route::get('gallery', Gallery::class);
-Route::get('icons', Icons::class);
-Route::get('icons2', Icons2::class);
-Route::get('icons3', Icons3::class);
-Route::get('icons4', Icons4::class);
-Route::get('icons5', Icons5::class);
-Route::get('icons6', Icons6::class);
-Route::get('icons7', Icons7::class);
-Route::get('icons8', Icons8::class);
-Route::get('icons9', Icons9::class);
-Route::get('icons10', Icons10::class);
-Route::get('icons11', Icons11::class);
-Route::get('invoice', Invoice::class);
-Route::get('listgroup', Listgroup::class);
-Route::get('loaders', Loaders::class);
-Route::get('lockscreen', Lockscreen::class);
-Route::get('login', Login::class);
-Route::get('maps', Maps::class);
-Route::get('maps1', Maps1::class);
-Route::get('maps2', Maps2::class);
-Route::get('mediaobject', Mediaobject::class);
-Route::get('modal', Modal::class);
-Route::get('navigation', Navigation::class);
-Route::get('notify-list', NotifyList::class);
-Route::get('notify', Notify::class);
-Route::get('offcanvas', Offcanvas::class);
-Route::get('pagination', Pagination::class);
-Route::get('panels', Panels::class);
-Route::get('pricing', Pricing::class);
-Route::get('profile', Profile::class);
-Route::get('progress', Progress::class);
-Route::get('rangeslider', Rangeslider::class);
-Route::get('rating', Rating::class);
-Route::get('register', Register::class);
-Route::get('scroll', Scroll::class);
-Route::get('scrollspy', Scrollspy::class);
-Route::get('search', Search::class);
-Route::get('services', Services::class);
-Route::get('settings', Settings::class);
-Route::get('shop-description', ShopDescription::class);
-Route::get('shop', Shop::class);
-Route::get('sweetalert', Sweetalert::class);
-Route::get('switcher1', Switcher1::class);
-Route::get('switcher2', Switcher2::class);
-Route::get('tables', Tables::class);
-Route::get('tabs', Tabs::class);
-Route::get('tags', Tags::class);
-Route::get('terms', Terms::class);
-Route::get('thumbnails', Thumbnails::class);
-Route::get('timeline', Timeline::class);
-Route::get('toast', Toast::class);
-Route::get('tooltipandpopover', Tooltipandpopover::class);
-Route::get('treeview', Treeview::class);
-Route::get('typography', Typography::class);
-Route::get('users-list', UsersList::class);
-Route::get('widgets', Widgets::class);
-Route::get('wishlist', Wishlist::class);
+
+// Route::get('test', [OrderController::class, 'test'])->name('test');
+
+// Header become seller
+Route::get('list-space', [ListingSpaceController::class, 'listSpace'])->name('list-space');
+Route::get('list-entertainment', [EntertainmentController::class, 'listEntertainment'])->name('list-entertainment');
+Route::get('list-service', [ServiceController::class, 'listService'])->name('list-service');
+
+// Space Search
+Route::get('search_ajax/{type}', [LandingController::class, 'search'])->name('search_ajax');
+Route::get('search_results', [LandingController::class, 'landing_search'])->name('search_results');
+
+Route::get('space_landing', [LandingController::class, 'space_index'])->name('space_landing_index');
+// Entertainments Search
+Route::get('entertainment_landing', [LandingController::class, 'entertainment_index'])->name('entertainment_landing_index');
+// Space Search
+Route::get('service_landing', [LandingController::class, 'service_index'])->name('service_landing_index');
+
+// Authentications
+Route::get('signup', [AuthenticationController::class, 'signupIndex'])->name('signup');
+Route::post('signup', [AuthenticationController::class, 'signup']);
+Route::get('login', [AuthenticationController::class, 'loginIndex'])->name('login');
+Route::post('login', [AuthenticationController::class, 'login']);
+Route::get('verify-email-phone', [AuthenticationController::class, 'verifyEmailPhoneIndex'])->name('verify-email-phone');
+Route::post('verify-email-phone', [AuthenticationController::class, 'verifyEmailPhone']);
+Route::get('forget-password', [AuthenticationController::class, 'forgetEmailPhoneIndex'])->name('forget-password');
+Route::post('forget-password', [AuthenticationController::class, 'forgetPassword']);
+Route::get('reset-password', [AuthenticationController::class, 'resetPasswordIndex'])->name('reset-password');
+Route::post('reset-password', [AuthenticationController::class, 'resetPassword']);
+Route::post('resend-otp', [AuthenticationController::class, 'sendOtp'])->name('resend-otp');
+
+// Language Function
+Route::get('language/{code}', [LanguageController::class, 'local'])->name('local');
+
+//Logout
+Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout');
+
+Route::group(['middleware' => ['user.auth']], function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('edit-profile', [DashboardController::class, 'editProfileIndex'])->name('edit-profile-index');
+    Route::post('edit-profile', [DashboardController::class, 'editProfile'])->name('edit-profile');
+
+    Route::get('notifications', [NotificationController::class, 'index'])->name('notifications');
+    Route::get('mark-as-read', [NotificationController::class, 'read'])->name('mark_as_read');
+
+    Route::get('/manage-bookings', function () {
+        return view('content.customer.manage-bookings');
+    });
+
+    // Load Listings
+    Route::get('spaces', [BookingController::class, 'space_index'])->name('spaces');
+    Route::get('talent-&-entertainments', [BookingController::class, 'entertainment_index'])->name('entertainments_index');
+    Route::get('services', [BookingController::class, 'service_index'])->name('services');
+    // Load a listing
+    Route::get('space-details/{space_id}', [BookingController::class, 'spaceDetail'])->name('space-details');
+    Route::get('service-details/{id}', [BookingController::class, 'serviceDetail'])->name('service-details');
+    Route::get('entertainment-details/{id}', [BookingController::class, 'entertainmentDetail'])->name('entertainment-details');
+    // Cart Functions
+    Route::post('cart-store/{id}/{type}', [CartController::class, 'store'])->name('cart-store');
+    Route::delete('delete-item/{id}/{type}', [CartController::class, 'destroy'])->name('cart-delete');
+    // Checkout
+    Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
+    // Review & Payment
+    Route::get('review', [PaymentController::class, 'loadReview'])->name('load-review');
+    Route::post('review-pay', [PaymentController::class, 'review'])->name('review-pay');
+    Route::get('payment-successfull', [PaymentController::class, 'successfull'])->name('payment-successfull');
+    Route::post('payment', [PaymentController::class, 'store_payment'])->name('payment-store');
+
+    // Seller payment methods
+    Route::get('payments', [PaymentController::class, 'paymentMethod'])->name('payments');
+    Route::post('add-account', [PaymentController::class, 'addBankAccount'])->name('add-bank-account');
+    Route::post('delete-account/{id}', [PaymentController::class, 'deleteBankAccount'])->name('delete-bank-account');
+
+    // Qutoe functions
+    Route::post('send_quote/{id}', [QuoteController::class, 'send_quote'])->name('send_quote');
+    Route::post('revise_quote/{id}', [QuoteController::class, 'revise_quote'])->name('revise_quote');
+    Route::get('quote/{id}', [QuoteController::class, 'receive_quote'])->name('recieve_quote');
+    Route::post('load-accept-quote/{id}', [QuoteController::class, 'load_accept_quote'])->name('load_accept_quote');
+    Route::get('accept-quote/{id}', [QuoteController::class, 'accept_quote'])->name('accept_quote');
+    Route::get('decline_quote/{id}', [QuoteController::class, 'decline_quote'])->name('decline_quote');
+    Route::get('seller_decline_quote/{id}', [QuoteController::class, 'seller_decline_quote'])->name('seller_decline_quote');
+    Route::post('send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
+
+    Route::get('bookings/{type}/{for}', [BookingController::class, 'bookings'])->name('bookings');
+    Route::post('refund-percentage/{id}/{type}', [BookingController::class, 'refundPercentage'])->name('refund-percentage');
+    Route::post('cancel-booking/{id}', [BookingController::class, 'cancelBooking'])->name('cancel-booking');
+
+    // Seller side
+    // backend k waqt sab ka prefix /seller/ lgana
+    Route::get('seller-dashboard', [OrderController::class, 'sellerDashboard'])->name('seller-dashboard');
+
+    Route::get('address-step', [ListingSpaceController::class, 'addSpaceForm'])->name('add-space');
+    Route::post('add-address', [ListingSpaceController::class, 'addAddress'])->name('add-address');
+    Route::get('edit-space-address/{space_id}', [ListingSpaceController::class, 'editSpaceAddress'])->name('edit-space-address');
+    Route::post('update-space-address/{space_id}', [ListingSpaceController::class, 'updateSpaceAddress'])->name('update-space-address');
+    Route::get('parking-step/{space_id}', [ListingSpaceController::class, 'parkingStep'])->name('parking-step');
+    Route::post('add-parking/{space_id}', [ListingSpaceController::class, 'addParking'])->name('add-parking');
+    Route::get('about-step/{space_id}', [ListingSpaceController::class, 'aboutStep'])->name('about-step');
+    Route::post('add-about/{space_id}', [ListingSpaceController::class, 'addAbout'])->name('add-about');
+    Route::get('images-step/{space_id}', [ListingSpaceController::class, 'imagesStep'])->name('images-step');
+    Route::post('add-images/{space_id}', [ListingSpaceController::class, 'addImages'])->name('add-images');
+    Route::get('operating-hours-step/{space_id}', [ListingSpaceController::class, 'operatingHourStep'])->name('operating-hour-step');
+    Route::post('add-operating-hours/{space_id}', [ListingSpaceController::class, 'addaddOperatingHours'])->name('add-operating-hours');
+    Route::get('safety-measure-step/{space_id}', [ListingSpaceController::class, 'safetyMeasureStep'])->name('safety-measure-step');
+    Route::post('add-safety-measure/{space_id}', [ListingSpaceController::class, 'addSafetyMeasure'])->name('add-safety-measure');
+    Route::get('cancel-policy-step/{space_id}', [ListingSpaceController::class, 'cancelPolicyStep'])->name('cancel-policy-step');
+    Route::post('add-cancel-policy/{space_id}', [ListingSpaceController::class, 'addCancelPolicy'])->name('add-cancel-policy');
+    Route::get('activities-step/{space_id}/{key}', [ListingSpaceController::class, 'activitiesStep'])->name('activities-step');
+    Route::post('add-activities/{space_id}', [ListingSpaceController::class, 'addActivities'])->name('add-activities');
+    Route::get('contact-step/{space_id}', [ListingSpaceController::class, 'contactStep'])->name('contact-step');
+    Route::post('add-contact-info/{space_id}', [ListingSpaceController::class, 'addContactInfo'])->name('add-contact-info');
+    Route::get('policies-step/{space_id}', [ListingSpaceController::class, 'policiesStep'])->name('policies-step');
+    Route::post('add-policies/{space_id}', [ListingSpaceController::class, 'addPolicies'])->name('add-policies');
+    Route::get('space-form-resume/{space_id}', [ListingController::class, 'resumeSpaceForm'])->name('space-form-resume');
+    Route::delete('space-delete/{space_id}', [ListingController::class, 'deleteListing'])->name('space-delete');
+
+    Route::get('/add-entertainment', function () {
+        return view('content.seller.add-entertainment');
+    });
+
+    Route::get('/add-service', function () {
+        return view('content.seller.add-services');
+    });
+    Route::get('pending-bookings', [BookingController::class, 'pendingBookings'])->name('pending-bookings');
+    Route::get('pending-quote-requests', [BookingController::class, 'pendingQuoteRequest'])->name('pending-quote-requests');
+    Route::get('booking-detail/{id}/{type}', [BookingController::class, 'details'])->name('bookings-details');
+    Route::get('accept-bookings/{id}', [BookingController::class, 'acceptBookings'])->name('accept-bookings');
+    Route::get('decline-bookings/{id}', [BookingController::class, 'declineBookings'])->name('decline-bookings');
+
+    Route::get('/create-quote', function () {
+        return view('content.seller.create-quote');
+    });
+    Route::get('calendar', [LandingPageController::class, 'calendarIndex'])->name('calendar');
+    Route::get('get-operating-hours/{id}/{type}', [LandingPageController::class, 'getOperatingHours']);
+    Route::get('operating-hours/{id}/{type}', [LandingPageController::class, 'getOperatingHoursIndex'])->name('operating-hours');
+    Route::post('new-operating-hours/{id}/{type}', [LandingPageController::class, 'newOperatingHours'])->name('new-operating-hours');
+    Route::post('add-block-time', [LandingPageController::class, 'addBlockTime'])->name('add-block-time');
+    // My Listing
+    Route::get('my-listings', [ListingController::class, 'index'])->name('my-listing');
+
+    // Service Forms
+
+    // Service Form Step 1
+    Route::get('/service-form-steps', function () {
+        $title = ServiceTitle::get();
+        return view('content.seller.service.create.form-step-1', ['title' => $title]);
+    });
+    Route::post('/service_form_1', [ServiceController::class, 'serviceForm1'])->name('service_form_1');
+    // Load Previous View Form Step 1
+    Route::get('/service-form-step-1/{id}', [ServiceController::class, 'loadFormStep1'])->name('service-form-1');
+    Route::post('/service_form_step_1/{id}', [ServiceController::class, 'UpdateFormStep1'])->name('update_service_form_1');
+    // Service Form Step 2
+    Route::get('/service-form-2/{id}', [ServiceController::class, 'loadServiceForm2'])->name('service-form-2');
+    Route::post('/service_form_2/{id}', [ServiceController::class, 'serviceForm2'])->name('service_form_2');
+    // Service Form Step 3
+    Route::get('/service-form-3/{id}', [ServiceController::class, 'loadserviceForm3'])->name('service-form-3');
+    Route::post('/service_form_3/{id}', [ServiceController::class, 'serviceForm3'])->name('service_form_3');
+    // Service Form Step 4
+    Route::get('/service-form-4/{id}', [ServiceController::class, 'loadserviceForm4'])->name('service-form-4');
+    Route::post('/service_form_4/{id}', [ServiceController::class, 'serviceForm4'])->name('service_form_4');
+    // Service Form Step 5
+    Route::get('/service-form-5/{id}', [ServiceController::class, 'loadserviceForm5'])->name('service-form-5');
+    Route::post('/service_form_5/{id}', [ServiceController::class, 'serviceForm5'])->name('service_form_5');
+    // Service Form Step 6
+    Route::get('/service-form-6/{id}', [ServiceController::class, 'loadserviceForm6'])->name('service-form-6');
+    Route::post('/service_form_6/{id}', [ServiceController::class, 'serviceForm6'])->name('service_form_6');
+    // Service Form Step 7
+    Route::get('/service-form-7/{id}', [ServiceController::class, 'loadserviceForm7'])->name('service-form-7');
+    Route::post('/service_form_7/{id}', [ServiceController::class, 'serviceForm7'])->name('service_form_7');
+    // Complete Service Form
+    Route::get('/completed', [ServiceController::class, 'complete'])->name('complete');
+    // Delete Service
+    Route::delete('/service-delete/{id}', [ServiceController::class, 'destroy'])->name('service-delete');
+    // Resume Service
+    Route::get('/service/resume/{id}', [ServiceController::class, 'resumeForm'])->name('service_form_resume');
+
+    // Entertainment Routes
+    Route::get('/entertainment-form-steps', function () {
+        $ent_types = EntertainmentType::get();
+        return view('content.seller.entertainment.create.form-step-1',compact('ent_types'));
+    });
+    // Form Step 1
+    Route::post('/entertainment/form/step/1', [EntertainmentController::class, 'formStep1'])->name('entertainment_form_1');
+    Route::get('/entertainment/load/form/step/1/{id}', [EntertainmentController::class, 'loadFormStep1'])->name('load_entertainment_form_1');
+    Route::post('/entertainment/update/form/step/1/{id}', [EntertainmentController::class, 'updateFormStep1'])->name('update_entertainment_form_1');
+    // Form Step 2
+    Route::get('/entertainment/load/form/step/2/{id}', [EntertainmentController::class, 'loadFormStep2'])->name('load_entertainment_form_2');
+    Route::post('/entertainment/form/step/2/{id}', [EntertainmentController::class, 'formStep2'])->name('entertainment_form_2');
+    // Form Step 3
+    Route::get('/entertainment/load/form/step/3/{id}', [EntertainmentController::class, 'loadFormStep3'])->name('load_entertainment_form_3');
+    Route::post('/entertainment/form/step/3/{id}', [EntertainmentController::class, 'formStep3'])->name('entertainment_form_3');
+    // Form Step 4
+    Route::get('/entertainment/load/form/step/4/{id}', [EntertainmentController::class, 'loadFormStep4'])->name('load_entertainment_form_4');
+    Route::post('/entertainment/form/step/4/{id}', [EntertainmentController::class, 'formStep4'])->name('entertainment_form_4');
+    // Form Step 5
+    Route::get('/entertainment/load/form/step/5/{id}', [EntertainmentController::class, 'loadFormStep5'])->name('load_entertainment_form_5');
+    Route::post('/entertainment/form/step/5/{id}', [EntertainmentController::class, 'formStep5'])->name('entertainment_form_5');
+    // Form Step 6
+    Route::get('/entertainment/load/form/step/6/{id}', [EntertainmentController::class, 'loadFormStep6'])->name('load_entertainment_form_6');
+    Route::post('/entertainment/form/step/6/{id}', [EntertainmentController::class, 'formStep6'])->name('entertainment_form_6');
+    // Form Step 7
+    Route::get('/entertainment/load/form/step/7/{id}', [EntertainmentController::class, 'loadFormStep7'])->name('load_entertainment_form_7');
+    Route::post('/entertainment/form/step/7/{id}', [EntertainmentController::class, 'formStep7'])->name('entertainment_form_7');
+    // Form Step 8
+    Route::get('/entertainment/load/form/step/8/{id}', [EntertainmentController::class, 'loadFormStep8'])->name('load_entertainment_form_8');
+    Route::post('/entertainment/form/step/8/{id}', [EntertainmentController::class, 'formStep8'])->name('entertainment_form_8');
+    // Form Step 9
+    Route::get('/entertainment/load/form/step/9/{id}', [EntertainmentController::class, 'loadFormStep9'])->name('load_entertainment_form_9');
+    Route::post('/entertainment/form/step/9/{id}', [EntertainmentController::class, 'formStep9'])->name('entertainment_form_9');
+    // Delete Enterainemnt
+    Route::delete('/entertainment-delete/{id}', [EntertainmentController::class, 'destroy'])->name('entertainment-delete');
+    // Resume Entertainment
+    Route::get('/entertainment/resume/{id}', [EntertainmentController::class, 'resumeForm'])->name('entertainment-form-resume');
+    // Update Entertainment Activities
+    Route::get('/entertainment/update/form/step/7/{id}/{key}', [EntertainmentController::class, 'loadUpdateFormStep7'])->name('load_entertainment_form_step_7');
+    Route::post('/entertainment/update/form/step/7/{id}', [EntertainmentController::class, 'UpdateFormStep7'])->name('update_entertainment_form_7');
+});
+
+// Log Viewer
+Route::get('logs', [\Rap2hpoutre\LaravelLogViewer\LogViewerController::class, 'index']);
