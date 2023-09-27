@@ -38,8 +38,8 @@
         var markers = [
             @foreach ($listing ?? [] as $value)
                 {
-                    lat: {{ @$value->lat }},
-                    lng: {{ @$value->lng }},
+                    lat: {{ @$value->lat ?? 0 }},
+                    lng: {{ @$value->lng ?? 0 }},
                     price: "SAR {{ @$type == 'space' ? @$value->spaceHaveActivities[0]->rate_per_hour : (@$type == 'service' ? @$value->price : @$value->entertainmentActivities[0]->hourly_rate) }}"
                 },
             @endforeach

@@ -33,4 +33,15 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin.aut
     // Users
     Route::get('users', [UsersController::class, 'usersIndex'])->name('users.index');
     Route::post('add-user', [UsersController::class, 'addUser'])->name('add.user');
+    Route::post('edit-user/{id}', [UsersController::class, 'editUser'])->name('edit.user');
+    Route::post('delete-user/{id}', [UsersController::class, 'deleteUser'])->name('delete.user');
+
+    // Plugins
+    Route::group(['prefix' => 'plugins', 'as' => 'plugins.'], function () {
+
+        Route::get('/', [PluginsController::class, 'index'])->name('index');
+        Route::get('/{plugin}', [PluginsController::class, 'plugin'])->name('plugin');
+        Route::put('/update', [PluginsController::class, 'update'])->name('update');
+    });
+
 });

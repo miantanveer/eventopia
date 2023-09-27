@@ -546,7 +546,7 @@
 @section('scripts')
     <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc">
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key={{ config('googlemap.GOOGLE_MAP_KEY') }}">
     </script>
     <script>
         $(document).ready(function() {

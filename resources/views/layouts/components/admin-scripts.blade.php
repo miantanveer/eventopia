@@ -22,6 +22,11 @@
     <script src="{{asset('assets/plugins/p-scroll/pscroll.js')}}"></script>
     <script src="{{asset('assets/plugins/p-scroll/pscroll-1.js')}}"></script>
 
+    {{-- Notify alert --}}
+    <script src="{{ asset('assets/plugins/notify/js/rainbow.js') }}"></script>
+    <script src="{{ asset('assets/plugins/notify/js/sample.js') }}"></script>
+    <script src="{{ asset('assets/plugins/notify/js/notifIt.js') }}"></script>
+
     @yield('scripts')
 
     <!-- Color Theme js -->
@@ -29,7 +34,6 @@
 
     <!-- Sticky js -->
     <script src="{{asset('assets/js/sticky.js')}}"></script>
-    @include('layouts.components.notification-scripts')
 
     <!-- CUSTOM JS -->
     <script src="{{asset('assets/js/admin-custom.js')}}"></script>
