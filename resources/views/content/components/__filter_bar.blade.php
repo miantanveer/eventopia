@@ -102,6 +102,7 @@
     </div>
     <div class="col-lg-2 col-md-4 col-sm-6 ps-0">
         <form class="mt-2 position-relative">
+            
             <input type="text" name="location" class="form-control w-style button-radias btn_background" id="location" placeholder="{{lang('Enter your location')}}">
             <ul class="dropdown-menu w-100" id="categoryDropdown-1"></ul>
             <div id="addressDropdown" class="bg-white AdressDrop" style='position: absolute;width: 100%;background-color: white !important;z-index: 9999;'></div>
