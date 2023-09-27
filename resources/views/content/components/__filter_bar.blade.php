@@ -112,7 +112,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="text-end pe-7 pt-1 mt-1 form-check form-switch d-lg-block d-none">
-                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="width: 53px; height: 33px;" checked>1
+                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" style="width: 53px; height: 33px;" checked>1
                     <label class="form-check-label ms-5 my-3" for="flexSwitchCheckChecked">{{ lang('Map')}}</label>
                 </div>
             </div>
