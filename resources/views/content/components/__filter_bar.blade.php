@@ -88,7 +88,7 @@
 
     <div class="col-xl-1 col-lg-2 col-md-2 col-sm-6 col-6 pe-0">
         <form action="#" class="mt-2">
-            <a id="typeCategories" data-bs-target="#modaldemo4" data-bs-toggle="modal" class="form-control btn_background w-style text-center span_attendees">
+            <a data-bs-target="#modaldemo4" data-bs-toggle="modal" class="form-control btn_background w-style text-center rounded-0 span_attendees">
                 <img src="{{ asset('assets/images/brand/equalizer.png') }}" class="w-5 text-center span_attendees" alt="">
                 {{lang('More filters') }} </a>
         </form>
@@ -129,16 +129,22 @@
                     <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
-                </div>
-                <h3 class='mt-5'><b>keyword</b></h3>
-                <input type='text' class='form-control' placeholder='Enter a keyword'>
-                <hr class='bg-dark'>
+                </div>                
                 <div class="container-fluid">
+                <div class='row'>
+                <div class='col-12'>
+                <h3 class='mt-5'><b>keyword</b></h3>
+                <input type='text' class='form-control' id="planCatagories-12" placeholder='Enter a keyword'>
+                <ul class="dropdown-menu w-100 position-relative" id="categoryDropdown-12" style="top: -8px;"></ul>
+                </div>
+                </div>
+                <div id="drop_tags" class="mt-3 fw-bold"></div>
+                <hr class='bg-dark'>
                     <h3 class='mt-5'><b>Outdoor Spaces</b></h3>
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-1" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-1" required>
                                 <label class="form-check-label" for="invalidCheck-1">
                                     <p>{{lang('Backyard')}}</p>
                                 </label>
@@ -146,7 +152,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-2" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-2" required>
                                 <label class="form-check-label" for="invalidCheck-2">
                                     <p>{{lang('Beach')}}</p>
                                 </label>
@@ -154,7 +160,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-3" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-3" required>
                                 <label class="form-check-label" for="invalidCheck-3">
                                     <p>{{lang('Garden')}}</p>
                                 </label>
@@ -162,7 +168,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-4" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-4" required>
                                 <label class="form-check-label" for="invalidCheck-4">
                                     <p>{{lang('Exterior')}}</p>
                                 </label>
@@ -170,7 +176,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-5" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-5" required>
                                 <label class="form-check-label" for="invalidCheck-5">
                                     <p>{{lang('Lawn')}}</p>
                                 </label>
@@ -178,14 +184,11 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-6" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-6" required>
                                 <label class="form-check-label" for="invalidCheck-6">
                                     <p>{{lang('Patio')}}</p>
                                 </label>
                             </div>
-                        </div>
-                        <div class='col-12 mt-2'>
-                            <p><a href='#'>{{lang('Show All')}}</a></p>
                         </div>
                     </div>
                     <hr class='bg-dark'>
@@ -193,7 +196,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-7" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-7" required>
                                 <label class="form-check-label" for="invalidCheck-7">
                                     <p>{{lang('Bathroom')}}</p>
                                 </label>
@@ -201,7 +204,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-8" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-8" required>
                                 <label class="form-check-label" for="invalidCheck-8">
                                     <p>{{lang('Bedroom')}}</p>
                                 </label>
@@ -209,7 +212,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-9" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-9" required>
                                 <label class="form-check-label" for="invalidCheck-9">
                                     <p>{{lang('Dining Area')}}</p>
                                 </label>
@@ -217,7 +220,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-01" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-01" required>
                                 <label class="form-check-label" for="invalidCheck-01">
                                     <p>{{lang('Garage')}}</p>
                                 </label>
@@ -225,7 +228,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-02" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-02" required>
                                 <label class="form-check-label" for="invalidCheck-02">
                                     <p>{{lang('Home Office')}}</p>
                                 </label>
@@ -233,14 +236,11 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-03" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-03" required>
                                 <label class="form-check-label" for="invalidCheck-03">
                                     <p>{{lang('Kids Room')}}</p>
                                 </label>
                             </div>
-                        </div>
-                        <div class='col-12 mt-2'>
-                            <p><a href='#'>{{lang('Show All')}}</a></p>
                         </div>
                     </div>
                     <hr class='bg-dark'>
@@ -248,7 +248,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-04" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-04" required>
                                 <label class="form-check-label" for="invalidCheck-04">
                                     <p>{{lang('Bohemian')}}</p>
                                 </label>
@@ -256,7 +256,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-05" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-05" required>
                                 <label class="form-check-label" for="invalidCheck-05">
                                     <p>{{lang('Coastal / Beachy')}}</p>
                                 </label>
@@ -264,7 +264,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-06" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-06" required>
                                 <label class="form-check-label" for="invalidCheck-06">
                                     <p>{{lang('Colorful')}}</p>
                                 </label>
@@ -272,7 +272,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-07" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-07" required>
                                 <label class="form-check-label" for="invalidCheck-07">
                                     <p>{{lang('Farmhouse')}}</p>
                                 </label>
@@ -280,7 +280,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-08" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-08" required>
                                 <label class="form-check-label" for="invalidCheck-08">
                                     <p>{{lang('Industrial')}}</p>
                                 </label>
@@ -288,14 +288,11 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-09" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-09" required>
                                 <label class="form-check-label" for="invalidCheck-09">
                                     <p>{{lang('Loft')}}</p>
                                 </label>
                             </div>
-                        </div>
-                        <div class='col-12 mt-2'>
-                            <p><a href='#'>{{lang('Show All')}}</a></p>
                         </div>
                     </div>
                     <hr class='bg-dark'>
@@ -303,7 +300,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-001" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-001" required>
                                 <label class="form-check-label" for="invalidCheck-001">
                                     <p>{{lang('Apartment')}}</p>
                                 </label>
@@ -311,7 +308,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-002" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-002" required>
                                 <label class="form-check-label" for="invalidCheck-002">
                                     <p>{{lang('Banquet Hall')}}</p>
                                 </label>
@@ -319,7 +316,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-003" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-003" required>
                                 <label class="form-check-label" for="invalidCheck-003">
                                     <p>{{lang('Bar')}}</p>
                                 </label>
@@ -327,7 +324,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-004" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-004" required>
                                 <label class="form-check-label" for="invalidCheck-004">
                                     <p>{{lang('Church')}}</p>
                                 </label>
@@ -335,7 +332,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck--005" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck--005" required>
                                 <label class="form-check-label" for="invalidCheck--005">
                                     <p>{{lang('Classroom')}}</p>
                                 </label>
@@ -343,36 +340,33 @@
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-006" required>
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-006" required>
                                 <label class="form-check-label" for="invalidCheck-006">
                                     <p>{{lang('Conference Room')}}</p>
                                 </label>
                             </div>
-                        </div>
-                        <div class='col-12 mt-2'>
-                            <p><a href='#'>{{lang('Show All')}}</a></p>
                         </div>
                     </div>
                     <hr class='bg-dark'>
                     <div class='row mt-3'>
                         <div class='col-12'>
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment"
+                                <input class="form-check-input" name="company_payment-1"
                                     type="checkbox" value="Company Payment" id="invalidCheck-007"
                                     required>
                                 <label class="form-check-label" for="invalidCheck-007">
-                                    <p class='mb-1'><b>{{lang('Enhanced health and safety measures')}}</b></p>
+                                    <p class='mb-0'><b>{{lang('Enhanced health and safety measures')}}</b></p>
                                     <p>{{lang('Only show listings from hosts who have taken extra health and safety precautions')}}</p>
                                 </label>
                             </div>
                         </div>
                         <div class='col-12'>
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment"
+                                <input class="form-check-input" name="company_payment-2"
                                     type="checkbox" value="Company Payment" id="invalidCheck-008"
                                     required>
                                 <label class="form-check-label" for="invalidCheck-008">
-                                    <p class='mb-1'><b>{{lang('Instant Book')}}</b></p>
+                                    <p class='mb-0'><b>{{lang('Instant Book')}}</b></p>
                                     <p>{{lang('Only see spaces that can be instantly booked')}}</p>
                                 </label>
                             </div>
@@ -383,59 +377,56 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-001" required>
-                                <label class="form-check-label" for="invalidCheck-001">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-0001" required>
+                                <label class="form-check-label" for="invalidCheck-0001">
                                     <p>{{lang('Deck')}}</p>
                                 </label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-002" required>
-                                <label class="form-check-label" for="invalidCheck-002">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-0002" required>
+                                <label class="form-check-label" for="invalidCheck-0002">
                                     <p>{{lang('Elevator')}}</p>
                                 </label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-003" required>
-                                <label class="form-check-label" for="invalidCheck-003">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-0003" required>
+                                <label class="form-check-label" for="invalidCheck-0003">
                                     <p>{{lang('Exposed Brick')}}</p>
                                 </label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-004" required>
-                                <label class="form-check-label" for="invalidCheck-004">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-0004" required>
+                                <label class="form-check-label" for="invalidCheck-0004">
                                     <p>{{lang('Fire Pit')}}</p>
                                 </label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck--005" required>
-                                <label class="form-check-label" for="invalidCheck--005">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck--0005" required>
+                                <label class="form-check-label" for="invalidCheck--0005">
                                     <p>{{lang('Fireplace')}}</p>
                                 </label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-006" required>
-                                <label class="form-check-label" for="invalidCheck-006">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-0006" required>
+                                <label class="form-check-label" for="invalidCheck-0006">
                                     <p>{{lang('Gazebo')}}</p>
                                 </label>
                             </div>
                         </div>
-                        <div class='col-12 mt-2'>
-                            <p><a href='#'>{{lang('Show All')}}</a></p>
-                        </div>
                     </div>
                 </div>
                 <div class="modal-footer" style="position: sticky; bottom: -25; background-color: #fff; z-index: 9999;">
-                    <h5 class="modal-title">Clear all</h5>
+                    <h5 class="modal-title"><a href="#" id="clearAllButton">Clear all</a></h5>
                 </div>
             </div>
         </div>
