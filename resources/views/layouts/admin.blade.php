@@ -63,6 +63,7 @@
         <!-- page -->
 
         @include('layouts.components.admin-scripts')
+        @include('layouts.components.notification-scripts')
 
     </body>
 

@@ -141,7 +141,7 @@
     <script src="{{ asset('assets/js/select2.js') }}"></script>
 
     <script
-        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key=AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc">
+        src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key={{ config('googlemap.GOOGLE_MAP_KEY') }}">
     </script>
 
     <script>
@@ -158,7 +158,7 @@
                     var lat = place.geometry['location'].lat();
                     var lng = place.geometry['location'].lng();
                     var myarr = place.address_components;
-                    var keyapi = 'AIzaSyBoiyGm9G56-rKkUhiEbf2kNT3mJVhhpPc';
+                    var keyapi = '{{ config('googlemap.GOOGLE_MAP_KEY') }}';
                     $('#city').val('')
                     $('#state').val('')
                     $('#country').val('')

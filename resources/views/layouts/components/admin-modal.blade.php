@@ -27,17 +27,18 @@
     </div>
 </div>
 
-<div class="modal fade" id="add-user-modal">
+<div class="modal fade" id="user-modal">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content country-select-modal ">
             <div class="modal-header">
-                <h1 style="text-align:center;color:#000017" class="modal-title">
+                <h1 style="text-align:center;color:#000017" class="user-modal-title modal-title">
                     {{ lang('Add New User') }}</h1><button aria-label="Close" class="btn-close"
                     data-bs-dismiss="modal"><span aria-hidden="true">×</span></button>
             </div>
             <div class="modal-body">
                 <div class="card-body">
-                    <form id="add_user_form" method="POST" action="" data-parsley-validate>
+                    <form id="user_form" method="POST" action="{{ route('admin.add.user') }}"
+                        data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-6 mb-3">
@@ -148,7 +149,7 @@
                             <div class="col-12 mb-3">
                                 <div class="form-group">
                                     <label class="form-label" for="status">Select Status</label>
-                                    <select class="form-control select2" required name="status">
+                                    <select class="form-select" id="status" required name="status">
                                         <option value="1">Active</option>
                                         <option value="2">Block</option>
                                     </select>
@@ -167,6 +168,25 @@
                         </div>
                     </form>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- User Delete Modal --}}
+<div class="modal fade" id="user-delete-modal">
+    <div class="modal-dialog modal-dialog-centered text-center" role="document">
+        <div class="modal-content tx-size-sm">
+            <div class="modal-body text-center p-4 pb-5">
+                <button aria-label="Close" class="btn-close position-absolute" data-bs-dismiss="modal"><span
+                        aria-hidden="true">&times;</span></button>
+                <i class="icon icon-close fs-70 text-danger lh-1 my-5 d-inline-block"></i>
+                <form action="" id="user-delete-form" method="POST">
+                    @csrf
+                    <h2 class="text-danger">{{ lang('Warning!') }}</h2>
+                    <h4 class="text-danger">{{ lang('Are you sure you want to delete this user?') }}</h4>
+                    <button class="btn btn-danger pd-x-25">{{ lang('Continue') }}</button>
+                </form>
             </div>
         </div>
     </div>

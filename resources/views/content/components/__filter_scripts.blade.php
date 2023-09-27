@@ -3,8 +3,8 @@
         $('#calendarAndTimePicker').hide();
         $('#selectedDate').click(function() {
             $('.FormBorder').css({
-                "border-bottom-left-radius": "0px"
-                , "border-bottom-right-radius": "0px"
+                "border-bottom-left-radius": "0px",
+                "border-bottom-right-radius": "0px"
             });
             $('#calendarAndTimePicker').show();
         });
@@ -14,8 +14,8 @@
                 $('#calendarAndTimePicker').hide();
                 $('.FormBorder').removeClass("data-appended");
                 $('.FormBorder').css({
-                    "border-bottom-left-radius": "13px"
-                    , "border-bottom-right-radius": "13px"
+                    "border-bottom-left-radius": "13px",
+                    "border-bottom-right-radius": "13px"
                 });
             }
         });
@@ -36,9 +36,7 @@
             .addClass("active-month");
         init_calendar(date);
         var events = check_events(
-            today
-            , date.getMonth() + 1
-            , date.getFullYear()
+            today, date.getMonth() + 1, date.getFullYear()
         );
     });
 
@@ -68,12 +66,10 @@
                     curr_date.addClass("active-date");
                 }
                 curr_date.click({
-                        events: events
-                        , month: months[month]
-                        , day: day
-                    }
-                    , date_click
-                );
+                    events: events,
+                    month: months[month],
+                    day: day
+                }, date_click);
                 row.append(curr_date);
             }
         }
@@ -144,104 +140,83 @@
     }
     var event_data = {
         events: [{
-                occasion: " Repeated Test Event "
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 10
-                , cancelled: true
-            , }
-            , {
-                occasion: " Repeated Test Event "
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 10
-                , cancelled: true
-            , }
-            , {
-                occasion: " Repeated Test Event "
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 10
-                , cancelled: true
-            , }
-            , {
-                occasion: " Repeated Test Event "
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 10
-            , }
-            , {
-                occasion: " Repeated Test Event "
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 10
-                , cancelled: true
-            , }
-            , {
-                occasion: " Repeated Test Event "
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 10
-            , }
-            , {
-                occasion: " Repeated Test Event "
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 10
-                , cancelled: true
-            , }
-            , {
-                occasion: " Repeated Test Event "
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 10
-            , }
-            , {
-                occasion: " Repeated Test Event "
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 10
-                , cancelled: true
-            , }
-            , {
-                occasion: " Repeated Test Event "
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 10
-            , }
-            , {
-                occasion: " Test Event"
-                , invited_count: 120
-                , year: 2017
-                , month: 5
-                , day: 11
-            , }
-        , ]
-    , };
+            occasion: " Repeated Test Event ",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 10,
+            cancelled: true,
+        }, {
+            occasion: " Repeated Test Event ",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 10,
+            cancelled: true,
+        }, {
+            occasion: " Repeated Test Event ",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 10,
+            cancelled: true,
+        }, {
+            occasion: " Repeated Test Event ",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 10,
+        }, {
+            occasion: " Repeated Test Event ",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 10,
+            cancelled: true,
+        }, {
+            occasion: " Repeated Test Event ",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 10,
+        }, {
+            occasion: " Repeated Test Event ",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 10,
+            cancelled: true,
+        }, {
+            occasion: " Repeated Test Event ",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 10,
+        }, {
+            occasion: " Repeated Test Event ",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 10,
+            cancelled: true,
+        }, {
+            occasion: " Repeated Test Event ",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 10,
+        }, {
+            occasion: " Test Event",
+            invited_count: 120,
+            year: 2017,
+            month: 5,
+            day: 11,
+        }, ],
+    };
     const months = [
-        "January"
-        , "February"
-        , "March"
-        , "April"
-        , "May"
-        , "June"
-        , "July"
-        , "August"
-        , "September"
-        , "October"
-        , "November"
-        , "December"
-    , ];
+        "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
+        "November", "December",
+    ];
     const $startTimeInput = $("#start_time");
     const $endTimeInput = $("#end_time");
     const $appendedValue = $('#selectedDate');
@@ -269,9 +244,9 @@
     var id = '{{ @$type }}' + '_search_url';
     var url = $('#' + id).val();
     $.ajax({
-        url: url
-        , type: "GET"
-        , success: function(res) {
+        url: url,
+        type: "GET",
+        success: function(res) {
             categories = res.data;
         }
     });
@@ -312,26 +287,33 @@
         $('#categoryDropdown').hide();
     });
 
-    function selected(input) {
+    function selected(input, address) {
         $('#dateTimeModal').modal('hide');
         url = $('#search').val();
         selectedPrice = $('input[name="price"]:checked').val();
         guests = $('input[name="guests"]:checked').val();
-        startTime = $('#start_time').val();
-        endTime = $('#end_time').val();
+        var startTime = '';
+        var endTime = '';
+        $('#start_time').on('change', function() {
+            startTime = $(this).val();
+        });
+        $('#end_time').on('change', function() {
+            endTime = $(this).val();
+        });
         date = $("#hiddenDate").val();
         $.ajax({
-            url: url
-            , data: {
-                'price': selectedPrice
-                , 'attendees': guests
-                , 'date': date
-                , 'keyword': input
-                , 'startTime': startTime
-                , 'endTime': endTime
-            }
-            , type: "GET"
-            , success: function(res) {
+            url: url,
+            data: {
+                'price': selectedPrice,
+                'attendees': guests,
+                'date': date,
+                'keyword': input,
+                'startTime': startTime,
+                'endTime': endTime,
+                'address': address
+            },
+            type: "GET",
+            success: function(res) {
                 $('#ajax_data').html(res.data);
                 $('#map').html(res.map);
             }
@@ -339,24 +321,23 @@
     }
 
     $('.owl-carousel').owlCarousel({
-        loop: true
-        , margin: 10
-        , nav: true
-        , autoplay: true
-        , autoplayHoverPause: true
-        , responsive: {
+        loop: true,
+        margin: 10,
+        nav: true,
+        autoplay: true,
+        autoplayHoverPause: true,
+        responsive: {
             0: {
                 items: 1
-            }
-            , 600: {
+            },
+            600: {
                 items: 3
-            }
-            , 1000: {
+            },
+            1000: {
                 items: 5
             }
         }
     })
-
 </script>
 
 {{-- Google addresses code --}}
@@ -367,8 +348,8 @@
         function hideDropdown(resultsDiv, inputDiv) {
             resultsDiv.empty();
             inputDiv.removeClass("data-appended");
-            inputDiv.css("border-bottom-left-radius", "13px !important").css("border-bottom-right-radius"
-                , "13px !important");
+            inputDiv.css("border-bottom-left-radius", "13px !important").css("border-bottom-right-radius",
+                "13px !important");
         }
 
         function setupLocationAutocomplete(inputId, dropdownId) {
@@ -396,16 +377,16 @@
                                 locationInput.parent().removeClass(
                                     "data-appended");
                                 locationInput.parent().css(
-                                    "border-bottom-left-radius"
-                                    , "13px !important").css(
-                                    "border-bottom-right-radius"
-                                    , "13px !important");
+                                    "border-bottom-left-radius",
+                                    "13px !important").css(
+                                    "border-bottom-right-radius",
+                                    "13px !important");
                             });
                             addressDropdown.append(addressItem);
                             locationInput.parent().addClass("data-appended");
-                            locationInput.parent().css("border-bottom-left-radius"
-                                , "0px !important").css("border-bottom-right-radius"
-                                , "0px !important");
+                            locationInput.parent().css("border-bottom-left-radius",
+                                "0px !important").css("border-bottom-right-radius",
+                                "0px !important");
                         });
                     }
                 });
@@ -441,7 +422,8 @@
                 var minCategoriesToShow = Math.min(filteredCategories.length, 5);
 
                 for (var i = 0; i < minCategoriesToShow; i++) {
-                    dropdown.append('<li><a class="dropdown-item" href="#">' + filteredCategories[i] + '</a></li>');
+                    dropdown.append('<li><a class="dropdown-item" href="#">' + filteredCategories[i] +
+                        '</a></li>');
                 }
 
                 if (minCategoriesToShow > 0) {
@@ -462,7 +444,8 @@
                 selectedCategories.push(selectedCategory);
 
                 $('#planCatagories-12').val('');
-                $('#drop_tags').append('<span class="bg-light p-1 rounded-3 ms-2">' + selectedCategory + '<a class="remove ms-2" style="cursor: pointer;">X</a></span>');
+                $('#drop_tags').append('<span class="bg-light p-1 rounded-3 ms-2">' + selectedCategory +
+                    '<a class="remove ms-2" style="cursor: pointer;">X</a></span>');
                 selected(selectedCategory);
                 $('#categoryDropdown-12').hide();
 
@@ -475,7 +458,8 @@
                 // Check if it was previously hidden, then show it
                 if (hiddenCategories.includes(selectedCategory)) {
                     $('#drop_tags').find('span:contains(' + selectedCategory + ')').show();
-                    hiddenCategories = hiddenCategories.filter(category => category !== selectedCategory);
+                    hiddenCategories = hiddenCategories.filter(category => category !==
+                        selectedCategory);
                 } else {
                     $('#drop_tags').find('span:contains(' + selectedCategory + ')').hide();
                     hiddenCategories.push(selectedCategory);
@@ -490,13 +474,15 @@
 
             // Check if the removed element was associated with a checkbox
             var labelText = removedCategory.slice(0, -1); // Remove the "X" from the end
-            $('.filter_checkbox').siblings('label:contains(' + labelText + ')').siblings('.filter_checkbox').prop('checked', false);
+            $('.filter_checkbox').siblings('label:contains(' + labelText + ')').siblings(
+                '.filter_checkbox').prop('checked', false);
         });
 
         $('.filter_checkbox').on('change', function() {
             var labelText = $(this).siblings('label').text().trim();
             if ($(this).is(':checked')) {
-                $('#drop_tags').append('<span class="bg-light p-1 rounded-3 ms-2">' + labelText + '<a class="remove ms-2" style="cursor: pointer;">X</a></span>');
+                $('#drop_tags').append('<span class="bg-light p-1 rounded-3 ms-2">' + labelText +
+                    '<a class="remove ms-2" style="cursor: pointer;">X</a></span>');
                 selected(labelText);
             } else {
                 $('#drop_tags').find('span:contains(' + labelText + ')').remove();
@@ -512,9 +498,9 @@
         $('#clearAllButton').on('click', function() {
             document.getElementById('drop_tags').innerHTML = '';
             // Hide the selected categories
-            $('.filter_checkbox').closest('.form-check').find('.form-check-input').prop('checked', false);
+            $('.filter_checkbox').closest('.form-check').find('.form-check-input').prop('checked',
+                false);
         });
 
     });
-
 </script>
