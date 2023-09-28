@@ -917,7 +917,7 @@
                                     @endif
                                 </div>
                                 <div id="paginator">
-                                    {{@$listing->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}}
+                                    {{@$listing->onEachSide(5)->fragment(Hash::make($type))->links('vendor.pagination.tailwind')}}
                                 </div>
                                     {{-- <div class="col-12 col-md-4 text-md-start text-center">
                                         <p class="text-start ms-3 mt-5">Showing 1-24 of 12647</p>

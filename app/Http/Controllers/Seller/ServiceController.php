@@ -32,7 +32,7 @@ class ServiceController extends UserBaseController
             'description' => 'required',
         ]);
         $service = new Service();
-        $service->user_id = auth()->user()->id;
+        $service->user_id = user_id();
         $service->title = $request->service_title;
         $service->description = $request->description;
         $service->status = '0';
