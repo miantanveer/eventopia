@@ -3,14 +3,12 @@ phases:
   build:
     commands:
       - cp .env.staging .env
-      - composer dump-autoload
       - composer update
       - composer install
       - npm install
   post_build:
     commands:
       - php artisan migrate:fresh --seed
-      - php artisan vendor:publish --tag=laravel-pagination
 artifacts:
   files:
     # List of files to be included in the build artifact
