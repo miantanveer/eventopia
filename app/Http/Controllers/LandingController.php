@@ -27,29 +27,33 @@ class LandingController extends UserBaseController
         if ($type == 'service') {
             $this->listing = Service::where(function ($query) use ($req) {
                 $query->where('price', '!==', $req->price)
-                ->orWhere('country', $req->address)
-                ->orWhere('title', $req->keyword)
-                ->orWhere('category', $req->keyword)
-                ->orWhere('activities', $req->keyword)
-                ->whereHas('quotes', function ($subquery) use ($req) {
-                    $subquery->whereGuests($req->guests);
-                });
+                    ->orWhere('country', $req->address)
+                    ->orWhere(function ($subquery) use ($req) {
+                        $subquery->where('title', $req->keyword)
+                            ->orWhere('category', $req->keyword)
+                            ->orWhere('activities', $req->keyword);
+                    })
+                    ->whereHas('quotes', function ($subquery) use ($req) {
+                        $subquery->whereGuests($req->guests);
+                    });
             })
-            ->orWhere(function ($query) use ($req) {
-                $price = $req->price;
+                ->when($req->price !== null, function ($subquery) use ($req) {
+                    $subquery->orWhere(function ($query) use ($req) {
+                        $price = $req->price;
 
-                $priceRanges = [0, 1000, 2500, 4500, 9999];
+                        $priceRanges = [0, 1000, 2500, 4500, 9999];
 
-                foreach ($priceRanges as $index => $range) {
-                    if ($price == $range) {
-                        return $query->whereBetween('price', [$priceRanges[$index - 1], $priceRanges[$index]]);
-                        break;
-                    } elseif ($price == '10000') {
-                        $query->where('price', '>=', 5000);
-                        break;
-                    }
-                };
-            })->whereLastSteps('step-7')->inRandomOrder()->paginate(12);
+                        foreach ($priceRanges as $index => $range) {
+                            if ($price == $range) {
+                                return $query->whereBetween('price', [$priceRanges[$index - 1], $priceRanges[$index]]);
+                                break;
+                            } elseif ($price == '10000') {
+                                $query->where('price', '>=', 5000);
+                                break;
+                            }
+                        };
+                    });
+                })->whereLastSteps('step-7')->inRandomOrder()->paginate(12);
             $this->type = 'service';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
@@ -97,17 +101,19 @@ class LandingController extends UserBaseController
                 ->orWhere(function ($query) use ($req, $type, $formattedDate) {
                     $query->where('title', $req->keyword)
                         ->orWhere('country', $req->address)
+                        ->orWhere(function ($subquery) use ($req) {
+                            $subquery->whereHas('entertainmentActivities.entertainment', function ($subquery) use ($req) {
+                                $subquery->whereTitle($req->keyword);
+                            })
+                                ->orWhereHas('entertainmentActivities.sub_act', function ($subquery) use ($req) {
+                                    $subquery->whereTitle($req->keyword);
+                                })
+                                ->orWhereHas('entertainmentActivities.entActivityAmenity.activity', function ($subquery) use ($req) {
+                                    $subquery->whereName($req->keyword);
+                                });
+                        })
                         ->orWhereHas('entertainmentActivities', function ($subquery) use ($req) {
                             $subquery->whereHourlyRate($req->price)->whereGuestCapacity($req->attendees);
-                        })
-                        ->orWhereHas('entertainmentActivities.entertainment', function ($subquery) use ($req) {
-                            $subquery->whereTitle($req->keyword);
-                        })
-                        ->orWhereHas('entertainmentActivities.sub_act', function ($subquery) use ($req) {
-                            $subquery->whereTitle($req->keyword);
-                        })
-                        ->orWhereHas('entertainmentActivities.entActivityAmenity.activity', function ($subquery) use ($req) {
-                            $subquery->whereName($req->keyword);
                         })
                         ->orWhereHas('operatingDays', function ($subquery) use ($req, $formattedDate) {
                             $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
@@ -179,14 +185,16 @@ class LandingController extends UserBaseController
                     $query->where('space_title', $req->keyword)
                         ->orWhere('space_description', $req->keyword)
                         ->orWhere('country', $req->address)
-                        ->orWhereHas('spaceHaveActivities.activities', function ($subquery) use ($req) {
-                            $subquery->whereTitle($req->keyword);
-                        })
-                        ->orWhereHas('spaceType', function ($subquery) use ($req) {
-                            $subquery->whereType($req->keyword);
-                        })
-                        ->orWhereHas('spaceHaveActivities.spaceAmenities', function ($subquery) use ($req) {
-                            $subquery->whereName($req->keyword);
+                        ->orWhere(function ($subquery) use ($req) {
+                            $subquery->whereHas('spaceHaveActivities.activities', function ($subquery) use ($req) {
+                                $subquery->whereTitle($req->keyword);
+                            })
+                                ->orWhereHas('spaceType', function ($subquery) use ($req) {
+                                    $subquery->whereType($req->keyword);
+                                })
+                                ->orWhereHas('spaceHaveActivities.spaceAmenities', function ($subquery) use ($req) {
+                                    $subquery->whereName($req->keyword);
+                                });
                         })
                         ->orWhereHas('operatingDays', function ($subquery) use ($req, $formattedDate) {
                             $subquery->whereHas('operatingHours', function ($subquery) use ($req) {

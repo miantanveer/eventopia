@@ -316,6 +316,13 @@
             success: function(res) {
                 $('#ajax_data').html(res.data);
                 $('#map').html(res.map);
+                // if(res.count == 0){
+                //     $('#galleryColumn').toggleClass('col-lg-12');
+                // }else if(res.count > 0){
+                //     $('#map').toggleClass('d-block');
+                //     $('#galleryColumn').toggleClass('col-lg-6');
+
+                // }
             }
         });
     }
