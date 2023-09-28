@@ -26,17 +26,9 @@
                             <div class="d-flex">
                                 <div class="mt-2">
                                     <h6 class="">Total Users</h6>
-                                    <h2 class="mb-0 number-font">44,278</h2>
-                                </div>
-                                <div class="ms-auto">
-                                    <div class="chart-wrapper mt-1">
-                                        <canvas id="saleschart" class="h-8 w-9 chart-dropshadow"></canvas>
-                                    </div>
+                                    <h2 class="mb-0 number-font">{{@$totalUsers}}</h2>
                                 </div>
                             </div>
-                            <span class="text-muted fs-12"><span class="text-secondary"><i
-                                        class="fe fe-arrow-up-circle  text-secondary"></i> 5%</span>
-                                Last week</span>
                         </div>
                     </div>
                 </div>
@@ -46,17 +38,9 @@
                             <div class="d-flex">
                                 <div class="mt-2">
                                     <h6 class="">Total Active Users</h6>
-                                    <h2 class="mb-0 number-font">67,987</h2>
-                                </div>
-                                <div class="ms-auto">
-                                    <div class="chart-wrapper mt-1">
-                                        <canvas id="leadschart" class="h-8 w-9 chart-dropshadow"></canvas>
-                                    </div>
+                                    <h2 class="mb-0 number-font">{{@$activeUsers}}</h2>
                                 </div>
                             </div>
-                            <span class="text-muted fs-12"><span class="text-pink"><i
-                                        class="fe fe-arrow-down-circle text-pink"></i> 0.75%</span>
-                                Last 6 days</span>
                         </div>
                     </div>
                 </div>
@@ -66,17 +50,9 @@
                             <div class="d-flex">
                                 <div class="mt-2">
                                     <h6 class="">Total Blocked Users</h6>
-                                    <h2 class="mb-0 number-font">$76,965</h2>
-                                </div>
-                                <div class="ms-auto">
-                                    <div class="chart-wrapper mt-1">
-                                        <canvas id="profitchart" class="h-8 w-9 chart-dropshadow"></canvas>
-                                    </div>
+                                    <h2 class="mb-0 number-font">{{@$blockedUsers}}</h2>
                                 </div>
                             </div>
-                            <span class="text-muted fs-12"><span class="text-green"><i
-                                        class="fe fe-arrow-up-circle text-green"></i> 0.9%</span>
-                                Last 9 days</span>
                         </div>
                     </div>
                 </div>
