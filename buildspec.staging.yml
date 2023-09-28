@@ -3,6 +3,7 @@ phases:
   build:
     commands:
       - cp .env.staging .env
+      - composer dump-autoload
       - composer update
       - composer install
       - npm install
