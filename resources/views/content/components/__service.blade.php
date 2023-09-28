@@ -5,15 +5,24 @@
 @php
 $lat = $value->lat;
 $lng = $value->lng;
+$price = @$value->price;
+$parts = explode(';', $price);
+
+if (count($parts) === 2) {
+$min = $parts[0];
+$max = $parts[1];
+}
 @endphp
+
 <div class="col-xl-4 col-md-6 col-sm-12">
     <div class="card overflow-hidden">
         <div class="p-0 mt-3 w-100 position-absolute top-0 left-0">
             <div class="me-2 card-background">
                 <button type="button" class="btn mt-1 mb-1 me-3">
-                    <span class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span class="bg-white p-1 span-design">{{lang('SR')}}</span>&nbsp;
+                    <span class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span
+                            class="bg-white p-1 span-design">{{lang('SR')}}</span>&nbsp;
                         {{lang('From SAR')}}
-                        {{ @$value->price }}/
+                        {{ @$min }} {{lang('to')}} {{ @$max }}/
                         {{lang('Hour')}}</span>
                 </button>
             </div>
