@@ -7,11 +7,19 @@
     "require": {
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
+        "google/cloud-translate": "^1.15",
         "guzzlehttp/guzzle": "^7.0.1",
+        "joggapp/laravel-google-translate": "^7.0",
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "livewire/livewire": "^2.12"
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "livewire/livewire": "^2.12",
+        "pusher/pusher-php-server": "^7.2",
+        "rap2hpoutre/laravel-log-viewer": "^2.3",
+        "stichoza/google-translate-php": "^5.1",
+        "stripe/stripe-php": "^12.0",
+        "twilio/sdk": "^7.7"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -31,7 +39,10 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "scripts": {
         "post-autoload-dump": [

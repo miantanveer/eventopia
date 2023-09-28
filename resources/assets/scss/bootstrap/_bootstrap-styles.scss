@@ -1,13 +1,14 @@
 /* ###### Bootstrap ###### */
 
 :root {
-    --primary-bg-color: #6c5ffc;
+    --custom-black-bg-color: #313131;
+    --primary-bg-color: #003B95;
     --primary-bg-hover: #233ac5;
     --primary-bg-border: #5161c1;
     --dark-body: #292e4a;
     --dark-border: #30314e;
-    --dark-primary: #6c5ffc;
-    --transparent-primary: #6c5ffc;
+    --dark-primary: #003B95;
+    --transparent-primary: #003B95;
     --transparent-body: #584cd9;
     --transparent-theme: rgba(0, 0, 0, 0.2);
     --transparent-border: rgba(255, 255, 255, 0.1);
@@ -26,8 +27,9 @@
     --cyan: #17a2b8;
     --white:#ffffff;
     --gray: #6c757d;
+    --custom-black: #313131;
     --gray-dark: #343a40;
-    --primary: #6c5ffc;
+    --primary: #003B95;
     --secondary: #6c757d;
     --success: #28a745;
     --info: #17a2b8;
@@ -762,3 +764,4 @@ pre {
 .col-login {
     max-width: 24rem;
 }
+

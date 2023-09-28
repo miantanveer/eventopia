@@ -1,0 +1,96 @@
+.Image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.div_Image {
+    height: 100vh !important;
+}
+
+.image_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button:hover {
+    background-color: #125ed1 !important;
+}
+.input-container {
+    position: relative;
+}
+.icon {
+    position: absolute;
+    top: 52%;
+    right: 9px;
+    transform: translateY(-50%);
+}
+input.parsley-error {
+    border-color: red !important;
+}
+
+.inputs input {
+    width: 50px;
+    height: 50px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border: 1px solid #006ce4;
+}
+
+.form-control:hover {
+    border: 1px solid #006ce4;
+}
+
+.container-login100 {
+    background-color: white;
+    height: 100vh !important;
+}
+
+.wrap-login100 {
+    box-shadow: none;
+}
+
+.login100-form-title {
+    padding-bottom: 0.7rem !important;
+    font-size: 29px;
+}
+.app-sidebar {
+    z-index: 9999;
+}
+.get_started_btn {
+    position: relative;
+    top: -84px;
+    left: 60px;
+    z-index: 1;
+}
+.welcome_card {
+    position: relative;
+    top: -280px;
+    left: 60px;
+    transform: translate();
+    z-index: 1;
+}
+@media (min-width: 0) and (max-width: 576px) {
+    .welcome_card {
+        position: relative;
+        top: -100px;
+        left: 17px;
+        z-index: 1;
+    }
+    .get_started_btn,
+    .headingOne {
+        display: none;
+    }
+}
