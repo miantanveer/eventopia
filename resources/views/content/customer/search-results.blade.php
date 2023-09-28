@@ -916,7 +916,7 @@
                                     @endif
                                 </div>
                                 <div id="paginator">
-                                    {{@$listing->links('vendor\pagination\tailwind')}}
+                                    {{@$listing->links('vendor.pagination.tailwind')}}
                                 </div>
                                 {{-- <div class="row">
                                     <div class="col-12 col-md-4 text-md-start text-center">
