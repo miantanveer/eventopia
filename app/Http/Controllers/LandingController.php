@@ -49,7 +49,7 @@ class LandingController extends UserBaseController
                         break;
                     }
                 };
-            })->whereLastSteps('step-7')->inRandomOrder()->paginate(6);
+            })->whereLastSteps('step-7')->inRandomOrder()->paginate(12);
             $this->type = 'service';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
@@ -127,7 +127,7 @@ class LandingController extends UserBaseController
                             });
                         });
                 })->whereLastSteps('step-9')
-                ->inRandomOrder()->paginate(6);
+                ->inRandomOrder()->paginate(12);
             $this->type = 'entertainment';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
@@ -207,7 +207,7 @@ class LandingController extends UserBaseController
                         });
                 })->whereStatus('1')
                 ->whereLastStep('10')
-                ->inRandomOrder()->paginate(6);
+                ->inRandomOrder()->paginate(12);
             $this->type = 'space';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
@@ -251,9 +251,9 @@ class LandingController extends UserBaseController
                 ->inRandomOrder()
                 ->whereStatus('1')
                 ->whereLastStep('10')
-                ->get();
+                ->paginate(12);
             if (isset($space)) {
-                $space = Space::inRandomOrder(5)->get();
+                $space = Space::inRandomOrder(5)->paginate(12);
             }
             $this->type = 'space';
             $this->listing = $space;
@@ -275,9 +275,9 @@ class LandingController extends UserBaseController
                         });
                 })
                 ->whereLastSteps('step-9')
-                ->get();
+                ->paginate(12);
             if (isset($ent)) {
-                $ent = Entertainment::inRandomOrder(5)->get();
+                $ent = Entertainment::inRandomOrder(5)->paginate(12);
             }
             $this->type = 'entertainment';
             $this->listing = $ent;
@@ -292,9 +292,9 @@ class LandingController extends UserBaseController
                         ->orWhere('state', $req->location_2);
                 })
                 ->whereLastSteps('step-7')
-                ->get();
+                ->paginate(12);
             if (isset($service)) {
-                $service = Service::inRandomOrder(5)->get();
+                $service = Service::inRandomOrder(5)->paginate(12);
             }
             $this->type = 'service';
             $this->listing = $service;
