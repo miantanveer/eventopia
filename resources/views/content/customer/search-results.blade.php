@@ -916,34 +916,8 @@
                                     @endif
                                 </div>
                                 <div id="paginator">
-                                    {{@$listing->links('vendor\pagination\tailwind')}}
+                                    {{@$listing->fragment(Hash::make($type))->links('vendor.pagination.tailwind')}}
                                 </div>
-                                {{-- <div class="row">
-                                    <div class="col-12 col-md-4 text-md-start text-center">
-                                        <p class="text-start ms-3 mt-5">Showing 1-24 of 12647</p>
-                                    </div>
-                                    <div class="col-12 col-md-5 text-md-start text-center">
-                                        <div class="container m-0 pb-5">
-                                            <ul class="pagination">
-                                                <li class="page-item"><a class="page-link"
-                                                        style="border-radius: 50px 0px 0px 50px !important;" href="#"><i
-                                                            class="fa fa-angle-double-left nav-style"></i></a></li>
-                                                <li class="page-item"><a class="page-link" href="#"><i
-                                                            class="fa fa-angle-left  nav-style"></i></a></li>
-                                                <li class="page-item"><a class="page-link p-3" href="#">1</a></li>
-                                                <li class="page-item"><a class="page-link p-3" href="#">2</a></li>
-                                                <li class="page-item"><a class="page-link p-3" href="#">...</a></li>
-                                                <li class="page-item"><a class="page-link p-3" href="#">8</a></li>
-                                                <li class="page-item"><a class="page-link" href="#"><i
-                                                            class="fa fa-angle-right  nav-style"></i></a></li>
-                                                <li class="page-item"><a class="page-link"
-                                                        style="border-radius: 0px 50px 50px 0px !important;" href="#"><i
-                                                            class="fa fa-angle-double-right  nav-style"></i></a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div> --}}
                                 <hr class="bg-dark">
                                 <div class="">
                                     <p><a href="#">See all off-site spaces in Chicago</a></p>
@@ -961,152 +935,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="dateTimeModal">
-    <div class="modal-dialog max-width_modal" role="document">
-        <div class="modal-content modal-content-demo">
-            <div class="modal-header">
-                <h6 class="modal-title">Select Time</h6><button aria-label="Close" class="btn-close"
-                    data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <div class="row w-100 bg-white calendarAndTimePicker" id="calendarAndTimePicker">
-                    <div class="col-6 calendar-container-1">
-                        <div class="calendar">
-                            <div class="year-header">
-                                <span class="left-button" id="prev"> <i class="fa fa-angle-double-left"></i>
-                                </span>
-                                <span class="year" id="label"> </span>
-                                <span class="right-button" id="next"> <i class="fa fa-angle-double-right"></i>
-                                </span>
-                            </div>
-                            <table class="months-table">
-                                <tbody>
-                                    <tr class="months-row">
-                                        <td class="month">{{ lang('Jan') }}</td>
-                                        <td class="month">{{ lang('Feb') }}</td>
-                                        <td class="month">{{ lang('Mar') }}</td>
-                                        <td class="month">{{ lang('Apr') }}</td>
-                                        <td class="month">{{ lang('May') }}</td>
-                                        <td class="month">{{ lang('June') }}</td>
-                                        <td class="month">{{ lang('July') }}</td>
-                                        <td class="month">{{ lang('Aug') }}</td>
-                                        <td class="month">{{ lang('Sep') }}</td>
-                                        <td class="month">{{ lang('Oct') }}</td>
-                                        <td class="month">{{ lang('Nov') }}</td>
-                                        <td class="month">{{ lang('Dec') }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <table class="days-table">
-                                <td class="day">{{ lang('Sun') }}</td>
-                                <td class="day">{{ lang('Mon') }}</td>
-                                <td class="day">{{ lang('Tue') }}</td>
-                                <td class="day">{{ lang('Wed') }}</td>
-                                <td class="day">{{ lang('Thu') }}</td>
-                                <td class="day">{{ lang('Fri') }}</td>
-                                <td class="day">{{ lang('Sat') }}</td>
-                            </table>
-                            <div class="frame">
-                                <table class="dates-table">
-                                    <tbody class="tbody-tb"></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 dialog" id="dialog">
-                        <h2 class="dialog-header mt-7">{{ lang('Select Time') }}</h2>
-                        <div class="form-container mt-7 me-6" align="center">
-                            <label for="start_time" class="form-label mt-5 text-start startTime_label">{{ lang('Start
-                                Time') }}</label>
-                            <select name="start-time" class="Select_Time form-select mb-5" id="start_time" disabled>
-                                <option value="6:00 AM">6:00 {{ lang('AM') }}</option>
-                                <option value="6:30 AM">6:30 {{ lang('AM') }}</option>
-                                <option value="7:00 AM">7:00 {{ lang('AM') }}</option>
-                                <option value="7:30 AM">7:30 {{ lang('AM') }}</option>
-                                <option value="8:00 AM">8:00 {{ lang('AM') }}</option>
-                                <option value="8:30 AM">8:30 {{ lang('AM') }}</option>
-                                <option value="9:00 AM">9:00 {{ lang('AM') }}</option>
-                                <option value="9:30 AM">9:30 {{ lang('AM') }}</option>
-                                <option value="10:00 AM">10:00 {{ lang('AM') }}</option>
-                                <option value="10:30 AM">10:30 {{ lang('AM') }}</option>
-                                <option value="11:00 AM">11:00 {{ lang('AM') }}</option>
-                                <option value="11:30 AM">11:30 {{ lang('AM') }}</option>
-                                <option value="12:00 PM">12:00 {{ lang('PM') }}</option>
-                                <option value="12:30 PM">12:30 {{ lang('PM') }}</option>
-                                <option value="1:00 PM">1:00 {{ lang('PM') }}</option>
-                                <option value="1:30 PM">1:30 {{ lang('PM') }}</option>
-                                <option value="2:00 PM">2:00 {{ lang('PM') }}</option>
-                                <option value="2:30 PM">2:30 {{ lang('PM') }}</option>
-                                <option value="3:00 PM">3:00 {{ lang('PM') }}</option>
-                                <option value="3:30 PM">3:30 {{ lang('PM') }}</option>
-                                <option value="4:00 PM">4:00 {{ lang('PM') }}</option>
-                                <option value="4:30 PM">4:30 {{ lang('PM') }}</option>
-                                <option value="5:00 PM">5:00 {{ lang('PM') }}</option>
-                                <option value="5:30 PM">5:30 {{ lang('PM') }}</option>
-                                <option value="6:00 PM">6:00 {{ lang('PM') }}</option>
-                                <option value="6:30 PM">6:30 {{ lang('PM') }}</option>
-                                <option value="7:00 PM">7:00 {{ lang('PM') }}</option>
-                                <option value="7:30 PM">7:30 {{ lang('PM') }}</option>
-                                <option value="8:00 PM">8:00 {{ lang('PM') }}</option>
-                                <option value="8:30 PM">8:30 {{ lang('PM') }}</option>
-                                <option value="9:00 PM">9:00 {{ lang('PM') }}</option>
-                                <option value="9:30 PM">9:30 {{ lang('PM') }}</option>
-                                <option value="10:00 PM">10:00 {{ lang('PM') }}</option>
-                                <option value="10:30 PM">10:30 {{ lang('PM') }}</option>
-                                <option value="10:00 PM">11:00 {{ lang('PM') }}</option>
-                                <option value="10:30 PM">11:30 {{ lang('PM') }}</option>
-                            </select>
-                            <label for="end_time" class="form-label text-start endTime_label">{{ lang('End Time')
-                                }}</label>
-                            <select name="end-time" class="Select_Time form-select mb-5" id="end_time" disabled>
-                                <option value="6:00 AM">6:00 {{ lang('AM') }}</option>
-                                <option value="6:30 AM">6:30 {{ lang('AM') }}</option>
-                                <option value="7:00 AM">7:00 {{ lang('AM') }}</option>
-                                <option value="7:30 AM">7:30 {{ lang('AM') }}</option>
-                                <option value="8:00 AM">8:00 {{ lang('AM') }}</option>
-                                <option value="8:30 AM">8:30 {{ lang('AM') }}</option>
-                                <option value="9:00 AM">9:00 {{ lang('AM') }}</option>
-                                <option value="9:30 AM">9:30 {{ lang('AM') }}</option>
-                                <option value="10:00 AM">10:00 {{ lang('AM') }}</option>
-                                <option value="10:30 AM">10:30 {{ lang('AM') }}</option>
-                                <option value="11:00 AM">11:00 {{ lang('AM') }}</option>
-                                <option value="11:30 AM">11:30 {{ lang('AM') }}</option>
-                                <option value="12:00 PM">12:00 {{ lang('PM') }}</option>
-                                <option value="12:30 PM">12:30 {{ lang('PM') }}</option>
-                                <option value="1:00 PM">1:00 {{ lang('PM') }}</option>
-                                <option value="1:30 PM">1:30 {{ lang('PM') }}</option>
-                                <option value="2:00 PM">2:00 {{ lang('PM') }}</option>
-                                <option value="2:30 PM">2:30 {{ lang('PM') }}</option>
-                                <option value="3:00 PM">3:00 {{ lang('PM') }}</option>
-                                <option value="3:30 PM">3:30 {{ lang('PM') }}</option>
-                                <option value="4:00 PM">4:00 {{ lang('PM') }}</option>
-                                <option value="4:30 PM">4:30 {{ lang('PM') }}</option>
-                                <option value="5:00 PM">5:00 {{ lang('PM') }}</option>
-                                <option value="5:30 PM">5:30 {{ lang('PM') }}</option>
-                                <option value="6:00 PM">6:00 {{ lang('PM') }}</option>
-                                <option value="6:30 PM">6:30 {{ lang('PM') }}</option>
-                                <option value="7:00 PM">7:00 {{ lang('PM') }}</option>
-                                <option value="7:30 PM">7:30 {{ lang('PM') }}</option>
-                                <option value="8:00 PM">8:00 {{ lang('PM') }}</option>
-                                <option value="8:30 PM">8:30 {{ lang('PM') }}</option>
-                                <option value="9:00 PM">9:00 {{ lang('PM') }}</option>
-                                <option value="9:30 PM">9:30 {{ lang('PM') }}</option>
-                                <option value="10:00 PM">10:00 {{ lang('PM') }}</option>
-                                <option value="10:30 PM">10:30 {{ lang('PM') }}</option>
-                                <option value="10:00 PM">11:00 {{ lang('PM') }}</option>
-                                <option value="10:30 PM">11:30 {{ lang('PM') }}</option>
-                            </select>
-                            <button type="button" class="clear_button-1 float-start ms-9 mt-6" id="clear-button">{{
-                                lang('Clear') }}</button>
-                            <button type="button" class="clear_button-2 me-9 float-end mt-6" onclick="selected()">{{
-                                lang('Save') }}</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <input type="hidden" name="hidden" id="hiddenDate">
 <input type="hidden" id="{{ $type }}_search_url" value="{{ route($type . '_landing_index') }}">
 <input type="hidden" id="search" value="{{ route('search_ajax', $type) }}">
@@ -1114,23 +943,6 @@
 @endsection
 
 @section('scripts')
-<script
-    src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key={{ config('googlemap.GOOGLE_MAP_KEY') }}">
-</script>
-@include('content.components.__map')
-<!-- OWL CAROUSEL JS-->
-<script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
-<script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
-<script src="{{ asset('assets/js/carousel.js') }}"></script>
-
-<script>
-    $(document).ready(function() {
-            $('#flexSwitchCheckChecked').on('click', function() {
-                $('#map').toggleClass('d-none');
-                $('#galleryColumn').toggleClass('col-lg-12');
-            });
-        });
-</script>
 
 @include('content.components.__filter_scripts')
 @endsection

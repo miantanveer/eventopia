@@ -27,33 +27,37 @@ class LandingController extends UserBaseController
         if ($type == 'service') {
             $this->listing = Service::where(function ($query) use ($req) {
                 $query->where('price', '!==', $req->price)
-                ->orWhere('country', $req->address)
-                ->orWhere('title', $req->keyword)
-                ->orWhere('category', $req->keyword)
-                ->orWhere('activities', $req->keyword)
-                ->whereHas('quotes', function ($subquery) use ($req) {
-                    $subquery->whereGuests($req->guests);
-                });
+                    ->orWhere('country', $req->address)
+                    ->orWhere(function ($subquery) use ($req) {
+                        $subquery->where('title', $req->keyword)
+                            ->orWhere('category', $req->keyword)
+                            ->orWhere('activities', $req->keyword);
+                    })
+                    ->whereHas('quotes', function ($subquery) use ($req) {
+                        $subquery->whereGuests($req->guests);
+                    });
             })
-            ->orWhere(function ($query) use ($req) {
-                $price = $req->price;
+                ->when($req->price !== null, function ($subquery) use ($req) {
+                    $subquery->orWhere(function ($query) use ($req) {
+                        $price = $req->price;
 
-                $priceRanges = [0, 1000, 2500, 4500, 9999];
+                        $priceRanges = [0, 1000, 2500, 4500, 9999];
 
-                foreach ($priceRanges as $index => $range) {
-                    if ($price == $range) {
-                        return $query->whereBetween('price', [$priceRanges[$index - 1], $priceRanges[$index]]);
-                        break;
-                    } elseif ($price == '10000') {
-                        $query->where('price', '>=', 5000);
-                        break;
-                    }
-                };
-            })->whereLastSteps('step-7')->inRandomOrder()->paginate(6);
+                        foreach ($priceRanges as $index => $range) {
+                            if ($price == $range) {
+                                return $query->whereBetween('price', [$priceRanges[$index - 1], $priceRanges[$index]]);
+                                break;
+                            } elseif ($price == '10000') {
+                                $query->where('price', '>=', 5000);
+                                break;
+                            }
+                        };
+                    });
+                })->whereLastSteps('step-7')->inRandomOrder()->paginate(12);
             $this->type = 'service';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
-            $this->data = view('content.components.__service', ['listing' => $this->listing, 'count' => $this->count])->render();
+            $this->data = view('content.components.__service', ['listing' => $this->listing])->render();
 
             return response()->json($this->data);
 
@@ -97,17 +101,19 @@ class LandingController extends UserBaseController
                 ->orWhere(function ($query) use ($req, $type, $formattedDate) {
                     $query->where('title', $req->keyword)
                         ->orWhere('country', $req->address)
+                        ->orWhere(function ($subquery) use ($req) {
+                            $subquery->whereHas('entertainmentActivities.entertainment', function ($subquery) use ($req) {
+                                $subquery->whereTitle($req->keyword);
+                            })
+                                ->orWhereHas('entertainmentActivities.sub_act', function ($subquery) use ($req) {
+                                    $subquery->whereTitle($req->keyword);
+                                })
+                                ->orWhereHas('entertainmentActivities.entActivityAmenity.activity', function ($subquery) use ($req) {
+                                    $subquery->whereName($req->keyword);
+                                });
+                        })
                         ->orWhereHas('entertainmentActivities', function ($subquery) use ($req) {
                             $subquery->whereHourlyRate($req->price)->whereGuestCapacity($req->attendees);
-                        })
-                        ->orWhereHas('entertainmentActivities.entertainment', function ($subquery) use ($req) {
-                            $subquery->whereTitle($req->keyword);
-                        })
-                        ->orWhereHas('entertainmentActivities.sub_act', function ($subquery) use ($req) {
-                            $subquery->whereTitle($req->keyword);
-                        })
-                        ->orWhereHas('entertainmentActivities.entActivityAmenity.activity', function ($subquery) use ($req) {
-                            $subquery->whereName($req->keyword);
                         })
                         ->orWhereHas('operatingDays', function ($subquery) use ($req, $formattedDate) {
                             $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
@@ -127,11 +133,11 @@ class LandingController extends UserBaseController
                             });
                         });
                 })->whereLastSteps('step-9')
-                ->inRandomOrder()->paginate(6);
+                ->inRandomOrder()->paginate(12);
             $this->type = 'entertainment';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
-            $this->data = view('content.components.__entertainment', ['listing' => $this->listing, 'count' => $this->count])->render();
+            $this->data = view('content.components.__entertainment', ['listing' => $this->listing])->render();
 
             return response()->json($this->data);
 
@@ -179,14 +185,16 @@ class LandingController extends UserBaseController
                     $query->where('space_title', $req->keyword)
                         ->orWhere('space_description', $req->keyword)
                         ->orWhere('country', $req->address)
-                        ->orWhereHas('spaceHaveActivities.activities', function ($subquery) use ($req) {
-                            $subquery->whereTitle($req->keyword);
-                        })
-                        ->orWhereHas('spaceType', function ($subquery) use ($req) {
-                            $subquery->whereType($req->keyword);
-                        })
-                        ->orWhereHas('spaceHaveActivities.spaceAmenities', function ($subquery) use ($req) {
-                            $subquery->whereName($req->keyword);
+                        ->orWhere(function ($subquery) use ($req) {
+                            $subquery->whereHas('spaceHaveActivities.activities', function ($subquery) use ($req) {
+                                $subquery->whereTitle($req->keyword);
+                            })
+                                ->orWhereHas('spaceType', function ($subquery) use ($req) {
+                                    $subquery->whereType($req->keyword);
+                                })
+                                ->orWhereHas('spaceHaveActivities.spaceAmenities', function ($subquery) use ($req) {
+                                    $subquery->whereName($req->keyword);
+                                });
                         })
                         ->orWhereHas('operatingDays', function ($subquery) use ($req, $formattedDate) {
                             $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
@@ -207,11 +215,11 @@ class LandingController extends UserBaseController
                         });
                 })->whereStatus('1')
                 ->whereLastStep('10')
-                ->inRandomOrder()->paginate(6);
+                ->inRandomOrder()->paginate(12);
             $this->type = 'space';
-            $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
-            $this->data = view('content.components.__space', ['listing' => $this->listing, 'count' => $this->count])->render();
+            $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
+            $this->data = view('content.components.__space', ['listing' => $this->listing])->render();
 
             return response()->json($this->data);
         }
@@ -251,12 +259,13 @@ class LandingController extends UserBaseController
                 ->inRandomOrder()
                 ->whereStatus('1')
                 ->whereLastStep('10')
-                ->get();
+                ->paginate(12);
             if (isset($space)) {
-                $space = Space::inRandomOrder(5)->get();
+                $space = Space::inRandomOrder(5)->paginate(12);
             }
             $this->type = 'space';
             $this->listing = $space;
+            $this->count = $this->listing->count();
             return view('content.customer.search-results', $this->data);
         } elseif ($req->type == 'entertainment') {
             $ent = Entertainment::with('entertainmentActivities', 'entertainmentActivities.entertainment', 'entertainmentActivities.sub_act', 'entertainmentActivities.sub_act.act')
@@ -275,12 +284,13 @@ class LandingController extends UserBaseController
                         });
                 })
                 ->whereLastSteps('step-9')
-                ->get();
+                ->paginate(12);
             if (isset($ent)) {
-                $ent = Entertainment::inRandomOrder(5)->get();
+                $ent = Entertainment::inRandomOrder(5)->paginate(12);
             }
             $this->type = 'entertainment';
             $this->listing = $ent;
+            $this->count = $this->listing->count();
             return view('content.customer.search-results', $this->data);
         } elseif ($req->type == 'service') {
             $service = Service::with('serviceImages')->where('title', $req->planCatagories_2)
@@ -292,12 +302,13 @@ class LandingController extends UserBaseController
                         ->orWhere('state', $req->location_2);
                 })
                 ->whereLastSteps('step-7')
-                ->get();
+                ->paginate(12);
             if (isset($service)) {
-                $service = Service::inRandomOrder(5)->get();
+                $service = Service::inRandomOrder(5)->paginate(12);
             }
             $this->type = 'service';
             $this->listing = $service;
+            $this->count = $this->listing->count();
             return view('content.customer.search-results', $this->data);
         }
     }

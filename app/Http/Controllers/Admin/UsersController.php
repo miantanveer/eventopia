@@ -13,6 +13,9 @@ class UsersController extends AdminBaseController
     public function usersIndex()
     {
         $this->users = User::whereIsAdmin('0')->get();
+        $this->totalUsers = User::whereIsAdmin('0')->count();
+        $this->activeUsers = User::whereIsAdmin('0')->whereStatus('1')->count();
+        $this->blockedUsers = User::whereIsAdmin('0')->whereStatus('2')->count();
         return view('content.admin.users.index', $this->data);
     }
 
