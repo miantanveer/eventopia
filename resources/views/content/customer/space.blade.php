@@ -917,7 +917,7 @@
                                     @endif
                                 </div>
                                 <div id="paginator">
-                                    {{@$listing->onEachSide(5)->fragment(Hash::make($type))->links('vendor.pagination.tailwind')}}
+                                    {{@$listing->fragment(Hash::make($type))->links()}}
                                 </div>
                                 <hr class="bg-dark">
                                 <div class="">
