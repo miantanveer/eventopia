@@ -1,3 +1,21 @@
+<script
+    src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&key={{ config('googlemap.GOOGLE_MAP_KEY') }}">
+</script>
+@include('content.components.__map')
+
+<script src="{{ asset('assets/plugins/owl-carousel/owl.carousel.js') }}"></script>
+<script src="{{ asset('assets/js/owl-carousel.js') }}"></script>
+<script src="{{ asset('assets/js/carousel.js') }}"></script>
+
+<script>
+    $(document).ready(function() {
+            $('#flexSwitchCheckChecked').on('click', function() {
+                $('#map').toggleClass('d-none');
+                $('#galleryColumn').toggleClass('col-lg-12');
+            });
+        });
+</script>
+
 <script>
     $(document).ready(function() {
         $('#calendarAndTimePicker').hide();
@@ -292,14 +310,8 @@
         url = $('#search').val();
         selectedPrice = $('input[name="price"]:checked').val();
         guests = $('input[name="guests"]:checked').val();
-        var startTime = '';
-        var endTime = '';
-        $('#start_time').on('change', function() {
-            startTime = $(this).val();
-        });
-        $('#end_time').on('change', function() {
-            endTime = $(this).val();
-        });
+        startTime = $('#start_time').val();
+        endTime = $('#end_time').val();
         date = $("#hiddenDate").val();
         $.ajax({
             url: url,

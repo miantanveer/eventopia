@@ -420,3 +420,465 @@
     </div>
 </div>
 
+{{-- Search Filter Date and Time Modal --}}
+
+<div class="modal fade" id="dateTimeModal">
+    <div class="modal-dialog max-width_modal" role="document">
+        <div class="modal-content modal-content-demo">
+            <div class="modal-header">
+                <h6 class="modal-title">Select Time</h6><button aria-label="Close" class="btn-close"
+                    data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="row w-100 bg-white calendarAndTimePicker" id="calendarAndTimePicker">
+                    <div class="col-6 calendar-container-1">
+                        <div class="calendar">
+                            <div class="year-header">
+                                <span class="left-button" id="prev"> <i class="fa fa-angle-double-left"></i>
+                                </span>
+                                <span class="year" id="label"> </span>
+                                <span class="right-button" id="next"> <i class="fa fa-angle-double-right"></i>
+                                </span>
+                            </div>
+                            <table class="months-table">
+                                <tbody>
+                                    <tr class="months-row">
+                                        <td class="month">{{ lang('Jan') }}</td>
+                                        <td class="month">{{ lang('Feb') }}</td>
+                                        <td class="month">{{ lang('Mar') }}</td>
+                                        <td class="month">{{ lang('Apr') }}</td>
+                                        <td class="month">{{ lang('May') }}</td>
+                                        <td class="month">{{ lang('June') }}</td>
+                                        <td class="month">{{ lang('July') }}</td>
+                                        <td class="month">{{ lang('Aug') }}</td>
+                                        <td class="month">{{ lang('Sep') }}</td>
+                                        <td class="month">{{ lang('Oct') }}</td>
+                                        <td class="month">{{ lang('Nov') }}</td>
+                                        <td class="month">{{ lang('Dec') }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="days-table">
+                                <td class="day">{{ lang('Sun') }}</td>
+                                <td class="day">{{ lang('Mon') }}</td>
+                                <td class="day">{{ lang('Tue') }}</td>
+                                <td class="day">{{ lang('Wed') }}</td>
+                                <td class="day">{{ lang('Thu') }}</td>
+                                <td class="day">{{ lang('Fri') }}</td>
+                                <td class="day">{{ lang('Sat') }}</td>
+                            </table>
+                            <div class="frame">
+                                <table class="dates-table">
+                                    <tbody class="tbody-tb"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 dialog" id="dialog">
+                        <h2 class="dialog-header mt-7">{{ lang('Select Time') }}</h2>
+                        <div class="form-container mt-7 me-6" align="center">
+                            <label for="start_time" class="form-label mt-5 text-start startTime_label">{{ lang('Start
+                                Time') }}</label>
+                            <select name="start-time" class="Select_Time form-select mb-5" id="start_time" disabled>
+                                <option value="6:00 AM">6:00 {{ lang('AM') }}</option>
+                                <option value="6:30 AM">6:30 {{ lang('AM') }}</option>
+                                <option value="7:00 AM">7:00 {{ lang('AM') }}</option>
+                                <option value="7:30 AM">7:30 {{ lang('AM') }}</option>
+                                <option value="8:00 AM">8:00 {{ lang('AM') }}</option>
+                                <option value="8:30 AM">8:30 {{ lang('AM') }}</option>
+                                <option value="9:00 AM">9:00 {{ lang('AM') }}</option>
+                                <option value="9:30 AM">9:30 {{ lang('AM') }}</option>
+                                <option value="10:00 AM">10:00 {{ lang('AM') }}</option>
+                                <option value="10:30 AM">10:30 {{ lang('AM') }}</option>
+                                <option value="11:00 AM">11:00 {{ lang('AM') }}</option>
+                                <option value="11:30 AM">11:30 {{ lang('AM') }}</option>
+                                <option value="12:00 PM">12:00 {{ lang('PM') }}</option>
+                                <option value="12:30 PM">12:30 {{ lang('PM') }}</option>
+                                <option value="1:00 PM">1:00 {{ lang('PM') }}</option>
+                                <option value="1:30 PM">1:30 {{ lang('PM') }}</option>
+                                <option value="2:00 PM">2:00 {{ lang('PM') }}</option>
+                                <option value="2:30 PM">2:30 {{ lang('PM') }}</option>
+                                <option value="3:00 PM">3:00 {{ lang('PM') }}</option>
+                                <option value="3:30 PM">3:30 {{ lang('PM') }}</option>
+                                <option value="4:00 PM">4:00 {{ lang('PM') }}</option>
+                                <option value="4:30 PM">4:30 {{ lang('PM') }}</option>
+                                <option value="5:00 PM">5:00 {{ lang('PM') }}</option>
+                                <option value="5:30 PM">5:30 {{ lang('PM') }}</option>
+                                <option value="6:00 PM">6:00 {{ lang('PM') }}</option>
+                                <option value="6:30 PM">6:30 {{ lang('PM') }}</option>
+                                <option value="7:00 PM">7:00 {{ lang('PM') }}</option>
+                                <option value="7:30 PM">7:30 {{ lang('PM') }}</option>
+                                <option value="8:00 PM">8:00 {{ lang('PM') }}</option>
+                                <option value="8:30 PM">8:30 {{ lang('PM') }}</option>
+                                <option value="9:00 PM">9:00 {{ lang('PM') }}</option>
+                                <option value="9:30 PM">9:30 {{ lang('PM') }}</option>
+                                <option value="10:00 PM">10:00 {{ lang('PM') }}</option>
+                                <option value="10:30 PM">10:30 {{ lang('PM') }}</option>
+                                <option value="10:00 PM">11:00 {{ lang('PM') }}</option>
+                                <option value="10:30 PM">11:30 {{ lang('PM') }}</option>
+                            </select>
+                            <label for="end_time" class="form-label text-start endTime_label">{{ lang('End Time')
+                                }}</label>
+                            <select name="end-time" class="Select_Time form-select mb-5" id="end_time" disabled>
+                                <option value="6:00 AM">6:00 {{ lang('AM') }}</option>
+                                <option value="6:30 AM">6:30 {{ lang('AM') }}</option>
+                                <option value="7:00 AM">7:00 {{ lang('AM') }}</option>
+                                <option value="7:30 AM">7:30 {{ lang('AM') }}</option>
+                                <option value="8:00 AM">8:00 {{ lang('AM') }}</option>
+                                <option value="8:30 AM">8:30 {{ lang('AM') }}</option>
+                                <option value="9:00 AM">9:00 {{ lang('AM') }}</option>
+                                <option value="9:30 AM">9:30 {{ lang('AM') }}</option>
+                                <option value="10:00 AM">10:00 {{ lang('AM') }}</option>
+                                <option value="10:30 AM">10:30 {{ lang('AM') }}</option>
+                                <option value="11:00 AM">11:00 {{ lang('AM') }}</option>
+                                <option value="11:30 AM">11:30 {{ lang('AM') }}</option>
+                                <option value="12:00 PM">12:00 {{ lang('PM') }}</option>
+                                <option value="12:30 PM">12:30 {{ lang('PM') }}</option>
+                                <option value="1:00 PM">1:00 {{ lang('PM') }}</option>
+                                <option value="1:30 PM">1:30 {{ lang('PM') }}</option>
+                                <option value="2:00 PM">2:00 {{ lang('PM') }}</option>
+                                <option value="2:30 PM">2:30 {{ lang('PM') }}</option>
+                                <option value="3:00 PM">3:00 {{ lang('PM') }}</option>
+                                <option value="3:30 PM">3:30 {{ lang('PM') }}</option>
+                                <option value="4:00 PM">4:00 {{ lang('PM') }}</option>
+                                <option value="4:30 PM">4:30 {{ lang('PM') }}</option>
+                                <option value="5:00 PM">5:00 {{ lang('PM') }}</option>
+                                <option value="5:30 PM">5:30 {{ lang('PM') }}</option>
+                                <option value="6:00 PM">6:00 {{ lang('PM') }}</option>
+                                <option value="6:30 PM">6:30 {{ lang('PM') }}</option>
+                                <option value="7:00 PM">7:00 {{ lang('PM') }}</option>
+                                <option value="7:30 PM">7:30 {{ lang('PM') }}</option>
+                                <option value="8:00 PM">8:00 {{ lang('PM') }}</option>
+                                <option value="8:30 PM">8:30 {{ lang('PM') }}</option>
+                                <option value="9:00 PM">9:00 {{ lang('PM') }}</option>
+                                <option value="9:30 PM">9:30 {{ lang('PM') }}</option>
+                                <option value="10:00 PM">10:00 {{ lang('PM') }}</option>
+                                <option value="10:30 PM">10:30 {{ lang('PM') }}</option>
+                                <option value="10:00 PM">11:00 {{ lang('PM') }}</option>
+                                <option value="10:30 PM">11:30 {{ lang('PM') }}</option>
+                            </select>
+                            <button type="button" class="clear_button-1 float-start ms-9 mt-6" id="clear-button">{{
+                                lang('Clear') }}</button>
+                            <button type="button" class="clear_button-2 me-9 float-end mt-6" onclick="selected()">{{
+                                lang('Save') }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- Filter Bar Keyword modal --}}
+<div class="modal fade" id="modaldemo4">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content tx-size-sm">
+            <div class="modal-body p-4 pb-5" style="overflow: auto; height: 700px;">
+                <div class="modal-header" style="position: sticky; top: -17; background-color: #fff; z-index: 9999;">
+                    <h5 class="modal-title">Filters</h5>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>                
+                <div class="container-fluid">
+                <div class='row'>
+                <div class='col-12'>
+                <h3 class='mt-5'><b>keyword</b></h3>
+                <input type='text' class='form-control' id="planCatagories-12" placeholder='Enter a keyword'>
+                <ul class="dropdown-menu w-100 position-relative" id="categoryDropdown-12" style="top: -8px;"></ul>
+                </div>
+                </div>
+                <div id="drop_tags" class="mt-3 fw-bold"></div>
+                <hr class='bg-dark'>
+                    <h3 class='mt-5'><b>Outdoor Spaces</b></h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-1" required>
+                                <label class="form-check-label" for="invalidCheck-1">
+                                    <p>{{lang('Backyard')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-2" required>
+                                <label class="form-check-label" for="invalidCheck-2">
+                                    <p>{{lang('Beach')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-3" required>
+                                <label class="form-check-label" for="invalidCheck-3">
+                                    <p>{{lang('Garden')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-4" required>
+                                <label class="form-check-label" for="invalidCheck-4">
+                                    <p>{{lang('Exterior')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-5" required>
+                                <label class="form-check-label" for="invalidCheck-5">
+                                    <p>{{lang('Lawn')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-6" required>
+                                <label class="form-check-label" for="invalidCheck-6">
+                                    <p>{{lang('Patio')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class='bg-dark'>
+                    <h3 class='mt-5'><b>Interior Spaces</b></h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-7" required>
+                                <label class="form-check-label" for="invalidCheck-7">
+                                    <p>{{lang('Bathroom')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-8" required>
+                                <label class="form-check-label" for="invalidCheck-8">
+                                    <p>{{lang('Bedroom')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-9" required>
+                                <label class="form-check-label" for="invalidCheck-9">
+                                    <p>{{lang('Dining Area')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-01" required>
+                                <label class="form-check-label" for="invalidCheck-01">
+                                    <p>{{lang('Garage')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-02" required>
+                                <label class="form-check-label" for="invalidCheck-02">
+                                    <p>{{lang('Home Office')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-03" required>
+                                <label class="form-check-label" for="invalidCheck-03">
+                                    <p>{{lang('Kids Room')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class='bg-dark'>
+                    <h3 class='mt-5'><b>Style</b></h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-04" required>
+                                <label class="form-check-label" for="invalidCheck-04">
+                                    <p>{{lang('Bohemian')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-05" required>
+                                <label class="form-check-label" for="invalidCheck-05">
+                                    <p>{{lang('Coastal / Beachy')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-06" required>
+                                <label class="form-check-label" for="invalidCheck-06">
+                                    <p>{{lang('Colorful')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-07" required>
+                                <label class="form-check-label" for="invalidCheck-07">
+                                    <p>{{lang('Farmhouse')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-08" required>
+                                <label class="form-check-label" for="invalidCheck-08">
+                                    <p>{{lang('Industrial')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-09" required>
+                                <label class="form-check-label" for="invalidCheck-09">
+                                    <p>{{lang('Loft')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class='bg-dark'>
+                    <h3 class='mt-5'><b>Space Type</b></h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-001" required>
+                                <label class="form-check-label" for="invalidCheck-001">
+                                    <p>{{lang('Apartment')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-002" required>
+                                <label class="form-check-label" for="invalidCheck-002">
+                                    <p>{{lang('Banquet Hall')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-003" required>
+                                <label class="form-check-label" for="invalidCheck-003">
+                                    <p>{{lang('Bar')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-004" required>
+                                <label class="form-check-label" for="invalidCheck-004">
+                                    <p>{{lang('Church')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck--005" required>
+                                <label class="form-check-label" for="invalidCheck--005">
+                                    <p>{{lang('Classroom')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-006" required>
+                                <label class="form-check-label" for="invalidCheck-006">
+                                    <p>{{lang('Conference Room')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class='bg-dark'>
+                    <div class='row mt-3'>
+                        <div class='col-12'>
+                            <div class="form-check">
+                                <input class="form-check-input" name="company_payment-1"
+                                    type="checkbox" value="Company Payment" id="invalidCheck-007"
+                                    required>
+                                <label class="form-check-label" for="invalidCheck-007">
+                                    <p class='mb-0'><b>{{lang('Enhanced health and safety measures')}}</b></p>
+                                    <p>{{lang('Only show listings from hosts who have taken extra health and safety precautions')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class='col-12'>
+                            <div class="form-check">
+                                <input class="form-check-input" name="company_payment-2"
+                                    type="checkbox" value="Company Payment" id="invalidCheck-008"
+                                    required>
+                                <label class="form-check-label" for="invalidCheck-008">
+                                    <p class='mb-0'><b>{{lang('Instant Book')}}</b></p>
+                                    <p>{{lang('Only see spaces that can be instantly booked')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class='bg-dark'>
+                    <h3 class='mt-5'><b>Amenities</b></h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-0001" required>
+                                <label class="form-check-label" for="invalidCheck-0001">
+                                    <p>{{lang('Deck')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-0002" required>
+                                <label class="form-check-label" for="invalidCheck-0002">
+                                    <p>{{lang('Elevator')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-0003" required>
+                                <label class="form-check-label" for="invalidCheck-0003">
+                                    <p>{{lang('Exposed Brick')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-0004" required>
+                                <label class="form-check-label" for="invalidCheck-0004">
+                                    <p>{{lang('Fire Pit')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck--0005" required>
+                                <label class="form-check-label" for="invalidCheck--0005">
+                                    <p>{{lang('Fireplace')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input filter_checkbox" name="company_payment" type="checkbox" value="Company Payment" id="invalidCheck-0006" required>
+                                <label class="form-check-label" for="invalidCheck-0006">
+                                    <p>{{lang('Gazebo')}}</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="position: sticky; bottom: -25; background-color: #fff; z-index: 9999;">
+                    <h5 class="modal-title"><a href="#" id="clearAllButton">Clear all</a></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
