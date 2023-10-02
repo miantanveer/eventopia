@@ -517,8 +517,7 @@
         $('#clearAllButton').on('click', function() {
             document.getElementById('drop_tags').innerHTML = '';
             // Hide the selected categories
-            $('.filter_checkbox').closest('.form-check').find('.form-check-input').prop('checked',
-                false);
+            $('.filter_checkbox').closest('.form-check').find('.form-check-input').prop('checked',false);
         });
 
     });
