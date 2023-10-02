@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\AuthenticationController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ListingsController;
 use App\Http\Controllers\Admin\PluginsController;
+use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\Admin\UsersController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +47,22 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin.aut
         Route::put('/update', [PluginsController::class, 'update'])->name('update');
     });
 
+    // Settings and Profile updating
+    Route::group(['prefix' => 'settings', 'as' => 'settings.'], function () {
+
+        Route::get('edit-profile', [SettingsController::class, 'profileIndex'])->name('profile.index');
+        Route::post('edit-profile', [SettingsController::class, 'editProfile']);
+
+    });
+
+    // Listings
+    Route::group(['prefix' => 'listings', 'as' => 'listings.'], function () {
+
+        Route::get('spaces', [ListingsController::class, 'spacesIndex'])->name('spaces');
+        Route::post('space-delete/{space_id}', [ListingsController::class, 'deleteSpaceListing'])->name('delete.space');
+        Route::post('update-status', [ListingsController::class, 'updateSpaceStatus'])->name('update.space');
+        Route::get('entertainment-&-talents', [ListingsController::class, 'entertainmentsIndex'])->name('entertainment');
+        Route::get('services', [ListingsController::class, 'servicesIndex'])->name('services');
+
+    });
 });

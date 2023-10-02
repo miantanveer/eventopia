@@ -184,7 +184,7 @@
                 <form action="" id="user-delete-form" method="POST">
                     @csrf
                     <h2 class="text-danger">{{ lang('Warning!') }}</h2>
-                    <h4 class="text-danger">{{ lang('Are you sure you want to delete this user?') }}</h4>
+                    <h4 class="text-danger">{{ lang('Are you sure you want to delete ?') }}</h4>
                     <button class="btn btn-danger pd-x-25">{{ lang('Continue') }}</button>
                 </form>
             </div>

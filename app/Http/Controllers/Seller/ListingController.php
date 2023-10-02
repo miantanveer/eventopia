@@ -14,7 +14,7 @@ class ListingController extends UserBaseController
     public function index()
     {
         // Space Getting
-        $this->spaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->whereStatus('1')->with('spaceHaveActivities.activities')->paginate(2);
+        $this->spaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->with('spaceHaveActivities.activities')->paginate(2);
         $this->spaces_remaining = Space::where('last_step', '!=', '10')->whereStatus('0')->get();
         $this->space_acitivities = SpaceActivity::get();
         // Entertainment Getting

@@ -108,7 +108,7 @@
 
                                             </div>
                                             <input type="hidden" name="last_step" value="10">
-                                            <input type="hidden" name="status" value="1">
+                                            <input type="hidden" name="status" value="0">
                                         </div>
                                         <hr class="border-3 bg-dark">
                                         <div class="float-end">

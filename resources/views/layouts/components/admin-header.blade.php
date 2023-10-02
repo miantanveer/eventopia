@@ -138,7 +138,7 @@
                                             </div>
                                         </div>
                                         <!-- NOTIFICATIONS -->
-                                        <div class="dropdown  d-flex message">
+                                        {{-- <div class="dropdown  d-flex message">
                                             <a class="nav-link icon text-center" data-bs-toggle="dropdown">
                                                 <i class="fe fe-message-square"></i><span class="pulse-danger"></span>
                                             </a>
@@ -217,14 +217,14 @@
                                                     class="dropdown-item text-center p-3 text-muted">See all
                                                     Messages</a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <!-- MESSAGE-BOX -->
-                                        <div class="dropdown d-flex header-settings">
+                                        {{-- <div class="dropdown d-flex header-settings">
                                             <a href="javascript:void(0);" class="nav-link icon"
                                                 data-bs-toggle="sidebar-right" data-target=".sidebar-right">
                                                 <i class="fe fe-align-right"></i>
                                             </a>
-                                        </div>
+                                        </div> --}}
                                         <!-- SIDE-MENU -->
                                         <div class="dropdown d-flex profile-1">
                                             <a href="javascript:void(0)" data-bs-toggle="dropdown"
@@ -234,24 +234,24 @@
                                                     class="avatar  profile-user brround cover-image">
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                <div class="drop-heading">
+                                                {{-- <div class="drop-heading">
                                                     <div class="text-center">
                                                         <h5 class="text-dark mb-0 fs-14 fw-semibold">Percy Kewshun</h5>
                                                         <small class="text-muted">Senior Admin</small>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="dropdown-divider m-0"></div>
-                                                <a class="dropdown-item" href="">
+                                                <a class="dropdown-item" href="{{route('admin.settings.profile.index')}}">
                                                     <i class="dropdown-icon fe fe-user"></i> Profile
                                                 </a>
-                                                <a class="dropdown-item" href="">
+                                                {{-- <a class="dropdown-item" href="">
                                                     <i class="dropdown-icon fe fe-mail"></i> Inbox
                                                     <span class="badge bg-primary rounded-pill float-end">5</span>
-                                                </a>
+                                                </a> --}}
                                                 <a class="dropdown-item" href="">
-                                                    <i class="dropdown-icon fe fe-lock"></i> Lockscreen
+                                                    <i class="dropdown-icon fe fe-settings"></i> Settings
                                                 </a>
-                                                <a class="dropdown-item" href="{{route('admin.logout')}}">
+                                                <a class="dropdown-item" href="{{ route('admin.logout') }}">
                                                     <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
                                                 </a>
                                             </div>

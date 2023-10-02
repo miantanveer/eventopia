@@ -32,38 +32,28 @@
                                         class="side-menu__icon fe fe-command"></i><span
                                         class="side-menu__label">Plugins</span></a>
                             </li>
-                            {{-- <li class="sub-category">
-                                <h3>UI Kit</h3>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fe fe-layers"></i><span
+                                        class="side-menu__label">Listings</span><i
+                                        class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li><a href="{{ route('admin.listings.spaces') }}" class="slide-item"> Spaces</a></li>
+                                    <li><a href="{{ route('admin.listings.entertainment') }}" class="slide-item">Entertainments & Talents</a></li>
+                                    <li><a href="{{ route('admin.listings.services') }}" class="slide-item">Services</a></li>
+                                </ul>
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
-                                        class="side-menu__icon fe fe-slack"></i><span
-                                        class="side-menu__label">Apps</span><i
+                                        class="side-menu__icon fe fe-settings"></i><span
+                                        class="side-menu__label">Settings</span><i
                                         class="angle fe fe-chevron-right"></i></a>
                                 <ul class="slide-menu">
-                                    <li class="side-menu-label1"><a href="javascript:void(0)">Apps</a></li>
-                                    <li><a  class="slide-item"> Cards design</a></li>
-                                    <li><a  class="slide-item"> Default calendar</a></li>
-                                    <li><a  class="slide-item"> Full calendar</a></li>
-                                    <li><a  class="slide-item"> Chat</a></li>
-                                    <li><a  class="slide-item"> Notifications</a></li>
-                                    <li><a  class="slide-item"> Sweet alerts</a></li>
-                                    <li><a  class="slide-item"> Range slider</a></li>
-                                    <li><a  class="slide-item"> Content Scroll bar</a></li>
-                                    <li><a  class="slide-item"> Loaders</a></li>
-                                    <li><a  class="slide-item"> Counters</a></li>
-                                    <li><a  class="slide-item"> Rating</a></li>
-                                    <li><a  class="slide-item"> Timeline</a></li>
-                                    <li><a  class="slide-item"> Treeview</a></li>
-                                    <li><a  class="slide-item"> Charts</a></li>
-                                    <li><a  class="slide-item"> Footers</a></li>
-                                    <li><a  class="slide-item"> User List</a></li>
-                                    <li><a  class="slide-item">Search</a></li>
-                                    <li><a  class="slide-item">
-                                            Crypto-currencies</a></li>
-
+                                    <li><a href="{{route('admin.settings.profile.index')}}" class="slide-item"> Profile</a></li>
+                                    <li><a  class="slide-item">Company Settings</a></li>
                                 </ul>
                             </li>
+                            {{--
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
                                         class="side-menu__icon fe fe-package"></i><span

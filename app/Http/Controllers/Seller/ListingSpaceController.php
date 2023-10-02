@@ -423,7 +423,7 @@ class ListingSpaceController extends UserBaseController
                     }
                 }
                 if ($req->enbale_req == 1) {
-                    $space->update(['last_step' => '10', 'status' => '1']);
+                    $space->update(['last_step' => '10', 'status' => '0']);
                     return redirect()->route('my-listing')->with('success', 'Listing Updated Successfully.');
                 }
                 return redirect()->route('contact-step', ['space_id' => $space_id]);
@@ -432,7 +432,7 @@ class ListingSpaceController extends UserBaseController
             }
 
             if ($req->enbale_req == '1') {
-                $space->update(['last_step' => '10', 'status' => '1']);
+                $space->update(['last_step' => '10', 'status' => '0']);
                 return redirect()->route('my-listing')->with('success', 'Listing Updated Successfully.');
             }
 
@@ -486,7 +486,7 @@ class ListingSpaceController extends UserBaseController
             $userHasEnt = Entertainment::whereUserId(auth()->user()->id)->whereLastSteps('step-9')->exists();
 
             if ($userHasSpaces || $userHasEnt) {
-                $space->update(['last_step' => '10', 'status' => '1']);
+                $space->update(['last_step' => '10', 'status' => '0']);
                 return redirect()->route('complete')->with('success', 'Listing added successfully');
             } else {
                 return redirect()->route('policies-step', ['space_id' => $space_id]);
