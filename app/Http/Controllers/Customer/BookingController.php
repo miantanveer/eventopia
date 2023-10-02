@@ -16,32 +16,32 @@ class BookingController extends UserBaseController
 {
     public function space_index()
     {
-        $this->listing = Space::whereLastStep('10')->where('user_id', '!=', auth()->user()->id)->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->inRandomOrder()->paginate(6);
-        $this->count = Space::whereStatus('1')->where('user_id', '!=', auth()->user()->id)->whereLastStep('10')->count();
+        $this->listing = Space::whereLastStep('10')->where('user_id', '!=', user_id())->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->inRandomOrder()->paginate(6);
+        $this->count = Space::whereStatus('1')->where('user_id', '!=', user_id())->whereLastStep('10')->count();
         $this->type = 'space';
-        return view('content.customer.space', $this->data);
+        return view('content.customer.search-results', $this->data);
     }
 
     public function entertainment_index()
     {
-        $this->listing = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id)->inRandomOrder()->paginate(6);
-        $this->count = Entertainment::where('last_steps', 'step-9')->where('user_id', '!=', auth()->user()->id)->count();
+        $this->listing = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', user_id())->inRandomOrder()->paginate(6);
+        $this->count = Entertainment::where('last_steps', 'step-9')->where('user_id', '!=', user_id())->count();
         $this->type = 'entertainment';
-        return view('content.customer.space', $this->data);
+        return view('content.customer.search-results', $this->data);
     }
 
     public function service_index()
     {
-        $this->listing = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->with('serviceImages')->inRandomOrder()->paginate(6);
-        $this->count = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->count();
+        $this->listing = Service::whereLastSteps('step-7')->where('user_id', '!=', user_id())->with('serviceImages')->inRandomOrder()->paginate(6);
+        $this->count = Service::whereLastSteps('step-7')->where('user_id', '!=', user_id())->count();
         $this->type = 'service';
-        return view('content.customer.space', $this->data);
+        return view('content.customer.search-results', $this->data);
     }
 
     public function spaceDetail($id)
     {
         $this->space = Space::find($id);
-        $this->order = Order::whereStatus('1')->whereUserId(auth()->user()->id)->whereSpaceId($this->space->id)->first();
+        $this->order = Order::whereStatus('1')->whereUserId(user_id())->whereSpaceId($this->space->id)->first();
         return view('content.customer.space-detail', $this->data);
     }
 
@@ -58,7 +58,7 @@ class BookingController extends UserBaseController
             ->whereHas('ent', function ($ent_query) use ($id) {
                 $ent_query->whereId($id);
             })->first();
-        $this->order = Order::whereStatus('1')->whereUserId(auth()->user()->id)->whereEntertainmentId($this->ent->ent->id)->first();
+        $this->order = Order::whereStatus('1')->whereUserId(user_id())->whereEntertainmentId($this->ent->ent->id)->first();
         return view('content.customer.entertainment-detail', $this->data);
     }
 
@@ -66,13 +66,13 @@ class BookingController extends UserBaseController
     {
         $this->pendingBookings = Order::where(function ($query) {
             $query->whereHas('space', function ($subquery) {
-                $subquery->whereUserId(auth()->user()->id);
+                $subquery->whereUserId(user_id());
             })
                 ->orWhereHas('entertainment', function ($subquery) {
-                    $subquery->whereUserId(auth()->user()->id);
+                    $subquery->whereUserId(user_id());
                 })
                 ->orWhereHas('service', function ($subquery) {
-                    $subquery->whereUserId(auth()->user()->id);
+                    $subquery->whereUserId(user_id());
                 });
         })->where('status', 1)->get();
         $this->quotes = null;
@@ -135,65 +135,65 @@ class BookingController extends UserBaseController
                 $query->whereHas('space', function ($serviceQuery) {
                     $serviceQuery->whereUserId(user_id());
                 });
-            })->whereUserId(auth()->user()->id)->paginate(2);
+            })->whereUserId(user_id())->paginate(2);
         } elseif ($type == 'entertainment') {
             $this->orders = Order::whereType('entertainment')->where(function ($query) {
                 $query->whereHas('entertainment', function ($serviceQuery) {
                     $serviceQuery->whereUserId(user_id());
                 });
-            })->whereUserId(auth()->user()->id)->paginate(2);
+            })->whereUserId(user_id())->paginate(2);
         } elseif ($type == 'service') {
             $this->orders = Order::whereType('service')->where(function ($query) {
                 $query->whereHas('service', function ($serviceQuery) {
                     $serviceQuery->whereUserId(user_id());
                 });
-            })->whereUserId(auth()->user()->id)->paginate(2);
+            })->whereUserId(user_id())->paginate(2);
         } elseif ($type == 'active') {
             $this->orders = Order::where(function ($query) {
                 $query->whereHas('space', function ($subquery) {
-                    $subquery->whereUserId(auth()->user()->id);
+                    $subquery->whereUserId(user_id());
                 })
                     ->orWhereHas('entertainment', function ($subquery) {
-                        $subquery->whereUserId(auth()->user()->id);
+                        $subquery->whereUserId(user_id());
                     })
                     ->orWhereHas('service', function ($subquery) {
-                        $subquery->whereUserId(auth()->user()->id);
+                        $subquery->whereUserId(user_id());
                     });
             })->whereStatus(2)->get();
         } elseif ($type == 'cancel') {
             $this->orders = Order::where(function ($query) {
                 $query->whereHas('space', function ($subquery) {
-                    $subquery->whereUserId(auth()->user()->id);
+                    $subquery->whereUserId(user_id());
                 })
                     ->orWhereHas('entertainment', function ($subquery) {
-                        $subquery->whereUserId(auth()->user()->id);
+                        $subquery->whereUserId(user_id());
                     })
                     ->orWhereHas('service', function ($subquery) {
-                        $subquery->whereUserId(auth()->user()->id);
+                        $subquery->whereUserId(user_id());
                     });
             })->whereStatus(3)->get();
         } elseif ($type == 'pending') {
             $this->orders = Order::where(function ($query) {
                 $query->whereHas('space', function ($subquery) {
-                    $subquery->whereUserId(auth()->user()->id);
+                    $subquery->whereUserId(user_id());
                 })
                     ->orWhereHas('entertainment', function ($subquery) {
-                        $subquery->whereUserId(auth()->user()->id);
+                        $subquery->whereUserId(user_id());
                     })
                     ->orWhereHas('service', function ($subquery) {
-                        $subquery->whereUserId(auth()->user()->id);
+                        $subquery->whereUserId(user_id());
                     });
             })->whereStatus(0)->get();
         } else {
             $this->orders = Order::where(function ($query) {
                 $query->whereHas('space', function ($subquery) {
-                    $subquery->whereUserId(auth()->user()->id);
+                    $subquery->whereUserId(user_id());
                 })
                     ->orWhereHas('entertainment', function ($subquery) {
-                        $subquery->whereUserId(auth()->user()->id);
+                        $subquery->whereUserId(user_id());
                     })
                     ->orWhereHas('service', function ($subquery) {
-                        $subquery->whereUserId(auth()->user()->id);
+                        $subquery->whereUserId(user_id());
                     });
             })->get();
 

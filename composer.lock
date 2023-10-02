@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe857db9c24abe586076384f487c2edf",
+    "content-hash": "aecf8ef71e132891ffe3f88d01f52fa3",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -265,6 +265,74 @@
                 }
             ],
             "time": "2023-01-15T23:15:59+00:00"
+        },
+        {
+            "name": "codezero/dotenv-updater",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/codezero-be/dotenv-updater.git",
+                "reference": "79f8748d2bad9d0847ff4c8c8920bf52989d0ba7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/codezero-be/dotenv-updater/zipball/79f8748d2bad9d0847ff4c8c8920bf52989d0ba7",
+                "reference": "79f8748d2bad9d0847ff4c8c8920bf52989d0ba7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1|^8.0"
+            },
+            "require-dev": {
+                "illuminate/support": "^5.6|^6.0|^7.0|^8.0|^9.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "CodeZero\\DotEnvUpdater\\Laravel\\DotEnvUpdaterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "CodeZero\\DotEnvUpdater\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Vermeyen",
+                    "email": "ivan@codezero.be"
+                }
+            ],
+            "description": "Update key/value pairs in a .env file.",
+            "keywords": [
+                "dotenv",
+                "editor",
+                "env",
+                "php",
+                "updater"
+            ],
+            "support": {
+                "issues": "https://github.com/codezero-be/dotenv-updater/issues",
+                "source": "https://github.com/codezero-be/dotenv-updater/tree/1.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/ivanvermeyen",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/ivanvermeyen",
+                    "type": "ko_fi"
+                }
+            ],
+            "time": "2022-02-03T14:11:37+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

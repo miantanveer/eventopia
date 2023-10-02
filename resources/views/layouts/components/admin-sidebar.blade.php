@@ -27,6 +27,11 @@
                                         class="side-menu__icon fe fe-users"></i><span
                                         class="side-menu__label">Users</span></a>
                             </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="{{route('admin.plugins.index')}}"><i
+                                        class="side-menu__icon fe fe-command"></i><span
+                                        class="side-menu__label">Plugins</span></a>
+                            </li>
                             {{-- <li class="sub-category">
                                 <h3>UI Kit</h3>
                             </li>
