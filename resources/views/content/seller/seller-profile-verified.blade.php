@@ -104,7 +104,7 @@
 
                             <br>
                             <div class="right-content mt-4 mb-3">
-                                <p><b>{{lang("Thanks for stopping by! I'm excited to be a part of the Peerspace community.")}}</b>
+                                <p><b>{{lang("Thanks for stopping by! I'm excited to be a part of the Eventopia community.")}}</b>
                                 </p>
                                 <button type="button" class="btn btn-info rounded-0"><i
                                         class="fe fe-upload me-2"></i><strong>{{lang('Share Profile')}}</strong></button>

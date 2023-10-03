@@ -75,7 +75,7 @@
                                                         src="{{ asset('assets/images/brand/light-bulb.png') }}"
                                                         class="w-5" alt="">
                                                     {{ lang('I agree and
-                                                                                                        understand that as a Peerspace host I am required to:') }}
+                                                                                                        understand that as a Eventopia host I am required to:') }}
                                                 </p>
                                             </div>
                                             <div class="container">

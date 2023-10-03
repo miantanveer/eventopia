@@ -797,7 +797,7 @@
                     <div class="card custom-card card-raduas">
                         <div class="container-fluid">
                             <div class="border-bottom-0 p-0 ps-6 font_size pt-4">
-                                <h4><b style="color:black;">{{lang('What kind of ')}}{{lang(@$type)}}{{lang(' are you looking for?')}}</b></h4>
+                                <h4><b style="color:black;">{{lang('What kind of ')}} {{lang(@$type)}} {{lang(' are you looking for?')}}</b></h4>
                             </div>
                             <div class="overflow-auto" style="overflow: auto !important;">
                                 <div class="card-body pt-2">
@@ -921,7 +921,7 @@
                                 <hr class="bg-dark">
                                 <div class="">
                                     <p><a href="#">See all off-site spaces in Chicago</a></p>
-                                    <p class="text-gray font_size">Peerspace is also live in <a href="#"> San Francisco,
+                                    <p class="text-gray font_size">Eventopia is also live in <a href="#"> San Francisco,
                                             Silicon Valley, Los Angeles, </a>and <a href="#">40 more cites</a></p>
                                 </div>
                             </div>

@@ -274,7 +274,7 @@
                                         <li><b><span style="color:black;">{{lang("Cleaning Fee")}}</span></b> {{lang("- Basic cleaning is the
                                             responsibility of the host. If you charge a cleaning fee, you can add it in a
                                             later section.")}}</li>
-                                        <li><b><span style="color:black;">{{lang("Contracts ")}}</span></b>{{lang(" - Peerspace bookings are
+                                        <li><b><span style="color:black;">{{lang("Contracts ")}}</span></b>{{lang(" - Eventopia bookings are
                                             covered by our Service Agreement. Do not paste your contract, cancellation
                                             policy, or
                                             liability policy.")}}</li>
@@ -1449,7 +1449,7 @@
                                                             <label class="form-check-label"
                                                                 for="invalidCheck-3">Contacted
                                                                 by
-                                                                Peerspace</label>
+                                                                Eventopia</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
@@ -1503,7 +1503,7 @@
                                                             <label class="form-check-label"
                                                                 for="invalidCheck-11">Attended
                                                                 an
-                                                                event in a Peerspace</label>
+                                                                event in a Eventopia</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
@@ -1528,7 +1528,7 @@
                                             <p class=""><img
                                                     src="{{ asset('assets/images/brand/light-bulb.png') }}"
                                                     class="w-5" alt=""> I agree and
-                                                understand that as a Peerspace host I am required to:</p>
+                                                understand that as a Eventopia host I am required to:</p>
                                         </div>
                                         <div class="container">
                                             <div class="row">

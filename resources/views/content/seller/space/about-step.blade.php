@@ -205,7 +205,7 @@
                                                 later section.") }}
                                             </li>
                                             <li><b><span style="color:black;">{{ lang('Contracts') }}
-                                                    </span></b>{{ lang(" - Peerspace bookings
+                                                    </span></b>{{ lang(" - Eventopia bookings
                                                 are
                                                 covered by our Service Agreement. Do not paste your contract,
                                                 cancellation

@@ -235,7 +235,7 @@
                                                                 value="" id="invalidCheck-3">
                                                             <label class="form-check-label" for="invalidCheck-3">{{lang('Contacted
                                                                 by
-                                                                Peerspace')}}</label>
+                                                                Eventopia')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
@@ -287,7 +287,7 @@
                                                                 value="" id="invalidCheck-11">
                                                             <label class="form-check-label" for="invalidCheck-11">{{lang('Attended
                                                                 an
-                                                                event in a Peerspace')}}</label>
+                                                                event in a Eventopia')}}</label>
                                                         </div>
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"

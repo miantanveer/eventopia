@@ -17,7 +17,7 @@ class ServiceSeeder extends Seeder
         Service::create([
             'user_id' => 1,
             'title' => 'Event Planning Companies',
-            'description' => 'Contracts - Peerspace bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
+            'description' => 'Contracts - Eventopia bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
             'destination' => 'Accusantium iste nes',
             'planing' => 'Voluptas molestiae s',
             'activities' => 'Nulla debitis ration',
@@ -42,7 +42,7 @@ class ServiceSeeder extends Seeder
         Service::create([
             'user_id' => 1,
             'title' => 'Catering Services',
-            'description' => 'Contracts - Peerspace bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
+            'description' => 'Contracts - Eventopia bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
             'destination' => 'Amet ab incididunt',
             'planing' => 'In consequuntur hic',
             'activities' => 'Adipisci ipsum est p',
@@ -67,7 +67,7 @@ class ServiceSeeder extends Seeder
         Service::create([
             'user_id' => 1,
             'title' => 'Audio-Visual and Lighting Companies',
-            'description' => 'Contracts - Peerspace bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
+            'description' => 'Contracts - Eventopia bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
             'destination' => 'Amet ab incididunt',
             'planing' => 'In consequuntur hic',
             'activities' => 'Adipisci ipsum est p',
@@ -92,7 +92,7 @@ class ServiceSeeder extends Seeder
         Service::create([
             'user_id' => 1,
             'title' => 'Florists and Decorators',
-            'description' => 'Contracts - Peerspace bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
+            'description' => 'Contracts - Eventopia bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
             'destination' => 'Amet ab incididunt',
             'planing' => 'In consequuntur hic',
             'activities' => 'Adipisci ipsum est p',
@@ -117,7 +117,7 @@ class ServiceSeeder extends Seeder
         Service::create([
             'user_id' => 1,
             'title' => 'Photography and Videography',
-            'description' => 'Contracts - Peerspace bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
+            'description' => 'Contracts - Eventopia bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
             'destination' => 'Amet ab incididunt',
             'planing' => 'In consequuntur hic',
             'activities' => 'Adipisci ipsum est p',
@@ -142,7 +142,7 @@ class ServiceSeeder extends Seeder
         Service::create([
             'user_id' => 1,
             'title' => 'Entertainment',
-            'description' => 'Contracts - Peerspace bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
+            'description' => 'Contracts - Eventopia bookings are covered by our Service Agreement. Do not paste your contract, cancellation policy, or liability policy.',
             'destination' => 'Amet ab incididunt',
             'planing' => 'In consequuntur hic',
             'activities' => 'Adipisci ipsum est p',

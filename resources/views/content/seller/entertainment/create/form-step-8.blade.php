@@ -128,7 +128,7 @@
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="eventopia_hear" type="radio" value="CP" id="invalidCheck-3" {{@$entertainment->eventopia_hear == 'CP' ? 'checked' : ''}} required>
-                                                    <label class="form-check-label" for="invalidCheck-3">{{lang('Contacted by Peerspace')}}</label>
+                                                    <label class="form-check-label" for="invalidCheck-3">{{lang('Contacted by Eventopia')}}</label>
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" name="eventopia_hear" type="radio" value="TV" id="invalidCheck-4" {{@$entertainment->eventopia_hear == 'TV' ? 'checked' : ''}} required>

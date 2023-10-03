@@ -89,7 +89,7 @@
                                                 in a
                                                 later section.')}}</li>
                                             <li class="ms-4"><b><span style="color:black;">{{lang('Contracts')}}
-                                                    </span></b> {{lang('- Peerspace bookings
+                                                    </span></b> {{lang('- Eventopia bookings
                                                 are
                                                 covered by our Service Agreement. Do not paste your contract,
                                                 cancellation
@@ -921,7 +921,7 @@
                                                         <label class="form-check-label"
                                                             for="invalidCheck-3">{{lang('Contacted
                                                             by
-                                                            Peerspace')}}</label>
+                                                            Eventopia')}}</label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" value=""
@@ -978,7 +978,7 @@
                                                         <label class="form-check-label"
                                                             for="invalidCheck-11">{{lang('Attended
                                                             an
-                                                            event in a Peerspace')}}</label>
+                                                            event in a Eventopia')}}</label>
                                                     </div>
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" value=""
@@ -1003,7 +1003,7 @@
                                         </h3>
                                         <p class=""><img src="{{ asset('assets/images/brand/light-bulb.png') }}"
                                                 class="w-5" alt=""> {{lang('I agree and
-                                            understand that as a Peerspace host I am required to:')}}</p>
+                                            understand that as a Eventopia host I am required to:')}}</p>
                                     </div>
                                     <div class="container">
                                         <div class="row">
