@@ -36,7 +36,7 @@ class Space extends Model
         'c_u_lname',
         'c_u_phone',
         'c_u_img',
-        'status'
+        'status',
     ];
 
     public function spaceImages(){

@@ -11,6 +11,7 @@
     <meta name="author" content="SPRUKO™">
     <meta name="keywords"
         content="admin, admin dashboard, admin dashboard template, bootstrap admin, bootstrap dashboard, dashboard laravel, dashboard template, laravel admin, laravel admin dashboard, laravel admin dashboard template, laravel admin panel, laravel admin template, laravel dashboard template, laravel template, laravel ui template">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- title -->
     <title>Eventopia – Admin Dashboard</title>
@@ -82,7 +83,7 @@
     <script>
         $(function() {
             'use strict';
-            
+
             var modal = document.getElementById('modal-opener')
 
             $('.update_btn').click(function(event) {

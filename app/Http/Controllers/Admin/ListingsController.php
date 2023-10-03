@@ -45,17 +45,19 @@ class ListingsController extends AdminBaseController
 
     public function updateSpaceStatus(Request $req)
     {
-        dd($req);
-        // $space = Space::find($space_id);
-        // if (isset($space->spaceImages)) {
-        //     foreach ($space->spaceImages as $space_image) {
-        //         $file_path = public_path($space_image->image);
-        //         if (file_exists($file_path)) {
-        //             unlink($file_path);
-        //         }
-        //     }
-        // }
-        // $space->delete();
-        // return redirect()->back()->with('success', 'Space Listing Deleted Successfully');
+        try {
+            $space = Space::find($req->space_id);
+
+            if (!$space) {
+                return response()->json(['message' => 'Space not found','status' => 404]);
+            }
+
+            $space->update(['status' => $req->status]);
+
+            // Assuming you're returning a JSON response, you can customize the response as needed.
+            return response()->json(['message' => 'Space status updated successfully','status' => 200]);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Error updating space status','status' => 500]);
+        }
     }
 }

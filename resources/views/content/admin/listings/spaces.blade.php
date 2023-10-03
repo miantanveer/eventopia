@@ -133,7 +133,7 @@
                                                     @endif
                                                     @if (@$space->status != '2')
                                                         <li class="m-2">
-                                                            <a class="btn btn-sm btn-secondary" type="button"
+                                                            <a class="btn btn-sm btn-secondary reject" type="button"
                                                                 data-status="2" data-space-id="{{ $space->id }}">
                                                                 {{ lang('Reject') }}
                                                             </a>
@@ -219,10 +219,14 @@
     <script src="{{ asset('assets/js/index.js') }}"></script>
     <script src="{{ asset('assets/js/index1.js') }}"></script>
     <script src="{{ asset('assets/js/parsley.min.js') }}"></script>
+    <!-- SWEET-ALERT JS -->
+    <script src="{{ asset('assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>
 
     <script>
         $(document).ready(function() {
             $('#user_form').parsley();
+            // $('#example2').DataTable();
         });
     </script>
     <script src="{{ asset('assets/js/email-validate.js') }}"></script>
@@ -248,16 +252,37 @@
 
         // Function to send the AJAX request to update the status
         function updateStatus(spaceId, status) {
+            // Get the CSRF token from the meta tag
+            var csrfToken = $('meta[name="csrf-token"]').attr('content');
+
             $.ajax({
                 type: 'POST',
                 url: "{{ route('admin.listings.update.space') }}",
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the headers
+                },
                 data: {
                     space_id: spaceId,
                     status: status
                 },
                 success: function(response) {
-                    // Handle the success response here
-                    console.log(response);
+                    if (response.status === 200) {
+                        swal({
+                            title: "Success.",
+                            text: response.message,
+                            timer: 4000,
+                            showConfirmButton: false
+                        });
+                        window.location.reload();
+
+                    } else {
+                        swal({
+                            title: "Error.",
+                            text: response.message,
+                            timer: 4000,
+                            showConfirmButton: false
+                        });
+                    }
                 },
                 error: function(error) {
                     // Handle any errors here
