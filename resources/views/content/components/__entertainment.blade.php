@@ -1,5 +1,5 @@
 <div class="card-header border-bottom-0 ms-3">
-    {{ @$count ?? '0' }} {{ lang('entertainments found') }}
+    {{ @$listing->count() ?? '0' }} {{ lang('entertainments found') }}
 </div>
 @foreach(@$listing as $key=>$value)
 @php
@@ -33,7 +33,7 @@ $lng = $value->lng;
                         <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
                         14
                     </div>
-                    <div class="col-12 text-dark"><b>{{lang('Responds within ')}}1hr</b>
+                    <div class="col-12 text-dark"><b>{{lang('Responds within ')}} 1hr</b>
                     </div>
                 </div>
             </div>

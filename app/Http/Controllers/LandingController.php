@@ -57,7 +57,7 @@ class LandingController extends UserBaseController
             $this->type = 'service';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
-            $this->data = view('content.components.__service', ['listing' => $this->listing, 'count' => $this->count])->render();
+            $this->data = view('content.components.__service', ['listing' => $this->listing])->render();
 
             return response()->json($this->data);
 
@@ -137,7 +137,7 @@ class LandingController extends UserBaseController
             $this->type = 'entertainment';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
-            $this->data = view('content.components.__entertainment', ['listing' => $this->listing, 'count' => $this->count])->render();
+            $this->data = view('content.components.__entertainment', ['listing' => $this->listing])->render();
 
             return response()->json($this->data);
 
@@ -217,9 +217,9 @@ class LandingController extends UserBaseController
                 ->whereLastStep('10')
                 ->inRandomOrder()->paginate(12);
             $this->type = 'space';
-            $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
-            $this->data = view('content.components.__space', ['listing' => $this->listing, 'count' => $this->count])->render();
+            $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
+            $this->data = view('content.components.__space', ['listing' => $this->listing])->render();
 
             return response()->json($this->data);
         }
@@ -265,6 +265,7 @@ class LandingController extends UserBaseController
             }
             $this->type = 'space';
             $this->listing = $space;
+            $this->count = $this->listing->count();
             return view('content.customer.search-results', $this->data);
         } elseif ($req->type == 'entertainment') {
             $ent = Entertainment::with('entertainmentActivities', 'entertainmentActivities.entertainment', 'entertainmentActivities.sub_act', 'entertainmentActivities.sub_act.act')
@@ -289,6 +290,7 @@ class LandingController extends UserBaseController
             }
             $this->type = 'entertainment';
             $this->listing = $ent;
+            $this->count = $this->listing->count();
             return view('content.customer.search-results', $this->data);
         } elseif ($req->type == 'service') {
             $service = Service::with('serviceImages')->where('title', $req->planCatagories_2)
@@ -306,6 +308,7 @@ class LandingController extends UserBaseController
             }
             $this->type = 'service';
             $this->listing = $service;
+            $this->count = $this->listing->count();
             return view('content.customer.search-results', $this->data);
         }
     }
