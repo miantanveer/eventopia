@@ -1,4 +1,4 @@
-@extends('layouts.seller-web-layout')
+@extends('layouts.admin')
 @section('css-styles')
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 @endsection
@@ -70,21 +70,21 @@
     {{-- @dd(@$booking) --}}
     @if (@$type == 'entertainment')
         @php
-            $lat = @$booking->entertainment->lat;
-            $lng = @$booking->entertainment->lng;
-            $title = @$booking->entertainment->title;
+            $lat = @$entertainment->lat;
+            $lng = @$entertainment->lng;
+            $title = @$entertainment->title;
         @endphp
-        <div class="row row-sm">
+        <div class="row row-sm mt-5">
             <div class="col-xl-8 col-lg-12 col-md-12">
                 <div class="card custom-card overflow-hidden">
                     <div class="card-body p-3">
                         <a href="javascript:void(0)"><img
-                                src="{{ @$booking->entertainment->entertainmentImages[0]->image ?? asset('assets/images/users/spaces/4.jpg') }}"
+                                src="{{ @$entertainment->entertainmentImages[0]->image ?? asset('assets/images/users/spaces/4.jpg') }}"
                                 alt="image not found" class="br-5 w-100"></a>
                     </div>
                     <div class="card-body pt-0 h-100">
                         <div class="owl-carousel owl-carousel-icons2 d-flex">
-                            @foreach (@$booking->entertainment->entertainmentImages as $entImage)
+                            @foreach (@$entertainment->entertainmentImages as $entImage)
                                 <div class="item">
                                     <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                         <img src="{{ asset($entImage->image) }}" alt="img">
@@ -94,16 +94,16 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <h2 class="fw-bold text-dark">{{ lang(@$booking->entertainment->title) }}</h2>
+                        <h2 class="fw-bold text-dark">{{ lang(@$entertainment->title) }}</h2>
                         <p><i
-                                class="text-primary side-menu__icon fe fe-map-pin"></i>{{ ' ' . lang(@$booking->entertainment->address) }}
+                                class="text-primary side-menu__icon fe fe-map-pin"></i>{{ ' ' . lang(@$entertainment->address) }}
                         </p>
                         <hr>
                         <div class="mt-5">
                             <h3 class="text-dark">
                                 {{ lang('About the Entertainment') }}
                             </h3>
-                            <p>{{ lang(@$booking->entertainment->arrival) }}</p>
+                            <p>{{ lang(@$entertainment->arrival) }}</p>
                         </div>
                         <hr>
                         <div class="mt-5">
@@ -117,7 +117,7 @@
                             <h3 class="text-dark">
                                 {{ lang('Cancellation Policy') }}
                             </h3>
-                            <p>{{ lang(@$booking->entertainment->cancellation_policy) }}</p>
+                            <p>{{ lang(@$entertainment->cancellation_policy) }}</p>
                         </div>
                         <hr>
                     </div>
@@ -127,38 +127,50 @@
                 <div class="card custom-card">
                     <div class="card-body">
                         <div class="mt-3 text-center">
-                            <h2>{{ lang('SAR' . @$booking->entertainment->entertainmentActivities[0]->hourly_rate) }}/hr
+                            <h2>{{ lang('SAR' . @$entertainment->entertainmentActivities[0]->hourly_rate) }}/hr
                             </h2>
-                            <p>{{ @$booking->entertainment->entertainmentActivities[0]->max_hours }}
+                            <p>{{ @$entertainment->entertainmentActivities[0]->max_hours }}
                                 {{ lang('hour minimum') }}
                             </p>
+                        </div>
+                        <div class="">
+                            <h4>{{ @$entertainment->entertainmentActivities[0]->discount }}
+                                {{ lang('hour discount') }} <i class="mdi mdi-alert-circle-outline"></i>
+                            </h4>
                         </div>
                         <hr>
                         <div class="">
                             <div class="row">
-                                <div class="col-7">
-                                    <h4>{{ @$booking->entertainment->entertainmentActivities[0]->discount }}
-                                        {{ lang('hour discount') }} <i class="mdi mdi-alert-circle-outline"></i>
-                                    </h4>
+                                <div class="col-xl-12">
+                                    <h5 class="text-primary">{{ lang('Booking Detail') }}</h5>
                                 </div>
+                                @php
+                                    $array1 = $entertainment->entertainmentActivities->toArray();
+                                @endphp
                                 <div class="row ">
                                     <div class="col-6">
-                                        <h6 class="fw-bolder">{{ lang('Amount') }}</h6>
+                                        <h6 class="fw-bolder">{{ lang('Max Amount : ') }}</h6>
                                     </div>
-                                    <div class="col-6  text-end">{{ lang(@$booking->amount) }}</div>
-                                </div>
-                                <div class="row ">
-                                    <div class="col-6">
-                                        <h6 class="fw-bolder">{{ lang('Date') }}</h6>
+                                    <div class="col-6  text-end"><span
+                                            class="badge rounded-pill bg-primary badge-sm me-1 mb-1 mt-1">{{ max(array_column($array1, 'hourly_rate')) . ' SAR' }}</span>
                                     </div>
-                                    <div class="col-6  text-end">{{ @$booking->date }}</div>
                                 </div>
                                 <div class="row ">
                                     <div class="col-6">
-                                        <h6 class="fw-bolder">{{ lang('Attendies') }}</h6>
+                                        <h6 class="fw-bolder">{{ lang('Max Hour :') }}</h6>
+                                    </div>
+                                    <div class="col-6  text-end"><span
+                                            class="badge rounded-pill bg-primary badge-sm me-1 mb-1 mt-1">{{ max(array_column($array1, 'max_hours')) }}</span>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-6">
+                                        <h6 class="fw-bolder">{{ lang('Max Guests :') }}</h6>
                                     </div>
                                     <div class="col-6  text-end">
-                                        {{ @$booking->entertainment->entertainmentActivities[0]->guest_capacity }}</div>
+                                        <span
+                                            class="badge rounded-pill bg-primary badge-sm me-1 mb-1 mt-1">{{ max(array_column($array1, 'guest_capacity')) }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -166,7 +178,7 @@
                             $operatingHours = []; // Initialize the array
                             $enabledDays = [];
                             $weekDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-                            foreach (@$booking->entertainment->operatingDays as $operatingDay) {
+                            foreach (@$entertainment->operatingDays as $operatingDay) {
                                 $dayOfWeek = strtolower($operatingDay->week_day);
                                 $operatingHours[$dayOfWeek] = []; // Initialize the array for the day
                                 foreach (@$operatingDay->operatingHours as $operatingHour) {
@@ -193,7 +205,7 @@
                         </div>
                         <h4 class="mt-5 fw-bold">{{ lang('Amentities') }}</h4>
                         <div class="row mb-6">
-                            @foreach (@$booking->entertainment->entertainmentActivities[0]->entActivityAmenity as $entAmenity)
+                            @foreach (@$entertainment->entertainmentActivities[0]->entActivityAmenity as $entAmenity)
                                 <div class="col-6">
                                     <p class="">{{ lang(@$entAmenity->activity->name) }}</p>
                                 </div>
@@ -205,7 +217,7 @@
                     <div>
                         <h3 class="mt-4 ps-3">{{ lang('Operating Hours') }}</h3>
                         <hr style="border-top: 1px solid black">
-                        @foreach (@$booking->entertainment->operatingDays as $operatingDay)
+                        @foreach (@$entertainment->operatingDays as $operatingDay)
                             <h4 class="col-sm-10 mt-5 ps-3">{{ $operatingDay->week_day }} <span
                                     class="float-end">{{ $operatingDay->operatingHours[0]->radio === '1'
                                         ? $operatingDay->operatingHours[0]->start_time . ' - ' . $operatingDay->operatingHours[0]->end_time
@@ -218,20 +230,20 @@
         </div>
     @elseif(@$type == 'service')
         @php
-            $lat = @$booking->service->lat;
-            $lng = @$booking->service->lng;
-            $title = @$booking->service->title;
+            $lat = @$service->lat;
+            $lng = @$service->lng;
+            $title = @$service->title;
         @endphp
-        <div class="row row-sm">
-            <div class="col-xl-8 col-lg-12 col-md-12">
+        <div class="row row-sm mt-5">
+            <div class="col-xl-12 col-lg-12 col-md-12">
                 <div class="card custom-card overflow-hidden">
                     <div class="card-body p-3">
-                        <a href="javascript:void(0)"><img src="{{ asset(@$booking->service->serviceImages[0]->image) }}"
+                        <a href="javascript:void(0)"><img src="{{ asset(@$service->serviceImages[0]->image) }}"
                                 alt="img" class="br-5 w-100"></a>
                     </div>
                     <div class="card-body pt-0 h-100">
                         <div class="owl-carousel owl-carousel-icons2 d-flex">
-                            @foreach (@$booking->service->serviceImages as $value)
+                            @foreach (@$service->serviceImages as $value)
                                 <div class="item">
                                     <div class="card  overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                         <img src="{{ asset(@$value->image) }}" alt="img">
@@ -242,13 +254,13 @@
                     </div>
                     <div class="card-footer">
                         <h2 class="fw-bold text-dark">{{ lang('Modern and budget friendly Service') }}</h2>
-                        <p><i class="text-primary side-menu__icon fe fe-map-pin"></i>{{ @$booking->service->address }}</p>
+                        <p><i class="text-primary side-menu__icon fe fe-map-pin"></i>{{ @$service->address }}</p>
                         <hr class="border-3">
                         <div class="mt-5">
                             <h3 class="text-dark">
                                 {{ lang('About this Service') }}
                             </h3>
-                            <p>{{ @$booking->service->description }}</p>
+                            <p>{{ @$service->description }}</p>
                         </div>
                         <hr class="border-3">
                         <div class="mt-5">
@@ -259,48 +271,25 @@
 
                                 <div class="col-6">
                                     <h5 class="text-dark">{{ lang('Planning') }}</h5>
-                                    <p>{{ @$booking->service->planning }}</p>
+                                    <p>{{ @$service->planning }}</p>
                                 </div>
                                 <div class="col-6">
-                                    <h5 class="text-dark">{{ @$booking->service->title }}</h5>
-                                    <p>{{ @$booking->service->activities }}</p>
+                                    <h5 class="text-dark">{{ @$service->title }}</h5>
+                                    <p>{{ @$service->activities }}</p>
                                 </div>
                             </div>
 
                         </div>
                         <hr class="border-3">
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-12 col-md-12">
-                <div class="card custom-card">
-                    <div class="card-body">
-                        <div class="mt-3 text-center">
-                            <h2>{{ lang('Booking Detail') }}</h2>
-                        </div>
-                        <hr class="border-3">
-                        <div class="">
+                        <div class="mt-5">
+                            <h3 class="text-dark mb-3">
+                                {{ lang('Booking Details') }}
+                            </h3>
                             <div class="row">
-                                <div class="col-xl-12">
-                                    <div class="row ">
-                                        <div class="col-6">
-                                            <h6 class="fw-bolder">{{ lang('Amount') }}</h6>
-                                        </div>
-                                        <div class="col-6  text-end">{{ lang(@$booking->amount) }}</div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-6">
-                                            <h6 class="fw-bolder">{{ lang('Date') }}</h6>
-                                        </div>
-                                        <div class="col-6  text-end">{{ @$booking->date }}</div>
-                                    </div>
-                                    <div class="row ">
-                                        <div class="col-6">
-                                            <h6 class="fw-bolder">{{ lang('Attendies') }}</h6>
-                                        </div>
-                                        <div class="col-6  text-end">{{ @$booking->service->quotes[0]->guests }}</div>
-                                    </div>
+                                <div class="col-6">
+                                    <h6 class="fw-bolder">{{ lang('Amount') }}</h6>
                                 </div>
+                                <div class="col-6  text-end">{{ lang(@$service->price) . ' SAR' }}</div>
                             </div>
                         </div>
                     </div>
@@ -309,21 +298,21 @@
         </div>
     @elseif (@$type == 'space')
         @php
-            $lat = @$booking->space->lat;
-            $lng = @$booking->space->lng;
-            $title = @$booking->space->title;
+            $lat = @$space->lat;
+            $lng = @$space->lng;
+            $title = @$space->space_title;
         @endphp
-        <div class="row row-sm">
+        <div class="row row-sm mt-5">
             <div class="col-xl-8 col-lg-12 col-md-12">
                 <div class="card custom-card overflow-hidden">
                     <div class="card-body p-3">
                         <a href="javascript:void(0)"><img
-                                src="{{ @$booking->space->spaceImages[0]->image ?? asset('assets/images/users/spaces/4.jpg') }}"
+                                src="{{ @$space->spaceImages[0]->image ?? asset('assets/images/users/spaces/4.jpg') }}"
                                 alt="image not found" class="br-5 w-100"></a>
                     </div>
                     <div class="card-body pt-0 h-100">
                         <div class="owl-carousel owl-carousel-icons2 d-flex">
-                            @foreach (@$booking->space->spaceImages as $spaceImage)
+                            @foreach (@$space->spaceImages as $spaceImage)
                                 <div class="item">
                                     <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
                                         <a href="#"><img src="{{ $spaceImage->image }}" alt="img"></a>
@@ -333,15 +322,15 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <h2 class="fw-bold text-dark">{{ @$booking->space->space_title }}</h2>
-                        <p><i class="text-primary side-menu__icon fe fe-map-pin"></i>{{ ' ' . @$booking->space->address }}
+                        <h2 class="fw-bold text-dark">{{ @$space->space_title }}</h2>
+                        <p><i class="text-primary side-menu__icon fe fe-map-pin"></i>{{ ' ' . @$space->address }}
                         </p>
                         <hr>
                         <div class="mt-5">
                             <h3 class="text-dark">
                                 {{ lang('About the space') }}
                             </h3>
-                            <p>{{ @$booking->space->description }}</p>
+                            <p>{{ @$space->description }}</p>
                         </div>
                         <div class="mt-5">
                             <div class="accordion" id="accordionExample">
@@ -358,12 +347,12 @@
                                         <div class="accordion-body">
                                             <h4 class="text-dark">{{ lang('Parking options') }}</h4>
                                             <p>
-                                                @foreach (@$booking->space->spaceHaveParkingOptions as $parkingOption)
+                                                @foreach (@$space->spaceHaveParkingOptions as $parkingOption)
                                                     {{ @$parkingOption->option . ',' }}
                                                 @endforeach
                                             </p>
                                             <h4 class="text-dark">{{ lang('Parking description') }}</h4>
-                                            <p>{{ @$booking->space->parking_description ?? 'Empty' }}</p>
+                                            <p>{{ @$space->parking_description ?? 'Empty' }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -378,7 +367,7 @@
                                     <div id="collapseTwo" class="accordion-collapse collapse"
                                         aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>{{ @$booking->space->space_rules }}</p>
+                                            <p>{{ @$space->space_rules }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -395,7 +384,7 @@
                             <h3 class="text-dark">
                                 {{ lang('Health and Safety Measures') }}
                             </h3>
-                            @foreach (@$booking->space->spaceHaveSafetyMeasures as $safetyMeasure)
+                            @foreach (@$space->spaceHaveSafetyMeasures as $safetyMeasure)
                                 <p>{{ $loop->iteration . ' ' . $safetyMeasure->safety_measure_options }}</p>
                             @endforeach
                         </div>
@@ -412,7 +401,7 @@
                                     <div id="collapseOne" class="accordion-collapse collapse show"
                                         aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
-                                            <p>{{ @$booking->space->cleaning_process }}</p>
+                                            <p>{{ @$space->cleaning_process }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -423,8 +412,8 @@
                             <h3 class="text-dark">
                                 {{ lang('Cancellation Policy') }}
                             </h3>
-                            <h5 class="text-dark">{{ @$booking->space->cancellationPolicy->title }}</h5>
-                            <p>{{ @$booking->space->cancellationPolicy->description }}</p>
+                            <h5 class="text-dark">{{ @$space->cancellationPolicy->title }}</h5>
+                            <p>{{ @$space->cancellationPolicy->description }}</p>
                         </div>
                         <hr>
                     </div>
@@ -434,14 +423,14 @@
                 <div class="card custom-card">
                     <div class="card-body">
                         <div class="mt-3 text-center">
-                            <h2>SAR {{ @$booking->space->spaceHaveActivities[0]->rate_per_hour }} {{ lang('/hr') }}</h2>
-                            <p>{{ @$booking->space->spaceHaveActivities[0]->minimum_hour }} {{ lang('hour minimum') }}</p>
+                            <h2>SAR {{ @$space->spaceHaveActivities[0]->rate_per_hour }} {{ lang('/hr') }}</h2>
+                            <p>{{ @$space->spaceHaveActivities[0]->minimum_hour }} {{ lang('hour minimum') }}</p>
                         </div>
                         <hr>
                         <div class="">
                             <div class="row">
                                 <div class="col-7">
-                                    <h4>{{ @$booking->space->spaceHaveActivities[0]->discount }}
+                                    <h4>{{ @$space->spaceHaveActivities[0]->discount }}
                                         {{ lang('hour discount') }} <i class="mdi mdi-alert-circle-outline"></i>
                                     </h4>
                                 </div>
@@ -455,7 +444,7 @@
                             $enabledDays = [];
                             $weekDays = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
                             // Assuming @$booking->space->operatingDays is a collection of operating days for the space
-                            foreach (@$booking->space->operatingDays as $operatingDay) {
+                            foreach (@$space->operatingDays as $operatingDay) {
                                 $dayOfWeek = strtolower($operatingDay->week_day);
                                 $operatingHours[$dayOfWeek] = []; // Initialize the array for the day
 
@@ -483,23 +472,34 @@
                                 <div class="">
                                     <div class="row">
                                         <div class="col-xl-12">
+                                            @php
+                                                $array = $space->spaceHaveActivities->toArray();
+                                            @endphp
                                             <div class="row ">
                                                 <div class="col-6">
-                                                    <h6 class="fw-bolder">{{ lang('Amount') }}</h6>
+                                                    <h6 class="fw-bolder">{{ lang('Max Amount : ') }}</h6>
                                                 </div>
-                                                <div class="col-6  text-end">{{ lang(@$booking->amount) }}</div>
+                                                <div class="col-6  text-end">
+                                                    <span
+                                                        class="badge rounded-pill bg-primary badge-sm me-1 mb-1 mt-1">{{ max(array_column($array, 'rate_per_hour')) . ' SAR' }}</span>
+                                                </div>
                                             </div>
                                             <div class="row ">
                                                 <div class="col-6">
-                                                    <h6 class="fw-bolder">{{ lang('Date') }}</h6>
+                                                    <h6 class="fw-bolder">{{ lang('Minimum Hour : ') }}</h6>
                                                 </div>
-                                                <div class="col-6  text-end">{{ @$booking->date }}</div>
+                                                <div class="col-6  text-end">
+                                                    <span
+                                                        class="badge rounded-pill bg-info badge-sm me-1 mb-1 mt-1">{{ min(array_column($array, 'minimum_hour')) }}</span>
+                                                </div>
                                             </div>
                                             <div class="row ">
                                                 <div class="col-6">
-                                                    <h6 class="fw-bolder">{{ lang('Attendies') }}</h6>
+                                                    <h6 class="fw-bolder">{{ lang('Max Guests : ') }}</h6>
                                                 </div>
-                                                <div class="col-6  text-end">{{ @$booking->space->spaceHaveActivities[0]->max_guests }}
+                                                <div class="col-6 text-end">
+                                                    <span
+                                                        class="badge rounded-pill bg-warning badge-sm me-1 mb-1 mt-1">{{ max(array_column($array, 'max_guests')) }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -510,14 +510,13 @@
                     </div>
                 </div>
                 <div class="card custom-card">
-                    <hr class="px-0 line">
                     <div class="card-body pb-0">
                         <div class="text-center">
                             <h3 class="mb-3 booking-heading">{{ lang('Included in your booking') }}</h3>
                         </div>
                         <h4 class="mt-5 fw-bold">{{ lang('Amentities') }}</h4>
                         <div class="row mb-6">
-                            @foreach (@$booking->space->spaceHaveActivities[0]->spaceAmenities as $spaceAmenity)
+                            @foreach (@$space->spaceHaveActivities[0]->spaceAmenities as $spaceAmenity)
                                 <div class="col-6">
                                     <p class="">{{ $spaceAmenity->name }}</p>
                                 </div>
@@ -529,7 +528,7 @@
                     <div>
                         <h3 class="mt-4 ps-3">{{ lang('Operating Hours') }}</h3>
                         <hr style="border-top: 1px solid black">
-                        @foreach (@$booking->space->operatingDays as $operatingDay)
+                        @foreach (@$space->operatingDays as $operatingDay)
                             <h4 class="col-sm-10 mt-5 ps-3">{{ $operatingDay->week_day }} <span
                                     class="float-end">{{ @$operatingDay->operatingHours[0]->radio === '1' ? $operatingDay->operatingHours[0]->start_time . ' - ' . $operatingDay->operatingHours[0]->end_time : '6 : 00 AM - 12 AM' }}</span>
                             </h4>

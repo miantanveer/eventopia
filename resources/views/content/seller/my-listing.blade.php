@@ -401,16 +401,10 @@
                                                         <div class="row">
                                                             <div class="col-12">
                                                                 <h6><i
-                                                                        class="fe fe-alert-circle me-3"></i>{{ lang('We have received
-                                                                                                                                your
-                                                                                                                                submission') }}
+                                                                        class="fe fe-alert-circle me-3"></i>{{ lang('We have received your submission') }}
                                                                 </h6>
-                                                                <p>{{ lang('Your submission is currently under review by our host
-                                                                                                                        onboarding
-                                                                                                                        team. To avoid any delays in your activation, please review
-                                                                                                                        our
-                                                                                                                        requirements to
-                                                                                                                        go live.') }}
+                                                                <p>{{ lang('Your submission is currently under review by our host onboarding team. To avoid any delays in your activation, please review
+                                                                our requirements to go live.') }}
                                                                 </p>
                                                             </div>
                                                         </div>
