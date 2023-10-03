@@ -15,10 +15,10 @@ class CartController extends UserBaseController
 {
     public function checkoutData()
     {
-        $this->spaces = Space::get();
-        $this->ents = Entertainment::get();
-        $this->service = Service::get();
-        $this->user = User::whereId(auth()->user()->id)->with('cart')->first();
+        $this->spaces = Space::whereStatus(1)->get();
+        $this->ents = Entertainment::whereStatus(1)->get();
+        $this->service = Service::whereStatus(1)->get();
+        $this->user = User::whereId(user_id())->with('cart')->first();
         return response()->json($this->data,200);
     }
     public function checkout(Request $req,$id,$type)
@@ -33,7 +33,7 @@ class CartController extends UserBaseController
             return response()->json(['errors' => $validator->errors()], 400);
         }        
         if ($type == 'entertainment') {
-            $exists = Cart::whereEntertainmentId($id)->whereUserId(auth()->user()->id)->exists();
+            $exists = Cart::whereEntertainmentId($id)->whereUserId(user_id())->exists();
             if ($exists) {
                 return response()->json('Item already exists');
             } else {
@@ -41,7 +41,7 @@ class CartController extends UserBaseController
                 return response()->json('success');
             }
         } elseif ($type == 'space') {
-            $exists = Cart::whereSpaceId($id)->whereUserId(auth()->user()->id)->exists();
+            $exists = Cart::whereSpaceId($id)->whereUserId(user_id())->exists();
             if ($exists) {
                 return response()->json('Item already exists');
             } else {
@@ -53,7 +53,7 @@ class CartController extends UserBaseController
 
     public function destroy($id, $type)
     {
-        $cart = Cart::whereUserId(auth()->user()->id)->whereType($type)->find($id);
+        $cart = Cart::whereUserId(user_id())->whereType($type)->find($id);
         $cart->delete();
         if($cart){
             return response()->json('success',200);

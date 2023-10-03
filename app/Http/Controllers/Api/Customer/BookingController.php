@@ -15,16 +15,16 @@ class BookingController extends UserBaseController
     public function index($type)
     {
         if ($type == 'space') {
-            $this->listing = Space::whereLastStep('10')->where('user_id', '!=', auth()->user()->id)->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->inRandomOrder()->paginate(6);
-            $this->count = Space::whereStatus('1')->where('user_id', '!=', auth()->user()->id)->whereLastStep('10')->count();
+            $this->listing = Space::whereLastStep('10')->where('user_id', '!=', user_id())->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->inRandomOrder()->paginate(6);
+            $this->count = $this->listing->count();
             $this->type = 'space';
         } elseif ($type == 'entertainment') {
-            $this->listing = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', auth()->user()->id)->inRandomOrder()->paginate(6);
-            $this->count = Entertainment::where('last_steps', 'step-9')->where('user_id', '!=', auth()->user()->id)->count();
+            $this->listing = Entertainment::whereLastSteps('step-9')->where('user_id', '!=', user_id())->whereStatus(1)->inRandomOrder()->paginate(6);
+            $this->count = $this->listing->count();
             $this->type = 'entertainment';
         } elseif ($type == 'service') {
-            $this->listing = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->with('serviceImages')->inRandomOrder()->paginate(6);
-            $this->count = Service::whereLastSteps('step-7')->where('user_id', '!=', auth()->user()->id)->count();
+            $this->listing = Service::whereLastSteps('step-7')->where('user_id', '!=', user_id())->whereStatus(1)->with('serviceImages')->inRandomOrder()->paginate(6);
+            $this->count = $this->listing->count();
             $this->type = 'service';
         }
         return response()->json($this->data, 200);
@@ -34,15 +34,14 @@ class BookingController extends UserBaseController
     public function listingDetail($id, $type)
     {
         if ($type == 'space') {
-            $this->listing = Space::with('spaceImages', 'operatingDays', 'operatingDays.operatingHours')->find($id);
-            $this->order = Order::whereStatus('1')->whereUserId(auth()->user()->id)->whereSpaceId($this->listing->id)->first();
+            $this->listing = Space::with('spaceImages', 'operatingDays', 'operatingDays.operatingHours')->whereStatus(1)->find($id);
+            $this->order = Order::whereStatus('1')->whereUserId(user_id())->whereSpaceId($this->listing->id)->first();
         } elseif ($type == 'service') {
-            $this->listing = Service::with('serviceImages', 'operatingDays', 'operatingDays.operatingHours')->find($id);
+            $this->listing = Service::with('serviceImages', 'operatingDays', 'operatingDays.operatingHours')->whereStatus(1)->find($id);
             $this->order = Quote::whereServiceId($this->listing->id)->first();
         } elseif ($type == 'entertainment') {
-            $this->listing = Entertainment::with('entertainmentImages', 'operatingDays', 'operatingDays.operatingHours')
-                ->whereId($id)->first();
-            $this->order = Order::whereStatus('1')->whereUserId(auth()->user()->id)->whereEntertainmentId($this->listing->id)->first();
+            $this->listing = Entertainment::with('entertainmentImages', 'operatingDays', 'operatingDays.operatingHours')->whereStatus(1)->whereId($id)->first();
+            $this->order = Order::whereStatus('1')->whereUserId(user_id())->whereEntertainmentId($this->listing->id)->first();
         }
         return response()->json($this->data, 200);
     }
@@ -52,13 +51,13 @@ class BookingController extends UserBaseController
     {
         $this->pendingBookings = Order::where(function ($query) {
             $query->whereHas('space', function ($subquery) {
-                $subquery->whereUserId(auth()->user()->id);
+                $subquery->whereUserId(user_id());
             })
                 ->orWhereHas('entertainment', function ($subquery) {
-                    $subquery->whereUserId(auth()->user()->id);
+                    $subquery->whereUserId(user_id());
                 })
                 ->orWhereHas('service', function ($subquery) {
-                    $subquery->whereUserId(auth()->user()->id);
+                    $subquery->whereUserId(user_id());
                 });
         })->where('status', '!=', 0)->get();
         $this->quotes = Quote::where('status', '!=', 1)->get();
@@ -95,17 +94,17 @@ class BookingController extends UserBaseController
     public function bookings($type)
     {
         if ($type == 'space') {
-            $this->orders = Order::whereType('space')->whereUserId(auth()->user()->id)->get();
+            $this->orders = Order::whereType('space')->whereUserId(user_id())->get();
         } elseif ($type == 'entertainment') {
-            $this->orders = Order::whereType('entertainment')->whereUserId(auth()->user()->id)->get();
+            $this->orders = Order::whereType('entertainment')->whereUserId(user_id())->get();
         } elseif ($type == 'service') {
-            $this->orders = Order::whereType('service')->whereUserId(auth()->user()->id)->get();
+            $this->orders = Order::whereType('service')->whereUserId(user_id())->get();
         } elseif ($type == 'active') {
-            $this->orders = Order::whereUserId(auth()->user()->id)->whereStatus(2)->get();
+            $this->orders = Order::whereUserId(user_id())->whereStatus(2)->get();
         } elseif ($type == 'cancel') {
-            $this->orders = Order::whereUserId(auth()->user()->id)->whereStatus(3)->get();
+            $this->orders = Order::whereUserId(user_id())->whereStatus(3)->get();
         } else {
-            $this->orders = Order::whereUserId(auth()->user()->id)->get();
+            $this->orders = Order::whereUserId(user_id())->get();
         }
         if (!$this->orders->isEmpty()) {
             return response()->json($this->data);

@@ -20,9 +20,9 @@ class LandingPageController extends UserBaseController
     {
         if (Auth::check()) {
 
-            $this->spaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->whereStatus('1')->get();
-            $this->entertainments = Entertainment::whereUserId(auth()->user()->id)->whereLastSteps('step-9')->get();
-            $this->services = Service::whereUserId(auth()->user()->id)->whereLastSteps('step-7')->get();
+            $this->spaces = Space::whereUserId(user_id())->whereLastStep('10')->whereStatus('1')->get();
+            $this->entertainments = Entertainment::whereUserId(user_id())->whereStatus(1)->whereLastSteps('step-9')->get();
+            $this->services = Service::whereUserId(user_id())->whereStatus(1)->whereLastSteps('step-7')->get();
 
             return view('content.seller.calendar', $this->data);
         }

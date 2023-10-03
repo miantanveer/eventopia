@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\UserBaseController;
 use Illuminate\Http\Request;
-use Validator;
 use App\Models\Quote;
 use App\Models\Service;
 use App\Models\Cart;
 use App\Events\NotificationEvent;
+use Illuminate\Support\Facades\Validator;
 
 class QuoteController extends UserBaseController
 {

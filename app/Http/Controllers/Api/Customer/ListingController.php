@@ -12,18 +12,18 @@ class ListingController extends UserBaseController
 {
     public function index()
     {
-        $this->service = Service::with('serviceImages')->get();
-        $this->space = Space::with('spaceImages')->get();
+        $this->service = Service::with('serviceImages')->whereStatus(1)->get();
+        $this->space = Space::with('spaceImages')->whereStatus(1)->get();
         return response()->json($this->data, 200);
     }
     public function listing($type)
     {
         if ($type == 'service') {
-            $this->listing = Service::with('serviceImages')->get();
+            $this->listing = Service::with('serviceImages')->whereStatus(1)->get();
         } elseif ($type == 'entertainment') {
-            $this->listing = Entertainment::with('entertainmentImages', 'entertainmentActivities')->get();
+            $this->listing = Entertainment::with('entertainmentImages', 'entertainmentActivities')->whereStatus(1)->get();
         } elseif ($type == 'space') {
-            $this->listing = Space::with('spaceImages', 'spaceHaveActivities')->get();
+            $this->listing = Space::with('spaceImages', 'spaceHaveActivities')->whereStatus(1)->get();
         }
         return response()->json($this->data, 200);
     }
@@ -53,7 +53,7 @@ class ListingController extends UserBaseController
                         });
                     });
                 })
-                ->get();
+                ->whereStatus(1)->get();
         } elseif ($type == 'entertainment') {
             $this->listing = Entertainment::with('entertainmentImages', 'entertainmentActivities')
                 ->where(function ($query) use ($req) {
@@ -93,7 +93,7 @@ class ListingController extends UserBaseController
                                 });
                         });
                 })
-                ->get();
+                ->whereStatus(1)->get();
         } elseif ($type == 'space') {
             $this->listing = Space::with('spaceImages', 'spaceHaveActivities')
                 ->where(function ($query) use ($req) {
@@ -130,7 +130,7 @@ class ListingController extends UserBaseController
                                 });
                         });                        
                 })
-                ->get();
+                ->whereStatus(1)->get();
         }
         return response()->json($this->data, 200);
     }
@@ -138,13 +138,13 @@ class ListingController extends UserBaseController
     public function listingDetail($id,$type)
     {
         if($type == 'service'){
-            $this->detail = Service::with('serviceImages')->where('user_id','!=',user_id())->find($id);  
+            $this->detail = Service::with('serviceImages')->where('user_id','!=',user_id())->whereStatus(1)->find($id);  
         }
         elseif($type == 'entertainment'){
-            $this->detail = Entertainment::with('entertainmentImages', 'entertainmentActivities','entertainmentActivities.entActivityAmenity.activity','operatingDays','operatingDays.operatingHours')->find($id);  
+            $this->detail = Entertainment::with('entertainmentImages', 'entertainmentActivities','entertainmentActivities.entActivityAmenity.activity','operatingDays','operatingDays.operatingHours')->whereStatus(1)->find($id);  
         }
         elseif($type == 'space'){
-            $this->detail = Space::with('spaceImages', 'spaceHaveActivities','operatingDays','operatingDays.operatingHours','spaceHaveSafetyMeasures','cancellationPolicy')->find($id);  
+            $this->detail = Space::with('spaceImages', 'spaceHaveActivities','operatingDays','operatingDays.operatingHours','spaceHaveSafetyMeasures','cancellationPolicy')->whereStatus(1)->find($id);  
         }
         return response()->json($this->data, 200);
     }

@@ -53,7 +53,7 @@ class LandingController extends UserBaseController
                             }
                         };
                     });
-                })->whereLastSteps('step-7')->inRandomOrder()->paginate(12);
+                })->whereLastSteps('step-7')->whereStatus(1)->inRandomOrder()->paginate(12);
             $this->type = 'service';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
@@ -132,7 +132,7 @@ class LandingController extends UserBaseController
                                     ->where('end_time', '!==', $req->endTime);
                             });
                         });
-                })->whereLastSteps('step-9')
+                })->whereLastSteps('step-9')->whereStatus(1)
                 ->inRandomOrder()->paginate(12);
             $this->type = 'entertainment';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
@@ -214,7 +214,7 @@ class LandingController extends UserBaseController
                             });
                         });
                 })->whereStatus('1')
-                ->whereLastStep('10')
+                ->whereLastStep('10')->whereStatus(1)
                 ->inRandomOrder()->paginate(12);
             $this->type = 'space';
             $this->count = $this->listing->count();
@@ -283,10 +283,10 @@ class LandingController extends UserBaseController
                             }
                         });
                 })
-                ->whereLastSteps('step-9')
+                ->whereLastSteps('step-9')->whereStatus(1)
                 ->paginate(12);
             if (isset($ent)) {
-                $ent = Entertainment::inRandomOrder(5)->paginate(12);
+                $ent = Entertainment::inRandomOrder(5)->whereStatus(1)->paginate(12);
             }
             $this->type = 'entertainment';
             $this->listing = $ent;
@@ -301,10 +301,10 @@ class LandingController extends UserBaseController
                         ->orWhere('city', $req->location_2)
                         ->orWhere('state', $req->location_2);
                 })
-                ->whereLastSteps('step-7')
+                ->whereLastSteps('step-7')->whereStatus(1)
                 ->paginate(12);
             if (isset($service)) {
-                $service = Service::inRandomOrder(5)->paginate(12);
+                $service = Service::inRandomOrder(5)->whereStatus(1)->paginate(12);
             }
             $this->type = 'service';
             $this->listing = $service;

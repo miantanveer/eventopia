@@ -6,7 +6,7 @@ use App\Http\Controllers\UserBaseController;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Cart;
-use Validator;
+use Illuminate\Support\Facades\Validator;
 
 class OrderController extends UserBaseController
 {

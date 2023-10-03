@@ -14,15 +14,15 @@ class ListingController extends UserBaseController
     public function index()
     {
         // Space Getting
-        $this->spaces = Space::whereUserId(auth()->user()->id)->whereLastStep('10')->with('spaceHaveActivities.activities')->paginate(2);
+        $this->spaces = Space::whereUserId(user_id())->whereLastStep('10')->with('spaceHaveActivities.activities')->paginate(2);
         $this->spaces_remaining = Space::where('last_step', '!=', '10')->whereStatus('0')->get();
         $this->space_acitivities = SpaceActivity::get();
         // Entertainment Getting
-        $this->entertainment_remaining = Entertainment::whereUserId(auth()->user()->id)->where('last_steps', '!=', 'step-9')->get();
-        $this->entertainment = Entertainment::whereUserId(auth()->user()->id)->whereLastSteps('step-9')->with('entertainmentImages', 'entertainmentActivities.entertainment')->paginate(2);
+        $this->entertainment_remaining = Entertainment::whereUserId(user_id())->where('last_steps', '!=', 'step-9')->get();
+        $this->entertainment = Entertainment::whereUserId(user_id())->whereLastSteps('step-9')->with('entertainmentImages', 'entertainmentActivities.entertainment')->paginate(2);
         // Service Getting
-        $this->service = Service::whereUserId(auth()->user()->id)->whereLastSteps('step-7')->with('serviceImages')->paginate(2);
-        $this->service_remaining = Service::whereUserId(auth()->user()->id)->where('last_steps', '!=', 'step-7')->get();
+        $this->service = Service::whereUserId(user_id())->whereLastSteps('step-7')->with('serviceImages')->paginate(2);
+        $this->service_remaining = Service::whereUserId(user_id())->where('last_steps', '!=', 'step-7')->get();
         // Activity Getting
         $this->ent_activity = EntActivity::get();
         return view('content.seller.my-listing', $this->data);

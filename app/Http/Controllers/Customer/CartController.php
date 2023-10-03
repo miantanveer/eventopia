@@ -14,9 +14,9 @@ class CartController extends UserBaseController
 {
     public function checkout()
     {
-        $this->spaces = Space::get();
-        $this->ents = Entertainment::get();
-        $this->service = Service::get();
+        $this->spaces = Space::whereStatus(1)->get();
+        $this->ents = Entertainment::whereStatus(1)->get();
+        $this->service = Service::whereStatus(1)->get();
         $this->user = User::whereId(user_id())->with('cart')->first();
         return view('layouts.components.checkout-page', $this->data);
     }
