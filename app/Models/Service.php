@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
+    protected $fillable = [
+        'status',
+    ];
     use HasFactory;
     public function serviceImages(){
         return $this->hasMany(ServiceImages::class);
@@ -27,11 +30,11 @@ class Service extends Model
     public function quotes(){
         return $this->hasMany(Quote::class);
     }
-    
+
     public function user(){
         return $this->belongsTo(User::class);
     }
-    
+
     public function quote(){
         return $this->hasMany(Quote::class);
     }

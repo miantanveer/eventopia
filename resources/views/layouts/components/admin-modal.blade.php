@@ -191,3 +191,22 @@
         </div>
     </div>
 </div>
+
+{{-- Listing delete modal --}}
+<div class="modal fade" id="listing-delete-modal">
+    <div class="modal-dialog modal-dialog-centered text-center" role="document">
+        <div class="modal-content tx-size-sm">
+            <div class="modal-body text-center p-4 pb-5">
+                <button aria-label="Close" class="btn-close position-absolute" data-bs-dismiss="modal"><span
+                        aria-hidden="true">&times;</span></button>
+                <i class="icon icon-close fs-70 text-danger lh-1 my-5 d-inline-block"></i>
+                <form action="" id="listing-delete-form" method="POST">
+                    @csrf
+                    <h2 class="text-danger">{{ lang('Warning!') }}</h2>
+                    <h4 class="text-danger">{{ lang('Are you sure you want to delete ?') }}</h4>
+                    <button class="btn btn-danger pd-x-25">{{ lang('Continue') }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -114,8 +114,8 @@
                                                     class="tag-addon {{ @$space->status == '0' ? 'tag-info' : (@$space->status == '1' ? 'tag-green' : 'tag-red') }}"></a></span>
                                         </td>
                                         <td>
-                                            <a class="modal-effect btn d-grid" data-bs-effect="effect-rotate-left"><i
-                                                    class="fa fa-eye text-primary" aria-hidden="true"></i></a>
+                                            <a class="btn" href="{{ route('admin.listings.detail.page', ['id' => @$space->id, 'type' => 'space']) }}">
+                                                <i class="fa fa-eye text-primary" aria-hidden="true"></i></a>
                                         </td>
                                         <td>
                                             <div class="btn-group mt-2 mb-2">
@@ -141,7 +141,7 @@
                                                     @endif
                                                     <li class="m-2">
                                                         <a id="bDel" type="button"
-                                                            onclick="deleteModal('{{ route('admin.listings.delete.space', $space->id) }}')"
+                                                            onclick="deleteModal('{{ route('admin.listings.delete', ['id' => $space->id, 'type' => 'space']) }}')"
                                                             class="btn  btn-sm btn-danger">{{ lang('Delete') }}
                                                         </a>
                                                     </li>
@@ -226,14 +226,13 @@
     <script>
         $(document).ready(function() {
             $('#user_form').parsley();
-            // $('#example2').DataTable();
         });
     </script>
     <script src="{{ asset('assets/js/email-validate.js') }}"></script>
     <script>
         function deleteModal(url) {
-            $('#user-delete-form').attr('action', url);
-            $('#user-delete-modal').modal('show');
+            $('#listing-delete-form').attr('action', url);
+            $('#listing-delete-modal').modal('show');
         }
 
         // Click event handler for the "Approve" button
@@ -257,12 +256,13 @@
 
             $.ajax({
                 type: 'POST',
-                url: "{{ route('admin.listings.update.space') }}",
+                url: "{{ route('admin.listings.update.status') }}",
                 headers: {
                     'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the headers
                 },
                 data: {
-                    space_id: spaceId,
+                    id: spaceId,
+                    type:'space',
                     status: status
                 },
                 success: function(response) {
