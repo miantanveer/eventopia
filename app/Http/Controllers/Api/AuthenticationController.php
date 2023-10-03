@@ -32,12 +32,7 @@ class AuthenticationController extends UserBaseController
             ],
         ]);
         if ($validator->fails()) {
-            if($req->phoneNumber){
-                return response()->json('Phone number already exists', 400);
-            }
-            else{
-                return response()->json('Email already exists', 400);
-            }
+            return response()->json(['errors' => $validator->errors()], 400);
         }
 
         $user = User::where(function($query) use($req){
