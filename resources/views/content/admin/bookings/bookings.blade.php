@@ -6,11 +6,11 @@
 @section('content')
     <!-- PAGE-HEADER -->
     <div class="page-header">
-        <h1 class="page-title">Listings of Spaces</h1>
+        <h1 class="page-title">Bookings of {{ $type }}</h1>
         <div>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Spaces</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $type }}</li>
             </ol>
         </div>
     </div>
@@ -25,8 +25,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Total Spaces</h6>
-                                    <h2 class="mb-0 number-font">{{ @$totalSpaces }}</h2>
+                                    <h6 class="">Total Bookings</h6>
+                                    <h2 class="mb-0 number-font">{{ @$totalBookings }}</h2>
                                 </div>
                             </div>
                         </div>
@@ -37,8 +37,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Total Pending Spaces</h6>
-                                    <h2 class="mb-0 number-font">{{ @$reviewSpaces }}</h2>
+                                    <h6 class="">Total Review Bookings</h6>
+                                    <h2 class="mb-0 number-font">{{ @$totalReviewBookings }}</h2>
                                 </div>
                             </div>
                         </div>
@@ -49,8 +49,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Total Active Spaces</h6>
-                                    <h2 class="mb-0 number-font">{{ @$activeSpaces }}</h2>
+                                    <h6 class="">Total Accepted Bookings</h6>
+                                    <h2 class="mb-0 number-font">{{ @$totalAcceptedBookings }}</h2>
                                 </div>
                             </div>
                         </div>
@@ -61,14 +61,13 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Total Rejected Spaces</h6>
-                                    <h2 class="mb-0 number-font">{{ @$rejectedSpaces }}</h2>
+                                    <h6 class="">Total Cancelled Bookings</h6>
+                                    <h2 class="mb-0 number-font">{{ @$totalCancelledBookings }}</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -79,45 +78,43 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Spaces</h3>
+                    <h3 class="card-title">{{ $type }}</h3>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="example2" class="table table-bordered border-bottom">
-                            <thead>
-                                <tr>
-                                    <th class="border-bottom-0">User</th>
-                                    <th class="border-bottom-0">Space Type</th>
-                                    <th class="border-bottom-0">Title</th>
-                                    <th class="border-bottom-0">Description</th>
-                                    <th class="border-bottom-0">Contact User</th>
-                                    <th class="border-bottom-0">Contact No.</th>
-                                    <th class="border-bottom-0">Status</th>
-                                    <th class="border-bottom-0">View</th>
-                                    <th class="border-bottom-0">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @forelse (@$spaces as $space)
+                        @if (isset($orders))
+                            <table id="example2" class="table table-bordered border-bottom">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            {{ @$space->user->first_name . ' ' . @$space->user->last_name }}</td>
-                                        <td>{{ @$space->spaceType->type }}</td>
-                                        <td>{{ @$space->space_title }}</td>
-                                        <td>{{ @$space->space_description }}</td>
-                                        <td>
-                                            {{ @$space->c_u_fname . ' ' . @$space->c_u_lname }}</td>
-                                        <td>{{ @$space->c_u_phone }}</td>
-                                        <td><span
-                                                class="tag tag-rounded tag-icon {{ @$space->status == '0' ? 'tag-info' : (@$space->status == '1' ? 'tag-green' : 'tag-red') }}">{{ @$space->status == '0' ? 'Review' : (@$space->status == '1' ? 'Active' : 'Rejected') }}
-                                                <a
-                                                    class="tag-addon {{ @$space->status == '0' ? 'tag-info' : (@$space->status == '1' ? 'tag-green' : 'tag-red') }}"></a></span>
-                                        </td>
-                                        <td>
-                                            <a class="btn" href="{{ route('admin.listings.detail.page', ['id' => @$space->id, 'type' => 'space']) }}">
-                                                <i class="fa fa-eye text-primary" aria-hidden="true"></i></a>
-                                        </td>
-                                        <td>
+                                        <th class="border-bottom-0">{{ lang('Location') }}</th>
+                                        <th class="border-bottom-0">{{ lang('Customer') }}</th>
+                                        <th class="border-bottom-0">{{ lang('Time') }}</th>
+                                        <th class="border-bottom-0">{{ lang('Price') }}</th>
+                                        <th class="border-bottom-0">{{ lang('Type') }}</th>
+                                        <th class="border-bottom-0">{{ lang('Status') }}</th>
+                                        <th class="border-bottom-0">{{ lang('View') }}</th>
+                                        <th class="border-bottom-0">{{ lang('Action') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @forelse (@$orders as $order)
+                                        <tr>
+                                            <td>{{ lang(Str::limit(@$order->type == 'space' ? @$order->space->address : (@$order->type == 'entertainment' ? @$order->entertainment->address : @$order->service->address), 30, $end = '...')) }}
+                                            </td>
+                                            <td>{{ lang(@$order->user->first_name . ' ' . @$order->user->last_name) }}
+                                            </td>
+                                            <td>{{ @$order->date }}</td>
+                                            <td>{{ @$order->amount }}</td>
+                                            <td>{{ lang(@$order->type == 'space' ? @$order->space->spaceType->type : (@$order->type == 'entertainment' ? @$order->entertainment->title : @$order->service->category)) }}
+                                            </td>
+                                            <td><a class="btn"
+                                                    href="{{ route('bookings-details', ['id' => @$order->id, 'type' => @$order->type]) }}"><i
+                                                        class="fa fa-eye text-primary" aria-hidden="true"></i></a>
+                                            </td>
+                                            <td>
+                                                sdf
+                                            </td>
+                                            {{-- <td>
                                             <div class="btn-group mt-2 mb-2">
                                                 <button type="button" class="btn rounded-1 p-2" data-bs-toggle="dropdown">
                                                     <i class="icon icon-options"></i>
@@ -147,17 +144,33 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <div>
-                                        <tr>
-                                            <td class="text-center align-middle">{{ lang('No Record Found') }}</td>
+                                        </td> --}}
+                                            <td class="text-end">
+                                                @if (@$order->status == 3)
+                                                    <span disabled
+                                                        class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">{{ lang('Declined') }}</span>
+                                                @elseif (@$order->status == 2)
+                                                    <span disabled
+                                                        class="badge bg-success-gradient badge-sm me-1 mb-1 mt-1">{{ lang('Accepted') }}</span>
+                                                @else
+                                                    <a href="{{ route('decline-bookings', @$order->id) }}"
+                                                        class="btn text-danger border-0">{{ lang('Decline') }}</a>
+                                                    <a href="{{ @$order->type == 'space' || @$order->type == 'entertainment' || @$order->type == 'service' ? route('accept-bookings', @$order->id) : URL('/create-quote') }}"
+                                                        class="btn btn-primary ms-3">{{ lang(@$order->type == 'space' || @$order->type == 'entertainment' || @$order->type == 'service' ? 'Accept' : 'Send Quote') }}</a>
+                                                @endif
+                                            </td>
                                         </tr>
-                                    </div>
-                                @endforelse
-                            </tbody>
-                        </table>
+                                    @empty
+                                    @endforelse
+                                </tbody>
+                            </table>
+                        @else
+                            <div class="card-body text-center border p-4 pb-5">
+                                <p class="mb-4 mt-4 mx-4">
+                                    {{ lang('No Record Found.') }}
+                                </p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -262,7 +275,7 @@
                 },
                 data: {
                     id: spaceId,
-                    type:'space',
+                    type: 'space',
                     status: status
                 },
                 success: function(response) {

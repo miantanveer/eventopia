@@ -54,8 +54,7 @@
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Start date: activate to sort column ascending">
-                                                {{ lang('Attendees
-                                                                                                                                                                                                                                                Number') }}
+                                                {{ lang('Attendees Number') }}
                                             </th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
@@ -112,16 +111,14 @@
                                             @forelse (@$pendingBookings as $pendingBooking)
                                                 <tr class="text-center">
                                                     <td class="dtr-control sorting_1" tabindex="{{ $loop->iteration }}">
-                                                        {{ lang(@$pendingBooking->type) }}</td>
-                                                    <td>{{ lang(Str::limit(@$pendingBooking->type == 'space' ? @$pendingBooking->space->address : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->address : @$pendingBooking->service->address), 30, $end = '...')) }}
+                                                        {{ lang(@$pendingBooking->type) }}
                                                     </td>
-                                                    <td>{{ lang(@$pendingBooking->user->first_name . ' ' . @$pendingBooking->user->last_name) }}
-                                                    </td>
+                                                    <td>{{ lang(Str::limit(@$pendingBooking->type == 'space' ? @$pendingBooking->space->address : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->address : @$pendingBooking->service->address), 30, $end = '...')) }}</td>
+                                                    <td>{{ lang(@$pendingBooking->user->first_name . ' ' . @$pendingBooking->user->last_name) }}</td>
                                                     <td>{{ @$pendingBooking->date }}</td>
                                                     <td>{{ @$pendingBooking->amount }}</td>
                                                     <td>101 - 150</td>
-                                                    <td>{{ lang(@$pendingBooking->type == 'space' ? @$pendingBooking->space->spaceType->type : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->title : @$pendingBooking->service->category)) }}
-                                                    </td>
+                                                    <td>{{ lang(@$pendingBooking->type == 'space' ? @$pendingBooking->space->spaceType->type : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->title : @$pendingBooking->service->category)) }}</td>
                                                     {{-- <td><a class="btn"
                                                             href="{{ route('bookings-details', ['id' => @$pendingBooking->id, 'type' => @$pendingBooking->type]) }}"><i
                                                                 class="fa fa-eye text-primary" aria-hidden="true"></i></a>

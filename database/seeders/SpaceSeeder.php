@@ -41,7 +41,7 @@ class SpaceSeeder extends Seeder
             'c_u_lname' => 'Alden Lott',
             'c_u_phone' => '+1 (321) 705-7127',
             'c_u_img' => null,
-            'status' => '1',
+            'status' => '0',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -72,7 +72,7 @@ class SpaceSeeder extends Seeder
             'c_u_lname' => 'Alden Lott',
             'c_u_phone' => '+1 (321) 705-7127',
             'c_u_img' => null,
-            'status' => '1',
+            'status' => '0',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -103,7 +103,7 @@ class SpaceSeeder extends Seeder
             'c_u_lname' => 'Alden Lott',
             'c_u_phone' => '+1 (321) 705-7127',
             'c_u_img' => null,
-            'status' => '1',
+            'status' => '0',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -134,7 +134,7 @@ class SpaceSeeder extends Seeder
             'c_u_lname' => 'Ria Sims',
             'c_u_phone' => '+1 (908) 757-2584',
             'c_u_img' => null,
-            'status' => '1',
+            'status' => '0',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -165,7 +165,7 @@ class SpaceSeeder extends Seeder
             'c_u_lname' => 'Vernon Mercer',
             'c_u_phone' => '+1 (602) 139-4049',
             'c_u_img' => null,
-            'status' => '1',
+            'status' => '0',
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -196,7 +196,7 @@ class SpaceSeeder extends Seeder
             'c_u_lname' => 'Sopoline Blake',
             'c_u_phone' => '+1 (364) 462-6434',
             'c_u_img' => null,
-            'status' => '1',
+            'status' => '0',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

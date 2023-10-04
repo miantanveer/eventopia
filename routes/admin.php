@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AuthenticationController;
+use App\Http\Controllers\Admin\BookingsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ListingsController;
 use App\Http\Controllers\Admin\PluginsController;
@@ -59,10 +60,21 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin.aut
     Route::group(['prefix' => 'listings', 'as' => 'listings.'], function () {
 
         Route::get('spaces', [ListingsController::class, 'spacesIndex'])->name('spaces');
-        Route::post('space-delete/{space_id}', [ListingsController::class, 'deleteSpaceListing'])->name('delete.space');
-        Route::post('update-status', [ListingsController::class, 'updateSpaceStatus'])->name('update.space');
         Route::get('entertainment-&-talents', [ListingsController::class, 'entertainmentsIndex'])->name('entertainment');
         Route::get('services', [ListingsController::class, 'servicesIndex'])->name('services');
+        Route::get('detail-page/{id}/{type}', [ListingsController::class, 'detailIndex'])->name('detail.page');
+        Route::post('update-status', [ListingsController::class, 'updateStatus'])->name('update.status');
+        Route::post('delete/{id}/{type}', [ListingsController::class, 'deleteListing'])->name('delete');
+
+    });
+
+    // BOOKINGS
+    Route::group(['prefix' => 'bookings', 'as' => 'bookings.'], function () {
+
+        Route::get('{type}', [BookingsController::class, 'index'])->name('index');
+        Route::get('detail-page/{id}/{type}', [BookingsController::class, 'detailIndex'])->name('detail.page');
+        Route::post('update-status', [BookingsController::class, 'updateStatus'])->name('update.status');
+        Route::post('delete/{id}/{type}', [BookingsController::class, 'deleteListing'])->name('delete');
 
     });
 });
