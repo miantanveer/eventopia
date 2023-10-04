@@ -107,13 +107,14 @@
                                             <td>{{ @$order->amount }}</td>
                                             <td>{{ lang(@$order->type == 'space' ? @$order->space->spaceType->type : (@$order->type == 'entertainment' ? @$order->entertainment->title : @$order->service->category)) }}
                                             </td>
+                                            <td>
+                                                sdf
+                                            </td>
                                             <td><a class="btn"
                                                     href="{{ route('bookings-details', ['id' => @$order->id, 'type' => @$order->type]) }}"><i
                                                         class="fa fa-eye text-primary" aria-hidden="true"></i></a>
                                             </td>
-                                            <td>
-                                                sdf
-                                            </td>
+
                                             {{-- <td>
                                             <div class="btn-group mt-2 mb-2">
                                                 <button type="button" class="btn rounded-1 p-2" data-bs-toggle="dropdown">
