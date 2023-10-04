@@ -19,7 +19,7 @@ class AuthenticationController extends UserBaseController
             'firstName' => 'required',
             'lastName' => 'required',
             'dateOfBirth' => 'required',
-            'password' => 'required',
+            'password' => 'required|confirmed',
             'phoneNumber' => [
                 Rule::requiredIf($req->has('phoneNumber')),
                 'regex:/^\+[0-9]{6,15}$/',
@@ -125,7 +125,7 @@ class AuthenticationController extends UserBaseController
             $user = User::whereEmail($req->email)->first();
         }
         if (!$user) {
-            return redirect()->back()->with('error', 'Email does not exist. ');
+            return response()->json(['error'=>'Email does not exist.']);
         }
         $this->phoneNumber = $req->phoneNumber ?? '';
         $this->email = $req->email ?? '';
