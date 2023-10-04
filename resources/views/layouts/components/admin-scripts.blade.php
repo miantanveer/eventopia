@@ -26,6 +26,7 @@
     <script src="{{ asset('assets/plugins/notify/js/rainbow.js') }}"></script>
     <script src="{{ asset('assets/plugins/notify/js/sample.js') }}"></script>
     <script src="{{ asset('assets/plugins/notify/js/notifIt.js') }}"></script>
+    
 
     @yield('scripts')
 

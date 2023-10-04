@@ -45,6 +45,17 @@
                             </li>
                             <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                                        class="side-menu__icon fa fa-calendar-check-o"></i><span
+                                        class="side-menu__label">Bookings</span><i
+                                        class="angle fe fe-chevron-right"></i></a>
+                                <ul class="slide-menu">
+                                    <li><a href="{{ route('admin.bookings.index',['type' => 'spaces']) }}" class="slide-item"> Spaces</a></li>
+                                    <li><a href="{{ route('admin.bookings.index',['type' => 'entertainments']) }}" class="slide-item">Entertainments & Talents</a></li>
+                                    <li><a href="{{ route('admin.bookings.index',['type' => 'services']) }}" class="slide-item">Services</a></li>
+                                </ul>
+                            </li>
+                            <li class="slide">
+                                <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
                                         class="side-menu__icon fe fe-settings"></i><span
                                         class="side-menu__label">Settings</span><i
                                         class="angle fe fe-chevron-right"></i></a>

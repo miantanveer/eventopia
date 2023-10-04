@@ -203,7 +203,6 @@ class BookingController extends UserBaseController
                 });
             })->get();
         }
-        // dd($this->orders);
 
         return view('layouts.components.bookings', $this->data);
 
