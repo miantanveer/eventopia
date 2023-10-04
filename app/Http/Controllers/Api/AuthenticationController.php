@@ -184,9 +184,7 @@ class AuthenticationController extends UserBaseController
             $user = User::whereEmail($req->email)->whereStatus(1)->first();
         }
         if (!$users) {
-            return response([
-                'message' => ["message: User Not Found"],
-            ], 404);
+            return response(['message' => "User Not Found"], 400);
         }
         $token = $user->createToken($user->email)->plainTextToken;
 
