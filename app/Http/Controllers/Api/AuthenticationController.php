@@ -19,7 +19,7 @@ class AuthenticationController extends UserBaseController
             'firstName' => 'required',
             'lastName' => 'required',
             'dateOfBirth' => 'required',
-            'password' => 'required|confirmed',
+            'password' => 'required',
             'phoneNumber' => [
                 Rule::requiredIf($req->has('phoneNumber')),
                 'regex:/^\+[0-9]{6,15}$/',
