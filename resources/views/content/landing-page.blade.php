@@ -589,7 +589,7 @@
                                     <div class="year-header">
                                         <span class="left-button" id="prev"> <i class="fa fa-angle-double-left"></i>
                                         </span>
-                                        <span class="year" id="label"> </span>
+                                        <span class="year year-text" id="label"> </span>
                                         <span class="right-button" id="next"> <i class="fa fa-angle-double-right"></i>
                                         </span>
                                     </div>
@@ -1963,7 +1963,7 @@
                 }
             }
             calendar_days.append(row);
-            $(".year").text(year);
+            $(".year-text").text(year);
         }
 
         function days_in_month(month, year) {
@@ -1978,7 +1978,7 @@
             $(this).addClass("active-date");
             const day = $(this).text();
             const month = $('.month.active-month').text();
-            const year = $('.year').text();
+            const year = $('.year-text').text();
             var fullDate = month + ' ' + day + ', ' + year;
             $('#hiddenDate').val(fullDate);
             $('#start_time').removeAttr('disabled').val("9:00 AM").css('border', '1px solid #898587');

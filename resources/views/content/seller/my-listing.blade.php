@@ -345,7 +345,7 @@
                                         @endforeach
                                     </div>
                                 @endforeach
-                                {!! @$spaces->links('vendor\pagination\tailwind') !!}
+                                {!! @$spaces->links() !!}
                                 {{-- {!!@$spaces->links('vendor\pagination\tailwind')!!}  --}}
 
                             </div>
@@ -418,7 +418,7 @@
                         @endforeach
                         {{-- {{@$service->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}} --}}
 
-                        {!! $service->links('vendor\pagination\tailwind') !!}
+                        {!! $service->links() !!}
                         @foreach ($entertainment as $key => $data)
                             <div class="col-12">
                                 <div class="card border">
@@ -551,7 +551,7 @@
                             </div>
                         @endforeach
                         {{-- {{@$entertainments->onEachSide(5)->fragment(Hash::make($type))->links('vendor\pagination\tailwind')}}  --}}
-                        {!! @$entertainment->links('vendor\pagination\tailwind') !!}
+                        {!! @$entertainment->links() !!}
                     </div>
                 </div>
             </div>

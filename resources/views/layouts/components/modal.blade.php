@@ -36,7 +36,7 @@
                         aria-hidden="true">&times;</span></button>
                 <i class="icon icon-close fs-70 text-danger lh-1 my-5 d-inline-block"></i>
                 <h2 class="text-danger">{{ lang('Warning!') }}</h2>
-                <h4 class="text-danger">{{ lang('Atleast 4 and maximum 8 images are required.') }}</h4>
+                <h4 class="text-danger">{{ lang('Atleast 4 and maximum 10 images are required.') }}</h4>
                 <button class="btn btn-danger pd-x-25" data-bs-dismiss="modal">{{ lang('Ok') }}</button>
             </div>
         </div>
@@ -579,7 +579,7 @@
                     <button class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
-                </div>                
+                </div>
                 <div class="container-fluid">
                 <div class='row'>
                 <div class='col-12'>

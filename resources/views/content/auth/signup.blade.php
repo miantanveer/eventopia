@@ -122,7 +122,7 @@
                             <div class="col-12">
                                 <input type="checkbox" id="check" data-parsley-required="true"
                                    required data-parsley-errors-container="#checkbox_err">
-                                <label for="check">I agree with the <a style="color: #006CE4;" href="#">Terms &
+                                <label for="check">I agree with the <a style="color: #006CE4;" href="{{route('terms-and-conditions')}}">Terms &
                                         Conditions.</a></label>
                                 <span class="text-denger" id="checkbox_err"></span>
                             </div>
