@@ -41,7 +41,7 @@ class LandingController extends UserBaseController
                     $subquery->orWhere(function ($query) use ($req) {
                         $price = $req->price;
 
-                        $priceRanges = [0, 1000, 2500, 4500, 9999];
+                        $priceRanges = [0, 5000, 10000, 50000, 99999];
 
                         foreach ($priceRanges as $index => $range) {
                             if ($price == $range) {
@@ -67,7 +67,7 @@ class LandingController extends UserBaseController
                     $subquery->whereHas('entertainmentActivities', function ($subquery) use ($req) {
                         if ($req->has('price')) {
                             $price = $req->price;
-                            $priceRanges = [0, 100, 250, 450, 999];
+                            $priceRanges = [0, 5000, 10000, 50000, 99999];
 
                             foreach ($priceRanges as $index => $range) {
                                 if ($price == $range) {
@@ -147,7 +147,7 @@ class LandingController extends UserBaseController
                 $query->when($req->has('price'), function ($subquery) use ($req) {
                     $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
                         $price = $req->price;
-                        $priceRanges = [0, 100, 250, 450, 999];
+                        $priceRanges = [0, 5000, 10000, 50000, 99999];
 
                         if ($price == '1000') {
                             $subquery->where('rate_per_hour', '>=', 1000);

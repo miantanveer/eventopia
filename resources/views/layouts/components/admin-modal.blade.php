@@ -75,13 +75,13 @@
                                 @enderror
                                 <span class="text-danger" id="lname_err"> </span>
                             </div>
-                            <div class="col-12 mb-3 mx-">
-                                <label class="form-label" for="email">Email or Phone Number</label>
+                            <div class="col-12 mb-3 ">
+                                <label class="form-label" for="email">Email</label>
                                 <div class="d-flex align-items-center input-container">
                                     <input type="text"
-                                        class="form-control @if ($errors->has('email') || $errors->has('phone_number')) border-danger @endif"
+                                        class="form-control"
                                         name="email" id="email" required
-                                        data-parsley-required-message="Email or Phone Number is required*"
+                                        data-parsley-required-message="Email is required*"
                                         data-parsley-errors-container="#email_err">
                                 </div>
                                 @error('email')
@@ -90,13 +90,24 @@
                                         $('#add-user-modal').modal('show');
                                     </script>
                                 @enderror
+                                <span class="text-danger" id="email_err"> </span>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <label class="form-label" for="email">Phone Number</label>
+                                <div class="d-flex align-items-center input-container">
+                                    <input type="text"
+                                        class="form-control"
+                                        name="phone_number" id="phone_number" required
+                                        data-parsley-required-message="Phone Number is required*"
+                                        data-parsley-errors-container="#phone_number_err">
+                                </div>
                                 @error('phone_number')
                                     <div class="text-danger">{{ $message }}</div>
                                     <script>
                                         $('#add-user-modal').modal('show');
                                     </script>
                                 @enderror
-                                <span class="text-danger" id="email_err"> </span>
+                                <span class="text-danger" id="phone_number_err"> </span>
                             </div>
                             <div class="col-12 mb-3 mx-">
                                 <label class="form-label" for="date_of_birth">Date of Birth</label>

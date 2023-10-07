@@ -65,7 +65,7 @@ class LandingPageController extends UserBaseController
             }
             return response()->json($operatingHoursData);
         } else {
-            return response()->json([], 404); 
+            return response()->json([], 404);
         }
     }
 
@@ -86,7 +86,7 @@ class LandingPageController extends UserBaseController
             }
 
             if ($data) {
-                $data->operatingDays()->delete(); 
+                $data->operatingDays()->delete();
             }
 
             $weekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
@@ -162,5 +162,10 @@ class LandingPageController extends UserBaseController
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', $th->getMessage());
         }
+    }
+
+    public function termsAndConditions()
+    {
+        return view('content.terms-and-conditions');
     }
 }
