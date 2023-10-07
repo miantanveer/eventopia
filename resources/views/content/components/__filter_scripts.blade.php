@@ -305,7 +305,7 @@
         $('#categoryDropdown').hide();
     });
 
-    function selected(input, address) {
+    function selected(input = null, address = null) {
         $('#dateTimeModal').modal('hide');
         url = $('#search').val();
         selectedPrice = $('input[name="price"]:checked').val();
@@ -350,10 +350,7 @@
             }
         }
     })
-</script>
 
-{{-- Google addresses code --}}
-<script>
     $(document).ready(function() {
         var autocompleteService = new google.maps.places.AutocompleteService();
 
@@ -385,6 +382,7 @@
                                 .text(prediction.description);
                             addressItem.on('click', function() {
                                 locationInput.val(prediction.description);
+                                selected('',prediction.description);
                                 addressDropdown.empty();
                                 locationInput.parent().removeClass(
                                     "data-appended");
