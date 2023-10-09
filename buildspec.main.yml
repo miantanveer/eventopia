@@ -9,7 +9,7 @@ phases:
   post_build:
     commands:
       # - php artisan migrate:fresh --seed --force
-      - php artisan migrate
+      - php artisan migrate --force
 artifacts:
   files:
     # List of files to be included in the build artifact
