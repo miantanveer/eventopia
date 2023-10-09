@@ -584,6 +584,9 @@
             height: 45px !important;
         }
 
+        .w-style-1 {
+            height: 45px !important;
+        }
         .nav-style {
             padding: 5.7px !important;
         }
@@ -757,9 +760,20 @@
             right: -30px;
         }
 
+        @media screen and (min-width: 1280px) and (max-width: 1920px) {
+            .w-style-1 {
+                width: 50% !important;
+                height: 45px !important;
+            }
+        }
         @media screen and (min-width: 1280px) and (max-width: 1500px) {
             .span_attendees {
                 font-size: 90% !important;
+            }
+
+            .w-style-1 {
+                width: 50% !important;
+                height: 45px !important;
             }
         }
 
@@ -907,9 +921,6 @@
                                             </div>
                                         @else
                                             <div id="ajax_data" class="row">
-                                                <div class="card-header border-bottom-0 ms-3">
-                                                    {{ @$listing->count() ?? '0' }} {{ lang(@$type.' found') }}
-                                                </div>
                                                 @if (@$type == 'space')
                                                     @include('content.components.__space')
                                                 @elseif (@$type == 'entertainment')

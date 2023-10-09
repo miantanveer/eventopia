@@ -1,4 +1,6 @@
-
+<div class="card-header border-bottom-0 ms-3">
+    {{ @$listing->count() ?? '0' }} {{ lang(@$type.' found') }}
+</div>
 @foreach(@$listing as $key=>$value)
 @php
 $lat = $value->lat;
