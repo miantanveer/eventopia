@@ -139,10 +139,7 @@ class EntertainmentController extends UserBaseController
         $images = Entertainment::whereId($id)->whereUserId(user_id())->with('entertainmentImages')->get();
         foreach ($images as $img) {
             foreach ($img->entertainmentImages as $data) {
-                $file_path = s3Link($data->image);
-                if (file_exists($file_path)) {
-                    Storage::disk('s3')->delete($file_path);
-                }
+                Storage::disk('s3')->delete($data->image);
                 $data->delete();
             }
         }
@@ -388,10 +385,7 @@ class EntertainmentController extends UserBaseController
             $delete_img = EntertainmentImages::whereEntertainmentId($id)->get();
             if (isset($delete_img)) {
                 foreach ($delete_img as $key => $data) {
-                    $file_path =  s3Link($data->image);
-                    if (file_exists($file_path)) {
-                       Storage::disk('s3')->delete($file_path);
-                    }
+                    Storage::disk('s3')->delete($data->image);
                 }
             }
         }

@@ -183,10 +183,7 @@ class SpaceController extends UserBaseController
         $images = Space::whereId($id)->whereUserId(user_id())->with('spaceImages')->get();
         foreach ($images as $img) {
             foreach ($img->spaceImages as $data) {
-                $file_path = s3Link($data->image);
-                if (file_exists($file_path)) {
-                    Storage::disk('s3')->delete($file_path);
-                }
+                Storage::disk('s3')->delete($data->image);
                 $data->delete();
             }
         }
@@ -561,10 +558,7 @@ class SpaceController extends UserBaseController
         $space = Space::find($id);
         if (isset($space->spaceImages)) {
             foreach ($space->spaceImages as $space_image) {
-                $file_path = s3Link($space_image->image);
-                if (file_exists($file_path)) {
-                    Storage::disk('s3')->delete($file_path);
-                }
+                Storage::disk('s3')->delete($space_image->image);
             }
         }
         $space->delete();
