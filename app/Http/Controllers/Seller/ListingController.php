@@ -71,10 +71,7 @@ class ListingController extends UserBaseController
         $space = Space::find($space_id);
         if (isset($space->spaceImages)) {
             foreach ($space->spaceImages as $space_image) {
-                $file_path = s3Link($space_image->image);
-                if (file_exists($file_path)) {
-                    Storage::disk('s3')->delete($file_path);
-                }
+                Storage::disk('s3')->delete($space_image->image);
             }
         }
         $space->delete();

@@ -70,10 +70,7 @@ class ServiceController extends UserBaseController
         $images = Service::whereId($id)->whereUserId(user_id())->with('serviceImages')->get();
         foreach ($images as $img) {
             foreach ($img->serviceImages as $data) {
-                $file_path = s3Link($data->image);
-                if (file_exists($file_path)) {
-                    Storage::disk('s3')->delete($file_path);
-                }
+                Storage::disk('s3')->delete($data->image);
                 $data->delete();
             }
         }
@@ -306,10 +303,7 @@ class ServiceController extends UserBaseController
             $delete_img = ServiceImages::whereServiceId($id)->get();
             if (isset($delete_img)) {
                 foreach ($delete_img as $key => $data) {
-                    $file_path = s3Link($data->image);
-                    if (file_exists($file_path)) {
-                        Storage::disk('s3')->delete($file_path);
-                    }
+                    Storage::disk('s3')->delete($data->image);
                 }
             }
         }

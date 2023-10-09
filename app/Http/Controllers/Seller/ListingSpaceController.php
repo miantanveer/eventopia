@@ -173,10 +173,7 @@ class ListingSpaceController extends UserBaseController
         $images = Space::whereId($space_id)->whereUserId(user_id())->with('spaceImages')->get();
         foreach ($images as $img) {
             foreach ($img->spaceImages as $data) {
-                $file_path = s3Link($data->image);
-                if (file_exists($file_path)) {
-                    Storage::disk('s3')->delete($file_path);
-                }
+                Storage::disk('s3')->delete($data->image);
                 $data->delete();
             }
         }
@@ -190,9 +187,9 @@ class ListingSpaceController extends UserBaseController
             $filename = '';
             if ($req->hasFile('file')) {
                 $image = $req->file;
-                $foldername = 'uploads/seller/spaces/';
+                $foldername = '/uploads/seller/spaces/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
-                Storage::disk("s3")->putFileAs($foldername, $image, $filename);
+                $image->move(public_path() . $foldername, $filename);
             }
 
             Space::find($space_id)->update(["last_step" => '4']);
@@ -477,9 +474,9 @@ class ListingSpaceController extends UserBaseController
 
             if (isset($req->c_u_img)) {
                 $image = $req->c_u_img;
-                $foldername = 'uploads/seller/spaces/contact_user/';
+                $foldername = '/uploads/seller/spaces/contact_user/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->getClientOriginalExtension();
-                Storage::disk("s3")->putFileAs($foldername, $image, $filename);
+                $image->move(public_path() . $foldername, $filename);
                 $space->update(['c_u_img' => $foldername . $filename]);
             }
 
