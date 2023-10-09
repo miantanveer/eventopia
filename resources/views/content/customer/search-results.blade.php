@@ -907,9 +907,6 @@
                                             </div>
                                         @else
                                             <div id="ajax_data" class="row">
-                                                <div class="card-header border-bottom-0 ms-3">
-                                                    {{ @$listing->count() ?? '0' }} {{ lang(@$type.' found') }}
-                                                </div>
                                                 @if (@$type == 'space')
                                                     @include('content.components.__space')
                                                 @elseif (@$type == 'entertainment')

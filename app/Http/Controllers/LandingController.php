@@ -47,8 +47,8 @@ class LandingController extends UserBaseController
                             if ($price == $range) {
                                 return $query->whereBetween('price', [$priceRanges[$index - 1], $priceRanges[$index]]);
                                 break;
-                            } elseif ($price == '50000') {
-                                $query->where('price', '>=', 50000);
+                            } elseif ($price == '10000') {
+                                $query->where('price', '>=', 5000);
                                 break;
                             }
                         };
@@ -73,8 +73,8 @@ class LandingController extends UserBaseController
                                 if ($price == $range) {
                                     return $subquery->whereBetween('hourly_rate', [$priceRanges[$index - 1], $priceRanges[$index]]);
                                     break;
-                                } elseif ($price == '50000') {
-                                    $subquery->where('hourly_rate', '>=', 50000);
+                                } elseif ($price == '1000') {
+                                    $subquery->where('hourly_rate', '>=', 1000);
                                     break;
                                 }
                             }
@@ -144,48 +144,48 @@ class LandingController extends UserBaseController
         } elseif ($type == 'space') {
             $this->listing = Space::where(function ($query) use ($req) {
                 // Price Filter
-                    $query->where(function ($subquery) use ($req) {
-                        $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
-                            $price = $req->price;
-                            $priceRanges = [0, 5000, 10000, 50000, 99999];
-    
-                            if ($price == '50000') {
-                                $subquery->where('rate_per_hour', '>=', 50000);
-                            } else {
-                                if($price >= 5000) {
-                                    foreach ($priceRanges as $index => $range) {
-                                        if ($price == $range) {
-                                            $lastIndex =  $priceRanges[$index-1];
-                                            $subquery->whereBetween('rate_per_hour', [$lastIndex, $priceRanges[$index]]);
-                                            break;
-                                        }
+                $query->when($req->has('price'),function ($subquery) use ($req) {
+                    $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
+                        $price = $req->price;
+                        $priceRanges = [0, 5000, 10000, 50000, 99999];
+
+                        if ($price == '50000') {
+                            $subquery->where('rate_per_hour', '>=', 50000);
+                        } else {
+                            if($price >= 5000) {
+                                foreach ($priceRanges as $index => $range) {
+                                    if ($price == $range) {
+                                        $lastIndex =  $priceRanges[$index-1];
+                                        $subquery->whereBetween('rate_per_hour', [$lastIndex, $priceRanges[$index]]);
+                                        break;
                                     }
                                 }
                             }
-                        });
+                        }
                     });
-    
-                    // Guests Filter
-                    $query->where(function ($subquery) use ($req) {
-                        $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
-                            $attendees = $req->attendees;
-                            $attendeesRanges = [0, 10, 25, 50, 100, 499];
-    
-                            if ($attendees == '500') {
-                                $subquery->where('max_guests', '>=', 500);
-                            } else {
-                                if($attendees >= 10) {
-                                    foreach ($attendeesRanges as $index => $range) {
-                                        if ($attendees == $range) {
-                                            $lastIndex =  $attendeesRanges[$index-1];
-                                            $subquery->whereBetween('max_guests', [$lastIndex, $attendeesRanges[$index]]);
-                                            break;
-                                        }
+                });
+
+                // Guests Filter
+                $query->when($req->has('attendees'),function ($subquery) use ($req) {
+                    $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
+                        $attendees = $req->attendees;
+                        $attendeesRanges = [0, 10, 25, 50, 100, 499];
+
+                        if ($attendees == '500') {
+                            $subquery->where('max_guests', '>=', 500);
+                        } else {
+                            if($attendees >= 10) {
+                                foreach ($attendeesRanges as $index => $range) {
+                                    if ($attendees == $range) {
+                                        $lastIndex =  $attendeesRanges[$index-1];
+                                        $subquery->whereBetween('max_guests', [$lastIndex, $attendeesRanges[$index]]);
+                                        break;
                                     }
                                 }
                             }
-                        });
+                        }
                     });
+                });
             })
                 ->orWhere(function ($query) use ($req, $formattedDate) {
                     $query->where('space_title', $req->keyword)
