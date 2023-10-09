@@ -62,7 +62,7 @@ class LandingController extends UserBaseController
             return response()->json($this->data);
 
         } elseif ($type == 'entertainment') {
-            $this->listing = Entertainment::where(function ($query) use ($req, $formattedDate) {
+            $this->listing = Entertainment::where(function ($query) use ($req) {
                 $query->when($req->price !== null, function ($subquery) use ($req) {
                     $subquery->whereHas('entertainmentActivities', function ($subquery) use ($req) {
                         if ($req->has('price')) {
@@ -98,7 +98,7 @@ class LandingController extends UserBaseController
                     );
                 });
             })
-                ->orWhere(function ($query) use ($req, $type, $formattedDate) {
+                ->orWhere(function ($query) use ($req, $formattedDate) {
                     $query->where('title', $req->keyword)
                         ->orWhere('country', $req->address)
                         ->orWhere(function ($subquery) use ($req) {
@@ -115,7 +115,7 @@ class LandingController extends UserBaseController
                         ->orWhereHas('entertainmentActivities', function ($subquery) use ($req) {
                             $subquery->whereHourlyRate($req->price)->whereGuestCapacity($req->attendees);
                         })
-                        ->orWhereHas('operatingDays', function ($subquery) use ($req, $formattedDate) {
+                        ->orWhereHas('operatingDays', function ($subquery) use ($req) {
                             $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
                                 $subquery->whereStartTime($req->startTime)->whereEndTime($req->endTime);
                             });
@@ -142,7 +142,7 @@ class LandingController extends UserBaseController
             return response()->json($this->data);
 
         } elseif ($type == 'space') {
-            $this->listing = Space::where(function ($query) use ($req, $formattedDate) {
+            $this->listing = Space::where(function ($query) use ($req) {
                 // Price Filter
                 $query->when($req->has('price'), function ($subquery) use ($req) {
                     $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
@@ -181,7 +181,7 @@ class LandingController extends UserBaseController
                     });
                 });
             })
-                ->orWhere(function ($query) use ($req, $type, $formattedDate) {
+                ->orWhere(function ($query) use ($req, $formattedDate) {
                     $query->where('space_title', $req->keyword)
                         ->orWhere('space_description', $req->keyword)
                         ->orWhere('country', $req->address)
@@ -196,7 +196,7 @@ class LandingController extends UserBaseController
                                     $subquery->whereName($req->keyword);
                                 });
                         })
-                        ->orWhereHas('operatingDays', function ($subquery) use ($req, $formattedDate) {
+                        ->orWhereHas('operatingDays', function ($subquery) use ($req) {
                             $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
                                 $subquery->whereStartTime($req->startTime)->whereEndTime($req->endTime);
                             });
