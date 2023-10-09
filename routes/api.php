@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\Seller\OrderController as SellerOrderController;
 use App\Http\Controllers\Api\Seller\SpaceController;
 use App\Http\Controllers\Api\Seller\EntertainmentController;
 use App\Http\Controllers\Api\Seller\ServiceController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,7 +37,7 @@ Route::post('logout', [AuthenticationController::class, 'logout']);
 
 
 Route::prefix('customer')->middleware('auth:sanctum')->group(function(){
-    
+
     Route::post('/user', function (Request $request) {
         return $request->user();
     });
@@ -50,7 +51,7 @@ Route::prefix('customer')->middleware('auth:sanctum')->group(function(){
         Route::get('/{type}', [ListingController::class, 'listing']);
         Route::post('/filter/{type}', [ListingController::class, 'filter']);
         Route::get('/details/{id}/{type}', [ListingController::class, 'listingDetail']);
-        
+
     });
 
     Route::prefix('cart')->group(function(){
@@ -62,22 +63,22 @@ Route::prefix('customer')->middleware('auth:sanctum')->group(function(){
 
     Route::prefix('order')->group(function(){
         Route::post('/', [OrderController::class, 'review']);
-        
+
     });
 
     Route::prefix('payment')->group(function(){
         Route::post('/', [PaymentController::class, 'store']);
 
     });
-    
+
     Route::prefix('quote')->group(function(){
         Route::post('/send/{id}', [QuoteController::class, 'send_quote']);
         Route::post('/receive/{id}', [QuoteController::class, 'receive_quote']);
         Route::post('/load/{id}', [QuoteController::class, 'load_quote']);
         Route::post('/accept/{id}', [QuoteController::class, 'accept_quote']);
-        
+
     });
-    
+
     Route::prefix('booking')->group(function(){
         Route::get('{type}', [BookingController::class, 'index']);
         Route::get('get/{type}', [BookingController::class, 'bookings']);
@@ -88,7 +89,7 @@ Route::prefix('customer')->middleware('auth:sanctum')->group(function(){
         Route::get('detail/{id}/{type}', [BookingController::class, 'details']);
         Route::get('decline/{id}', [BookingController::class, 'declineBookings']);
         Route::get('listing-detail/{id}/{type}', [BookingController::class, 'listingDetail']);
-        
+
     });
 });
 
@@ -96,12 +97,12 @@ Route::prefix('seller')->middleware('auth:sanctum')->group(function(){
     Route::prefix('booking')->group(function(){
         Route::get('pending-quote', [SellerBookingController::class, 'pendingQuoteRequest']);
         Route::get('pending/{type}', [SellerBookingController::class, 'pendingBookings']);
-    
+
     });
 
     Route::prefix('dashboard')->group(function(){
         Route::get('/', [SellerOrderController::class, 'sellerDashboard']);
-    
+
     });
 
     Route::prefix('space/form/step')->group(function(){
@@ -116,10 +117,10 @@ Route::prefix('seller')->middleware('auth:sanctum')->group(function(){
         Route::post('/addActivities/{id}', [SpaceController::class, 'addActivities']);
         Route::post('/addContactInfo/{id}', [SpaceController::class, 'addContactInfo']);
         Route::post('/addPolicies/{id}', [SpaceController::class, 'addPolicies']);
-        
+
     });
     Route::delete('space/delete/{id}', [SpaceController::class, 'destroy']);
-    
+
     Route::prefix('space/form/load')->group(function(){
         Route::get('/parking-step/{id}', [SpaceController::class, 'parkingStep']);
         Route::get('/about-step/{id}', [SpaceController::class, 'aboutStep']);
@@ -130,7 +131,7 @@ Route::prefix('seller')->middleware('auth:sanctum')->group(function(){
         Route::get('/activities-step/{id}', [SpaceController::class, 'activitiesStep']);
         Route::get('/contact-step/{id}', [SpaceController::class, 'contactStep']);
         Route::get('/policies-step/{id}', [SpaceController::class, 'policiesStep']);
-    
+
     });
 
     Route::prefix('entertainment/form')->group(function(){
@@ -144,10 +145,10 @@ Route::prefix('seller')->middleware('auth:sanctum')->group(function(){
         Route::post('/step-7/{id}', [EntertainmentController::class, 'FormStep7']);
         Route::post('/step-8/{id}', [EntertainmentController::class, 'FormStep8']);
         Route::post('/step-9/{id}', [EntertainmentController::class, 'FormStep9']);
-        
+
     });
     Route::delete('entertainment/delete/{id}', [EntertainmentController::class, 'destroy']);
-    
+
     Route::prefix('entertainment/form/load')->group(function(){
         Route::get('/step-1/{id}', [EntertainmentController::class, 'loadFormStep1']);
         Route::get('/step-2/{id}', [EntertainmentController::class, 'loadFormStep2']);
@@ -170,10 +171,10 @@ Route::prefix('seller')->middleware('auth:sanctum')->group(function(){
         Route::post('/step-5/{id}', [ServiceController::class, 'serviceForm5']);
         Route::post('/step-6/{id}', [ServiceController::class, 'serviceForm6']);
         Route::post('/step-7/{id}', [ServiceController::class, 'serviceForm7']);
-        
+
     });
     Route::delete('service/delete/{id}', [ServiceController::class, 'destroy']);
-    
+
     Route::prefix('service/form/load')->group(function(){
         Route::get('/step-1/{id}', [ServiceController::class, 'loadFormStep1']);
         Route::get('/step-2/{id}', [ServiceController::class, 'loadServiceForm2']);
@@ -182,7 +183,7 @@ Route::prefix('seller')->middleware('auth:sanctum')->group(function(){
         Route::get('/step-5/{id}', [ServiceController::class, 'loadServiceForm5']);
         Route::get('/step-6/{id}', [ServiceController::class, 'loadserviceForm6']);
         Route::get('/step-7/{id}', [ServiceController::class, 'loadserviceForm7']);
-        
+
     });
 
 });
