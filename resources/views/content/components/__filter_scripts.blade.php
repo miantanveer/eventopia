@@ -320,8 +320,8 @@
                 'attendees': guests,
                 'date': date,
                 'keyword': input,
-                'startTime': startTime,
-                'endTime': endTime,
+                // 'startTime': startTime,
+                // 'endTime': endTime,
                 'address': address
             },
             type: "GET",
