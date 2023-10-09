@@ -305,7 +305,7 @@
         $('#categoryDropdown').hide();
     });
 
-    function selected(input, address) {
+    function selected(input = null, address = null) {
         $('#dateTimeModal').modal('hide');
         url = $('#search').val();
         selectedPrice = $('input[name="price"]:checked').val();
@@ -328,13 +328,6 @@
             success: function(res) {
                 $('#ajax_data').html(res.data);
                 $('#map').html(res.map);
-                // if(res.count == 0){
-                //     $('#galleryColumn').toggleClass('col-lg-12');
-                // }else if(res.count > 0){
-                //     $('#map').toggleClass('d-block');
-                //     $('#galleryColumn').toggleClass('col-lg-6');
-
-                // }
             }
         });
     }
@@ -357,10 +350,7 @@
             }
         }
     })
-</script>
 
-{{-- Google addresses code --}}
-<script>
     $(document).ready(function() {
         var autocompleteService = new google.maps.places.AutocompleteService();
 
@@ -392,6 +382,7 @@
                                 .text(prediction.description);
                             addressItem.on('click', function() {
                                 locationInput.val(prediction.description);
+                                selected('',prediction.description);
                                 addressDropdown.empty();
                                 locationInput.parent().removeClass(
                                     "data-appended");

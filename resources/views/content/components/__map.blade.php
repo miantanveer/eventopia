@@ -46,18 +46,25 @@
         ];
 
         if (markers.length === 0) {
-            console.log('No markers to display.');
+            $('#map').html(`<div class="container-fluid">`+`
+                <div class="card custom-card">`+`
+                    <div class="card-body map_height overflow-auto" id="mapContainer">`+`
+                        <iframe class="gmap_iframe" frameborder="0" scrolling="no" id="gmap_iframe" marginheight="0" marginwidth="0" `+`
+                        src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"> `+`
+                        </iframe>`+`
+                        </div>`+`
+                        </div>`);
             return;
         }
 
         var map = new google.maps.Map(document.getElementById('map'), {
             center: {
-                lat: markers[0].lat, 
-                lng: markers[0].lng  
+                lat: markers[0].lat,
+                lng: markers[0].lng
             },
             zoom: 2
         });
-       
+
         markers.forEach(function(markerData) {
             var marker = new google.maps.Marker({
                 position: {

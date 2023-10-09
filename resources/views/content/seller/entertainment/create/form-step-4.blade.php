@@ -170,7 +170,7 @@
             });
 
             function upload() {
-                if (alertShown === false && myDropzone.files.length < 4 || alertShown === false && myDropzone.files.length === 0 || alertShown === false && myDropzone.files.length > 8) {
+                if (alertShown === false && myDropzone.files.length < 4 || alertShown === false && myDropzone.files.length === 0 || alertShown === false && myDropzone.files.length > 10) {
                     warningModal();
                 } else {
                     var files = myDropzone.files;

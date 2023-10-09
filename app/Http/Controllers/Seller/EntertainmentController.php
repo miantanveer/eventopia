@@ -52,7 +52,7 @@ class EntertainmentController extends UserBaseController
     {
         $entertainment = Entertainment::find($id);
         $ent_types = EntertainmentType::get();
-        return view('content\seller\entertainment\create\form-step-1', ['entertainment' => $entertainment,'ent_types'=>$ent_types, 'id' => $id]);
+        return view('content.seller.entertainment.create.form-step-1', ['entertainment' => $entertainment,'ent_types'=>$ent_types, 'id' => $id]);
     }
     public function updateFormStep1(Request $req, $id)
     {
@@ -77,7 +77,7 @@ class EntertainmentController extends UserBaseController
         $entertainment = Entertainment::find($id);
         $ages = Age::get();
         $categories = EntertainmentCategory::get();
-        return view('content\seller\entertainment\create\form-step-2', ['id' => $id, 'entertainment' => $entertainment, 'ages' => $ages, 'categories' => $categories]);
+        return view('content.seller.entertainment.create.form-step-2', ['id' => $id, 'entertainment' => $entertainment, 'ages' => $ages, 'categories' => $categories]);
     }
     public function FormStep2(Request $req, $id)
     {
@@ -98,7 +98,7 @@ class EntertainmentController extends UserBaseController
     public function loadFormStep3($id)
     {
         $entertainment = Entertainment::find($id);
-        return view('content\seller\entertainment\create\form-step-3', ['id' => $id, 'entertainment' => $entertainment]);
+        return view('content.seller.entertainment.create.form-step-3', ['id' => $id, 'entertainment' => $entertainment]);
     }
     public function FormStep3(Request $req, $id)
     {
@@ -134,7 +134,7 @@ class EntertainmentController extends UserBaseController
                 $data->delete();
             }
         }
-        return view('content\seller\entertainment\create\form-step-4', ['id' => $id, 'entertainment' => $entertainment]);
+        return view('content.seller.entertainment.create.form-step-4', ['id' => $id, 'entertainment' => $entertainment]);
     }
 
     public function FormStep4(Request $req, $id)
@@ -157,7 +157,7 @@ class EntertainmentController extends UserBaseController
     }
     public function loadFormStep5($id)
     {
-        return view('content\seller\entertainment\create\form-step-5', ['id' => $id]);
+        return view('content.seller.entertainment.create.form-step-5', ['id' => $id]);
     }
     public function FormStep5(Request $req, $id)
     {
@@ -213,7 +213,7 @@ class EntertainmentController extends UserBaseController
     {
         $entertainment = Entertainment::find($id);
         $cancellation = CancellationPolicy::get();
-        return view('content\seller\entertainment\create\form-step-6', ['id' => $id, 'entertainment' => $entertainment, 'cancellation' => $cancellation]);
+        return view('content.seller.entertainment.create.form-step-6', ['id' => $id, 'entertainment' => $entertainment, 'cancellation' => $cancellation]);
     }
     public function FormStep6(Request $req, $id)
     {
@@ -230,7 +230,7 @@ class EntertainmentController extends UserBaseController
     {
         $this->ent_activity = EntActivity::with('subActivities', 'entAmenities')->get();
         $this->id = $id;
-        return view('content\seller\entertainment\create\form-step-7', $this->data);
+        return view('content.seller.entertainment.create.form-step-7', $this->data);
     }
     public function loadUpdateFormStep7($id, $key)
     {
@@ -240,7 +240,7 @@ class EntertainmentController extends UserBaseController
         $this->ent_activity = EntActivity::with('subActivities', 'entAmenities')->get();
         $this->id = $id;
         $this->key = $key;
-        return view('content\seller\entertainment\create\form-step-7', $this->data);
+        return view('content.seller.entertainment.create.form-step-7', $this->data);
     }
     public function FormStep7(Request $req, $id)
     {
@@ -353,7 +353,7 @@ class EntertainmentController extends UserBaseController
     public function loadFormStep8($id)
     {
         $entertainment = Entertainment::find($id);
-        return view('content\seller\entertainment\create\form-step-8', ['id' => $id, 'entertainment' => $entertainment]);
+        return view('content.seller.entertainment.create.form-step-8', ['id' => $id, 'entertainment' => $entertainment]);
     }
     public function FormStep8(Request $req, $id)
     {
@@ -389,10 +389,10 @@ class EntertainmentController extends UserBaseController
             $entertainment = Entertainment::find($id);
             $entertainment->last_steps = 'step-9';
             $entertainment->save();
-            return view('content\seller\entertainment\create\form-step-10', ['id' => $id]);
+            return view('content.seller.entertainment.create.form-step-10', ['id' => $id]);
         } else {
             $entertainment = Entertainment::find($id);
-            return view('content\seller\entertainment\create\form-step-9', ['id' => $id, 'entertainment' => $entertainment]);
+            return view('content.seller.entertainment.create.form-step-9', ['id' => $id, 'entertainment' => $entertainment]);
         }
     }
     public function FormStep9(Request $req, $id)
@@ -408,7 +408,7 @@ class EntertainmentController extends UserBaseController
         $company_review->booking_and_cancellation = $req->booking_and_cancellation;
         $company_review->space_local_regulations = $req->local_regulatioins;
         $company_review->save();
-        return view('content\seller\entertainment\create\form-step-10', ['id' => $id]);
+        return view('content.seller.entertainment.create.form-step-10', ['id' => $id]);
     }
 
     public function resumeForm($id)

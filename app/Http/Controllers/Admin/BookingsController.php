@@ -11,44 +11,37 @@ class BookingsController extends AdminBaseController
 {
     public function index($type)
     {
-        // try {
-            if (in_array($type, ['spaces', 'entertainments', 'services'])) {
-                $typeMapping = [
-                    'spaces' => 'space',
-                    'entertainments' => 'entertainment',
-                    'services' => 'service',
-                ];
-
-                $this->orders = Order::where('type', $typeMapping[$type])
-                    ->when($type == 'spaces', function ($query) {
-                        $query->whereHas('space', function ($q) {
-                            $q->whereIn('status', [1, 2, 3]);
-                        });
-                    })
-                    ->when($type == 'entertainment', function ($query) {
-                        $query->whereHas('entertainment', function ($q) {
-                            $q->whereIn('status', [1, 2, 3]);
-                        });
-                    })
-                    ->when($type == 'service', function ($query) {
-                        $query->whereHas('service', function ($q) {
-                            $q->whereIn('status', [1, 2, 3]);
-                        });
-                    });
-
-                $this->totalBookings = $this->orders->count();
-                $this->totalReviewBookings = $this->orders->whereStatus(1)->count();
-                $this->totalAcceptedBookings = $this->orders->whereStatus(2)->count();
-                $this->totalCancelledBookings = $this->orders->whereStatus(3)->count();
-
-                $this->type = $type;
+        try {
+            if ($type == 'spaces') {
+                $this->orders = Order::whereType('space')->where(function ($query) {
+                    $query->whereHas('space');
+                })->get();
+                $this->totalBookings = Order::whereType('space')->count();
+                $this->totalReviewBookings = Order::whereType('space')->whereStatus('1')->count();
+                $this->totalAcceptedBookings = Order::whereType('space')->whereStatus('2')->count();
+                $this->totalCancelledBookings = Order::whereType('space')->whereStatus('3')->count();
+            } elseif ($type == 'entertainments') {
+                $this->orders = Order::whereType('entertainment')->where(function ($query) {
+                    $query->whereHas('entertainment');
+                })->get();
+                $this->totalBookings = Order::whereType('entertainment')->count();
+                $this->totalReviewBookings = Order::whereType('entertainment')->whereStatus('1')->count();
+                $this->totalAcceptedBookings = Order::whereType('entertainment')->whereStatus('2')->count();
+                $this->totalCancelledBookings = Order::whereType('entertainment')->whereStatus('3')->count();
+            } elseif ($type == 'services') {
+                $this->orders = Order::whereType('service')->where(function ($query) {
+                    $query->whereHas('service');
+                })->get();
+                $this->totalBookings = Order::whereType('service')->count();
+                $this->totalReviewBookings = Order::whereType('service')->whereStatus('1')->count();
+                $this->totalAcceptedBookings = Order::whereType('service')->whereStatus('2')->count();
+                $this->totalCancelledBookings = Order::whereType('service')->whereStatus('3')->count();
             }
-
+            $this->type = $type;
             return view('content.admin.bookings.bookings', $this->data);
-
-        // } catch (\Throwable $th) {
-        //     return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
-        // }
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('error', 'Something unexpected happened on server. ' . $th->getMessage());
+        }
 
     }
 

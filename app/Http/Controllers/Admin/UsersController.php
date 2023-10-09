@@ -87,22 +87,15 @@ class UsersController extends AdminBaseController
                 'last_name' => 'required',
                 'date_of_birth' => 'required',
                 'status' => 'required',
-                'phone_number' => [
-                    Rule::requiredIf($req->has('phone_number')),
-                    'regex:/^\+[0-9]{6,15}$/',
-                ],
-                'email' => [
-                    Rule::requiredIf($req->has('email')),
-                    'email',
-                ],
+                'phone_number' => 'required|regex:/^\+[0-9]{6,15}$/',
+                'email' => 'required|email',
             ]);
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
             }
 
             $data = $req->except('_token');
-            $verified_type = $req->email ? 'email_' : 'phone_number_';
-            $data[$verified_type . 'verified_at'] = now();
+            $data['email_verified_at'] = $data['phone_number_verified_at'] = now();
 
            User::find($id)->update($data);
 
