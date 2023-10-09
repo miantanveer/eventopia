@@ -242,7 +242,7 @@
                                     <div class="col-12">
                                         <div class="row g-0">
                                             <div class="col-md-4 pe-3 pe-lg-0">
-                                                <img src="{{ asset(@$space->spaceImages[0]->image) ?? asset('assets/images/no-image-icon-15.png') }}"
+                                                <img src="{{ s3Link(@$space->spaceImages[0]->image) ?? asset('assets/images/no-image-icon-15.png') }}"
                                                     class="card-img-left h-100 image_lg" width="100%" height="auto"
                                                     alt="img">
                                             </div>
@@ -356,7 +356,7 @@
 
                                     <div class="row g-0">
                                         <div class="col-md-4 pe-3 pe-lg-0">
-                                            <img src="{{ asset(@$data->serviceImages[0]->image) }}"
+                                            <img src="{{ s3Link(@$data->serviceImages[0]->image) }}"
                                                 class="card-img-left h-100 image_lg" width="100%" height="auto"
                                                 alt="img">
                                         </div>
@@ -424,7 +424,7 @@
                                 <div class="card border">
                                     <div class="row g-0">
                                         <div class="col-md-4 pe-3 pe-lg-0">
-                                            <img src="{{ asset($data->entertainmentImages[0]->image) }}"
+                                            <img src="{{ s3Link($data->entertainmentImages[0]->image) }}"
                                                 class="card-img-left h-100 image_lg" width="100%" height="auto"
                                                 alt="img">
                                         </div>

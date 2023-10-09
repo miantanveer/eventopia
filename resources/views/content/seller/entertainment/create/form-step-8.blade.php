@@ -47,7 +47,7 @@
                             <div class="row">
                                 <div class="col-lg-4 col-12 d-block d-lg-none">
                                     <div class="text-center chat-image mb-5">
-                                        <input type="file" name='image' value="{{@$entertainment->image}}" class="dropify" />
+                                        <input type="file" name='image' value="{{s3Link(@$entertainment->image)}}" class="dropify" />
                                     </div>
                                     <div class="text-center">
                                         <p class="text-muted">{{lang('Choose a friendly, accurate photo to help instill a
@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="col-lg-4 col-12 d-none d-lg-block">
                                     <div class="text-center chat-image mb-5">
-                                        <input type="file" name='image' value="{{@$entertainment->image}}" class="dropify" />
+                                        <input type="file" name='image' value="{{s3Link(@$entertainment->image)}}" class="dropify" />
                                     </div>
                                     <div class="text-center px-xl-8">
                                         <p class="text-muted">{{lang('Choose a friendly, accurate photo to help instill a sense of trust and verification in your listing')}}</p>

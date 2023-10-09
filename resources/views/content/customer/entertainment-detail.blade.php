@@ -72,7 +72,7 @@
             <div class="card custom-card overflow-hidden">
                 <div class="card-body p-3">
                     <a href="javascript:void(0)"><img
-                            src="{{ @$ent->ent->entertainmentImages[0]->image ?? asset('assets/images/users/spaces/4.jpg') }}"
+                            src="{{ s3Link(@$ent->ent->entertainmentImages[0]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
                             alt="image not found" class="br-5 w-100"></a>
                 </div>
                 <div class="card-body pt-0 h-100">
@@ -80,7 +80,7 @@
                         @foreach (@$ent->ent->entertainmentImages as $entImage)
                             <div class="item">
                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <a href="#"><img src="{{ @$entImage->image }}" alt="img"></a>
+                                    <a href="#"><img src="{{ s3Link(@$entImage->image) }}" alt="img"></a>
                                 </div>
                             </div>
                         @endforeach

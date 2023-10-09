@@ -18,6 +18,7 @@ use App\Models\OperatingHour;
 use App\Models\Space;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class EntertainmentController extends UserBaseController
 {
@@ -127,9 +128,9 @@ class EntertainmentController extends UserBaseController
         $images = Entertainment::whereId($id)->whereUserId(user_id())->with('entertainmentImages')->get();
         foreach ($images as $img) {
             foreach ($img->entertainmentImages as $data) {
-                $file_path = public_path($data->image);
+                $file_path = s3Link($data->image);
                 if (file_exists($file_path)) {
-                    unlink($file_path);
+                    Storage::disk('s3')->delete($file_path);
                 }
                 $data->delete();
             }
@@ -142,9 +143,9 @@ class EntertainmentController extends UserBaseController
         $filename = '';
         if ($req->hasFile('file')) {
             $image = $req->file;
-            $foldername = '/uploads/seller/entertainment/';
+            $foldername = 'uploads/seller/entertainment/';
             $filename = time() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('/uploads/seller/entertainment/'), $filename);
+            Storage::disk("s3")->putFileAs($foldername, $image, $filename);
         }
         $image = new EntertainmentImages();
         $image->entertainment_id = $id;
@@ -367,9 +368,9 @@ class EntertainmentController extends UserBaseController
         $foldername = '';
         if ($req->hasFile('image')) {
             $image = $req->image;
-            $foldername = '/uploads/seller/entertainment/team';
+            $foldername = 'uploads/seller/entertainment/team';
             $filename = time() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('/uploads/seller/entertainment/team'), $filename);
+            Storage::disk("s3")->putFileAs($foldername, $image, $filename);
         }
         $entertainment = Entertainment::find($id);
         $entertainment->contact_first_name = $req->contact_first_name;
@@ -449,10 +450,9 @@ class EntertainmentController extends UserBaseController
             $delete_img = EntertainmentImages::whereEntertainmentId($id)->get();
             if (isset($delete_img)) {
                 foreach ($delete_img as $key => $data) {
-                    $file_path = $data->image;
+                    $file_path = s3Link($data->image);
                     if (file_exists($file_path)) {
-                        unlink($file_path);
-                        $data->delete();
+                        Storage::disk('s3')->delete($file_path);
                     }
                 }
             }

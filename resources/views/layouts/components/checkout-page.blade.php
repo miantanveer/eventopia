@@ -42,13 +42,13 @@
                                             value="option1" id="first_card" data-type="service"
                                             data-amount="{{ @$data->service->quote[0]->amount }}"
                                             data-title="{{ @$data->service->title }}" data-discount="0"
-                                            data-image="{{ asset(@$data->service->serviceImages[0]->image) }}"
+                                            data-image="{{ s3Link(@$data->service->serviceImages[0]->image) }}"
                                             data-id="{{ @$data->service->id }}">
                                         <span class="custom-control-label"></span>
                                     </label>
                                 </div>
                                 <div class="col-sm-3 col-11 ps-sm-0 pe-3 pe-md-0 ">
-                                    <img id="ent-img" src="{{ asset(@$data->service->serviceImages[0]->image) }}"
+                                    <img id="ent-img" src="{{ s3Link(@$data->service->serviceImages[0]->image) }}"
                                         style="width: 130px; height: auto" class="card-img-left h-100" alt="img">
                                 </div>
                                 <div class="col-sm-8 ps-6 ps-md-0 mt-6 mt-md-0">
@@ -97,14 +97,14 @@
                                             data-amount="{{ @$data->entertainment->entertainmentActivities[0]->hourly_rate }}"
                                             data-title="{{ @$data->entertainment->title }}"
                                             data-discount="{{ @$data->entertainment->entertainmentActivities[0]->discount }}"
-                                            data-image="{{ asset(@$data->entertainment->entertainmentImages[0]->image) }}"
+                                            data-image="{{ s3Link(@$data->entertainment->entertainmentImages[0]->image) }}"
                                             data-id="{{ @$data->entertainment->id }}">
                                         <span class="custom-control-label"></span>
                                     </label>
                                 </div>
                                 <div class="col-sm-3 col-11 ps-sm-0 pe-3 pe-md-0 ">
                                     <img id="ent-img"
-                                        src="{{ asset(@$data->entertainment->entertainmentImages[0]->image) }}"
+                                        src="{{ s3Link(@$data->entertainment->entertainmentImages[0]->image) }}"
                                         style="width: 130px; height: auto" class="card-img-left h-100" alt="img">
                                 </div>
                                 <div class="col-sm-8 ps-6 ps-md-0 mt-6 mt-md-0">
@@ -153,14 +153,14 @@
                                             data-amount="{{ @$data->space->spaceHaveActivities[0]->rate_per_hour }}"
                                             data-title="{{ @$data->space->space_title }}"
                                             data-discount="{{ @$data->space->spaceHaveActivities[0]->discount }}"
-                                            data-image="{{ asset(@$data->space->spaceImages[0]->image) }}"
+                                            data-image="{{ s3Link(@$data->space->spaceImages[0]->image) }}"
                                             data-id="{{ @$data->space->id }}">
 
                                         <span class="custom-control-label"></span>
                                     </label>
                                 </div>
                                 <div class="col-sm-3 col-11 ps-sm-0 pe-3 pe-md-0 ">
-                                    <img id="space-img" src="{{ asset(@$data->space->spaceImages[0]->image) }}"
+                                    <img id="space-img" src="{{ s3Link(@$data->space->spaceImages[0]->image) }}"
                                         style="width: 130px; height: auto" class="card-img-left h-100" alt="img">
                                 </div>
                                 <div class="col-sm-8 ps-6 ps-md-0 mt-6 mt-md-0">
@@ -246,7 +246,7 @@
                                 <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
                                     <div class="card overflow-hidden my-0">
                                         <a href="{{ route('space-details', @$space->id) }}">
-                                            <img src="{{ asset(@$space->spaceImages[0]->image) }}" class="card-img-top"
+                                            <img src="{{ s3Link(@$space->spaceImages[0]->image) }}" class="card-img-top"
                                                 alt="img">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ @$space->space_title }}</h5>
@@ -278,7 +278,7 @@
                                 <div class="card overflow-hidden border mt-0 mb-0 p-0 bg-white">
                                     <div class="card overflow-hidden my-0">
                                         <a href="{{ route('entertainment-details', @$ent->id) }}">
-                                            <img src="{{ asset(@$ent->entertainmentImages[0]->image) }}"
+                                            <img src="{{ s3Link(@$ent->entertainmentImages[0]->image) }}"
                                                 class="card-img-top" alt="img">
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ @$ent->title }}</h5>

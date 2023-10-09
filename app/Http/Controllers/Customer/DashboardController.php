@@ -168,7 +168,7 @@ class DashboardController extends UserBaseController
 
             if ($req->hasFile('image')) {
                 $image = $req->file('image');
-                $foldername = '/uploads/customer/profile_pic/';
+                $foldername = 'uploads/customer/profile_pic/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
                 Storage::disk("s3")->putFileAs($foldername, $image, $filename);
                 User::find(auth()->user()->id)->update(['image' => $foldername . $filename]);

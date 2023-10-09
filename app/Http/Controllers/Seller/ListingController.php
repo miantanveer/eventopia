@@ -8,6 +8,7 @@ use App\Models\Service;
 use App\Models\Space;
 use App\Models\EntActivity;
 use App\Models\SpaceActivity;
+use Illuminate\Support\Facades\Storage;
 
 class ListingController extends UserBaseController
 {
@@ -70,9 +71,9 @@ class ListingController extends UserBaseController
         $space = Space::find($space_id);
         if (isset($space->spaceImages)) {
             foreach ($space->spaceImages as $space_image) {
-                $file_path = public_path($space_image->image);
+                $file_path = s3Link($space_image->image);
                 if (file_exists($file_path)) {
-                    unlink($file_path);
+                    Storage::disk('s3')->delete($file_path);
                 }
             }
         }
