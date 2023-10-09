@@ -35,6 +35,9 @@ require_once __DIR__.'/admin.php';
 Route::get('/', function () {
     return view('content.landing-page');
 });
+Route::get('/email-verification', function () {
+    return view('mail.email-verification');
+});
 Route::get('terms-and-conditions', [LandingPageController::class, 'termsAndConditions'])->name('terms-and-conditions');
 
 // Route::get('test', [OrderController::class, 'test'])->name('test');

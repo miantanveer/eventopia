@@ -1,5 +1,5 @@
 <div class="row mx-2 mb-1">
-    <div class="col-xl-1 col-md-2 col-sm-6 d-md-block d-none mt-2 px-0">
+    <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 d-md-block d-none mt-2 px-0">
         <button type="button" id="guestsButton"
             class="btn btn-outline button-radias w-style dropdown-toggle text-dark btn_background px-0 w-100"
             data-bs-toggle="dropdown">
@@ -48,7 +48,7 @@
         </ul>
     </div>
     @if ($type !== 'service')
-        <div class="col-xl-1 col-lg-2 col-md-2 col-sm-6 d-md-block d-none mt-2 pe-0">
+        <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 d-md-block d-none mt-2 pe-0">
             <button type="button" id="attendeesButton"
                 class="btn btn-outline dropdown-toggle w-style button-radias text-dark btn_background"
                 data-bs-toggle="dropdown">
@@ -99,7 +99,7 @@
             </ul>
         </div>
 
-        <div class="col-xl-1 col-md-2 col-sm-6 col-6 pe-0">
+        <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 col-12 ps-0 ps-sm-3 pe-0">
             <form action="#" class="mt-2">
                 <input type="text" data-bs-target="#dateTimeModal" data-bs-toggle="modal"
                     class="form-control w-style button-radias btn_background" placeholder="{{ lang('When?') }}"
@@ -108,8 +108,8 @@
         </div>
     @endif
 
-    <div class="col-lg-2 col-md-4 col-sm-6 ps-0">
-        <form class="mt-2 ms-2 position-relative">
+    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 ps-0 pe-0 pe-lg-3">
+        <form class="mt-2 ms-lg-3 position-relative">
 
             <input type="text" name="location" class="form-control w-style button-radias btn_background"
                 id="location" placeholder="{{ lang('Enter your location') }}">
@@ -119,7 +119,7 @@
         </form>
     </div>
 
-    <div class="col-lg-2 col-md-4 col-sm-6 d-md-block d-none">
+    <div class="col-xl-2 col-lg-5 col-md-4 col-sm-6 d-md-block d-none pe-0 px-lg-0">
         <form class="mt-2">
             <input type="text" name="keyword" class="form-control w-style button-radias btn_background"
                 id="planCatagories" placeholder="{{ lang('Enter a Keyword') }}">
@@ -127,20 +127,20 @@
         </form>
     </div>
 
-    <div class="col-xl-1 col-lg-2 col-md-2 col-sm-6 col-6 pe-0">
+    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12 ps-0 ps-sm-3 pe-0">
         <form action="#" class="mt-2">
             <a data-bs-target="#modaldemo4" data-bs-toggle="modal"
-                class="form-control btn_background w-style text-center rounded-0 span_attendees">
+                class="form-control btn_background w-style-1 text-center rounded-0 span_attendees">
                 <img src="{{ asset('assets/images/brand/equalizer.png') }}" class="w-5 text-center span_attendees"
                     alt="">
                 {{ lang('More filters') }} </a>
         </form>
     </div>
 
-    <div class="col-xl-4 col-lg-2 col-md-2 col-sm-12 col-12 p-0">
+    <div class="col-xl-2 col-lg-3 col-md-2 col-sm-12 col-12 p-0 d-lg-block d-none">
         <div class="container-fluid">
             <div class="row">
-                <div class="text-end pe-7 pt-1 mt-1 form-check form-switch d-lg-block d-none">
+                <div class="text-end pe-7 pt-1 mt-1 form-check form-switch">
                     <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
                         style="width: 53px; height: 33px;" checked>1
                     <label class="form-check-label ms-5 my-3"
