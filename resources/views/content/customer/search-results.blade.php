@@ -907,6 +907,9 @@
                                             </div>
                                         @else
                                             <div id="ajax_data" class="row">
+                                                <div class="card-header border-bottom-0 ms-3">
+                                                    {{ @$listing->count() ?? '0' }} {{ lang(@$type.' found') }}
+                                                </div>
                                                 @if (@$type == 'space')
                                                     @include('content.components.__space')
                                                 @elseif (@$type == 'entertainment')
@@ -922,10 +925,14 @@
                                     </div>
                                     <hr class="bg-dark">
                                     <div class="">
-                                        <p><a href="#">See all off-site spaces in Chicago</a></p>
-                                        <p class="text-gray font_size">Eventopia is also live in <a href="#"> San
+                                        <p>
+                                            <a href="{{@$type == 'space' ? route('spaces') : (@$type == 'service' ? route('services') : route('entertainments_index'))}}">
+                                                See all off-site {{ @$type }}
+                                            </a>
+                                        </p>
+                                        {{-- <p class="text-gray font_size">Eventopia is also live in <a href="#"> San
                                                 Francisco,
-                                                Silicon Valley, Los Angeles, </a>and <a href="#">40 more cites</a></p>
+                                                Silicon Valley, Los Angeles, </a>and <a href="#">40 more cites</a></p> --}}
                                     </div>
                                 </div>
                             </div>

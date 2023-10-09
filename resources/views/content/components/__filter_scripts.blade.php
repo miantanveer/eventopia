@@ -9,11 +9,11 @@
 
 <script>
     $(document).ready(function() {
-            $('#flexSwitchCheckChecked').on('click', function() {
-                $('#map').toggleClass('d-none');
-                $('#galleryColumn').toggleClass('col-lg-12');
-            });
+        $('#flexSwitchCheckChecked').on('click', function() {
+            $('#map').toggleClass('d-none');
+            $('#galleryColumn').toggleClass('col-lg-12');
         });
+    });
 </script>
 
 <script>
@@ -382,7 +382,7 @@
                                 .text(prediction.description);
                             addressItem.on('click', function() {
                                 locationInput.val(prediction.description);
-                                selected('',prediction.description);
+                                selected('', prediction.description);
                                 addressDropdown.empty();
                                 locationInput.parent().removeClass(
                                     "data-appended");
@@ -508,7 +508,8 @@
         $('#clearAllButton').on('click', function() {
             document.getElementById('drop_tags').innerHTML = '';
             // Hide the selected categories
-            $('.filter_checkbox').closest('.form-check').find('.form-check-input').prop('checked',false);
+            $('.filter_checkbox').closest('.form-check').find('.form-check-input').prop('checked',
+                false);
         });
 
     });
