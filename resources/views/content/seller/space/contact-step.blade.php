@@ -180,7 +180,7 @@
                                                 <div class="text-center">
                                                     <button type="button"
                                                         class="bg-primary text-white p-3 border-0 text-center"
-                                                        id="uploadBtn">{{lang('Upload
+                                                        id="uploadBtn1">{{lang('Upload
                                                         photo')}}</button>
                                                 </div>
                                                 <!-- Hidden input for image upload -->
@@ -347,11 +347,17 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const uploadBtn = document.getElementById('uploadBtn');
+            const uploadBtn1 = document.getElementById('uploadBtn1');
             const imageUploadInput = document.getElementById('imageUploadInput');
             const avatarImage = document.getElementById('avatarImage');
 
             // Listen for click on the "Upload photo" button
             uploadBtn.addEventListener('click', function() {
+                // Trigger the file input click event
+                imageUploadInput.click();
+            });
+            // Listen for click on the "Upload photo" button
+            uploadBtn1.addEventListener('click', function() {
                 // Trigger the file input click event
                 imageUploadInput.click();
             });
