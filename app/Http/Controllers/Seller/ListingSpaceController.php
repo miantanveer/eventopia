@@ -474,7 +474,7 @@ class ListingSpaceController extends UserBaseController
 
             if (isset($req->c_u_img)) {
                 $image = $req->c_u_img;
-                $foldername = '/uploads/seller/spaces/contact_user/';
+                $foldername = 'uploads/seller/spaces/contact_user/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->getClientOriginalExtension();
                 Storage::disk("s3")->putFileAs($foldername, $image, $filename);
                 $space->update(['c_u_img' => $foldername . $filename]);
