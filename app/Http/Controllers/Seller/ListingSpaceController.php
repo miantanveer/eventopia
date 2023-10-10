@@ -187,7 +187,7 @@ class ListingSpaceController extends UserBaseController
             $filename = '';
             if ($req->hasFile('file')) {
                 $image = $req->file;
-                $foldername = '/uploads/seller/spaces/';
+                $foldername = 'uploads/seller/spaces/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
                 Storage::disk("s3")->putFileAs($foldername, $image, $filename);
             }
