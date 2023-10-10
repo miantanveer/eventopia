@@ -164,7 +164,7 @@
                 <div class="card-body pt-0">
                     <div class="mt-2 row">
                         <div class="col-10 mt-4">
-                            <h3 class="d-inline-block mb-2">{{ @$activeBookings ' / ' @$acceptedBookingCount }}</h3>
+                            <h3 class="d-inline-block mb-2">{{ @$activeBookings . ' / ' . @$acceptedBookingCount }}</h3>
                             <p>{{ lang('Active Bookings / Upcomming Bookings')}}</p>
                             <div class="progress h-2 mt-2">
                                 <div class="progress-bar bg-primary" style="width: {{ $activeBookingProgress !== null ? $activeBookingProgress : ($totalBookingsCount !== null ? $acceptedBookingCount/$totalBookingsCount*100 : $activeBookingProgress+$acceptedBookingCount/$totalBookingsCount*100) }}%;"
