@@ -1,5 +1,5 @@
 <div class="card-header border-bottom-0 ms-3">
-    {{ @$listing->count() ?? '0' }} {{ lang(@$type.' found') }}
+    {{ @$listing->count() ?? '0' }} {{ lang('spaces found') }}
 </div>
 @foreach(@$listing as $value)
 @php
@@ -20,15 +20,17 @@ $lng = $value->lng;
             </div>
         </div>
         <a href="{{ route('space-details', @$value->id) }}">
-            <img src="{{ s3Link(@$value->spaceImages[0]->image) }}" class="card-img-top h-card-image" alt="img">
+            <img src="{{ 
+            // s3Link(@$value->spaceImages[0]->image) ?? 
+            asset(@$value->spaceImages[0]->image) }}" class="card-img-top h-card-image" alt="img">
             <div class="row p-3">
                 <div class="row p-3">
                     <div class="col-12 text-dark">{{ lang(@$value->space_title) }}</div>
                     <div class="col-12 my-3 text-dark"><i class="fa fa-users"></i> 35
                         &nbsp;
                         <i class="fa fa-star" style="color: #F1C40F"></i>
-                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                        <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                        <i class="fa fa-star" style="color: #F1C40F"></i>
+                        <i class="fa fa-star" style="color: #F1C40F"></i>
                         <i class="fa fa-star" style="color: #F1C40F"></i>
                         <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
                         14
@@ -41,3 +43,4 @@ $lng = $value->lng;
     </div>
 </div>
 @endforeach
+
