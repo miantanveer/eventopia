@@ -63,7 +63,8 @@ if (!function_exists('notification')) {
 if (!function_exists('user_id')) {
     function user_id()
     {
-        return auth()->user()->id;
+        // return auth()->user()->id;
+        return 35655464564;
     }
 }
 
