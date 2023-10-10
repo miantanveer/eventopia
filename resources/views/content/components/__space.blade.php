@@ -28,8 +28,8 @@
                         <div class="col-12 my-3 text-dark"><i class="fa fa-users"></i> 35
                             &nbsp;
                             <i class="fa fa-star" style="color: #F1C40F"></i>
-                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
-                            <i class="fa fa-star" style="color: rgb(241, 196, 15);"></i>
+                            <i class="fa fa-star" style="color: #F1C40F"></i>
+                            <i class="fa fa-star" style="color: #F1C40F"></i>
                             <i class="fa fa-star" style="color: #F1C40F"></i>
                             <i class="fa fa-star" style="color: #F1C40F"></i> &nbsp;
                             14
@@ -42,4 +42,3 @@
         </div>
     </div>
 @endforeach
-
