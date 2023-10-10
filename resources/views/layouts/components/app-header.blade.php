@@ -63,7 +63,7 @@
                                                     @foreach (@$notifies as $notify)
                                                         @if (@$notify->type == 'service')
                                                             <a class="dropdown-item d-flex"
-                                                                onclick="quoteModal('{{ route('load_accept_quote', @$notify->id) }}')">
+                                                                onclick="quoteModal('{{ route('load_accept_quote', @$notify->quote_id) }}')">
                                                                 <div
                                                                     class="me-3 notifyimg bg-primary brround box-shadow-primary">
                                                                     <i class="fe fe-dollar-sign"></i>
