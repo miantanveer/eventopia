@@ -760,6 +760,14 @@
             right: -30px;
         }
 
+        .app-sidebar__toggle:before{
+            color: black !important;
+        }
+
+        .app-sidebar__toggle, .navbar-toggler-icon {
+            color: black !important;
+        }
+
         @media screen and (min-width: 1280px) and (max-width: 1920px) {
             .w-style-1 {
                 width: 50% !important;

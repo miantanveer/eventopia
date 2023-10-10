@@ -2,10 +2,10 @@
     <ul class="list-group">
         <li class="list-group-item">
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     {{lang('Monday')}}
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="monday" id="custom-switch-checkbox1" value="monday"
@@ -105,10 +105,10 @@
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     {{lang('Tuesday')}}
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="tuesday" id="custom-switch-checkbox2" value="tuesday"
@@ -199,10 +199,10 @@
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     {{lang('Wednesday')}}
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="wednesday" {{ @$time->wednesday == 'wednesday' ? 'checked' : ''
@@ -293,10 +293,10 @@
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     {{lang('Thursday')}}
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="thursday" id="custom-switch-checkbox4"
@@ -387,10 +387,10 @@
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     {{lang('Friday')}}
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="friday" id="custom-switch-checkbox5"
@@ -481,10 +481,10 @@
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     {{lang('Saturday')}}
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="saturday" id="custom-switch-checkbox6"
@@ -576,10 +576,10 @@
         </li>
         <li class="list-group-item">
             <div class="row">
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     {{lang('Sunday')}}
                 </div>
-                <div class="col-lg-2 col-md-4 col-sm-6 mt-4">
+                <div class="col-lg-2 col-md-4 col-6 mt-4">
                     <div class="form-group">
                         <label class="custom-switch form-switch me-5">
                             <input type="checkbox" name="sunday" id="custom-switch-checkbox7" value="sunday"

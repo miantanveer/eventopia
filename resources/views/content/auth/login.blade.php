@@ -26,10 +26,22 @@
             right: 9px;
             transform: translateY(-50%);
         }
+
         input.parsley-error {
             border-color: red !important;
         }
 
+        @media screen and (min-width: 0px) and (max-width: 425px) {
+            .login_div {
+                margin:50px 20px 20px 20px !important;
+            }
+        }
+        @media screen and (min-width: 425px) and (max-width: 768px) {
+            .login_div {
+                margin:150px 20px 20px 20px !important;
+            }
+        }
+        
     </style>
 @endsection
 @section('class')
@@ -47,7 +59,7 @@
                 </div>
             </div>
             <div class="bg-white col-12 col-md-7 px-0">
-                <div style="margin:200px 100px 100px 100px;">
+                <div class="login_div" style="margin:200px 100px 100px 100px;">
                     <h1 style="color:#00224F;" class="mb-5">Welcome Back!</h1>
                     <form id="login_form" method="POST" data-parsley-validate>
                         @csrf

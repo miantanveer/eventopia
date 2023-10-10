@@ -32,6 +32,17 @@
         input.parsley-error {
             border-color: red !important;
         }
+
+        @media screen and (min-width: 0px) and (max-width: 425px) {
+            .sign_div {
+                margin:50px 20px 20px 20px !important;
+            }
+        }
+        @media screen and (min-width: 425px) and (max-width: 768px) {
+            .sign_div {
+                margin:150px 20px 20px 20px !important;
+            }
+        }
     </style>
 @endsection
 @section('class')
@@ -50,7 +61,7 @@
                 </div>
             </div>
             <div class="bg-white col-12 col-md-7 px-0">
-                <div style="margin:200px 100px 100px 100px;">
+                <div class="sign_div" style="margin:200px 100px 100px 100px;">
                     <form id="signUp_form" method="POST" action="" data-parsley-validate>
                         @csrf
                         <div class="row">

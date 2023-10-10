@@ -36,6 +36,12 @@
             padding-bottom: 0.7rem !important;
             font-size: 29px;
         }
+        @media screen and (min-width: 0px) and (max-width: 375px) {
+            .inputs input {
+                width: 35px;
+                height: 35px
+            }
+        }
     </style>
 @endsection
 @section('class')
@@ -52,12 +58,12 @@
                 <p style="font-size: 12px;" class="text-muted">We send you on {{$email ? 'mail.' : 'Phone Number.'}}</p>
                 <p style="font-size: 13px;" class="mt-5" >We have send you code on {{ $email ? $email : $phone_number }}</p>
                 <div id="otp" class="inputs d-flex flex-row justify-content-center">
-                    <input class="my-2 me-2 text-center form-control " name="otp[]" type="number" id="numb" maxlength="1" required data-parsley-excluded="true"/>
-                    <input class="m-2 text-center form-control " name="otp[]" type="number" id="numb1" maxlength="1" required data-parsley-excluded="true"/>
-                    <input class="m-2 text-center form-control " name="otp[]" type="number" id="numb2" maxlength="1" required data-parsley-excluded="true"/>
-                    <input class="m-2 text-center form-control " name="otp[]" type="number" id="numb3" maxlength="1" required data-parsley-excluded="true"/>
-                    <input class="m-2 text-center form-control " name="otp[]" type="number" id="numb4" maxlength="1" required data-parsley-excluded="true"/>
-                    <input class="m-2 text-center form-control " name="otp[]" type="number" id="numb5" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-sm-2 mx-1 text-center form-control " name="otp[]" type="number" id="numb" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-sm-2 mx-1 text-center form-control " name="otp[]" type="number" id="numb1" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-sm-2 mx-1 text-center form-control " name="otp[]" type="number" id="numb2" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-sm-2 mx-1 text-center form-control " name="otp[]" type="number" id="numb3" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-sm-2 mx-1 text-center form-control " name="otp[]" type="number" id="numb4" maxlength="1" required data-parsley-excluded="true"/>
+                    <input class="m-sm-2 mx-1 text-center form-control " name="otp[]" type="number" id="numb5" maxlength="1" required data-parsley-excluded="true"/>
                 </div>
                 <input type="hidden" name="email" value="{{ $email ?? '' }}">
                 <input type="hidden" name="phone_number" value="{{ $phone_number ?? '' }}">

@@ -546,6 +546,32 @@
         .week-f {
             font-size: 0.6rem !important;
         }
+
+        .search-content-1{
+            position: relative;
+            top: -224px;
+        }
+        .search-content-2{
+            position: relative;
+            top: -224px;
+        }
+        .search-content-3{
+            position: relative;
+            top: -224px;
+        }
+
+        .search-location-1{
+            position: relative;
+            top: -134px !important;
+        }
+        .search-location-2{
+            position: relative;
+            top: -134px !important;
+        }
+        .search-location-3{
+            position: relative;
+            top: -134px !important;
+        }
     }
 
     @media screen and (min-width: 0px) and (max-width: 320px) {
@@ -601,8 +627,8 @@
                             </div>
                         </div>
                         <input type="hidden" name="hidden" id="hiddenDate">
-                        <div id="searchResults" class="w-100 search-content"></div>
-                        <div id="addressDropdown" class="bg-white AdressDrop"></div>
+                        <div id="searchResults" class="w-100 search-content search-content-1"></div>
+                        <div id="addressDropdown" class="bg-white search-location-1 AdressDrop"></div>
                         <div class="row w-100 bg-white canlader-posit calendarAndTimePicker" id="calendarAndTimePicker">
                             <div class="col-lg-6 calendar-container-1">
                                 <div class="calendar">
@@ -792,8 +818,8 @@
                 </div>
             </div>
             <input type="hidden" name="hidden" id="hiddenDate-1">
-            <div id="searchResults-1" class="w-100 search-content"></div>
-            <div id="addressDropdown-1" class="bg-white AdressDrop"></div>
+            <div id="searchResults-1" class="w-100 search-content search-content-2"></div>
+            <div id="addressDropdown-1" class="bg-white search-location-2 AdressDrop"></div>
             <div class="row w-100 bg-white canlader-posit calendarAndTimePicker-1" id="calendarAndTimePicker-1">
                 <div class="col-lg-6 calendar-container-1">
                     <div class="calendar">
@@ -1310,8 +1336,8 @@
                 </div>
             </div>
             <input type="hidden" name="hidden" id="hiddenDate-2">
-            <div id="searchResults-2" class="w-100 search-content"></div>
-            <div id="addressDropdown-2" class="bg-white AdressDrop"></div>
+            <div id="searchResults-2" class="w-100 search-content search-content-3"></div>
+            <div id="addressDropdown-2" class="bg-white search-location-1 AdressDrop"></div>
             <div class="row w-100 bg-white canlader-posit calendarAndTimePicker-2" id="calendarAndTimePicker-2">
                 <div class="col-lg-6 calendar-container-1">
                     <div class="calendar">

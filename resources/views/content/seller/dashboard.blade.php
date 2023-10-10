@@ -56,6 +56,57 @@
         .pending-booking-card {
             height: 90%;
         }
+
+        @media(min-width: 575px) and (max-width:768px) {
+            .welcome_card {
+                position: relative;
+                top: -250px;
+                left: 60px;
+                z-index: 1;
+            }
+        }
+
+        @media(min-width: 374px) and (max-width:576px) {
+            .welcome_card {
+                position: relative;
+                top: -130px;
+                left: 17px;
+                z-index: 1;
+            }
+
+            .get_started_btn,
+            .headingOne {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 319px) and (max-width: 375px) {
+            .welcome_card {
+                position: relative;
+                top: -115px;
+                left: 17px;
+                z-index: 1;
+            }
+
+            .get_started_btn,
+            .headingOne {
+                display: none;
+            }
+        }
+
+        @media screen and (min-width: 0px) and (max-width: 320px) {
+            .welcome_card {
+                position: relative;
+                top: -100px;
+                left: 17px;
+                z-index: 1;
+            }
+
+            .get_started_btn,
+            .headingOne {
+                display: none;
+            }
+        }
     </style>
 @endsection
 
