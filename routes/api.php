@@ -36,7 +36,7 @@ Route::post('login', [AuthenticationController::class, 'login']);
 Route::post('logout', [AuthenticationController::class, 'logout']);
 
 
-Route::prefix('customer')->group(function(){
+Route::prefix('customer')->middleware('auth:sanctum')->group(function(){
 
     Route::post('/user', function (Request $request) {
         return $request->user();
