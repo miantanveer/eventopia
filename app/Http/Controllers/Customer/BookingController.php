@@ -125,87 +125,116 @@ class BookingController extends UserBaseController
         if (Order::find($id)->update(['status' => 3])) {
             return redirect()->back()->with('success', 'Booking request declined successfully.');
         }
-
     }
 
     public function bookings($type, $for)
     {
         if ($type == 'space') {
-            $this->orders = Order::whereType('space')->where(function ($query) {
-                $query->whereHas('space', function ($serviceQuery) {
-                    $serviceQuery->whereUserId(user_id());
-                });
-            })->whereUserId(user_id())->paginate(2);
+            if ($for == 'customer') {
+                $this->orders = Order::whereType('space')->whereUserId(user_id())->get();
+            } else {
+                $this->orders = Order::whereType('space')->where(function ($query) {
+                    $query->whereHas('space', function ($serviceQuery) {
+                        $serviceQuery->whereUserId(user_id());
+                    });
+                })->whereUserId(user_id())->paginate(2);
+            }
         } elseif ($type == 'entertainment') {
-            $this->orders = Order::whereType('entertainment')->where(function ($query) {
-                $query->whereHas('entertainment', function ($serviceQuery) {
-                    $serviceQuery->whereUserId(user_id());
-                });
-            })->whereUserId(user_id())->paginate(2);
+            if ($for == 'customer') {
+                $this->orders = Order::whereType('entertainment')->whereUserId(user_id())->get();
+            } else {
+                $this->orders = Order::whereType('entertainment')->where(function ($query) {
+                    $query->whereHas('entertainment', function ($serviceQuery) {
+                        $serviceQuery->whereUserId(user_id());
+                    });
+                })->whereUserId(user_id())->paginate(2);
+            }
         } elseif ($type == 'service') {
-            $this->orders = Order::whereType('service')->where(function ($query) {
-                $query->whereHas('service', function ($serviceQuery) {
-                    $serviceQuery->whereUserId(user_id());
-                });
-            })->whereUserId(user_id())->paginate(2);
+            if ($for == 'customer') {
+                $this->orders = Order::whereType('space')->whereUserId(user_id())->get();
+            } else {
+                $this->orders = Order::whereType('service')->where(function ($query) {
+                    $query->whereHas('service', function ($serviceQuery) {
+                        $serviceQuery->whereUserId(user_id());
+                    });
+                })->whereUserId(user_id())->paginate(2);
+            }
         } elseif ($type == 'active') {
-            $this->orders = Order::where(function ($query) {
-                $query->whereHas('space', function ($subquery) {
-                    $subquery->whereUserId(user_id());
-                })
-                    ->orWhereHas('entertainment', function ($subquery) {
+            if ($for == 'seller') {
+                $this->orders = Order::whereUserId(user_id())->whereStatus('2')->get();
+            } else {
+                $this->orders = Order::where(function ($query) {
+                    $query->whereHas('space', function ($subquery) {
                         $subquery->whereUserId(user_id());
                     })
-                    ->orWhereHas('service', function ($subquery) {
-                        $subquery->whereUserId(user_id());
-                    });
-            })->whereStatus(2)->get();
+                        ->orWhereHas('entertainment', function ($subquery) {
+                            $subquery->whereUserId(user_id());
+                        })
+                        ->orWhereHas('service', function ($subquery) {
+                            $subquery->whereUserId(user_id());
+                        });
+                })->whereStatus(2)->get();
+            }
         } elseif ($type == 'cancel') {
-            $this->orders = Order::where(function ($query) {
-                $query->whereHas('space', function ($subquery) {
-                    $subquery->whereUserId(user_id());
-                })
-                    ->orWhereHas('entertainment', function ($subquery) {
+            if ($for == 'customer') {
+                $this->orders = Order::whereUserId(user_id())->whereStatus('3')->get();
+            } else {
+                $this->orders = Order::where(function ($query) {
+                    $query->whereHas('space', function ($subquery) {
                         $subquery->whereUserId(user_id());
                     })
-                    ->orWhereHas('service', function ($subquery) {
-                        $subquery->whereUserId(user_id());
-                    });
-            })->whereStatus(3)->get();
+                        ->orWhereHas('entertainment', function ($subquery) {
+                            $subquery->whereUserId(user_id());
+                        })
+                        ->orWhereHas('service', function ($subquery) {
+                            $subquery->whereUserId(user_id());
+                        });
+                })->whereStatus('3')->get();
+            }
         } elseif ($type == 'pending') {
-            $this->orders = Order::where(function ($query) {
-                $query->whereHas('space', function ($subquery) {
-                    $subquery->whereUserId(user_id());
-                })
-                    ->orWhereHas('entertainment', function ($subquery) {
+            if ($for == 'customer') {
+                $this->orders = Order::whereUserId(user_id())->whereStatus('0')->get();
+            } else {
+                $this->orders = Order::where(function ($query) {
+                    $query->whereHas('space', function ($subquery) {
                         $subquery->whereUserId(user_id());
                     })
-                    ->orWhereHas('service', function ($subquery) {
-                        $subquery->whereUserId(user_id());
-                    });
-            })->whereStatus(0)->get();
+                        ->orWhereHas('entertainment', function ($subquery) {
+                            $subquery->whereUserId(user_id());
+                        })
+                        ->orWhereHas('service', function ($subquery) {
+                            $subquery->whereUserId(user_id());
+                        });
+                })->whereStatus('0')->get();
+            }
         } else {
-            $this->orders = Order::where(function ($query) {
-                $query->whereHas('space', function ($subquery) {
-                    $subquery->whereUserId(user_id());
-                })
-                    ->orWhereHas('entertainment', function ($subquery) {
+            if ($for == 'customer') {
+                $this->orders = Order::whereUserId(user_id())->get();
+                $this->quotes = Quote::whereUserId(user_id())->get();
+            } else {
+                $this->orders = Order::where(function ($query) {
+                    $query->whereHas('space', function ($subquery) {
                         $subquery->whereUserId(user_id());
                     })
-                    ->orWhereHas('service', function ($subquery) {
-                        $subquery->whereUserId(user_id());
+                        ->orWhereHas('entertainment', function ($subquery) {
+                            $subquery->whereUserId(user_id());
+                        })
+                        ->orWhereHas('service', function ($subquery) {
+                            $subquery->whereUserId(user_id());
+                        });
+                })->get();
+                $this->quotes = Quote::where(function ($query) {
+                    $query->whereHas('service', function ($serviceQuery) {
+                        $serviceQuery->whereUserId(user_id());
                     });
-            })->get();
-
-            $this->quotes = Quote::where(function ($query) {
-                $query->whereHas('service', function ($serviceQuery) {
-                    $serviceQuery->whereUserId(user_id());
-                });
-            })->get();
+                })->get();
+            }
         }
-
-        return view('layouts.components.bookings', $this->data);
-
+        if($for == 'customer'){
+            return view('layouts.components.customer-booking', $this->data);
+        }else{
+            return view('layouts.components.bookings', $this->data);
+        }
     }
     public function details($id, $type)
     {
@@ -297,7 +326,6 @@ class BookingController extends UserBaseController
 
                 $order->update(['status' => 3, 'is_refunded' => 1, 'refund_resp' => json_encode($refund)]);
                 return redirect()->back()->with('success', 'order cancelled successfully.');
-
             } catch (ApiErrorException $e) {
                 $errorMessage = $e->getMessage();
                 return redirect()->back()->with('error', 'Refund failed' . $errorMessage);
@@ -306,6 +334,5 @@ class BookingController extends UserBaseController
             $order->update(['status' => 3, 'is_refunded' => 1, 'refund_resp' => json_encode(['status' => 'Amount was not deduct previously so we just updated its status.'])]);
             return redirect()->back()->with('success', 'order cancelled successfully.');
         }
-
     }
 }
