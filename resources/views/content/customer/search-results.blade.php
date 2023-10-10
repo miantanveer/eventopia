@@ -792,6 +792,36 @@
                 height: 100% !important;
             }
         }
+
+        @media screen and (min-width: 0px) and (max-width: 425px) {
+            .calendar-container-1 {
+                padding: 40px 5px 0 5px;
+            }
+        }
+
+        @media screen and (min-width: 0px) and (max-width: 425px) {
+            .week-f {
+                font-size: 0.6rem !important;
+            }
+        }
+
+        @media screen and (min-width: 0px) and (max-width: 320px) {
+            .canlader-posit {
+                position: relative;
+                width: 326px !important;
+                left: -13px !important;
+                top: -8px;
+            }
+            .modal-body {
+                padding: 0rem !important;
+            }
+
+            .container-position{
+                width: 106%;
+                left: -8px;
+                top: -10px;
+            }
+        }
     </style>
 @endsection
 
