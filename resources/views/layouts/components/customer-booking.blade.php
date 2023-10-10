@@ -1,4 +1,4 @@
-@extends('layouts.seller-web-layout')
+@extends('layouts.app')
 @section('styles')
 <style>
     .page-main {
@@ -6,7 +6,7 @@
     }
 
     .table_head_row {
-        background-color: #006CE4 !important;
+        background-color: #313131 !important;
     }
 </style>
 @endsection
@@ -86,10 +86,6 @@
                                     <td>{{ @$quote->amount ?? lang('N/A') }}</td>
                                     <td>{{ lang(@$quote->guests) }}</td>
                                     <td>{{ lang(@$quote->service->category) }}</td>
-                                    {{-- <td><a class="modal-effect btn d-grid" data-bs-effect="effect-rotate-left"
-                                            data-bs-toggle="modal" href="#bookingDetailModal"><i
-                                                class="fa fa-eye text-primary" aria-hidden="true"></i></a>
-                                    </td> --}}
                                     <td class="text-end">
                                         @if (@$quote->status == 3)
                                         <span disabled class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">{{
@@ -101,7 +97,7 @@
                                         <a href="{{ route('seller_decline_quote', @$quote->id) }}"
                                             class="btn text-danger border-0">{{ lang('Decline') }}</a>
                                         <a href="{{ route('recieve_quote', @$quote->id) }}"
-                                            class="btn btn-primary ms-3">{{ lang('Send Quote') }}</a>
+                                            class="btn bg-custom-black text-white ms-3">{{ lang('Send Quote') }}</a>
                                         @endif
                                     </td>
                                 </tr>
@@ -128,10 +124,6 @@
                                         'entertainment' ? @$pendingBooking->entertainment->title :
                                         @$pendingBooking->service->category)) }}
                                     </td>
-                                    {{-- <td><a class="btn"
-                                            href="{{ route('bookings-details', ['id' => @$pendingBooking->id, 'type' => @$pendingBooking->type]) }}"><i
-                                                class="fa fa-eye text-primary" aria-hidden="true"></i></a>
-                                    </td> --}}
                                     <td class="text-end">
                                         @if (@$pendingBooking->status == 3)
                                         <span disabled class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">{{
@@ -143,7 +135,7 @@
                                         <a href="{{ route('decline-bookings', @$pendingBooking->id) }}"
                                             class="btn text-danger border-0">{{ lang('Decline') }}</a>
                                         <a href="{{ @$pendingBooking->type == 'space' || @$pendingBooking->type == 'entertainment' || @$pendingBooking->type == 'service' ? route('accept-bookings', @$pendingBooking->id) : URL('/create-quote') }}"
-                                            class="btn btn-primary ms-3">{{ lang(@$pendingBooking->type == 'space' ||
+                                            class="btn bg-custom-black text-white ms-3">{{ lang(@$pendingBooking->type == 'space' ||
                                             @$pendingBooking->type == 'entertainment' || @$pendingBooking->type ==
                                             'service' ? 'Accept' : 'Send Quote') }}</a>
                                         @endif

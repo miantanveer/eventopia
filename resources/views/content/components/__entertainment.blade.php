@@ -13,9 +13,7 @@
                     <button type="button" class="btn mt-1 mb-1 me-3">
                         <span class="badge bg-white p-0 py-3 pe-3 text-dark noti-design">&nbsp;<span
                                 class="bg-white p-1 span-design">{{ lang('SR') }}</span>&nbsp;
-                            {{ lang('From SAR') }}
-                            {{ @$value->entertainmentActivities[0]->hourly_rate }}/
-                            {{ lang('Hour') }}</span>
+                            {{ lang('From SAR') }} {{ @$value->entertainmentActivities[0]->hourly_rate }}/ {{ lang('Hour') }}</span>
                     </button>
                 </div>
             </div>

@@ -17,7 +17,7 @@
             position: relative;
             top: -230px;
             left: 60px;
-            transform: translate();
+            transform: translate();git 
             z-index: 1;
         }
 
@@ -101,7 +101,7 @@
                             <hr>
                             <div class="col-12 text-center">
                                 <div class="mb-3">
-                                    <a href="{{ route('bookings', ['type' => 'null', 'for' => 'null']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'null', 'for' => 'customer']) }}"
                                         class="btn bg-custom-black text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@
                         <div class="row">
                             <div class="col-12 ml-3 text-center">
                                 <div>
-                                    <a href="{{ route('bookings', ['type' => 'space', 'for' => 'null']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'space', 'for' => 'customer']) }}"
                                         class="btn bg-custom-black text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
@@ -232,7 +232,7 @@
                         <div class="row">
                             <div class="col-12 ml-3 text-center">
                                 <div>
-                                    <a href="{{ route('bookings', ['type' => 'entertainment', 'for' => 'null']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'entertainment', 'for' => 'customer']) }}"
                                         class="btn bg-custom-black text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
@@ -292,7 +292,7 @@
                         <div class="row">
                             <div class="col-12 ml-3 text-center">
                                 <div>
-                                    <a href="{{ route('bookings', ['type' => 'service', 'for' => 'null']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'service', 'for' => 'customer']) }}"
                                         class="btn bg-custom-black text-white">{{ lang('Manage') }}</a>
                                 </div>
                             </div>
@@ -320,7 +320,7 @@
                             </div>
                             <div class="col-12  text-center">
                                 <div class="mb-3">
-                                    <a href="{{ route('bookings', ['type' => 'active', 'for' => 'null']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'active', 'for' => 'customer']) }}"
                                         class="btn bg-custom-black text-white">{{ lang('View Details') }}</a>
                                 </div>
                             </div>
@@ -343,7 +343,7 @@
                             </div>
                             <div class="col-12  text-center">
                                 <div class="mb-3">
-                                    <a href="{{ route('bookings', ['type' => 'cancel', 'for' => 'null']) }}"
+                                    <a href="{{ route('bookings', ['type' => 'cancel', 'for' => 'customer']) }}"
                                         class="btn bg-custom-black text-white">{{ lang('View Details') }}</a>
                                 </div>
                             </div>
