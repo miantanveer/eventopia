@@ -110,8 +110,8 @@
         const year = $('.year').text();
         var fullDate = month + ' ' + day + ', ' + year;
         $('#hiddenDate').val(fullDate);
-        $('#start_time').removeAttr('disabled').val("9:00 AM").css('border', '1px solid #898587');
-        $('#end_time').removeAttr('disabled').val("9:00 PM").css('border', '1px solid #898587');
+        $('#start_time').removeAttr('disabled').val("9 AM").css('border', '1px solid #898587');
+        $('#end_time').removeAttr('disabled').val("9 PM").css('border', '1px solid #898587');
         $('.startTime_label').css('color', 'black');
         $('.endTime_label').css('color', 'black');
         updateAppendedValue();
@@ -232,8 +232,7 @@
         }, ],
     };
     const months = [
-        "January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-        "November", "December",
+        "January", "February", "March", "April", "May", "June", "July", "August", "September", "October","November", "December",
     ];
     const $startTimeInput = $("#start_time");
     const $endTimeInput = $("#end_time");
@@ -327,6 +326,7 @@
             type: "GET",
             success: function(res) {
                 $('#ajax_data').html(res.data);
+                $('#paginator').addClass('d-none');
                 $('#map').html(res.map);
             }
         });
