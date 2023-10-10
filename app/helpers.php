@@ -43,7 +43,6 @@ if (!function_exists('lang')) {
             return $langs[$string];
         });
     }
-
 }
 
 if (!function_exists('notification')) {
@@ -138,7 +137,7 @@ if (!function_exists('orderStore')) {
 if (!function_exists('s3Link')) {
     function s3Link($link)
     {
-        // return $link ? Storage::disk("s3")->url($link) : null;
-        return $link;
+        return $link ? Storage::disk("s3")->url($link) : null;
+        // return $link;
     }
 }
