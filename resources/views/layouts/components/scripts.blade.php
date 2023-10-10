@@ -58,7 +58,6 @@
     </script>
     <script>
         function quoteModal(url) {
-            $("#quote-modal").modal('show');
             $.ajax({
                 headers: {
                     'X-CSRF-TOKEN': "{{ csrf_token() }}"
@@ -66,6 +65,15 @@
                 type: 'POST',
                 url: url,
                 success: function(res) {
+                    if(res == ''){
+                        notif({
+                        type: 'error',
+                        msg: 'Something went wrong',
+                        autohide: true
+                    });
+                    }else{
+                        $("#quote-modal").modal('show');
+                    }
                     var route_name = "{{ route('accept_quote', ['id' => 'route_id']) }}".replace('route_id',
                         res.id);
                     var decline_name = "{{ route('decline_quote', ['id' => 'route_id']) }}".replace('route_id',
