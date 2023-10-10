@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 use Stichoza\GoogleTranslate\GoogleTranslate;
 
 if (!function_exists('lang')) {
@@ -131,5 +132,12 @@ if (!function_exists('orderStore')) {
         $order->amount = $amount;
         $order->discount = $discount;
         $order->save();
+    }
+}
+
+if (!function_exists('s3Link')) {
+    function s3Link($link)
+    {
+        return $link ? Storage::disk("s3")->url($link) : null;
     }
 }

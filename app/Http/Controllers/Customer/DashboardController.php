@@ -6,6 +6,7 @@ use App\Http\Controllers\UserBaseController;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class DashboardController extends UserBaseController
@@ -96,7 +97,7 @@ class DashboardController extends UserBaseController
                 $subQuery->where('user_id', '!=', user_id());
             });
         })->whereType('service')->whereUserId(user_id())->whereStatus(3)->count();
-        
+
         $this->pendingServiceBookings = Order::where(function ($query) {
             $query->whereHas('service', function ($subQuery) {
                 $subQuery->where('user_id', '!=', user_id());
@@ -167,9 +168,9 @@ class DashboardController extends UserBaseController
 
             if ($req->hasFile('image')) {
                 $image = $req->file('image');
-                $foldername = '/uploads/customer/profile_pic/';
+                $foldername = 'uploads/customer/profile_pic/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
-                $image->move(public_path() . $foldername, $filename);
+                Storage::disk("s3")->putFileAs($foldername, $image, $filename);
                 User::find(auth()->user()->id)->update(['image' => $foldername . $filename]);
             }
 

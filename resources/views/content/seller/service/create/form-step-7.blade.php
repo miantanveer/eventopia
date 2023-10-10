@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
-                                    <input type="file" name='image' value="{{@$team->image}}" class="dropify" required data-parsley-errors-container='#file_error' data-parsley-required-message="{{lang('Team Image is required')}}"  />
+                                    <input type="file" name='image' value="{{s3Link(@$team->image)}}" class="dropify" required data-parsley-errors-container='#file_error' data-parsley-required-message="{{lang('Team Image is required')}}"  />
                                         <div id="file_error"></div>
                                 </div>
                             </div>

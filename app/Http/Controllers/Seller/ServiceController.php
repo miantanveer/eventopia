@@ -13,6 +13,7 @@ use App\Models\ServiceTitle;
 use App\Models\TeamMembers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends UserBaseController
 {
@@ -68,10 +69,7 @@ class ServiceController extends UserBaseController
         $images = Service::whereId($id)->whereUserId(user_id())->with('serviceImages')->get();
         foreach ($images as $img) {
             foreach ($img->serviceImages as $data) {
-                $file_path = public_path($data->image);
-                if (file_exists($file_path)) {
-                    unlink($file_path);
-                }
+                Storage::disk('s3')->delete($data->image);
                 $data->delete();
             }
         }
@@ -84,8 +82,8 @@ class ServiceController extends UserBaseController
         if ($request->hasFile('file')) {
             $image = $request->file;
             $filename = time() . '-' . $image->getClientOriginalName();
-            $foldername = '/uploads/seller/service/';
-            $image->move(public_path('/uploads/seller/service/'), $filename);
+            $foldername = 'uploads/seller/service/';
+            Storage::disk("s3")->putFileAs($foldername, $image, $filename);
         }
         $image = new ServiceImages();
         $image->service_id = $id;
@@ -237,9 +235,9 @@ class ServiceController extends UserBaseController
         $filename = '';
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-            $foldername = '/uploads/seller/teams/';
+            $foldername = 'uploads/seller/teams/';
             $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
-            $image->move(public_path() . $foldername, $filename);
+            Storage::disk("s3")->putFileAs($foldername, $image, $filename);
         }
         $service = Service::find($id);
         $service->last_steps = 'step-7';
@@ -322,11 +320,7 @@ class ServiceController extends UserBaseController
             $delete_img = ServiceImages::whereServiceId($id)->get();
             if (isset($delete_img)) {
                 foreach ($delete_img as $key => $data) {
-                    $file_path = public_path('/uploads/seller/service/') . $data->image;
-                    if (file_exists($file_path)) {
-                        unlink($file_path);
-                        $data->delete();
-                    }
+                    Storage::disk('s3')->delete($data->image);
                 }
             }
         }

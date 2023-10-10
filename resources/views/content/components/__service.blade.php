@@ -28,7 +28,7 @@ $max = $parts[1];
             </div>
         </div>
         <a href="{{ route('service-details', @$value->id) }}">
-            <img src="{{ asset(@$value->serviceImages[0]->image) }}" class="card-img-top h-card-image" alt="img">
+            <img src="{{ s3Link(@$value->serviceImages[0]->image) }}" class="card-img-top h-card-image" alt="img">
             <div class="row p-3">
                 <div class="row p-3">
                     <div class="col-12 text-dark">{{ lang(@$value->title) }}</div>

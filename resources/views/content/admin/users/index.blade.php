@@ -88,11 +88,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($users as $user)
+                                @forelse ($users as $user) 
                                     <tr>
                                         <td class="text-center align-middle"><span
                                                 class="avatar avatar-md brround cover-image"
-                                                data-bs-image-src="{{ asset($user->image ?? 'assets/images/users/profile.png') }}"><span
+                                                data-bs-image-src="{{ s3Link($user->image) ?? asset('assets/images/users/profile.png') }}"><span
                                                     class="avatar-status {{ $user->status == '1' ? 'bg-green' : 'bg-danger' }}"></span></span>
                                         </td>
                                         <td class="text-center align-middle">{{ $user->first_name }}</td>

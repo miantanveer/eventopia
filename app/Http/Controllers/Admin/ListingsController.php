@@ -9,6 +9,7 @@ use App\Models\Service;
 use App\Models\ServiceImages;
 use App\Models\Space;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ListingsController extends AdminBaseController
 {
@@ -48,10 +49,7 @@ class ListingsController extends AdminBaseController
             $space = Space::find($id);
             if (isset($space->spaceImages)) {
                 foreach ($space->spaceImages as $space_image) {
-                    $file_path = public_path($space_image->image);
-                    if (file_exists($file_path)) {
-                        unlink($file_path);
-                    }
+                    Storage::disk('s3')->delete($space_image->image);
                 }
             }
             $space->delete();
@@ -62,11 +60,7 @@ class ListingsController extends AdminBaseController
                 $delete_img = EntertainmentImages::whereEntertainmentId($id)->get();
                 if (isset($delete_img)) {
                     foreach ($delete_img as $key => $data) {
-                        $file_path = $data->image;
-                        if (file_exists($file_path)) {
-                            unlink($file_path);
-                            $data->delete();
-                        }
+                        Storage::disk('s3')->delete($data->image);
                     }
                 }
             }
@@ -78,11 +72,7 @@ class ListingsController extends AdminBaseController
                 $delete_img = ServiceImages::whereServiceId($id)->get();
                 if (isset($delete_img)) {
                     foreach ($delete_img as $key => $data) {
-                        $file_path = public_path('/uploads/seller/service/') . $data->image;
-                        if (file_exists($file_path)) {
-                            unlink($file_path);
-                            $data->delete();
-                        }
+                        Storage::disk('s3')->delete($data->image);
                     }
                 }
             }

@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends UserBaseController
 {
@@ -34,7 +34,7 @@ class DashboardController extends UserBaseController
                 $subQuery->where('user_id','!=',user_id());
             });
         })->whereType('space')->whereUserId(user_id())->whereStatus(4)->count();
-    
+
         $totalEnterOrders = Order::where(function($query){
             $query->whereHas('entertainment', function($subQuery){
                 $subQuery->where('user_id','!=',user_id());
@@ -55,7 +55,7 @@ class DashboardController extends UserBaseController
                 $subQuery->where('user_id','!=',user_id());
             });
         })->whereType('entertainment')->whereUserId(user_id())->whereStatus(4)->count();
-    
+
         $totalServiceOrders = Order::where(function($query){
             $query->whereHas('service', function($subQuery){
                 $subQuery->where('user_id','!=',user_id());
@@ -76,25 +76,25 @@ class DashboardController extends UserBaseController
                 $subQuery->where('user_id','!=',user_id());
             });
         })->whereType('service')->whereUserId(user_id())->whereStatus(4)->count();
-    
+
         $this->spaceUpcomingProgress = $totalSpaceOrders ? ($this->upComingSpaceBookings / $totalSpaceOrders) * 100 : 0;
         $this->spaceCancelProgress = $totalSpaceOrders ? ($this->cancelSpaceBookings / $totalSpaceOrders) * 100 : 0;
         $this->spacePreviousProgress = $totalSpaceOrders ? ($this->previousSpaceBookings / $totalSpaceOrders) * 100 : 0;
-    
+
         $this->enterUpcomingProgress = $totalEnterOrders ? ($this->upComingEnterBookings / $totalEnterOrders) * 100 : 0;
         $this->enterCancelProgress = $totalEnterOrders ? ($this->cancelEnterBookings / $totalEnterOrders) * 100 : 0;
         $this->enterPreviousProgress = $totalEnterOrders ? ($this->previousEnterBookings / $totalEnterOrders) * 100 : 0;
-    
+
         $this->serviceUpcomingProgress = $totalServiceOrders ? ($this->upComingServiceBookings / $totalServiceOrders) * 100 : 0;
         $this->serviceCancelProgress = $totalServiceOrders ? ($this->cancelServiceBookings / $totalServiceOrders) * 100 : 0;
         $this->servicePreviousProgress = $totalServiceOrders ? ($this->previousServiceBookings / $totalServiceOrders) * 100 : 0;
-    
+
         $this->totalBookingsCount = $totalSpaceOrders + $totalEnterOrders + $totalServiceOrders;
         $this->totalBookings = Order::whereUserId(user_id())->whereIn('status', [1, 2, 3])->take(5)->get();
-    
+
         $this->cancelBookingCount = $this->cancelSpaceBookings + $this->cancelEnterBookings + $this->cancelServiceBookings;
         $this->activeBookingCount = Order::whereUserId(user_id())->whereStatus(2)->count();
-    
+
         return response()->json($this->data);
     }
 
@@ -132,9 +132,9 @@ class DashboardController extends UserBaseController
 
             if ($req->hasFile('image')) {
                 $image = $req->file('image');
-                $foldername = '/uploads/customer/profile_pic/';
+                $foldername = 'uploads/customer/profile_pic/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
-                $image->move(public_path() . $foldername, $filename);
+                Storage::disk("s3")->putFileAs($foldername, $image, $filename);
                 User::find(auth()->user()->id)->update(['image' => $foldername . $filename]);
             }
 

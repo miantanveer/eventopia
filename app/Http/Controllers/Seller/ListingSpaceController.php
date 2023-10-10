@@ -21,6 +21,7 @@ use App\Models\SpaceType;
 use App\Models\Age;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ListingSpaceController extends UserBaseController
 {
@@ -172,10 +173,7 @@ class ListingSpaceController extends UserBaseController
         $images = Space::whereId($space_id)->whereUserId(user_id())->with('spaceImages')->get();
         foreach ($images as $img) {
             foreach ($img->spaceImages as $data) {
-                $file_path = public_path($data->image);
-                if (file_exists($file_path)) {
-                    unlink($file_path);
-                }
+                Storage::disk('s3')->delete($data->image);
                 $data->delete();
             }
         }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class SettingsController extends AdminBaseController
@@ -49,9 +50,9 @@ class SettingsController extends AdminBaseController
 
             if ($req->hasFile('image')) {
                 $image = $req->file('image');
-                $foldername = '/uploads/admin/profile_pic/';
+                $foldername = 'uploads/admin/profile_pic/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
-                $image->move(public_path() . $foldername, $filename);
+                Storage::disk("s3")->putFileAs($foldername, $image, $filename);
                 User::find(user_id())->update(['image' => $foldername . $filename]);
             }
 

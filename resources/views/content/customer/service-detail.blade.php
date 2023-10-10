@@ -63,7 +63,7 @@
         <div class="col-xl-8 col-lg-12 col-md-12">
             <div class="card custom-card overflow-hidden">
                 <div class="card-body p-3">
-                    <a href="javascript:void(0)"><img src="{{ asset(@$service->serviceImages[0]->image) }}" alt="img"
+                    <a href="javascript:void(0)"><img src="{{ s3Link(@$service->serviceImages[0]->image) }}" alt="img"
                             class="br-5 w-100"></a>
                 </div>
                 <div class="card-body pt-0 h-100">
@@ -71,7 +71,7 @@
                         @foreach(@$service->serviceImages as $value)
                         <div class="item">
                             <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                <a href="#"><img src="{{ asset(@$value->image) }}"
+                                <a href="#"><img src="{{ s3Link(@$value->image) }}"
                                         alt="img"></a>
                             </div>
                         </div>

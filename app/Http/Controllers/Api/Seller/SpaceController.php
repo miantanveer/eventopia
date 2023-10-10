@@ -21,7 +21,7 @@ use App\Models\SpaceType;
 use App\Models\Age;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class SpaceController extends UserBaseController
@@ -183,10 +183,7 @@ class SpaceController extends UserBaseController
         $images = Space::whereId($id)->whereUserId(user_id())->with('spaceImages')->get();
         foreach ($images as $img) {
             foreach ($img->spaceImages as $data) {
-                $file_path = public_path($data->image);
-                if (file_exists($file_path)) {
-                    unlink($file_path);
-                }
+                Storage::disk('s3')->delete($data->image);
                 $data->delete();
             }
         }
@@ -201,9 +198,9 @@ class SpaceController extends UserBaseController
         $image = '';
         if ($req->hasFile('file')) {
             $image = $req->file;
-            $foldername = '/uploads/seller/spaces/';
+            $foldername = 'uploads/seller/spaces/';
             $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
-            $image->move(public_path() . $foldername, $filename);
+            Storage::disk("s3")->putFileAs($foldername, $image, $filename);
         }
 
         Space::find($id)->update(["last_step" => '4']);
@@ -468,9 +465,9 @@ class SpaceController extends UserBaseController
 
         if (isset($req->cUimg)) {
             $image = $req->cUimg;
-            $foldername = '/uploads/seller/spaces/contact_user/';
+            $foldername = 'uploads/seller/spaces/contact_user/';
             $filename = time() . '-' . rand(00000, 99999) . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path() . $foldername, $filename);
+            Storage::disk("s3")->putFileAs($foldername, $image, $filename);
             $space->update(['c_u_img' => $foldername . $filename]);
         }
 
@@ -553,7 +550,7 @@ class SpaceController extends UserBaseController
             }
         }
 
-        return response()->json(['success', 'Listing added successfully'],200);   
+        return response()->json(['success', 'Listing added successfully'],200);
     }
 
     public function destroy($id)
@@ -561,10 +558,7 @@ class SpaceController extends UserBaseController
         $space = Space::find($id);
         if (isset($space->spaceImages)) {
             foreach ($space->spaceImages as $space_image) {
-                $file_path = public_path($space_image->image);
-                if (file_exists($file_path)) {
-                    unlink($file_path);
-                }
+                Storage::disk('s3')->delete($space_image->image);
             }
         }
         $space->delete();

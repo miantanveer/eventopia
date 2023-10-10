@@ -18,6 +18,7 @@ use App\Models\OperatingHour;
 use App\Models\Space;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class EntertainmentController extends UserBaseController
 {
@@ -52,7 +53,7 @@ class EntertainmentController extends UserBaseController
     {
         $entertainment = Entertainment::find($id);
         $ent_types = EntertainmentType::get();
-        return view('content\seller\entertainment\create\form-step-1', ['entertainment' => $entertainment,'ent_types'=>$ent_types, 'id' => $id]);
+        return view('content.seller.entertainment.create.form-step-1', ['entertainment' => $entertainment,'ent_types'=>$ent_types, 'id' => $id]);
     }
     public function updateFormStep1(Request $req, $id)
     {
@@ -77,7 +78,7 @@ class EntertainmentController extends UserBaseController
         $entertainment = Entertainment::find($id);
         $ages = Age::get();
         $categories = EntertainmentCategory::get();
-        return view('content\seller\entertainment\create\form-step-2', ['id' => $id, 'entertainment' => $entertainment, 'ages' => $ages, 'categories' => $categories]);
+        return view('content.seller.entertainment.create.form-step-2', ['id' => $id, 'entertainment' => $entertainment, 'ages' => $ages, 'categories' => $categories]);
     }
     public function FormStep2(Request $req, $id)
     {
@@ -98,7 +99,7 @@ class EntertainmentController extends UserBaseController
     public function loadFormStep3($id)
     {
         $entertainment = Entertainment::find($id);
-        return view('content\seller\entertainment\create\form-step-3', ['id' => $id, 'entertainment' => $entertainment]);
+        return view('content.seller.entertainment.create.form-step-3', ['id' => $id, 'entertainment' => $entertainment]);
     }
     public function FormStep3(Request $req, $id)
     {
@@ -127,14 +128,11 @@ class EntertainmentController extends UserBaseController
         $images = Entertainment::whereId($id)->whereUserId(user_id())->with('entertainmentImages')->get();
         foreach ($images as $img) {
             foreach ($img->entertainmentImages as $data) {
-                $file_path = public_path($data->image);
-                if (file_exists($file_path)) {
-                    unlink($file_path);
-                }
+                Storage::disk('s3')->delete($data->image);
                 $data->delete();
             }
         }
-        return view('content\seller\entertainment\create\form-step-4', ['id' => $id, 'entertainment' => $entertainment]);
+        return view('content.seller.entertainment.create.form-step-4', ['id' => $id, 'entertainment' => $entertainment]);
     }
 
     public function FormStep4(Request $req, $id)
@@ -142,9 +140,9 @@ class EntertainmentController extends UserBaseController
         $filename = '';
         if ($req->hasFile('file')) {
             $image = $req->file;
-            $foldername = '/uploads/seller/entertainment/';
+            $foldername = 'uploads/seller/entertainment/';
             $filename = time() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('/uploads/seller/entertainment/'), $filename);
+            Storage::disk("s3")->putFileAs($foldername, $image, $filename);
         }
         $image = new EntertainmentImages();
         $image->entertainment_id = $id;
@@ -157,7 +155,7 @@ class EntertainmentController extends UserBaseController
     }
     public function loadFormStep5($id)
     {
-        return view('content\seller\entertainment\create\form-step-5', ['id' => $id]);
+        return view('content.seller.entertainment.create.form-step-5', ['id' => $id]);
     }
     public function FormStep5(Request $req, $id)
     {
@@ -213,7 +211,7 @@ class EntertainmentController extends UserBaseController
     {
         $entertainment = Entertainment::find($id);
         $cancellation = CancellationPolicy::get();
-        return view('content\seller\entertainment\create\form-step-6', ['id' => $id, 'entertainment' => $entertainment, 'cancellation' => $cancellation]);
+        return view('content.seller.entertainment.create.form-step-6', ['id' => $id, 'entertainment' => $entertainment, 'cancellation' => $cancellation]);
     }
     public function FormStep6(Request $req, $id)
     {
@@ -230,7 +228,7 @@ class EntertainmentController extends UserBaseController
     {
         $this->ent_activity = EntActivity::with('subActivities', 'entAmenities')->get();
         $this->id = $id;
-        return view('content\seller\entertainment\create\form-step-7', $this->data);
+        return view('content.seller.entertainment.create.form-step-7', $this->data);
     }
     public function loadUpdateFormStep7($id, $key)
     {
@@ -240,7 +238,7 @@ class EntertainmentController extends UserBaseController
         $this->ent_activity = EntActivity::with('subActivities', 'entAmenities')->get();
         $this->id = $id;
         $this->key = $key;
-        return view('content\seller\entertainment\create\form-step-7', $this->data);
+        return view('content.seller.entertainment.create.form-step-7', $this->data);
     }
     public function FormStep7(Request $req, $id)
     {
@@ -353,7 +351,7 @@ class EntertainmentController extends UserBaseController
     public function loadFormStep8($id)
     {
         $entertainment = Entertainment::find($id);
-        return view('content\seller\entertainment\create\form-step-8', ['id' => $id, 'entertainment' => $entertainment]);
+        return view('content.seller.entertainment.create.form-step-8', ['id' => $id, 'entertainment' => $entertainment]);
     }
     public function FormStep8(Request $req, $id)
     {
@@ -367,9 +365,9 @@ class EntertainmentController extends UserBaseController
         $foldername = '';
         if ($req->hasFile('image')) {
             $image = $req->image;
-            $foldername = '/uploads/seller/entertainment/team';
+            $foldername = 'uploads/seller/entertainment/team';
             $filename = time() . '-' . $image->getClientOriginalName();
-            $image->move(public_path('/uploads/seller/entertainment/team'), $filename);
+            Storage::disk("s3")->putFileAs($foldername, $image, $filename);
         }
         $entertainment = Entertainment::find($id);
         $entertainment->contact_first_name = $req->contact_first_name;
@@ -389,10 +387,10 @@ class EntertainmentController extends UserBaseController
             $entertainment = Entertainment::find($id);
             $entertainment->last_steps = 'step-9';
             $entertainment->save();
-            return view('content\seller\entertainment\create\form-step-10', ['id' => $id]);
+            return view('content.seller.entertainment.create.form-step-10', ['id' => $id]);
         } else {
             $entertainment = Entertainment::find($id);
-            return view('content\seller\entertainment\create\form-step-9', ['id' => $id, 'entertainment' => $entertainment]);
+            return view('content.seller.entertainment.create.form-step-9', ['id' => $id, 'entertainment' => $entertainment]);
         }
     }
     public function FormStep9(Request $req, $id)
@@ -408,7 +406,7 @@ class EntertainmentController extends UserBaseController
         $company_review->booking_and_cancellation = $req->booking_and_cancellation;
         $company_review->space_local_regulations = $req->local_regulatioins;
         $company_review->save();
-        return view('content\seller\entertainment\create\form-step-10', ['id' => $id]);
+        return view('content.seller.entertainment.create.form-step-10', ['id' => $id]);
     }
 
     public function resumeForm($id)
@@ -449,11 +447,7 @@ class EntertainmentController extends UserBaseController
             $delete_img = EntertainmentImages::whereEntertainmentId($id)->get();
             if (isset($delete_img)) {
                 foreach ($delete_img as $key => $data) {
-                    $file_path = $data->image;
-                    if (file_exists($file_path)) {
-                        unlink($file_path);
-                        $data->delete();
-                    }
+                    Storage::disk('s3')->delete($data->image);
                 }
             }
         }

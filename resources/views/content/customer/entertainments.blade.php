@@ -216,7 +216,7 @@
                                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white h-100">
                                                     <a href="{{route('entertainment-details',@$value->id)}}"
                                                         class="h-100"><img class="h-100"
-                                                            src="{{ asset(@$value->entertainmentImages[0]->image) }}"
+                                                            src="{{ s3Link(@$value->entertainmentImages[0]->image) }}"
                                                             alt="img"></a>
                                                 </div>
                                             </div>
@@ -261,7 +261,7 @@
 
                                                 </div>
                                                 <a href="{{route('entertainment-details',@$value->id)}}">
-                                                    <img src="{{ asset(@$value->entertainmentImages[0]->image) }}"
+                                                    <img src="{{ s3Link(@$value->entertainmentImages[0]->image) }}"
                                                         class="card-img-top" style="width: 200px;padding-top: 10px"
                                                         alt="img">
                                                     <div class="card-body">
