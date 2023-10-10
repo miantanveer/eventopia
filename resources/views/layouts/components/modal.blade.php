@@ -424,14 +424,14 @@
 
 <div class="modal fade" id="dateTimeModal">
     <div class="modal-dialog max-width_modal" role="document">
-        <div class="modal-content modal-content-demo">
+        <div class="modal-content modal-content-demo container-position">
             <div class="modal-header">
                 <h6 class="modal-title">Select Time</h6><button aria-label="Close" class="btn-close"
                     data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <div class="row w-100 bg-white calendarAndTimePicker" id="calendarAndTimePicker">
-                    <div class="col-6 calendar-container-1">
+                    <div class="col-lg-6 calendar-container-1">
                         <div class="calendar">
                             <div class="year-header">
                                 <span class="left-button" id="prev"> <i class="fa fa-angle-double-left"></i>
@@ -443,29 +443,29 @@
                             <table class="months-table">
                                 <tbody>
                                     <tr class="months-row">
-                                        <td class="month">{{ lang('Jan') }}</td>
-                                        <td class="month">{{ lang('Feb') }}</td>
-                                        <td class="month">{{ lang('Mar') }}</td>
-                                        <td class="month">{{ lang('Apr') }}</td>
-                                        <td class="month">{{ lang('May') }}</td>
-                                        <td class="month">{{ lang('June') }}</td>
-                                        <td class="month">{{ lang('July') }}</td>
-                                        <td class="month">{{ lang('Aug') }}</td>
-                                        <td class="month">{{ lang('Sep') }}</td>
-                                        <td class="month">{{ lang('Oct') }}</td>
-                                        <td class="month">{{ lang('Nov') }}</td>
-                                        <td class="month">{{ lang('Dec') }}</td>
+                                        <td class="month week-f">{{ lang('Jan') }}</td>
+                                        <td class="month week-f">{{ lang('Feb') }}</td>
+                                        <td class="month week-f">{{ lang('Mar') }}</td>
+                                        <td class="month week-f">{{ lang('Apr') }}</td>
+                                        <td class="month week-f">{{ lang('May') }}</td>
+                                        <td class="month week-f">{{ lang('June') }}</td>
+                                        <td class="month week-f">{{ lang('July') }}</td>
+                                        <td class="month week-f">{{ lang('Aug') }}</td>
+                                        <td class="month week-f">{{ lang('Sep') }}</td>
+                                        <td class="month week-f">{{ lang('Oct') }}</td>
+                                        <td class="month week-f">{{ lang('Nov') }}</td>
+                                        <td class="month week-f">{{ lang('Dec') }}</td>
                                     </tr>
                                 </tbody>
                             </table>
                             <table class="days-table">
-                                <td class="day">{{ lang('Sun') }}</td>
-                                <td class="day">{{ lang('Mon') }}</td>
-                                <td class="day">{{ lang('Tue') }}</td>
-                                <td class="day">{{ lang('Wed') }}</td>
-                                <td class="day">{{ lang('Thu') }}</td>
-                                <td class="day">{{ lang('Fri') }}</td>
-                                <td class="day">{{ lang('Sat') }}</td>
+                                <td class="day week-f">{{ lang('Sun') }}</td>
+                                <td class="day week-f">{{ lang('Mon') }}</td>
+                                <td class="day week-f">{{ lang('Tue') }}</td>
+                                <td class="day week-f">{{ lang('Wed') }}</td>
+                                <td class="day week-f">{{ lang('Thu') }}</td>
+                                <td class="day week-f">{{ lang('Fri') }}</td>
+                                <td class="day week-f">{{ lang('Sat') }}</td>
                             </table>
                             <div class="frame">
                                 <table class="dates-table">
@@ -474,9 +474,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6 dialog" id="dialog">
-                        <h2 class="dialog-header mt-7">{{ lang('Select Time') }}</h2>
-                        <div class="form-container mt-7 me-6" align="center">
+                    <div class="col-lg-6 dialog" id="dialog">
+                        <h2 class="dialog-header mt-sm-7">{{ lang('Select Time') }}</h2>
+                        <div class="form-container mt-sm-7 me-sm-6" align="center">
                             <label for="start_time" class="form-label mt-5 text-start startTime_label">{{ lang('Start
                                 Time') }}</label>
                             <select name="start-time" class="Select_Time form-select mb-5" id="start_time" disabled>
@@ -557,9 +557,9 @@
                                 <option value="10:00 PM">11:00 {{ lang('PM') }}</option>
                                 <option value="10:30 PM">11:30 {{ lang('PM') }}</option>
                             </select>
-                            <button type="button" class="clear_button-1 float-start ms-9 mt-6" id="clear-button">{{
+                            <button type="button" class="clear_button-1 float-start mb-5 mb-lg-0 ms-md-9 mt-lg-6" id="clear-button">{{
                                 lang('Clear') }}</button>
-                            <button type="button" class="clear_button-2 me-9 float-end mt-6" onclick="selected()">{{
+                            <button type="button" class="clear_button-2 me-md-9 mb-5 mb-lg-0 float-end mt-lg-6" onclick="selected()">{{
                                 lang('Save') }}</button>
                         </div>
                     </div>
@@ -581,14 +581,117 @@
                     </button>
                 </div>
                 <div class="container-fluid">
-                <div class='row'>
-                <div class='col-12'>
-                <h3 class='mt-5'><b>keyword</b></h3>
-                <input type='text' class='form-control' id="planCatagories-12" placeholder='Enter a keyword'>
-                <ul class="dropdown-menu w-100 position-relative" id="categoryDropdown-12" style="top: -8px;"></ul>
-                </div>
+                <div class='row'>                    
+                    <div class='col-12'>
+                        <h3 class='mt-5'><b>keyword</b></h3>
+                        <input type='text' class='form-control' id="planCatagories-12" placeholder='Enter a keyword'>
+                        <ul class="dropdown-menu w-100 position-relative" id="categoryDropdown-12" style="top: -8px;"></ul>
+                    </div>
                 </div>
                 <div id="drop_tags" class="mt-3 fw-bold"></div>
+                <div class="row d-block d-md-none">
+                    <div class="col-12 my-3">
+                        <hr class='bg-dark'>
+                        <h3 class="mt-4"><b>Price</b></h3>
+                        <button type="button" id="guestsButton"
+                            class="btn btn-outline button-radias w-style dropdown-toggle text-dark btn_background px-0 w-100"
+                            data-bs-toggle="dropdown">
+                            {{ lang('Price') }} <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu price-nav" id="dropdownMenuPrice" role="menu">
+                            <div class="custom-controls-stacked">
+                                <form action="#" method="get" class="ms-2">
+                                    <div class="px-5 pt-5 pb-2">
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" onclick="selected()" class="custom-control-input" name="price"
+                                                value="5000">
+                                            <span
+                                                class="custom-control-label">{{ lang('0 to ') }}{{ 'SAR 5000' }}</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" onclick="selected()" class="custom-control-input" name="price"
+                                                value="10000">
+                                            <span
+                                                class="custom-control-label">{{ 'SAR 5000 to SAR 10000' }}</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" onclick="selected()" class="custom-control-input" name="price"
+                                                value="50000">
+                                            <span
+                                                class="custom-control-label">{{'SAR 10000 to SAR 50000'}}</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" onclick="selected()" class="custom-control-input" name="price"
+                                                value="50000">
+                                            <span
+                                                class="custom-control-label">{{'SAR 50000+' }}</span>
+                                        </label>
+                                    </div>
+                                    <div class="row mt-5 mb-1">
+                                        {{-- <div class="w-50">
+                                            <a type="button" onclick="$('input[name="price"]').prop('checked', false).val('')" class="float-start text-dark p-3">Clear</a>
+                                        </div> --}}
+                                        <div class="w-50">
+                                            <a type="button" onclick="selected()"
+                                                class="float-end bg-primary py-2 px-5 me-3 text-white" id="doneButton"><b>Done</b></a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </ul>
+                    </div>                   
+                    <div class="col-12">
+                        <h3 class="mt-4"><b>Attendees</b></h3>
+                        <button type="button" id="attendeesButton"
+                            class="btn btn-outline dropdown-toggle w-style button-radias text-dark btn_background"
+                            data-bs-toggle="dropdown">
+                            <span class="attendees- span_attendees">{{ lang('Attendees') }}</span> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu price-nav" id="dropdownMenuAttendees" role="menu">
+                            <div class="custom-controls-stacked">
+                                <form action="#" method="get" class="ms-2">
+                                    <div class="px-5 pt-5 pb-2">
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" onclick="selected()" class="custom-control-input" name="guests"
+                                                value="10">
+                                            <span class="custom-control-label">{{ lang('1 to 10') }}</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" onclick="selected()" class="custom-control-input" name="guests"
+                                                value="25">
+                                            <span class="custom-control-label">{{ lang('11 to 25') }}</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" onclick="selected()" class="custom-control-input" name="guests"
+                                                value="50">
+                                            <span class="custom-control-label">{{ lang('26 to 50') }}</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" onclick="selected()" class="custom-control-input" name="guests"
+                                                value="100">
+                                            <span class="custom-control-label">{{ lang('51 to 100') }}</span>
+                                        </label>
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" onclick="selected()" class="custom-control-input" name="guests"
+                                                value="500">
+                                            <span class="custom-control-label">{{ lang('Over 100') }}</span>
+                                        </label>
+                                    </div>
+                                    <div class="row mt-5 mb-1">
+                                        {{-- <div class="w-50">
+                                        <a type="button" id="guestsClear" class="float-start text-dark p-3">Clear</a>
+                                    </div> --}}
+                                        <div class="w-50">
+                                            <a type="button" onclick="selected()"
+                                                class="float-end bg-primary py-2 px-5 me-3 text-white"
+                                                id="doneButton"><b>Done</b></a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
                 <hr class='bg-dark'>
                     <h3 class='mt-5'><b>Outdoor Spaces</b></h3>
                     <div class="row">
