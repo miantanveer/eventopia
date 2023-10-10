@@ -535,6 +535,26 @@
         right: 100px;
         top: 120px;
     }
+    
+    @media screen and (min-width: 0px) and (max-width: 425px) {
+        .calendar-container-1 {
+            padding: 40px 5px 0 5px;
+        }
+    }
+
+    @media screen and (min-width: 0px) and (max-width: 425px) {
+        .week-f {
+            font-size: 0.6rem !important;
+        }
+    }
+
+    @media screen and (min-width: 0px) and (max-width: 320px) {
+        .canlader-posit {
+            position: relative;
+            width: 320px !important;
+            left: -24px !important;
+        }
+    }
 </style>
 @endsection
 
@@ -583,8 +603,8 @@
                         <input type="hidden" name="hidden" id="hiddenDate">
                         <div id="searchResults" class="w-100 search-content"></div>
                         <div id="addressDropdown" class="bg-white AdressDrop"></div>
-                        <div class="row w-100 bg-white calendarAndTimePicker" id="calendarAndTimePicker">
-                            <div class="col-6 calendar-container-1">
+                        <div class="row w-100 bg-white canlader-posit calendarAndTimePicker" id="calendarAndTimePicker">
+                            <div class="col-lg-6 calendar-container-1">
                                 <div class="calendar">
                                     <div class="year-header">
                                         <span class="left-button" id="prev"> <i class="fa fa-angle-double-left"></i>
@@ -596,29 +616,29 @@
                                     <table class="months-table">
                                         <tbody>
                                             <tr class="months-row">
-                                                <td class="month">{{lang('Jan')}}</td>
-                                                <td class="month">{{lang('Feb')}}</td>
-                                                <td class="month">{{lang('Mar')}}</td>
-                                                <td class="month">{{lang('Apr')}}</td>
-                                                <td class="month">{{lang('May')}}</td>
-                                                <td class="month">{{lang('June')}}</td>
-                                                <td class="month">{{lang('July')}}</td>
-                                                <td class="month">{{lang('Aug')}}</td>
-                                                <td class="month">{{lang('Sep')}}</td>
-                                                <td class="month">{{lang('Oct')}}</td>
-                                                <td class="month">{{lang('Nov')}}</td>
-                                                <td class="month">{{lang('Dec')}}</td>
+                                                <td class="month week-f">{{lang('Jan')}}</td>
+                                                <td class="month week-f">{{lang('Feb')}}</td>
+                                                <td class="month week-f">{{lang('Mar')}}</td>
+                                                <td class="month week-f">{{lang('Apr')}}</td>
+                                                <td class="month week-f">{{lang('May')}}</td>
+                                                <td class="month week-f">{{lang('June')}}</td>
+                                                <td class="month week-f">{{lang('July')}}</td>
+                                                <td class="month week-f">{{lang('Aug')}}</td>
+                                                <td class="month week-f">{{lang('Sep')}}</td>
+                                                <td class="month week-f">{{lang('Oct')}}</td>
+                                                <td class="month week-f">{{lang('Nov')}}</td>
+                                                <td class="month week-f">{{lang('Dec')}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <table class="days-table">
-                                        <td class="day">{{lang('Sun')}}</td>
-                                        <td class="day">{{lang('Mon')}}</td>
-                                        <td class="day">{{lang('Tue')}}</td>
-                                        <td class="day">{{lang('Wed')}}</td>
-                                        <td class="day">{{lang('Thu')}}</td>
-                                        <td class="day">{{lang('Fri')}}</td>
-                                        <td class="day">{{lang('Sat')}}</td>
+                                        <td class="day week-f">{{lang('Sun')}}</td>
+                                        <td class="day week-f">{{lang('Mon')}}</td>
+                                        <td class="day week-f">{{lang('Tue')}}</td>
+                                        <td class="day week-f">{{lang('Wed')}}</td>
+                                        <td class="day week-f">{{lang('Thu')}}</td>
+                                        <td class="day week-f">{{lang('Fri')}}</td>
+                                        <td class="day week-f">{{lang('Sat')}}</td>
                                     </table>
                                     <div class="frame">
                                         <table class="dates-table">
@@ -627,9 +647,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6 dialog" id="dialog">
-                                <h2 class="dialog-header mt-7">{{lang('Select Time')}}</h2>
-                                <div class="form-container mt-7 me-6" align="center">
+                            <div class="col-lg-6 dialog" id="dialog">
+                                <h2 class="dialog-header mt-lg-7">{{lang('Select Time')}}</h2>
+                                <div class="form-container mt-lg-7 ms-sm-6 ms-lg-0 me-sm-6" align="center">
                                     <label for="start_time"
                                         class="form-label mt-5 text-start startTime_label">{{lang('Start
                                         Time')}}</label>
@@ -714,9 +734,9 @@
                                         <option value="10:00 PM">11:00 {{lang('PM')}}</option>
                                         <option value="10:30 PM">11:30 {{lang('PM')}}</option>
                                     </select>
-                                    <button type="button" class="clear_button-1 float-start ms-9 mt-6"
+                                    <button type="button" class="clear_button-1 float-start mb-5 mb-lg-0 ms-md-9 mt-lg-6"
                                         id="clear-button">{{lang('Clear')}}</button>
-                                    <button type="button" class="clear_button-2 me-9 float-end mt-6"
+                                    <button type="button" class="clear_button-2 me-md-9 mb-5 mb-lg-0 float-end mt-lg-6"
                                         id="save_button-1">{{lang("Save")}}</button>
                                 </div>
                             </div>
@@ -774,8 +794,8 @@
             <input type="hidden" name="hidden" id="hiddenDate-1">
             <div id="searchResults-1" class="w-100 search-content"></div>
             <div id="addressDropdown-1" class="bg-white AdressDrop"></div>
-            <div class="row w-100 bg-white calendarAndTimePicker-1" id="calendarAndTimePicker-1">
-                <div class="col-6 calendar-container-1">
+            <div class="row w-100 bg-white canlader-posit calendarAndTimePicker-1" id="calendarAndTimePicker-1">
+                <div class="col-lg-6 calendar-container-1">
                     <div class="calendar">
                         <div class="year-header">
                             <span class="left-button" id="left-button"> <i class="fa fa-angle-double-left"></i>
@@ -787,29 +807,29 @@
                         <table class="months-table">
                             <tbody>
                                 <tr class="months-row-1">
-                                    <td class="month-1">{{lang("Jan")}}</td>
-                                    <td class="month-1">{{lang("Feb")}}</td>
-                                    <td class="month-1">{{lang("Mar")}}</td>
-                                    <td class="month-1">{{lang("Apr")}}</td>
-                                    <td class="month-1">{{lang("May")}}</td>
-                                    <td class="month-1">{{lang("June")}}</td>
-                                    <td class="month-1">{{lang("July")}}</td>
-                                    <td class="month-1">{{lang("Aug")}}</td>
-                                    <td class="month-1">{{lang("Sep")}}</td>
-                                    <td class="month-1">{{lang("Oct")}}</td>
-                                    <td class="month-1">{{lang("Nov")}}</td>
-                                    <td class="month-1">{{lang("Dec")}}</td>
+                                    <td class="month-1 week-f">{{lang("Jan")}}</td>
+                                    <td class="month-1 week-f">{{lang("Feb")}}</td>
+                                    <td class="month-1 week-f">{{lang("Mar")}}</td>
+                                    <td class="month-1 week-f">{{lang("Apr")}}</td>
+                                    <td class="month-1 week-f">{{lang("May")}}</td>
+                                    <td class="month-1 week-f">{{lang("June")}}</td>
+                                    <td class="month-1 week-f">{{lang("July")}}</td>
+                                    <td class="month-1 week-f">{{lang("Aug")}}</td>
+                                    <td class="month-1 week-f">{{lang("Sep")}}</td>
+                                    <td class="month-1 week-f">{{lang("Oct")}}</td>
+                                    <td class="month-1 week-f">{{lang("Nov")}}</td>
+                                    <td class="month-1 week-f">{{lang("Dec")}}</td>
                                 </tr>
                             </tbody>
                         </table>
                         <table class="days-table">
-                            <td class="day">{{lang("Sun")}}</td>
-                            <td class="day">{{lang("Mon")}}</td>
-                            <td class="day">{{lang("Tue")}}</td>
-                            <td class="day">{{lang("Wed")}}</td>
-                            <td class="day">{{lang("Thu")}}</td>
-                            <td class="day">{{lang("Fri")}}</td>
-                            <td class="day">{{lang("Sat")}}</td>
+                            <td class="day week-f">{{lang("Sun")}}</td>
+                            <td class="day week-f">{{lang("Mon")}}</td>
+                            <td class="day week-f">{{lang("Tue")}}</td>
+                            <td class="day week-f">{{lang("Wed")}}</td>
+                            <td class="day week-f">{{lang("Thu")}}</td>
+                            <td class="day week-f">{{lang("Fri")}}</td>
+                            <td class="day week-f">{{lang("Sat")}}</td>
                         </table>
                         <div class="frame">
                             <table class="dates-table">
@@ -818,9 +838,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 dialog" id="dialog">
-                    <h2 class="dialog-header mt-7">{{lang("Select Time")}}</h2>
-                    <div class="form-container mt-7 me-6" align="center">
+                <div class="col-lg-6 dialog" id="dialog">
+                    <h2 class="dialog-header mt-lg-7">{{lang("Select Time")}}</h2>
+                    <div class="form-container mt-lg-7 ms-sm-6 ms-lg-0 me-sm-6" align="center">
                         <label for="start_time" class="form-label mt-5 text-start startTime_label">{{lang("Start
                             Time")}}</label>
                         <select name="start_time" class="Select_Time form-select mb-5" id="start_time_1" disabled>
@@ -902,9 +922,9 @@
                             <option value="10:00 PM">11:00 {{lang("PM")}}</option>
                             <option value="10:30 PM">11:30 {{lang("PM")}}</option>
                         </select>
-                        <button type="button" class="clear_button-1 ms-9 float-start mt-6"
+                        <button type="button" class="clear_button-1 float-start mb-5 mb-lg-0 ms-md-9 mt-lg-6"
                             id="clear-button1">{{lang('Clear')}}</button>
-                        <button type="button" class="clear_button-2 me-9 float-end mt-6"
+                        <button type="button" class="clear_button-2 me-md-9 mb-5 mb-lg-0 float-end mt-lg-6"
                             id="save_button-2">{{lang("Save")}}</button>
                     </div>
                 </div>
@@ -1292,8 +1312,8 @@
             <input type="hidden" name="hidden" id="hiddenDate-2">
             <div id="searchResults-2" class="w-100 search-content"></div>
             <div id="addressDropdown-2" class="bg-white AdressDrop"></div>
-            <div class="row w-100 bg-white calendarAndTimePicker-2" id="calendarAndTimePicker-2">
-                <div class="col-6 calendar-container-1">
+            <div class="row w-100 bg-white canlader-posit calendarAndTimePicker-2" id="calendarAndTimePicker-2">
+                <div class="col-lg-6 calendar-container-1">
                     <div class="calendar">
                         <div class="year-header">
                             <span class="left-button" id="left-button-2"> <i class="fa fa-angle-double-left"></i>
@@ -1302,32 +1322,32 @@
                             <span class="right-button" id="right-button-2"> <i class="fa fa-angle-double-right"></i>
                             </span>
                         </div>
-                        <table class="months-table">
+                        <table class="months-table mt-4">
                             <tbody>
                                 <tr class="months-row-2">
-                                    <td class="month-2">{{lang("Jan")}}</td>
-                                    <td class="month-2">{{lang("Feb")}}</td>
-                                    <td class="month-2">{{lang("Mar")}}</td>
-                                    <td class="month-2">{{lang("Apr")}}</td>
-                                    <td class="month-2">{{lang("May")}}</td>
-                                    <td class="month-2">{{lang("June")}}</td>
-                                    <td class="month-2">{{lang("July")}}</td>
-                                    <td class="month-2">{{lang("Aug")}}</td>
-                                    <td class="month-2">{{lang("Sep")}}</td>
-                                    <td class="month-2">{{lang("Oct")}}</td>
-                                    <td class="month-2">{{lang("Nov")}}</td>
-                                    <td class="month-2">{{lang("Dec")}}</td>
+                                    <td class="month-2 week-f">{{lang("Jan")}}</td>
+                                    <td class="month-2 week-f">{{lang("Feb")}}</td>
+                                    <td class="month-2 week-f">{{lang("Mar")}}</td>
+                                    <td class="month-2 week-f">{{lang("Apr")}}</td>
+                                    <td class="month-2 week-f">{{lang("May")}}</td>
+                                    <td class="month-2 week-f">{{lang("June")}}</td>
+                                    <td class="month-2 week-f">{{lang("July")}}</td>
+                                    <td class="month-2 week-f">{{lang("Aug")}}</td>
+                                    <td class="month-2 week-f">{{lang("Sep")}}</td>
+                                    <td class="month-2 week-f">{{lang("Oct")}}</td>
+                                    <td class="month-2 week-f">{{lang("Nov")}}</td>
+                                    <td class="month-2 week-f">{{lang("Dec")}}</td>
                                 </tr>
                             </tbody>
                         </table>
                         <table class="days-table">
-                            <td class="day">{{lang("Sun")}}</td>
-                            <td class="day">{{lang("Mon")}}</td>
-                            <td class="day">{{lang("Tue")}}</td>
-                            <td class="day">{{lang("Wed")}}</td>
-                            <td class="day">{{lang("Thu")}}</td>
-                            <td class="day">{{lang("Fri")}}</td>
-                            <td class="day">{{lang("Sat")}}</td>
+                            <td class="day week-f">{{lang("Sun")}}</td>
+                            <td class="day week-f">{{lang("Mon")}}</td>
+                            <td class="day week-f">{{lang("Tue")}}</td>
+                            <td class="day week-f">{{lang("Wed")}}</td>
+                            <td class="day week-f">{{lang("Thu")}}</td>
+                            <td class="day week-f">{{lang("Fri")}}</td>
+                            <td class="day week-f">{{lang("Sat")}}</td>
                         </table>
                         <div class="frame">
                             <table class="dates-table">
@@ -1336,9 +1356,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6 dialog" id="dialog">
-                    <h2 class="dialog-header mt-7">{{lang("Select Time")}}</h2>
-                    <div class="form-container mt-7 me-6" align="center">
+                <div class="col-lg-6 dialog" id="dialog">
+                    <h2 class="dialog-header mt-lg-7">{{lang("Select Time")}}</h2>
+                    <div class="form-container mt-lg-7 ms-sm-6 ms-lg-0 me-sm-6" align="center">
                         <label for="start_time" class="form-label mt-5 text-start startTime_label">{{lang("Start
                             Time")}}</label>
                         <select name="start_time" class="Select_Time form-select mb-5" id="start_time_2" disabled>
@@ -1420,9 +1440,9 @@
                             <option value="10:00 PM">11:00 {{lang("PM")}}</option>
                             <option value="10:30 PM">11:30 {{lang("PM")}}</option>
                         </select>
-                        <button type="button" class="clear_button-1 ms-9 float-start mt-6"
+                        <button type="button" class="clear_button-1 float-start mb-5 mb-lg-0 ms-md-9 mt-lg-6"
                             id="clear-button2">{{lang('Clear')}}</button>
-                        <button type="button" class="clear_button-2 me-9 float-end mt-6"
+                        <button type="button" class="clear_button-2 me-md-9 mb-5 mb-lg-0 float-end mt-lg-6"
                             id="save_button-3">{{lang("Save")}}</button>
                     </div>
                 </div>
