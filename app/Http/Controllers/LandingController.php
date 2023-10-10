@@ -19,6 +19,7 @@ class LandingController extends UserBaseController
 {
     public function search(Request $req, $type)
     {
+        $formattedDate = '';
         if ($req->has('date')) {
             $dateString = $req->date;
             $dateTime = new DateTime($dateString);
@@ -47,54 +48,59 @@ class LandingController extends UserBaseController
                             if ($price == $range) {
                                 return $query->whereBetween('price', [$priceRanges[$index - 1], $priceRanges[$index]]);
                                 break;
-                            } elseif ($price == '50000') {
-                                $query->where('price', '>=', 50000);
+                            } elseif ($price == '10000') {
+                                $query->where('price', '>=', 5000);
                                 break;
                             }
                         };
                     });
-                })->whereLastSteps('step-7')->whereStatus(1)->inRandomOrder()->paginate(12);
+                })->whereLastSteps('step-7')->whereStatus(1)->inRandomOrder()->get();
             $this->type = 'service';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
             $this->data = view('content.components.__service', ['listing' => $this->listing])->render();
 
             return response()->json($this->data);
-
         } elseif ($type == 'entertainment') {
             $this->listing = Entertainment::where(function ($query) use ($req) {
                 $query->when($req->price !== null, function ($subquery) use ($req) {
-                    $subquery->whereHas('entertainmentActivities', function ($subquery) use ($req) {
-                        if ($req->has('price')) {
-                            $price = $req->price;
-                            $priceRanges = [0, 5000, 10000, 50000, 99999];
+                    $subquery->whereHas(
+                        'entertainmentActivities',
+                        function ($subquery) use ($req) {
+                            if ($req->has('price')) {
+                                $price = $req->price;
+                                $priceRanges = [0, 5000, 10000, 50000, 99999];
 
-                            foreach ($priceRanges as $index => $range) {
-                                if ($price == $range) {
-                                    return $subquery->whereBetween('hourly_rate', [$priceRanges[$index - 1], $priceRanges[$index]]);
-                                    break;
-                                } elseif ($price == '50000') {
-                                    $subquery->where('hourly_rate', '>=', 50000);
-                                    break;
+                                foreach ($priceRanges as $index => $range) {
+                                    if ($price == $range) {
+                                        return $subquery->whereBetween('hourly_rate', [$priceRanges[$index - 1], $priceRanges[$index]]);
+                                        break;
+                                    } elseif ($price == '1000') {
+                                        $subquery->where('hourly_rate', '>=', 1000);
+                                        break;
+                                    }
                                 }
                             }
-                        }}
+                        }
                     );
                 });
                 $query->when($req->attendees !== null, function ($subquery) use ($req) {
-                    $subquery->whereHas('entertainmentActivities', function ($subquery) use ($req) {
-                        $attendees = $req->attendees;
-                        $attendeesRanges = [0, 10, 25, 50, 100, 499];
+                    $subquery->whereHas(
+                        'entertainmentActivities',
+                        function ($subquery) use ($req) {
+                            $attendees = $req->attendees;
+                            $attendeesRanges = [0, 10, 25, 50, 100, 499];
 
-                        foreach ($attendeesRanges as $index => $range) {
-                            if ($attendees == $range) {
-                                $subquery->whereBetween('guest_capacity', [$attendeesRanges[$index - 1], $attendeesRanges[$index]]);
-                                break;
-                            } elseif ($attendees == '500') {
-                                $subquery->where('guest_capacity', '>=', 500);
-                                break;
+                            foreach ($attendeesRanges as $index => $range) {
+                                if ($attendees == $range) {
+                                    $subquery->whereBetween('guest_capacity', [$attendeesRanges[$index - 1], $attendeesRanges[$index]]);
+                                    break;
+                                } elseif ($attendees == '500') {
+                                    $subquery->where('guest_capacity', '>=', 500);
+                                    break;
+                                }
                             }
-                        }}
+                        }
                     );
                 });
             })
@@ -133,64 +139,65 @@ class LandingController extends UserBaseController
                             });
                         });
                 })->whereLastSteps('step-9')->whereStatus(1)
-                ->inRandomOrder()->paginate(12);
+                ->inRandomOrder()->get();
             $this->type = 'entertainment';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
             $this->data = view('content.components.__entertainment', ['listing' => $this->listing])->render();
 
             return response()->json($this->data);
-
         } elseif ($type == 'space') {
             $this->listing = Space::where(function ($query) use ($req) {
                 // Price Filter
-                    $query->where(function ($subquery) use ($req) {
-                        $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
-                            $price = $req->price;
-                            $priceRanges = [0, 5000, 10000, 50000, 99999];
-    
-                            if ($price == '50000') {
-                                $subquery->where('rate_per_hour', '>=', 50000);
-                            } else {
-                                if($price >= 5000) {
-                                    foreach ($priceRanges as $index => $range) {
-                                        if ($price == $range) {
-                                            $lastIndex =  $priceRanges[$index-1];
-                                            $subquery->whereBetween('rate_per_hour', [$lastIndex, $priceRanges[$index]]);
-                                            break;
-                                        }
+                $query->when(isset($req->price), function ($subquery) use ($req) {
+                    $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
+                        $price = $req->price;
+                        $priceRanges = [0, 5000, 10000, 50000, 99999];
+
+                        if ($price == '50000') {
+                            $subquery->where('rate_per_hour', '>=', 50000);
+                        } else {
+                            if ($price >= 5000) {
+                                foreach ($priceRanges as $index => $range) {
+                                    if ($price == $range) {
+                                        $lastIndex =  $priceRanges[$index - 1];
+                                        $subquery->whereBetween('rate_per_hour', [$lastIndex, $priceRanges[$index]]);
+                                        break;
                                     }
                                 }
                             }
-                        });
+                        }
                     });
-    
-                    // Guests Filter
-                    $query->where(function ($subquery) use ($req) {
-                        $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
-                            $attendees = $req->attendees;
-                            $attendeesRanges = [0, 10, 25, 50, 100, 499];
-    
-                            if ($attendees == '500') {
-                                $subquery->where('max_guests', '>=', 500);
-                            } else {
-                                if($attendees >= 10) {
-                                    foreach ($attendeesRanges as $index => $range) {
-                                        if ($attendees == $range) {
-                                            $lastIndex =  $attendeesRanges[$index-1];
-                                            $subquery->whereBetween('max_guests', [$lastIndex, $attendeesRanges[$index]]);
-                                            break;
-                                        }
+                });
+
+                // Guests Filter
+                $query->when(isset($req->attendees), function ($subquery) use ($req) {
+                    $subquery->whereHas('spaceHaveActivities', function ($subquery) use ($req) {
+                        $attendees = $req->attendees;
+                        $attendeesRanges = [0, 10, 25, 50, 100, 499];
+
+                        if ($attendees == '500') {
+                            $subquery->where('max_guests', '>=', 500);
+                        } else {
+                            if ($attendees >= 10) {
+                                foreach ($attendeesRanges as $index => $range) {
+                                    if ($attendees == $range) {
+                                        $lastIndex =  $attendeesRanges[$index - 1];
+                                        $subquery->whereBetween('max_guests', [$lastIndex, $attendeesRanges[$index]]);
+                                        break;
                                     }
                                 }
                             }
-                        });
+                        }
                     });
+                });
             })
                 ->orWhere(function ($query) use ($req, $formattedDate) {
-                    $query->where('space_title', $req->keyword)
-                        ->orWhere('space_description', $req->keyword)
+                    $query->when($req->has('keyword') || $req->has('address') || $req->has('price') || $req->has('attendees') || $req->has('startTime') || $req->has('endTime'),
+                    function($query) use($req,$formattedDate){
+                        $query->where('space_title', $req->keyword)
                         ->orWhere('country', $req->address)
+                        ->orWhere('space_description', $req->keyword)
                         ->orWhere(function ($subquery) use ($req) {
                             $subquery->whereHas('spaceHaveActivities.activities', function ($subquery) use ($req) {
                                 $subquery->whereTitle($req->keyword);
@@ -202,7 +209,7 @@ class LandingController extends UserBaseController
                                     $subquery->whereName($req->keyword);
                                 });
                         })
-                        ->orWhereHas('operatingDays', function ($subquery) use ($req) {
+                        ->whereHas('operatingDays', function ($subquery) use ($req) {
                             $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
                                 $subquery->whereStartTime($req->startTime)->whereEndTime($req->endTime);
                             });
@@ -219,9 +226,9 @@ class LandingController extends UserBaseController
                                     ->where('end_time', '!==', $req->endTime);
                             });
                         });
-                })->whereStatus('1')
-                ->whereLastStep('10')->whereStatus(1)
-                ->inRandomOrder()->paginate(12);
+                    });
+                })
+                ->whereStatus('1')->whereLastStep('10')->whereStatus(1)->inRandomOrder()->get();
             $this->type = 'space';
             $this->count = $this->listing->count();
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
@@ -342,5 +349,4 @@ class LandingController extends UserBaseController
 
         return response()->json($res, 200);
     }
-
 }
