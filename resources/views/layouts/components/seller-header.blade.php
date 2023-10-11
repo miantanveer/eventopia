@@ -5,10 +5,10 @@
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle text-white" data-bs-toggle="sidebar"
                 href="javascript:void(0)"></a>
             <!-- sidebar-toggle-->
-            <a class="logo-horizontal " href="{{url('/dashboard')}}">
-                <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img desktop-logo"
+            <a class="logo-horizontal " href="{{ url('/dashboard') }}">
+                <img src="{{ asset('assets/images/brand/white-logo1.png') }}" class="header-brand-img desktop-logo"
                     alt="logo">
-                <img src="{{asset('assets/images/brand/white-logo1.png')}}" class="header-brand-img light-logo1"
+                <img src="{{ asset('assets/images/brand/white-logo1.png') }}" class="header-brand-img light-logo1"
                     alt="logo">
             </a>
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
@@ -31,27 +31,27 @@
                             </div>
 
                             <div class="d-flex seller-btn">
-                                <a class="nav-link border py-3 px-5 m-2 active text-white" href="{{URL('/dashboard')}}"
-                                    role="tab" aria-selected="true">
-                                    {{lang('Customer Page')}}
+                                <a class="nav-link border py-3 px-5 m-2 active text-white"
+                                    href="{{ URL('/dashboard') }}" role="tab" aria-selected="true">
+                                    {{ lang('Customer Page') }}
                                 </a>
                             </div>
                             <div class="d-flex seller-btn">
                                 <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true"
-                                    href="{{URL('my-listings')}}">
-                                    {{lang('Listing')}}
+                                    href="{{ URL('my-listings') }}">
+                                    {{ lang('Listing') }}
                                 </a>
                             </div>
                             <div class="d-flex seller-btn">
                                 <a class="nav-link py-3 px-5 m-2 active text-white" role="tab" aria-selected="true"
-                                    href="{{URL('bookings')}}">
-                                    {{lang('Booking')}}
+                                    href="{{ URL('bookings') }}">
+                                    {{ lang('Booking') }}
                                 </a>
                             </div>
                             <div class="d-flex seller-btn">
-                                <a class="nav-link py-3 px-5 m-2 active text-white" href="{{URL('/calendar')}}"
+                                <a class="nav-link py-3 px-5 m-2 active text-white" href="{{ URL('/calendar') }}"
                                     role="tab" aria-selected="true">
-                                    {{lang('Calendar')}}
+                                    {{ lang('Calendar') }}
                                 </a>
                             </div>
 
@@ -59,21 +59,24 @@
                             <div class="dropdown d-flex profile-1">
                                 <a href="javascript:void(0)" data-bs-toggle="dropdown"
                                     class="nav-link leading-none d-flex">
-                                    <img src="{{auth()->user()->image !== null ? s3Link(auth()->user()->image) : asset('assets/images/users/profile.png')}}" alt="profile-user"
-                                        class="avatar  profile-user brround cover-image">
+                                    <img @if (Auth::check()) src="{{ isset(auth()->user()->image) ? s3Link(auth()->user()->image) : asset('assets/images/users/profile.png') }}"
+                                                @else    
+                                                src="{{ asset('assets/images/users/profile.png') }}" @endif
+                                        alt="profile-user" class="avatar profile-user brround cover-image">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
 
-                                    @if(Auth::check())
-                                    <a class="dropdown-item" href="{{url('/edit-profile')}}">
-                                        <i class="dropdown-icon fe fe-home"></i> {{lang('Manage Account')}}
-                                    </a>
-                                    <a class="dropdown-item" href="{{url('/edit-profile')}}">
-                                        <i class="dropdown-icon fe fe-user"></i> {{lang('Dashboard')}}
-                                    </a>
+                                    @if (Auth::check())
+                                        <a class="dropdown-item" href="{{ url('/edit-profile') }}">
+                                            <i class="dropdown-icon fe fe-home"></i> {{ lang('Manage Account') }}
+                                        </a>
+                                        <a class="dropdown-item" href="{{ url('/edit-profile') }}">
+                                            <i class="dropdown-icon fe fe-user"></i> {{ lang('Dashboard') }}
+                                        </a>
                                     @endif
-                                    <a class="dropdown-item" href="{{route('login')}}">
-                                        <i class="dropdown-icon fe fe-alert-circle"></i> {{Auth::check() ? lang('Sign in') : lang('Sign out')}}
+                                    <a class="dropdown-item" href="{{ route('login') }}">
+                                        <i class="dropdown-icon fe fe-alert-circle"></i>
+                                        {{ Auth::check() ? lang('Sign in') : lang('Sign out') }}
                                     </a>
                                 </div>
                             </div>
