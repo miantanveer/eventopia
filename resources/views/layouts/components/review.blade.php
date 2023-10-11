@@ -13,14 +13,14 @@
                     {{lang('Review & Pay')}}
                 </div>
                 <div class="card-body">
-                    <div class="row m-3 border-bottom py-2">
+                    {{-- <div class="row m-3 border-bottom py-2">
                         <div class="col-6">
                             {{lang('Discount')}}
                         </div>
                         <div class="col-6 text-end">
                             {{ @$discount }}%
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="row m-3 border-bottom py-2">
                         <div class="col-6">
                             {{lang('SubTotal')}}
