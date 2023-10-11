@@ -24,7 +24,7 @@
                                         <div class="d-flex seller-btn">
                                             <a href="{{ URL('/seller-dashboard') }}"><button
                                                     class="btn-pill p-2 text-white bg-custom-black">{{ lang('Become a
-                                                                                                        Seller') }}</button></a>
+                                                                                                                                                            Seller') }}</button></a>
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
@@ -51,7 +51,8 @@
                                         @endphp
                                         <div class="dropdown  d-flex notifications">
                                             <a class="nav-link icon text-dark" data-bs-toggle="dropdown"><i
-                                                    class="fe fe-bell"></i><span class="{{ $notifies->count() > 0 ? 'pulse' : ''}}"></span>
+                                                    class="fe fe-bell"></i><span
+                                                    class="{{ $notifies->count() > 0 ? 'pulse' : '' }}"></span>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <div class="drop-heading border-bottom">
@@ -104,24 +105,32 @@
                                         <div class="dropdown d-flex profile-1">
                                             <a href="javascript:void(0)" data-bs-toggle="dropdown"
                                                 class="nav-link leading-none d-flex">
-                                                <img src="{{ auth()->check() ? s3Link(auth()->user()->image) :  asset('assets/images/users/profile.png') }}"
+                                                <img src="{{ auth()->check() ? s3Link(auth()->user()->image) : asset('assets/images/users/profile.png') }}"
                                                     alt="profile-user" class="avatar profile-user brround cover-image">
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                                <a class="dropdown-item" href="{{ route('dashboard') }}">
-                                                    <i class="dropdown-icon fe fe-home"></i> {{ lang('Dashboard') }}
-                                                </a>
-                                                <a class="dropdown-item" href="{{ route('edit-profile-index') }}">
-                                                    <i class="dropdown-icon fe fe-user"></i>
-                                                    {{ lang('Manage Account') }}
-                                                </a>
-                                                <form method="POST" action="{{ route('logout') }}">
-                                                    @csrf
-                                                    <button class="dropdown-item">
+                                                @if (Auth::check())
+                                                    <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                                        <i class="dropdown-icon fe fe-home"></i>
+                                                        {{ lang('Dashboard') }}
+                                                    </a>
+                                                    <a class="dropdown-item" href="{{ route('edit-profile-index') }}">
+                                                        <i class="dropdown-icon fe fe-user"></i>
+                                                        {{ lang('Manage Account') }}
+                                                    </a>
+                                                    <form method="POST" action="{{ route('logout') }}">
+                                                        @csrf
+                                                        <button class="dropdown-item">
+                                                            <i class="dropdown-icon fe fe-alert-circle"></i>
+                                                            {{ lang('Sign out') }}
+                                                        </button>
+                                                    </form>
+                                                @else
+                                                    <a class="dropdown-item" href="{{ route('login') }}">
                                                         <i class="dropdown-icon fe fe-alert-circle"></i>
-                                                        {{ lang('Sign out') }}
-                                                    </button>
-                                                </form>
+                                                        {{ lang('Sign in') }}
+                                                    </a>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
