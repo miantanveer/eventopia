@@ -93,7 +93,7 @@ class AuthenticationController extends UserBaseController
 
                 Auth::login($user);
 
-                return response()->json(['token'=>$user->createToken($req->email)->plainTextToken,'email' => $req->email ?? '', 'phoneNumber' => $req->phoneNumber ?? '', 'success', 'Otp Matched Successfully.'], 200);
+                return response()->json(['user'=>$user,'token'=>$user->createToken($req->email)->plainTextToken,'email' => $req->email ?? '', 'phoneNumber' => $req->phoneNumber ?? '', 'success', 'Otp Matched Successfully.'], 200);
 
             } else if ($req->sendFor == 'forget_password') {
 
