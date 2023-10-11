@@ -137,10 +137,6 @@ if (!function_exists('orderStore')) {
 if (!function_exists('s3Link')) {
     function s3Link($link)
     {
-        if(Storage::disk('s3')->exists($link)){
-            return $link ? Storage::disk("s3")->url($link) : null;
-        }else{
-            return $link;
-        }
+        return $link ? Storage::disk("s3")->url($link) : null;
     }
 }
