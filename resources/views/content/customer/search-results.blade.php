@@ -830,6 +830,11 @@
                 top: -10px;
             }
         }
+        @media(min-width: 0) and (max-width: 575px){
+            #global-helper{
+                z-index: 9998 !important;
+            }
+        }
     </style>
 @endsection
 
