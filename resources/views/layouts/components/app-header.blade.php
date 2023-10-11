@@ -23,13 +23,13 @@
                                     <div class="d-flex order-lg-2">
                                         <div class="d-flex seller-btn">
                                             <a href="{{ URL('/seller-dashboard') }}"><button
-                                                    class="btn-pill p-2 text-white bg-custom-black">{{lang('Become a
-                                                    Seller')}}</button></a>
+                                                    class="btn-pill p-2 text-white bg-custom-black">{{ lang('Become a
+                                                                                                        Seller') }}</button></a>
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
-                                            <a class="nav-link icon text-center text-dark" data-bs-target="#country-selector"
-                                                data-bs-toggle="modal">
+                                            <a class="nav-link icon text-center text-dark"
+                                                data-bs-target="#country-selector" data-bs-toggle="modal">
                                                 <i class="fe fe-globe"></i><span
                                                     class="fs-16 ms-2 d-none d-xl-block"></span>
                                             </a>
@@ -42,28 +42,32 @@
                                                 <span class="light-layout"><i class="fe fe-sun"></i></span>
                                             </a>
                                         </div>
+                                        @php
+                                            $notifies = \App\Models\Notification::whereIsRead(0)
+                                                ->whereHas('quote', function ($query) {
+                                                    $query->where('status', 1);
+                                                })
+                                                ->get();
+                                        @endphp
                                         <div class="dropdown  d-flex notifications">
                                             <a class="nav-link icon text-dark" data-bs-toggle="dropdown"><i
-                                                    class="fe fe-bell"></i><span class="pulse"></span>
+                                                    class="fe fe-bell"></i><span class="{{ $notifies->count() > 0 ? 'pulse' : ''}}"></span>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <div class="drop-heading border-bottom">
                                                     <div class="d-flex">
-                                                        <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark">{{lang('Notifications')}}
+                                                        <h6 class="mt-1 mb-0 fs-16 fw-semibold text-dark">
+                                                            {{ lang('Notifications') }}
                                                         </h6>
                                                     </div>
                                                 </div>
                                                 <div class="notifications-menu">
-                                                    @php
-                                                        $notifies = \App\Models\Notification::whereIsRead(0)->whereHas('quote', function ($query) {
-                                                            $query->where('status', 1);
-                                                        })->get();
-                                                    @endphp
+
                                                     <div id="notify_service"></div>
                                                     @foreach (@$notifies as $notify)
                                                         @if (@$notify->type == 'service')
                                                             <a class="dropdown-item d-flex"
-                                                                onclick="quoteModal('{{ route('load_accept_quote', @$notify->id) }}')">
+                                                                onclick="quoteModal('{{ route('load_accept_quote', @$notify->quote_id) }}')">
                                                                 <div
                                                                     class="me-3 notifyimg bg-primary brround box-shadow-primary">
                                                                     <i class="fe fe-dollar-sign"></i>
@@ -94,8 +98,7 @@
                                                 </div>
                                                 <div class="dropdown-divider m-0"></div>
                                                 <a href="{{ route('notifications') }}"
-                                                    class="dropdown-item text-center p-3 text-muted">{{lang('View all
-                                                    Notification')}}</a>
+                                                    class="dropdown-item text-center p-3 text-muted">{{ lang('View all Notification') }}</a>
                                             </div>
                                         </div>
                                         <div class="dropdown d-flex profile-1">
@@ -106,15 +109,17 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                                 <a class="dropdown-item" href="{{ route('dashboard') }}">
-                                                    <i class="dropdown-icon fe fe-home"></i> {{lang('Dashboard')}}
+                                                    <i class="dropdown-icon fe fe-home"></i> {{ lang('Dashboard') }}
                                                 </a>
                                                 <a class="dropdown-item" href="{{ route('edit-profile-index') }}">
-                                                    <i class="dropdown-icon fe fe-user"></i> {{lang('Manage Account')}}
+                                                    <i class="dropdown-icon fe fe-user"></i>
+                                                    {{ lang('Manage Account') }}
                                                 </a>
                                                 <form method="POST" action="{{ route('logout') }}">
                                                     @csrf
                                                     <button class="dropdown-item">
-                                                        <i class="dropdown-icon fe fe-alert-circle"></i> {{lang('Sign out')}}
+                                                        <i class="dropdown-icon fe fe-alert-circle"></i>
+                                                        {{ lang('Sign out') }}
                                                     </button>
                                                 </form>
                                             </div>

@@ -174,7 +174,7 @@ class DashboardController extends UserBaseController
                 User::find(auth()->user()->id)->update(['image' => $foldername . $filename]);
             }
 
-            User::find(auth()->user()->id)->update($data);
+            User::find(auth()->user()->id)->update($data); 
 
             return back()->with('success', 'Profile updated successfully.');
         } catch (\Throwable $th) {

@@ -187,9 +187,9 @@ class ListingSpaceController extends UserBaseController
             $filename = '';
             if ($req->hasFile('file')) {
                 $image = $req->file;
-                $foldername = '/uploads/seller/spaces/';
+                $foldername = 'uploads/seller/spaces/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
-                $image->move(public_path() . $foldername, $filename);
+                Storage::disk("s3")->putFileAs($foldername, $image, $filename);
             }
 
             Space::find($space_id)->update(["last_step" => '4']);
@@ -474,9 +474,9 @@ class ListingSpaceController extends UserBaseController
 
             if (isset($req->c_u_img)) {
                 $image = $req->c_u_img;
-                $foldername = '/uploads/seller/spaces/contact_user/';
+                $foldername = 'uploads/seller/spaces/contact_user/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path() . $foldername, $filename);
+                Storage::disk("s3")->putFileAs($foldername, $image, $filename);
                 $space->update(['c_u_img' => $foldername . $filename]);
             }
 

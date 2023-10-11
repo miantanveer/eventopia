@@ -16,7 +16,7 @@
                             <tr>
                                 <td>
                                     <a href="--link--">
-                                        <img src="assets/images/brand/logo13.png" alt="Company Logo" style="max-width: 100%; height: auto; padding: 20px 0px 0px 0px;">
+                                        <img src="https://staging.eventopia4u.com/assets/images/brand/logo13.png" alt="Company Logo" style="max-width: 100%; height: auto; padding: 20px 0px 0px 0px;">
                                     </a>
                                 </td>
                             </tr>
@@ -65,7 +65,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td style="width: 100%; padding: 0 5px; text-align: center; background: #dfe6e9;">
-                                                                    <h2 style="padding: 30px 30px 30px 30px; width: 100% "><b style="margin-right: 60px !important;">{{$otp}}</b></h2>
+                                                                    <h2 style="padding: 30px 30px 30px 30px; width: 100% "><b style="margin-right: 60px !important;">{{@$otp}}</b></h2>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -79,7 +79,7 @@
                                                             <tr>
                                                                 <td style="width: 50%;">
                                                                     <h2 style="padding: 0px 30px 0px 0px; width: 100%"><a href="--link--">
-                                                                            <img src="assets/images/brand/logo13.png" alt="Company Logo" style="max-width: 100%; height: auto; padding: 20px 0px 0px 0px;">
+                                                                            <img src="https://staging.eventopia4u.com/assets/images/brand/logo13.png" alt="Company Logo" style="max-width: 100%; height: auto; padding: 20px 0px 0px 0px;">
                                                                         </a></h2>
                                                                 </td>
                                                                 <td style="width: 50%;">

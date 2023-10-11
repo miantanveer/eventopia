@@ -107,14 +107,9 @@
                                 <div class="form-group">
                                     <label for="exampleInputPhone2">{{lang('Phone Number')}}</label>
                                     <div class="">
-                                        <input type="text" class="form-control @error('phone_number') border-danger @enderror" id="exampleInputPhone2"
-                                            name="phone_number" placeholder="Phone Number" required
-                                            data-parsley-required-message="{{lang('Phone Number is required*')}}">
+                                        <input type="text" class="form-control " id="exampleInputPhone2"
+                                            name="phone_number" placeholder="Phone Number">
                                     </div>
-                                    @error('phone_number')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                    <span class="text-danger" id="phone_number_err"> </span>
                                 </div>
 
                                 <div class="mb-3">
@@ -144,14 +139,9 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">{{lang('Email address')}}</label>
                                 <div class="">
-                                    <input type="email" name="email" class="form-control @error('email') border-danger @enderror" id="exampleInputEmail1"
-                                        placeholder="Email address" required
-                                        data-parsley-required-message="{{lang('Email is required*')}}">
+                                    <input type="email" name="email" class="form-control " id="exampleInputEmail1"
+                                        placeholder="Email address" >
                                 </div>
-                                @error('email')
-                                    <div class="text-danger">{{ $message }}</div>
-                                @enderror
-                                <span class="text-danger" id="email_err"> </span>
                             </div>
                         </div>
                         <div class="row">
@@ -160,15 +150,9 @@
                                     <label for="exampleInputname">{{lang('Password')}}</label>
                                     <div class="d-flex align-items-center input-container">
                                         <input type="password"
-                                            class="form-control @error('password') border-danger @enderror"
-                                            name="password" id="password"
-                                            data-parsley-required-message="Password is required*" required
-                                            data-parsley-errors-container="#password_err">
+                                            class="form-control"
+                                            name="password" id="password">
                                     </div>
-                                    @error('password')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                    <span class="text-danger" id="password_err"></span>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
@@ -176,15 +160,11 @@
                                     <label for="exampleInputname1">{{lang('Confirm Password')}}</label>
                                     <div class="d-flex align-items-center input-container">
                                         <input type="password"
-                                            class="form-control @error('password') border-danger @enderror"
+                                            class="form-control "
                                             name="password_confirmation" id="cpassword" data-parsley-equalto="#password"
                                             required data-parsley-required-message="Confirm Password is required*"
                                             data-parsley-errors-container="#cpassword_err">
                                     </div>
-                                    @error('password')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                    <span class="text-danger" id="cpassword_err"></span>
                                 </div>
                             </div>
                         </div>

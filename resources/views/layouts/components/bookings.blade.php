@@ -1,5 +1,4 @@
 @extends('layouts.seller-web-layout')
-
 @section('styles')
 <style>
     .page-main {
