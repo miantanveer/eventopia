@@ -158,23 +158,15 @@ class DashboardController extends UserBaseController
                 $userWithPhoneNumber->delete();
             }
 
-            $userWithEmail = User::whereEmail($req->email)->first();
-
-            if ($userWithEmail && $userWithEmail->email_verified_at && $userWithEmail->password) {
-                return redirect()->back()->with('error', 'Email has been taken');
-            } elseif ($userWithEmail && $userWithEmail->status == 2) {
-                $userWithEmail->delete();
-            }
-
             if ($req->hasFile('image')) {
                 $image = $req->file('image');
                 $foldername = 'uploads/customer/profile_pic/';
                 $filename = time() . '-' . rand(00000, 99999) . '.' . $image->extension();
                 Storage::disk("s3")->putFileAs($foldername, $image, $filename);
-                User::find(auth()->user()->id)->update(['image' => $foldername . $filename]);
+                User::find(user_id())->update(['image' => $foldername . $filename]);
             }
 
-            User::find(auth()->user()->id)->update($data); 
+            User::find(user_id())->update($data); 
 
             return back()->with('success', 'Profile updated successfully.');
         } catch (\Throwable $th) {
