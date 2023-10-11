@@ -136,10 +136,9 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
+    </div>
         <!-- ROW-1 END -->
 
         <!-- ROW-3 -->
@@ -382,7 +381,6 @@
         </div>
 
 
-    </div>
     <input type="hidden" id="user_id" value="{{ user_id() }}">
     <!-- ROW-3 END -->
 @endsection
