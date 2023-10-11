@@ -4,6 +4,11 @@
         input.parsley-error {
             border-color: red !important;
         }
+        @media screen and (min-width: 0px) and (max-width: 768px) {
+        .wrap-login100 {
+            width: 100% !important;
+        }
+    }
     </style>
 @endsection
 @section('class')

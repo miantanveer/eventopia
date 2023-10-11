@@ -24,7 +24,7 @@
                                         <div class="d-flex seller-btn">
                                             <a href="{{ URL('/seller-dashboard') }}"><button
                                                     class="btn-pill p-2 text-white bg-custom-black">{{ lang('Become a
-                                                                                                                                                            Seller') }}</button></a>
+                                                                                                                                                                                                                Seller') }}</button></a>
                                         </div>
                                         <!-- COUNTRY -->
                                         <div class="d-flex country">
@@ -105,7 +105,9 @@
                                         <div class="dropdown d-flex profile-1">
                                             <a href="javascript:void(0)" data-bs-toggle="dropdown"
                                                 class="nav-link leading-none d-flex">
-                                                <img src="{{ auth()->check() ? s3Link(auth()->user()->image) : asset('assets/images/users/profile.png') }}"
+                                                <img @if (Auth::check()) src="{{ isset(auth()->user()->image) ? s3Link(auth()->user()->image) : asset('assets/images/users/profile.png') }}"
+                                                @else    
+                                                src="{{ asset('assets/images/users/profile.png') }}" @endif
                                                     alt="profile-user" class="avatar profile-user brround cover-image">
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
