@@ -74,16 +74,16 @@
                 <h3 class="card-title">{{lang('Edit Profile')}}</h3>
             </div>
             <div class="card-body">
-                <form id="profile_form" class="validate-form" enctype="multipart/form-data" method="POST"
-                    data-parsley-validate>
+                <form id="profile_form" class="validate-form" enctype="multipart/form-data" method="POST" data-parsley-validate>
                     <div class="row">
                         @csrf
+                        <input type="hidden" name="user_id" value="{{ user_id() }}">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="first_name">{{lang('First Name')}}</label>
                                 <div class="">
                                     <input type="text" class="form-control @error('first_name') border-danger @enderror"
-                                        name="first_name" id="first_name" placeholder="{{lang('First Name')}}" required
+                                        name="first_name" id="first_name" value="{{ auth()->user()->first_name }}"placeholder="{{lang('First Name')}}" required
                                         data-parsley-required-message="{{lang('First Name is required*')}}">
                                 </div>
                                 @error('first_name')
@@ -96,7 +96,7 @@
                                 <div class="">
                                     <input type="text" id="first_name"
                                         class="form-control @error('last_name') border-danger @enderror"
-                                        name="last_name" placeholder="{{lang('Last Name')}}" required
+                                        name="last_name" placeholder="{{lang('Last Name')}}" value="{{ auth()->user()->last_name }}" required
                                         data-parsley-required-message="{{lang('Last Name is required*')}}">
                                 </div>
                                 @error('last_name')
@@ -109,9 +109,8 @@
                                 <div class="">
                                     <input type="text"
                                         class="form-control @error('phone_number') border-danger @enderror"
-                                        id="exampleInputPhone2" name="phone_number"
-                                        placeholder="{{lang('Phone Number')}}" required
-                                        data-parsley-required-message="{{lang('Phone Number is required*')}}">
+                                        id="exampleInputPhone2" name="phone_number" value="{{ auth()->user()->phone_number }}"
+                                        placeholder="{{lang('Phone Number')}}">
                                 </div>
                                 @error('phone_number')
                                 <div class="text-danger">{{ $message }}</div>
@@ -124,7 +123,7 @@
                                 <div class="">
                                     <input type="date"
                                         class="form-control @error('date_of_birth') border-danger @enderror"
-                                        name="date_of_birth" id="date_of_birth" required
+                                        name="date_of_birth" id="date_of_birth" required value="{{ auth()->user()->date_of_birth }}"
                                         data-parsley-required-message="{{lang('Date of Birth is required*')}}"
                                         data-parsley-errors-container="#dob_err">
                                 </div>
@@ -148,7 +147,7 @@
                             <div class="">
                                 <input type="email" name="email"
                                     class="form-control @error('email') border-danger @enderror" id="exampleInputEmail1"
-                                    placeholder="{{lang('Email address')}}" required
+                                    placeholder="{{lang('Email address')}}" required value="{{ auth()->user()->email }}"
                                     data-parsley-required-message="Email is required*">
                             </div>
                             @error('email')
