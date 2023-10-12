@@ -67,10 +67,10 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
 
                                     @if (Auth::check())
-                                        <a class="dropdown-item" href="{{ url('/edit-profile') }}">
+                                        <a class="dropdown-item" href="{{ route('edit-profile-seller-index') }}">
                                             <i class="dropdown-icon fe fe-home"></i> {{ lang('Manage Account') }}
                                         </a>
-                                        <a class="dropdown-item" href="{{ url('/edit-profile') }}">
+                                        <a class="dropdown-item" href="{{ route('seller-dashboard') }}">
                                             <i class="dropdown-icon fe fe-user"></i> {{ lang('Dashboard') }}
                                         </a>
                                     @endif
