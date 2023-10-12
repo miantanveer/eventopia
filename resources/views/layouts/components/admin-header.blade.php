@@ -229,7 +229,7 @@
                                         <div class="dropdown d-flex profile-1">
                                             <a href="javascript:void(0)" data-bs-toggle="dropdown"
                                                 class="nav-link leading-none d-flex">
-                                                <img src="{{ asset('assets/images/users/21.jpg') }}"
+                                                <img src="{{ isset(auth()->user()->image) ? s3Link(auth()->user()->image) : asset('assets/images/users/21.jpg') }}"
                                                     alt="profile-user"
                                                     class="avatar  profile-user brround cover-image">
                                             </a>
@@ -248,7 +248,7 @@
                                                     <i class="dropdown-icon fe fe-mail"></i> Inbox
                                                     <span class="badge bg-primary rounded-pill float-end">5</span>
                                                 </a> --}}
-                                                <a class="dropdown-item" href="">
+                                                <a class="dropdown-item" href="#">
                                                     <i class="dropdown-icon fe fe-settings"></i> Settings
                                                 </a>
                                                 <a class="dropdown-item" href="{{ route('admin.logout') }}">

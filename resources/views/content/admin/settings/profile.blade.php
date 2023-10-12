@@ -82,7 +82,7 @@
                                 <label for="first_name">{{lang('First Name')}}</label>
                                 <div class="">
                                     <input type="text" class="form-control @error('first_name') border-danger @enderror"
-                                        name="first_name" id="first_name" placeholder="{{lang('First Name')}}" required
+                                        name="first_name" id="first_name" value="{{ auth()->user()->first_name }}" placeholder="{{lang('First Name')}}" required
                                         data-parsley-required-message="{{lang('First Name is required*')}}">
                                 </div>
                                 @error('first_name')
@@ -93,9 +93,9 @@
                             <div class="form-group">
                                 <label for="last_name">{{lang('Last Name')}}</label>
                                 <div class="">
-                                    <input type="text" id="first_name"
+                                    <input type="text" id="last_name"
                                         class="form-control @error('last_name') border-danger @enderror"
-                                        name="last_name" placeholder="{{lang('Last Name')}}" required
+                                        name="last_name" placeholder="{{lang('Last Name')}}" required value="{{ auth()->user()->last_name }}"
                                         data-parsley-required-message="{{lang('Last Name is required*')}}">
                                 </div>
                                 @error('last_name')
@@ -108,7 +108,7 @@
                                 <div class="">
                                     <input type="text"
                                         class="form-control @error('phone_number') border-danger @enderror"
-                                        id="exampleInputPhone2" name="phone_number"
+                                        id="exampleInputPhone2" name="phone_number"  value="{{ auth()->user()->phone_number }}"
                                         placeholder="{{lang('Phone Number')}}" required
                                         data-parsley-required-message="{{lang('Phone Number is required*')}}">
                                 </div>
@@ -147,7 +147,7 @@
                             <div class="">
                                 <input type="email" name="email"
                                     class="form-control @error('email') border-danger @enderror" id="exampleInputEmail1"
-                                    placeholder="{{lang('Email address')}}" required
+                                    placeholder="{{lang('Email address')}}" value="{{ auth()->user()->email }}" {{ auth()->user()->email ? 'readonly' : '' }} required
                                     data-parsley-required-message="Email is required*">
                             </div>
                             @error('email')
@@ -161,10 +161,7 @@
                             <div class="form-group">
                                 <label for="exampleInputname">{{lang('Password')}}</label>
                                 <div class="d-flex align-items-center input-container">
-                                    <input type="password"
-                                        class="form-control @error('password') border-danger @enderror" name="password"
-                                        id="password" data-parsley-required-message="Password is required*" required
-                                        data-parsley-errors-container="#password_err">
+                                    <input type="password" class="form-control" id="password">
                                 </div>
                                 @error('password')
                                 <div class="text-danger">{{ $message }}</div>
@@ -177,10 +174,8 @@
                                 <label for="exampleInputname1">{{lang('Confirm Password')}}</label>
                                 <div class="d-flex align-items-center input-container">
                                     <input type="password"
-                                        class="form-control @error('password') border-danger @enderror"
-                                        name="password_confirmation" id="cpassword" data-parsley-equalto="#password"
-                                        required data-parsley-required-message="Confirm Password is required*"
-                                        data-parsley-errors-container="#cpassword_err">
+                                            class="form-control"
+                                            name="password_confirmation">
                                 </div>
                                 @error('password')
                                 <div class="text-danger">{{ $message }}</div>

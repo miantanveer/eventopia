@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class SettingsController extends AdminBaseController
 {
@@ -22,9 +23,14 @@ class SettingsController extends AdminBaseController
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'date_of_birth' => 'required',
-                'password' => 'required|confirmed',
-                'phone_number' => 'required',
-                'email' => 'required|email',
+                'phone_number' => [
+                    Rule::requiredIf(auth()->user()->phone_number == null),
+                    'regex:/^\+[0-9]{6,15}$/',
+                ],
+                'email' => [
+                    Rule::requiredIf(auth()->user()->email == null),
+                    'email',
+                ],
             ]);
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
@@ -38,14 +44,6 @@ class SettingsController extends AdminBaseController
                 return redirect()->back()->with('error', 'Phone number has been taken');
             } elseif ($userWithPhoneNumber && $userWithPhoneNumber->status == 2) {
                 $userWithPhoneNumber->delete();
-            }
-
-            $userWithEmail = User::whereEmail($req->email)->first();
-
-            if ($userWithEmail && $userWithEmail->email_verified_at && $userWithEmail->password) {
-                return redirect()->back()->with('error', 'Email has been taken');
-            } elseif ($userWithEmail && $userWithEmail->status == 2) {
-                $userWithEmail->delete();
             }
 
             if ($req->hasFile('image')) {
