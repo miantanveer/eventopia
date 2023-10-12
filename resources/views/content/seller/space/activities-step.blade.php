@@ -180,7 +180,7 @@
                                                                         <div class="input-group w-100">
                                                                             <input type="number" class="form-control"
                                                                                 placeholder="{{lang('Optional')}}"
-                                                                                aria-label="Recipient's username" min="1" step="1"
+                                                                                aria-label="Recipient's username" min="0" step="1"
                                                                                 aria-describedby="basic-addon2"
                                                                                 name="activities[{{ $space_activity->id }}][discount][]">
                                                                             <span class="input-group-text"

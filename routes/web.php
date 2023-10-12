@@ -78,6 +78,7 @@ Route::post('logout', [AuthenticationController::class, 'logout'])->name('logout
 Route::group(['middleware' => ['user.auth']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('edit-profile', [DashboardController::class, 'editProfileIndex'])->name('edit-profile-index');
+    Route::get('seller-edit-profile', [DashboardController::class, 'editProfileSellerIndex'])->name('edit-profile-seller-index');
     Route::post('edit-profile', [DashboardController::class, 'editProfile'])->name('edit-profile');
 
     Route::get('notifications', [NotificationController::class, 'index'])->name('notifications');

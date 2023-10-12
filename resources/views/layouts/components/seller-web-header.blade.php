@@ -107,7 +107,7 @@
                                     <a class="dropdown-item" href="{{ route('seller-dashboard') }}">
                                         <i class="dropdown-icon fe fe-home"></i> {{ lang('Dashboard') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('/edit-profile') }}">
+                                    <a class="dropdown-item" href="{{ route('edit-profile-seller-index') }}">
                                         <i class="dropdown-icon fe fe-user"></i> {{ lang('Manage Account') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('payments') }}">
