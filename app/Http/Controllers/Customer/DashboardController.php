@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class DashboardController extends UserBaseController
 {
@@ -132,6 +133,10 @@ class DashboardController extends UserBaseController
     {
         return view('content.customer.edit-profile');
     }
+    public function editProfileSellerIndex()
+    {
+        return view('content.seller.edit-profile');
+    }
 
     public function editProfile(Request $req)
     {
@@ -140,15 +145,20 @@ class DashboardController extends UserBaseController
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'date_of_birth' => 'required',
-                'password' => 'required|confirmed',
-                'phone_number' => 'required',
-                'email' => 'required|email',
+                'phone_number' => [
+                    Rule::requiredIf(auth()->user()->phone_number == null),
+                    'regex:/^\+[0-9]{6,15}$/',
+                ],
+                'email' => [
+                    Rule::requiredIf(auth()->user()->email == null),
+                    'email',
+                ],
             ]);
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
             }
 
-            $data = $req->except('_token', 'image');
+            $data = $req->except('_token', 'image','user_id');
 
             $userWithPhoneNumber = User::wherePhoneNumber($req->phone_number)->first();
 
