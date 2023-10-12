@@ -48,6 +48,7 @@ Route::prefix('customer')->middleware('auth:sanctum')->group(function(){
 
     Route::prefix('listings')->group(function(){
         Route::get('/', [ListingController::class, 'index']);
+        Route::get('/index/{type}', [ListingController::class, 'listing_index']);
         Route::get('/{type}', [ListingController::class, 'listing']);
         Route::post('/filter/{type}', [ListingController::class, 'filter']);
         Route::get('/details/{id}/{type}', [ListingController::class, 'listingDetail']);
