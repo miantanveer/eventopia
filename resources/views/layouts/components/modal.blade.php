@@ -422,7 +422,7 @@
 
 {{-- Search Filter Date and Time Modal --}}
 
-<div class="modal fade" id="dateTimeModal">
+<div class="modal fade" id="dateTimeModal" style="z-index: 9999 !important;">
     <div class="modal-dialog max-width_modal" role="document">
         <div class="modal-content modal-content-demo container-position">
             <div class="modal-header">

@@ -1,5 +1,6 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
+
     <style>
         .seller-web-sidebar {
             z-index: 9999;
