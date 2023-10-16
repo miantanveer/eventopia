@@ -108,57 +108,36 @@
                                             <td>{{ lang(@$order->type == 'space' ? @$order->space->spaceType->type : (@$order->type == 'entertainment' ? @$order->entertainment->title : @$order->service->category)) }}
                                             </td>
                                             <td>
-                                                sdf
+                                                <span disabled
+                                                    class="badge bg-{{ $order->status == '0' ? 'gray' : ($order->status == '1' ? 'cyan' : ($order->status == '2' ? 'success' : ($order->status == '3' ? 'red' : ($order->status == '4' ? 'teal' : ($order->status == '5' ? 'green' : 'indigo'))))) }} badge-sm  me-1 mb-1 mt-1">{{ $order->status == '0' ? 'Pending' : ($order->status == '1' ? 'Review' : ($order->status == '2' ? 'Accepted' : ($order->status == '3' ? 'Cancelled' : ($order->status == '4' ? 'Completed' : ($order->status == '5' ? 'Active' : 'In-Active'))))) }}</span>
+
                                             </td>
                                             <td><a class="btn"
-                                                    href="{{ route('bookings-details', ['id' => @$order->id, 'type' => @$order->type]) }}"><i
+                                                    href="{{ route('admin.bookings.detail.page', ['id' => @$order->id, 'type' => @$order->type]) }}"><i
                                                         class="fa fa-eye text-primary" aria-hidden="true"></i></a>
                                             </td>
 
-                                            {{-- <td>
-                                            <div class="btn-group mt-2 mb-2">
-                                                <button type="button" class="btn rounded-1 p-2" data-bs-toggle="dropdown">
-                                                    <i class="icon icon-options"></i>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu" style="">
-                                                    @if (@$space->status != '1')
-                                                        <li class="m-2">
-                                                            <a class="btn btn-sm btn-primary approve" type="button"
-                                                                data-status="1" data-space-id="{{ $space->id }}">
-                                                                {{ lang('Approve') }}
-                                                            </a>
-                                                        </li>
-                                                    @endif
-                                                    @if (@$space->status != '2')
-                                                        <li class="m-2">
-                                                            <a class="btn btn-sm btn-secondary reject" type="button"
-                                                                data-status="2" data-space-id="{{ $space->id }}">
-                                                                {{ lang('Reject') }}
-                                                            </a>
-                                                        </li>
-                                                    @endif
-                                                    <li class="m-2">
-                                                        <a id="bDel" type="button"
-                                                            onclick="deleteModal('{{ route('admin.listings.delete', ['id' => $space->id, 'type' => 'space']) }}')"
-                                                            class="btn  btn-sm btn-danger">{{ lang('Delete') }}
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td> --}}
-                                            <td class="text-end">
-                                                @if (@$order->status == 3)
-                                                    <span disabled
-                                                        class="badge bg-danger-gradient badge-sm  me-1 mb-1 mt-1">{{ lang('Declined') }}</span>
-                                                @elseif (@$order->status == 2)
-                                                    <span disabled
-                                                        class="badge bg-success-gradient badge-sm me-1 mb-1 mt-1">{{ lang('Accepted') }}</span>
-                                                @else
-                                                    <a href="{{ route('decline-bookings', @$order->id) }}"
-                                                        class="btn text-danger border-0">{{ lang('Decline') }}</a>
-                                                    <a href="{{ @$order->type == 'space' || @$order->type == 'entertainment' || @$order->type == 'service' ? route('accept-bookings', @$order->id) : URL('/create-quote') }}"
-                                                        class="btn btn-primary ms-3">{{ lang(@$order->type == 'space' || @$order->type == 'entertainment' || @$order->type == 'service' ? 'Accept' : 'Send Quote') }}</a>
-                                                @endif
+                                            <td>
+                                                <select name="status" data-type-id="{{ $order->id }}"
+                                                    data-type="{{ $order->type }}"
+                                                    class="form-control form-select status-select" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    <option value="" disabled selected>Change Status</option>
+                                                    <option value="0" {{ $order->status == '0' ? 'hidden' : '' }}>
+                                                        {{ lang('Pending') }}</option>
+                                                    <option value="1" {{ $order->status == '1' ? 'hidden' : '' }}>
+                                                        {{ lang('Review') }}</option>
+                                                    <option value="2" {{ ($order->status == '2' || $order->stripe_txn_resp != null) ? 'hidden' : '' }}>
+                                                        {{ lang('Accepted') }}</option>
+                                                    <option value="3" {{ $order->status == '3' ? 'hidden' : '' }}>
+                                                        {{ lang('Cancelled') }}</option>
+                                                    <option value="4" {{ $order->status == '4' ? 'hidden' : '' }}>
+                                                        {{ lang('Completed') }}</option>
+                                                    <option value="5" {{ $order->status == '5' ? 'hidden' : '' }}>
+                                                        {{ lang('Active') }}</option>
+                                                    <option value="6" {{ $order->status == '6' ? 'hidden' : '' }}>
+                                                        {{ lang('In-Active') }}</option>
+                                                </select>
                                             </td>
                                         </tr>
                                     @empty
@@ -236,73 +215,53 @@
     <!-- SWEET-ALERT JS -->
     <script src="{{ asset('assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('assets/js/sweet-alert.js') }}"></script>
-
     <script>
         $(document).ready(function() {
-            $('#user_form').parsley();
-        });
-    </script>
-    <script src="{{ asset('assets/js/email-validate.js') }}"></script>
-    <script>
-        function deleteModal(url) {
-            $('#listing-delete-form').attr('action', url);
-            $('#listing-delete-modal').modal('show');
-        }
+            // Add an event listener for the change event on the select element
+            $('.status-select').on('change', function() {
+                var csrfToken = $('meta[name="csrf-token"]').attr('content');
+                // Get the selected option's value
+                var selectedValue = $(this).val();
+                var id = $(this).data('type-id');
+                var type = $(this).data('type');
 
-        // Click event handler for the "Approve" button
-        $('.approve').click(function() {
-            var spaceId = $(this).data('space-id');
-            var status = $(this).data('status');
-            updateStatus(spaceId, status);
-        });
+                // Send an AJAX request to the specified route
+                $.ajax({
+                    type: 'POST', // or 'GET' depending on your server-side logic
+                    url: "{{ route('admin.bookings.update.status') }}",
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the headers
+                    },
+                    data: {
+                        id: id,
+                        // type: type,
+                        status: selectedValue
+                    },
+                    success: function(response) {
+                        if (response.status === 200) {
+                            swal({
+                                title: "Success.",
+                                text: response.message,
+                                timer: 4000,
+                                showConfirmButton: false
+                            });
+                            window.location.reload();
 
-        // Click event handler for the "Reject" button
-        $('.reject').click(function() {
-            var spaceId = $(this).data('space-id');
-            var status = $(this).data('status');
-            updateStatus(spaceId, status);
-        });
-
-        // Function to send the AJAX request to update the status
-        function updateStatus(spaceId, status) {
-            // Get the CSRF token from the meta tag
-            var csrfToken = $('meta[name="csrf-token"]').attr('content');
-
-            $.ajax({
-                type: 'POST',
-                url: "{{ route('admin.listings.update.status') }}",
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken // Include the CSRF token in the headers
-                },
-                data: {
-                    id: spaceId,
-                    type: 'space',
-                    status: status
-                },
-                success: function(response) {
-                    if (response.status === 200) {
-                        swal({
-                            title: "Success.",
-                            text: response.message,
-                            timer: 4000,
-                            showConfirmButton: false
-                        });
-                        window.location.reload();
-
-                    } else {
-                        swal({
-                            title: "Error.",
-                            text: response.message,
-                            timer: 4000,
-                            showConfirmButton: false
-                        });
+                        } else {
+                            swal({
+                                title: "Error.",
+                                text: response.message,
+                                timer: 4000,
+                                showConfirmButton: false
+                            });
+                        }
+                    },
+                    error: function(error) {
+                        // Handle any errors here
+                        console.error(error);
                     }
-                },
-                error: function(error) {
-                    // Handle any errors here
-                    console.error(error);
-                }
+                });
             });
-        }
+        });
     </script>
 @endsection

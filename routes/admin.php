@@ -74,7 +74,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin.aut
         Route::get('{type}', [BookingsController::class, 'index'])->name('index');
         Route::get('detail-page/{id}/{type}', [BookingsController::class, 'detailIndex'])->name('detail.page');
         Route::post('update-status', [BookingsController::class, 'updateStatus'])->name('update.status');
-        Route::post('delete/{id}/{type}', [BookingsController::class, 'deleteListing'])->name('delete');
 
     });
 });

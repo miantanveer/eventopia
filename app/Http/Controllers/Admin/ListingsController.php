@@ -110,7 +110,6 @@ class ListingsController extends AdminBaseController
                 $service->update(['status' => $req->status]);
             }
 
-
             // Assuming you're returning a JSON response, you can customize the response as needed.
             return response()->json(['message' => 'Status updated successfully', 'status' => 200]);
         } catch (\Exception $e) {
