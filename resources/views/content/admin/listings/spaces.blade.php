@@ -49,7 +49,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Total Active Spaces</h6>
+                                    <h6 class="">Total Accepted Spaces</h6>
                                     <h2 class="mb-0 number-font">{{ @$activeSpaces }}</h2>
                                 </div>
                             </div>

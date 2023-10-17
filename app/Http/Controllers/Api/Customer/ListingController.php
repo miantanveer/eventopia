@@ -76,7 +76,6 @@ class ListingController extends UserBaseController
         }
         if ($type == 'service') {
             $this->listing = Service::where(function ($query) use ($req) {
-
                 // Price Filter
                 $query->when($req->price !== null, function ($subquery) use ($req) {
                     $subquery->orWhere(function ($query) use ($req) {
@@ -112,7 +111,9 @@ class ListingController extends UserBaseController
                     });
                 });
             })->whereLastSteps('step-7')->whereStatus(1)->inRandomOrder()->get();
+            $this->type = 'service';
             $this->count = $this->listing->count();
+            return response()->json($this->data);
         } elseif ($type == 'entertainment') {
             $this->listing = Entertainment::where(function ($query) use ($req, $formattedDate) {
                 // Price Filter
@@ -162,7 +163,7 @@ class ListingController extends UserBaseController
                     $subquery->whereCountry($req->address);
                 });
                 // Keyword Filter
-                $query->when($req->address !== null, function ($subquery) use ($req) {
+                $query->when($req->keyword !== null, function ($subquery) use ($req) {
                     $subquery->where('title', $req->keyword)
                         ->orWhereHas('entertainmentActivities.entertainment', function ($subquery) use ($req) {
                             $subquery->whereTitle($req->keyword);
@@ -175,7 +176,7 @@ class ListingController extends UserBaseController
                         });
                 });
                 // Time Filter
-                $query->when($req->address !== null, function ($subquery) use ($req, $formattedDate) {
+                $query->when($req->startTime !== '6 AM' && $req->endTime !== '6 AM', function ($subquery) use ($req, $formattedDate) {
                     $subquery->whereHas('operatingDays', function ($subquery) use ($req) {
                         $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
                             $subquery->whereStartTime($req->startTime)->whereEndTime($req->endTime);
@@ -195,7 +196,10 @@ class ListingController extends UserBaseController
                         });
                 });
             })->whereLastSteps('step-9')->whereStatus('1')->inRandomOrder()->get();
+            $this->type = 'entertainment';
             $this->count = $this->listing->count();
+
+            return response()->json($this->data);
         } elseif ($type == 'space') {
             $this->listing = Space::where(function ($query) use ($req, $formattedDate) {
                 // Price Filter
@@ -260,7 +264,7 @@ class ListingController extends UserBaseController
                         });
                 });
                 // Time Filter
-                $query->when($req->startTime !== '6 AM' && $req->endTime !== '6 AM', function ($subquery) use ($req, $formattedDate) {
+                $query->when($req->has('date'), function ($subquery) use ($req, $formattedDate) {
                     $subquery->whereHas('operatingDays', function ($subquery) use ($req) {
                         $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
                             $subquery->whereStartTime($req->startTime)->whereEndTime($req->endTime);
@@ -279,10 +283,12 @@ class ListingController extends UserBaseController
                         });
                     });
                 });
-            })->whereStatus('1')->whereLastStep('10')->whereStatus('1')->inRandomOrder()->get();
+            })->whereStatus('1')->whereLastStep('10')->with('spaceImages','spaceHaveActivities')->inRandomOrder()->get();
+            $this->type = 'space';
             $this->count = $this->listing->count();
+
+            return response()->json($this->data);
         }
-        return response()->json($this->data, 200);
     }
 
     public function listingDetail($id, $type)

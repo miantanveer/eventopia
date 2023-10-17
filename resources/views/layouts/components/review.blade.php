@@ -57,22 +57,22 @@
                     <input type="text" class="my-3 form-control" value="John Wick" name="card_holder_name"
                         placeholder="Cardholder's Name">
                     <label for="card_number">{{lang('Card Number*')}}</label>
-                    <input type="number" value="4242424242424242" id="card_number" name="card_number"
+                    <input type="number" value="4242424242424242" id="card_number" required name="card_number"
                         class="mb-3 form-control" placeholder="1234 1234 1234 1234">
                     <div class="row">
                         <div class="col-4">
                             <label for="expiration">{{lang('Expiration Month*')}}</label>
-                            <input type="text" id="exp_month" value="12" name="exp_month" placeholder="Expiration"
+                            <input type="text" id="exp_month" required value="12" name="exp_month" placeholder="Expiration"
                                 class="mb-3 form-control">
                         </div>
                         <div class="col-4">
                             <label for="expiration">{{lang('Expiration Year*')}}</label>
-                            <input type="text" id="exp_year" value="2025" name="exp_year" placeholder="Expiration"
+                            <input type="text" id="exp_year" required value="2025" name="exp_year" placeholder="Expiration"
                                 class="mb-3 form-control">
                         </div>
                         <div class="col-4">
                             <label for="cvc">{{lang('CVC*')}}</label>
-                            <input type="text" id="cvc" name="cvc" value="123" placeholder="CVC"
+                            <input type="text" id="cvc" name="cvc" required value="123" placeholder="CVC"
                                 class="mb-3 form-control">
                         </div>
                     </div>
