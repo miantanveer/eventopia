@@ -28,7 +28,6 @@ class LandingController extends UserBaseController
         }
         if ($type == 'service') {
             $this->listing = Service::where(function ($query) use ($req) {
-
                 // Price Filter
                 $query->when($req->price !== null, function ($subquery) use ($req) {
                     $subquery->orWhere(function ($query) use ($req) {
@@ -63,8 +62,7 @@ class LandingController extends UserBaseController
                             ->orWhere('activities', $req->keyword);
                     });
                 });
-            })
-                ->whereLastSteps('step-7')->whereStatus(1)->inRandomOrder()->get();
+            })->whereLastSteps('step-7')->whereStatus(1)->inRandomOrder()->get();
             $this->type = 'service';
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
             $this->count = $this->listing->count();
@@ -120,7 +118,7 @@ class LandingController extends UserBaseController
                     $subquery->whereCountry($req->address);
                 });
                 // Keyword Filter
-                $query->when($req->address !== null, function ($subquery) use ($req) {
+                $query->when($req->keyword !== null, function ($subquery) use ($req) {
                     $subquery->where('title', $req->keyword)
                         ->orWhereHas('entertainmentActivities.entertainment', function ($subquery) use ($req) {
                             $subquery->whereTitle($req->keyword);
@@ -133,7 +131,7 @@ class LandingController extends UserBaseController
                         });
                 });
                 // Time Filter
-                $query->when($req->address !== null, function ($subquery) use ($req, $formattedDate) {
+                $query->when($req->startTime !== '6 AM' && $req->endTime !== '6 AM', function ($subquery) use ($req, $formattedDate) {
                     $subquery->whereHas('operatingDays', function ($subquery) use ($req) {
                         $subquery->whereHas('operatingHours', function ($subquery) use ($req) {
                             $subquery->whereStartTime($req->startTime)->whereEndTime($req->endTime);
@@ -242,7 +240,7 @@ class LandingController extends UserBaseController
                         });
                     });
                 });
-            })->whereStatus('1')->whereLastStep('10')->whereStatus('1')->inRandomOrder()->get();
+            })->whereStatus('1')->whereLastStep('10')->inRandomOrder()->get();
             $this->type = 'space';
             $this->count = $this->listing->count();
             $this->map = view('content.components.__map', ['listing' => $this->listing])->render();
