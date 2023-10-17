@@ -22,6 +22,7 @@ class BookingsController extends AdminBaseController
                 $this->totalReviewBookings = Order::whereType('space')->whereStatus('1')->count();
                 $this->totalAcceptedBookings = Order::whereType('space')->whereStatus('2')->count();
                 $this->totalCancelledBookings = Order::whereType('space')->whereStatus('3')->count();
+                $this->totalCompletedBookings = Order::whereType('space')->whereStatus('4')->count();
             } elseif ($type == 'entertainments') {
                 $this->orders = Order::whereType('entertainment')->where(function ($query) {
                     $query->whereHas('entertainment');
@@ -30,6 +31,7 @@ class BookingsController extends AdminBaseController
                 $this->totalReviewBookings = Order::whereType('entertainment')->whereStatus('1')->count();
                 $this->totalAcceptedBookings = Order::whereType('entertainment')->whereStatus('2')->count();
                 $this->totalCancelledBookings = Order::whereType('entertainment')->whereStatus('3')->count();
+                $this->totalCompletedBookings = Order::whereType('entertainment')->whereStatus('4')->count();
             } elseif ($type == 'services') {
                 $this->orders = Order::whereType('service')->where(function ($query) {
                     $query->whereHas('service');
@@ -38,6 +40,7 @@ class BookingsController extends AdminBaseController
                 $this->totalReviewBookings = Order::whereType('service')->whereStatus('1')->count();
                 $this->totalAcceptedBookings = Order::whereType('service')->whereStatus('2')->count();
                 $this->totalCancelledBookings = Order::whereType('service')->whereStatus('3')->count();
+                $this->totalCompletedBookings = Order::whereType('service')->whereStatus('4')->count();
             }
             $this->type = $type;
             return view('content.admin.bookings.bookings', $this->data);
