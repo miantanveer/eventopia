@@ -20,9 +20,9 @@
                     <div id="step-5" class="">
                         <div class="text-center">
                             <h2 class="fw-bolder">
-                                {{lang('Team')}}
+                                {{lang('Company')}}
                             </h2>
-                            <p>{{lang('Add team profile or details.')}}</p>
+                            <p>{{lang('Add company profile or details.')}}</p>
                         </div>
                         <br>
                         @if ($errors->any())
@@ -39,7 +39,7 @@
                             <div class="row">
                                 <div class="col-lg-8">
                                     <div class="row fieldGroup align-items-center">
-                                        <h3 class="fw-bolder">{{lang('Full Name')}}</h3>
+                                        <h3 class="fw-bolder">{{lang('Company Name')}}</h3>
                                         <div class="col-md-11 col-10">
                                             <div class="form-group mt-3">
                                                 <input type="text" name="destination" value="{{@$team->team_name}}" data-parsley-required-message="{{lang('Team name is required')}}" placeholder="{{lang('Enter Name')}}"

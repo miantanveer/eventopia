@@ -20,49 +20,61 @@
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
             <div class="row">
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xl-2">
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Total Bookings</h6>
-                                    <h2 class="mb-0 number-font">{{ @$totalBookings }}</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
-                    <div class="card overflow-hidden">
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <div class="mt-2">
-                                    <h6 class="">Total Review Bookings</h6>
+                                    <h6 class="">Pending Bookings</h6>
                                     <h2 class="mb-0 number-font">{{ @$totalReviewBookings }}</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xl-2">
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Total Accepted Bookings</h6>
+                                    <h6 class="">Accepted Bookings</h6>
                                     <h2 class="mb-0 number-font">{{ @$totalAcceptedBookings }}</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xl-2">
                     <div class="card overflow-hidden">
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Total Cancelled Bookings</h6>
+                                    <h6 class="">Cancelled Bookings</h6>
                                     <h2 class="mb-0 number-font">{{ @$totalCancelledBookings }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xl-2">
+                    <div class="card overflow-hidden">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="mt-2">
+                                    <h6 class="">Completed Bookings</h6>
+                                    <h2 class="mb-0 number-font">{{ @$totalCompletedBookings }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-xl-2">
+                    <div class="card overflow-hidden">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="mt-2">
+                                    <h6 class="">Total Bookings</h6>
+                                    <h2 class="mb-0 number-font">{{ @$totalBookings }}</h2>
                                 </div>
                             </div>
                         </div>

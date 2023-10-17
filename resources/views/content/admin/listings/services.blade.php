@@ -49,7 +49,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Active Services</h6>
+                                    <h6 class="">Accepted Services</h6>
                                     <h2 class="mb-0 number-font">{{ @$activeServices }}</h2>
                                 </div>
                             </div>

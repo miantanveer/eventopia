@@ -49,7 +49,7 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="mt-2">
-                                    <h6 class="">Active Entertainments/Talents</h6>
+                                    <h6 class="">Accepted Entertainments/Talents</h6>
                                     <h2 class="mb-0 number-font">{{ @$activeEntertainments }}</h2>
                                 </div>
                             </div>
