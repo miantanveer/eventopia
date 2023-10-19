@@ -221,3 +221,47 @@
         </div>
     </div>
 </div>
+
+{{-- Amentiy Modal --}}
+
+<div class="modal fade" id="amenity-modal">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content country-select-modal ">
+            <div class="modal-header">
+                <h1 style="text-align:center;color:#000017" class="user-modal-title modal-title">
+                    {{ lang('Add New Amenity') }}</h1><button aria-label="Close" class="btn-close"
+                    data-bs-dismiss="modal"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="card-body">
+                    <form id="amenity_form" method="POST" action="{{ route('admin.general-settings.add.amenity', ['type' => 'space']) }}"
+                        data-parsley-validate>
+                        @csrf
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label class="form-label" for="name">Amenity Name</label>
+                                <div class="d-flex align-items-center input-container">
+                                    <input type="text"
+                                        class="form-control @error('name') border-danger @enderror"
+                                        name="name" id="name" required
+                                        data-parsley-required-message="Amenity Name is required*"
+                                        data-parsley-errors-container="#fname_err">
+                                </div>
+                                @error('name')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    <script>
+                                        $('#amenity-modal').modal('show');
+                                    </script>
+                                @enderror
+                                <span class="text-danger" id="fname_err"></span>
+                            </div>
+                            <div class="d-block mt-5">
+                                <button class="btn btn-primary py-2 w-100 text-white" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

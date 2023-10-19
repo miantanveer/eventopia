@@ -12,4 +12,8 @@ class EntActivityAmenity extends Model
     {
         return $this->belongsTo(EntAmenity::class,'ent_amenity_id');
     }
+    public function activityAmenties()
+    {
+        return $this->belongsTo(EntActivity::class,'entertainment_activity_id');
+    }
 }

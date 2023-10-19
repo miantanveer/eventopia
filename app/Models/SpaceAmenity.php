@@ -10,6 +10,8 @@ class SpaceAmenity extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name'];
+
     public function spaceActivities(): BelongsToMany
     {
         return $this->belongsToMany(SpaceActivity::class,'activity_having_amenities');

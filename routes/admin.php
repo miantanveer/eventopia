@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AuthenticationController;
 use App\Http\Controllers\Admin\BookingsController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\GeneralSettingsController;
 use App\Http\Controllers\Admin\ListingsController;
 use App\Http\Controllers\Admin\PluginsController;
 use App\Http\Controllers\Admin\SettingsController;
@@ -74,6 +75,16 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin.aut
         Route::get('{type}', [BookingsController::class, 'index'])->name('index');
         Route::get('detail-page/{id}/{type}', [BookingsController::class, 'detailIndex'])->name('detail.page');
         Route::post('update-status', [BookingsController::class, 'updateStatus'])->name('update.status');
+
+    });
+
+    // General Settings
+    Route::group(['prefix' => 'general-settings', 'as' => 'general-settings.'], function () {
+
+        Route::get('amenities', [GeneralSettingsController::class, 'amenitiesIndex'])->name('amenities.index');
+        Route::post('add-amenity/{type}', [GeneralSettingsController::class, 'addAmenity'])->name('add.amenity');
+        Route::post('delete/{id}/{type}', [GeneralSettingsController::class, 'deleteAmenity'])->name('delete.amenity');
+        // Route::post('edit-profile', [SettingsController::class, 'editProfile']);
 
     });
 });

@@ -294,11 +294,11 @@ class ListingController extends UserBaseController
     public function listingDetail($id, $type)
     {
         if ($type == 'service') {
-            $this->detail = Service::with('serviceImages')->where('user_id', '!=', user_id())->whereStatus(1)->find($id);
+            $this->detail = Service::with('serviceImages')->where('user_id', '!=', user_id())->whereStatus('1')->find($id);
         } elseif ($type == 'entertainment') {
-            $this->detail = Entertainment::with('entertainmentImages', 'entertainmentActivities', 'entertainmentActivities.entActivityAmenity.activity', 'operatingDays', 'operatingDays.operatingHours')->whereStatus(1)->find($id);
+            $this->detail = Entertainment::with('entertainmentImages', 'entertainmentActivities', 'entertainmentActivities.entActivityAmenity.activity', 'operatingDays', 'operatingDays.operatingHours')->whereStatus('1')->find($id);
         } elseif ($type == 'space') {
-            $this->detail = Space::with('spaceImages', 'spaceHaveActivities', 'operatingDays', 'operatingDays.operatingHours', 'spaceHaveSafetyMeasures', 'cancellationPolicy')->whereStatus(1)->find($id);
+            $this->detail = Space::with('spaceImages','spaceHaveParkingOptions', 'spaceHaveActivities','spaceHaveActivities.spaceAmenities', 'operatingDays', 'operatingDays.operatingHours', 'spaceHaveSafetyMeasures', 'cancellationPolicy')->whereStatus('1')->find($id);
         }
         return response()->json($this->data, 200);
     }
