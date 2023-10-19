@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class EntAmenity extends Model
 {
     use HasFactory;
+    protected $fillable = ['name'];
     // public function entActivities(): BelongsToMany
     // {
     //     return $this->belongsToMany(EntActivity::class,'activity_having_amenities');
