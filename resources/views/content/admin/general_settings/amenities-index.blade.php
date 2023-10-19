@@ -54,12 +54,12 @@
                                                                         <tr>
                                                                             <th class="border-bottom-0 text-center align-middle">No.</th>
                                                                             <th class="border-bottom-0 text-center align-middle">Type</th>
-                                                                            <th class="border-bottom-0 text-center align-middle">Name</th>
+                                                                            <th class="border-bottom-0 text-center align-middle">Amenity Name</th>
                                                                             <th class="border-bottom-0 text-center align-middle">Action</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        @forelse ($activityHavingAmenities as $activityHavingAmenity)
+                                                                        @forelse ($spaceActivityHavingAmenities as $activityHavingAmenity)
                                                                             <tr>
                                                                                 <td class="text-center align-middle">{{ $loop->iteration }}</td>
                                                                                 <td class="text-center align-middle">{{ $activityHavingAmenity->space_activity->title }}</td>
@@ -105,15 +105,17 @@
                                                                     <thead>
                                                                         <tr>
                                                                             <th class="border-bottom-0 text-center align-middle">No.</th>
-                                                                            <th class="border-bottom-0 text-center align-middle">Name</th>
+                                                                            <th class="border-bottom-0 text-center align-middle">Type</th>
+                                                                            <th class="border-bottom-0 text-center align-middle">Amenity Name</th>
                                                                             <th class="border-bottom-0 text-center align-middle">Action</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
-                                                                        @forelse ($entAmenities as $entAmenity)
+                                                                        @forelse ($entertainmentActivityHavingAmenities as $activityHavingAmenity)
                                                                             <tr>
                                                                                 <td class="text-center align-middle">{{ $loop->iteration }}</td>
-                                                                                <td class="text-center align-middle">{{ $entAmenity->name }}</td>
+                                                                                <td class="text-center align-middle">{{ $activityHavingAmenity->activityAmenties->title ?? 'Null' }}</td>
+                                                                                <td class="text-center align-middle">{{ $activityHavingAmenity->activity->name }}</td>
                                                                                 <td class="text-center align-middle">
                                                                                     <div class="btn-list">
                                                                                         {{-- <button class="btn btn-sm btn-primary bEdit"
@@ -121,7 +123,7 @@
                                                                                             <span class="fe fe-edit"></span>
                                                                                         </button> --}}
                                                                                         <button id="cDel" type="button"
-                                                                                        onclick="deleteModal('{{ route('admin.general-settings.delete.amenity', ['id' => $entAmenity->id, 'type' => 'entertainment']) }}')"
+                                                                                        onclick="deleteModal('{{ route('admin.general-settings.delete.amenity', ['id' => $activityHavingAmenity->id, 'type' => 'entertainment']) }}')"
                                                                                         class="btn  btn-sm btn-danger">
                                                                                         <span class="fe fe-trash-2"> </span>
                                                                                     </button>

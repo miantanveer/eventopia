@@ -14,8 +14,8 @@ class EntAmenity extends Model
     //     return $this->belongsToMany(EntActivity::class,'activity_having_amenities');
     // }
 
-    // public function entActivitiesAmenities(): BelongsToMany
-    // {
-    //     return $this->belongsToMany(EntHavingActivity::class,'ent_activity_amenities');
-    // }
+    public function entActivitiesAmenities()
+    {
+        return $this->hasMany(EntActivity::class,'entertainment_activity_id');
+    }
 }
