@@ -9,4 +9,12 @@ class ActivityHavingAmenity extends Model
 {
     use HasFactory;
 
+    public function space_amenity() {
+        return $this->belongsTo(SpaceAmenity::class); 
+    }
+
+    public function space_activity() {
+        return $this->belongsTo(SpaceActivity::class); 
+    }
+    
 }

@@ -15,10 +15,12 @@ class CartController extends UserBaseController
 {
     public function checkoutData()
     {
-        $this->spaces = Space::whereStatus(1)->get();
-        $this->ents = Entertainment::whereStatus(1)->get();
-        $this->service = Service::whereStatus(1)->get();
-        $this->user = User::whereId(user_id())->with('cart')->first();
+        $this->spaces = Space::whereStatus('1')->get();
+        $this->ents = Entertainment::whereStatus('1')->get();
+        $this->service = Service::whereStatus('1')->get();
+        $this->user = User::whereId(user_id())->with('cart','cart.space','cart.service','cart.service.serviceImages','cart.service.quote',
+        'cart.entertainment','cart.entertainment.entertainmentActivities','cart.entertainment.entertainmentImages',
+        'cart.space.spaceHaveActivities','cart.space.spaceImages')->first();
         return response()->json($this->data,200);
     }
     public function checkout(Request $req,$id,$type)
