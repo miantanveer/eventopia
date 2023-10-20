@@ -280,8 +280,8 @@
                 </label>
                 <div>
                     <h6 style="height:17;width:216;margin-right:142px;">
-                        <b>{{ lang('Already have an account? ') }}<span style="color:#006CE4">{{ lang('Login')
-                                }}</span></b>
+                        <b>{{ lang('Already have an account? ') }} <a href="{{route('login')}}"><span style="color:#006CE4">{{ lang('Login')
+                                }}</span></a></b>
                     </h6>
                 </div>
             </div>
@@ -544,7 +544,7 @@
                     </button>
                 </div>
                 <div class="container-fluid">
-                <div class='row'>                    
+                <div class='row'>
                     <div class='col-12'>
                         <h3 class='mt-5'><b>keyword</b></h3>
                         <input type='text' class='form-control' id="planCatagories-12" placeholder='Enter a keyword'>
@@ -602,7 +602,7 @@
                                 </form>
                             </div>
                         </ul>
-                    </div>                   
+                    </div>
                     <div class="col-12">
                         <h3 class="mt-4"><b>Attendees</b></h3>
                         <button type="button" id="attendeesButton"
