@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class EntActivityAmenity extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['ent_amenity_id','entertainment_activity_id'];
+
     public function activity()
     {
         return $this->belongsTo(EntAmenity::class,'ent_amenity_id');

@@ -37,8 +37,7 @@
             </div>
             <div class="modal-body">
                 <div class="card-body">
-                    <form id="user_form" method="POST" action="{{ route('admin.add.user') }}"
-                        data-parsley-validate>
+                    <form id="user_form" method="POST" action="{{ route('admin.add.user') }}" data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-6 mb-3">
@@ -78,9 +77,7 @@
                             <div class="col-12 mb-3 ">
                                 <label class="form-label" for="email">Email</label>
                                 <div class="d-flex align-items-center input-container">
-                                    <input type="text"
-                                        class="form-control"
-                                        name="email" id="email" required
+                                    <input type="text" class="form-control" name="email" id="email" required
                                         data-parsley-required-message="Email is required*"
                                         data-parsley-errors-container="#email_err">
                                 </div>
@@ -95,10 +92,8 @@
                             <div class="col-12 mb-3">
                                 <label class="form-label" for="email">Phone Number</label>
                                 <div class="d-flex align-items-center input-container">
-                                    <input type="text"
-                                        class="form-control"
-                                        name="phone_number" id="phone_number" required
-                                        data-parsley-required-message="Phone Number is required*"
+                                    <input type="text" class="form-control" name="phone_number" id="phone_number"
+                                        required data-parsley-required-message="Phone Number is required*"
                                         data-parsley-errors-container="#phone_number_err">
                                 </div>
                                 @error('phone_number')
@@ -128,8 +123,9 @@
                                 <label class="form-label" for="password">Password</label>
                                 <div class="d-flex align-items-center input-container">
                                     <input type="password"
-                                        class="form-control @error('password') border-danger @enderror" name="password"
-                                        id="password" data-parsley-required-message="Password is required*" required
+                                        class="form-control @error('password') border-danger @enderror"
+                                        name="password" id="password"
+                                        data-parsley-required-message="Password is required*" required
                                         data-parsley-errors-container="#password_err">
                                 </div>
                                 @error('password')
@@ -234,15 +230,15 @@
             </div>
             <div class="modal-body">
                 <div class="card-body">
-                    <form id="amenity_form" method="POST" action="{{ route('admin.general-settings.add.amenity', ['type' => 'space']) }}"
+                    <form id="amenity_form" method="POST"
+                        action="{{ route('admin.general-settings.add.amenity', ['type' => 'space']) }}"
                         data-parsley-validate>
                         @csrf
                         <div class="row">
                             <div class="col-12 mb-3">
                                 <label class="form-label" for="name">Amenity Name</label>
                                 <div class="d-flex align-items-center input-container">
-                                    <input type="text"
-                                        class="form-control @error('name') border-danger @enderror"
+                                    <input type="text" class="form-control @error('name') border-danger @enderror"
                                         name="name" id="name" required
                                         data-parsley-required-message="Amenity Name is required*"
                                         data-parsley-errors-container="#fname_err">
@@ -255,6 +251,32 @@
                                 @enderror
                                 <span class="text-danger" id="fname_err"></span>
                             </div>
+                            @isset($spaceActivities, $entActivities)
+                                <div class="col-12 mb-3 d-none" id="space_activity">
+                                    <label class="form-label" for="space_activity">Activity Type</label>
+                                    <div class="d-flex align-items-center input-container">
+                                        <select class="form-control" name="space_activity">
+                                            @foreach (@$spaceActivities as $spaceActivity)
+                                                <option value="{{ @$spaceActivity->id }}">{{ @$spaceActivity->title }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mb-3 d-none" id="ent_activity">
+                                    <label class="form-label" for="ent_activity">Activity Type</label>
+                                    <div class="d-flex align-items-center input-container ">
+                                        <select class="form-control" name="ent_activity">
+                                            @foreach (@$entActivities as $entActivity)
+                                                <option value="{{ @$entActivity->id }}">{{ @$entActivity->title }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                            @endisset
+
                             <div class="d-block mt-5">
                                 <button class="btn btn-primary py-2 w-100 text-white" type="submit">Submit</button>
                             </div>

@@ -336,11 +336,15 @@
         $(document).ready(function() {
             $('#addSpaceAmenity').click(function() {
                 $('#amenity_form').attr('action', "{{ route('admin.general-settings.add.amenity', ['type' => 'space']) }}");
+                $('#ent_activity').addClass('d-none');
+                $('#space_activity').removeClass('d-none');
                 $('#amenity-modal').modal('show');
             });
 
             $('#addEntertainmentAmenity').click(function() {
                 $('#amenity_form').attr('action', "{{ route('admin.general-settings.add.amenity', ['type' => 'entertainment']) }}");
+                $('#space_activity').addClass('d-none');
+                $('#ent_activity').removeClass('d-none');
                 $('#amenity-modal').modal('show');
             });
         });
