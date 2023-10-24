@@ -110,7 +110,7 @@ class ListingController extends UserBaseController
                             ->orWhere('activities', $req->keyword);
                     });
                 });
-            })->whereLastSteps('step-7')->whereStatus(1)->inRandomOrder()->get();
+            })->whereLastSteps('step-7')->whereStatus(1)->inRandomOrder()->with('serviceImages')->get();
             $this->type = 'service';
             $this->count = $this->listing->count();
             return response()->json($this->data);
@@ -195,7 +195,7 @@ class ListingController extends UserBaseController
                             });
                         });
                 });
-            })->whereLastSteps('step-9')->whereStatus('1')->inRandomOrder()->get();
+            })->whereLastSteps('step-9')->whereStatus('1')->inRandomOrder()->with('entertainmentImgaes','entertainmentActivities')->get();
             $this->type = 'entertainment';
             $this->count = $this->listing->count();
 
