@@ -28,7 +28,7 @@
     <script src="{{ asset('assets/plugins/notify/js/notifIt.js') }}"></script>
 
 
-    @yield('scripts')
+
 
     <!-- Color Theme js -->
     <script src="{{asset('assets/js/themeColors.js')}}"></script>
@@ -53,5 +53,5 @@
     <script src="{{asset('assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
     <script src="{{asset('assets/plugins/datatable/responsive.bootstrap5.min.js')}}"></script>
     <script src="{{asset('assets/js/table-data.js')}}"></script>
-
+    @yield('scripts')
 

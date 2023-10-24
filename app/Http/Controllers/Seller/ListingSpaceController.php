@@ -141,7 +141,7 @@ class ListingSpaceController extends UserBaseController
     {
         $space = Space::find($space_id);
         $ages = Age::get();
-        return view('content.seller.space.about-step', ['space' => $space,'ages'=>$ages]);
+        return view('content.seller.space.about-step', ['space' => $space, 'ages' => $ages]);
     }
 
     public function addAbout(Request $req, $space_id)
@@ -173,7 +173,11 @@ class ListingSpaceController extends UserBaseController
         $images = Space::whereId($space_id)->whereUserId(user_id())->with('spaceImages')->get();
         foreach ($images as $img) {
             foreach ($img->spaceImages as $data) {
-                Storage::disk('s3')->delete($data->image);
+                try {
+                    Storage::disk('s3')->delete($data->image);
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
                 $data->delete();
             }
         }
@@ -212,13 +216,14 @@ class ListingSpaceController extends UserBaseController
 
     public function addaddOperatingHours(Request $req, $space_id)
     {
+        // dd($req->all());
         try {
             $space = Space::find($space_id);
             if ($space) {
                 $space->operatingDays()->delete(); // Assuming you have a relationship method named operatingDays
             }
             $weekDay = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
-            $counts = [0, 1, 2, 3, 4];
+            $counts = [0, 1, 2, 3, 4, 5, 6];
 
             foreach ($weekDay as $weekDay) {
                 if ($req->$weekDay == $weekDay) {
@@ -240,6 +245,13 @@ class ListingSpaceController extends UserBaseController
                         foreach ($counts as $count) {
                             $start_time = $weekDay . '_start_time_' . $count;
                             $end_time = $weekDay . '_end_time_' . $count;
+                            if (!$req->$start_time) {
+                                $start_time = $weekDay . '_start_time';
+                            }
+
+                            if (!$req->$end_time) {
+                                $end_time = $weekDay . '_end_time';
+                            }
 
                             if ($req->$start_time && $req->$end_time !== null) {
                                 $hour = new OperatingHour();

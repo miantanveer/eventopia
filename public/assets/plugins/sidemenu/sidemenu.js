@@ -13,7 +13,7 @@
     var position = window.location.pathname.split('/');
     $(".app-sidebar li a").each(function () {
         var $this = $(this);
-        var pageUrl = $this.attr("href").split("/");
+        var pageUrl = $this.attr("href")?.split("/");
         if (pageUrl) {
             if (position[position.length - 1] == pageUrl[pageUrl.length - 1]) {
                 $(this).addClass("active");

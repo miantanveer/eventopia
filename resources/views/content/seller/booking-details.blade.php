@@ -330,7 +330,7 @@
                             <h3 class="text-dark">
                                 {{ lang('About the space') }}
                             </h3>
-                            <p>{{ @$space->description }}</p>
+                            <p>{{ @$space->parking_description ?? '' }}</p>
                         </div>
                         <div class="mt-5">
                             <div class="accordion" id="accordionExample">
@@ -351,8 +351,8 @@
                                                     {{ @$parkingOption->option . ',' }}
                                                 @endforeach
                                             </p>
-                                            <h4 class="text-dark">{{ lang('Parking description') }}</h4>
-                                            <p>{{ @$space->parking_description ?? 'Empty' }}</p>
+                                            {{-- <h4 class="text-dark">{{ lang('Parking description') }}</h4>
+                                            <p>{{ @$space->parking_description ?? 'Empty' }}</p> --}}
                                         </div>
                                     </div>
                                 </div>

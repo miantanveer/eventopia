@@ -768,6 +768,18 @@
             color: black !important;
         }
 
+        .image-cover {
+            width: 100%;
+            height: 300px !important;
+            background: #DDD;
+            overflow: hidden;
+        }
+        .image-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         @media screen and (min-width: 1280px) and (max-width: 1920px) {
             .w-style-1 {
                 width: 50% !important;

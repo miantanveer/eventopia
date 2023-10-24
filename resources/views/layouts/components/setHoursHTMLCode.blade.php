@@ -39,6 +39,8 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="monday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('monday')" tabindex="-1" aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
@@ -56,11 +58,11 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
-                                    <option value="8 PM" class="option">8 PM</option>
-                                    <option value="9 PM" class="option">9 PM</option>
-                                    <option value="10 PM" class="option">10 PM</option>
-                                    <option value="11 PM" class="option">11 PM</option>
-                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -70,6 +72,8 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="monday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
@@ -92,6 +96,11 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -143,6 +152,8 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="tuesday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('tuesday')" tabindex="-1" aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
                                     <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
@@ -160,6 +171,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -169,8 +190,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="tuesday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -186,6 +209,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -237,8 +270,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="wednesday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('wednesday')" tabindex="-1" aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -254,6 +289,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -263,8 +308,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="wednesday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -280,6 +327,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -331,8 +388,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="thursday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('thursday')" tabindex="-1" aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -348,6 +407,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -357,8 +426,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="thursday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -374,6 +445,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -425,8 +506,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="friday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('friday')" tabindex="-1" aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -442,6 +525,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -451,8 +544,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="friday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -468,6 +563,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -520,8 +625,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="saturday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('saturday')" tabindex="-1" aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -537,6 +644,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -546,8 +663,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="saturday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -563,6 +682,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -614,8 +743,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="sunday-start-time" data-bs-placeholder="Select Country"
                                     onchange="startTime('sunday')" tabindex="-1" aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -631,6 +762,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>
@@ -640,8 +781,10 @@
                                     class="form-control form-select select2 select2-hidden-accessible"
                                     id="sunday-end-time" data-bs-placeholder="Select Country" tabindex="-1"
                                     aria-hidden="true">
+                                    <option value="6 AM" class="option">6 AM</option>
+                                    <option value="7 AM" class="option">7 AM</option>
                                     <option value="8 AM" class="option">8 AM</option>
-                                     <option value="9 AM" class="option">9 AM</option>
+                                    <option value="9 AM" class="option">9 AM</option>
                                     <option value="10 AM" class="option">10 AM</option>
                                     <option value="11 AM" class="option">11 AM</option>
                                     <option value="12 AM" class="option">12 AM</option>
@@ -657,6 +800,16 @@
                                     <option value="10 PM" class="option">10 PM</option>
                                     <option value="11 PM" class="option">11 PM</option>
                                     <option value="12 PM" class="option">12 PM</option>
+                                    <option value="8 PM" class="option">8 PM</option>
+                                    <option value="9 PM" class="option">9 PM</option>
+                                    <option value="10 PM" class="option">10 PM</option>
+                                    <option value="11 PM" class="option">11 PM</option>
+                                    <option value="12 PM" class="option">12 PM</option>
+                                    <option value="1 AM" class="option">1 AM</option>
+                                    <option value="2 AM" class="option">2 AM</option>
+                                    <option value="3 AM" class="option">3 AM</option>
+                                    <option value="4 AM" class="option">4 AM</option>
+                                    <option value="5 AM" class="option">5 AM</option>
                                 </select>
                             </div>
                         </div>

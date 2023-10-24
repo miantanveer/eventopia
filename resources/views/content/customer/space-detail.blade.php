@@ -69,17 +69,26 @@
     <div class="row row-sm">
         <div class="col-xl-8 col-lg-12 col-md-12">
             <div class="card custom-card overflow-hidden">
-                <div class="card-body p-3">
-                    <a href="javascript:void(0)"><img
-                            src="{{ s3Link(@$space->spaceImages[0]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
-                            alt="image not found" class="br-5 w-100"></a>
+                <div class="card-body pt-0 pb-0 border">
+                    <a href="javascript:void(0)">
+                        <div style="height: 600px; width: 100%;">
+                            <img src="{{ s3Link(@$space->spaceImages[0]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
+                                alt="image not found" class="br-5"
+                                style="object-fit: contain !important;
+                                width: 100%;
+                                height: 100%;">
+                        </div>
+                    </a>
                 </div>
                 <div class="card-body pt-0 h-100">
                     <div class="owl-carousel owl-carousel-icons2">
                         @foreach (@$space->spaceImages as $spaceImage)
                             <div class="item">
                                 <div class="card overflow-hidden border mt-5 mb-0 p-0 bg-white">
-                                    <a href="#"><img src="{{ s3Link($spaceImage->image) }}" alt="img"></a>
+                                    <a href="#">
+                                        <img src="{{ s3Link($spaceImage->image) }}" alt="img"
+                                            style="width: 100%; height: 100%; object-fit: cover;">
+                                    </a>
                                 </div>
                             </div>
                         @endforeach
@@ -107,7 +116,7 @@
                         <h3 class="text-dark">
                             {{ lang('About the space') }}
                         </h3>
-                        <p>{{ $space->description }}</p>
+                        <p>{{ $space->parking_description ?? '' }}</p>
                     </div>
                     <div class="mt-5">
                         <div class="accordion" id="accordionExample">
@@ -127,8 +136,8 @@
                                                 {{ @$parkingOption->option . ',' }}
                                             @endforeach
                                         </p>
-                                        <h4 class="text-dark">{{ lang('Parking description') }}</h4>
-                                        <p>{{ $space->parking_description ?? 'Empty' }}</p>
+                                        {{-- <h4 class="text-dark">{{ lang('Parking description') }}</h4>
+                                        <p>{{ $space->parking_description ?? 'Empty' }}</p> --}}
                                     </div>
                                 </div>
                             </div>
@@ -217,7 +226,7 @@
                                 </div>
                                 <p class="font-13 text-muted mt-2">
                                     {{ lang("In reality space is
-                                                                                                                                                                                                                                                                                                                                    bigger than it seems in photo's.") }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        bigger than it seems in photo's.") }}
                                 </p>
                             </div>
                             <div class="col-sm-2 col-12 my-auto content-button">
@@ -543,8 +552,10 @@
                             endTimeSelect.append(new Option("12 AM", "12 AM"));
                         } else if (operatingHours[selectedDay]) {
                             operatingHours[selectedDay].forEach(function(hours) {
-                                startTimeSelect.append(new Option(hours.start_time, hours.start_time));
-                                endTimeSelect.append(new Option(hours.end_time, hours.end_time));
+                                startTimeSelect.append(new Option(hours.start_time, hours
+                                    .start_time));
+                                endTimeSelect.append(new Option(hours.end_time, hours
+                                    .end_time));
                             });
                         }
 

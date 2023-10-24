@@ -115,7 +115,7 @@
                                             </td>
                                             <td>{{ lang(@$order->user->first_name . ' ' . @$order->user->last_name) }}
                                             </td>
-                                            <td>{{ @$order->date }}</td>
+                                            <td>{{ @$order->start_time }} - {{ @$order->end_time }}</td>
                                             <td>{{ @$order->amount }}</td>
                                             <td>{{ lang(@$order->type == 'space' ? @$order->space->spaceType->type : (@$order->type == 'entertainment' ? @$order->entertainment->title : @$order->service->category)) }}
                                             </td>

@@ -34,7 +34,7 @@ class AuthenticationController extends AdminBaseController
             if (!$user) {
                 return redirect()->back()->with('error', 'Email does not exist. ');
             }
-            $match = Auth::attempt(['email' => $req->email, 'password' => $req->password, 'is_admin' => '1', 'status' => 1]);
+            $match = Auth::attempt(['email' => $req->email, 'password' => $req->password, 'status' => 1]);// 'is_admin' => '1',
 
             if ($user->status != 1) {
                 return redirect()->back()->with('error', 'Your account is not active. ');

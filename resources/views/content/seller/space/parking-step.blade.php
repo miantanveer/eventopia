@@ -148,8 +148,11 @@
                                         </div>
                                     </div>
 
+                                    <br>
+                                        <hr class="style1"><br>
+
                                     <h1 class="mt-4">
-                                        <strong>{{ lang('Write a description of the parking options') }}</strong></h1>
+                                        <strong>{{ lang('Write a description of space listing') }}</strong></h1>
                                     <p> <img src="{{ asset('assets/images/users/spaces/6700.png') }}"
                                             alt="img">{{ lang("Don’t include private information. This will be shown publicly.") }}
                                     </p>
