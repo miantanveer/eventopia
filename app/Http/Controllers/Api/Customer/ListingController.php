@@ -195,8 +195,11 @@ class ListingController extends UserBaseController
                             });
                         });
                 });
-            })->whereLastSteps('step-9')->whereStatus('1')->inRandomOrder()->with('entertainmentImgaes','entertainmentActivities')->get();
+            })->whereLastSteps('step-9')->whereStatus('1')->inRandomOrder()->with('entertainmentImages','entertainmentActivities')->get();
             $this->type = 'entertainment';
+            if($this->listing->count() == 0){
+                $this->listing = Entertainment::whereStatus('1')->inRandomOrder()->with('entertainmentImages','entertainmentActivities')->get();
+            }
             $this->count = $this->listing->count();
 
             return response()->json($this->data);
