@@ -71,6 +71,7 @@
                                         class="angle fe fe-chevron-right"></i></a>
                                 <ul class="slide-menu">
                                     <li><a href="{{route('admin.general-settings.amenities.index')}}" class="slide-item"> Amenities</a></li>
+                                    <li><a href="{{route('admin.general-settings.manageParkingOptions')}}" class="slide-item"> Manage Parking Options</a></li>
                                     <li><a  class="slide-item">Company Settings</a></li>
                                 </ul>
                             </li>

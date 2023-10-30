@@ -87,5 +87,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin.aut
         Route::post('delete/{id}/{type}', [GeneralSettingsController::class, 'deleteAmenity'])->name('delete.amenity');
         // Route::post('edit-profile', [SettingsController::class, 'editProfile']);
 
+        Route::any('manage-parking-options', [GeneralSettingsController::class, 'manageParkingOptions'])->name('manageParkingOptions');
+
     });
 });

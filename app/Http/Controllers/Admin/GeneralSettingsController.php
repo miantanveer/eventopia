@@ -7,6 +7,7 @@ use App\Models\EntAmenity;
 use App\Models\ActivityHavingAmenity;
 use App\Models\EntActivity;
 use App\Models\EntActivityAmenity;
+use App\Models\ParkingOption;
 use App\Models\SpaceActivity;
 use App\Models\SpaceAmenity;
 use Illuminate\Http\Request;
@@ -70,5 +71,27 @@ class GeneralSettingsController extends AdminBaseController
             $model::find($id)->delete();
             return redirect()->back()->with('success', 'Amenity of Activity Deleted Successfully.');
         }
+    }
+
+    public function manageParkingOptions(Request $request)
+    {
+        if ($request->action == 'add') {
+            $option = new ParkingOption();
+            $option->option = $request->name;
+            $option->save();
+            return redirect()->back()->with('success', 'Parking Option Added Successfully!');
+        }
+        if ($request->action == 'edit') {
+            $option = ParkingOption::find($request->id);
+            $option->option = $request->name;
+            $option->save();
+            return redirect()->back()->with('success', 'Parking Option Updated Successfully!');
+        }
+        if ($request->action == 'delete') {
+            $option = ParkingOption::whereId($request->id)->delete();
+            return redirect()->back()->with('success', 'Parking Option Deleted Successfully!');
+        }
+        $page_data['parkingOptions'] = ParkingOption::all();
+        return view('content.admin.general_settings.parkingOptions', $page_data);
     }
 }
