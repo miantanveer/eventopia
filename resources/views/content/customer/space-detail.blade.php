@@ -77,12 +77,41 @@
         .gallery-image-overlay:hover {
             background: rgba(0, 0, 0, 0.6);
         }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1.1fr 1.1fr 1.2fr 1.2fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 0px 0px;
+            grid-auto-flow: row;
+            grid-template-areas:
+                "first first first second second"
+                "first first first third fourth"
+                ". . . . .";
+        }
+
+        .first {
+            grid-area: first;
+        }
+
+        .second {
+            grid-area: second;
+        }
+
+        .third {
+            grid-area: third;
+        }
+
+        .fourth {
+            grid-area: fourth;
+        }
     </style>
 @endpush
 
 @section('content')
-    <div class="d-flex align-items-stretch">
-        <div style="max-height: 500px; width: 70%; border:5px solid #FFF; background: #000; cursor: pointer;"
+    <div
+        style="max-height:500px;" class="grid-container">
+        <div style="max-height:500px;border:5px solid #FFF; background: #000; cursor: pointer;" class="first"
             data-bs-toggle="modal" data-bs-target="#galleryModal">
             <img src="{{ s3Link(@$space->spaceImages[0]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
                 alt="image not found" class="gallery-image"
@@ -91,41 +120,43 @@
                     height: 100%;
                     ">
         </div>
-        <div class="d-flex flex-column justify-content-between" style="width: 30%;">
-            <div style="height: 60%; border:5px solid #FFF; background: #000; cursor: pointer;" data-bs-toggle="modal"
-                data-bs-target="#galleryModal">
-                <img src="{{ s3Link(@$space->spaceImages[1]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
-                    alt="image not found" class="gallery-image"
-                    style="object-fit: cover !important;
+
+        <div style="max-height:300px;border:5px solid #FFF; background: #000; cursor: pointer;" class="second" data-bs-toggle="modal"
+            data-bs-target="#galleryModal">
+            <img src="{{ s3Link(@$space->spaceImages[1]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
+                alt="image not found" class="gallery-image"
+                style="object-fit: cover !important;
                     width: 100%;
                     height: 100%;">
-            </div>
-            <div class="d-flex" style="height: 40%;">
-                <div style="width: 50%; border:5px solid #FFF; background: #000; cursor: pointer;" data-bs-toggle="modal"
-                    data-bs-target="#galleryModal">
-                    <img src="{{ s3Link(@$space->spaceImages[1]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
-                        alt="image not found" class="gallery-image"
-                        style="object-fit: cover !important;
+        </div>
+
+
+        <div style="max-height:200px;border:5px solid #FFF; background: #000; cursor: pointer;" class="third" data-bs-toggle="modal"
+            data-bs-target="#galleryModal">
+            <img src="{{ s3Link(@$space->spaceImages[2]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
+                alt="image not found" class="gallery-image"
+                style="object-fit: cover !important;
                         width: 100%;
                         height: 100%;">
-                </div>
-                <div style="width: 50%; border:5px solid #FFF; background: #000; cursor: pointer; position: relative; overflow: hidden;"
-                    data-bs-toggle="modal" data-bs-target="#galleryModal">
-                    <img src="{{ s3Link(@$space->spaceImages[1]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
-                        alt="image not found" class="gallery-image"
-                        style="object-fit: cover !important;
+        </div>
+
+
+        <div style="border:5px solid #FFF; background: #000; cursor: pointer; position: relative; overflow: hidden;" class="fourth"
+            data-bs-toggle="modal" data-bs-target="#galleryModal">
+            <img src="{{ s3Link(@$space->spaceImages[3]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
+                alt="image not found" class="gallery-image"
+                style="object-fit: cover !important;
                         width: 100%;
                         height: 100%;">
-                    <div class="gallery-image-overlay"
-                        style=" display: flex; position: absolute; width: 100%; height: 100%; justify-content: center; top: 0; align-items: center; margin:0; color: #FFF;">
-                        <div style="text-align: center;">
-                            <i class="bi bi-grid"></i>
-                            <div>View All</div>
-                        </div>
-                    </div>
+            <div class="gallery-image-overlay"
+                style=" display: flex; position: absolute; width: 100%; height: 100%; justify-content: center; top: 0; align-items: center; margin:0; color: #FFF;">
+                <div style="text-align: center;">
+                    <i class="bi bi-grid"></i>
+                    <div>View All</div>
                 </div>
             </div>
         </div>
+
     </div>
 
     <div class="row row-sm">
@@ -327,7 +358,7 @@
                                 </div>
                                 <p class="font-13 text-muted mt-2">
                                     {{ lang("In reality space is
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    bigger than it seems in photo's.") }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                bigger than it seems in photo's.") }}
                                 </p>
                             </div>
                             <div class="col-sm-2 col-12 my-auto content-button">
