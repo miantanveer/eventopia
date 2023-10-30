@@ -16,7 +16,7 @@
     <title>Eventopia</title>
 
     @include('layouts.components.styles')
-
+    @stack('css')
 </head>
 
 <body class="app sidebar-mini ltr">
@@ -104,7 +104,7 @@
     <!-- ACCORDION JS -->
     <script src="{{ asset('assets/plugins/accordion/accordion.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/accordion/accordion.js') }}"></script>
-
+    @stack('js')
 </body>
 
 </html>

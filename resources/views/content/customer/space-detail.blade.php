@@ -64,12 +64,75 @@
         }
     </style>
 @endsection
+@push('css')
+    <style>
+        .gallery-image:hover {
+            filter: opacity(0.5);
+        }
+
+        .gallery-image-overlay {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-image-overlay:hover {
+            background: rgba(0, 0, 0, 0.6);
+        }
+    </style>
+@endpush
 
 @section('content')
+    <div class="d-flex align-items-stretch">
+        <div style="max-height: 500px; width: 70%; border:5px solid #FFF; background: #000; cursor: pointer;"
+            data-bs-toggle="modal" data-bs-target="#galleryModal">
+            <img src="{{ s3Link(@$space->spaceImages[0]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
+                alt="image not found" class="gallery-image"
+                style="object-fit: cover !important;
+                    width: 100%;
+                    height: 100%;
+                    ">
+        </div>
+        <div class="d-flex flex-column justify-content-between" style="width: 30%;">
+            <div style="height: 60%; border:5px solid #FFF; background: #000; cursor: pointer;" data-bs-toggle="modal"
+                data-bs-target="#galleryModal">
+                <img src="{{ s3Link(@$space->spaceImages[1]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
+                    alt="image not found" class="gallery-image"
+                    style="object-fit: cover !important;
+                    width: 100%;
+                    height: 100%;">
+            </div>
+            <div class="d-flex" style="height: 40%;">
+                <div style="width: 50%; border:5px solid #FFF; background: #000; cursor: pointer;" data-bs-toggle="modal"
+                    data-bs-target="#galleryModal">
+                    <img src="{{ s3Link(@$space->spaceImages[1]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
+                        alt="image not found" class="gallery-image"
+                        style="object-fit: cover !important;
+                        width: 100%;
+                        height: 100%;">
+                </div>
+                <div style="width: 50%; border:5px solid #FFF; background: #000; cursor: pointer; position: relative; overflow: hidden;"
+                    data-bs-toggle="modal" data-bs-target="#galleryModal">
+                    <img src="{{ s3Link(@$space->spaceImages[1]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
+                        alt="image not found" class="gallery-image"
+                        style="object-fit: cover !important;
+                        width: 100%;
+                        height: 100%;">
+                    <div class="gallery-image-overlay"
+                        style=" display: flex; position: absolute; width: 100%; height: 100%; justify-content: center; top: 0; align-items: center; margin:0; color: #FFF;">
+                        <div style="text-align: center;">
+                            <i class="bi bi-grid"></i>
+                            <div>View All</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row row-sm">
         <div class="col-xl-8 col-lg-12 col-md-12">
+
             <div class="card custom-card overflow-hidden">
-                <div class="card-body pt-0 pb-0 border">
+                {{-- <div class="card-body pt-0 pb-0 border">
                     <a href="javascript:void(0)">
                         <div style="height: 600px; width: 100%;">
                             <img src="{{ s3Link(@$space->spaceImages[0]->image) ?? asset('assets/images/users/spaces/4.jpg') }}"
@@ -79,8 +142,8 @@
                                 height: 100%;">
                         </div>
                     </a>
-                </div>
-                <div class="card-body pt-0 h-100">
+                </div> --}}
+                {{-- <div class="card-body pt-0 h-100">
                     <div class="owl-carousel owl-carousel-icons2">
                         @foreach (@$space->spaceImages as $spaceImage)
                             <div class="item">
@@ -93,7 +156,45 @@
                             </div>
                         @endforeach
                     </div>
-                </div>
+                </div> --}}
+
+                @push('js')
+                    <div class="modal" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-fullscreen">
+                            <div class="modal-content">
+                                {{-- <div class="modal-header">
+                                    <h5 class="modal-title" id="galleryModalLabel">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div> --}}
+                                <div class="modal-body">
+                                    <div class="row mb-4">
+                                        <div class="col-md-3">
+                                            <button type="button" class="btn btn-light bg-white fw-bold"
+                                                data-bs-dismiss="modal"><i class="fa fa-angle-left"></i> back</button>
+                                        </div>
+                                        <div class="col-md-6 text-center">{{ $space->space_title }}</div>
+                                        <div class="col-md-3"></div>
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr;">
+                                        @foreach (@$space->spaceImages as $spaceImage)
+                                            <a class="p-4" style="aspect-ratio: 1;">
+                                                <img src="{{ s3Link($spaceImage->image) }}" alt="img"
+                                                    style="width: 100%; height: 100%; object-fit: cover;">
+                                            </a>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                {{-- <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div> --}}
+                            </div>
+                        </div>
+                    </div>
+                @endpush
+
+
                 <div class="card-footer">
                     <h2 class="fw-bold text-dark">{{ $space->space_title }}</h2>
                     <p><i class="text-primary side-menu__icon fe fe-map-pin"></i>{{ ' ' . $space->address }}</p>
@@ -181,8 +282,8 @@
                                         {{ lang('Cleaning protocol') }}
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                    data-bs-parent="#accordionExample">
+                                <div id="collapseOne" class="accordion-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
                                         <p>{{ $space->cleaning_process }}</p>
                                     </div>
@@ -226,7 +327,7 @@
                                 </div>
                                 <p class="font-13 text-muted mt-2">
                                     {{ lang("In reality space is
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        bigger than it seems in photo's.") }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    bigger than it seems in photo's.") }}
                                 </p>
                             </div>
                             <div class="col-sm-2 col-12 my-auto content-button">
