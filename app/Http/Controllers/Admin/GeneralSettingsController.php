@@ -35,6 +35,33 @@ class GeneralSettingsController extends AdminBaseController
         return redirect()->back()->with('success', 'Amenity Added Successfully.');
     }
 
+    public function editAmenity(Request $request)
+    {
+        // dd($request->all());
+        $type = $request->type;
+        if ($type == 'space') {
+            $amenity = SpaceAmenity::find($request->amenity_id);
+            $amenity->name = $request->name;
+            $amenity->save();
+            $activity_amenity = ActivityHavingAmenity::find($request->id);
+            $activity_amenity->space_amenity_id = $amenity->id;
+            $activity_amenity->space_activity_id = $request->space_activity_id;
+            $activity_amenity->save();
+        } elseif ($type == 'entertainment') {
+            $amenity = EntAmenity::find($request->amenity_id);
+            $amenity->name = $request->name;
+            $amenity->save();
+            $activity_amenity = EntActivityAmenity::find($request->id);
+            $activity_amenity->ent_amenity_id = $amenity->id;
+            $activity_amenity->entertainment_activity_id = $request->ent_activity_id;
+            $activity_amenity->save();
+            // $amenity = EntAmenity::create(['name' => $request->name]);
+            // EntActivityAmenity::create(['ent_amenity_id' => $modal->id, 'entertainment_activity_id' => $request->ent_activity]);
+        }
+
+        return redirect()->back()->with('success', 'Amenity updated Successfully.');
+    }
+
     public function deleteAmenity($id, $type)
     {
         $model = $type === 'space' ? ActivityHavingAmenity::class : ($type === 'entertainment' ? EntActivityAmenity::class : null);

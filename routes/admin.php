@@ -83,6 +83,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin.aut
 
         Route::get('amenities', [GeneralSettingsController::class, 'amenitiesIndex'])->name('amenities.index');
         Route::post('add-amenity/{type}', [GeneralSettingsController::class, 'addAmenity'])->name('add.amenity');
+        Route::post('edit-amenity', [GeneralSettingsController::class, 'editAmenity'])->name('edit.amenity');
         Route::post('delete/{id}/{type}', [GeneralSettingsController::class, 'deleteAmenity'])->name('delete.amenity');
         // Route::post('edit-profile', [SettingsController::class, 'editProfile']);
 

@@ -17,7 +17,7 @@
     <title>Eventopia – Admin Dashboard</title>
 
     @include('layouts.components.styles')
-
+    @stack('css')
 </head>
 
 <body class="app sidebar-mini ltr">
@@ -103,6 +103,8 @@
             });
         });
     </script>
+
+    @stack('js')
 
 </body>
 
