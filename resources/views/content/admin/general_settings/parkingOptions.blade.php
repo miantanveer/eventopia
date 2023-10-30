@@ -80,7 +80,11 @@
         </div>
     </div>
 @endsection
+@push('css')
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.8.0/dist/sweetalert2.min.css" rel="stylesheet">
+@endpush
 @push('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.8.0/dist/sweetalert2.all.min.js"></script>
     <script>
         function edit_row(id) {
             $(`.value_${id}`).addClass('d-none');
@@ -91,7 +95,19 @@
         }
 
         function delete_item(id) {
-            //
+            Swal.fire({
+                title: 'Are you sure you want to delete this?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = '{{ route('admin.general-settings.manageParkingOptions') }}?action=delete&id=' +id;
+                }
+            })
         }
     </script>
 @endpush
