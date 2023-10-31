@@ -17,6 +17,7 @@
 
     @include('layouts.components.styles')
     @yield('styles')
+    @stack('css')
 </head>
 
 <body class="app sidebar-mini ltr">
@@ -76,7 +77,7 @@
 
         @include('layouts.components.scripts')
         @include('layouts.components.notification-scripts')
-
+        @stack('js')
 </body>
 
 </html>

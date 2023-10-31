@@ -13,6 +13,7 @@ use App\Models\SpaceActivity;
 use App\Models\SpaceAmenity;
 use App\Models\SpaceSubActivity;
 use App\Models\SpaceType;
+use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
 
@@ -263,49 +264,82 @@ class LandingController extends UserBaseController
 
         return response()->json($res, 200);
     }
-    public function landing_search(Request $req)
+    public function landing_search(Request $request)
     {
-        if ($req->type == 'space') {
-            $space = Space::with('spaceType', 'spaceHaveActivities', 'spaceImages')
-                ->whereHas('spaceType', function ($query) use ($req) {
-                    $query->where('type', $req->planCatagories);
-                })
-                ->orWhereHas('spaceHaveActivities.activities', function ($query) use ($req) {
-                    $query->where('title', $req->planCatagories);
-                })
-                ->orWhere(function ($query) use ($req) {
-                    $query->where('address', $req->location)
-                        ->orWhere('country', $req->location)
-                        ->orWhere('city', $req->location)
-                        ->orWhere('state', $req->location)
-                        ->where(function ($query) use ($req) {
-                            $query->doesntHave('spaceType');
+        $this->start_price = $request->start_price ?? 0;
+        $this->end_price = $request->end_price ?? 0;
+        $this->start_attendees = $request->start_attendees ?? 0;
+        $this->end_attendees = $request->end_attendees ?? 0;
+        $this->date_time = $request->date ? $request->date . ' ' . $request->start_time . ' to ' . $request->end_time : '';
+        $this->location = $request->location ?? '';
+        $this->planCatagories = $request->planCatagories ?? '';
+        // dd($request->all());
+        if ($request->type == 'space') {
+            $query = Space::query();
+
+            if ($request->planCatagories != '') {
+                $query->with('spaceType', 'spaceHaveActivities', 'spaceImages')
+                    ->whereHas('spaceType', function ($qry) use ($request) {
+                        $qry->where('type', 'LIKE', '%' . $request->planCatagories . '%');
+                    })
+                    ->orWhereHas('spaceHaveActivities.activities', function ($qry) use ($request) {
+                        $qry->where('title', 'LIKE', '%' . $request->planCatagories . '%');
+                    })
+                    ->orWhere('address', 'LIKE', '%' .  $request->planCatagories . '%')
+                    ->orWhere('country', 'LIKE', '%' .  $request->planCatagories . '%')
+                    ->orWhere('city', 'LIKE', '%' .  $request->planCatagories . '%')
+                    ->orWhere('state', 'LIKE', '%' .  $request->planCatagories . '%')
+                    ->orWhere('space_title', 'LIKE', '%' . $request->planCatagories . '%')
+                    ->where(function ($qry) use ($request) {
+                        // $qry->doesntHave('spaceType');
+                    });
+            }
+            if ($request->location != '') {
+                $query->where(function ($qry) use ($request) {
+                    $qry->where('address', 'LIKE', '%' .  $request->location . '%')
+                        ->orWhere('country', 'LIKE', '%' .  $request->location . '%')
+                        ->orWhere('city', 'LIKE', '%' .  $request->location . '%')
+                        ->orWhere('state', 'LIKE', '%' .  $request->location . '%')
+                        ->where(function ($qry) use ($request) {
+                            // $qry->doesntHave('spaceType');
                         });
-                })
-                ->inRandomOrder()
-                ->whereStatus('1')
-                ->whereLastStep('10')
+                });
+            }
+
+            if ($request->date != '') {
+                $query->whereHas('operatingDays', function ($qry) use ($request) {
+                    $date = $request->date;
+                    $date = Carbon::parse($date);
+                    $weekdayName = $date->format('l');
+                    $qry->where('week_day', $weekdayName);
+                });
+            }
+            // $sql = $query->toSql();
+            // dd($query->get());
+            $space = $query->inRandomOrder()
+                // ->whereStatus('1')
+                // ->whereLastStep('10')
                 ->paginate(12);
             if (isset($space)) {
-                $space = Space::inRandomOrder(5)->paginate(12);
+                // $space = Space::inRandomOrder(5)->paginate(12);
             }
             $this->type = 'space';
             $this->listing = $space;
             $this->count = $this->listing->count();
             return view('content.customer.search-results', $this->data);
-        } elseif ($req->type == 'entertainment') {
+        } elseif ($request->type == 'entertainment') {
             $ent = Entertainment::with('entertainmentActivities', 'entertainmentActivities.entertainment', 'entertainmentActivities.sub_act', 'entertainmentActivities.sub_act.act')
-                ->where(function ($query) use ($req) {
-                    $query->whereHas('entertainmentActivities.entertainment', function ($subQuery) use ($req) {
-                        $subQuery->orWhere('title', $req->planCatagories_1)
-                            ->orWhere('description', 'Like', '%' . $req->planCatagories_1 . '%');
+                ->where(function ($query) use ($request) {
+                    $query->whereHas('entertainmentActivities.entertainment', function ($subQuery) use ($request) {
+                        $subQuery->orWhere('title', $request->planCatagories_1)
+                            ->orWhere('description', 'Like', '%' . $request->planCatagories_1 . '%');
                     })
-                        ->orWhere(function ($locationQuery) use ($req) {
-                            if ($req->location_1) {
-                                $locationQuery->where('address', $req->location_1)
-                                    ->orWhere('country', $req->location_1)
-                                    ->orWhere('city', $req->location_1)
-                                    ->orWhere('state', $req->location_1);
+                        ->orWhere(function ($locationQuery) use ($request) {
+                            if ($request->location_1) {
+                                $locationQuery->where('address', $request->location_1)
+                                    ->orWhere('country', $request->location_1)
+                                    ->orWhere('city', $request->location_1)
+                                    ->orWhere('state', $request->location_1);
                             }
                         });
                 })
@@ -318,14 +352,14 @@ class LandingController extends UserBaseController
             $this->listing = $ent;
             $this->count = $this->listing->count();
             return view('content.customer.search-results', $this->data);
-        } elseif ($req->type == 'service') {
-            $service = Service::with('serviceImages')->where('title', $req->planCatagories_2)
-                ->orWhere('category', $req->planCatagories_2)
-                ->orWhere(function ($query) use ($req) {
-                    $query->where('address', 'like', '%' . $req->location_2 . '%')
-                        ->orWhere('country', $req->location_2)
-                        ->orWhere('city', $req->location_2)
-                        ->orWhere('state', $req->location_2);
+        } elseif ($request->type == 'service') {
+            $service = Service::with('serviceImages')->where('title', $request->planCatagories_2)
+                ->orWhere('category', $request->planCatagories_2)
+                ->orWhere(function ($query) use ($request) {
+                    $query->where('address', 'like', '%' . $request->location_2 . '%')
+                        ->orWhere('country', $request->location_2)
+                        ->orWhere('city', $request->location_2)
+                        ->orWhere('state', $request->location_2);
                 })
                 ->whereLastSteps('step-7')->whereStatus(1)
                 ->paginate(12);

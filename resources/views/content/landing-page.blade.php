@@ -623,7 +623,7 @@
                     <form action="{{ route('search_results') }}" method="get" class="ms-5 form-blur-border">
                         <input type="hidden" name="type" value="space">
                         <div class="row bg-whiter justify-content-between text-start py-3 px-5 m-0 box-sizing FormBorder" id="form-border">
-                            <input type="hidden" name="space_search_url" id="space_search_url" value="{{route('space_landing_index')}}">
+                            {{-- <input type="hidden" name="space_search_url" id="space_search_url" value="{{route('space_landing_index')}}"> --}}
                             <div class="col-sm-4 px-0 border-end border-end0">
                                 <label class="mb-0 label-none my-font-size"><b>{{lang('What have you got
                                         planned?')}}</b></label>
@@ -645,7 +645,7 @@
                                 <button type="submit" class="btn btn-primary btn-search mx-0 px-0 text-center d-sm-none d-block">{{lang('Search')}}</button>
                             </div>
                         </div>
-                        <input type="hidden" name="hidden" id="hiddenDate">
+                        <input type="hidden" name="date" id="hiddenDate">
                         <div id="searchResults" class="w-100 search-content search-content-1"></div>
                         <div id="addressDropdown" class="bg-white search-location-1 AdressDrop"></div>
                         <div class="row w-100 bg-white canlader-posit calendarAndTimePicker" id="calendarAndTimePicker">

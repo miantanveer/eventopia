@@ -300,7 +300,8 @@
         e.preventDefault();
         var selectedCategory = $(this).text();
         $('#planCatagories').val(selectedCategory);
-        selected(selectedCategory);
+        // selected(selectedCategory);
+        search_spaces();
         $('#categoryDropdown').hide();
     });
 
@@ -382,7 +383,8 @@
                                 .text(prediction.description);
                             addressItem.on('click', function() {
                                 locationInput.val(prediction.description);
-                                selected('', prediction.description);
+                                // selected('', prediction.description);
+                                search_spaces();
                                 addressDropdown.empty();
                                 locationInput.parent().removeClass(
                                     "data-appended");
@@ -456,7 +458,8 @@
                 $('#planCatagories-12').val('');
                 $('#drop_tags').append('<span class="bg-light p-1 rounded-3 ms-2">' + selectedCategory +
                     '<a class="remove ms-2" style="cursor: pointer;">X</a></span>');
-                selected(selectedCategory);
+                // selected(selectedCategory);
+                search_spaces();
                 $('#categoryDropdown-12').hide();
 
                 // Remove from hidden categories if it was previously hidden
@@ -493,7 +496,8 @@
             if ($(this).is(':checked')) {
                 $('#drop_tags').append('<span class="bg-light p-1 rounded-3 ms-2">' + labelText +
                     '<a class="remove ms-2" style="cursor: pointer;">X</a></span>');
-                selected(labelText);
+                // selected(labelText);
+                search_spaces();
             } else {
                 $('#drop_tags').find('span:contains(' + labelText + ')').remove();
             }
