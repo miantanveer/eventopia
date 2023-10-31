@@ -318,7 +318,7 @@ class LandingController extends UserBaseController
             // dd($query->get());
             $space = $query->inRandomOrder()
                 // ->whereStatus('1')
-                // ->whereLastStep('10')
+                ->whereLastStep('10')
                 ->paginate(12);
             if (isset($space)) {
                 // $space = Space::inRandomOrder(5)->paginate(12);
