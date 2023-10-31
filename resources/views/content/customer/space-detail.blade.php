@@ -569,7 +569,7 @@
                     </div>
                     <h4 class="mt-5 fw-bold">{{ lang('Amentities') }}</h4>
                     <div class="row mb-6">
-                        @foreach (@$space->spaceHaveActivities[0]->spaceAmenities as $spaceAmenity)
+                        @foreach ($space->spaceHaveActivities[0]->spaceAmenities ?? [] as $spaceAmenity)
                             <div class="col-6">
                                 <p class="">{{ $spaceAmenity->name }}</p>
                             </div>
