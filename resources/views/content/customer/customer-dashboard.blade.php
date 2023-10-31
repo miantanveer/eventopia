@@ -17,7 +17,7 @@
             position: relative;
             top: -230px;
             left: 60px;
-            transform: translate();git 
+            transform: translate();git
             z-index: 1;
         }
 
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <div class="position-absolute">
-                        <a href="#" class="btn btn-white get_started_btn">{{ lang('Get Started') }}</a>
+                        <a href="{{url('/')}}" class="btn btn-white get_started_btn">{{ lang('Get Started') }}</a>
                     </div>
                 </div>
 
