@@ -17,10 +17,10 @@ class PaymentController extends UserBaseController
         }
         $validator = Validator::make($req->all(), [
             'amount' => 'required',
-            'card_holder_name' => 'required',
-            'card_number' => 'required',
-            'exp_month' => 'required',
-            'exp_year' => 'required',
+            'cardHolderName' => 'required',
+            'cardNumber' => 'required',
+            'expMonth' => 'required',
+            'expYear' => 'required',
             'cvc' => 'required',
         ]);
 
