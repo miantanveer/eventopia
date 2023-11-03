@@ -30,9 +30,9 @@ class PaymentController extends UserBaseController
 
         $token = $this->stripe->tokens->create([
             'card' => [
-                'number' => $req->card_number,
-                'exp_month' => $req->exp_month,
-                'exp_year' => $req->exp_year,
+                'number' => $req->cardNumber,
+                'exp_month' => $req->expMonth,
+                'exp_year' => $req->expYear,
                 'cvc' => $req->cvv,
             ],
         ]);
