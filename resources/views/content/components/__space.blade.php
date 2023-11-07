@@ -1,5 +1,5 @@
 <div class="card-header border-bottom-0 ms-3">
-    {{ @$listing->count() ?? '0' }} {{ lang('spaces found') }}
+    {{ @$total_record ?? '0' }} {{ lang('spaces found') }}
 </div>
 @foreach (@$listing as $value)
     @php

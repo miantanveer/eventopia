@@ -986,8 +986,12 @@
                                             </div>
                                         @endif
                                     </div>
+                                    @php
+                                    // dd(request()->query());
+                                        @$listing->appends(request()->query());
+                                    @endphp
                                     <div id="paginator">
-                                        {{ @$listing->fragment(Hash::make($type))->links() }}
+                                        {{ @$listing->links() }}
                                     </div>
                                     <hr class="bg-dark">
                                     <div class="">

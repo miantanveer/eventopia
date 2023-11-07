@@ -316,12 +316,17 @@ class LandingController extends UserBaseController
             }
             // $sql = $query->toSql();
             // dd($query->get());
-            $space = $query->inRandomOrder()
+            $query->latest()
                 // ->whereStatus('1')
-                ->whereLastStep('10')
-                ->paginate(12);
-            if (isset($space)) {
-                // $space = Space::inRandomOrder(5)->paginate(12);
+                ->whereLastStep('10');
+
+            $this->total_record = $query->count();
+            $space = $query->paginate(12);
+
+            if ($query->count() == 0) {
+                $query2 = Space::latest()->whereLastStep('10');
+                $this->total_record = $query2->count();
+                $space = $query2->paginate(12);
             }
             $this->type = 'space';
             $this->listing = $space;
