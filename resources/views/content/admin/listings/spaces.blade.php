@@ -91,6 +91,7 @@
                                     <th class="border-bottom-0">Title</th>
                                     <th class="border-bottom-0">Description</th>
                                     <th class="border-bottom-0">Contact User</th>
+                                    <th class="border-bottom-0">Email</th>
                                     <th class="border-bottom-0">Contact No.</th>
                                     <th class="border-bottom-0">Status</th>
                                     <th class="border-bottom-0">View</th>
@@ -107,6 +108,7 @@
                                         <td>{{ @$space->space_description }}</td>
                                         <td>
                                             {{ @$space->c_u_fname . ' ' . @$space->c_u_lname }}</td>
+                                        <td>{{ @$space->user->email }}</td>
                                         <td>{{ @$space->c_u_phone }}</td>
                                         <td><span
                                                 class="tag tag-rounded tag-icon {{ @$space->status == '0' ? 'tag-info' : (@$space->status == '1' ? 'tag-green' : 'tag-red') }}">{{ @$space->status == '0' ? 'Review' : (@$space->status == '1' ? 'Active' : 'Rejected') }}

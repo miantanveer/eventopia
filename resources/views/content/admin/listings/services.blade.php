@@ -91,6 +91,8 @@
                                     <th class="border-bottom-0">Title</th>
                                     <th class="border-bottom-0">Description</th>
                                     <th class="border-bottom-0">Price</th>
+                                    <th class="border-bottom-0">Email</th>
+                                    <th class="border-bottom-0">Phone</th>
                                     <th class="border-bottom-0">Status</th>
                                     <th class="border-bottom-0">View</th>
                                     <th class="border-bottom-0">Action</th>
@@ -105,6 +107,8 @@
                                         <td>{{ @$service->title }}</td>
                                         <td>{{ @$service->description }}</td>
                                         <td>{{ @$service->price}}</td>
+                                        <td>{{ @$service->user->email}}</td>
+                                        <td>{{ @$service->user->phone_number}}</td>
                                         <td><span
                                                 class="tag tag-rounded tag-icon {{ @$service->status == '0' ? 'tag-info' : (@$service->status == '1' ? 'tag-green' : 'tag-red') }}">{{ @$service->status == '0' ? 'Review' : (@$service->status == '1' ? 'Active' : 'Rejected') }}
                                                 <a
