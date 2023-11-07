@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <div class="position-absolute">
-                        <a href="{{url('/')}}" class="btn btn-white get_started_btn">{{ lang('Get Started') }}</a>
+                        <a href="{{url('/search_results?type=space&planCatagories=&location=&date=')}}" class="btn btn-white get_started_btn">{{ lang('Get Started') }}</a>
                     </div>
                 </div>
 
