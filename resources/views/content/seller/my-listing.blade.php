@@ -53,8 +53,7 @@
                         @if ($spaces_remaining)
                             <div class="p-4">
                                 <div class="card border p-0">
-                                    <div class="card-header"><span style="font-weight: bold; font-size: 18px;">Remaining
-                                            Spaces</span></div>
+                                    <div class="card-header"><span style="font-weight: bold; font-size: 18px;">{{lang('Remaining Spaces')}}</span></div>
                                     <div class="card-body">
                                         @foreach ($spaces_remaining as $space_remaining)
                                             @php
@@ -140,8 +139,7 @@
 
                         @if ($service_remaining)
                             <div class="card border p-0">
-                                <div class="card-header"><span style="font-weight: bold; font-size: 18px;">Remaining
-                                        Services</span></div>
+                                <div class="card-header"><span style="font-weight: bold; font-size: 18px;">{{lang('Remaining Services')}}</span></div>
                                 <div class="card-body">
                                     @foreach ($service_remaining as $key => $data)
                                         @php
@@ -212,8 +210,7 @@
 
                         @if ($entertainment_remaining)
                             <div class="card border p-0">
-                                <div class="card-header"><span style="font-weight: bold; font-size: 18px;">Remaining
-                                        Entertainments</span></div>
+                                <div class="card-header"><span style="font-weight: bold; font-size: 18px;">{{lang('Remaining Entertainments')}}</span></div>
                                 <div class="card-body">
                                     @foreach ($entertainment_remaining as $key => $data)
                                         @php
@@ -290,7 +287,7 @@
                     <div class="col-12 px-0 px-sm-2">
                         <div class="card border p-0">
                             <div class="card-header bg-primary">
-                                <span class="text-white" style="font-size: 22px; font-weight: bold;">Spaces</span>
+                                <span class="text-white" style="font-size: 22px; font-weight: bold;">{{lang('Spaces')}}</span>
                             </div>
                             <div class="card-body p-4">
 
@@ -418,7 +415,7 @@
                     <div class="p-4">
                         <div class="card border p-0">
                             <div class="card-header bg-primary">
-                                <span class="text-white" style="font-size: 22px; font-weight: bold;">Services</span>
+                                <span class="text-white" style="font-size: 22px; font-weight: bold;">{{lang('Services')}}</span>
                             </div>
                             <div class="card-body">
                                 @foreach ($service as $key => $data)
@@ -504,7 +501,7 @@
                     <div class="p-4">
                         <div class="card border p-0">
                             <div class="card-header bg-primary">
-                                <span class="text-white" style="font-size: 22px; font-weight: bold;">Entertainments</span>
+                                <span class="text-white" style="font-size: 22px; font-weight: bold;">{{lang('Entertainments')}}</span>
                             </div>
                             <div class="card-body">
 
