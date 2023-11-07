@@ -17,7 +17,7 @@ class BookingController extends UserBaseController
     public function space_index()
     {
         $this->listing = Space::whereLastStep('10')->where('user_id', '!=', user_id())->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->inRandomOrder()->paginate(6);
-        $this->count = $this->listing->count();
+        $this->count = $this->total_record = $this->listing->count();
         $this->type = 'space';
         return view('content.customer.search-results', $this->data);
     }

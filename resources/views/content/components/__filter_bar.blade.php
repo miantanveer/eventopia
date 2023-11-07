@@ -9,8 +9,8 @@
                 type: "double",
                 min: 0,
                 max: 100000,
-                from: {{ $start_price }},
-                to: {{ $end_price }},
+                from: {{ @$start_price }},
+                to: {{ @$end_price }},
                 grid: true,
             });
 
@@ -18,8 +18,8 @@
                 type: "double",
                 min: 1,
                 max: 100,
-                from: {{ $start_attendees }},
-                to: {{ $end_attendees }},
+                from: {{ @$start_attendees }},
+                to: {{ @$end_attendees }},
                 grid: true,
             });
         });
@@ -96,7 +96,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <input type="text" id="price_range" name="price_range"
-                        value="{{ $start_price }};{{ $end_price }}" onchange="console.log(this.value);" />
+                        value="{{ @$start_price }};{{ @$end_price }}" onchange="console.log(this.value);" />
                     <div class="p-4">
                         <button type="button" class="btn btn-primary" onclick="search_spaces();"
                             data-bs-dismiss="modal">Done</button>
@@ -113,7 +113,7 @@
             <div class="modal-content">
                 <div class="modal-body">
                     <input type="text" id="attendees_range" name="attendees_range"
-                        value="{{ $start_attendees }};{{ $end_attendees }}" />
+                        value="{{ @$start_attendees }};{{ @$end_attendees }}" />
                     <div class="p-4">
                         <button type="button" class="btn btn-primary" onclick="search_spaces();"
                             data-bs-dismiss="modal">Done</button>
@@ -169,13 +169,13 @@
         <div class="col-xl-1 col-lg-3 col-md-4 col-sm-6 col-12 ps-0 ps-sm-3 pe-2">
             <input type="text" data-bs-target="#dateTimeModal" data-bs-toggle="modal"
                 class="form-control button-radias btn_background" placeholder="{{ lang('When?') }}" id="selectedDate"
-                data-listener-added_33a7deb0="true" onchange="search_spaces();" value="{{ $date_time }}">
+                data-listener-added_33a7deb0="true" onchange="search_spaces();" value="{{ @$date_time }}">
         </div>
     @endif
 
     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 ps-0 pe-0 pe-lg-3">
         <input type="text" name="location" class="form-control button-radias btn_background" id="location"
-            placeholder="{{ lang('Enter your location') }}" onchange="search_spaces();" value="{{ $location }}">
+            placeholder="{{ lang('Enter your location') }}" onchange="search_spaces();" value="{{ @$location }}">
         <ul class="dropdown-menu w-100" id="categoryDropdown-1"></ul>
         <div id="addressDropdown" class="bg-white AdressDrop"
             style='position: absolute;width: 100%;background-color: white !important;z-index: 9999;'></div>
@@ -184,7 +184,7 @@
     <div class="col-xl-2 col-lg-5 col-md-4 col-sm-6 d-md-block d-none pe-0 px-lg-0">
         <input type="text" name="keyword" class="form-control button-radias btn_background" id="planCatagories"
             placeholder="{{ lang('Enter a Keyword') }}" onkeyup="search_spaces2(event);"
-            value="{{ $planCatagories }}">
+            value="{{ @$planCatagories }}">
         <ul class="dropdown-menu w-100" id="categoryDropdown"></ul>
     </div>
 
