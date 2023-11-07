@@ -106,16 +106,17 @@
                                         <td>{{ @$service->category }}</td>
                                         <td>{{ @$service->title }}</td>
                                         <td>{{ @$service->description }}</td>
-                                        <td>{{ @$service->price}}</td>
-                                        <td>{{ @$service->user->email}}</td>
-                                        <td>{{ @$service->user->phone_number}}</td>
+                                        <td>{{ @$service->price }}</td>
+                                        <td>{{ @$service->user->email }}</td>
+                                        <td>{{ @$service->user->phone_number }}</td>
                                         <td><span
                                                 class="tag tag-rounded tag-icon {{ @$service->status == '0' ? 'tag-info' : (@$service->status == '1' ? 'tag-green' : 'tag-red') }}">{{ @$service->status == '0' ? 'Review' : (@$service->status == '1' ? 'Active' : 'Rejected') }}
                                                 <a
                                                     class="tag-addon {{ @$service->status == '0' ? 'tag-info' : (@$service->status == '1' ? 'tag-green' : 'tag-red') }}"></a></span>
                                         </td>
                                         <td>
-                                            <a class="btn" href="{{ route('admin.listings.detail.page', ['id' => @$service->id, 'type' => 'service']) }}">
+                                            <a class="btn"
+                                                href="{{ route('admin.listings.detail.page', ['id' => @$service->id, 'type' => 'service']) }}">
                                                 <i class="fa fa-eye text-primary" aria-hidden="true"></i></a>
                                         </td>
                                         <td>
@@ -263,7 +264,7 @@
                 },
                 data: {
                     id: id,
-                    type:'service',
+                    type: 'service',
                     status: status
                 },
                 success: function(response) {
