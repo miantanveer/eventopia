@@ -1,6 +1,5 @@
 @extends('layouts.seller-web-layout')
 @section('styles')
-
     <style>
         .seller-web-sidebar {
             z-index: 9999;
@@ -127,8 +126,21 @@
                             <p class="fs-sm-5 fs-6">{{ lang('Seller Dashboard') }}</p>
                         </div>
                     </div>
-                    <div class="position-absolute">
-                        <a href="#" class="btn btn-white get_started_btn">{{ lang('Get Started') }}</a>
+                    <div class="position-absolute dropdown">
+                        <a id="getStartedButton" data-bs-toggle="dropdown" aria-expanded="false"
+                            class="btn btn-white get_started_btn">{{ lang('Get Started') }}</a>
+                        <ul class="dropdown-menu" aria-labelledby="getStartedButton">
+                            <li><a class="dropdown-item" href="{{ route('list-space') }}">{{ lang('List a Space') }}</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="{{ URL('/list-entertainment') }}">{{ lang('List an Entertainment
+                                                                    & Talent') }}</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    href="{{ URL('/list-service') }}">{{ lang('List a
+                                                                    Service') }}</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xl-3">
@@ -136,7 +148,7 @@
                         <div class="card-body mt-3">
                             <div class="d-flex">
                                 <div class="text-black mt-2">
-                                    <h5 class="mb-2 number-font">{{ lang('Pending Booking Acceptance')}}</h5>
+                                    <h5 class="mb-2 number-font">{{ lang('Pending Booking Acceptance') }}</h5>
                                 </div>
                                 <div class="card-options">
                                     <img src="{{ asset('assets/images/icons/pending-file.png') }}" alt="">
@@ -171,7 +183,7 @@
                         <div class="card-body mt-3">
                             <div class="d-flex">
                                 <div class="text-black mt-2">
-                                    <h5 class="mb-2 number-font">{{ lang('Pending Quote Requests')}}</h5>
+                                    <h5 class="mb-2 number-font">{{ lang('Pending Quote Requests') }}</h5>
                                 </div>
                                 <div class="card-options">
                                     <img src="{{ asset('assets/images/icons/pending-file.png') }}" alt="">
@@ -217,9 +229,10 @@
                     <div class="mt-2 row">
                         <div class="col-10 mt-4">
                             <h3 class="d-inline-block mb-2">{{ @$acceptedBookingCount }}</h3>
-                            <p>{{ lang('Upcomming Bookings')}}</p>
+                            <p>{{ lang('Upcomming Bookings') }}</p>
                             <div class="progress h-2 mt-2">
-                                <div class="progress-bar bg-primary" style="width: {{ $activeBookingProgress !== null ? $activeBookingProgress : ($totalBookingsCount !== null ? $acceptedBookingCount/$totalBookingsCount*100 : $activeBookingProgress+$acceptedBookingCount/$totalBookingsCount*100) }}%;"
+                                <div class="progress-bar bg-primary"
+                                    style="width: {{ $activeBookingProgress !== null ? $activeBookingProgress : ($totalBookingsCount !== null ? ($acceptedBookingCount / $totalBookingsCount) * 100 : $activeBookingProgress + ($acceptedBookingCount / $totalBookingsCount) * 100) }}%;"
                                     role="progressbar"></div>
                             </div>
                         </div>
@@ -249,7 +262,8 @@
                         </div>
                         <div class="col-12 text-end">
                             <div style="margin-top: 40px;">
-                                <a href="{{route('bookings',['type' => 'null','for' => 'seller'])}}" class="btn btn-primary text-white">{{lang('Manage')}}</a>
+                                <a href="{{ route('bookings', ['type' => 'null', 'for' => 'seller']) }}"
+                                    class="btn btn-primary text-white">{{ lang('Manage') }}</a>
                             </div>
                         </div>
                     </div>
@@ -261,7 +275,7 @@
                 <div class="card-header pb-0 border-bottom-0">
                     <h3 class="number-font">{{ lang('Total Bookings') }}</h3>
                     <div class="card-options">
-                        <h6>{{ lang('Total: ')  }} {{$totalBookingsCount}}</h6>
+                        <h6>{{ lang('Total: ') }} {{ $totalBookingsCount }}</h6>
                     </div>
                 </div>
                 <div class="card-body p-0 mt-5">
@@ -298,7 +312,8 @@
                     <hr>
                     <div class="col-12 text-center">
                         <div class="mb-3">
-                            <a href="{{route('bookings',['type' => 'null','for' => 'seller'])}}" class="btn btn-primary text-white">{{ lang('Manage') }}</a>
+                            <a href="{{ route('bookings', ['type' => 'null', 'for' => 'seller']) }}"
+                                class="btn btn-primary text-white">{{ lang('Manage') }}</a>
                         </div>
                     </div>
                 </div>
@@ -311,8 +326,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="text-black">
-                                    <h3 class="mb-2 number-font">{{lang('Booking accepted')}}</h3>
-                                    <p class="text-black mb-0">{{lang('Total :')}} {{$acceptedBookingCount ?? 0}}</p>
+                                    <h3 class="mb-2 number-font">{{ lang('Booking accepted') }}</h3>
+                                    <p class="text-black mb-0">{{ lang('Total :') }} {{ $acceptedBookingCount ?? 0 }}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-check-o text-primary fa-3x"></i>
@@ -321,7 +336,8 @@
                         </div>
                         <div class="col-12 text-center">
                             <div class="mb-3">
-                                <a href="{{route('bookings',['type' => 'active','for' => 'seller'])}}" class="btn btn-primary text-white">{{ lang('View Details') }}</a>
+                                <a href="{{ route('bookings', ['type' => 'active', 'for' => 'seller']) }}"
+                                    class="btn btn-primary text-white">{{ lang('View Details') }}</a>
                             </div>
                         </div>
                     </div>
@@ -332,8 +348,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="text-black">
-                                    <h3 class="mb-2 number-font">{{lang('Booking cancelled')}}</h3>
-                                    <p class="text-black mb-0">{{lang('Total: ')}} {{$cancelBookings ?? 0}}</p>
+                                    <h3 class="mb-2 number-font">{{ lang('Booking cancelled') }}</h3>
+                                    <p class="text-black mb-0">{{ lang('Total: ') }} {{ $cancelBookings ?? 0 }}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
@@ -342,7 +358,8 @@
                         </div>
                         <div class="col-12 text-center">
                             <div class="mb-3">
-                                <a href="{{route('bookings',['type' => 'cancel','for' => 'seller'])}}" class="btn btn-primary text-white">{{lang('View Details')}}</a>
+                                <a href="{{ route('bookings', ['type' => 'cancel', 'for' => 'seller']) }}"
+                                    class="btn btn-primary text-white">{{ lang('View Details') }}</a>
                             </div>
                         </div>
                     </div>
@@ -352,8 +369,8 @@
                         <div class="card-body">
                             <div class="d-flex">
                                 <div class="text-black">
-                                    <h3 class="mb-2 number-font">{{lang('Pending Booking Actions')}}</h3>
-                                    <p class="text-black mb-0">{{lang('Total: ')}} {{@$pendingBookings ?? 0}}</p>
+                                    <h3 class="mb-2 number-font">{{ lang('Pending Booking Actions') }}</h3>
+                                    <p class="text-black mb-0">{{ lang('Total: ') }} {{ @$pendingBookings ?? 0 }}</p>
                                 </div>
                                 <div class="card-options">
                                     <i class="fa fa-calendar-times-o text-primary fa-3x"></i>
@@ -362,7 +379,8 @@
                         </div>
                         <div class="col-12 text-center">
                             <div class="mb-3">
-                                <a href="{{route('bookings',['type' => 'pending','for' => 'seller'])}}" class="btn btn-primary text-white">{{ lang('View Details') }}</a>
+                                <a href="{{ route('bookings', ['type' => 'pending', 'for' => 'seller']) }}"
+                                    class="btn btn-primary text-white">{{ lang('View Details') }}</a>
                             </div>
                         </div>
                     </div>
