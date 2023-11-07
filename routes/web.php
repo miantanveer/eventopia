@@ -122,7 +122,7 @@ Route::group(['middleware' => ['user.auth']], function () {
     Route::get('seller_decline_quote/{id}', [QuoteController::class, 'seller_decline_quote'])->name('seller_decline_quote');
     Route::post('send_seller_quote/{id}', [QuoteController::class, 'send_seller_quote'])->name('send_seller_quote');
 
-    Route::get('bookings/{type}/{for}', [BookingController::class, 'bookings'])->name('bookings');
+    Route::get('bookings/{type?}/{for?}', [BookingController::class, 'bookings'])->name('bookings');
     Route::post('refund-percentage/{id}/{type}', [BookingController::class, 'refundPercentage'])->name('refund-percentage');
     Route::post('cancel-booking/{id}', [BookingController::class, 'cancelBooking'])->name('cancel-booking');
 

@@ -127,7 +127,7 @@ class BookingController extends UserBaseController
         }
     }
 
-    public function bookings($type, $for)
+    public function bookings($type='', $for='')
     {
         if ($type == 'space') {
             if ($for == 'customer') {
