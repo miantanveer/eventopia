@@ -71,6 +71,12 @@ class DashboardController extends UserBaseController
             });
         })->whereType('entertainment')->whereUserId(user_id())->whereStatus(4)->count();
 
+        $this->completedEnterBookings += Order::where(function ($query) {
+            $query->whereHas('entertainment', function ($subQuery) {
+                // $subQuery->where('user_id', '!=', user_id());
+            });
+        })->whereType('entertainment')->where('date', '<', date('Y-m-d'))->whereUserId(user_id())->whereStatus(2)->count();
+
         $this->cancelEnterBookings = Order::where(function ($query) {
             $query->whereHas('entertainment', function ($subQuery) {
                 // $subQuery->where('user_id', '!=', user_id());
@@ -100,6 +106,12 @@ class DashboardController extends UserBaseController
                 // $subQuery->where('user_id', '!=', user_id());
             });
         })->whereType('service')->whereUserId(user_id())->whereStatus(4)->count();
+
+        $this->completedServiceBookings += Order::where(function ($query) {
+            $query->whereHas('service', function ($subQuery) {
+                // $subQuery->where('user_id', '!=', user_id());
+            });
+        })->whereType('service')->where('date', '<', date('Y-m-d'))->whereUserId(user_id())->whereStatus(2)->count();
 
         $this->cancelServiceBookings = Order::where(function ($query) {
             $query->whereHas('service', function ($subQuery) {
