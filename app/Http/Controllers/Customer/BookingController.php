@@ -16,7 +16,7 @@ class BookingController extends UserBaseController
 {
     public function space_index()
     {
-        $this->listing = Space::whereLastStep('10')->where('user_id', '!=', user_id())->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->inRandomOrder()->paginate(6);
+        $this->listing = Space::whereLastStep('10')->whereStatus('1')->with('spaceHaveActivities', 'spaceImages')->latest()->paginate(6);
         $this->count = $this->total_record = $this->listing->count();
         $this->type = 'space';
         return view('content.customer.search-results', $this->data);
@@ -24,7 +24,7 @@ class BookingController extends UserBaseController
 
     public function entertainment_index()
     {
-        $this->listing = Entertainment::whereLastSteps('step-9')->whereStatus(1)->where('user_id', '!=', user_id())->inRandomOrder()->paginate(6);
+        $this->listing = Entertainment::whereLastSteps('step-9')->whereStatus(1)->latest()->paginate(6);
         $this->count = $this->listing->count();
         $this->type = 'entertainment';
         return view('content.customer.search-results', $this->data);
@@ -32,7 +32,7 @@ class BookingController extends UserBaseController
 
     public function service_index()
     {
-        $this->listing = Service::whereLastSteps('step-7')->whereStatus(1)->where('user_id', '!=', user_id())->with('serviceImages')->inRandomOrder()->paginate(6);
+        $this->listing = Service::whereLastSteps('step-7')->whereStatus(1)->with('serviceImages')->latest()->paginate(6);
         $this->count = $this->listing->count();
         $this->type = 'service';
         return view('content.customer.search-results', $this->data);

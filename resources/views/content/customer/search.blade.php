@@ -976,14 +976,14 @@
                                             </div>
                                         @else
                                             <div id="ajax_data" class="row">
-                                                {{-- @include('content.components.__all') --}}
-                                                @if (@$type == 'space')
+                                                @include('content.components.__all')
+                                                {{-- @if (@$type == 'space')
                                                     @include('content.components.__space')
                                                 @elseif (@$type == 'entertainment')
                                                     @include('content.components.__entertainment')
                                                 @elseif (@$type == 'service')
                                                     @include('content.components.__service')
-                                                @endif
+                                                @endif --}}
                                             </div>
                                         @endif
                                     </div>

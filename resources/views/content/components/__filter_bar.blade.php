@@ -9,8 +9,8 @@
                 type: "double",
                 min: 0,
                 max: 100000,
-                from: {{ @$start_price }},
-                to: {{ @$end_price }},
+                from: {{ round(@$start_price) }},
+                to: {{ round(@$end_price) }},
                 grid: true,
             });
 
@@ -18,8 +18,8 @@
                 type: "double",
                 min: 1,
                 max: 100,
-                from: {{ @$start_attendees }},
-                to: {{ @$end_attendees }},
+                from: {{ round(@$start_attendees) }},
+                to: {{ round(@$end_attendees) }},
                 grid: true,
             });
         });

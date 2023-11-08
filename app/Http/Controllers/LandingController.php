@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EntActivity;
 use App\Models\Entertainment;
 use App\Models\EntSubActivity;
+use App\Models\Search;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\ServiceTitle;
@@ -264,6 +265,7 @@ class LandingController extends UserBaseController
 
         return response()->json($res, 200);
     }
+
     public function landing_search(Request $request)
     {
         $this->start_price = $request->start_price ?? 0;
@@ -274,7 +276,157 @@ class LandingController extends UserBaseController
         $this->location = $request->location ?? '';
         $this->planCatagories = $request->planCatagories ?? '';
         // dd($request->all());
-        if ($request->type == 'space') {
+
+        Search::truncate();
+        foreach (Space::whereLastStep('10')->whereStatus('1')->get() as $row) {
+            // dd($row->spaceHaveActivities[0]->activities);
+            $activities = '';
+            foreach ($row->spaceHaveActivities as $act) {
+                $activities .= ' ' . $act->activities->title;
+            }
+            if ($row->operatingDays) {
+                $weekdays = @json_encode($row->operatingDays->pluck('week_day'));
+            } else {
+                $weekdays = '';
+            }
+            $search = new Search();
+            $search->titles = $row->space_title;
+            $search->description = $row->parking_description . ' ' . $row->space_description . ' ' . $row->security_devices_description . ' ' . $row->space_rules . ' ' . $row->arrival_instruction . ' ' . $row->cleaning_process;
+            $search->type = $row->spaceType->type;
+            $search->category = $activities;
+            $search->address = $row->address;
+            $search->country = $row->country;
+            $search->city = $row->city;
+            $search->state = $row->state;
+            $search->postal_code = $row->postal_code;
+            $search->operating_days = $weekdays;
+            $search->price = '';
+            $search->listing_type = 'space';
+            $search->listing_id = $row->id;
+            $search->lng = $row->lng;
+            $search->lat = $row->lat;
+            $search->save();
+        }
+
+
+
+        foreach (Entertainment::whereLastSteps('step-9')->whereStatus('1')->get() as $row) {
+            // dd($row->spaceHaveActivities[0]->activities);
+            $activities = '';
+            $descriptions = '';
+            foreach ($row->entertainmentActivities as $act) {
+                $activities .= ' ' . $act->entertainment->title;
+                $descriptions .= ' ' . $act->entertainment->description;
+            }
+            if ($row->operatingDays) {
+                $weekdays = @json_encode($row->operatingDays->pluck('week_day'));
+            } else {
+                $weekdays = '';
+            }
+            $search = new Search();
+            $search->titles = $row->title;
+            $search->description = $row->comedian . ' ' . $row->house_rules . ' ' . $row->recordings . ' ' . $row->arrival . ' ' . $descriptions;
+            $search->type = ''; //$row->spaceType->type;
+            $search->category = $activities;
+            $search->address = $row->address;
+            $search->country = $row->country;
+            $search->city = $row->city;
+            $search->state = $row->state;
+            $search->postal_code = $row->postal_code;
+            $search->operating_days = $weekdays;
+            $search->price = '';
+            $search->listing_type = 'entertainment';
+            $search->listing_id = $row->id;
+            $search->lng = $row->lng;
+            $search->lat = $row->lat;
+            $search->save();
+        }
+
+
+        foreach (Service::whereLastSteps('step-7')->whereStatus('1')->get() as $row) {
+            // dd($row->spaceHaveActivities[0]->activities);
+            /* $activities = '';
+            $descriptions = '';
+            foreach($row->entertainmentActivities as $act) {
+                $activities .= ' ' . $act->entertainment->title;
+                $descriptions .= ' ' . $act->entertainment->description;
+            } */
+            if ($row->operatingDays) {
+                $weekdays = @json_encode($row->operatingDays->pluck('week_day'));
+            } else {
+                $weekdays = '';
+            }
+            $search = new Search();
+            $search->titles = $row->title;
+            $search->description = $row->description . ' ' . $row->destination . ' ' . $row->planing . ' ' . $row->activities . ' ' . $row->development . ' ' . $row->concept_building . ' ' . $row->planning_developement . ' ' . $row->planning_developement;
+            $search->type = ''; //$row->spaceType->type;
+            $search->category = $row->category;
+            $search->address = $row->address;
+            $search->country = $row->country;
+            $search->city = $row->city;
+            $search->state = $row->state;
+            $search->postal_code = $row->postal_code;
+            $search->operating_days = $weekdays;
+            $search->price = $row->price;
+            $search->listing_type = 'service';
+            $search->listing_id = $row->id;
+            $search->lng = $row->lng;
+            $search->lat = $row->lat;
+            $search->save();
+        }
+
+        /* $service = Service::with('serviceImages')->where('title', $request->planCatagories_2)
+                ->orWhere('category', $request->planCatagories_2)
+                ->orWhere(function ($query) use ($request) {
+                    $query->where('address', 'like', '%' . $request->location_2 . '%')
+                        ->orWhere('country', $request->location_2)
+                        ->orWhere('city', $request->location_2)
+                        ->orWhere('state', $request->location_2);
+                })
+                ->whereLastSteps('step-7')->whereStatus(1)
+                ->paginate(12); */
+
+        $query = Search::query();
+
+        if ($request->planCatagories != '') {
+            $query->where('description', 'LIKE', '%' . $request->planCatagories . '%')
+                ->orWhere('type', 'LIKE', '%' . $request->planCatagories . '%')
+                ->orWhere('category', 'LIKE', '%' . $request->planCatagories . '%')
+                ->orWhere('address', 'LIKE', '%' . $request->planCatagories . '%')
+                ->orWhere('country', 'LIKE', '%' . $request->planCatagories . '%')
+                ->orWhere('city', 'LIKE', '%' . $request->planCatagories . '%')
+                ->orWhere('state', 'LIKE', '%' . $request->planCatagories . '%')
+                ->orWhere('postal_code', 'LIKE', '%' . $request->planCatagories . '%')
+                ->orWhere('operating_days', 'LIKE', '%' . $request->planCatagories . '%');
+        }
+
+        if ($request->location != '') {
+            $query->where(function ($qry) use ($request) {
+                $qry->where('address', 'LIKE', '%' .  $request->location . '%')
+                    ->orWhere('country', 'LIKE', '%' .  $request->location . '%')
+                    ->orWhere('city', 'LIKE', '%' .  $request->location . '%')
+                    ->orWhere('state', 'LIKE', '%' .  $request->location . '%');
+            });
+        }
+
+        if ($request->date != '') {
+            $query->whereHas('operatingDays', function ($qry) use ($request) {
+                $date = $request->date;
+                $date = Carbon::parse($date);
+                $weekdayName = $date->format('l');
+                $qry->where('operating_days', 'LIKE', '%' . $weekdayName . '%');
+            });
+        }
+
+
+        $this->count = $query->count();
+        $listing = $query->paginate(12);
+        $this->type = 'space';
+        $this->listing = $listing;
+        return view('content.customer.search', $this->data);
+
+
+        /* if ($request->type == 'space') {
             $query = Space::query();
 
             if ($request->planCatagories != '') {
@@ -375,7 +527,7 @@ class LandingController extends UserBaseController
             $this->listing = $service;
             $this->count = $this->listing->count();
             return view('content.customer.search-results', $this->data);
-        }
+        } */
     }
 
     public function entertainment_index()
