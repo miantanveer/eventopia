@@ -47,7 +47,7 @@
                                                 {{ lang('Customer name') }}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
-                                                aria-label="Age: activate to sort column ascending">{{ lang('Time') }}</th>
+                                                aria-label="Age: activate to sort column ascending">{{ lang('Date Time') }}</th>
                                             <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                                 rowspan="1" colspan="1"
                                                 aria-label="Age: activate to sort column ascending">{{ lang('Price') }}</th>
@@ -80,7 +80,7 @@
                                                     </td>
                                                     <td>{{ lang(@$quote->user->first_name . ' ' . @$quote->user->last_name) }}
                                                     </td>
-                                                    <td>{{ @$quote->date }}</td>
+                                                    <td>{{ @$quote->date }} ({{ @$quote->start_time }} - {{ @$quote->end_time }})</td>
                                                     <td>{{ @$quote->amount ?? lang('N/A') }}</td>
                                                     <td>{{ lang(@$quote->guests) }}</td>
                                                     <td>{{ lang(@$quote->service->category) }}</td>
@@ -115,7 +115,7 @@
                                                     </td>
                                                     <td>{{ lang(Str::limit(@$pendingBooking->type == 'space' ? @$pendingBooking->space->address : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->address : @$pendingBooking->service->address), 30, $end = '...')) }}</td>
                                                     <td>{{ lang(@$pendingBooking->user->first_name . ' ' . @$pendingBooking->user->last_name) }}</td>
-                                                    <td>{{ @$pendingBooking->date }}</td>
+                                                    <td>{{ @$pendingBooking->date }} ({{ @$pendingBooking->start_time }} - {{ @$pendingBooking->end_time }})</td>
                                                     <td>{{ @$pendingBooking->amount }}</td>
                                                     <td>101 - 150</td>
                                                     <td>{{ lang(@$pendingBooking->type == 'space' ? @$pendingBooking->space->spaceType->type : (@$pendingBooking->type == 'entertainment' ? @$pendingBooking->entertainment->title : @$pendingBooking->service->category)) }}</td>
