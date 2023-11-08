@@ -71,6 +71,16 @@ class OrderController extends UserBaseController
             });
         })->whereStatus(4)->count();
 
+        $this->previousBookings += Order::where(function ($query) {
+            $query->whereHas('service', function ($serviceQuery) {
+                $serviceQuery->whereUserId(user_id());
+            })->orWhereHas('space', function ($spaceQuery) {
+                $spaceQuery->whereUserId(user_id());
+            })->orWhereHas('entertainment', function ($entertainmentQuery) {
+                $entertainmentQuery->whereUserId(user_id());
+            });
+        })->where('date', '<', date('Y-m-d'))->whereStatus(2)->count();
+
         $this->acceptedBookingCount = Order::where(function ($query) {
             $query->whereHas('service', function ($serviceQuery) {
                 $serviceQuery->whereUserId(user_id());
