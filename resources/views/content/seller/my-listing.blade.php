@@ -50,7 +50,7 @@
                     </div>
                     <div class="card-body p-0 mt-5">
 
-                        @if ($spaces_remaining)
+                        @if (count($spaces_remaining) > 0)
                             <div class="p-4">
                                 <div class="card border p-0">
                                     <div class="card-header"><span style="font-weight: bold; font-size: 18px;">{{lang('Remaining Spaces')}}</span></div>
@@ -137,7 +137,7 @@
 
 
 
-                        @if ($service_remaining)
+                        @if (count($service_remaining) > 0)
                             <div class="card border p-0">
                                 <div class="card-header"><span style="font-weight: bold; font-size: 18px;">{{lang('Remaining Services')}}</span></div>
                                 <div class="card-body">
@@ -208,7 +208,7 @@
 
 
 
-                        @if ($entertainment_remaining)
+                        @if (count($entertainment_remaining) > 0)
                             <div class="card border p-0">
                                 <div class="card-header"><span style="font-weight: bold; font-size: 18px;">{{lang('Remaining Entertainments')}}</span></div>
                                 <div class="card-body">
