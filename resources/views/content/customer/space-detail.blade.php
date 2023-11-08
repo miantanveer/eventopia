@@ -679,17 +679,55 @@
 
                     if (operatingHours[selectedDay]) {
                         var radioValue = operatingHours[selectedDay][0].radio;
-                        if (radioValue == 0) {
+                        // if (radioValue == 0) {
                             startTimeSelect.append(new Option("6 AM", "6 AM"));
+                            startTimeSelect.append(new Option("7 AM", "7 AM"));
+                            startTimeSelect.append(new Option("8 AM", "8 AM"));
+                            startTimeSelect.append(new Option("9 AM", "9 AM"));
+                            startTimeSelect.append(new Option("10 AM", "10 AM"));
+                            startTimeSelect.append(new Option("11 AM", "11 AM"));
+                            startTimeSelect.append(new Option("12 PM", "12 PM"));
+                            startTimeSelect.append(new Option("1 PM", "1 PM"));
+                            startTimeSelect.append(new Option("2 PM", "2 PM"));
+                            startTimeSelect.append(new Option("3 PM", "3 PM"));
+                            startTimeSelect.append(new Option("4 PM", "4 PM"));
+                            startTimeSelect.append(new Option("5 PM", "5 PM"));
+                            startTimeSelect.append(new Option("6 PM", "6 PM"));
+                            startTimeSelect.append(new Option("7 PM", "7 PM"));
+                            startTimeSelect.append(new Option("8 PM", "8 PM"));
+                            startTimeSelect.append(new Option("9 PM", "9 PM"));
+                            startTimeSelect.append(new Option("10 PM", "10 PM"));
+                            startTimeSelect.append(new Option("11 PM", "11 PM"));
+                            startTimeSelect.append(new Option("12 AM", "12 AM"));
+
+                            // endTimeSelect.append(new Option("12 AM", "12 AM"));
+                            endTimeSelect.append(new Option("6 AM", "6 AM"));
+                            endTimeSelect.append(new Option("7 AM", "7 AM"));
+                            endTimeSelect.append(new Option("8 AM", "8 AM"));
+                            endTimeSelect.append(new Option("9 AM", "9 AM"));
+                            endTimeSelect.append(new Option("10 AM", "10 AM"));
+                            endTimeSelect.append(new Option("11 AM", "11 AM"));
+                            endTimeSelect.append(new Option("12 PM", "12 PM"));
+                            endTimeSelect.append(new Option("1 PM", "1 PM"));
+                            endTimeSelect.append(new Option("2 PM", "2 PM"));
+                            endTimeSelect.append(new Option("3 PM", "3 PM"));
+                            endTimeSelect.append(new Option("4 PM", "4 PM"));
+                            endTimeSelect.append(new Option("5 PM", "5 PM"));
+                            endTimeSelect.append(new Option("6 PM", "6 PM"));
+                            endTimeSelect.append(new Option("7 PM", "7 PM"));
+                            endTimeSelect.append(new Option("8 PM", "8 PM"));
+                            endTimeSelect.append(new Option("9 PM", "9 PM"));
+                            endTimeSelect.append(new Option("10 PM", "10 PM"));
+                            endTimeSelect.append(new Option("11 PM", "11 PM"));
                             endTimeSelect.append(new Option("12 AM", "12 AM"));
-                        } else if (operatingHours[selectedDay]) {
-                            operatingHours[selectedDay].forEach(function(hours) {
-                                startTimeSelect.append(new Option(hours.start_time, hours
-                                    .start_time));
-                                endTimeSelect.append(new Option(hours.end_time, hours
-                                    .end_time));
-                            });
-                        }
+                        // } else if (operatingHours[selectedDay]) {
+                        //     operatingHours[selectedDay].forEach(function(hours) {
+                        //         startTimeSelect.append(new Option(hours.start_time, hours
+                        //             .start_time));
+                        //         endTimeSelect.append(new Option(hours.end_time, hours
+                        //             .end_time));
+                        //     });
+                        // }
 
                         startTimeSelect.prop('disabled', false);
                         endTimeSelect.prop('disabled', false);
@@ -707,7 +745,7 @@
                         }).toLowerCase();
 
                 var endTimeSelect = $("select[name='end_time']");
-                endTimeSelect.empty();
+                // endTimeSelect.empty();
 
                 if (operatingHours[selectedDay]) {
                     var matchingHours = operatingHours[selectedDay].filter(function(hours) {
@@ -716,21 +754,21 @@
 
                     if (matchingHours.length === 1) {
                         // Only one option for start time, so append its end time.
-                        endTimeSelect.append(new Option(matchingHours[0].end_time,
-                            matchingHours[0].end_time));
+                        // endTimeSelect.append(new Option(matchingHours[0].end_time,
+                        //     matchingHours[0].end_time));
                     } else if (matchingHours.length > 1) {
                         // Multiple options for start time, append all end times.
                         matchingHours.forEach(function(hours) {
-                            endTimeSelect.append(new Option(hours.end_time, hours
-                                .end_time));
+                            // endTimeSelect.append(new Option(hours.end_time, hours
+                            //     .end_time));
                         });
                     } else {
                         // No matching hours found, add a default option.
-                        endTimeSelect.append(new Option('12 AM', '12 AM'));
+                        // endTimeSelect.append(new Option('12 AM', '12 AM'));
                     }
                 }
                 if (endTimeSelect.find('option').length === 1) {
-                    endTimeSelect.prop('selectedIndex', 0);
+                    // endTimeSelect.prop('selectedIndex', 0);
                 }
             });
         });
