@@ -54,7 +54,7 @@
                                             {{ lang('Customer name') }}</th>
                                         <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                             rowspan="1" colspan="1"
-                                            aria-label="Age: activate to sort column ascending">{{ lang('Time') }}</th>
+                                            aria-label="Age: activate to sort column ascending">{{ lang('Date Time') }}</th>
                                         <th class="sorting text-white p-4" tabindex="0" aria-controls="example2"
                                             rowspan="1" colspan="1"
                                             aria-label="Age: activate to sort column ascending">{{ lang('Price') }}</th>
@@ -98,7 +98,7 @@
                                                 </td>
                                                 <td>{{ lang(@$pendingBooking->user->first_name . ' ' . @$pendingBooking->user->last_name) }}
                                                 </td>
-                                                <td>{{ @$pendingBooking->date }}</td>
+                                                <td>{{ @$pendingBooking->date }} ({{ @$pendingBooking->start_time }} - {{ @$pendingBooking->end_time }})</td>
                                                 <td>{{ @$pendingBooking->amount }}</td>
                                                 <td>101 - 150</td>
                                                 <td>{{ lang(

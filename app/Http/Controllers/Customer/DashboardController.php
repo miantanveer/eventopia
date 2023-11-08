@@ -34,6 +34,12 @@ class DashboardController extends UserBaseController
             });
         })->whereType('space')->whereUserId(user_id())->whereStatus(4)->count();
 
+        $this->completedSpaceBookings += Order::where(function ($query) {
+            $query->whereHas('space', function ($subQuery) {
+                // $subQuery->where('user_id', '!=', user_id());
+            });
+        })->whereType('space')->where('date', '<', date('Y-m-d'))->whereUserId(user_id())->whereStatus(2)->count();
+
         $this->cancelSpaceBookings = Order::where(function ($query) {
             $query->whereHas('space', function ($subQuery) {
                 // $subQuery->where('user_id', '!=', user_id());
