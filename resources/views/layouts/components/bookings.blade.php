@@ -48,7 +48,7 @@
                                         colspan="1" aria-label="Office: activate to sort column ascending">
                                         {{ lang('Customer name') }}</th>
                                     <th class="sorting text-white p-4" tabindex="0" aria-controls="example2" rowspan="1"
-                                        colspan="1" aria-label="Age: activate to sort column ascending">{{ lang('Time')
+                                        colspan="1" aria-label="Age: activate to sort column ascending">{{ lang('Date Time')
                                         }}</th>
                                     <th class="sorting text-white p-4" tabindex="0" aria-controls="example2" rowspan="1"
                                         colspan="1" aria-label="Age: activate to sort column ascending">{{ lang('Price')
@@ -82,7 +82,7 @@
                                     </td>
                                     <td>{{ lang(@$quote->user->first_name . ' ' . @$quote->user->last_name) }}
                                     </td>
-                                    <td>{{ @$quote->date }}</td>
+                                    <td>{{ @$quote->date }} ({{ @$quote->start_time }} - {{ @$quote->end_time }})</td>
                                     <td>{{ @$quote->amount ?? lang('N/A') }}</td>
                                     <td>{{ lang(@$quote->guests) }}</td>
                                     <td>{{ lang(@$quote->service->category) }}</td>
@@ -120,7 +120,7 @@
                                     <td>{{ lang(@$pendingBooking->user->first_name . ' ' .
                                         @$pendingBooking->user->last_name) }}
                                     </td>
-                                    <td>{{ @$pendingBooking->date }}</td>
+                                    <td>{{ @$pendingBooking->date }} ({{ @$pendingBooking->start_time }} - {{ @$pendingBooking->end_time }})</td>
                                     <td>{{ @$pendingBooking->amount }}</td>
                                     <td>101 - 150</td>
                                     <td>{{ lang(@$pendingBooking->type == 'space' ?
