@@ -90,7 +90,7 @@
                                                     {{ lang($category->name) }}</option>
                                                 @endforeach
                                             </select>
-                                           
+
                                             <hr class="bg-dark">
                                         </div>
                                         <div class="mt-7">
@@ -120,7 +120,7 @@
                                             <hr class="bg-dark">
                                         </div>
                                     </div>
-                                    <div class="">
+                                    {{-- <div class="">
                                         <p class="display-8 p_display-sz"><b>{{lang('What are your entertainment /
                                                 talent rules??
                                                 ')}}</b>
@@ -130,12 +130,13 @@
                                             do in
                                             the
                                             event.')}}</p>
+                                        <textarea class="form-control" name="talent_rules" rows="6"></textarea>
                                         <p class="mb-3"><b>{{lang('Example rules:')}}</b></p>
                                         <li>{{lang('No smoking in the building')}}</li>
                                         <li>{{lang('Outside catering is allowed')}}</li>
                                         <li>{{lang('No alcohol allowed after 8pm')}}</li>
                                         <hr class="bg-dark">
-                                    </div>
+                                    </div> --}}
                                     <div class="mt-7">
                                         <p class="display-8 p_display-sz"><b>{{lang('Who’s allowed to watch your
                                                 entertainment /
