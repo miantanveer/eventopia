@@ -151,7 +151,7 @@
                                                 Specify where each device is in your event and if they’ll be on or
                                                 off.')}}
                                             </p>
-                                            <textarea cols="30" name="recordings" rows="5"
+                                            <textarea cols="30" name="recordings" id="recordings" rows="5"
                                                 class="w-100 p-5 form-control" required
                                                 placeholder="{{lang('Add description')}}">{{ @$entertainment->recordings }}</textarea>
                                         </div>
@@ -194,8 +194,10 @@
 
                 if (checkbox.checked) {
                     textAreaDiv.style.display = 'block'; // Show the text area
+                    $('#recordings').attr('required', 'required');
                 } else {
                     textAreaDiv.style.display = 'none'; // Hide the text area
+                    $('#recordings').removeAttr('required');
                 }
             }
     </script>
